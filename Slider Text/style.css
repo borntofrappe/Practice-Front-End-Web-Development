@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+.container .header {
+  display: inline-flex;
+  height: 1.2em;
+  overflow: hidden;
+  color: #555;
+}
+.header-text-slider {
+  margin-left: 0.5rem;
+  line-height: 1.2em;
+  position: relative;
+  bottom: 0;
+  animation: slide-vertically infinite 8s 2s ease-in-out;
+  color: #757575;
+}
+.header-text-slider--slider--words {
+  list-style: none;
+}
+@keyframes slide-vertically {
+  0% {
+    bottom: 0;
+  }
+  25% {
+    bottom: 1.2em;
+  }
+  50% {
+    bottom: 2.4em;
+  }
+  75% {
+    bottom: 3.6em;
+  }
+  100% {
+    bottom: 4.8em;
+  }
+}
