@@ -158,3 +158,5 @@ As far as the animation is concerned, the `keyframes` function is divided into f
   }
 }
 ```
+
+All together, the described HTML and CSS allow to concoct the following [effect](https://codepen.io/borntofrappe/full/Nyzzqq/). While far from perfect, it does the job it is set out to accomplish.
