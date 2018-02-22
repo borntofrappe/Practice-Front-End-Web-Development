@@ -1,16 +1,7 @@
 # Practice-Front-End-Web-Development
 
-Repository in which to experiment with tidbits of front-end concepts.
+Repository in which to experiment with simple front-end concepts.
 
-Trying to answer simple questions like:
+## List of Implemented Solutions:
 
-- how to animate HTML elements with CSS? 
-- how to create a box with a folded corner? 
-- how to transition gradients? 
-- how to transition shadows on mouse hover?
-
-And more...
-
-## Up-to-date List of implemented solutions:
-
-- 
+- [**Slider Text**](https://codepen.io/borntofrappe/full/Nyzzqq/): have a header with portions of it vertically scrolling, as to show alternative tidbits of information one after the other.
