@@ -4,7 +4,7 @@ Repository in which to experiment with simple front-end concepts.
 
 **Goody, when?**
 
-Every day, Monday to Friday, 2pm UTC at the latest. 
+Monday, Wednesday, Friday, 2pm UTC at the latest. 
 
 ## List of Implemented Solutions:
 
