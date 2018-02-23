@@ -2,6 +2,13 @@
 
 Repository in which to experiment with simple front-end concepts.
 
+**Goody, when?**
+
+Every day, Monday to Friday, 2pm UTC at the latest. 
+
 ## List of Implemented Solutions:
 
-- [**Slider Text**](https://codepen.io/borntofrappe/full/Nyzzqq/): have a header with portions of it vertically scrolling, as to show alternative tidbits of information one after the other.
+|Reference|Short Description|Date|
+|---|---|---|
+|[**Slider Text**](https://codepen.io/borntofrappe/full/Nyzzqq/)| Header with portions of it vertically scrolling, as to show alternative tidbits of information one after the other.|22nd February 2018|
+|[**Gradient Border**](https://codepen.io/borntofrappe/pen/aqNJdx)| Instead of a border with a solid color, create a border with a gradient.|23rd February 2018|
