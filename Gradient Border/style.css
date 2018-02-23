@@ -1,0 +1,51 @@
+/*
+properties for the gradient border
+pertaining border-image
+*/
+.explain-border-image {
+  border: solid;
+  border-image-source:
+    linear-gradient(
+      45deg,
+      azure,blue
+    );
+  border-image-slice: 10; /* 10 px */
+  border-image-width: auto; /* 10px */
+  border-image-outset: 2; /* 20px */
+}
+
+
+/*
+properties describing a little bit of styling for the page
+
+aligning the box to center
+increasing the size of the header and padding
+changing default colors
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+}
+.container {
+  height: 100vh;
+  background-image:
+    linear-gradient(
+    to right,
+      rgba(233,0,255,0.4), rgba(233,0,255,0.3)
+    );
+  padding: 2rem 0;
+}
+.box {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  background-color: purple;
+  text-align: center;
+  line-height: 150px;
+  font-size: 4rem;
+  color: azure;
+}
