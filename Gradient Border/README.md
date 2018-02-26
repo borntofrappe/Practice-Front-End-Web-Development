@@ -1,6 +1,6 @@
 **Gradient border**
 
-What follows is a small explanation for the implemented solution. For reference, here's a live example on *[codepen](https://codepen.io/borntofrappe/pen/aqNJdx)*.
+What follows is a small explanation for the implemented solution. For reference, here's a live example on *[codepen](https://codepen.io/borntofrappe/full/aqNJdx/)*.
 
 ---
 
