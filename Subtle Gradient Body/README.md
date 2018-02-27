@@ -8,7 +8,7 @@ Moreover, a vertical linear gradient applied to the entire body allows to change
 
 By changing the stopping points of the linear gradient, it is finally possible to focus the attention of the page on a particular section, simply by marking the section with a more intense color.
 
-For a live example, check the following [pen](https://codepen.io/borntofrappe/full/QQzNYP/).
+For a live example, check the following [pen](https://codepen.io/borntofrappe/full/WMLwPm/).
 
 ## How to 
 

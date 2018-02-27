@@ -15,4 +15,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Slider Text**](https://codepen.io/borntofrappe/full/Nyzzqq/)| Header with portions of it vertically scrolling, as to show alternative tidbits of information one after the other.|22nd February 2018|
 |[**Gradient Border**](https://codepen.io/borntofrappe/full/aqNJdx/)| Instead of a border with a solid color, create a border with a gradient.|23rd February 2018|
 |[**Transition Gradient**](https://codepen.io/borntofrappe/full/GQZrGg/)|Transition the background of an element from gradient to gradient.|26th February 2018|
-|[**Subtle Gradient Body**](https://codepen.io/borntofrappe/full/QQzNYP/)|Include a subtle linear gradient encompassing the entirety of the page, by applying a background property to the body element.|27th February 2018|
+|[**Subtle Gradient Body**](https://codepen.io/borntofrappe/full/WMLwPm/)|Include a subtle linear gradient encompassing the entirety of the page, by applying a background property to the body element.|27th February 2018|
