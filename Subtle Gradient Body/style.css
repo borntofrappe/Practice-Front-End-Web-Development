@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 350vh;
+  /*
+  background: linear-gradient(-180deg, #fff 0%, rgba(246,186,0,0.3) 50%, #fff 100%);
+  */
+}
