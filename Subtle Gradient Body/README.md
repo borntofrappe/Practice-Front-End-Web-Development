@@ -6,8 +6,9 @@ A subtle change introduced with a linear gradient allows to spice up the place.
 
 Moreover, a vertical linear gradient applied to the entire body allows to change the coloration as the page becomes longer and longer. 
 
-By changing the stopping points of the linear gradient, it is finally possible to focus the attention of the page on a particular section, 
-simply by marking the section with a more intense color.
+By changing the stopping points of the linear gradient, it is finally possible to focus the attention of the page on a particular section, simply by marking the section with a more intense color.
+
+For a live example, check the following [pen](https://codepen.io/borntofrappe/full/QQzNYP/).
 
 ## How to 
 
