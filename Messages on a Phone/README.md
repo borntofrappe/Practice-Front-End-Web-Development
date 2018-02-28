@@ -221,6 +221,8 @@ As mentioned it is possible to position the container and its nested children th
 	
 	Justify and align properties in this perspective align the grid along the row and the column axis respectively.
 	
+	Again, if it sounds a tad confusing, CSS Tricks comes into play with another helpful [resource](https://css-tricks.com/snippets/css/complete-guide-grid/).
+	
 	In the example of the phone interface, the required properties are `justify-items` and `justify-self`. This because the content is to be laid either left or right in the grid container.
 	
 	Just like with flex, two possibilities arise. 
