@@ -16,4 +16,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Gradient Border**](https://codepen.io/borntofrappe/full/aqNJdx/)| Instead of a border with a solid color, create a border with a gradient.|23rd February 2018|
 |[**Transition Gradient**](https://codepen.io/borntofrappe/full/GQZrGg/)|Transition the background of an element from gradient to gradient.|26th February 2018|
 |[**Subtle Gradient Body**](https://codepen.io/borntofrappe/full/WMLwPm/)|Include a subtle linear gradient encompassing the entirety of the page, by applying a background property to the body element.|27th February 2018|
-|[**Messages on a Phone**](https://codepen.io/borntofrappe/full/OQrveJ/)|Create a phone UI to replicatea simple text-message interface|28th February 2018|
+|[**Messages on a Phone**](https://codepen.io/borntofrappe/full/OQrveJ/)|Create a phone UI to replicate a simple text-message interface|28th February 2018|
