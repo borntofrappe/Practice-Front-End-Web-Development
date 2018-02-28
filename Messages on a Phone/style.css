@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  background-color: rgba(246,186,0,0.2);
+}
+
+h1 {
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+}
+
+/* Styling for the phone-ui */
+.phone-ui {
+  padding: 1rem 0.5rem;
+  max-width: 25rem;
+  background-color: #fff;
+	border-radius: 2rem;
+  box-shadow:
+            0 16px  24px  rgba(0,0,0,0.12),
+            0 6px   8px   rgba(0,0,0,0.08);
+  margin: 0 auto 2rem auto;
+}
+.phone-ui p {
+  margin: 0.5rem 0.2rem;
+  padding: 0.8rem;
+  color: #fff;
+}
+.phone-ui p:nth-child(odd) {
+	background-color: rgba(255,193,7,1);
+	border-radius: 1.4rem;
+  border-bottom-right-radius: 0.3rem;
+  text-align: right;
+}
+.phone-ui p:nth-child(even) {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 1.4rem;
+  border-bottom-left-radius: 0.3rem;
+  text-align: left;
+}
+
+/* layout with float*/
+.float {
+  display: inline-block;
+}
+.float p:nth-child(odd) {
+  float: right;
+}
+.float p:nth-child(even) {
+  float: left;
+}
+
+/* layout with flex*/
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.flex p:nth-child(even) {
+	align-self: flex-start;
+}
+.flex p:nth-child(odd) {
+  align-self: flex-end;
+}
+
+/* layout with grid*/
+.grid {
+  display: grid;
+}
+.grid p:nth-child(even) {
+  justify-self: start;
+}
+.grid p:nth-child(odd) {
+  justify-self: end;
+}
