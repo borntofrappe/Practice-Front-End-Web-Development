@@ -4,7 +4,7 @@ Repository in which to experiment with simple front-end concepts.
 
 **Goody, when?**
 
-Project are scheduled for Monday, Wednesday and Friday. 2pm UTC at the latest.
+Project are scheduled for Monday, Wednesday and Friday. To be published before the end of the European day.
 
 If the inspiration strikes, exceptions can be made.
 
