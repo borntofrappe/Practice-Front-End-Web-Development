@@ -62,11 +62,13 @@ It is important to note that box-shadow takes the rounded-corner nature of the c
 
 Finally, multiple shadows can be set on the container. This is possible by simply separating shadows with a comma, and detailing subsequent shadows like the former.
 
+```CSS
 .phone-ui {
 	box-shadow: 
             0 16px  24px  rgba(0,0,0,0.12), 
             0 6px   8px   rgba(0,0,0,0.08);
 }
+```
 
 *pseudo-selectors*
 
