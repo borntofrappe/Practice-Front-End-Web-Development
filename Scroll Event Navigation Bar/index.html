@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Scroll Event - Navigation Bar</title>
+  <meta name="description" content="Simple page to display a responsive navigation bar. Navigation bar which is toggled as the user scrolls down/ to the top of the page.">
+
+  <!-- Custom Styling -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <!--
+  navigation bar consisting of an unordered list made up of link-able list items
+  some of which are made to disappear on small screens
+  -->
+  <ul class="navigation-bar">
+    <li class="disappear-on-small-screens"><a href="#">Welcome</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Download</a></li>
+    <li class="disappear-on-small-screens"><a href="#">About</a></li>
+  </ul>
+
+
+
+  <!-- filler content to populate more than the available viewport height -->
+
+  <div class="content suggestion-message">
+    <h1>Try to scroll down</h1>
+  </div>
+
+  <div class="content notice-message">
+    <h1>Neat, ain't it...<br>Try to scroll back up</h1>
+  </div>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
