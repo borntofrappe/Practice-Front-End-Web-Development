@@ -1,3 +1,5 @@
+*Final result in this [pen](https://codepen.io/borntofrappe/full/yvwVxR/).*
+
 ### Preface
 
 The goal of this project is to display a responsive navigation bar. Navigation bar which is animated following a scroll event.
