@@ -17,3 +17,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Transition Gradient**](https://codepen.io/borntofrappe/full/GQZrGg/)|Transition the background of an element from gradient to gradient.|26th February 2018|
 |[**Subtle Gradient Body**](https://codepen.io/borntofrappe/full/WMLwPm/)|Include a subtle linear gradient encompassing the entirety of the page, by applying a background property to the body element.|27th February 2018|
 |[**Messages on a Phone**](https://codepen.io/borntofrappe/full/OQrveJ/)|Create a phone UI to replicate a simple text-message interface|28th February 2018|
+|[Scroll Event Navigation Bar](https://codepen.io/borntofrappe/full/yvwVxR/)|Simple page to display a responsive navigation bar. Navigation bar which is toggled as the user scrolls down/ to the top of the page.|1st March 2018|
