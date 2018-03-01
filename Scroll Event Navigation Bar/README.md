@@ -32,19 +32,19 @@ In the HTML structure the navigation bar is simply made out of an unordered list
 
 To reset the styling on the displayed text, a few CSS properties are warranted. These to remove the bullet points of the unordered list and the color and text decoration of the links themselves.
 
-```SCSS
+```CSS
 ul {
   list-style: none;
-  li a {
-    color: inherit;
-    text-decoration: none;
-  }
+}
+ul li a {
+  color: inherit;
+  text-decoration: none;
 }
 ```
 
 For the flex itself, all that is required is to set the container as `flex`.
 
-```SCSS
+```CSS
 .navigation-bar {
   display: flex;
 }
@@ -52,7 +52,7 @@ For the flex itself, all that is required is to set the container as `flex`.
 
 The property of `justify-content` is then specified to clearly space the list items in the container.
 
-```SCSS
+```CSS
 .navigation-bar {
   display: flex;
   justify-content: space-around;
@@ -61,7 +61,7 @@ The property of `justify-content` is then specified to clearly space the list it
 
 It is essential to note that the unordered list takes as much space as only required by its content. To stretch the navigation bar across the entire viewport the property of width must be specified accordingly.
 
-```SCSS
+```CSS
 .navigation-bar {
   display: flex;
   justify-content: space-around;
@@ -73,7 +73,7 @@ For the purposes of the project, position is set to fix as to attach the navigat
 
 The property of transition is also specified to smoothen the vertical transition of the element.
 
-```SCSS
+```CSS
 .navigation-bar {
   display: flex;
   justify-content: space-around;
@@ -89,14 +89,14 @@ Beside these property value pairs, other statements are specified, purely for ae
 
 As on smaller screens the list items may crowd the space at the top of the page, a media query is specified to hide some of the items themselves and reduce the font-size of the remaining ones.
 
-```SCSS
+```CSS
 @media only screen and (max-width : 800px) {
   ul li {
     font-size: 1.1rem;
-
-    &.disappear-on-small-screens {
+     }
+  .disappear-on-small-screens {
       display: none;
-    }
+     }
 }
 ```
 
@@ -119,7 +119,7 @@ To hide and show the navigation bar, a CSS class is declared and later added/ re
 
 The CSS class defines a vertical translation to the top.
 
-```SCSS
+```CSS
 .navigation-bar-toggle {
   transform: translateY(-200px);
 }
@@ -161,11 +161,25 @@ The scroll event occurs *every time* the visitor scrolls. The function which run
 The code here used is basically pasted from the mentioned online sources. The intention behind it is simple: do not fire the function every time the event occurs. Give pause to the function, letting the code run only every so often.
 
 ```JS
+/*
+the debounce function accepts up to three arguments
+two of them have default values, used in the invoking function doesn't specify otherwise
+  - func, the function to run ever so often
+  - wait, how long the debounce function should wait before running the inner function again
+  - immediate, to alter if the function needs to skip the wait time and run immediately
+*/
 function debounce(func, wait = 15, immediate = true) {
+  // define a timeout variable
   var timeout;
+
+  // return a function
   return function() {
+    // function which stores in a variable the context of the function itself and the arguments it passes
     var context = this, args = arguments;
+    // create a variable which stores a function
     var later = function() {
+      // function which runs the function passed as parameter
+      // if the argument immediate is passed as false
       timeout = null;
       if(!immediate) {
         func.apply(context, args);
@@ -174,6 +188,7 @@ function debounce(func, wait = 15, immediate = true) {
     var callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
+    // or if the callNow variable is true (meaning: immediate is true and timeout is null (in other words, the time-out is not ongoing))
     if(callNow) {
       func.apply(context, args);
     }
