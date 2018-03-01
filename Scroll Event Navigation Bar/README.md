@@ -1,5 +1,7 @@
 *Final result in this [pen](https://codepen.io/borntofrappe/full/yvwVxR/).*
 
+*Bonus: same result, but using the preprocessor SCSS, in this [pen](https://codepen.io/borntofrappe/full/vdPgGJ/)*
+
 ### Preface
 
 The goal of this project is to display a responsive navigation bar. Navigation bar which is animated following a scroll event.
