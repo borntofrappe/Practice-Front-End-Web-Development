@@ -101,7 +101,6 @@ The former for the grid container, describing a two columns and two rows layout.
 
 The latter for the grid items, labeling the items referenced through the previous property.
 
-
 ```CSS
 .image-one {
   grid-area: one;
@@ -163,7 +162,135 @@ The same solution is applied for the mid-section image. This also explains the l
 Beside the mentioned specifics, which explain the layout and structure of the page, a couple of additions are included, purely to style the page a bit, and practice a little with the underlying concepts.
 
 - a pseudo selector is included for the list items in the navigation bar, in order to create a nice transition on hover.
+
+  ```CSS
+  .navigation-bar li:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #f0c915;
+    transition: all 0.3s ease-out;
+  }
+  .navigation-bar li:hover:before {
+    width: 100%;
+  }
+  ```
+
+  Transitioning the width from 0 to 100%, resulting in a neat border being created from the bottom left of each list item.
+
 - a keyframe structure is included to animate a span, in order to once again style the element on hover.
 
+```CSS
+.hover-change-color:hover {
+  animation: hover-change-color 0.8s ease-out;
+}
 
-### JS Already
+@keyframes hover-change-color {
+  0% {
+    color: #fff;
+  }
+  50% {
+    color: #f0c915;
+  }
+  100% {
+    color: #fff;
+  }
+}
+```
+
+As the visitor hovers the prescribed text, the same flashes to the accent color before returning to its original hue.
+
+### JS
+
+The effect that the project is trying to implement is resolved by listening to the *scroll* event on the entire window.
+
+```JS
+window.addEventListener("scroll", checkForScroll);
+```
+
+Instead of running the function at every iteration though, a debounce function is created to run the necessary code not every time the visitor scrolls (which might hinder the performance of the page), but every so often.
+
+```JS
+window.addEventListener("scroll", debounce(checkForScroll));
+```
+
+This function is the same as the one described in yesterday's [project](https://github.com/borntofrappe/Practice-Front-End-Web-Development/tree/master/Scroll%20Event%20Navigation%20Bar).
+
+Establishing this safeguard, the calling function needs to compute the distance of the elements to be transitioned from the top. It then needs to transition them as the window scrolls down to their position.
+
+The logic is as follows:
+
+- consider the distance from the top of the page to the bottom of the visible area
+
+  ```JS
+  var distanceFromBottomToTop = window.scrollY + window.innerHeight;
+  ```
+
+- consider the distance from the element you wish to transition to the top of the page
+
+  ```JS
+  var welcomeSection = document.querySelector(".transition-section");
+  var distanceFromWelcomeToTop = welcomeSection.offsetTop;
+  ```
+
+! In the developer console, the command `console.log` allows to better understand all of these values.
+
+- if the former value (which changes) surpasses the second value (which does not change), transition in the element. This by adding a CSS class prepared for the occasion.
+
+  ```JS  
+  if(distanceFromBottomToTop > distanceFromWelcomeToTop) {
+    welcomeSection.classList.add("show-section");
+  }
+  ```
+
+The CSS changes the properties of opacity and transform, as to move the element vertically. vertically the objective element.
+
+```CSS
+.show-section {
+  opacity: 1;
+  transform: translateY(-50px);
+}
+```
+
+This changing the default values which are set to hide and push the element slightly below its original position.
+
+```CSS
+.transition-section {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+```
+
+The same effect can be replicated on other sections of the page. For instance, for another `div` to which the class of `.transition-images` is given, the same logic is applied.
+
+In CSS set the properties necessary for the transition.
+
+```CSS
+.transition-images {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.show-images {
+  opacity: 1;
+  transform: translateY(-100px);
+}
+```
+
+In JS apply the latter of the two classes as needed.
+
+```JS
+var gridImages = document.querySelector(".transition-images");
+var distanceFromImagesToTop = gridImages.offsetTop;
+
+if(distanceFromBottomToTop > distanceFromImagesToTop) {
+  gridImages.classList.add("show-images");
+}
+```
+
+It works, but it can be improved. In the morning though :)
+
