@@ -25,7 +25,7 @@ Admittedly too much thought went into the creation of the page, which prompts a 
 - HTML and CSS, describing main aspects behind the development of the page's exterior
 - JS, describing the scroll functionality describing the effect
 
-### HTML and CSS
+# HTML and CSS
 
 In the structure of the page the following list presents the main 
 
@@ -37,11 +37,13 @@ In the structure of the page the following list presents the main
 <ul class="navigation-bar">
   <li><a href="#">navigation bar</a></li>
   <li></li>
-  <li><a href="#">one</a></li>
-  <li><a href="#">two</a></li>
-  <li><a href="#">more pictures</a></li>
+  <li><a href="#first-section">one</a></li>
+  <li><a href="#second-section">two</a></li>
+  <li><a href="https://www.pexels.com/search/space/">more pictures</a></li>
 </ul>
 ```
+
+The navigation bar is set to stretch over the entire width.
 
 ```CSS
 .navigation-bar {
@@ -80,51 +82,60 @@ Media query set to hide all list items except the last one. Media query also use
 
 **Sections**
 
-For the section of the page *grid* is used for the layout of the elements. 
+In the sections of the page *grid* is used for the layout of the elements. 
 
-In the first section grid is used to easily align the header `div` vertically.
+- In the hero section grid is used to easily align the header `div` vertically.
 
-```CSS
-.hero {
-  display: grid;
-}
-.hero .headers {
-  align-self: center;
-}
-```
+  ```CSS
+  .hero {
+    display: grid;
+    align-items: center;
+  }
+  ```
 
-In the final section grid is used to lay four images in the available viewport. The images are set to be displayed in two columns on large screens, and in a single column otherwise.
+  This section is purely to create space for the following divs, allowing for the scroll event to occur.
 
-The structure itself is achieved through the property of `grid-template-areas` and `grid-area`. 
+- In the first section following the introductory one, grid is used to center the image and text horizontally.
 
-The former for the grid container, describing a two columns and two rows layout.
+  ```CSS
+  .one {
+    display: grid;
+    justify-items: center;
+  }
+  ```
 
-```CSS
-.wherefore .images {
-  display: grid;
-  grid-template-areas: "one two" "three four";
-  justify-items: center;
-}
-```
+- In the second second, grid is intensely used to lay four images in the available viewport. 
 
-The latter for the grid items, labeling the items referenced through the previous property.
+  The images are set to be displayed in two rows on large screens, and each in a single row otherwise. The structure itself is achieved through the property of `grid-template-areas` and `grid-area`. 
 
-```CSS
-.image-one {
-  grid-area: one;
-}
-.image-two {
-  grid-area: two;
-}
-.image-three {
-  grid-area: three;
-}
-.image-four {
-  grid-area: four;
-}
-```
+  `grid-template-areas` is applied on the grid container, describing a two columns and two rows layout.
 
-This structure is then altered, as mentioned, for smaller sizes, in the already created media query.
+  ```CSS
+  .wherefore .images {
+    display: grid;
+    grid-template-areas: "one two" "three four";
+    justify-items: center;
+  }
+  ```
+
+  `grid-area`(s) are applied on the grid items, labeling the items which are referenced through the previous property.
+
+  ```CSS
+  .image-one {
+    grid-area: one;
+  }
+  .image-two {
+    grid-area: two;
+  }
+  .image-three {
+    grid-area: three;
+  }
+  .image-four {
+    grid-area: four;
+  }
+  ```
+
+This structure is then altered, as mentioned, for smaller screens. In this occurrence, the media query prompts a layout of four rows, each dedicated to a single image.
 
 ```
 @media only screen and (max-width : 800px) {
@@ -135,16 +146,14 @@ This structure is then altered, as mentioned, for smaller sizes, in the already 
 }
 ```
 
-Hence, on smaller screens the grid shows each item on a separate row.
+**Images**
 
-**Image sizes**
-
-While the structure built through the grid property does create an effective grid, the sizes of the rerefenced images overflow the prescribed measures.
+While the structure built through the grid property does create an effective grid, the sizes of the rerefenced images overflow the prescribed measures. This could be solved with locally sourced and properly sized images, but as we reference images from [pexels](https://www.pexels.com), we don't have a direct handle on the specific width and height. 
 
 In order to solve this issue, what is possible is to set a max-width for the parent container.
 
 ```CSS
-.images .image {
+.image {
   max-width: 400px;
 }
 ```
@@ -157,17 +166,17 @@ img {
 }
 ```
 
-The same solution is applied for the mid-section image. This also explains the lack of specificity in the `img` selector. That being said, and for larger-scale projects, the vague CSS declaration may cause issues.
+The same solution is applied for the image in the first section. This also explains the lack of specificity in the `img` selector. That being said, and for larger-scale projects, the vague CSS declaration may cause issues.
 
 ```CSS
-.welcome .image {
+.one .image {
   max-width: 700px;
 }
 ```
 
 **What else**
 
-Beside the mentioned specifics, which explain the layout and structure of the page, a couple of additions are included, purely to style the page a bit, and practice a little with the underlying concepts.
+Beside the mentioned specifics, which explain the layout and structure of the page, a couple of additions are included, purely to style the page a bit. But also to practice a little with the underlying concepts.
 
 - a pseudo selector is included for the list items in the navigation bar, in order to create a nice transition on hover.
 
@@ -187,118 +196,136 @@ Beside the mentioned specifics, which explain the layout and structure of the pa
   }
   ```
 
-  Transitioning the width from 0 to 100%, resulting in a neat border being created from the bottom left of each list item.
-
-- a keyframe structure is included to animate a span, in order to once again style the element on hover.
-
-```CSS
-.hover-change-color:hover {
-  animation: hover-change-color 0.8s ease-out;
-}
-
-@keyframes hover-change-color {
-  0% {
-    color: #fff;
-  }
-  50% {
-    color: #f0c915;
-  }
-  100% {
-    color: #fff;
-  }
-}
-```
-
+- a keyframe structure is included to animate the anchor link in the first section, in order to once again style the element on hover. 
 As the visitor hovers the prescribed text, the same flashes to the accent color before returning to its original hue.
 
-### JS
+  ```CSS
+  .headers a:hover {
+    animation: hover-change-color 0.8s ease-out;
+  }
 
-The effect that the project is trying to implement is resolved by listening to the *scroll* event on the entire window.
+  @keyframes hover-change-color {
+    0% {
+      color: #fff;
+    }
+    50% {
+      color: #f0c915;
+    }
+    100% {
+      color: #fff;
+    }
+  }
+  ```
 
-```JS
-window.addEventListener("scroll", checkForScroll);
-```
 
-Instead of running the function at every iteration though, a debounce function is created to run the necessary code not every time the visitor scrolls (which might hinder the performance of the page), but every so often.
+# JS
+
+In order to transition the prescribed elements into view, as the visitor scrolls to their vertical position, it is first necessary to listen for the scroll event on the entire window.
 
 ```JS
 window.addEventListener("scroll", debounce(checkForScroll));
 ```
 
-This function is the same as the one described in yesterday's [project](https://github.com/borntofrappe/Practice-Front-End-Web-Development/tree/master/Scroll%20Event%20Navigation%20Bar).
+The addition of the debounce function was motivated in the previous project, but simply put it works as follows: instead of running the block of code every time the scroll event occurs, run it every so often. It is used to avoid performance issues. You can read about it [online](https://davidwalsh.name/javascript-debounce-function) or in the [previous project](), where it is aptly commented.
 
-Establishing this safeguard, the calling function needs to compute the distance of the elements to be transitioned from the top. It then needs to transition them as the window scrolls down to their position.
+For the function called in response to the scroll event, the following structure is implemented.
 
-The logic is as follows:
-
-- consider the distance from the top of the page to the bottom of the visible area
+1. store in constant placeholders the images and container of headers to be transitioned on scroll
 
   ```JS
-  var distanceFromBottomToTop = window.scrollY + window.innerHeight;
+  const images = document.querySelectorAll(".image-default");
+  const text = document.querySelector(".text-default");
   ```
 
-- consider the distance from the element you wish to transition to the top of the page
+2. In the function itself, start by computing the distance from the top of the page to the bottom of the visible area. This value changes as the visitor scrolls through the page itself.
 
   ```JS
-  var welcomeSection = document.querySelector(".transition-section");
-  var distanceFromWelcomeToTop = welcomeSection.offsetTop;
+  function checkForScroll(event) {
+    var distanceFromBottomToTop = window.scrollY + window.innerHeight;
+  }
+```
+
+3. For the images, use the `.forEach` method to target each image.
+
+  ```JS
+  images.forEach(function(image) {
+
+  });
   ```
 
-! In the developer console, the command `console.log` allows to better understand all of these values.
+  In this block of code compute the distance of each image from their position to the top of the page. If the distance obtained in point 2 (which changes) surpasses the computed value, add the class of .image-scroll, which allows for the transition to occur.
 
-- if the former value (which changes) surpasses the second value (which does not change), transition in the element. This by adding a CSS class prepared for the occasion.
+  ```JS
+  images.forEach(function(image) {
+      var distanceFromImageToTop = image.offsetTop;
+      if(distanceFromBottomToTop > distanceFromImageToTop) {
+        image.classList.add("image-scroll");
+      }
+  });
+  ```
 
-  ```JS  
-  if(distanceFromBottomToTop > distanceFromWelcomeToTop) {
-    welcomeSection.classList.add("show-section");
+4. For the container of text, the logic is the same, but applied to the single target, not on multiple selectors.
+
+  ```JS
+  var distanceFromTextToTop = text.offsetTop;
+  if(distanceFromBottomToTop > distanceFromTextToTop) {
+    text.classList.add("text-scroll");
   }
   ```
 
-The CSS changes the properties of opacity and transform, as to move the element vertically. vertically the objective element.
+  In this instance, the class of text-scroll is applied, transitioning the text.
+  
+The entire function looks as follows: 
 
-```CSS
-.show-section {
-  opacity: 1;
-  transform: translateY(-50px);
+```
+function checkForScroll(event) {
+  var distanceFromBottomToTop = window.scrollY + window.innerHeight;
+  
+  // for each image
+  images.forEach(function(image) {
+    var distanceFromImageToTop = image.offsetTop;
+    if(distanceFromBottomToTop > distanceFromImageToTop) {
+      image.classList.add("image-scroll");
+    }
+  });
+  
+  var distanceFromTextToTop = text.offsetTop;
+  if(distanceFromBottomToTop > distanceFromTextToTop) {
+    text.classList.add("text-scroll");
+  }
+  
 }
 ```
 
-This changing the default values which are set to hide and push the element slightly below its original position.
+As mentioned, this relies on the classes of `.image-scroll` and `.text-scroll` for the transition. These specify a change in opacity and vertical positioning. As specified in the following CSS statements.
+
+For the images the following properties are stated.
 
 ```CSS
-.transition-section {
+.image-default {
   opacity: 0;
-  transform: translateY(100px);
-  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: translateY(200px);
+  transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.image-scroll {
+  opacity: 1;
+  transform: translateY(0);
 }
 ```
 
-The same effect can be replicated on other sections of the page. For instance, for another `div` to which the class of `.transition-images` is given, the same logic is applied.
-
-In CSS set the properties necessary for the transition.
+While for the text, a similar structure is created.
 
 ```CSS
-.transition-images {
+.text-default {
   opacity: 0;
-  transform: translateY(100px);
-  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: translateY(150px);
+  transition: all 1.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.show-images {
+.text-scroll {
   opacity: 1;
-  transform: translateY(-100px);
+  transform: translateY(0);
 }
 ```
 
-In JS apply the latter of the two classes as needed.
-
-```JS
-var gridImages = document.querySelector(".transition-images");
-var distanceFromImagesToTop = gridImages.offsetTop;
-
-if(distanceFromBottomToTop > distanceFromImagesToTop) {
-  gridImages.classList.add("show-images");
-}
-```
-
-It works, but it can be improved. In the morning though :)
+Producing the desired effect of hiding the elements by default and showing them in an upward motion on scroll.
 
