@@ -22,8 +22,8 @@ The focus on the project in on the JavaScript code, but the following [structure
 
 Admittedly too much thought went into the creation of the page, which prompts a separation of the thought process behind the project
 
-- HTML and CSS, describing main aspects behind the development of the page's exterior
-- JS, describing the scroll functionality describing the effect
+- [HTML and CSS](#html-and-css), describing main aspects behind the development of the page's exterior
+- [JS](#js), describing the scroll functionality describing the effect
 
 # HTML and CSS
 
@@ -226,7 +226,7 @@ In order to transition the prescribed elements into view, as the visitor scrolls
 window.addEventListener("scroll", debounce(checkForScroll));
 ```
 
-The addition of the debounce function was motivated in the previous project, but simply put it works as follows: instead of running the block of code every time the scroll event occurs, run it every so often. It is used to avoid performance issues. You can read about it [online](https://davidwalsh.name/javascript-debounce-function) or in the [previous project](), where it is aptly commented.
+The addition of the debounce function was motivated in the previous project, but simply put it works as follows: instead of running the block of code every time the scroll event occurs, run it every so often. It is used to avoid performance issues. You can read about it [online](https://davidwalsh.name/javascript-debounce-function) or in the [previous project](https://github.com/borntofrappe/Practice-Front-End-Web-Development/tree/master/Scroll%20Event%20Navigation%20Bar), where it is aptly commented.
 
 For the function called in response to the scroll event, the following structure is implemented.
 
@@ -253,7 +253,7 @@ For the function called in response to the scroll event, the following structure
   });
   ```
 
-  In this block of code compute the distance of each image from their position to the top of the page. If the distance obtained in point 2 (which changes) surpasses the computed value, add the class of .image-scroll, which allows for the transition to occur.
+  In this block of code compute the distance of each image from their position to the top of the page. If the distance obtained in point 2 (which changes) surpasses the computed value, add the class of `.image-scroll`, which allows for the transition to occur.
 
   ```JS
   images.forEach(function(image) {
