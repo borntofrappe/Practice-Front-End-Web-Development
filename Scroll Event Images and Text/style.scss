@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Muli');
+
+$font-family-main: 'Montserrat', sans-serif;
+$font-family-navbar: 'Muli', sans-serif;
+$accent-color: #f0c915;
+$main-color: #150037;
+$text-color: #eee;
+
+%unordered-list-reset {
+  list-style: none;
+}
+%anchor-link-reset {
+  color: $text-color;
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  background-color: $main-color;
+  color: $text-color;
+  font-family: $font-family-main;
+}
+.navigation-bar {
+  /* span navigation-bar horizontally and across the entire viewport */
+  display: flex;
+  width: 100%;
+
+  @extend %unordered-list-reset;
+  font-family: $font-family-navbar;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  background-color: $main-color;
+  border-bottom: 4px solid rgba($text-color, 0.5);
+  padding: 1rem;
+  position: fixed;
+  z-index: 5;
+
+  li {
+    margin: 0 2rem;
+    /* create text underline on hover, through pseudo-elements */
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background-color: $accent-color;
+      transition: all 0.3s ease-out;
+    }
+    &:hover:before {
+      width: 100%;
+    }
+    /* push list items to the left and right of the screen */
+    &:nth-child(2) {
+      flex-grow: 1;
+      /* remove underline from empty list item */
+      &:before {
+        height:0;
+      }
+    }
+
+    a {
+      @extend %anchor-link-reset;
+    }
+  }
+}
+
+.section {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.hero {
+  /* align items vertically */
+  display: grid;
+  align-items: center;
+
+  text-align: center;
+  font-size: 1.2rem;
+
+  .headers {
+    line-height: 1.7;
+    text-transform: capitalize;
+  }
+  .text {
+    line-height: 2;
+  }
+}
+
+/*
+align items in the center of the viewport
+*/
+.one {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  text-transform: capitalize;
+
+  .image {
+    /*
+    max width to enlarge the nested image up to the defined width
+
+    */
+    max-width: 700px;
+
+  }
+
+  .headers {
+    line-height: 2;
+    a {
+      @extend %anchor-link-reset;
+      /* animate link on hover flashing the text to the accent color */
+      &:hover {
+        animation: hover-change-color 0.8s ease-out;
+      }
+    }
+  }
+}
+
+/* span images to cover the entirety of their parent element */
+img {
+  width: 100%;
+  border: 5px inset $accent-color;
+}
+
+@keyframes hover-change-color {
+  0% {
+    color: $text-color;
+  }
+  50% {
+    color: $accent-color;
+  }
+  100% {
+    color: $text-color;
+  }
+}
+
+/* create a two column two rows layout */
+.two {
+  display: grid;
+  grid-template-areas: "one two" "three four";
+  justify-items: center;
+  text-align: center;
+  .image {
+    max-width: 400px;
+    margin-bottom: 1rem;
+    &.image-one {
+      grid-area: one;
+    }
+    &.image-two {
+      grid-area: two;
+    }
+    &.image-three {
+      grid-area: three;
+    }
+    &.image-four {
+      grid-area: four;
+    }
+  }
+  .caption {
+    font-style: italic;
+    font-size: 1.2rem;
+   }
+}
+
+/*
+for smaller screens
+*/
+@media only screen and (max-width : 800px) {
+  /* hide all, but one list items in the navigation-bar, which is centered */
+  .navigation-bar {
+    justify-content: center;
+    li {
+      font-size: 1.1rem;
+      display: none;
+      &:last-child {
+        display: inline-block;
+      }
+    }
+  }
+
+   /* change section layout to four rows */
+  .two {
+    display: grid;
+    grid-template-areas: "one" "two" "three" "four";
+  }
+}
+
+/*
+classes to transition the elements on scroll
+*/
+.image-default {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.image-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-default {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: all 1.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.text-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}

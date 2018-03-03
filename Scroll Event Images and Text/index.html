@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Page Title</title>
+  <meta name="description" content="Simple project in which text and images move up into sight as the visitor scrolls through the page.">
+
+  <!-- Custom Styling -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+  <div class="container">
+  <!-- navigation-bar stretching over entire viewport width -->
+    <ul class="navigation-bar">
+      <li><a href="#">navigation bar</a></li>
+      <li></li>
+      <li><a href="#first-section">one</a></li>
+      <li><a href="#second-section">two</a></li>
+      <li><a href="https://www.pexels.com/search/space/">more pictures</a></li>
+    </ul><!-- close navigation-bar -->
+
+  <!-- hero section with filler text -->
+  <div class="section hero">
+    <div class="headers">
+      <h1>this is just some filler text</h1>
+      <h2>scroll down to see the effect</h2>
+    </div><!-- close headers div -->
+    <div class="text">
+      <p>As you scroll through the page images and text ought to appear in a nice and smooth transition</p>
+      <p>These elements are modified according to the property of opacity and vertical transition</p>
+    </div><!-- close text div -->
+  </div><!-- close section hero div -->
+
+  <!-- first section with image and text centered vertically -->
+  <div class="section one" id="first-section">
+    <div class="image">
+      <img class="image-default" alt="Picture of space" src="https://images.pexels.com/photos/262750/pexels-photo-262750.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb">
+    </div><!-- close image div -->
+    <div class="headers text-default">
+      <h1>That is all this page achieves</h1>
+      <h2>for more information on it visit the <a href="#">github repo</a></h2>
+      <p>Or scroll down a little more</p>
+    </div><!-- close headers div -->
+
+  </div><!-- close section one div -->
+
+  <div class="section two" id="second-section">
+      <div class="image image-one image-default">
+        <img alt="Yet another picture of space" src="https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+        <span class="caption">Nice picture #1</span>
+      </div><!-- close image one -->
+
+      <div class="image image-two image-default">
+        <img alt="Yet another picture of space" src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?w=940&h=650&auto=compress&cs=tinysrgb">
+        <span class="caption">Nice picture #2</span>
+      </div><!-- close image two -->
+
+      <div class="image image-three image-default">
+        <img alt="Yet another picture of space" src="https://images.pexels.com/photos/207529/pexels-photo-207529.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+        <span class="caption">Nice picture #3</span>
+      </div><!-- close image three -->
+
+      <div class="image image-four image-default">
+        <img alt="Yet another picture of space" src="https://images.pexels.com/photos/2154/sky-lights-space-dark.jpg?w=940&h=650&auto=compress&cs=tinysrgb">
+        <span class="caption">Nice picture #4</span>
+      </div><!-- close image four -->
+
+  </div><!-- close section two div -->
+
+</div><!-- close container div -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

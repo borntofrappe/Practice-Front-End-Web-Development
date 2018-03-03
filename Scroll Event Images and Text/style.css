@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Muli");
+.navigation-bar {
+  list-style: none; }
+
+.navigation-bar li a, .one .headers a {
+  color: #eee;
+  text-decoration: none; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  width: 100%;
+  background-color: #150037;
+  color: #eee;
+  font-family: "Montserrat", sans-serif; }
+
+.navigation-bar {
+  /* span navigation-bar horizontally and across the entire viewport */
+  display: flex;
+  width: 100%;
+  font-family: "Muli", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  background-color: #150037;
+  border-bottom: 4px solid rgba(238, 238, 238, 0.5);
+  padding: 1rem;
+  position: fixed;
+  z-index: 5; }
+  .navigation-bar li {
+    margin: 0 2rem;
+    /* create text underline on hover, through pseudo-elements */
+    position: relative;
+    /* push list items to the left and right of the screen */ }
+    .navigation-bar li:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background-color: #f0c915;
+      transition: all 0.3s ease-out; }
+    .navigation-bar li:hover:before {
+      width: 100%; }
+    .navigation-bar li:nth-child(2) {
+      flex-grow: 1;
+      /* remove underline from empty list item */ }
+      .navigation-bar li:nth-child(2):before {
+        height: 0; }
+
+.section {
+  min-height: 100vh;
+  padding: 2rem 0; }
+
+.hero {
+  /* align items vertically */
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem; }
+  .hero .headers {
+    line-height: 1.7;
+    text-transform: capitalize; }
+  .hero .text {
+    line-height: 2; }
+
+/*
+align items in the center of the viewport
+*/
+.one {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  text-transform: capitalize; }
+  .one .image {
+    /*
+    max width to enlarge the nested image up to the defined width
+
+    */
+    max-width: 700px; }
+  .one .headers {
+    line-height: 2; }
+    .one .headers a {
+      /* animate link on hover flashing the text to the accent color */ }
+      .one .headers a:hover {
+        animation: hover-change-color 0.8s ease-out; }
+
+/* span images to cover the entirety of their parent element */
+img {
+  width: 100%;
+  border: 5px inset #f0c915; }
+
+@keyframes hover-change-color {
+  0% {
+    color: #eee; }
+  50% {
+    color: #f0c915; }
+  100% {
+    color: #eee; } }
+/* create a two column two rows layout */
+.two {
+  display: grid;
+  grid-template-areas: "one two" "three four";
+  justify-items: center;
+  text-align: center; }
+  .two .image {
+    max-width: 400px;
+    margin-bottom: 1rem; }
+    .two .image.image-one {
+      grid-area: one; }
+    .two .image.image-two {
+      grid-area: two; }
+    .two .image.image-three {
+      grid-area: three; }
+    .two .image.image-four {
+      grid-area: four; }
+  .two .caption {
+    font-style: italic;
+    font-size: 1.2rem; }
+
+/*
+for smaller screens
+*/
+@media only screen and (max-width: 800px) {
+  /* hide all, but one list items in the navigation-bar, which is centered */
+  .navigation-bar {
+    justify-content: center; }
+    .navigation-bar li {
+      font-size: 1.1rem;
+      display: none; }
+      .navigation-bar li:last-child {
+        display: inline-block; }
+
+  /* change section layout to four rows */
+  .two {
+    display: grid;
+    grid-template-areas: "one" "two" "three" "four"; } }
+/*
+classes to transition the elements on scroll
+*/
+.image-default {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+.image-scroll {
+  opacity: 1;
+  transform: translateY(0); }
+
+.text-default {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: all 1.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+.text-scroll {
+  opacity: 1;
+  transform: translateY(0); }
+
+/*# sourceMappingURL=style.css.map */
