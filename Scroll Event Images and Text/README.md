@@ -220,4 +220,112 @@ As the visitor hovers the prescribed text, the same flashes to the accent color 
 
 # JS
 
+In order to transition the prescribed elements into view, as the visitor scrolls to their vertical position, it is first necessary to listen for the scroll event on the entire window.
+
+```JS
+window.addEventListener("scroll", debounce(checkForScroll));
+```
+
+The addition of the debounce function was motivated in the previous project, but simply put it works as follows: instead of running the block of code every time the scroll event occurs, run it every so often. It is used to avoid performance issues. You can read about it [online](https://davidwalsh.name/javascript-debounce-function) or in the [previous project](), where it is aptly commented.
+
+For the function called in response to the scroll event, the following structure is implemented.
+
+1. store in constant placeholders the images and container of headers to be transitioned on scroll
+
+  ```JS
+  const images = document.querySelectorAll(".image-default");
+  const text = document.querySelector(".text-default");
+  ```
+
+2. In the function itself, start by computing the distance from the top of the page to the bottom of the visible area. This value changes as the visitor scrolls through the page itself.
+
+  ```JS
+  function checkForScroll(event) {
+    var distanceFromBottomToTop = window.scrollY + window.innerHeight;
+  }
+```
+
+3. For the images, use the `.forEach` method to target each image.
+
+  ```JS
+  images.forEach(function(image) {
+
+  });
+  ```
+
+  In this block of code compute the distance of each image from their position to the top of the page. If the distance obtained in point 2 (which changes) surpasses the computed value, add the class of .image-scroll, which allows for the transition to occur.
+
+  ```JS
+  images.forEach(function(image) {
+      var distanceFromImageToTop = image.offsetTop;
+      if(distanceFromBottomToTop > distanceFromImageToTop) {
+        image.classList.add("image-scroll");
+      }
+  });
+  ```
+
+4. For the container of text, the logic is the same, but applied to the single target, not on multiple selectors.
+
+  ```JS
+  var distanceFromTextToTop = text.offsetTop;
+  if(distanceFromBottomToTop > distanceFromTextToTop) {
+    text.classList.add("text-scroll");
+  }
+  ```
+
+  In this instance, the class of text-scroll is applied, transitioning the text.
+  
+The entire function looks as follows: 
+
+```
+function checkForScroll(event) {
+  var distanceFromBottomToTop = window.scrollY + window.innerHeight;
+  
+  // for each image
+  images.forEach(function(image) {
+    var distanceFromImageToTop = image.offsetTop;
+    if(distanceFromBottomToTop > distanceFromImageToTop) {
+      image.classList.add("image-scroll");
+    }
+  });
+  
+  var distanceFromTextToTop = text.offsetTop;
+  if(distanceFromBottomToTop > distanceFromTextToTop) {
+    text.classList.add("text-scroll");
+  }
+  
+}
+```
+
+As mentioned, this relies on the classes of `.image-scroll` and `.text-scroll` for the transition. These specify a change in opacity and vertical positioning. As specified in the following CSS statements.
+
+For the images the following properties are stated.
+
+```CSS
+.image-default {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.image-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
+
+While for the text, a similar structure is created.
+
+```CSS
+.text-default {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: all 1.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.text-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
+
+Producing the desired effect of hiding the elements by default and showing them in an upward motion on scroll.
 
