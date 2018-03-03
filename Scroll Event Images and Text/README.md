@@ -31,7 +31,7 @@ Admittedly too much thought went into the creation of the page.
 <ul class="navigation-bar">
   <li><a href="#">Space</a></li>
   <li></li>
-  <li><a href="#">Introduction</a></li>
+  <li><a href="#">Start from here</a></li>
   <li><a href="#">Appetizer</a></li>
   <li><a href="#">Show more</a></li>
 </ul>
