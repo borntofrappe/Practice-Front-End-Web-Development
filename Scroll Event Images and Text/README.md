@@ -1,27 +1,33 @@
-Working on this [pen](https://codepen.io/borntofrappe/full/wyZGaG/). 
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/wyZGaG/). 
 
 ## Preface
 
 The purpose of the project is straightforward: 
-have a page in which text and images move up into sight as the visitor scrolls through the page.
+have a page in which images and text move up into sight as the visitor scrolls through the page and reaches their respective position.
 
-This effect is inspired by several web sites appling the move-up transition. 
+This effect is inspired by several sites appling the described transition. 
 The most notable example I can recall is on the web site for the [Tesla Roadster](https://www.tesla.com/roadster); 
-as the visitor scrolls down, images of the fascinating car, alongside pertinent text are propped up.
+as the visitor scrolls down, images of the fascinating car, alongside pertinent text are moved up into view.
 
-The transition seems to involve a vertical translation and also change in opacity. 
+The transition seems to involve a vertical translation and also change in opacity. By inspecting one of the appearing elements it is indeed possible to assess how the image is nested in a *reveal* div, with CSS properties of opacity and a transition involving a bezier curve timing funciton. 
 
 ## How to
 
 The effect can be replicated by transitioning the desired elements from hidden and below to visible and atop.
 
 The transition needs to occur when the visitor scrolls down the page, therefore it needs the contribution of the *scroll* event. 
-What is required is to listen to said event on the window and showing the useful pieces of web page when the visitor reaches their position.
+What is required is to listen to said event on the window and showing the useful pieces of web page when the visitor reaches their height.
+
+The focus on the project in on the JavaScript code, but the following [structure](https://codepen.io/borntofrappe/full/wyZGaG/) is concocted through the HTML and CSS components.
+
+Admittedly too much thought went into the creation of the page, which prompts a separation of the thought process behind the project
+
+- HTML and CSS, describing main aspects behind the development of the page's exterior
+- JS, describing the scroll functionality describing the effect
 
 ### HTML and CSS
 
-The focus on the project in on the JavaScript code, but the following [structure](https://codepen.io/borntofrappe/full/wyZGaG/) is concocted through the HTML and CSS components.
-Admittedly too much thought went into the creation of the page. 
+In the structure of the page the following list presents the main 
 
 **Navigation-bar**
 
@@ -29,26 +35,29 @@ Admittedly too much thought went into the creation of the page.
 
 ```HTML
 <ul class="navigation-bar">
-  <li><a href="#">Space</a></li>
+  <li><a href="#">navigation bar</a></li>
   <li></li>
-  <li><a href="#">Start from here</a></li>
-  <li><a href="#">Appetizer</a></li>
-  <li><a href="#">Show more</a></li>
+  <li><a href="#">one</a></li>
+  <li><a href="#">two</a></li>
+  <li><a href="#">more pictures</a></li>
 </ul>
 ```
-
-In order not to squash the elements to the left and right border, horizontal margin is also introduced for the list items.
 
 ```CSS
 .navigation-bar {
   display: flex;
   width: 100%;
 }
-.navigation-bar li {
-  margin: 0 2rem;
-}
 .navigation-bar li:nth-child(2) {
   flex-grow: 1;
+}
+```
+
+In order not to squash the elements to the left and right border, horizontal margin is also introduced for the list items.
+
+```CSS
+.navigation-bar li {
+  margin: 0 2rem;
 }
 ```
 
@@ -61,7 +70,6 @@ Media query set to hide all list items except the last one. Media query also use
     justify-content: center;
   }
   .navigation-bar li {
-    font-size: 1.1rem;
     display: none;
   }
   .navigation-bar li:last-child {
@@ -72,7 +80,7 @@ Media query set to hide all list items except the last one. Media query also use
 
 **Sections**
 
-For two of the sections of the page *grid* is used for the layout of the elements. 
+For the section of the page *grid* is used for the layout of the elements. 
 
 In the first section grid is used to easily align the header `div` vertically.
 
