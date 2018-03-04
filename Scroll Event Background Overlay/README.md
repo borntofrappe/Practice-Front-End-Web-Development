@@ -105,7 +105,45 @@ With the retrieved values, the transition occurs between the specified breakpoin
 - distanceFromTheTop = heightOfHero/2; begin transition, opacity = 0
 - distanceFromTheTop = heightOfHero; end transition, opacity = 1
 
-As the values reference a pixel amount, which stretches well beyond the values accepted by the opacity property, it is first necessary to "normalize" the range. We therefore set  
+```JS
+if(distanceFromTheTop > heightOfHero / 2 && distanceFromTheTop < heightOfHero) {
+  // transition opacity .dark-overlay
+}
+```
+
+In this range we can use the actual difference between distanceFromTheTop (which changes) and heightOfHero / 2 (which does not change) for the change in opacity.
+This value increases as the page scrolls down and decreases in the other direction, as the `opacity` of the overlay should.
+Unfortunately, this value does not grow from 0 to 1, which are the values accepted by the property of `opacity`.
+
+```JS
+if(distanceFromTheTop > heightOfHero / 2 && distanceFromTheTop < heightOfHero) {
+  var range = distanceFromTheTop - heightOfHero / 2;
+}
+```
+
+In order to fix this minor issue, all that is required is to normalize the range. By dividing the difference for the heightOfHero/2, the range changes to the desired 0-1 interval. (distanceFromTheTop - heightOfHero /2) goes in fact from 0 up to heightOfHero/2. Divided by heightOfHero/2 gives the correct range.
+
+```JS
+if(distanceFromTheTop > heightOfHero / 2 && distanceFromTheTop < heightOfHero) {
+  var range = distanceFromTheTop - heightOfHero / 2;
+  var rangeNormalized = range/(heightOfHero/2)
+}
+```
+
+And it is possible to finally plug this value in the property of opacity for the overlay div.
+
+```JS
+const darkOverlay = document.querySelector(".dark-overlay");
+
+if(distanceFromTheTop > heightOfHero / 2 && distanceFromTheTop < heightOfHero) {
+  var range = distanceFromTheTop - heightOfHero / 2;
+  var rangeNormalized = range/(heightOfHero/2)
+  darkOverlay.style.opacity = rangeNormalized;
+}
+```
+
+Which finally delivers the desired effect. As the screen scrolls in the range, the `opacity` is updated and the overlay is shown on the hero section.
+
 
 ## More on the Page
 
@@ -154,14 +192,105 @@ While the effect is achieved with the described structure, the page does a littl
   
   Fr, or fractionary unit, is used to create portion of the entire container. In the simple instance, each column/row is set to spread over a fraction of the larger parent element.
   
-  Additional grid properties are specified to also align items in their respective containers. This is another helpful possibility allowed by grid. Justify-items is used to align items along the row side. Align-items along the column.
+  Additional grid properties are specified to also align items in their respective containers. This is another helpful possibility allowed by grid. `justify-items` is used to align items along the row. `align-items` along the column.
    
-
-- *pseudo-elements*
-
-- *absolute-positioning*
-
 - *scss*
 
+  With the last two projects, the pre-processor SCSS has taken place of the standard CSS syntax. While requiring an additional step in converting the final fine back to a read-able CSS file, the preprocessor does come with advantages which are considerably helpful.
 
+  Among the first characteristics from which the project benefits the following are worth mentioning:
+
+  *variables*
+
+  It is possible to centralize CSS values which can be then used (and re-used) through the styling sheet.
+
+  All that is required is:
+
+  1. declare a variable and store in it the value you wish to use;
+
+  ```SCSS
+  $lighter-hue : rgb(246, 247, 248);
+  $text-family: 'Lato', sans-serif;
+  ```
+
+  2. use the variable by calling it by name and by calling it for a CSS property.
+
+  ```SCSS
+  body {
+    width: 100%;
+    color: $lighter-hue;
+    font-family: $text-family;
+  }
+  ```
+
+  This is especially helpful as modifications are introduced in the style of the page. It is in fact possible to change one value, the centralized value found in the declared variable, to affect every instance in which the variable is used.
+
+
+  *nested selectors*
+
+  SCSS allows to replicate the parent-to-children logic found in HTML, right in the stylesheet. With this, it is possible to nest CSS selectors to target specific elements nested in the page.
+
+  ```SCSS
+  .navigation-bar {
+    display: flex;
+    li {
+      flex-grow: 1;
+    }
+  }
+  ```
+  Which is equivalent to
+
+  ```CSS
+  .navigation-bar {
+    display: flex;
+  }
+  .navigation-bar li {
+      flex-grow: 1;
+    }
+  ```
+
+  With the nested structure, it is easier to comprehend which properties are applied to which element. It is possible to also create a more efficient structure.
+
+  *extend statements*
+
+  Sometimes CSS property-value pairs come together in their declarations. For instance, to remove the default style of anchor link, the properties of `color` and `text-decoration` are modified in pairs. To lessen the burden on single selectors, what is possible is to store in a block property-value pairs and extend, apply their effect on subsequent elements.
+
+  All that is required is:
+
+  1. declare the statement(s) to be extended
+
+  ```SCSS
+  %anchor-link-reset {
+    color: inherit;
+    text-decoration: none;
+  }
+  ```
+
+  2. extend the styling to the prescribed elements
+
+  ```SCSS
+  a {
+    @extend %anchor-link-reset;
+  }
+  ```
+
+  Which is equivalent to: 
+
+  ```CSS
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ```
+
+  *color functions*
+
+  Instead of specifying multiple colors, often changing in one particular dimension, such as the color's own opacity, it is possible to use *functions* to modify a standard hue.
+
+  In the project the following functions are used:
+
+    - `rgba(color, amount);` which helps modifying the alpha value, by setting the opacity of the color to the specified amount (in the 0-1 range)
+    - `darken(color, amount);` which lowers the lightness of the hue by the prescribed amount (0-100%), moving the color toward black shades.
+
+    There are plenty of functions which help in developing a color palette and with ease, simply by modifying a few color picks.
 
