@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* define variables for the three colors used and the one font-family */
+$lighter-hue : rgb(246, 247, 248);
+$darker-hue: #2c2e31;
+$accent-color: #f6e770;
+$text-family: 'Lato', sans-serif;
+
+
+/* create statements to be extended to any unordered list that should not have bullet points and any anchor link that should not have default styling */
+%unordered-list-reset {
+  list-style: none;
+}
+%anchor-link-reset {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  color: $lighter-hue;
+  font-family: $text-family;
+}
+/* display flex to stretch the navigation-bar horizontally */
+.navigation-bar {
+  display: flex;
+  width: 100%;
+
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: $darker-hue;
+  li {
+    @extend %unordered-list-reset;
+    margin: 0 1rem;
+    text-transform: uppercase;
+    /* flex grow on the empty list items to create space and groups among the visible items */
+    &:nth-child(2) {
+      flex-grow: 1;
+    }
+    &:nth-child(6) {
+      flex-grow: 1;
+    }
+    a {
+      @extend %anchor-link-reset;
+      /* position relative to benefit from absolute positioning in the following pseudo-element */
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: $accent-color;
+        height: 0;
+        bottom: -1.5rem;
+        opacity: 0;
+        transition: all 0.2s cubic-bezier(0.18,0.67,0.7,1.32);
+      }
+      /* as the visitor hovers on the anchor links, create an underline positioned in an upward motion */
+      &:hover:before {
+        height: 2px;
+        bottom: -2px;
+        opacity: 1;
+      }
+    }
+  }
+}
+.section {
+  min-height: 100vh;
+}
+.hero, .two {
+  background-color: $darker-hue;
+}
+
+.one {
+  background-color: $lighter-hue;
+  color: $darker-hue;
+}
+
+.hero {
+  /* position relative to benefit from absolute positioning for the nested .dark-overlay div */
+  position: relative;
+
+  /* display grid to create a two columns layout, of items centered horizontally and vertically in their column and row  */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+
+  padding: 1rem 0.4rem;
+  .description {
+
+    h1 {
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+    h2 {
+      margin: 1rem 0;
+      font-weight: 300;
+    }
+    button {
+      text-transform: uppercase;
+      background-color: $accent-color;
+      color: rgba($darker-hue, 0.7);
+      padding: 0.7rem 1.2rem;
+      margin: 2rem 0.2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      transition: all .25s cubic-bezier(.4,.25,.3,1);
+      &:hover {
+        color: rgba($darker-hue, 0.85);
+        background-color: rgba($accent-color, 0.85);
+      } /* close button:hover*/
+    } /* close button*/
+  } /* close .description*/
+
+
+  .image {
+    /* max width on the image container, as to stretch the image at most up to this size */
+    max-width: 500px;
+    /* position relative to absolute position the nested paragraph */
+    position: relative;
+    img {
+      width: 100%;
+    }
+    p {
+      display: inline-block;
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      background-color: rgba($darker-hue, 0.5);
+      padding: 0.2rem 1rem;
+    }
+  }
+
+}
+/* flex used for both sections to align nested structures to be laid vertically and centered horizontally */
+.one, .two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+/*
+for smaller screen sizes
+*/
+@media only screen and (max-width : 800px) {
+  /*
+  center navigation-bar items and remove all, but the most pertinent one
+  */
+  .navigation-bar {
+    font-size: 1rem;
+    justify-content: center;
+    li {
+      display: none;
+      &:first-child {
+        display: inline-block;
+      } /* close li:first-child */
+    }/* close li */
+  }/* close navigation-bar */
+
+  /*
+  change grid structure to lay two items vertically, each on a separate row
+  */
+  .hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  }
+}
+
+
+
+/* style for the div used to overlay a dark surface on the hero section
+
+positioned on the top left corner of the parent container (.hero), spanning its entire width and height, with a dark background-color and initial opacity of 0 (this is altered in JS)
+
+pointer-events set to none as to avoid the div from preventing access to the .hero section
+
+*/
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: darken($darker-hue, 20%);
+  opacity: 0;
+  pointer-events: none;
+}

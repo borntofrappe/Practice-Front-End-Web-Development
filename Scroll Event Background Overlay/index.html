@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>Scroll Event Background Overlay</title>
+  <meta name="description" content="As the visitors down the page, away from the main and first section, superimpose a dark overlay on the area itself.">
+
+  <!-- Custom Styling -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+</head>
+<body>
+
+  <div class="container">
+    <nav class="navigation-bar">
+      <li><a href="#">CatCart</a></li>
+      <li></li>
+      <li><a href="#">one</a></li>
+      <li><a href="#">two</a></li>
+      <li><a href="#">three</a></li>
+      <li><a href="#">four</a></li>
+      <li></li>
+      <li><a href="https://www.pexels.com/search/clothes/">more</a></li>
+    </nav><!-- close navbar -->
+
+    <div class="section hero">
+      <div class="description">
+        <h1>This is once more some filler text</h1>
+        <h2>Maybe try the button below</h2>
+        <h2>Or scroll down for the effect</h2>
+        <button>Try for free</button>
+      </div><!-- close description div -->
+
+      <div class="image">
+        <img src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+        <p>This is just a filler image</p>
+
+      </div><!-- close image div -->
+      <!--
+  nest a div of class .dark-overlay
+  this will be used to create a dark surface on top of the hero section, through absolute positioning
+      -->
+      <div class="dark-overlay"></div>
+    </div><!-- close hero div -->
+
+    <!-- include filler divs to create the possibility to scroll -->
+    <div class="section one">
+      <h2>See the section up above?</h2>
+      <p>As you scroll away from/ back to it, a dark overlay is superimposed</p>
+      <h3>Neat, ain't it?</h3>
+    </div><!-- close div one -->
+
+    <div class="section two">
+      <h2>Boiler plate boiler plate</h2>
+      <p>Instead of figuring out something to say, I just ramble on and on and on. <br>The effect is up above after all</p>
+    </div><!-- close div two -->
+
+  </div><!-- close container div -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
