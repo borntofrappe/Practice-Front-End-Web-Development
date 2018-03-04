@@ -2,9 +2,9 @@ Link to the working pen right [*here*](https://codepen.io/borntofrappe/full/gvyd
 
 ## Preface
 
-The scope of the project is to replicate an effect found on the desktop version of [Snipcart.com](https://snipcart.com/). 
-The hero section of the web page presents here plenty of information with headers, buttons and an image. 
-As the visitor scrolls down, away from this section, the section itself is gradually darkened, to become almost completely black as the area goes out of sight.
+The goal of this project is to replicate an effect found on the desktop version of [Snipcart.com](https://snipcart.com/). 
+The *hero* section of the web page presents here plenty of information with headers, buttons and an image. 
+As the visitor scrolls down, away from this introductory area, the section itself is gradually darkened, to become almost completely black as the area goes out of sight.
 
 It is a neat effect to give closure on a portion of the page, and a good excuse to practice one more time the scroll event in JavaScript.
 
@@ -12,9 +12,9 @@ It is a neat effect to give closure on a portion of the page, and a good excuse 
 
 Instead of actually darkening the hero section of the page, the effect relies on a separate `div` that is overlayed on top of the portion to be darkened.
 
-In the developer console, by inspecting the structure of the HTML, it is indeed possible to find an empty `div`, located at the end of the hero section with a class `.page-top__overlay` and a `background-color` of a really dark hue. 
+In the developer console, by inspecting the structure of the HTML document, it is indeed possible to find an empty `div`, located at the end of the hero section with a class `.page-top__overlay` and a `background-color` of a really dark hue. 
 
-As the page scrolls down, the same `div` is seen modified in its styling, most notably changing the property of `opacity`, from 0 up to 1.
+As the page scrolls down, the same `div` changes CSS properties, most notably altering the `opacity`, from 0 up to 1.
 
 The effect can be therefore achieved by including a block element on top of the section to be "transitioned" and to alter its opacity in JS, as the scroll event occurs.
 
@@ -26,9 +26,13 @@ In a `div` of class `.hero`, another `div` of class `.dark-overlay` is introduce
 <div class="dark-overlay"></div>
 ```
 
-The `div` is actually nested *inside* the `.hero` container. This to benefit from absolute positioning and stretch the `div` to cover the complete `height` and `width` of the parent element.
+The `div` is actually nested *inside* the `.hero` container. This to benefit from absolute positioning and stretch the `div` to cover the complete `height` and `width` of the parent element. It is important to note that for the section to be positioned freely in the parent container, the container itself needs to have position set to relative.
 
 ```CSS
+.hero {
+  position: relative;
+}
+
 .dark-overlay {
   position: absolute;
   top: 0;
@@ -38,7 +42,7 @@ The `div` is actually nested *inside* the `.hero` container. This to benefit fro
 }
 ```
 
-As this element is set to create a dark overlay, the `div` is given a properly dark `background-color`. Opacity is also initialized to 0, as to hide the element by default. By altering this value it is possible to assess how the `div` creates the dark overlay intended for the effect.
+As this element is set to create a dark overlay, the `div` is given a properly dark `background-color`. Opacity is also initialized to 0, as to hide the element by default. By manually altering this value it is already possible to assess how the `div` creates the dark overlay intended for the effect.
 
 ```CSS
 .dark-overlay {
@@ -47,9 +51,9 @@ As this element is set to create a dark overlay, the `div` is given a properly d
 }
 ```
 
-In the CSS, a property of `pointer-events` is finally specified to `none`. This property is actually vital for the effect to occur with less friction (but I cannot get props for including this property, as I found it on the referenced web page itself, always in the developer console, in the styles tab). 
+In the CSS, the property of `pointer-events` is finally specified to `none`. This property is actually vital for the effect to occur with less friction (but I cannot get props for including this it, as I found the property in the developer console of the referenced web page, in the styles tab). 
 
-As the `div` is laid **over** the `.hero` container, the element prevents interactions with the structure of the parent container. This property allows to overlay the `div`, while at the same time allowing visitors to click and interact on the underlying structure.
+As the `div` is laid **over** the `.hero` container, the element prevents interactions with the structure of the parent container. This property allows to overlay the `div` while avoiding this issue. Visitors can click and interact on the underlying structure regardless of the overlaying `div`.
 
 ```CSS
 .dark-overlay {
@@ -57,7 +61,7 @@ As the `div` is laid **over** the `.hero` container, the element prevents intera
 }
 ```
 
-What is required is then to change the property of `opacity` through JS, in response to the scroll event.
+And that is all that is required for the HTML and CSS behind the overlay structure. In order to transition the structure itselft, JS needs to react to the scroll event and change its opacity accordingly.
 
 # JS
 
@@ -67,7 +71,7 @@ In JS, the script is set to listen and react to the `scroll` event on the entire
 window.addEventListener("scroll", debounce(checkForScroll));
 ```
 
-As mentioned in the previous two projects on the scroll event, the script responds to the scroll event with a debounce function. This intermediary step is used to run the nested function every so often, and not every time the scroll event prompts a reaction.
+As mentioned in the previous two projects on the scroll event, the script responds to the scroll event with a debounce function. Shortly, this intermediary step is used to run the nested function every so often, and not every time the scroll event prompts a reaction.
 
 The `checkForScroll` function is actually where the effect is implemented.
 
@@ -80,7 +84,7 @@ The behavior that the function is trying to implement can be described as follow
 
 - begin the transition when the distance from the top of the page reaches half of the height of the `.hero` section;
 - end the transition when the `.hero` section is completely out of sight.
-- in between the two extremes, alter the property of opacity for the `.dark-overlay` `div`. From 0 in the beginning of the transition to 1 at the very end.
+- in between the two extremes, alter the property of opacity for the `.dark-overlay` `div`. From 0 at the beginning of the transition to 1 at the very end.
 
 A couple of values are therefore required to understand when the page reaches the specified breakpoints.
 
@@ -90,13 +94,18 @@ A couple of values are therefore required to understand when the page reaches th
   var distanceFromTheTop = window.scrollY;
   ```
 
-2. the height of the `.hero` section, as found through the offsetHeight method implemented on the div itself.
+2. the height of the `.hero` section, as found through the offsetHeight method implemented on the `div` itself.
 
   ```JS
   const heroSection = document.querySelector(".hero");
   var heightOfHero = heroSection.offsetHeight;
   ```
   
+With the retrieved values, the transition occurs between the specified breakpoints:
+- distanceFromTheTop = heightOfHero/2; begin transition, opacity = 0
+- distanceFromTheTop = heightOfHero; end transition, opacity = 1
+
+As the values reference a pixel amount, which stretches well beyond the values accepted by the opacity property, it is first necessary to "normalize" the range. We therefore set  
 
 ## More on the Page
 
