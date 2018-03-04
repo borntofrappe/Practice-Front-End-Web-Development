@@ -22,4 +22,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Subtle Gradient Body**](https://codepen.io/borntofrappe/full/WMLwPm/)|Include a subtle linear gradient encompassing the entirety of the page, by applying a background property to the body element.|27th February 2018|
 |[**Messages on a Phone**](https://codepen.io/borntofrappe/full/OQrveJ/)|Create a phone UI to replicate a simple text-message interface|28th February 2018|
 |[**Scroll Event Navigation Bar**](https://codepen.io/borntofrappe/full/yvwVxR/)|Simple page to display a responsive navigation bar. Navigation bar which is toggled as the user scrolls down/ to the top of the page.|1st March 2018|
-|[**Scroll Event Images and Text**](https://codepen.io/borntofrappe/full/wyZGaG/)|Simple project in which text and images move up into sight as the visitor scrolls through the page.|2st March 2018|
+|[**Scroll Event Images and Text**](https://codepen.io/borntofrappe/full/wyZGaG/)|Simple project in which text and images move up into sight as the visitor scrolls through the page.|2nd March 2018|
+|[**Scroll Event Background Overlay**](https://codepen.io/borntofrappe/full/gvydqN/)|As the visitors down the page, away from the main and first section, superimpose a dark overlay on the area itself.|4th March 2018|
