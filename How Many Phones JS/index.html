@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>How many phones</title>
+  <meta name="description" content="Simple page to establish how many phones (and accessories) can be purchased on a budget.">
+
+
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+  <!--
+  The HTML structure is built as follows:
+  - a div container wrapping the entire content
+  - three divs dividing the content in 1. header (introductory information), 2. display (with main input and result of the script) and 3. setup (with other inputs)
+
+  .container
+        .header
+              h1
+              p
+        .display
+              input
+              .result
+                    h1
+                    svg
+        .setup
+              button
+                    i
+              .setup-item*4
+                    i
+                    input
+  -->
+
+  <div class="container">
+
+    <div class="header">
+      <h1>How much can you purchase?</h1>
+      <p>Assuming certain values <i class="fa fa-cog"></i></p>
+    </div><!-- close header div -->
+
+    <div class="display">
+      <input type="number" placeholder="$ 12345" class="account-balance" min="0">
+      <div class="result">
+        <h1>0x</h1>
+
+        <!-- svg included inline -->
+        <svg version="1.1" viewBox="0 0 289.54 250" xmlns="http://www.w3.org/2000/svg">
+         <g transform="matrix(11.895 6.3888 -2.3845 14.459 924.17 -621.4)">
+          <g transform="matrix(.88495 -.16804 -.16804 .75455 11.047 5.9873)">
+           <g transform="translate(-46.038,59.49)" fill="#333">
+            <path transform="matrix(.082155 -.026928 .031722 .091265 -24.783 10.92)" d="m177.55 107.67a27.675 30.973 85.465 0 0-19.846 7.0527 27.675 30.973 85.465 0 0-10.162 26.32 27.675 30.973 85.465 0 0 20.238 20.629l20.324-52.637a27.675 30.973 85.465 0 0-10.555-1.3652zm-6.209 12.02 4.5684 1.3477-10.898 28.23-4.5703-1.3477 10.9-28.23z" stroke-width="2.3302"/>
+            <path d="m-2.3052 12.793a5.2702 5.5305 0 0 0-2.511 0.73949 5.2702 5.5305 0 0 0-2.635 4.7894h0.4377a4.8324 5.071 0 0 1 2.4164-4.3915 4.8324 5.071 0 0 1 4.8323 0 4.8324 5.071 0 0 1 2.4164 4.3915h0.4377a5.2702 5.5305 0 0 0-2.635-4.7894 5.2702 5.5305 0 0 0-2.7595-0.73949z" stroke-width=".23206"/>
+            <path d="m-2.3164 12.45a5.7476 5.8737 0 0 0-2.7384 0.78539 5.7476 5.8737 0 0 0-2.8736 5.0866h0.47734a5.27 5.3857 0 0 1 2.6353-4.664 5.27 5.3857 0 0 1 5.2699 0 5.27 5.3857 0 0 1 2.6353 4.664h0.47734a5.7476 5.8737 0 0 0-2.8736-5.0866 5.7476 5.8737 0 0 0-3.0095-0.78539z" stroke-width=".24975"/>
+            <path d="m-2.3164 12.607a5.7476 5.7161 0 0 0-2.7384 0.7643 5.7476 5.7161 0 0 0-2.8736 4.9501h0.47734a5.27 5.2411 0 0 1 2.6353-4.5388 5.27 5.2411 0 0 1 5.2699 0 5.27 5.2411 0 0 1 2.6353 4.5388h0.47734a5.7476 5.7161 0 0 0-2.8736-4.9501 5.7476 5.7161 0 0 0-3.0095-0.7643z" stroke-width=".24638"/>
+            <path d="m-2.3164 12.607a5.7476 5.7161 0 0 0-2.7384 0.7643 5.7476 5.7161 0 0 0-2.8736 4.9501h0.47734a5.27 5.2411 0 0 1 2.6353-4.5388 5.27 5.2411 0 0 1 5.2699 0 5.27 5.2411 0 0 1 2.6353 4.5388h0.47734a5.7476 5.7161 0 0 0-2.8736-4.9501 5.7476 5.7161 0 0 0-3.0095-0.7643z" stroke-width=".24638"/>
+            <path transform="matrix(.082155 -.026928 .031722 .091265 -24.783 10.92)" d="m268.74 132.82-20.324 52.637a27.675 30.973 85.465 0 0 30.402-5.6875 27.675 30.973 85.465 0 0 10.162-26.32 27.675 30.973 85.465 0 0-20.24-20.629zm0.76758 16.416 4.5684 1.3496-10.9 28.229-4.5684-1.3477 10.9-28.23z" stroke-width="2.3302"/>
+           </g>
+          </g>
+         </g>
+         <path d="m11.461-0.0097656c-6.3514 0-11.465 5.1135-11.465 11.465v227.07c0 6.3514 5.1135 11.465 11.465 11.465h119.66c6.3514 0 11.465-5.1135 11.465-11.465v-227.07c0-6.3514-5.1135-11.465-11.465-11.465h-119.66zm-6.6699 16.07h132.99v211.59h-132.99v-211.59z" fill="#333" stroke-width="13.065"/>
+         <g transform="matrix(13.065 0 0 13.065 -904.14 -2313.7)">
+          <g transform="translate(.95439 -.011285)" fill="#e3dedb" stroke-width=".22352">
+           <rect x="69.713" y="194.98" width=".79556" height=".13818" ry=".069088"/>
+           <rect x="69.713" y="195.22" width=".79556" height=".13818" ry=".069088"/>
+           <rect x="69.713" y="195.47" width=".79556" height=".13818" ry=".069088"/>
+          </g>
+          <rect x="74.414" y="194.95" width=".66146" height=".66146" ry=".07087" fill="none" stroke="#e3dedb" stroke-width=".165"/>
+          <g transform="translate(9.0925,-1.6785)" fill="#e3dedb">
+           <rect transform="rotate(-45)" x="-90.429" y="188.12" width=".55124" height=".1754" ry=".07087"/>
+           <rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="188.12" y="-90.429" width=".55124" height=".1754" ry=".07087"/>
+          </g>
+         </g>
+         <rect x="61.036" y="7.4369" width="20.515" height="2.4007" ry=".68436" fill="#e3dedb" stroke-width="13.065"/>
+         <circle cx="94.273" cy="8.6127" r="3.202" fill="#e3dedb" stroke-width="13.065"/>
+         <g transform="matrix(4.3362 -1.1651 1.0044 4.2957 54.151 98.524)" fill="#333" stroke="#333">
+          <rect x="13.946" y="27.73" width=".85135" height="10.662" ry=".42567" stroke-width=".26458"/>
+          <rect transform="matrix(.9977 .06776 -.065761 .99784 0 0)" x="17.272" y="27.594" width=".039938" height="2.8376" ry=".020269" stroke-width=".2626"/>
+          <circle cx="15.263" cy="31.518" r=".20408" stroke-width=".1402"/>
+          <rect x="14.404" y="28.461" width="1.0135" height=".24324" ry=".020269" stroke-width=".26458"/>
+          <rect x="14.25" y="27.57" width=".24324" height=".68918" ry=".020269" stroke-width=".26458"/>
+         </g>
+        </svg>
+
+       </svg><!-- close inline svg -->
+      </div><!-- close result div -->
+    </div><!-- close display div -->
+
+
+
+    <div class="setup">
+      <button class="toggle-setup">
+        <i class="fa fa-cog fa-2x"></i> Change assumptions
+      </button>
+      <div class="setup-item" title="Phone price">
+        <i class="fa fa-mobile fa-2x fa-fw"></i>
+        <input type="number" placeholder="$250" class="phone-price" min="0">
+      </div>
+      <div class="setup-item" title="Accessory price">
+        <i class="fa fa-headphones fa-2x fa-fw"></i>
+        <input type="number" placeholder="$50" class="accessory-price" min="0">
+      </div>
+      <div class="setup-item" title="Tax rate">
+        <i class="fa fa-percent fa-2x fa-fw"></i>
+        <input type="number" placeholder="12%" class="tax-rate" min="0">
+      </div>
+      <div class="setup-item" title="Spending threshold">
+        <i class="fa fa-money fa-2x fa-fw"></i>
+        <input type="number" placeholder="10%" class="spending-threshold" min="0">
+      </div>
+
+    </div><!-- close setup div -->
+
+  </div><!-- close container div -->
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

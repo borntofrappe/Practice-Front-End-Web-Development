@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Mina');
+
+$font-family-main: 'Mina', sans-serif;
+$darker-color: #333;
+$lighter-color: #f9f8f8;
+
+
+%button-input-reset {
+  background: none;
+  border: none;
+  outline: none;
+}
+%input-base-style {
+  font-family: $font-family-main;
+  color: $lighter-color;
+  background-color: rgba($darker-color, 0.2);
+  border-radius: 10px;
+}
+%spacing-reset {
+  margin: 0;
+  padding: 0;
+}
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+* {
+  box-sizing: border-box;
+  @extend %spacing-reset;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: $font-family-main;
+  color: darken($darker-color, 10%);
+  background: linear-gradient(to top, darken($lighter-color, 25%), darken($lighter-color, 18%));
+}
+
+/* header div */
+.header {
+  margin-top: 1rem;
+}
+
+
+/* display div */
+.display {
+  margin: 1rem 0 4rem;
+  input {
+    @extend %button-input-reset;
+    @extend %input-base-style;
+    font-size: 2rem;
+    padding: 1rem;
+    width: 80%;
+    &::placeholder {
+      color: rgba($lighter-color, 0.7);
+    }
+  }
+
+
+  .result {
+    @extend %flex-center;
+    margin-top: 1rem;
+    h1 {
+      font-weight: 100;
+      font-size: calc(5rem + 1vw);
+      color: darken($darker-color, 40%);
+      margin: 0 1rem;
+    }
+    svg {
+      max-width: 210px;
+      height: 240px;
+    }
+  }
+}
+
+/* setup div */
+.setup {
+  @extend %flex-center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  button {
+    @extend %button-input-reset;
+    font-family: $font-family-main;
+    cursor: pointer;
+    color: darken($darker-color, 10%);
+    font-size: 1.2rem;
+    i {
+      transition: all 0.5s ease-out;
+      vertical-align: middle;
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  .setup-item {
+    position: relative;
+    margin: 0.3rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+    i {
+      color: $darker-color;
+      vertical-align: middle;
+    }
+    input {
+      @extend %button-input-reset;
+      @extend %input-base-style;
+      font-size: 1.4rem;
+      padding: 0.2rem 0.5rem;
+      &::placeholder {
+        color: rgba($lighter-color, 0.7);
+      }
+    }
+  }
+}
+
+
+/*
+for smaller screen sizes switch flex to column
+*/
+@media only screen and (max-width : 800px) {
+  .setup, .result {
+    flex-direction: column;
+    }
+}
