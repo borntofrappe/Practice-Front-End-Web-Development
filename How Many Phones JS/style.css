@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Mina");
+.display input, .setup button, .setup .setup-item input {
+  background: none;
+  border: none;
+  outline: none; }
+
+.display input, .setup .setup-item input {
+  font-family: "Mina", sans-serif;
+  color: #f9f8f8;
+  background-color: rgba(51, 51, 51, 0.2);
+  border-radius: 10px; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+.display .result, .setup {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: "Mina", sans-serif;
+  color: #1a1a1a;
+  background: linear-gradient(to top, #beb3b3, #cfc7c7); }
+
+/* header div */
+.header {
+  margin-top: 1rem; }
+
+/* display div */
+.display {
+  margin: 1rem 0 4rem; }
+  .display input {
+    font-size: 2rem;
+    padding: 1rem;
+    width: 80%; }
+    .display input::placeholder {
+      color: rgba(249, 248, 248, 0.7); }
+  .display .result {
+    margin-top: 1rem; }
+    .display .result h1 {
+      font-weight: 100;
+      font-size: calc(5rem + 1vw);
+      color: black;
+      margin: 0 1rem; }
+    .display .result svg {
+      max-width: 210px;
+      height: 240px; }
+
+/* setup div */
+.setup {
+  flex-wrap: wrap;
+  padding: 1rem; }
+  .setup button {
+    font-family: "Mina", sans-serif;
+    cursor: pointer;
+    color: #1a1a1a;
+    font-size: 1.2rem; }
+    .setup button i {
+      transition: all 0.5s ease-out;
+      vertical-align: middle; }
+      .setup button i:hover {
+        transform: rotate(360deg); }
+  .setup .setup-item {
+    position: relative;
+    margin: 0.3rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out; }
+    .setup .setup-item i {
+      color: #333;
+      vertical-align: middle; }
+    .setup .setup-item input {
+      font-size: 1.4rem;
+      padding: 0.2rem 0.5rem; }
+      .setup .setup-item input::placeholder {
+        color: rgba(249, 248, 248, 0.7); }
+
+/*
+for smaller screen sizes switch flex to column
+*/
+@media only screen and (max-width: 800px) {
+  .setup, .result {
+    flex-direction: column; } }
+
+/*# sourceMappingURL=style.css.map */
