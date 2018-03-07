@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+$font-family-main: 'VT323', monospace;
+$font-color-main: #32ff32;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-family-main;
+  color: $font-color-main;
+  background-color: #000;
+}
+
+.terminal-interface {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  text-align: center;
+
+  .terminal-text {
+    font-size: 2.5rem;
+    line-height: 1.5;
+
+    .terminal-cursor {
+      font-size: 2.8rem;
+      font-weight: 800;
+      animation: blinking-cursor 1s infinite step-end;
+    }
+  }
+}
+
+@keyframes blinking-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
