@@ -25,3 +25,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Scroll Event Images and Text**](https://codepen.io/borntofrappe/full/wyZGaG/)|Simple project in which text and images move up into sight as the visitor scrolls through the page.|2nd March 2018|
 |[**Scroll Event Background Overlay**](https://codepen.io/borntofrappe/full/gvydqN/)|As the visitors scrolls down the page, away from the main and first section, superimpose a dark overlay on the area itself.|4th March 2018|
 |[**How Many Phones JS**](https://codepen.io/borntofrappe/full/oErzOE/)|Simple page to establish how many phones can be purchased on a budget. Inspired by the first chapter of the first book of the series "You don't know JS".|6th March 2018|
+|[**Terminal Interface**](https://codepen.io/borntofrappe/full/LQwvEE/)|I'm sorry Bill, I'm afraid I can give you a description.|7th March 2018|
