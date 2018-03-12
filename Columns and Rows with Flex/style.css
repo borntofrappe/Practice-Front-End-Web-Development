@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* divide width of the screen in the two column layout */
+.container {
+  height: 100vh;
+  display: flex;
+}
+.container .left-column {
+  width: 30%;
+}
+/* fix the content of the right column to the right section of the page */
+.container .right-column {
+  width: 70%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  /* z-index set to all, but one to 0; property altered through JS to display the section with the highest value */
+  z-index: 0;
+}
+
+
+.container-one .left-column {
+  background-color: hsl(207, 90%, 94%);
+}
+.container-one .right-column {
+  background-color: hsl(239, 90%, 91%);
+  z-index: 1;
+}
+
+
+.container-two .left-column {
+  background-color: hsl(205, 90%, 82%);
+}
+.container-two .right-column {
+  background-color: hsl(252, 95%, 80%);
+}
+
+
+.container-three .left-column {
+  background-color: hsl(203, 90%, 70%);
+}
+.container-three .right-column {
+  background-color: hsl(265, 95%, 68%);
+}
+
+
+.container-four .left-column {
+  background-color: hsl(200, 90%, 65%);
+}
+.container-four .right-column {
+  background-color: hsl(280, 95%, 60%);
+}
+
+
+/*
+on smaller screen sizes lay the content of the columns in one row each,
+positioning the content right column prior to the one found in the left portion of the page
+*/
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  .container .left-column {
+    order: 1;
+    flex-basis: 70%;
+    width: 100%;
+  }
+  .container .right-column {
+    flex-basis: 30%;
+    position: relative;
+    width: 100%;
+  }
+}
