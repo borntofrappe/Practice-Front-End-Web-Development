@@ -163,57 +163,57 @@ The functionality of the script, in a first rough version, is implemented as fol
 
 1. target all the elements required for the effect. These include the `div`s for the right columns, as JS needs to alter their property of `z-index`, but also the `div`s for the left-columns, as JS needs to asses when the page scrolls past their introduction. All the left columns except the first one, as this is immediately present on the page and isn't set to prompt any effect. 
 
-```JS
-// target the left-columns for all containers following the first one
-const leftColumnContainerTwo = document.querySelector(".container-two .left-column");
-const leftColumnContainerThree = document.querySelector(".container-three .left-column");
-const leftColumnContainerFour = document.querySelector(".container-four .left-column");
+    ```JS
+    // target the left-columns for all containers following the first one
+    const leftColumnContainerTwo = document.querySelector(".container-two .left-column");
+    const leftColumnContainerThree = document.querySelector(".container-three .left-column");
+    const leftColumnContainerFour = document.querySelector(".container-four .left-column");
 
-// target all the right-columns
-const rightColumnContainerOne = document.querySelector(".container .right-column");
-const rightColumnContainerTwo = document.querySelector(".container-two .right-column");
-const rightColumnContainerThree = document.querySelector(".container-three .right-column");
-const rightColumnContainerFour = document.querySelector(".container-four .right-column");
-```
+    // target all the right-columns
+    const rightColumnContainerOne = document.querySelector(".container .right-column");
+    const rightColumnContainerTwo = document.querySelector(".container-two .right-column");
+    const rightColumnContainerThree = document.querySelector(".container-three .right-column");
+    const rightColumnContainerFour = document.querySelector(".container-four .right-column");
+    ```
 
-2. in response to the scroll event, compute the distance from the top of the page to the center of the visible area. This value changes as the visitor scrolls through the page. The choice to consider the center of the visible area is made as to allow for the transition to occur for the last container as well. In practice, the value is tailored to the page's needs.
+1. in response to the scroll event, compute the distance from the top of the page to the center of the visible area. This value changes as the visitor scrolls through the page. The choice to consider the center of the visible area is made as to allow for the transition to occur for the last container as well. In practice, the value is tailored to the page's needs.
 
-```JS
-function checkForScroll(event) {
-  var distanceFromBottomToTop = window.scrollY + (window.innerHeight / 2);
-}
-```
+    ```JS
+    function checkForScroll(event) {
+      var distanceFromBottomToTop = window.scrollY + (window.innerHeight / 2);
+    }
+    ```
 
-3. compute the breakpoints. The values that are compared to the distance from the top of the page, in order to trigger an appropriate response.
+1. compute the breakpoints. These are values which are compared to the distance from the top of the page, in order to trigger an appropriate response.
 
-```JS
-function checkForScroll(event) {
-  var distanceFromBottomToTop = window.scrollY + (window.innerHeight / 2);
-  var distanceFromLeftColumnContainerTwo = leftColumnContainerTwo.offsetTop,
-      distanceFromLeftColumnContainerThree = leftColumnContainerThree.offsetTop,
-      distanceFromLeftColumnContainerFour = leftColumnContainerFour.offsetTop;
-}
-```
+    ```JS
+    function checkForScroll(event) {
+      var distanceFromBottomToTop = window.scrollY + (window.innerHeight / 2);
+      var distanceFromLeftColumnContainerTwo = leftColumnContainerTwo.offsetTop,
+          distanceFromLeftColumnContainerThree = leftColumnContainerThree.offsetTop,
+          distanceFromLeftColumnContainerFour = leftColumnContainerFour.offsetTop;
+    }
+    ```
+  
+1. as the distance from the top of the page surpasses each breakpoint, alter the property of z-index to show one of the targeted div on top.
 
-4. as the distance from the top of the page surpasses each breakpoint, alter the property of z-index to show one of the targeted div on top.
+    For instance:
 
-For instance:
+    ```JS
+    function checkForScroll(event) {
+      var distanceFromBottomToTop = window.scrollY + (window.innerHeight / 2);
+      var distanceFromLeftColumnContainerTwo = leftColumnContainerTwo.offsetTop,
+          distanceFromLeftColumnContainerThree = leftColumnContainerThree.offsetTop,
+          distanceFromLeftColumnContainerFour = leftColumnContainerFour.offsetTop;
 
-```JS
-function checkForScroll(event) {
-  var distanceFromBottomToTop = window.scrollY + (window.innerHeight / 2);
-  var distanceFromLeftColumnContainerTwo = leftColumnContainerTwo.offsetTop,
-      distanceFromLeftColumnContainerThree = leftColumnContainerThree.offsetTop,
-      distanceFromLeftColumnContainerFour = leftColumnContainerFour.offsetTop;
-      
-  if(distanceFromBottomToTop > distanceFromLeftColumnContainerTwo) {
-    rightColumnContainerOne.style.zIndex = "0";
-    rightColumnContainerTwo.style.zIndex = "1";
-    rightColumnContainerThree.style.zIndex = "0";
-    rightColumnContainerFour.style.zIndex = "0";
-  }
-}
-```
+      if(distanceFromBottomToTop > distanceFromLeftColumnContainerTwo) {
+        rightColumnContainerOne.style.zIndex = "0";
+        rightColumnContainerTwo.style.zIndex = "1";
+        rightColumnContainerThree.style.zIndex = "0";
+        rightColumnContainerFour.style.zIndex = "0";
+      }
+    }
+    ```
 
 With this example, the page is set to display the second column as the scroll event surpasses the respective container, realizing the desired effect.
 
@@ -288,4 +288,4 @@ function checkForScroll(event) {
 
 The function itself has room for improvements, as immediately visible from the repetition in the blocks of code. But without further confidence in my JS skills, it will suffice for the moment.
 
-It does accomplish the purpose it is set to fulfill, however rough the implementation may appear.
+It does [accomplish](https://codepen.io/borntofrappe/full/EEjOgy/) the [purpose](getstation.com) it is set to fulfill, however rough the implementation may appear.
