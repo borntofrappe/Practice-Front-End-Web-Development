@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Lato');
+
+$font-family-main: 'Lato', sans-serif;
+$font-family-header: 'Francois One', sans-serif;
+$darker-color: hsl(345, 2%, 36%);
+$lighter-color: hsl(344, 41%, 95%);
+
+%anchor-link-reset {
+  text-decoration: none;
+  color: inherit;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-family-main;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 10px 15px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+  min-height: 100vh;
+  width: 100%;
+  color: hsl(344, 41%, 95%);
+  background: linear-gradient(45deg, $darker-color, lighten($darker-color, 20%));
+  padding: 1rem;
+
+  .header-text {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+
+    h1 {
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-family: $font-family-header;
+    }
+    p {
+      text-transform: capitalize;
+      font-size: 1.5rem;
+    }
+    svg {
+      fill: $lighter-color;
+      vertical-align: middle;
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .resource {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    text-align: center;
+    opacity: 0.3;
+    transition: all 0.3s ease-out;
+    &:hover {
+      opacity: 0.85;
+    }
+    &.resource-one {
+      background: url("https://images.pexels.com/photos/630762/mill-workshop-milling-industry-630762.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    }
+    &.resource-two {
+      background: url("https://images.pexels.com/photos/115558/pexels-photo-115558.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    }
+    &.resource-three {
+      background: url("https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    }
+    &.resource-four {
+      background: url("https://images.pexels.com/photos/12598/96917deb7705adcee76b65caf8c652b1.jpg?w=940&h=650&auto=compress&cs=tinysrgb");
+    }
+    &.resource-five {
+      background: url("https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    }
+    a {
+      @extend %anchor-link-reset;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-size: 2.5rem;
+      padding: 0.4rem;
+      text-shadow: 1px 1px 0 rgba($darker-color, 0.8);
+      background-color: rgba($darker-color, 0.4);
+    }
+  }
+}
+
+
+@media only screen and (min-width: 700px) {
+  .header-text:hover svg {
+    animation: arrow-point 1.2s infinite ease-in-out;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .header-text svg {
+    transform: rotate(90deg);
+  }
+  .header-text:hover svg {
+    animation: arrow-point-smaller-screen-sizes 1.2s infinite ease-in-out alternate;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    .header-text h1 {
+      font-size: 2rem;
+    }
+    .resource h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@keyframes arrow-point {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes arrow-point-smaller-screen-sizes {
+  0%, 100% {
+    transform: rotate(90deg);
+  }
+  33% {
+    transform: rotate(110deg);
+  }
+  67% {
+    transform: rotate(70deg);
+  }
+}
