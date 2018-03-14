@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Lato');
+
+$font-family-main: 'Lato', sans-serif;
+$font-family-header: 'Francois One', sans-serif;
+$darker-color: hsl(294, 57%, 72%);
+$darker-color-shade: hsl(294, 72%, 67%);
+$darker-color-darker-shade: hsl(294, 72%, 45%);
+$lighter-color: hsl(296, 100%, 97%);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-family-main;
+  font-size: 1.1rem;
+  color: $lighter-color;
+  background-color: $darker-color;
+}
+
+.navigation-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
+  list-style: none;
+  background-color: $darker-color-shade;
+  box-shadow: 0 1px 5px $darker-color-darker-shade;
+
+  li {
+    margin: 0 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &#icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      background: url('data:image/svg+xml;utf8,<svg version="1.1" viewBox="0 0 9.525 9.525" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.36 0 0 .36 -28.272 -71.126)" fill="#fef0ff"><path d="m91.76 197.57a13.229 13.229 0 0 0-13.229 13.229 13.229 13.229 0 0 0 13.229 13.229 13.229 13.229 0 0 0 13.229-13.229 13.229 13.229 0 0 0-13.229-13.229zm0 2.455a10.774 10.774 0 0 1 10.774 10.774 10.774 10.774 0 0 1-10.774 10.774 10.774 10.774 0 0 1-10.775-10.774 10.774 10.774 0 0 1 10.775-10.774z" fill="#fef0ff"/></g></svg>');
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  h1 {
+    font-family: $font-family-header;
+    font-size: calc(2.5rem + 1vw);
+    text-shadow: 2px 2px 0 hsl(294, 72%, 45%);
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      text-shadow: -2px 2px 0 hsl(296, 100%, 97%);
+      color: hsl(294, 72%, 45%);
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .navigation-bar {
+    justify-content: space-around;
+
+    li {
+      margin: 0;
+    }
+  }
+}
