@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Francois+One|Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  color: #fef0ff;
+  background-color: #d88fe0; }
+
+.navigation-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
+  list-style: none;
+  background-color: #db6ee7;
+  box-shadow: 0 1px 5px #b520c5; }
+  .navigation-bar li {
+    margin: 0 2rem;
+    font-weight: bold;
+    text-transform: uppercase; }
+    .navigation-bar li#icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      background: url('data:image/svg+xml;utf8,<svg version="1.1" viewBox="0 0 9.525 9.525" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.36 0 0 .36 -28.272 -71.126)" fill="#fef0ff"><path d="m91.76 197.57a13.229 13.229 0 0 0-13.229 13.229 13.229 13.229 0 0 0 13.229 13.229 13.229 13.229 0 0 0 13.229-13.229 13.229 13.229 0 0 0-13.229-13.229zm0 2.455a10.774 10.774 0 0 1 10.774 10.774 10.774 10.774 0 0 1-10.774 10.774 10.774 10.774 0 0 1-10.775-10.774 10.774 10.774 0 0 1 10.775-10.774z" fill="#fef0ff"/></g></svg>'); }
+    .navigation-bar li a {
+      text-decoration: none;
+      color: inherit; }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh; }
+  .container h1 {
+    font-family: "Francois One", sans-serif;
+    font-size: calc(2.5rem + 1vw);
+    text-shadow: 2px 2px 0 #b520c5;
+    transition: all 0.3s ease-out; }
+    .container h1:hover {
+      text-shadow: -2px 2px 0 #fef0ff;
+      color: #b520c5; }
+
+@media only screen and (max-width: 700px) {
+  .navigation-bar {
+    justify-content: space-around; }
+    .navigation-bar li {
+      margin: 0; } }
+
+/*# sourceMappingURL=style.css.map */
