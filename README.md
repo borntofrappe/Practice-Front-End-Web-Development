@@ -28,4 +28,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Terminal Interface**](https://codepen.io/borntofrappe/full/LQwvEE/)|I'm sorry Bill, I'm afraid I can give you a description.|7th March 2018|
 |[**Columns and Rows with Flex**](https://codepen.io/borntofrappe/full/EEjOgy/)|Create a neat layout with flex properties, which changes depending on screen sizes.|12th March 2018|
 |[**Grid Layout Grid Template Columns**](https://codepen.io/borntofrappe/full/vRLZmm/)|Experiment with CSS Grid properties while providing useful resources on the subject.|13th March 2018|
-|[**Navigation Bar Icon Changes on Hover**](https://codepen.io/borntofrappe/full/LdNNzq/)|In the navigation bar atop the page, as the visitor hovers on the different links, the shown icon changes, aptly to describe the hovered item.|14th March 2018|
+|[**Navigation Bar Icon Changes on Hover**](https://codepen.io/borntofrappe/full/LdNNzq/)|In the navigation bar atop the page, as the visitor hovers on the different links, the shown icon changes, aptly to match the hovered item.|14th March 2018|
