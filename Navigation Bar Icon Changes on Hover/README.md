@@ -44,11 +44,11 @@ The icon itself is included on the list item as a background, through the approp
 }
 ```
 
-Background property which accepts a reference for the SVG file (path/file-icon.svg) or the SVG element itself, directly inline (as in the example above).
+Background property which accepts a reference for the SVG file, in the form of `path/file-icon.svg`. *Or* the SVG element itself, directly inline (as in the example above).
 
 In the instance of the project in question, as the project is shipped on Codepen, the SVG is included inline.
 
-Inline, the SVG file can be included through the CSS property in a *data format*. Preceding the `<svg>` tags, it is therefore necessary to include the following string
+Inline, the SVG file can be included through the CSS property in a *data format*. Prior to the `<svg>` tags, it is therefore necessary to include the following string
 
 ```
 data:image/svg+xml;utf8,
@@ -72,7 +72,7 @@ In order for the page to include the described functionality, all that JavaScrip
 
 It is here possible to leverage the events of `mouseenter` and `mouseleave` in order to assess when the cursor actually hovers on the desired elements. Once the event is caught, it is then possible to change the CSS property as wanted.
 
-The following script implements the described functionality. Without much knowledge or practice with JS, so far at least, it is rather repetitive and certainly a target of optimization. But it completes the tasks it is set out to accomplish.
+The following script implements the described functionality. Without much knowledge or practice with JS, so far at least, it is rather repetitive and certainly a target for optimization. But it completes the tasks it is set out to accomplish.
 
 
 ```JS
@@ -125,7 +125,10 @@ function changeIconBack() {
 ```
 
 
-Again, the script is heavy on the eyes. An immediate improvement would be to store the `<svg>` elements in an array and concatenate each array item to the string containing the "preface" text of `data:image/svg+xml;utf8,`. 
+Again, the script is heavy on the eyes. 
+
+An immediate improvement would be to store the `<svg>` elements in an array and concatenate each array item to the string containing the "preface" text of `data:image/svg+xml;utf8,`. 
+
 There must be also a better way to target each anchor link in a more concise way. Something about which to think, especially as I develope further JS knowledge.
 
 
