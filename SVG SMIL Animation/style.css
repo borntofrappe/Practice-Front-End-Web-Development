@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: hsl(316, 100%, 67%);
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  /* center items vertically and space them horizontally */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.arrow {
+  width: 80px;
+  height: auto;
+}
+.left-arrow {
+  transform: rotate(180deg);
+}
+.left-arrow__circle {
+  fill
+}
+
+.placeholder {
+  width: 60%;
+  height: 80%;
+  margin: 0 0.5rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .arrow {
+    width: 40px;
+    height: auto;
+  }
+}
