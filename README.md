@@ -29,3 +29,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Columns and Rows with Flex**](https://codepen.io/borntofrappe/full/EEjOgy/)|Create a neat layout with flex properties, which changes depending on screen sizes.|12th March 2018|
 |[**Grid Layout Grid Template Columns**](https://codepen.io/borntofrappe/full/vRLZmm/)|Experiment with CSS Grid properties while providing useful resources on the subject.|13th March 2018|
 |[**Navigation Bar Icon Changes on Hover**](https://codepen.io/borntofrappe/full/LdNNzq/)|In the navigation bar atop the page, as the visitor hovers on the different links, the shown icon changes, aptly to match the hovered item.|14th March 2018|
+|[**SVG SMIL Animation**](https://codepen.io/borntofrappe/full/EEybEz/)|Animate changes in color and shapes for SVG assets, directly inline in the SVG declaration.|15th March 2018|
+
+
