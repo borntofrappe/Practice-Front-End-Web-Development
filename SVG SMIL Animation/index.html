@@ -13,15 +13,16 @@
 <body>
 
   <div class="container">
-  <!--
-    include svg for
-    - left arrow
-    - center, placeholder container
-    - right container
+     <!--
+      include svg for
+      - left arrow
+      - placeholder container
+      - right container
      -->
 
     <svg class="arrow left-arrow" version="1.1" viewBox="0 0 26.458 28.575" xmlns="http://www.w3.org/2000/svg">
      <g transform="translate(-15.679 -151.26)">
+       <!-- animate shape and fill color -->
       <path class="left-arrow__circle" d="m42.111 165.55c0 7.3063-5.8965 13.229-13.203 13.229-7.3063 0-13.203-5.9229-13.203-13.229s5.8965-13.229 13.203-13.229c7.3063 0 13.203 5.9229 13.203 13.229z" stroke-width=".073246" fill="hsl(316, 60%, 47%)">
         <animate class="left-arrow__circle--animate" attributeName="d" begin="indefinite" dur="0.4s" values="m42.111 165.55c0 7.3063-5.8965 13.229-13.203 13.229-7.3063 0-13.203-5.9229-13.203-13.229s5.8965-13.229 13.203-13.229c7.3063 0 13.203 5.9229 13.203 13.229z; m38.671 165.55c0 7.3063-2.4569 14.288-9.7632 14.288-7.3063 0-9.7632-6.9812-9.7632-14.288s2.4569-14.288 9.7632-14.288c7.3063 0 9.7632 6.9812 9.7632 14.288z; m42.111 165.55c0 7.3063-5.8965 13.229-13.203 13.229-7.3063 0-13.203-5.9229-13.203-13.229s5.8965-13.229 13.203-13.229c7.3063 0 13.203 5.9229 13.203 13.229z" keyTimes="0; 0.6; 1"/>
         <animate class="left-arrow__circle--animate" attributeName="fill" begin="indefinite" dur="0.4s" values="hsl(316, 60%, 47%); hsl(316, 60%, 57%); hsl(316, 60%, 47%)" keyTimes="0; 0.6; 1"/>
@@ -37,6 +38,7 @@
 
     <svg class="placeholder" version="1.1" viewBox="0 0 36.458 19.844" xmlns="http://www.w3.org/2000/svg" fill="hsl(316, 60%, 47%)">
      <g transform="translate(-28.262 -157.72)">
+       <!-- animate shape to the left and to the right -->
       <path class="placeholder__rectangle" d="m33.262 157.72h26.458c4e-3 6.6146 0.0039 13.229 0 19.844h-26.458c0.08596-6.7006 0.09217-13.321 0-19.844z" stroke-width=".062846">
         <animate class="placeholder__rectangle--animate--right" attributeName="d" begin="indefinite" dur="0.4s" values="m33.262 157.72h26.458c4e-3 6.6146 0.0039 13.229 0 19.844h-26.458c0.08596-6.7006 0.09217-13.321 0-19.844z; m33.262 157.72h26.458c-4.419 6.2243-4.1387 12.864 0 19.844h-26.458c-4.3188-6.9942-3.0145-13.528 0-19.844z; m33.262 157.72h26.458c4e-3 6.6146 0.0039 13.229 0 19.844h-26.458c0.08596-6.7006 0.09217-13.321 0-19.844z" keyTimes="0; 0.6; 1"/>
         <animate class="placeholder__rectangle--animate--left" attributeName="d" begin="indefinite" dur="0.4s" values="m33.262 157.72h26.458c4e-3 6.6146 0.0039 13.229 0 19.844h-26.458c0.08596-6.7006 0.09217-13.321 0-19.844z; m33.262 157.72h26.458c3.1924 6.0648 4.0991 12.523 0 19.844h-26.458c4.2882-8.1013 2.6001-14.157 0-19.844z; m33.262 157.72h26.458c4e-3 6.6146 0.0039 13.229 0 19.844h-26.458c0.08596-6.7006 0.09217-13.321 0-19.844z" keyTimes="0; 0.6; 1"/>
@@ -47,6 +49,7 @@
 
     <svg class="arrow right-arrow" version="1.1" viewBox="0 0 26.458 28.575" xmlns="http://www.w3.org/2000/svg">
      <g transform="translate(-15.679 -151.26)">
+       <!-- animate shape and fill color -->
       <path class="right-arrow__circle" d="m42.111 165.55c0 7.3063-5.8965 13.229-13.203 13.229-7.3063 0-13.203-5.9229-13.203-13.229s5.8965-13.229 13.203-13.229c7.3063 0 13.203 5.9229 13.203 13.229z" stroke-width=".073246" fill="hsl(316, 60%, 47%)">
         <animate class="right-arrow__circle--animate" attributeName="d" begin="indefinite" dur="0.4s" values="m42.111 165.55c0 7.3063-5.8965 13.229-13.203 13.229-7.3063 0-13.203-5.9229-13.203-13.229s5.8965-13.229 13.203-13.229c7.3063 0 13.203 5.9229 13.203 13.229z; m38.671 165.55c0 7.3063-2.4569 14.288-9.7632 14.288-7.3063 0-9.7632-6.9812-9.7632-14.288s2.4569-14.288 9.7632-14.288c7.3063 0 9.7632 6.9812 9.7632 14.288z; m42.111 165.55c0 7.3063-5.8965 13.229-13.203 13.229-7.3063 0-13.203-5.9229-13.203-13.229s5.8965-13.229 13.203-13.229c7.3063 0 13.203 5.9229 13.203 13.229z" keyTimes="0; 0.6; 1"/>
         <animate class="right-arrow__circle--animate" attributeName="fill" begin="indefinite" dur="0.4s" values="hsl(316, 60%, 47%); hsl(316, 60%, 57%); hsl(316, 60%, 47%)" keyTimes="0; 0.6; 1"/>
