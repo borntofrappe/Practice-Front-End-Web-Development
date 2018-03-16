@@ -24,10 +24,8 @@ body {
   height: auto;
 }
 .left-arrow {
+  /* rotate arrow to use a single SVG file for both sides */
   transform: rotate(180deg);
-}
-.left-arrow__circle {
-  fill
 }
 
 .placeholder {
