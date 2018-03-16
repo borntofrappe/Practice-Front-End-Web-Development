@@ -9,6 +9,7 @@ As the visitor clicks on the two arrows, the circles in which the arrows are act
 ---
 
 **Be warned**: as I researched on the subject, I came to discover how support for SMIL is currently being dropped<!-- :( -->. The exercise is still a good excuse to practice with SVG, but for SVG animation it is better to move toward CSS animation and JS libraries such as [Snap.svg](snapsvg.io).
+
 ---
 
 The effect in question can be implemented through SMIL animation. This is a particular approach to animate SVG through HTML tags already baked in the SVG syntax.
@@ -112,13 +113,13 @@ The animation manufactured through the appropriate `<animate>` tag can be immedi
 
 - In the former case the attribute of `begin` can be left unspecified. The animation will then run as soon as the page loads.
 
-  ```
+  ```HTML
   <animate attributeName="fill" from="green" to="blue" dur="5s" />
   ```
 
 - In the second instance, the same attribute is set to `click`.
 
-  ```
+  ```HTML
   <animate attributeName="fill" from="green" to="blue" dur="5s" begin="click"/>
   ```
 
@@ -136,6 +137,6 @@ The animation manufactured through the appropriate `<animate>` tag can be immedi
   animationToBeTriggered.beginElement();
   ```
 
-The method can be implemented following whichever event JS allows. It can be fire as a result of a click event, as well as mouseenter, or scroll. Any and all JavaScript events are able to nest the mentioned function and trigger the functionality as needed.
+The method can be implemented following whichever event to which JS can listen. It can be fired as a result of a `click` event, as well as `mouseenter`, or `scroll`. Any and all JavaScript events are able to nest the mentioned function and trigger the functionality as needed.
 
 
