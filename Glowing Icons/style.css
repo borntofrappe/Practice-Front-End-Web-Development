@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+/* variables for the root element */
+:root {
+  --animation-duration: 15s;
+  --animation-delay: 0s;
+  --animation-degree-rotation-y: 32deg;
+  --animation-degree-rotation-z: -20deg;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: hsl(184, 72%, 26%);
+  color: hsl(184, 72%, 90%);
+}
+
+.container {
+  /* display items in a column layout, center them horizontally and vertically (height required)*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+.container--icons {
+  /* take up a portion of the column (two portions for the main section in the container--text)*/
+  flex-grow: 1;
+  /* lay icons on a row, align vertically  */
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.container--icons svg {
+  /* space icons */
+  flex-grow: 1;
+  /* icon sizes */
+  width: 84px;
+  height: 84px;
+  opacity: 0.5;
+  /* create light glow through a drop shadow */
+  filter: drop-shadow(1px 1px 10px hsl(184, 72%, 90%));
+
+  animation-name: modify-opacity, modify-rotation;
+  animation-duration: var(--animation-duration), var(--animation-duration);
+  animation-delay: var(--animation-delay), var(--animation-delay);
+  animation-iteration-count: infinite, infinite;
+  animation-direction: alternate, alternate;
+}
+
+.container--icons svg.bar-chart-icon {
+  --animation-duration: 10s;
+  --animation-delay: 4s;
+}
+.container--icons svg.calendar-icon {
+  --animation-delay: 0s;
+}
+.container--icons svg.check-icon {
+  --animation-delay: 4s;
+}
+
+.container--icons svg.dollar-sign-icon {
+  --animation-duration: 10s;
+  --animation-delay: 12s;
+}
+.container--icons svg.messages-icon {
+  --animation-duration: 10s;
+  --animation-delay: 8s;
+}
+
+.container--icons svg:nth-child(odd) {
+  --animation-degree-rotation-y: 12deg;
+  --animation-degree-rotation-z: 20deg;
+}
+
+.container--text {
+  /* take up two portions of the column */
+  flex-grow: 2;
+  /* lay header and paragraph in a column, center vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container--text h2 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+.container--text p {
+  font-size: 1.4rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+@keyframes modify-opacity {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+
+@keyframes modify-rotation {
+  33% {
+    transform: rotateY(0deg) rotateZ(var(--animation-degree-rotation-z));
+  }
+  67% {
+    transform: rotateY(var(--animation-degree-rotation-y)) rotateZ(var(--animation-degree-rotation-z));
+  }
+}
+@media only screen and (max-height: 400px) {
+  .container--icons svg:nth-child(2), .container--icons svg:nth-child(5) {
+    visibility: hidden;
+  }
+}
