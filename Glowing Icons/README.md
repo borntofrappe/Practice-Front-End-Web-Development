@@ -18,7 +18,7 @@ This is true in the simple project, where all graphics are built with the same `
 
 ```HTML
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.458 26.458" style="display: none;">
-<!-- define SVG, without further specifying the viewbox attribute -->
+  <!-- define SVG, without further specifying the viewbox attribute -->
 </svg>
 ```
 
@@ -130,9 +130,7 @@ Defining values which are then included for the property of `animation-duration`
   animation-duration: var(--animation-duration), var(--animation-duration);
   animation-delay: var(--animation-delay), var(--animation-delay);
 }
-``` 
 
-```CSS
 @keyframes modify-rotation {
   33% {
     transform: rotateY(0deg) rotateZ(var(--animation-degree-rotation-z));
