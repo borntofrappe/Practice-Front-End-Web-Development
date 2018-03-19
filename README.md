@@ -31,6 +31,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Navigation Bar Icon Changes on Hover**](https://codepen.io/borntofrappe/full/LdNNzq/)|In the navigation bar atop the page, as the visitor hovers on the different links, the shown icon changes, aptly to match the hovered item.|SVG, hover event, background|14th March 2018|
 |[**SVG SMIL Animation**](https://codepen.io/borntofrappe/full/EEybEz/)|Animate changes in color and shapes for SVG assets, directly inline in the SVG declaration.|SVG, SVG animation|15th March 2018|
 |[**Glowing Icons**](https://codepen.io/borntofrappe/full/wmzYEw/)|Display multiple icons which are animated to change in opacity and rotation, in different time frames.|SVG, CSS animation, CSS variables|18th March 2018|
-|[**Ruled Paper Animation**](https://codepen.io/borntofrappe/full/eMggoM/)|Display ruled paper which is animated out of sight with falling cells, giving space to underlying text.|19th March 2018|
+|[**Ruled Paper Animation**](https://codepen.io/borntofrappe/full/eMggoM/)|Display ruled paper which is animated out of sight with falling cells, giving space to underlying text.|Flex basis, CSS animation, CSS variables|19th March 2018|
 
 
