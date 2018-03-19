@@ -17,4 +17,4 @@ Click a button, the page is animated making all cells and the first text elments
 
 ## Lessons learned
 
-
+// ADD LESSONS LEARNED, regarding screen size, flex basis and grow, css animations and variables
