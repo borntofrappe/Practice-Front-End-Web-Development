@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Ruled Paper Animation</title>
+  <meta name="description" content="The purpose of this project is to experiment once more with CSS animations and CSS variables. The goal is to position some text upon ruled paper, which is animated out of sight at the click of a button.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<!--
+container for the cells making up the ruled paper structure
+the actual number of cells is exaggerrated to cover most screen sizes
+
+a better solution would be to consider the width and height of the viewport, through JS
+and append only as many cells as needed to cover the entire visible area (possible upgrade)
+-->
+  <div class="grid">
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+    <div class="grid__cell grid__cell--fall"></div>
+  </div>
+
+
+  <!--
+    containers with text
+    - both absolute positioned on top of the grid of cells
+    - each containing a button which triggers the animation from container to container
+  -->
+  <div class="container__text container__text--first">
+    <h1>You know what I think?</h1>
+    <p>I think somebody's got a little crush on Casey. How about I fix you two up, what do you think?</p>
+    <button>Okay</button>
+  </div>
+
+  <div class="container__text container__text--second">
+    <h2>That all the pieces of my life are falling right into place.</h1>
+    <button>Okay</button>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
