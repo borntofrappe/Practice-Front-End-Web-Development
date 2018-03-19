@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
-/* variables for the root element */
+/* declare variables for the root element, available throughout the stylesheet */
 :root {
   --animation-duration: 15s;
   --animation-delay: 0s;
   --animation-degree-rotation-y: 32deg;
   --animation-degree-rotation-z: -20deg;
 }
+
 
 * {
   box-sizing: border-box;
@@ -34,7 +35,7 @@ body {
 }
 
 .container--icons {
-  /* take up a portion of the column (two portions for the main section in the container--text)*/
+  /* take up a portion of the column */
   flex-grow: 1;
   /* lay icons on a row, align vertically  */
   display: flex;
@@ -42,7 +43,7 @@ body {
   width: 100%;
 }
 .container--icons svg {
-  /* space icons */
+  /* space icons from each other */
   flex-grow: 1;
   /* icon sizes */
   width: 84px;
@@ -51,6 +52,7 @@ body {
   /* create light glow through a drop shadow */
   filter: drop-shadow(1px 1px 10px hsl(184, 72%, 90%));
 
+  /* define two animations occuring in the time frame defined by the CSS variables declared above */
   animation-name: modify-opacity, modify-rotation;
   animation-duration: var(--animation-duration), var(--animation-duration);
   animation-delay: var(--animation-delay), var(--animation-delay);
@@ -58,6 +60,7 @@ body {
   animation-direction: alternate, alternate;
 }
 
+/* alter CSS variables for the specific icons as to introduce variability */
 .container--icons svg.bar-chart-icon {
   --animation-duration: 10s;
   --animation-delay: 4s;
@@ -101,6 +104,7 @@ body {
   line-height: 1.5;
 }
 
+/* animate opacity from a value, to another and back (as per alternate animation-direction) */
 @keyframes modify-opacity {
   from {
     opacity: 0.5;
@@ -110,6 +114,7 @@ body {
   }
 }
 
+/* animate rotation, changing the Z axis only at first, changing the Y axis at a later stage (originaly 0,0 for both) */
 @keyframes modify-rotation {
   33% {
     transform: rotateY(0deg) rotateZ(var(--animation-degree-rotation-z));
@@ -118,6 +123,8 @@ body {
     transform: rotateY(var(--animation-degree-rotation-y)) rotateZ(var(--animation-degree-rotation-z));
   }
 }
+
+/* hide central icons if the viewport is to short (risk of overlaps between icons and text) */
 @media only screen and (max-height: 400px) {
   .container--icons svg:nth-child(2), .container--icons svg:nth-child(5) {
     visibility: hidden;
