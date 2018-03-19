@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+/* define variables used in the animation and updated for some cells as to include variability */
+:root {
+  --falling-rotation: 110deg;
+  --falling-translation: 2000px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: hsl(9, 100%, 62%);
+  overflow: hidden;
+}
+
+.grid {
+  /*
+  make the container of all cells a flex container; container
+  - which wraps as the cells reach the end of the width;
+-   whose children align vertically to the center of the page (as to be laid beneath the text in the visible area; sort of made-up solution for extremely large screen sizes)
+  */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
+}
+
+.grid__cell {
+  /* make the flex items at least 180px wide and 50px tall, sharing each a portion of the width as per flex-grow set to an equal value of 1 */
+  flex-basis: 180px;
+  flex-grow: 1;
+  height: 50px;
+  background-color: #fff;
+  /* border for the ruled paper */
+  border: 1px solid hsl(0, 0%, 90%);
+}
+
+.container__text {
+  /* absolute position both container__text to stretch across the visible area */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* center nested elements (headers and paragraphs)*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.container__text--first h1 {
+  color: hsl(0, 0%, 5%);
+  font-size: 2.8rem;
+}
+.container__text--first p {
+  color: hsl(0, 0%, 15%);
+  max-width: 700px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.container__text--second {
+  /* hide second container__text by default, as it is animated into view at the click of the button  */
+  transform: scale(0);
+}
+.container__text--second h2 {
+  color: #fff;
+  font-size: 3.2rem;
+  max-width: 500px;
+}
+
+.container__text button {
+  font-size: 2.5rem;
+  border: 4px solid hsl(0, 0%, 90%);
+  border-radius: 0;
+  outline: none;
+  padding: 0.3rem 0.7rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease-out;
+}
+
+.container__text--first  button {
+  background: #fff;
+}
+.container__text--first  button:hover {
+  background: #eee;
+}
+.container__text--second  button {
+  color: #fff;
+  background: hsl(9, 100%, 62%);
+}
+.container__text--second  button:hover {
+  color: hsl(9, 100%, 62%);
+  background: #fff;
+}
+
+/* define classes for each animation, added and removed through JS*/
+.animation-grid-cell-fall {
+  animation: grid__cell--fall 4s ease-in forwards;
+}
+.animation-container-text-second {
+  animation: container__text--second-appear 1s 1.5s ease-in-out forwards;
+}
+
+/*
+update variables and introduce delays for some, but not all elements
+as to introduce variability
+*/
+.grid__cell--fall:nth-child(3n) {
+  --falling-rotation: 150deg;
+  --falling-translation: 1500px;
+  animation-delay: 0.5s;
+}
+.grid__cell--fall:nth-child(4n-1) {
+  animation-delay: 0.2s;
+}
+.container__text--first {
+  --falling-rotation: -50deg;
+  --falling-translation: 1000px;
+}
+
+
+/* define the behavior of the animations */
+@keyframes grid__cell--fall {
+  /*
+  change opacity almost immediately,
+  translate vertically and rotate the elements more slowly, as per the values specified in the variables
+  */
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+    transform: translateY(var(--falling-translation)) rotate(var(--falling-rotation));
+  }
+  /* while maintaining the element hidden, revert it to its original position (a change in opacity will make it "reappear" in its original location) */
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--falling-translation)*-1)) rotate(0);
+  }
+}
+
+@keyframes container__text--second-appear {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* reduce original width of the cell for smaller screens  */
+@media only screen and (max-width: 500px) {
+  .grid .cell {
+    flex-basis: 100px;
+  }
+}
