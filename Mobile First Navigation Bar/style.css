@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Exo 2', sans-serif;
+  color: #777;
+}
+
+/* create horizontal navigation bar, whose items are centered vertically */
+nav.navigation-bar {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+  /* position relative as to absolute position the menu of additional items, 
+  which is moved into view/ out of sight as needed*/
+  position: relative;
+}
+nav.navigation-bar div.menu-toggle {
+  cursor: pointer;
+  /* impose the toggle option on top of the following content, 
+  allowing for the click event to occur even when the additional items are placed into view */
+  z-index: 2;
+}
+
+nav.navigation-bar .menu-toggle span {
+  /* make element a block element (inline by default, as per span) */
+  display: block;
+  /* 
+  space elements apart from each other
+  remember this value as it will be used on the top and bottom span when transitioning them vertically 
+  */
+  margin: 8px 0;
+  height: 3px;
+  width: 42px;
+  background-color: #ee4a23;
+  transition: all 0.4s ease-out;
+}
+
+/* 
+for each span, define the properties each should have at the end of the transition
+classes applied through JS when responding to the click event
+
+rotate and reposition the first and last span, while scaling the middle span to be hidden
+*/ 
+.rotation-first-span{
+  transform: rotate(-45deg) translateY(8px) translateX(-7px);
+  /* !important added as to take precedence over the background color of #ee4a23, which is otherwise shown */
+  background-color: #fff !important;
+}
+.scale-second-span {
+  transform: scale(0);
+}
+.rotation-third-span {
+  transform: rotate(45deg) translateY(-8px) translateX(-7px);
+  background-color: #fff !important;
+}
+
+/* 
+style for the additional items shown/hidden on toggle
+*/
+nav.navigation-bar div.menu-items {
+  /* element positioned to the top left of the navigation bar (which has position relative) */ 
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  padding: 5.5rem 2rem 2rem 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  background-color: #444; 
+  border-radius: 0 0 10px 0;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);  
+  
+  /* element pushed horizontally to the left */ 
+  transform: translateX(-300%);
+  transition: all 0.5s ease-out;
+}
+
+/* 
+class containing the property which the container assumes upon completing its transition into view
+added through JS, just like the classes defined for the spans 
+*/
+.horizontal-translation {
+  transform: translateX(0) !important;
+}
+
+nav.navigation-bar div.menu-items a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav.navigation-bar div.menu-items a p {
+  color: #ccc;
+}
+nav.navigation-bar div.menu-items a p:hover {
+  color: #fff;
+}
+
+
+nav.navigation-bar h2 {
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+nav.navigation-bar svg.project-icon {
+  margin: 0 1rem;
+  height: 60px;
+}
+
+/*
+for smaller screen sizes hide the header, the spaceship, and the  spaceship-streak
+showing just the toggle action and the SVG icon
+*/
+@media only screen and (max-width : 400px) {
+
+  nav.navigation-bar h2, .spaceship-icon, .streak {
+    display: none;
+  }
+}
+
+.spaceship-streak {
+  /* 
+  position to the bottom right of the navigation bar, stretch a portion of the visible area 
+  */
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  width: 30%;
+  height: 4px;
+  background-color: #ee4a23;
+}
+.spaceship-icon {
+  /*
+  position to the bottom right of the navigation bar, just following the .spaceship-streak element
+  */
+  position: absolute;
+  bottom: -15px;
+  right: 30%;
+  height: 30px;
+  /*
+  rotate element as, by default, the SVG shows a spaceship aimed to the right 
+  */
+  transform: rotate(180deg);
+  /*
+  background color included as the "window" in the spaceship is actually a hollow portion of the SVG, as to hide the underlying black line
+  */
+  background-color: #fff;
+  /*
+  animation played after 10s, if the visitor is still on page
+  with a timing function hopefully close to a spaceship launch
+  */
+  animation: lift-off 10s 10s cubic-bezier(0.49,-0.2, 0.46, 1.07) 10 alternate;
+}
+@keyframes lift-off {
+  to {
+    right: 36%;
+  }
+}
+
+/*
+center the filler container and its header in a 400px container
+*/
+.container {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.container h1{
+  font-size: 3rem;
+  max-width: 400px;
+}

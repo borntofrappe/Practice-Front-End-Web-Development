@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Mobile First Navigation Bar</title>
+  <meta name="description" content="The purpose of this project is to create a navigation bar primed for mobile experience. Which means, the navigation bar ought to display only the items strictly necessary and a toggle option to display additional results.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <!-- 
+    declare set of SVG used in the projects
+    - one for the project-icon, shown in the navigation bar
+    - one for the spaceship-icon, added for flair at the bottom right of the navigation bar
+
+  -->
+  <svg style="display:none">
+    <defs>
+        <g id="project-icon" width="80" height="100" viewBox="0 0 21.167 26.458" transform="matrix(.04439 0 0 .04498 13.882 -31.19)" fill="#ee4a23">
+            <path d="M69.147 977.893c53.367 49.393 87.69 104.88 94.651 169.125 1.124 10.366-.45 18.288-11.651 21.173l-21.945 5.653c-11.2 2.886-31.132-6.96-33.305-17.518-11.934-57.97-75.127-115.642-127.109-170.356-9.434-9.93-.801-20.16 11.652-21.173l54.402-4.422c12.453-1.012 23.015 7.995 33.305 17.518zM-111.997 1079.423c-74.696-16.345-139.819-56.997-191.19-132.57-8.287-12.192-12.839-23.627-6.705-37.033l12.019-26.267c6.134-13.407 27.837-18.23 37.034-6.705 50.496 63.275 138.359 81.594 215.872 105.906 14.068 4.412 15.107 24.918 6.706 37.034l-36.701 52.93c-8.401 12.115-22.632 9.856-37.035 6.705z"/>
+            <rect ry="18.132" rx="12.903" y="1101.2" x="-178.82" height="169.613" width="87.542" transform="translate(12.65)"/>
+            <rect width="87.542" height="169.613" x="-75.029" y="1101.2" rx="12.903" ry="18.132" transform="translate(12.65)"/>
+            <rect ry="25.07" rx="27.77" y="1218.777" x="-186.149" height="62.869" width="94.871" transform="translate(12.65)"/><rect width="94.871" height="62.869" x="-82.357" y="1218.777" rx="27.77" ry="25.07" transform="translate(12.65)"/>
+            <path d="M-116.59 741.456s46.507-108.06 94.382 0zM-22.208 741.456s109.295-43.525 66.737 66.738zM-116.59 741.456s-109.295-43.525-66.738 66.738zM-176.173 838.451H37.375a28.574 28.574 0 0 1 28.636 28.637v254.759c0 15.864-14.218 22.018-28.636 28.636-71.183 32.675-142.365 29.296-213.548 0-14.67-6.038-28.636-12.772-28.636-28.636v-254.76a28.574 28.574 0 0 1 28.636-28.636z"/>
+            <ellipse ry="132.046" rx="135.41" cy="855.623" cx="-69.399"/><path d="M40.712 838.452c13.501 55.316-34.046 87.98-108.145 86.989-70.46-.943-121.398-23.122-113.768-79.493 6.196-45.766 46.865-84.92 108.145-86.99 61.279-2.07 102.795 34.54 113.768 79.493z" fill="#fff"/>
+            <path d="M-59.271 779.107s-111.212-14.868-108.239 83.26c0 0 17.247-79.692 108.239-83.26z"/>
+            <path d="M-153.562 1232.697s-23.383 20.061-2.74 37.397c0 0-13.17-18.106 2.74-37.397zM-50.554 1232.697s-23.383 20.061-2.739 37.397c0 0-13.17-18.106 2.74-37.397zM-255.277 898.668s-14.186-27.35-35.781-11.214c0 0 20.637-8.683 35.78 11.214zM116.747 1048.77s-6.772-25.344-47.04-55.033c0 0 34.987 29.408 47.04 55.034zM-154.004 740.84s-30.29-5.636-30.85 21.315c0 0 5.847-21.612 30.85-21.316zM47.62 767.021s-2.077-30.74-28.32-24.576c0 0 22.387.285 28.32 24.576zM-48.089 712.31s-20.82-22.71-37.467-1.507c0 0 17.663-13.759 37.467 1.507z" fill="#fff"/>
+          </g>
+
+      <g id="spaceship-icon" width="100" height="67" viewBox="0 0 26.458 17.727" fill="#ee4a23">
+        <path d="M12.942 3.664c-2.673-.003-4.975.127-4.975.127v10.145s2.302.13 4.975.127c2.673-.003 5.717-.138 7.202-.669 2.289-.818 6.314-4.53 6.314-4.53s-4.025-3.713-6.314-4.531c-1.485-.53-4.529-.666-7.202-.67zm4.573 3.728a1.714 1.471 0 0 1 1.714 1.472 1.714 1.471 0 0 1-1.714 1.471 1.714 1.471 0 0 1-1.714-1.471 1.714 1.471 0 0 1 1.714-1.472z"/>
+        <path d="M10.687 3.79L7.307 0 0 2.246v2.246l4.626 1.626v2.866h6.604z"/>
+        <path d="M10.687 13.936l-3.38 3.791L0 15.481v-2.246l4.626-1.626V8.744h6.604z"/>
+      </g>    
+    </defs>      
+  </svg>
+
+
+  <!-- structure of the page -->
+    
+  <!-- 
+    navigation bar with the following elements 
+    - a div with three nested span, used to create the "hamburger" menu which enables the toggle action 
+    - a div with nested three link-able paragraphs, for the additional items toggled into view/out of sight 
+    - an SVG element for the project-icon
+    - a header with filler text
+
+    Beside these elements, which are used to create the navigation bar layout and animation, 
+    two more HTML elements are added just for flair:
+    - div container a colorful horizontal line, covering a third of the available viewport
+    - SVG for the spaceship, added purely for aesthetical reasons  
+  -->
+  <nav class="navigation-bar">
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span> 
+    </div>
+
+    <div class="menu-items">
+      <a href="#">
+        <p>Pricing</p>
+      </a>
+      <a href="#">
+        <p>About</p>
+      </a>
+      <a href="#">
+        <p>Contact Us</p>
+      </a>
+    </div>
+
+    <svg class="project-icon" viewBox="0 0 21.167 26.458">
+      <use href="#project-icon">
+    </svg>
+
+    <h2>BornToFrappe</h2>
+
+    <div class="spaceship-streak"></div>
+
+    <svg class="spaceship-icon" viewBox="0 0 26.458 17.727">
+      <use href="#spaceship-icon">
+    </svg>
+  </nav>
+
+  <!-- header with filler information -->
+  <div class="container">
+    <h1>Isn't that a neat navigation bar</h1>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
