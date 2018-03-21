@@ -116,17 +116,6 @@ nav.navigation-bar svg.project-icon {
   height: 60px;
 }
 
-/*
-for smaller screen sizes hide the header, the spaceship, and the  spaceship-streak
-showing just the toggle action and the SVG icon
-*/
-@media only screen and (max-width : 400px) {
-
-  nav.navigation-bar h2, .spaceship-icon, .streak {
-    display: none;
-  }
-}
-
 .spaceship-streak {
   /* 
   position to the bottom right of the navigation bar, stretch a portion of the visible area 
@@ -180,4 +169,15 @@ center the filler container and its header in a 400px container
 .container h1{
   font-size: 3rem;
   max-width: 400px;
+}
+
+/*
+for smaller screen sizes hide the header, the spaceship, and the  spaceship-streak
+showing just the toggle action and the SVG icon
+*/
+@media only screen and (max-width : 400px) {
+
+  nav.navigation-bar h2, .spaceship-icon, .spaceship-streak {
+    display: none;
+  }
 }
