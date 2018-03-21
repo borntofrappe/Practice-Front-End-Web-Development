@@ -1,4 +1,4 @@
-Link to the working pen right [here]().
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/zWwwdg/).
 
 ## Preface
 
@@ -10,3 +10,4 @@ That being said, the SVG are manufactured, optimized and included-in house. The 
 
 ## Lessons learned 
 
+// TODO: add lessons learned in the project (the project itself is well documented, but include here larger considerations

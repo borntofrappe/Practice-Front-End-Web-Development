@@ -32,5 +32,6 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG SMIL Animation**](https://codepen.io/borntofrappe/full/EEybEz/)|Animate changes in color and shapes for SVG assets, directly inline in the SVG declaration.|SVG, SVG animation|15th March 2018|
 |[**Glowing Icons**](https://codepen.io/borntofrappe/full/wmzYEw/)|Display multiple icons which are animated to change in opacity and rotation, in different time frames.|SVG, CSS animation, CSS variables|18th March 2018|
 |[**Ruled Paper Animation**](https://codepen.io/borntofrappe/full/eMggoM/)|Display ruled paper which is animated out of sight with falling cells, giving space to underlying text.|Flex basis, CSS animation, CSS variables|19th March 2018|
+|[**Mobile First Navigation Bar**](https://codepen.io/borntofrappe/full/zWwwdg/)|Create a navigation bar displaying only few items and a toggle option to display additional results.|Navigation bar, mobile, toggle|21th March 2018|
 
 
