@@ -13,24 +13,12 @@ const menuToggleMenuItems = document.querySelector(".menu-items");
 
 menuToggle.addEventListener("click", toggleMenu);
 
-/* using the .classList properties 
-- check if an arbitrary span already has the class which enables its animation
-    - if the class is present remove all classes used for the animation from the affected HTML elements
-    - otherwise add the classes and enable the animation
-    */
+/* using the .classList property toggle the class for each element
+remove if present, add if missing
+*/
 function toggleMenu() {
-    
-    if(menuToggleFirstSpan.classList.contains("rotation-first-span")) {
-        menuToggleFirstSpan.classList.remove("rotation-first-span");
-        menuToggleSecondSpan.classList.remove("scale-second-span");
-        menuToggleThirdSpan.classList.remove("rotation-third-span");
-        menuToggleMenuItems.classList.remove("horizontal-translation");
-    }
-    else {
-        menuToggleFirstSpan.classList.add("rotation-first-span");
-        menuToggleSecondSpan.classList.add("scale-second-span");
-        menuToggleThirdSpan.classList.add("rotation-third-span");
-        menuToggleMenuItems.classList.add("horizontal-translation");
-    }
-    
+    menuToggleFirstSpan.classList.toggle("rotation-first-span");
+    menuToggleSecondSpan.classList.toggle("scale-second-span");
+    menuToggleThirdSpan.classList.toggle("rotation-third-span");
+    menuToggleMenuItems.classList.toggle("horizontal-translation");    
 }
