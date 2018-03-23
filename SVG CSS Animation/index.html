@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Animating SVG with CSS</title>
+  <meta name="description" content="Simple project in which to apply CSS concepts regarding animation. To SVG assets.">
+
+  
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <!-- 
+    declare set of SVG used in the projects
+  -->
+  <svg style="display:none">
+    <defs>
+        <g id="train" width="800" height="140" viewBox="0 0 211.667 37.042"><g transform="matrix(.91754 0 0 .9008 -13.353 -115.752)"><rect fill="#677821" rx="5.053" height="33.203" width="41.834" y="129.59" x="73.72"/><path fill="#241c1c" d="M24.789 158.43h41.085v6.462H24.789z"/><circle r="4.46" cy="165.16" cx="28.702"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="28.702"/><circle r="4.46" cy="165.16" cx="37.349"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="37.349"/><circle r="5.461" cy="164.16" cx="49.909"/><circle fill="#6c5353" r="3.566" cy="164.16" cx="49.909"/><circle r="5.461" cy="164.16" cx="60.497"/><circle fill="#6c5353" r="3.566" cy="164.16" cx="60.497"/><rect fill="#132407" rx="5.485" height="13" width="17.248" y="144.37" x="19.937"/><path fill="#4d4d4d" d="M23.325 132.64l2.655 14.042h6.495l2.692-14.053z"/><path fill="#677821" d="M22.637 157.12h2.728v9.139H14.553l.405-2.767z"/><rect fill="#2d5016" rx="2.981" height="15.703" width="36.556" y="142.95" x="22.547"/><g fill="#677821"><rect rx="2.078" height="27.669" width="17.202" y="130.76" x="48.671"/><rect rx="4.381" height="33.203" width="74.169" y="129.59" x="120.16"/><rect rx="5.053" height="33.203" width="41.834" y="129.59" x="197.51"/></g><g stroke-width=".064"><rect fill="#89a02c" rx="2.246" height="4.634" width="20.981" y="128.6" x="46.844"/><rect fill-opacity=".89" fill="#80e5ff" rx="2.246" height="9.911" width="11.971" y="134.65" x="51.22"/><path fill="#bcd35f" d="M52.25 147.65h10.04v6.822H52.25z"/><rect fill="#80e5ff" rx="2.246" height="9.911" width="11.971" y="134.65" x="78.688"/><rect fill="#80e5ff" rx="2.246" height="9.911" width="11.971" y="134.65" x="97.717"/><text stroke-opacity=".89" stroke-dasharray=".05291667,.05291667" stroke-width=".529" stroke="#677821" fill="#fff" font-family="sans-serif" style="line-height:1.25" word-spacing="0" letter-spacing="0" font-size="13.156" y="149.9" x="123.597"><tspan font-family="Lato" font-weight="700" y="149.9" x="123.597">WELCOME</tspan></text><rect fill="#80e5ff" rx="2.246" height="9.911" width="11.971" y="134.65" x="202.24"/><rect fill="#80e5ff" rx="2.246" height="9.911" width="11.971" y="134.65" x="221.27"/><rect fill="#fff" rx=".45" height=".931" width="66.601" y="151.74" x="123.91"/></g><rect fill="#333" rx=".841" height="4.939" width="11.874" y="128.5" x="23.292"/><g fill="#ffe680"><rect fill="gray" rx=".624" height="2.047" width="11.958" y="157.14" x="63.548"/><rect rx=".645" height="1.802" width="12.357" y="157.27" x="63.348"/><rect rx=".489" height="1.802" width="9.364" y="161.29" x="31.655"/><rect rx=".645" height="1.802" width="12.357" y="162.91" x="49.676"/><rect rx=".577" height="1.769" width="11.064" y="152.82" x="66.045" transform="matrix(.98722 .15934 -.16537 .98623 0 0)"/><rect fill="gray" rx=".624" height="2.047" width="11.958" y="157.14" x="111.35"/><rect rx=".645" height="1.802" width="12.357" y="157.27" x="111.42"/><rect fill="gray" rx=".624" height="2.047" width="11.958" y="157.14" x="189.34"/><rect rx=".645" height="1.802" width="12.357" y="157.27" x="191.06"/><g fill="gray"><path d="M239.35 149.26h5.656v2.047h-5.656z"/><rect rx="1.078" height="2.047" width="20.662" y="157.14" x="224.58"/><rect rx=".636" height="2.047" width="12.184" y="243.19" x="-159.19" transform="rotate(-90)"/></g></g><rect fill="#999" rx="2.078" height="3.095" width="42.505" y="156.61" x="24.607"/><rect fill="#17280b" rx="2.078" height="17.014" width="3.368" y="141.5" x="40.443"/><rect fill="#17280b" rx="2.078" height="17.142" width="3.368" y="141.667" x="31.706"/><circle r="4.46" cy="165.16" cx="79.376"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="79.376"/><circle r="4.46" cy="165.16" cx="109.07"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="109.07"/><rect fill="#999" rx="2.078" height="3.095" width="42.505" y="156.61" x="73.436"/><circle r="4.46" cy="165.16" cx="125.82"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="125.82"/><circle r="4.46" cy="165.16" cx="188.89"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="188.89"/><rect fill="#999" rx="1.816" height="3.095" width="74.5" y="156.61" x="119.88"/><circle r="4.46" cy="165.16" cx="203.17"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="203.17"/><circle r="4.46" cy="165.16" cx="232.87"/><circle fill="#6c5353" r="2.913" cy="165.16" cx="232.87"/><rect fill="#999" rx="2.078" height="3.095" width="42.505" y="156.61" x="197.23"/></g><path d="M54.288 27.663H92.72v4.985H54.29zm42.609 0H164v4.985H96.897zm70.972 0h38.43v4.985h-38.43z"/></g>
+        <g id="sun" width="100" height="100" viewBox="0 0 26.458 26.458"><circle r="13.229" cy="13.229" cx="13.229"/></g>
+        <g id="stop-sign" width="76.256" height="200" viewBox="0 0 20.176 52.917"><path d="M8.835 1.78h2.507v5.682H8.835z" fill="#fff"/><path d="M8.835 7.462h2.507v5.682H8.835z" fill="#af2311"/><path d="M8.835 13.144h2.507v5.682H8.835z" fill="#fff"/><path d="M8.835 18.826h2.507v5.682H8.835z" fill="#af2311"/><path d="M8.835 24.508h2.507v5.681H8.835z" fill="#fff"/><path d="M8.835 30.19h2.507v5.681H8.835z" fill="#af2311"/><path d="M8.835 35.871h2.507v5.682H8.835z" fill="#fff"/><path d="M8.835 41.553h2.507v5.682H8.835z" fill="#af2311"/><path d="M8.835 47.235h2.507v5.682H8.835z" fill="#fff"/><path transform="matrix(.07817 0 0 .07816 .06 -.71)" fill="#fff" d="M15.947 9.771L-.089 37.547l96.306 55.602L-.09 148.751l16.036 27.776 112.342-64.86 112.343 64.86 16.036-27.776-96.306-55.602 96.306-55.602L240.632 9.77 128.289 74.63z" stroke="#000"/><path fill="#fff" d="M17.327 22.79l-4.28 4.224-6.013-.039-4.224-4.279.04-6.012 4.279-4.224 6.013.04 4.224 4.279z"/><path fill="#af2311" d="M16.825 22.579l-3.983 3.93-5.596-.036-3.93-3.982.036-5.595 3.982-3.93 5.596.036 3.931 3.982z"/><text word-spacing="0" letter-spacing="0" font-size="4.524" font-weight="400" style="line-height:1.25" x="5.438" y="19.58" transform="scale(.90871 1.10046)" font-family="sans-serif" stroke-width=".113"><tspan font-weight="700" x="5.438" y="19.58" style="-inkscape-font-specification:'lato Bold'" font-family="lato" fill="#fff">STOP</tspan></text></g>
+        <g id="rail" width="200" height="10" viewBox="0 0 52.917 2.646"><path d="M.317.32H52.6v2.006H.317z" stroke-opacity=".678" stroke-dashoffset="5.518" stroke-dasharray="2.56044122,.64011031" stroke-miterlimit="3.7" stroke-linejoin="round" stroke-width=".64" stroke="#000" fill="#ccc"/></g>
+        <g id="cloud-one" width="100" height="70" viewBox="0 0 26.458 18.521"><g transform="matrix(.67263 0 0 .75331 -40.17 -83.344)"><rect rx="6.377" height="10.793" width="39.336" y="124.43" x="59.72"/><circle r="7.316" cy="123.35" cx="70.154"/><circle r="11.393" cy="122.03" cx="83.705"/></g></g>
+        <g id="cloud-two" width="100" height="55" viewBox="0 0 26.458 14.552"><g transform="matrix(.8037 0 0 .80867 -53.152 -93.717)"><rect x="66.135" y="124.43" width="32.921" height="9.455" rx="5.337"/><circle cx="77.003" cy="124.79" r="6.347"/><ellipse cx="87.113" cy="123.39" rx="9.389" ry="7.5"/></g></g>
+        <g id="background" width="500" height="200" viewBox="0 0 132.292 52.917"><path fill="#520" d="M119.387 23.69v22.3H7.622V4.443L11.114 0h3.493L18.1 7.393h6.985l3.493 7.033h3.492l3.493 3.946h6.985l3.493-7.72h6.985l3.493 4.632h10.478l3.493-13.38h6.985l3.493 4.803h3.492l3.493 9.778h10.478l3.493-6.519h3.493l3.492 3.946 1.737-9.469h8.741z"/><path fill="#803300" d="M21.423 25.559v19.388h106.901V8.827l-3.34-3.862h-3.34l-3.342 6.426h-6.68l-3.342 6.115h-3.34l-3.34 3.43h-6.682l-3.34-6.71h-6.682l-3.34 4.026H71.533L68.192 6.62h-6.681l-3.341 4.175h-3.34l-3.34 8.501H41.467l-3.341-5.667h-3.341l-3.34 3.43-1.661-8.232h-8.362z"/><path fill="#f60" d="M0 28.924v23.993h132.292V8.216l-4.134-4.78h-4.135l-4.134 7.954h-8.268l-4.134 7.568h-4.134l-4.134 4.245H90.95l-4.135-8.306h-8.268l-4.134 4.983H62.012L57.878 5.486h-8.27l-4.133 5.168H41.34l-4.134 10.519H24.805L20.67 14.16h-4.135l-4.134 4.245-2.055-10.188H0z"/></g>
+    </defs>      
+  </svg>
+
+  <!-- 
+    describe the structure of the page
+  -->
+  <div class="container">
+    <div class="container__animation">
+
+      <svg class="train" viewBox="0 0 211.667 37.042">
+        <use href="#train">
+      </svg>
+          
+      <svg class="sun" viewBox="0 0 26.458 26.458">
+        <use href="#sun">
+      </svg>
+
+      <svg class="stop-sign" viewBox="0 0 20.176 52.917">
+        <use href="#stop-sign">
+      </svg>
+
+      <svg class="cloud cloud-one" viewBox="0 0 26.458 18.521">
+        <use href="#cloud-one">
+      </svg>
+
+      <svg class="cloud cloud-two" viewBox="0 0 26.458 14.552">
+        <use href="#cloud-two">
+      </svg>
+
+      <div class="rail"></div>
+    </div>
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
