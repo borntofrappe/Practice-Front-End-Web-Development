@@ -29,59 +29,59 @@ Breaking down each component:
 
 1. Each animation is introduced by the **@keyframes** keyword and declared with a **name**. This name will be essential to later reference the animation on a CSS selector.
 
-  It is advisable to pick a name roughly depicting the animation in a concise fashion, something like `move-image-to-the-right`, `make-header-disappear`, but beside this suggestion, you are free to call it whatchamacallit.
+    It is advisable to pick a name roughly depicting the animation in a concise fashion, something like `move-image-to-the-right`, `make-header-disappear`, but beside this suggestion, you are free to call it whatchamacallit.
+    
+    ```CSS
+    @keyframes name-of-the-animation {
+    }
+    ```
+  
+
+1. In between parenthesis is where the structure of the animation is explained. In here you are able to specify the *pace* of the animation and which *properties* to change. The syntax eerily replicates normal CSS styling, and it will therefore feel rather familiar.
+
+- define the **pace** of the animation, through *keywords* or *percentages*.
+
+  Keywords such as `to` and `from`.
+
+  ```css
+  @keyframes name-of-the-animation {
+    from
+    to
+  }
+  ```
+  Percentages representing the entire spectrum between `0%` and `100%`, for more granular control on the animation.
 
   ```CSS
   @keyframes name-of-the-animation {
-
+    0%
+    20%
+    50%
+    100%
   }
   ```
 
-2. In between parenthesis is where the structure of the animation is explained. In here you are able to specify the *pace* of the animation and which *properties* to change. The syntax eerily replicates normal CSS styling, and it will therefore feel rather familiar.
+- define which **properties** to change at each point. In between parenthesis, declaring property-value pairs like any respectful CSS statement would.
 
-  - define the **pace** of the animation, through *keywords* or *percentages*.
-
-      Keywords such as `to` and `from`.
-
-      ```css
-      @keyframes name-of-the-animation {
-        from
-        to
+  ```CSS
+  @keyframes name-of-the-animation {
+    0% {
+      color: blue;
+      background-color: azure;
       }
-      ```
-      Percentages representing the entire spectrum between `0%` and `100%`, for more granular control on the animation.
-
-      ```css
-      @keyframes name-of-the-animation {
-        0%
-        20%
-        50%
-        100%
-      }
-      ```
-
-    - define which **properties** to change at each point. In between parenthesis, declaring property-value pairs like any respectful CSS statement would.
-
-      ```css
-      @keyframes name-of-the-animation {
-        0% {
-          color: blue;
-          background-color: azure;
-          }
-        20% {
-          color: yellow;
-          background-color: purple;
-          }       
-        50% {
-          color: orange;
-          background-color: pink;
-        }
-        100% {
-          color: red;
-          background-color: gold;
-        }
-      }
-      ```
+    20% {
+      color: yellow;
+      background-color: purple;
+      }       
+    50% {
+      color: orange;
+      background-color: pink;
+    }
+    100% {
+      color: red;
+      background-color: gold;
+    }
+  }
+  ```
 
 #### Additional Considerations on pace and properties
 
@@ -186,9 +186,9 @@ Some of them are particularly straightforward, while others have subtle, not-so-
 
   - `forwards`; the element retains the properties specified by the animation in the last keyframe (this depends on the basis of direction and iteration-count. For a normal animation going to 100%, the values adopted will reside in this last 100% keyframe).
 
-  - `backwards`; the element retains the properties specified by the animation in the first keyframe. Moreover, if a delay is set up for the animation, 
+  - `backwards`; the element retains the properties specified by the CSS, before the animation occurs. Unlike `none`, the element will initially assume the properties specified by the first keyframe, **if** a delay is introduced in the animation. Without delay, this value is virtually indentical to the default value of none. 
 
-  - `both`; at the end of the animation the element retains the properties as specified by `forwards`, by the last keyframe. At the beginning of the animation the element assumes the properties as specified by `backwards` (if there is a delay). 
+  - `both`; at the end of the animation the element retains the properties as specified by `forwards`, by the last keyframe. At the beginning of the animation, if there is a delay, the element assumes the properties as specified by `backwards`, in the first keyframe. 
 
 - **animation-play-state**
 
