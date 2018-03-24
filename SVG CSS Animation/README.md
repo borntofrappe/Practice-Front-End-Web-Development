@@ -144,7 +144,7 @@ Some of them are particularly straightforward, while others have subtle, not-so-
 
     - `cubic-bezier()`;
 
-    Function with values describing the start of the curve, two intermediate points and end of the same curve. I discussed this point in the [previous project](), but for a neat visual representation visit [this link](http://cubic-bezier.com/#.47,-0.27,.69,1.32). 
+    Function with values describing the start of the curve, two intermediate points and end of the same curve. I discussed this point in the [previous project](https://github.com/borntofrappe/Practice-Front-End-Web-Development/tree/master/Mobile%20First%20Navigation%20Bar#cubic-bezier), but for a neat visual representation visit [this link](http://cubic-bezier.com/#.47,-0.27,.69,1.32). 
 
     - `steps()`;
 
