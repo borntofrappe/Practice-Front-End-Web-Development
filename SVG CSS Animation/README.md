@@ -5,7 +5,9 @@ Link to the working pen right [here](https://codepen.io/borntofrappe/full/PRKNrj
 The purpose of this simple project is to animate SVG assets through CSS. This is allowed by CSS properties of `animation` and the keyword of `keyframes`.
 
 
-# Lessons Learned: CSS animation
+# Lessons Learned
+
+## CSS animation
 
 CSS animations are built in two steps:
 
@@ -219,3 +221,28 @@ It is possible to include whichever properties are only needed for the desired e
 >**Summing Up**:
 >
 >  Call a declared animation and specify its behavior with the appropriate properties
+
+## CSS Animation and JavaScript
+
+In JavaScript, it is possible to alter the properties of `animation` like any other CSS property. For the project in question, the interest is in creating a toggle switch in which the animation is paused/ let running.
+
+The specific property which allows for such a feat is the described `animation-play-state`, as this equates to values of `running` or `paused` depending on whether the animation is running or not.
+
+All that is required, beyond targeting the required HTML elements, is to check for the value of this property and alter it accordingly.
+
+```JS
+// consider the property of animation-play-state on the targeted HTML element
+const trainAnimation = train.style.animationPlayState;
+
+// if running, pause. Otherwise, let it run
+if(trainAnimation == "running") {
+    train.style.animationPlayState = "paused";
+}
+else {
+    train.style.animationPlayState = "running";
+}
+```
+
+
+
+
