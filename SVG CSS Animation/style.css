@@ -86,7 +86,7 @@ for all child elements of the container__animation
   bottom: 8px;
   right: 0;
   left: 0;
-  border-bottom: 4px dotted hsl(183, 100%, 5%);
+  border-bottom: 4px dashed hsl(183, 100%, 5%);
 }
 
 
@@ -96,7 +96,7 @@ for all child elements of the container__animation
     left: 100%;
     bottom: 10px;
   }
-  2%, 12%, 20%, 28%, 36%, 44%, 52%, 60%, 68%, 76%, 84%, 92% { bottom: 12px; }
+  2%, 12%, 20%, 28%, 36%, 44%, 52%, 60%, 68%, 76%, 84%, 92% { bottom: 11px; }
   8%, 16%, 24%, 32%, 40%, 48%, 56%, 64%, 72%, 80%, 88%, 96% { bottom: 10px; }
   100% {
     left: -1000px;
