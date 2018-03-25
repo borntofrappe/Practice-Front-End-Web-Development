@@ -7,7 +7,12 @@ The purpose of this simple project is to animate SVG assets through CSS. This is
 
 # Lessons Learned
 
-## CSS animation
+- [CSS Animations](#css-animations)
+    - [Declaring animations](#declaring-animations)
+    - [Calling animations](#calling-animations)
+- [CSS Animations and JavaScript](#css-animations-and-javascript)
+
+## CSS Animations
 
 CSS animations are built in two steps:
 
@@ -15,7 +20,7 @@ CSS animations are built in two steps:
 
 1. **call the animation on the desired element**. Specify the behavior of the animation itself, affecting for instance the speed or duration of the animation itself.
 
-## Declaring animations
+### Declaring animations
 
 In its simplest form a CSS animation looks something like this
 
@@ -100,7 +105,7 @@ Breaking down each component:
 > Declare CSS animations specifying 1) name, 2) pace and 3) affected properties
 
 
-## Calling animations
+### Calling animations
 
 Once an animation is declared it is possible to call it on any CSS selector.
 
@@ -108,7 +113,7 @@ There exist several specific properties used to call an animation and specify it
 
 Some of them are particularly straightforward, while others have subtle, not-so-obvious considerations attached to them. One thing in common they have is the ability to give plenty of options to customize your animation.
 
-### Specific Properties
+#### Specific Properties
 
 - **animation-name**
 
@@ -198,7 +203,7 @@ Some of them are particularly straightforward, while others have subtle, not-so-
 
   *Accepted values*: `running`, `paused`
 
-### Shorthand Declaration
+#### Shorthand Declaration
 
 Instead of detailing each separate property one at a time, it is possible to specify each value in one conjoint statement.
 
@@ -218,11 +223,11 @@ animation:
 
 It is possible to include whichever properties are only needed for the desired effect.
 
->**Summing Up**:
->
->  Call a declared animation and specify its behavior with the appropriate properties
+**Summing Up**:
 
-## CSS Animation and JavaScript
+> Call a declared animation and specify its behavior with the appropriate properties
+
+## CSS Animations and JavaScript
 
 In JavaScript, it is possible to alter the properties of `animation` like any other CSS property. For the project in question, the interest is in creating a toggle switch in which the animation is paused/ let running.
 
