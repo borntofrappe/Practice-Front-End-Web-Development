@@ -9,28 +9,41 @@ body {
   min-height: 100vh;
   width: 100%;
   font-family: 'Lato', sans-serif;
+  /* avoid horizontal scroll due to the animation */
   overflow-x: hidden;
 }
 
 .container {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to top, hsl(183, 100%, 77%), hsl(183, 100%, 27%));
+  /* align container__animation to the bottom of the body */
   display: flex;
   align-items: flex-end;
+  background: linear-gradient(to top, hsl(183, 100%, 77%), hsl(183, 100%, 27%));
 }
 .container__animation {
   height: 100vh;
   width: 100%;
+  /* include SVG background with a data URI, fix it to the bottom of the container and make it repeat horizontally  */
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 132.292 52.917"><path fill="#520" d="M119.387 23.69v22.3H7.622V4.443L11.114 0h3.493L18.1 7.393h6.985l3.493 7.033h3.492l3.493 3.946h6.985l3.493-7.72h6.985l3.493 4.632h10.478l3.493-13.38h6.985l3.493 4.803h3.492l3.493 9.778h10.478l3.493-6.519h3.493l3.492 3.946 1.737-9.469h8.741z"/><path fill="#803300" d="M21.423 25.559v19.388h106.901V8.827l-3.34-3.862h-3.34l-3.342 6.426h-6.68l-3.342 6.115h-3.34l-3.34 3.43h-6.682l-3.34-6.71h-6.682l-3.34 4.026H71.533L68.192 6.62h-6.681l-3.341 4.175h-3.34l-3.34 8.501H41.467l-3.341-5.667h-3.341l-3.34 3.43-1.661-8.232h-8.362z"/><path fill="#f60" d="M0 28.924v23.993h132.292V8.216l-4.134-4.78h-4.135l-4.134 7.954h-8.268l-4.134 7.568h-4.134l-4.134 4.245H90.95l-4.135-8.306h-8.268l-4.134 4.983H62.012L57.878 5.486h-8.27l-4.133 5.168H41.34l-4.134 10.519H24.805L20.67 14.16h-4.135l-4.134 4.245-2.055-10.188H0z"/></svg>') bottom repeat-x;
+  /* position relative to anchor child elements to this container */
   position: relative;
 }
+
+/* 
+for all child elements of the container__animation 
+- absolute position them on the screen, where it is decided to position them
+- set a height/width attribute appropriate for the nature of the asset
+- call an animation
+*/
 .train {
   height: 70px;
   position: absolute;
   bottom: 10px;
   left: 100%;
+  /* train before the stop-sign */
   z-index: 2;
+  /* animation to move the train horizontally from right to left */
   animation: move-train-across-screen 45s 5s linear infinite;
 }
 .sun {
@@ -39,24 +52,28 @@ body {
   top: 20%;
   right: 15%;
   fill: hsl(48, 100%, 78%);
-  animation: darken-sun 10s 1s linear infinite;
+  /* animation to change the color of the sun (fill of the SVG) */
+  animation: change-sun-fill 60s linear infinite;
 }
 .stop-sign {
   width: 76px;
   position: absolute;
   bottom: 10px;
   left: 10%;
+  /* make stop sign visually click-able */
   cursor: pointer;
 }
 .cloud {
   position: absolute;
   right: 100%;
   fill: hsl(183, 100%, 17%);
-  animation: move-clouds-across-the-sky 60s linear infinite;
+  /* animation to move the clouds horizontally, from left to right of the sun (fill of the SVG) */
+  animation: move-clouds-across-screen 60s linear infinite;
 }
 .cloud-one {
   top: 10%;
   width: 104px;
+  /* modify animation delay as to distance the clouds from each other */
   animation-delay: 3s;
 }
 .cloud-two {
@@ -69,17 +86,17 @@ body {
   bottom: 8px;
   right: 0;
   left: 0;
-  border-bottom: 4px dotted hsl(183, 100%, 5%);
+  border-bottom: 4px dashed hsl(183, 100%, 5%);
 }
 
 
-
+/* declare animations, changing selected properties at selected keyframes */
 @keyframes move-train-across-screen {
   0% {
     left: 100%;
     bottom: 10px;
   }
-  2%, 12%, 20%, 28%, 36%, 44%, 52%, 60%, 68%, 76%, 84%, 92% { bottom: 12px; }
+  2%, 12%, 20%, 28%, 36%, 44%, 52%, 60%, 68%, 76%, 84%, 92% { bottom: 11px; }
   8%, 16%, 24%, 32%, 40%, 48%, 56%, 64%, 72%, 80%, 88%, 96% { bottom: 10px; }
   100% {
     left: -1000px;
@@ -87,7 +104,7 @@ body {
   }
 }
 
-@keyframes darken-sun {
+@keyframes change-sun-fill {
   0% {
     fill: hsl(48, 100%, 78%);
   }
@@ -99,7 +116,7 @@ body {
   }
 }
 
-@keyframes move-clouds-across-the-sky {
+@keyframes move-clouds-across-screen {
   0% {
     right: 100%;
   }

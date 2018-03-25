@@ -8,12 +8,12 @@
   <title>Animating SVG with CSS</title>
   <meta name="description" content="Simple project in which to apply CSS concepts regarding animation. To SVG assets.">
 
-  
-
+  <!-- reference custom stylesheet -->
   <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
+  
   <!-- 
     declare set of SVG used in the projects
   -->
@@ -31,6 +31,9 @@
 
   <!-- 
     describe the structure of the page
+    simply a wrapping container nesting the animation's assets 
+        SVG assets for train, sun, stop sign, clouds
+        a div for the rail (achieved with a dashed/dotted border)
   -->
   <div class="container">
     <div class="container__animation">
@@ -59,7 +62,7 @@
     </div>
   </div>
 
-
+<!-- reference custom script -->
 <script src="script.js"></script>
 </body>
 </html>
