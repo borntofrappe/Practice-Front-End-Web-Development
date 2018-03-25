@@ -1,6 +1,3 @@
-// animation-play-state
-// *Accepted values*: running, paused
-
 // target assets subject to animation
 const train = document.querySelector(".train");
 const stopSign = document.querySelector(".stop-sign");
