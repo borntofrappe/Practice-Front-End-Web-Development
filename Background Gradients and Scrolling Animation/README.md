@@ -47,7 +47,7 @@ In the simple project, this rationale is applied to create a neat background in 
 }
 ```
 
-## Rolling introduction
+## Rolling animation
 
 To create the rolling animation, a choice is made to include an empty `div` in each book container. Each `div` is then attributed a `background` property for the placeholder color or image which is included as proof-of-concept. 
 
@@ -95,90 +95,90 @@ Indeed the animation is set to run infinitely from height 0 to height 100 and ba
 
 1. Include variation
 
-  To include the variation among the affected elements, a variable is defined in the root element for the value of the property of animation-delay. This property describes the amount of time the animation should wait before running.
+    To include the variation among the affected elements, a variable is defined in the root element for the value of the property of animation-delay. This property describes the amount of time the animation should wait before running.
 
-  ```CSS
-  :root {
-    --animation-delay: 2s;
-  }
-  ```
+    ```CSS
+    :root {
+      --animation-delay: 2s;
+    }
+    ```
 
-  This variable is then included in the `animation` property:
+    This variable is then included in the `animation` property:
 
-  ```CSS
-  .book .book__cover {
-    height: 0;
-    animation: roll-in 10s ease-out var(--animation-delay) infinite;
-  }
-  ```
+    ```CSS
+    .book .book__cover {
+      height: 0;
+      animation: roll-in 10s ease-out var(--animation-delay) infinite;
+    }
+    ```
 
-  And most importantly, this variable is updated for each element, allowing for different elements to start at different times:
+    And most importantly, this variable is updated for each element, allowing for different elements to start at different times:
 
-  ```CSS
-  .book--one .book__cover {
-    --animation-delay: 2s;
-  }
-  .book--two .book__cover {
-    --animation-delay: 3s;
-  }
-  .book--three .book__cover {
-    --animation-delay: 4s;
-  }
-  ```
+    ```CSS
+    .book--one .book__cover {
+      --animation-delay: 2s;
+    }
+    .book--two .book__cover {
+      --animation-delay: 3s;
+    }
+    .book--three .book__cover {
+      --animation-delay: 4s;
+    }
+    ```
 
-2. Delay between animations
+1. Delay between animations
 
-Unfortunately, `animation-delay` describes solely the time that should pass before the animation begins. It does not influence the timing between multiple animations, which is null. As soon as the animation finishes, indeed the animation runs without pause.
+    Unfortunately, `animation-delay` describes solely the time that should pass before the animation begins. It does not influence the timing between multiple animations, which is null. As soon as the animation finishes, indeed the animation runs without pause.
 
-This behavior can be "tweaked" to seemingly introduce a break between subsequent animations, by leveraging the breakpoints which can be defined through the keyword `keyframes`.
+    This behavior can be "tweaked" to seemingly introduce a break between subsequent animations, by leveraging the breakpoints which can be defined through the keyword `keyframes`.
 
-Just like gradients can display a solid color by defining two breakpoints with the same value:
+    Just like gradients can display a solid color by defining two breakpoints with the same value:
 
-```CSS
-background: linear-gradient(
-  45deg,
-  green,
-  green 15%,
-  orange 15%,
-  orange 100%    
-  );
-}
-```
+    ```CSS
+    background: linear-gradient(
+      45deg,
+      green,
+      green 15%,
+      orange 15%,
+      orange 100%    
+      );
+    }
+    ```
 
-In the animation keyframes as well it is possible to define multiple breakpoints with the same value, giving the impression of a pause.
+    In the animation keyframes as well it is possible to define multiple breakpoints with the same value, giving the impression of a pause.
 
-All that is required is to "fit" the animation, prolonging its duration as to allow for the break to occur. A simple computation can be done to achieve the desired effect. Simply decide how much time the animation should take to run, from beginning to subsequent beginning, and then allocate the time between the beginning to the end of the first animation and between the end and the start of the following cycle.
+    All that is required is to "fit" the animation, prolonging its duration as to allow for the break to occur. A simple computation can be done to achieve the desired effect. Simply decide how much time the animation should take to run, from beginning to subsequent beginning, and then allocate the time between the beginning to the end of the first animation and between the end and the start of the following cycle.
 
-In the example, the property of animation is altered to last 10s. Of these:
-- 2s (between 0 and 20%) describe the scrolling animation;
-- 4s (20-60%) describe the time in which the animation should pause, showing the scrolled content;
-- additional 2s (60-80%) describe the scrolling animation which hide the element below the fold;
+    In the example, the property of animation is altered to last 10s. Of these:
+    - 2s (between 0 and 20%) describe the scrolling animation;
+    - 4s (20-60%) describe the time in which the animation should pause, showing the scrolled content;
+    - additional 2s (60-80%) describe the scrolling animation which hide the element below the fold;
 
-From 80% to 100%, the property of height is unaffected. This allows, as the animation has to finish its iteration, to give pause between animations. 
+    From 80% to 100%, the property of height is unaffected. This allows, as the animation has to finish its iteration, to give pause between animations. 
 
-Technically at the 81% breakpoint the property of top is altered, but this to move back the HTML element at the top of the wrapping container. This is changed as to achieve the scrolling effect, which occurs with the same pattern as the element appears/ is made disappearing (The element is "brought" down and further down, then "brought" up rapidly for the correct behavior of the next iteration).
+    Technically at the 81% breakpoint the property of top is altered, but this to move back the HTML element at the top of the wrapping container. This is changed as to achieve the scrolling effect, which occurs with the same pattern as the element appears/ is made disappearing (The element is "brought" down and further down, then "brought" up rapidly for the correct behavior of the next iteration).
 
-```CSS
-@keyframes roll-in {
-  0% {
-    height: 0;
-    top: 0;
-  }
-  20% {
-    height: 100%;
-    top: 0;
-  }
-  60% {
-    height: 100%;
-    top: 0;
-  }
-  80% {
-    height: 0;
-    top: 100%
-  }
-  81% {
-    height: 0;
-    top: 0;
-  }
-}
-``` 
+    ```CSS
+    @keyframes roll-in {
+      0% {
+        height: 0;
+        top: 0;
+      }
+      20% {
+        height: 100%;
+        top: 0;
+      }
+      60% {
+        height: 100%;
+        top: 0;
+      }
+      80% {
+        height: 0;
+        top: 100%
+      }
+      81% {
+        height: 0;
+        top: 0;
+      }
+    }
+    ``` 
