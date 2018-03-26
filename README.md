@@ -33,6 +33,7 @@ If the inspiration strikes, exceptions can be made.
 |[**Glowing Icons**](https://codepen.io/borntofrappe/full/wmzYEw/)|Display multiple icons which are animated to change in opacity and rotation, in different time frames.|SVG, CSS animation, CSS variables|18th March 2018|
 |[**Ruled Paper Animation**](https://codepen.io/borntofrappe/full/eMggoM/)|Display ruled paper which is animated out of sight with falling cells, giving space to underlying text.|Flex basis, CSS animation, CSS variables|19th March 2018|
 |[**Mobile First Navigation Bar**](https://codepen.io/borntofrappe/full/zWwwdg/)|Create a navigation bar displaying only few items and a toggle option to display additional results.|classList, absolute positioning, !important, cubic-bezier|21st March 2018|
-|[**SVG CSS Animation**](https://codepen.io/borntofrappe/full/PRKNrj/)|Include SVG assets inline in the HTML document and CSS stylesheet and animate the connected graphics with CSS properties|animation, svg|23rd March 2018|
+|[**SVG CSS Animation**](https://codepen.io/borntofrappe/full/PRKNrj/)|Include SVG assets inline in the HTML document and CSS stylesheet and animate the connected graphics with CSS properties.|animation, svg|23rd March 2018|
+|[**Background Gradients and Scrolling Animation**](https://codepen.io/borntofrappe/full/VXMVxK/)|Experiment with multiple gradients and faux-intermittent scrolling CSS animations.|gradient**s**, css animation|26th March 2018|
 
 
