@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Background Gradients and Scrolling Animation</title>
+  <meta name="description" content="Experiment with multiple gradients and faux-intermittent CSS animations.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+
+  <div class="container">
+
+    <h1>Is there something to your liking?</h1>
+
+    <!-- 
+      to create the scroll effect include a div element which will be transitioned into view 
+      semantically, this means an additional element is placed in the HTML, but the div element is here
+      an hypothetical placeholder for an image or other asset to be introduced in the boundaries of the parent element
+      
+      with .div only, the animation could be achieved by moving the background instead of the entire element...I presume
+    -->
+
+    <div class="container__bookshelf">
+      <div class="book book--one">
+        <div class="book__cover"></div>
+      </div>
+
+      <div class="book book--two">
+          <div class="book__cover"></div>
+      </div>
+
+      <div class="book book--three">
+          <div class="book__cover"></div>
+      </div>
+    </div>
+
+  </div>
+
+<!-- script used while testing out the project, but not really necessary -->
+<script src="script.js"></script>
+
+</body>
+</html>
