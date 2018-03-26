@@ -18,7 +18,13 @@ body {
 .container {
   height: 100vh;
   /* overlay multiple gradient simply by comma separating background values and including a transparent color in the gradient definition  */
-  background: linear-gradient(to top right, rgb(158, 50, 108) 0%, transparent 60%), linear-gradient(to top left, rgb(58, 68, 158) 0%, transparent 40%), linear-gradient(to bottom right, rgb(58, 68, 158) 0%, transparent 40%), radial-gradient(at center bottom, rgb(235, 98, 171) 20%, transparent 70%), radial-gradient(at center right, rgb(235, 98, 171) 20%, transparent 90%);
+  background: 
+    linear-gradient(to top right, rgb(158, 50, 108) 0%, transparent 60%), 
+    linear-gradient(to top left, rgb(58, 68, 158) 0%, transparent 40%), 
+    linear-gradient(to bottom right, rgb(58, 68, 158) 0%, transparent 40%), 
+    radial-gradient(at center bottom, rgb(235, 98, 171) 20%, transparent 70%), 
+    radial-gradient(at center right, rgb(235, 98, 171) 20%, transparent 90%);
+  
   padding: 1rem;
   display: flex;
   flex-direction: column;
