@@ -93,7 +93,7 @@ By itself this code allows, upon loading the page, to achieve the desired effect
 
 Indeed the animation is set to run infinitely from height 0 to height 100 and backwards, and a pause between scrolls is advised. This pause is unfortunately not allowed by a property of CSS, but can be included by leveraging the possibilities of the allowed properties.
 
-1. Include variation
+1. **Include variation**
 
     To include the variation among the affected elements, a variable is defined in the root element for the value of the property of animation-delay. This property describes the amount of time the animation should wait before running.
 
@@ -126,7 +126,7 @@ Indeed the animation is set to run infinitely from height 0 to height 100 and ba
     }
     ```
 
-1. Delay between animations
+1. **Include delay between animations**
 
     Unfortunately, `animation-delay` describes solely the time that should pass before the animation begins. It does not influence the timing between multiple animations, which is null. As soon as the animation finishes, indeed the animation runs without pause.
 
@@ -147,16 +147,19 @@ Indeed the animation is set to run infinitely from height 0 to height 100 and ba
 
     In the animation keyframes as well it is possible to define multiple breakpoints with the same value, giving the impression of a pause.
 
-    All that is required is to "fit" the animation, prolonging its duration as to allow for the break to occur. A simple computation can be done to achieve the desired effect. Simply decide how much time the animation should take to run, from beginning to subsequent beginning, and then allocate the time between the beginning to the end of the first animation and between the end and the start of the following cycle.
+    All that is required is to "fit" the animation, prolonging its duration as to allow for the break to occur. 
+    
+    A simple computation can be done in this regard: decide how much time the animation should take from beginning to subsequent beginning, and then allocate the time between the beginning and the end of the first animation and between the end and the start of the following cycle.
 
     In the example, the property of animation is altered to last 10s. Of these:
+    
     - 2s (between 0 and 20%) describe the scrolling animation;
     - 4s (20-60%) describe the time in which the animation should pause, showing the scrolled content;
     - additional 2s (60-80%) describe the scrolling animation which hide the element below the fold;
 
     From 80% to 100%, the property of height is unaffected. This allows, as the animation has to finish its iteration, to give pause between animations. 
 
-    Technically at the 81% breakpoint the property of top is altered, but this to move back the HTML element at the top of the wrapping container. This is changed as to achieve the scrolling effect, which occurs with the same pattern as the element appears/ is made disappearing (The element is "brought" down and further down, then "brought" up rapidly for the correct behavior of the next iteration).
+    Technically at the 81% breakpoint the property of `top` is altered, but this to move back the HTML element at the top of the wrapping container. This is changed as to achieve a scrolling effect which occurs with the same pattern as the element appears/ is made disappearing. The element is indeed "brought" down and further down, then "brought" up rapidly for the correct behavior of the next iteration.
 
     ```CSS
     @keyframes roll-in {
