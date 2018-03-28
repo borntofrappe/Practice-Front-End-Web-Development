@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+
+/* 
+define variables 
+- for the delay, which is altered for each section of the header (as each is animated in sequence) 
+- for the horizontal and vertical offset, which again is altered for each portion
+*/
+:root {
+  --animation-delay: 3s;
+  --horizontal-offset: -10px;
+  --vertical-offset: -10px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+.container {
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  width: 100%;
+  /* align items in the center of the page, easily through flex properties */
+  display: flex;
+  /* in a column  */
+  flex-direction: column;
+  /* align in the column  */
+  justify-content: center;
+  /* align in the row */
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  /* overlay a gradient on top of another to allow for multiple gradients to coexist and present an horizontal and a different vertical gradient */
+  background: 
+    linear-gradient(to top, #9dbdd62c, transparent),
+    linear-gradient(to right, #000000, #080941, #000000);
+}
+
+.container__title {
+  color: #ffc333;
+  /* make use of the viewport unit as to enlarge the text as the screen becomes larger */
+  font-size: calc(10vw + 0.5rem);
+  text-transform: uppercase;
+  /* create a faux-border around the text by setting equal solid shadows on all sides  */
+  text-shadow: 
+      0.5vw 0.5vw 0 #00006a,
+      -0.5vw -0.5vw 0 #00006a,
+      -0.5vw 0.5vw 0 #00006a,
+      0.5vw -0.5vw 0 #00006a;
+  
+}
+/* include the flashing animation for the main title */
+.container__title span {
+  animation: flashes 5s cubic-bezier(0.39, 0.575, 0.565, 1.2) var(--animation-delay) infinite;
+}
+/* 
+alter the variables for the delay in the animation and the offset in the "bright" shadows according to necessities 
+- the source of light is imagined at the bottom center of the screen
+- the animation of each section should begin as the previous ends
+*/
+.container__title span:nth-of-type(2) {
+  --animation-delay: 3.5s;
+  --horizontal-offset: 0;
+}
+.container__title span:nth-of-type(3) {
+  --animation-delay: 4s;
+  --horizontal-offset: 10px;
+}
+
+.container__subtitle {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-top: 1rem;
+  text-shadow: 0 2px 0 #000024;
+  display: inline-block;
+  /* position relative as to absolute position the nested SVG */
+  position: relative;
+}
+.container svg.pokeball-icon {
+  width: 52px;
+  height: 52px;
+  /* position the SVG at the very left of the subtitle */
+  position: absolute;
+  top: 0;
+  right: 100%;
+  /* 
+  animate the SVG as to 
+  - move from the very left to the very right of the subtitle
+  - shake thrice from the bottom center of its location 
+  */
+  transform-origin: bottom center;
+  animation: 
+      hover-on-text 1.8s 1s cubic-bezier(0.39, 0.575, 0.565, 1.2) forwards, 
+      shake-thrice 1s 4.7s cubic-bezier(0.39, 0.575, 0.565, 1.2) 3;
+}
+
+/* 
+define animation for the title
+- manufactured with the CSS property of filters, adding brightness and casting a "light" shadow 
+*/
+
+@keyframes flashes {
+  5% {
+    filter: brightness(1.7) drop-shadow(var(--horizontal-offset) var(--vertical-offset) 5px #fff);
+  }
+  10% {
+    filter: brightness(1) drop-shadow(0 0 0 #fff);
+  }
+  /* end the animation early as to create pause from the end of the visual animation and the beginning of the next iteration */
+}
+
+/* 
+define animations for the SVG 
+- moving the SVG from the left to the right 
+- shaking the SVG through the rotate property (following transform-origin set to be bottom center)
+*/
+@keyframes hover-on-text {
+  to {
+    right: -56px;
+  }
+}
+
+@keyframes shake-thrice {
+  0% {
+    transform: rotate(0);
+  }
+  33% {
+    transform: rotate(7deg);
+  }
+  67% {
+    transform: rotate(-7deg);
+  }
+}
+
+/* slightly reduce the size of the subtitle for smaller devices */
+@media only screen and (max-width: 700px) {
+  .container__subtitle {
+    font-size: 1.5rem;
+  }
+}
