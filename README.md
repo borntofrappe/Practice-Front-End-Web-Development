@@ -35,5 +35,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Mobile First Navigation Bar**](https://codepen.io/borntofrappe/full/zWwwdg/)|Create a navigation bar displaying only few items and a toggle option to display additional results.|classList, absolute positioning, !important, cubic-bezier|21st March 2018|
 |[**SVG CSS Animation**](https://codepen.io/borntofrappe/full/PRKNrj/)|Include SVG assets inline in the HTML document and CSS stylesheet and animate the connected graphics with CSS properties.|animation, svg|23rd March 2018|
 |[**Background Gradients and Scrolling Animation**](https://codepen.io/borntofrappe/full/VXMVxK/)|Experiment with multiple gradients and faux-intermittent scrolling CSS animations.|gradient**s**, css animation|26th March 2018|
+|[**Bright Text Intro**](https://codepen.io/borntofrappe/full/yKpRbe/)|Practice CSS animations, variables, gradients, and experiment with the filter property to create a text with flashing letters.|css animation, css filter|28th March 2018|
 
 
