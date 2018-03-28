@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+/* center the nested SVG horizontally and vertically (height required for this last dimension) */
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* radial gradient chosen in contrast to the color of the mailbox */
+  background: radial-gradient(#F866FF, #FF13F6);
+}
+.container svg {
+  width: 350px;
+}
+/* animation for the message, to be translated into view (in the SVG, this is nested under the mailbox surface) */
+#mail-message {
+  animation: mail-message-animation 5s 2s ease-out infinite;
+  transform: translateX(0) translateY(0);
+}
+@keyframes mail-message-animation {
+  10% {
+    transform: translateX(20px) translateY(2px);
+  }
+  30% {
+    transform: translateX(20px) translateY(2px);
+  }
+  40% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+/* animation for the checking mark, to be translated vertically */
+#mail-check {
+  animation: mail-check-animation 5s 1.9s ease-out infinite;
+  transform-origin: center center;
+}
+@keyframes mail-check-animation {
+  10% {
+    transform: rotate(90deg);
+  }
+  35% {
+    transform: rotate(90deg);
+  }
+  45% {
+    transform: rotate(0);
+  }
+}
+
+/* both animations are concluded early as to create pause between iterations */
