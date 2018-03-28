@@ -36,5 +36,6 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG CSS Animation**](https://codepen.io/borntofrappe/full/PRKNrj/)|Include SVG assets inline in the HTML document and CSS stylesheet and animate the connected graphics with CSS properties.|animation, svg|23rd March 2018|
 |[**Background Gradients and Scrolling Animation**](https://codepen.io/borntofrappe/full/VXMVxK/)|Experiment with multiple gradients and faux-intermittent scrolling CSS animations.|gradient**s**, css animation|26th March 2018|
 |[**Bright Text Intro**](https://codepen.io/borntofrappe/full/yKpRbe/)|Practice CSS animations, variables, gradients, and experiment with the filter property to create a text with flashing letters.|css animation, css filter|28th March 2018|
+|[**CodePen Challenge You Got Mail**](https://codepen.io/borntofrappe/full/aYqNJJ/)|Practice building an SVG and implementing CSS animations on portions of the larger asset, to complete a simple animation for the codepenchallenge theme "You Got Mail"|css animation, svg, codepenchallenge|29th March 2018|
 
 
