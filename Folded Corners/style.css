@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* define variable detailing the size of the fold */
+:root {
+  --fold-size: 3rem;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  /* remember the background color as to set the "hidden" borders of the triangles to this exact hue */
+  background-color: floralwhite;
+}
+
+
+.folded-corners {
+  width: 80vw;
+  height: 80vh;
+  /* position relative as to absolute position the connected pseudo-elements */
+  position: relative;
+
+  background-color: #3c4e5d;
+  margin: 4rem auto 0;
+
+  /* flex properties to center the simple header in the box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  text-transform: uppercase;
+}
+
+/* pseudo elements each forming a triangle, one pointing to the bottom left, the other to the bottom right depending on which borders are set */
+.folded-corners:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* "hide" top and right border giving the exact same color of the background */
+  border-top: 0 solid floralwhite;
+  border-right: 0 solid floralwhite;
+  /* create triangle pointing to the bottom left */
+  border-bottom: 0 solid #3c4e5d;
+  border-left: 0 solid #3c4e5d;
+  box-shadow: -4px 4px 0 #222;
+  /* rounded corner for the fold, toward the bottom left */
+  border-bottom-left-radius: 15px;
+  /* fold animated as proof-of-concept */
+  animation: fold-corner 2s 0.5s ease-out 2;
+}
+/* define keyframe animation going from 0 to the prescribed value, back to 0 */
+@keyframes fold-corner {
+  25% {
+    border-width: var(--fold-size);
+  }
+  75% {
+    border-width: var(--fold-size);
+  }
+}
+
+.folded-corners:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* "hide" top and left border giving the exact same color of the background */
+  /* create triangle pointing to the bottom right */
+  border-top: 0 solid floralwhite;
+  border-right: 0 solid #3c4e5d;
+  border-bottom: 0 solid #3c4e5d;
+  border-left: 0 solid floralwhite;
+  box-shadow: 4px 4px #222;
+  /* rounded corner for the respective value */
+  border-bottom-right-radius: 15px;
+  /* set transition for the hover animation */
+  transition: all 0.5s ease-out;
+}
+/* upon hovering on the element, transition to the folded corner */
+.folded-corners:hover:after {
+  border-width: var(--fold-size);
+}
+
+
+h1 {
+  /* position relative as to absolute position the connected pseudo-element */
+  position: relative;
+  font-size: 2.2rem;
+  color: #fff;
+}
+h1:before {
+  /* include the string at 40% of the header, roughly in the spot where the word would fit */
+  content: 'Large';
+  position: absolute;
+  left: 40%;
+  top: 3rem;
+  /* hide the pseudo-element by default */
+  display: none;
+}
+h1:after {
+  /* include an arrow pointing upwards to signify how the appended string is to be included in the heading */
+  content: '';
+  position: absolute;
+  left: 44%;
+  top: 2.4rem;
+  border-bottom: 12px solid #fff;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  /* hide the pseudo-element by default */
+  display: none;
+}
+
+/* on larger devices, increase the size of the fold and show the pseudo-elements of the heading */
+@media only screen and (min-width: 700px) {
+  .folded-corners {
+    --fold-size: 5.5rem;
+  }
+  h1:before, h1:after {
+    display: inline-block;
+  }
+}
