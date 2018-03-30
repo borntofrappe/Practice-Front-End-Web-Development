@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* define a color for the text-underline, updated for different anchor link elements */
+:root {
+  --hover-color: crimson;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 1.1rem;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color:  #fff;
+  background-color: #3c4e5d;
+}
+/* use flex properties to center the content vertically and horizontally, in a sngle column layout */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+  line-height: 2;
+}
+/* display icon links in a single column (this means the width of the text underline will be characterized by the widest element) */
+.container__anchor-links {
+  display: flex;
+  flex-direction: column;
+}
+.anchor-links--hover {
+  position: relative;
+  border-bottom: 4px solid #28343e;
+
+  /* remove default styling */
+  color: inherit;
+  text-decoration: none;  
+  font-size: 1.3rem;
+  margin: 0.3rem 0;
+  
+}
+
+.anchor-links--hover:after {
+  content: "";
+  position: absolute;
+  /* position the background right on top of the bottom border */
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--hover-color);
+  /* transition width from 0 to 100% */
+  transition: width 0.5s ease-out;
+}
+
+.anchor-links--hover:hover:after {
+  width: 100%;
+}
+
+/* change the timing function for the last anchor link */
+.anchor-links--hover:last-of-type:after {
+  transition: width 1s steps(5);
+}
+
+/* change the color of the used underline */
+.anchor-links--hover:nth-of-type(2) {
+  --hover-color: aquamarine;
+}
+.anchor-links--hover:nth-of-type(3) {
+  --hover-color: tomato;
+}
+.anchor-links--hover:last-of-type {
+  --hover-color: greenyellow;
+}
+
