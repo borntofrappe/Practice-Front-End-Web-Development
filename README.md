@@ -38,6 +38,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Bright Text Intro**](https://codepen.io/borntofrappe/full/yKpRbe/)|Practice CSS animations, variables, gradients, and experiment with the filter property to create a text with flashing letters.|css animation, css filter|28th March 2018|
 |[**CodePen Challenge You Got Mail**](https://codepen.io/borntofrappe/full/aYqNJJ/)|Practice building an SVG and implementing CSS animations on portions of the larger asset, to complete a simple animation for the codepenchallenge theme "You Got Mail"|css animation, svg, codepenchallenge|29th March 2018|
 |[**Pseudo Elements and Text Underline**](https://codepen.io/borntofrappe/full/bvvxYr/)|Create a nice transition when hovering on anchor links, where a text-underline is overlaid on top of another.|pseudo elements, anchor links|29th March 2018|
-|[**CodePen Challenge You Got Mail**](https://codepen.io/borntofrappe/full/XEEPPQ/)|Simple pen to create a box with folded corners, and cement knowledge regarding the border property and pseudo elements.|pseudo elements, border, animation, transition|30th March 2018|
+|[**Folded Corners**](https://codepen.io/borntofrappe/full/XEEPPQ/)|Simple pen to create a box with folded corners, and cement knowledge regarding the border property and pseudo elements.|pseudo elements, border, animation, transition|30th March 2018|
 
 
