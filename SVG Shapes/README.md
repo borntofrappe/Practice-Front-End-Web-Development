@@ -1,9 +1,9 @@
-Link to the working pen right [here]().
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/ZxovaR/).
 
 
 # Preface
 
-The purpose of this project is to experiment with SVG as included in the HTML document through code only, without further assistance from editing software like [Inkscape]().
+The purpose of this project is to experiment with SVG as included in the HTML document through code only, without further assistance from editing software like [Inkscape](https://inkscape.org/en/).
 
 Why? To better understand SVG syntax, why.
 
