@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Shapes and Patterns</title>
+  <meta name="description" content="Simple page in which to experiment with SVG concepts of patterns, shapes, paths.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+  <!-- simple html structure with a wrapping container displaying everything through flex properties -->
+  <div class="container">
+    <p>SVG Shapes - Code only</p>
+
+    <!-- flex container also for the different svg, drawn with code  -->
+    
+    <div class="container__svg">
+
+      <svg id="rectangle" aria-labelledby="titleRec" aria-describedby="descriptionRec">
+        <title id="titleRec">Rectangle element</title>
+        <desc id="descriptionRec">Simple rectangle with rounded corners</desc>
+        <rect x="10%" y="10%" width="80%" height="80%" rx="4" fill="#777" stroke="#eee" stroke-width="12"/>
+      </svg>
+  
+      <svg id="circle" aria-labelledby="titleCir" aria-describedby="descriptionCir">
+        <title id="titleCir">Circle element</title>
+        <desc id="descriptionCir">Circles creating a target-like structure</desc>
+        <circle cx="50%" cy="50%" r="40%" fill="#fff" stroke="blue" stroke-width="4"/>
+        <circle cx="50%" cy="50%" r="28%" fill="#fff" stroke="orange" stroke-width="4"/>
+        <circle cx="50%" cy="50%" r="18%" fill="#fff" stroke="yellow" stroke-width="4"/>
+        <circle cx="50%" cy="50%" r="10%" fill="#fff" stroke="red" stroke-width="4"/>
+      </svg>
+  
+      <svg id="ellipse" aria-labelledby="titleEll" aria-describedby="descriptionEll">
+        <title id="titleEll">Ellipse element</title>
+        <desc id="descriptionEll">Ellipses stacked one on top of another to create an atom structure</desc>
+        <ellipse cx="50%" cy="50%" rx="28%" ry="20%" fill="transparent" stroke="#61dafb" stroke-width="4"/>
+        <ellipse cx="50%" cy="50%" rx="28%" ry="20%" fill="transparent" stroke="#61dafb" stroke-width="4" style="transform: rotate(45deg); transform-origin: center center;"/>
+        <ellipse cx="50%" cy="50%" rx="28%" ry="20%" fill="transparent" stroke="#61dafb" stroke-width="4" style="transform: rotate(-45deg); transform-origin: center center;"/>
+        <ellipse cx="50%" cy="50%" rx="28%" ry="20%" fill="transparent" stroke="#61dafb" stroke-width="4" style="transform: rotate(90deg); transform-origin: center center;"/>
+      </svg>
+
+      <svg id="line" style="background-color: blue;" aria-labelledby="titleLin" aria-describedby="descriptionLin">
+        <title id="titleLin">Line element</title>
+        <desc id="descriptionLin">Lines making up the flag of the United Kingdom</desc>
+        <line x1="0" y1="0" x2="100%" y2="100%" stroke="cornsilk" stroke-width="32"/>
+        <line x1="100%" y1="0" x2="0" y2="100%" stroke="cornsilk" stroke-width="32"/>
+        <line x1="50%" y1="0" x2="50%" y2="100%" stroke="cornsilk" stroke-width="32"/>
+        <line x1="0" y1="50%" x2="100%" y2="50%" stroke="cornsilk" stroke-width="32"/>
+
+        <line x1="0" y1="0" x2="100%" y2="100%" stroke="crimson" stroke-width="12"/>
+        <line x1="100%" y1="0" x2="0" y2="100%" stroke="crimson" stroke-width="12"/>
+        <line x1="50%" y1="0" x2="50%" y2="100%" stroke="crimson" stroke-width="12"/>
+        <line x1="0" y1="50%" x2="100%" y2="50%" stroke="crimson" stroke-width="12"/>
+      </svg>
+
+      <svg id="polyline" aria-labelledby="titlePol" aria-describedby="descriptionPol">
+        <title id="titlePol">Polyline element</title>
+        <desc id="descriptionPol">Series of lines making up the outline of a crown-like figure</desc>
+        <polyline points="30 30 50 80 120 80 140 30 110 50 85 25 60 50 30 30" stroke="#eee" stroke-width="4" fill="none"/>
+        <polyline points="30 30 50 80 120 80 140 30 110 50 85 25 60 50 30 30" stroke="#bbb" stroke-width="4" fill="none" style="transform:rotate(180deg); transform-origin: center center;"/>
+      </svg>
+
+      <svg id="polygon" aria-labelledby="titlePolg" aria-describedby="descriptionPolg">
+        <title id="titlePolg">Polygon element</title>
+        <desc id="descriptionPolg">Polygon of a crown-like figure</desc>        
+        <polygon points="30 30 50 80 120 80 140 30 110 50 85 25 60 50" stroke="#eee" stroke-width="4" fill="#bbb"/>
+        <polygon points="30 30 50 80 120 80 140 30 110 50 85 25 60 50" stroke="#eee" stroke-width="4" fill="#bbb" style="transform:rotate(180deg); transform-origin: center center;"/>
+      </svg>
+    </div>
+    <!-- close svg container -->
+
+  </div>
+  <!-- close wrapping container -->
+
+</body>
+</html>
