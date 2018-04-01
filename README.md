@@ -39,5 +39,6 @@ If the inspiration strikes, exceptions can be made.
 |[**CodePen Challenge You Got Mail**](https://codepen.io/borntofrappe/full/aYqNJJ/)|Practice building an SVG and implementing CSS animations on portions of the larger asset, to complete a simple animation for the codepenchallenge theme "You Got Mail"|css animation, svg, codepenchallenge|29th March 2018|
 |[**Pseudo Elements and Text Underline**](https://codepen.io/borntofrappe/full/bvvxYr/)|Create a nice transition when hovering on anchor links, where a text-underline is overlaid on top of another.|pseudo elements, anchor links|29th March 2018|
 |[**Folded Corners**](https://codepen.io/borntofrappe/full/XEEPPQ/)|Simple pen to create a box with folded corners, and cement knowledge regarding the border property and pseudo elements.|pseudo elements, border, animation, transition|30th March 2018|
+|[**SVG Shapes**](https://codepen.io/borntofrappe/full/ZxovaR/)|Understand the syntax of SVG elements drawing graphics without the aid of editing software. Just code.|svg, svg shapes|1st April 2018|
 
 
