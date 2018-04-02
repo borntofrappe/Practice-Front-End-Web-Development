@@ -92,7 +92,7 @@ Common attributes used in the document are:
 
 In the document, it is then possible to analyze the following tags and values.
 
-- <rect>
+- `<rect>`
 
 To draw a rectangle, you specify first the coordinates of the upper left corner, through the attributes of `x` and `y`.
 
@@ -108,7 +108,7 @@ Following those, values can be set for the `width` of the element, its `height`,
 </svg>
 ```
 
-- <circle>
+- `<circle>`
 
 For circles, you specify the coordinates of the center, through the `cx` and `cy` attributes for the horizontal and vertical coordinate respectively.
 
@@ -122,7 +122,7 @@ The size of the circle is determined by the radius, through the `r` attribute.
 </svg>
 ```
 
-- <ellipse>
+- `<ellipse>`
 
 Ellipses work in a similar fashion to circles, with the only inclusion of two values for the radius attribute, one for the x-axis, the other for the y-axis.
 
@@ -134,7 +134,7 @@ Ellipses work in a similar fashion to circles, with the only inclusion of two va
 </svg>
 ```
 
-- <line>
+- `<line>`
 
 To draw a line, all that is required is the definition of the coordinates of said line. Starting from a point dependant by `x1` and `y1` attributes and arriving at a point of `x2` and `x2` coordinates. 
 
@@ -149,7 +149,7 @@ To draw a line, all that is required is the definition of the coordinates of sai
 </svg>
 ```
 
-- <polyline>
+- `<polyline>`
 
 While you can create multiple lines in the same SGV element, you can also create a sequence of straight lines already through a polyline. This element accepts a `points` attribute detailing the coordinates of the different points.
 
@@ -163,7 +163,7 @@ While you can create multiple lines in the same SGV element, you can also create
 </svg>
 ```
 
-- <polygon>
+- `<polygon>`
 
 While you can create polygon-like structures with the previous element, the polygon element is tailored for the occasion. It accepts the same attribute of `points`, but ultimately connects the last point with the first (if they don't match already).
 
