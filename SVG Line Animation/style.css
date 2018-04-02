@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* define few variables in the root element
+- animation delay for the delay in animation, which will be updated for every path/ polyline element as to account for the sequential animation of each 
+- animation duration for the duration of the animation, again updated, but just for the "frame" paths. The rest will adopt this value 
+- stroke length for the length of the strong, to include in the dasharray and dash offset variables and to be updated in the JS script */
+:root {
+  --animation-delay: 2s;
+  --animation-duration: 0.8s;
+  --stroke-length: 3000;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: snow;
+  font-family: 'Lato', sans-serif;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  /* center the content in a single column layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: rebeccapurple;
+  text-align: center;
+  padding:  1rem;
+}
+.container__svg {
+  /* include SVG assets in a flex container, which wraps as the container reaches the end of the row */
+  display: flex;
+  flex-wrap: wrap;
+  /* justify content to center horizontally, even on small displays when SVGs are laid on top of one another */
+  justify-content: center;
+}
+
+.container svg {
+  width: 300px;
+  height: 400px;
+  margin: 2rem 1rem;
+  stroke: orchid;
+  stroke-width: 12px;
+  fill: transparent;
+  padding: 0.4rem;
+}
+
+
+/* set duration for the "frame" paths as to take longer than the smaller path and polyline elements */
+.container svg path:nth-of-type(1) {
+  --animation-duration: 1s;
+}
+
+
+/* set delays for the "frame" paths as to introduce them rapidly one after the other */
+.container svg:nth-of-type(1) path:nth-of-type(1) {
+  --animation-delay: 0.5s;
+}
+.container svg:nth-of-type(2) path:nth-of-type(1) {
+  --animation-delay: 1s;
+}
+.container svg:nth-of-type(3) path:nth-of-type(1) {
+  --animation-delay: 1.5s;
+}
+
+
+/* set delays for the paths and polylines as to animate their introduction in sequence */
+.container svg:nth-of-type(1) path:nth-of-type(2) {
+  --animation-delay: 3s;
+}
+.container svg:nth-of-type(1) path:nth-of-type(3) {
+  --animation-delay: 3.2s;
+}
+.container svg:nth-of-type(1) path:nth-of-type(4) {
+  --animation-delay: 3.4s;
+}
+.container svg:nth-of-type(1) path:nth-of-type(5) {
+  --animation-delay: 3.6s;
+}
+
+
+.container svg:nth-of-type(2) path:nth-of-type(2) {
+  --animation-delay: 5s;
+}
+.container svg:nth-of-type(2) path:nth-of-type(3) {
+  --animation-delay: 5.2s;
+}
+.container svg:nth-of-type(2) path:nth-of-type(4) {
+  --animation-delay: 5.4s;
+}
+
+
+.container svg:nth-of-type(3) polyline:nth-of-type(1) {
+  --animation-delay: 7s;
+}
+.container svg:nth-of-type(3) polyline:nth-of-type(2) {
+  --animation-delay: 7s;
+}
+.container svg:nth-of-type(3) polyline:nth-of-type(3) {
+  --animation-delay: 7.8s;
+}
+.container svg:nth-of-type(3) polyline:nth-of-type(4) {
+  --animation-delay: 7.8s;
+}
+
+/* for the path and polyline elements 
+set the dasharray and dashoffset properties as to completely hide the stroke (the variable is updated in the JS script)
+trigger the "drawing" animation following the defined (and updated) variables 
+! forwards to retain the properties in the final keyframe */
+
+path, polyline {
+  stroke-dasharray: var(--stroke-length);
+  stroke-dashoffset: var(--stroke-length);
+  animation: draw-line var(--animation-duration) var(--animation-delay) ease-in forwards;
+}
+
+/* reduce the dash offset to 0, "drawing" the path and polyline elements */
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* on smaller screens reduce the size of the SVG */
+@media only screen and (max-width: 1000px) {
+  .container svg {
+    width: 150px;
+    height: 200px;
+  }
+}

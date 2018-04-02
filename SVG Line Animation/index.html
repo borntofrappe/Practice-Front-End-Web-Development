@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Line Animation</title>
+  <meta name="description" content="Simple page in which to experiment with SVG paths and line animation. Lines are drawn sequentially to create a preordanined design.">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <!-- simple HTMl structure with a page wrapper for a heading and a container for all SVG assets to be animated -->
+  <div class="container">
+    <h1>happy belated time of the season</h1>
+    <div class="container__svg">
+      <!-- 
+        svg assets 
+        - drawn with code specifying the starting points through M and bezier curives through Q and arcs through A 
+        each line command accepts a specific number of values
+        - with the same viewbox matching the viewport, as specified in the stylesheet
+        - each with the same first path, used to draw the "frame" for all graphics
+        - each declaring a class or otherwise identifier to target the individual elements in CSS/JS
+      -->
+
+
+      <svg class="line-animation" viewbox="0 0 300 400">
+        <title>Easter egg</title>
+        <desc>Easter egg with few spots here and there</desc>
+        <path d="M 150 400 Q 0 400 0 250 Q 0 0 150 0 Q 300 0 300 250 Q 300 400 150 400"/>
+        <!-- include a series of arcs on the frame -->
+        <path d="M 280 100 A 50 70 0 0 0 290 300"/>
+        <path d="M 20 100 A 50 70 0 0 1 10 300"/>
+        <path d="M 170 0 A 60 150 0 0 0 240 30"/>
+        <path d="M 130 400 A 70 140 0 0 0 30 350"/>
+      </svg>
+
+      <svg class="line-animation" viewbox="0 0 300 400">
+        <title>Easter egg</title>
+        <desc>Easter egg with ribbons wrapping the egg from the top to the bottom</desc>
+        <path d="M 150 400 Q 0 400 0 250 Q 0 0 150 0 Q 300 0 300 250 Q 300 400 150 400"/>
+        <!-- draw two elongated arcs on the y-axis of the frame -->
+        <path d="M 120 0 A 400 400 0 0 0 150 400"/>
+        <path d="M 160 0 A 400 400 0 0 0 200 390"/>
+        <path d="M 200 10 A 400 400 0 0 0 240 380"/>
+      </svg>
+
+      <svg class="line-animation" viewbox="0 0 300 400">
+        <title>Easter egg</title>
+        <desc>Easter egg with jagged lines drawn horizontally on its surface</desc>
+        <path d="M 150 400 Q 0 400 0 250 Q 0 0 150 0 Q 300 0 300 250 Q 300 400 150 400"/>
+        <!-- draw a jagged motif on the top half of the frame and a few circles around it -->
+        <polyline points="5 190 80 100 145 190 210 100 295 190"/>
+        <polyline points="0 220 80 130 145 220 210 130 300 220"/>  
+
+        <polyline points="15 320 80 230 145 320 210 230 285 320"/>
+        <polyline points="20 340 80 260 145 350 210 260 280 340"/>  
+
+      </svg>
+
+    </div>    <!-- close svg container -->
+    
+  </div>  <!-- < close page wrapper -->
+
+<!-- refer to the script in order to animate the exact length of the paths' strokes -->
+<script src="script.js"></script>
+
+</body>
+</html>

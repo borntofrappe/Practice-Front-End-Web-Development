@@ -40,5 +40,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Pseudo Elements and Text Underline**](https://codepen.io/borntofrappe/full/bvvxYr/)|Create a nice transition when hovering on anchor links, where a text-underline is overlaid on top of another.|pseudo elements, anchor links|29th March 2018|
 |[**Folded Corners**](https://codepen.io/borntofrappe/full/XEEPPQ/)|Simple pen to create a box with folded corners, and cement knowledge regarding the border property and pseudo elements.|pseudo elements, border, animation, transition|30th March 2018|
 |[**SVG Shapes**](https://codepen.io/borntofrappe/full/ZxovaR/)|Understand the syntax of SVG elements drawing graphics without the aid of editing software. Just code.|svg, svg shapes|1st April 2018|
+|[**SVG Line Animation**](https://codepen.io/borntofrappe/full/ZxRJea/)|Experiment with SVG paths and line animation. Lines are drawn sequentially to create a preordanined design.|svg, paths, stroke-dash|2nd April 2018|
 
 
