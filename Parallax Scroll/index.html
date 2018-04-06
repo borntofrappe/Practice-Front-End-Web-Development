@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Parralax Scroll</title>
+  <meta name="description" content="Alternate -classical- containers with purely aesthetical elements. Aesthetical elements which are introduced with a parallax effect, letting the page scroll through them instead of letting them scroll with the page.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  
+  <!-- 
+  html structure alternating div containers with filler text and div containers used for the parallax effect 
+  structure repeated thrice
+  -->
+
+  <div class="container">
+    <div class="content content--one">
+      <h2>Say it's a cloudy day</h2>
+      <h2>.</h2>
+      <h2>You can try and fly a kite</h2>
+    </div>
+    <!-- empty div which will be attributed a background and a fixed positioning as to achieve the desired effect -->
+    <div class="graphic graphic--one"></div>
+  
+    
+    <div class="content content--two">
+      <h2>Say it's a windy day</h2>
+      <h2>.</h2>
+      <h2>You can try and sail a boat</h2>
+    </div>
+    <div class="graphic graphic--two"></div>
+    
+  
+    <div class="content content--three">
+      <h2>Say it's a chilly evening</h2>
+      <h2>.</h2>
+      <h2>You can always wear a sweather</h2>
+    </div>
+    <div class="graphic graphic--three"></div>
+    
+    <!-- final filler container to allow for the parallax scroll to occur in the last container as well -->
+    <div class="content content--four">
+      <h2>Stay positive</h2>
+      <h2>.</h2>
+      <h2>Don't be fixed</h2>
+    </div>
+  
+  </div><!-- close all wrapping div container -->
+
+</body>
+</html>
