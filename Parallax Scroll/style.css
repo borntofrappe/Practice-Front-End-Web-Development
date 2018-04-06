@@ -9,21 +9,26 @@ body {
   min-height: 100vh;
   width: 100%;
   font-family: 'Lato', sans-serif;
+  /* hide horizontall scroll occurring on small screen devices */
   overflow-x: hidden;
 }
 .container {
+  /* 
+  as to avoid the SVG background image from overflowing on large screen sizes, limit the size of the wrapping container
+  center its contents and give a light shadow on the sides of the container
+  */
   max-width: 800px;
   margin: 0 auto;
   box-shadow: 1px 0 10px #000;
 }
 .container .content {
   height: 100vh;
+  /* center contents of the .content divs */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  
 }
 .content h2 {
   color: #eee;
@@ -33,6 +38,10 @@ body {
   font-weight: 100;
   text-shadow: 1px 1px #000;
 }
+/* 
+for each .content div include a background color matching the hue of the SVG assets used in the aesthetical divs
+between aesthetical divs include a linear gradient instead of a solid hue, to pass from one background to the next
+*/
 .content--one {
   background-color: #217867;
 }
@@ -45,25 +54,26 @@ body {
 .content--four {
   background-color: #ff9955;
 }
+/* 
+for the aesthetic divs, the parallax effect is achieved through the background-attachment property, set to fixed;
+center the background horizontally and set the height only
+the width property is superfluous as the SVG is centered and is made not to scale with the screen's width
+
+*/
 .container .graphic {
-  width: 100vw;
-  max-width: 800px;
-  height: calc(100vw*7/8);
-  max-height: 700px;
+  height: 100vh;
   background-attachment: fixed;
   background-position-x: center;
   background-repeat: no-repeat;
 }
+/* change the background for the purely aesthetical containers, to the manufactured SVG assets (found in the Resources folder) */
 .graphic--one {
+  /* include SVG syntax through the data attribute */
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="700" viewBox="0 0 211.667 185.208"><g transform="matrix(.75667 0 0 .76311 35.318 -21.041)"><path fill="#217867" d="M-46.675 27.573h279.734v242.7H-46.675z"/><g transform="translate(-40.549 39.271) scale(.37871)" fill="#d5e5ff"><ellipse cx="56.153" cy="137.815" rx="18.174" ry="18.709"/><rect width="75.37" height="37.384" x="32.072" y="130.258" rx="16.92"/><ellipse cy="131.517" cx="80.181" rx="25.123" ry="24.856"/></g><g transform="translate(32.767 9.804) scale(.53723)" fill="#d5e5ff"><ellipse ry="18.709" rx="18.174" cy="137.815" cx="56.153"/><rect rx="16.92" y="130.258" x="32.072" height="37.384" width="75.37"/><ellipse ry="24.856" rx="25.123" cx="80.181" cy="131.517"/></g><g transform="translate(.554 59.823) scale(.37871)" fill="#d5e5ff"><ellipse ry="18.709" rx="18.174" cy="137.815" cx="56.153"/><rect rx="16.92" y="130.258" x="32.072" height="37.384" width="75.37"/><ellipse ry="24.856" rx="25.123" cx="80.181" cy="131.517"/></g><circle r="18.078" cy="75.319" cx="20.122" fill="#ffe680"/><path d="M-46.675 205.73c98.684-32.088 191.036-26.824 279.734 0v64.543H-46.675z" fill="#afa"/><g transform="translate(88.81 56.91) scale(.37871)" fill="#d5e5ff"><ellipse ry="18.709" rx="18.174" cy="137.815" cx="56.153"/><rect rx="16.92" y="130.258" x="32.072" height="37.384" width="75.37"/><ellipse ry="24.856" rx="25.123" cx="80.181" cy="131.517"/></g><g transform="translate(108.671 1.786) scale(.53723)" fill="#d5e5ff"><ellipse cx="56.153" cy="137.815" rx="18.174" ry="18.709"/><rect width="75.37" height="37.384" x="32.072" y="130.258" rx="16.92"/><ellipse cy="131.517" cx="80.181" rx="25.123" ry="24.856"/></g><path d="M110.296 134.752l25.157-13.139 1.215 28.385-25.157 13.138z" fill="#f6ffd5" stroke="#f60" stroke-width=".664"/><path d="M133.99 124.823l-.58-.335-20.434 35.439.58.335z" fill="#f60"/><path d="M134.433 148.403l-.262.454-21.64-12.51.263-.453z" fill="#f60"/><path d="M111.51 163.137s-9.531 35.473-53.877 47.197" fill="none" stroke="#f60" stroke-width=".349"/><ellipse cx="57.803" cy="210.142" rx="1.541" ry="1.455" fill="#ff4b00"/></g></svg>');
-  background-color: #aaffaa;
 }
 .graphic--two {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="700" viewBox="0 0 211.667 185.208"><g transform="matrix(.75667 0 0 .76311 35.318 -21.041)"><path fill="#59f" d="M-46.498 27.397h279.734v242.7H-46.498z"/><g transform="matrix(-.37871 0 0 .37871 62.684 50.479)" fill="#d5e5ff"><ellipse cx="56.153" cy="137.815" rx="18.174" ry="18.709"/><rect width="75.37" height="37.384" x="32.072" y="130.258" rx="16.92"/><ellipse cy="131.517" cx="80.181" rx="25.123" ry="24.856"/></g><g transform="matrix(-.53723 0 0 .53723 103.81 -18.915)" fill="#d5e5ff"><ellipse ry="18.709" rx="18.174" cy="137.815" cx="56.153"/><rect rx="16.92" y="130.258" x="32.072" height="37.384" width="75.37"/><ellipse ry="24.856" rx="25.123" cx="80.181" cy="131.517"/></g><ellipse transform="matrix(-.79262 -.60971 -.6162 .78759 0 0)" cx="-167.647" cy="-39.953" rx="18.02" ry="18.136" fill="#fd5"/><path d="M-46.675 242.241c98.684-13.936 191.036-11.65 279.734 0v28.032H-46.675z" fill="#0055d4"/><g transform="matrix(1 0 0 .47674 49.453 144.672)" fill="#deaa87"><path d="M37.038 175.009H82.78v10.682H37.038z"/><rect rx="6.608" width="45.742" height="17.512" x="37.038" y="175.009"/></g><g transform="matrix(-.53723 0 0 .53723 34.355 -10.28)" fill="#d5e5ff"><ellipse cx="56.153" cy="137.815" rx="18.174" ry="18.709"/><rect width="75.37" height="37.384" x="32.072" y="130.258" rx="16.92"/><ellipse cy="131.517" cx="80.181" rx="25.123" ry="24.856"/></g><path d="M110.162 185.22l20.59 39.969h-20.59zm-1.357 12.501l-20.59 27.468h20.59z" fill="#fff6d5"/><path fill="#deaa87" d="M108.75 201.688h1.413v26.968h-1.413z"/></g></svg>');
-    background-color: #0055d4;
-
 }
 .graphic--three {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="700" viewBox="0 0 211.8 185.34"><g transform="matrix(.75667 0 0 .76311 35.318 -20.907)"><path d="M-46.675 27.57H233.06v242.703H-46.675z" fill="#11002b"/><path d="M14.786 187.501l57.422 51.716H-42.635z" fill="#e9c6af"/><path d="M62.118 171.507l57.421 51.716H4.696z" fill="#e9c6af" stroke="#11002b" stroke-width=".87"/><path d="M-46.675 225.093c98.684-22.462 191.037-18.777 279.735 0v45.18H-46.675z" fill="#f95"/><ellipse transform="matrix(-.87093 -.4914 -.49774 .86732 0 0)" cx="-196.221" cy="-35.777" rx="18.04" ry="18.115" fill="#b7c8c4"/><ellipse cx="114.368" cy="97.712" rx="10.73" ry="13.332" fill="#fff6d5"/><path d="M110.516 114.795h7.703l-.644 6.36h-6.415z" fill="#fff6d5"/><path d="M106.564 106.76l3.952 8.035m11.655-8.035l-3.952 8.035" fill="#fff6d5" stroke="#fff6d5" stroke-width=".348"/></g></svg>');
-    background-color: #11002b;
 }
