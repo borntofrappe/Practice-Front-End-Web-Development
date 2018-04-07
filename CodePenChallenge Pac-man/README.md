@@ -1,4 +1,4 @@
-Link to the work in progress pen right [here](https://codepen.io/borntofrappe/pen/YaRVoK/).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/YaRVoK/).
 
 # Preface
 
@@ -27,9 +27,18 @@ Set the tasks of the project ahead, visualizing what the project itself entails,
 I'll spell it out here and for once to test out this new organizational approach.
 
 - [x] setup: background color #000, a rectangle centered on page, with a background color of one of the ghost, and a light switch in the top left corner, made out of the stroke of a circle;
-- [ ] random color: create a JS script which applies a different background color to the rectangle, as the page loads and as the light switch is clicked. This value might be suited for a CSS variable.
-- [ ] random coordinates: beyond the color, modify the position of the rectangle within the viewport
-- [ ] ghost silhouette: create the simple "blanket-body" figure, with a rounded top and pointy edges at the bottom. Include circles/ellipses for the eyes and irises within them.
-- [ ] bonus points: create a function which tracks the position of the mouse pointer and moves the irises of the eyes toward the pointer itself.
+- [x] random color: create a JS script which applies a different background color to the rectangle, as the page loads and as the light switch is clicked. This value might be suited for a CSS variable.
+- [x] random coordinates: beyond the color, modify the position of the rectangle within the viewport
+- [x] ghost silhouette: create the simple "blanket-body" figure, with a rounded top and pointy edges at the bottom. Include circles/ellipses for the eyes and irises within them.
+- [x] bonus points: create a function which tracks the position of the mouse pointer and moves the irises of the eyes toward the pointer itself.
 
 One step at a time.
+
+**Update**
+
+The simple, 5 minutes prep session seems to help and to reduce the number of wasted time noticeably. I'll keep perfecting the structure with the confirmation that yes, a plan does help, even if not implemented perfectly. As planned.
+
+
+// TODO: include lessons learned on absolute positioning when width and height property are "unusual" (meaning, both set to 0); lessons learned on the mouse move event and the used javascript in general. JavaScript in combination with the helpful CSS variables
+
+
