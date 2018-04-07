@@ -1,0 +1,167 @@
+/* 
+create variables 
+
+-for the colors as to easily change the style of the ghost and of the page, if need be  
+- for the coordinates of the ghost element, as these are updated in the JS script, in response to a click event on the light switch
+- for the coordinates of the irises of the ghost's eyes, to update them in the JS script, but in response to a mousemove event
+*/
+:root {
+  --background-color: #000000;
+  --ghost-color: #ffa003;
+  --light-switch-color: #eee;
+  --eye-color: #f7fdfe;
+  --iris-color: #385791;
+  
+  --x-axis-coordinate: 10vw;
+  --y-axis-coordinate: 10vh;
+  --x-axis-coordinate-iris: 10px;
+  --y-axis-coordinate-iris: 25px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+}
+/* 
+set position relative for the wrapping container, as the ghost and light switch are positioned in relation to this element
+
+the ghost is positioned in absolute terms as to freely manouver it around the page
+*/
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+/* position the light switch in the top left corner and display it only as the stroke of a circle */
+.container .light-switch {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid var(--light-switch-color);
+  background: none;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.8;
+  transition: all 0.3s ease-out;
+}
+/* on hover animate the property of opacity, to slightly give the impression of a glowing button */
+.container .light-switch:hover {
+  animation: light-switch-glow 0.6s infinite alternate;
+}
+@keyframes light-switch-glow {
+  to {
+    opacity: 1;
+  }
+}
+
+.container .ghost {
+  /* absolute position the ghost container with values from CSS variables; values which will be updated in the JS script */
+  position: absolute;
+  top: var(--y-axis-coordinate);
+  left: var(--x-axis-coordinate);  
+  /* set initial opacity to 0; this as well is a property modified in the JS script */
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+/* for the top section of the ghost, round the top corners */
+.ghost .ghost__rounded--top {
+  width: 130px;
+  height: 140px;
+  background-color: var(--ghost-color);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  
+/*   display flex to center the eyes and nested irises in the top section of the ghost */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* use border properties to make triangles out of divs and pseudo elements */
+.ghost .ghost__pointy--bottom {
+  width: 0;
+  height: 0;
+  /* create a triangle with the border properties, giving solid and transparent colors according to which sides you want displayed */
+  border-left: 15px solid var(--ghost-color);
+  border-top: 15px solid var(--ghost-color);
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  /* 
+  as width and height are set to 0 and the border properties are here specified, position relative anchors the pseudo element to a point which is NOT the top left corner of the element
+  the anchoring point is indeed 15px to the right and to the bottom of the top left corner (15px,15px)
+  (think of the borders as creating a box, the center of which is the element, with height and width 0)
+  something to consider when absolute positioning the pseudo-elements, as you need to account for this extra 15px
+  */
+  position: relative;
+  margin-top: -1px;
+}
+.ghost .ghost__pointy--bottom:before {
+  content: '';
+  position: absolute;
+  /* attach the pseudo element to the top of the element */
+  top: -16px;
+  /* move the pseudo element to the very right edge of the element 
+  85 is the result of 130 - 30 - 15
+  130 being the width of the element
+  30 the width of the box which is then built 
+  15 the coordinate of the element to which the pseudo element anchors
+  */
+  left: 85px;
+
+  /* create a triangle which mirrors the first one  */
+  border-left: 15px solid transparent;
+  border-top: 15px solid var(--ghost-color);
+  border-right: 15px solid var(--ghost-color);
+  border-bottom: 15px solid transparent;
+}
+/* similar reasoning regards the positioning of the other pseudo element
+with the only difference being the goal of this particular selector
+- place it in the center of the figure
+- place it as an arrow looking down (and not down-to-the-right or down-to-the-left)
+*/
+.ghost .ghost__pointy--bottom:after {
+  content: '';
+  position: absolute;
+  top: -16px;
+  /* 
+  to center the pseudo element push it to the left by 20px
+  which is computed as 
+  
+  (130/2) - 60 + 15
+
+  130/ 2 being the middle of the element
+  60 being the size of the "box" made of the 30px borders
+  15 being the offset of the anchoring element
+  */
+  left: 20px; 
+  border-left: 30px solid transparent;
+  border-top: 30px solid var(--ghost-color);
+  border-right: 30px solid transparent;
+}
+/* for the eyes include ellipses with position relative, as to absolute position the irises */
+.rounded--top__eye {
+  width: 30px;
+  height: 40px;
+  background-color: var(--eye-color);
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  position: relative;
+}
+
+.rounded--top__eye__iris {
+  width: 15px;
+  height: 15px;
+  background-color: var(--iris-color);
+  border-radius: 50%;
+  /* absolute position the irises, as you can then freely manouver them around in predefined ranges  */
+  position: absolute;
+  left: var(--x-axis-coordinate-iris);
+  top: var(--y-axis-coordinate-iris);
+}
