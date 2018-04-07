@@ -26,10 +26,10 @@ Set the tasks of the project ahead, visualizing what the project itself entails,
 
 I'll spell it out here and for once to test out this new organizational approach.
 
-- setup: background color #000, a rectangle centered on page, with a background color of one of the ghost, and a light switch in the top left corner, made out of the stroke of a circle;
-- random color: create a JS script which applies a different background color to the rectangle, as the page loads and as the light switch is clicked. This value might be suited for a CSS variable.
-- random coordinates: beyond the color, modify the position of the rectangle within the viewport
-- ghost silhouette: create the simple "blanket-body" figure, with a rounded top and pointy edges at the bottom. Include circles/ellipses for the eyes and irises within them.
-- bonus points: create a function which tracks the position of the mouse pointer and moves the irises of the eyes toward the pointer itself.
+- [x] setup: background color #000, a rectangle centered on page, with a background color of one of the ghost, and a light switch in the top left corner, made out of the stroke of a circle;
+- [ ] random color: create a JS script which applies a different background color to the rectangle, as the page loads and as the light switch is clicked. This value might be suited for a CSS variable.
+- [ ] random coordinates: beyond the color, modify the position of the rectangle within the viewport
+- [ ] ghost silhouette: create the simple "blanket-body" figure, with a rounded top and pointy edges at the bottom. Include circles/ellipses for the eyes and irises within them.
+- [ ] bonus points: create a function which tracks the position of the mouse pointer and moves the irises of the eyes toward the pointer itself.
 
 One step at a time.
