@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>I see you</title>
+  <meta name='description' content='Page description.'>
+
+  <link rel='stylesheet' type='text/css' href='style.css'>
+
+</head>
+<body>
+
+  <!-- simple HTML structure with a container including the only two assets of the page: a button for a light switch and a div for the figure of a ghost -->
+
+  <div class='container'>
+    <button class='light-switch' title='Flip the switch?'></button>
+  <!-- the div container for the ghost is nested with additional markup to create the ghost-like figure -->
+    <div class='ghost'>
+      <!-- including the top section of the body and the pointy tails at the bottom-->
+      <div class='ghost__rounded--top'>
+  <!--       the top section is furthermore structured to include the eyes and the irises -->
+        <div class='rounded--top__eye rounded--top__eye--left'>
+          <div class="rounded--top__eye__iris"></div>
+        </div>
+        <div class='rounded--top__eye rounded--top__eye--right'>
+          <div class="rounded--top__eye__iris"></div>
+        </div>
+      </div>
+      <div class='ghost__pointy--bottom'></div>
+    </div>
+  </div>
+
+<script src='script.js'></script>
+
+</body>
+</html>
