@@ -1,4 +1,4 @@
-Link to the work in progress pen right [here]().
+Link to the work in progress pen right [here](https://codepen.io/borntofrappe/pen/YaRVoK/).
 
 # Preface
 
@@ -15,6 +15,8 @@ Moreover, the ghost is to be positioned in the viewport at random coordinates, w
 As the light switch is toggled, as the page is first loaded, the ghost is shown with a different hue and at different coordinates. At random between the multitude of x and y coordinates and between the four color values respectively.
 
 # Lessons learned
+
+## Support structure
 
 I first made the newbie mistake of jumping in a code editor and start coding with reckless abandon. After a first moment of excitement, this approached proved rather poor and I found myself stucked in perfecting triangles and rounded rectangles. 
 
