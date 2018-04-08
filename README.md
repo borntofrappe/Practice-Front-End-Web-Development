@@ -44,5 +44,6 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Menu**](https://codepen.io/borntofrappe/full/pLZPrK/)|Page in which to experiment with the animation of a menu. The menu is built through SVG elements and toggled on click.|svg, menu, toggle|3rd April 2018|
 |[**Parallax Scroll**](https://codepen.io/borntofrappe/full/RMepEE/)|Alternate -classical- containers with purely aesthetical elements. Aesthetical elements which are introduced with a parallax effect, letting the page scroll through them instead of letting them scroll with the page.|parallax, svg, background properties|5th April 2018|
 |[**Codepen Challenge Pac-man**](https://codepen.io/borntofrappe/full/YaRVoK/)|Create a project in which a ghost is randomly positioned in the page and its eyes follow the mouse pointer.|css variables, absolute, mousemove, codepenchallenge|7th April 2018|
+|[**Component Display**](https://codepen.io/borntofrappe/full/XEyQEX/)|Create a display which can used as a component in a larger project, to express information regarding the same.|component, css animation|8th April 2018|
 
 

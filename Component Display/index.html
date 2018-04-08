@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Component Display</title>
+  <meta name="description" content="Create a display which can used as a component in a larger project, to express information regarding the same.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <!-- define SVG asset(s) used throughout the project  -->
+  <svg style="display: none;">
+      <symbol id="product-icon" width="100" height="100" viewBox="0 0 26.458 26.458"><g transform="translate(0 -270.542)"><rect fill="#fff" rx="1.306" ry="1.944" y="270.542" height="26.458" width="26.458"/><g fill="#2195f1" transform="translate(-.017 -.146)"><rect width="2.006" height="16.363" x="11.135" y="275.736" rx=".379" ry=".5"/><rect ry=".2" rx=".2" y="-11.887" x="279.761" height="10.032" width="2.508" transform="rotate(90)"/><rect transform="rotate(90)" width="2.508" height="8.143" x="283.131" y="-11.887" rx=".2" ry=".162"/><rect ry=".128" rx=".2" y="-11.887" x="286.5" height="6.443" width="2.508" transform="rotate(90)"/><rect transform="rotate(-90)" width="2.508" height="10.032" x="-289.442" y="14.605" rx=".2" ry=".2"/><rect ry=".162" rx=".2" y="14.605" x="-286.073" height="8.143" width="2.508" transform="rotate(-90)"/><rect transform="rotate(-90)" width="2.508" height="6.443" x="-282.704" y="14.605" rx=".2" ry=".128"/></g></g></symbol>
+  </svg>
+  
+  <!-- HTML structure in which the card display is nested in a wrapping container and built with simple markup -->
+  <div class="container">
+    <div class="component--card position-in-page">
+    <!--  at the top of the card show an icon included in the SVG set -->
+      <svg class="card__icon">
+        <use href="#product-icon"/>
+      </svg>
+      
+      <div class="card__title">
+        <h3>filler text report </h3>
+        <p>Used sixty-three times from march 1st to april 3rd</p>
+      </div>
+      
+      <div class="card__table">
+        <div class="card__table__row row--title">
+          <span>description</span>
+          <span>qty</span>
+          <span class="less-than-necessary">unit price</span>
+          <span>amount</span>
+        </div>
+        <div class="card__table__row">
+          <span>lorem</span>
+          <span>15</span>
+          <span class="less-than-necessary">$1,000</span>
+          <span>$1,000</span>
+        </div>
+        <div class="card__table__row">
+          <span>kitty</span>
+          <span>28</span>
+          <span class="less-than-necessary">$100</span>
+          <span>$2,800</span>
+        </div>
+        <div class="card__table__row">
+          <span>bla bla</span>
+          <span>20</span>
+          <span class="less-than-necessary">$100</span>
+          <span>$2,000</span>
+        </div>
+  
+        <div class="card__table__row row--final">
+          <span>total</span>
+          <span></span>
+          <span class="less-than-necessary"></span>
+          <span>$5,800</span>
+        </div>
+        
+      </div><!-- close table div -->
+      
+    </div><!-- close component div  -->
+  </div> <!-- close container div -->
+
+</body>
+</html>
