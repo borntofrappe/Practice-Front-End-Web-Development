@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/pen/XEyQEX).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/XEyQEX/).
 
 # Preface 
 
@@ -15,11 +15,11 @@ This properties can be immediately triggered, as it will be for the simple focus
 
 # The plan
 
-- [ ] with flex properties, create the outline of the card. Center it in the page, but know that you can freely manouver the component with `transform` properties.
-- [ ] at the top of the card, place an elment on top of the card itself, with a circle and an image instructing about the utility of the card itself.
-- [ ] in the card itself, place a title container with the title of the card and a quick description/specification right underneath it
-- [ ] following the title in a single column layout, present detailed information in a table structure. Build the table with flex properties.
-- [ ] bask in the achievement, and feel free to spruce up the interface with properties like `border-radius`, `drop-shadow` and a selection of colors.
-- [ ] experiment with the component's possibilities. Rotate/translate the object for large screen devices, animate the title and table introducing the information one row.
+- [x] with flex properties, create the outline of the card. Center it in the page, but know that you can freely manouver the component with `transform` properties.
+- [x] at the top of the card, place an elment on top of the card itself, with a circle and an image potentially instructing about the utility of the card itself.
+- [x] in the card itself, place a title container with the title of the card and a quick description/specification right underneath it.
+- [x] following the title in a single column layout, present detailed information in a table structure. Build the table with flex properties.
+- [x] bask in the achievement, and feel free to spruce up the interface with properties like `border-radius`, `drop-shadow` and a selection of colors.
+- [x] experiment with the component's possibilities. Rotate/translate the object for large screen devices, animate the title and table introducing the information one row.
 
 
