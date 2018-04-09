@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+:root {
+  --vertical-offset: 5rem;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(90deg, #abd4fc, #add7ff);
+}
+/* center the text container in the page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* beside some styling, set the property of overflow to hidden (essential to "hide" elements out of the boundaries of the container) */
+.container__text {
+  padding: 1rem 1.2rem;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(48,88,127, 0.2);
+  margin: 0 1rem;
+
+  overflow: hidden;
+}
+
+.container__text span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(48,88,127);
+}
+/* for the digits to be introduced with the animation, push them out of view, atop the container (which has overflow set to hidden) */
+.container__text span.digit {
+  position: relative;
+  top: calc(var(--vertical-offset)*-1);
+}
+/* create a separate class for the animation, which is restarted at the click of the icon through the JS script */
+.animated-digit {
+  animation: move-items-into-view 0.5s cubic-bezier(0.2, 0.82, 0.25, 1.5) forwards;
+}
+/* 
+for the digits present by default, push them below the upcoming digits exactly by the vertical offset 
+by absolutely positioning them in relation to the previous elements, these will be pushed out of view come animation time
+*/
+.container__text span.digit span {
+  position: absolute;
+  top: var(--vertical-offset);
+  left: 0;
+}
+/* alter the delay on the animation depending on style */
+.container__text span.digit:nth-of-type(2) {
+  animation-delay: 1s;
+}
+.container__text span.digit:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+.container__text span.digit:nth-of-type(4) {
+  animation-delay: 0.6s;
+}
+.container__text span.digit:nth-of-type(5) {
+  animation-delay: 0.4s;
+}
+.container__text span.digit:nth-of-type(6) {
+  animation-delay: 0.2s;
+}
+
+
+.refresh-icon {
+  stroke: rgb(48,88,127);
+  fill: rgb(48,88,127);
+
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 64px;
+  height: 64px;
+
+  cursor: pointer;
+}
+/* define animation by which numbers are rolled into view, exactly where they should stand by the position set originally and modified through the property of top */
+@keyframes move-items-into-view {
+  to {
+    top: 0;
+  }
+}
