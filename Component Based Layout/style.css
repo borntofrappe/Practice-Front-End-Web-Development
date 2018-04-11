@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+:root {
+  --heart-icon-color: #ff6058;
+  --heart-icon-size: 64px;
+  --font-color: #0d0813;
+  --font-color-lighter: #1e122b;
+  --background-color: #b1b0af;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+/* 
+stretch the application across the entire viewport 
+divide a single column layout into three sections, the middle of which occupies the larger portion of the page
+*/
+.application {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+/* with grid-template-columns 
+- columns should be created to fill the entire width
+- columns should occupy each a fraction of the available space
+- columns should be at least 200px wide (wrapping when the width doesn't allow all columns to be present in one row)
+*/
+.navigationBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  /* create a divider between rows, center items horizontally and vertically */
+  grid-row-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid var(--font-color);
+}
+.navigationBar p {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.navigationBar a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--font-color-lighter);
+  transition: all 0.2s ease-out;
+}
+.navigationBar a:hover {
+  color: var(--font-color);
+}
+
+/* center horizontally and vertically */
+.mainContent {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.mainContent h2 {
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+/* animate the hearbeat increasing its horizontal size more than its vertical */
+@keyframes heartbeat {
+  to {
+    /* rotate is included to maintain the rotation introduced briefly after */
+    transform: scaleX(1.4) scaleY(1.3) rotate(-45deg);
+  }
+}
+.mainContent .heartIcon:hover {
+  animation-duration: 0.2s;
+}
+/* 
+to create the heart you can use a square div and absolute position two circles through pseudo elements
+position these pseudo elements at either end of the square with top/right/bottom/left properties
+*/
+.mainContent .heartIcon {
+  background-color: var(--heart-icon-color);
+  height: var(--heart-icon-size);
+  width: var(--heart-icon-size);
+  /* rotate the square as to create the core of the heart icon */
+  transform: rotate(-45deg);
+  /* call the animation on the element, which will affect the pseudo-elements as well */
+  animation: heartbeat 1s alternate infinite;
+  
+}
+/* on hover fasten the animation as to give the impression of a faster heartbeat */
+.mainContent .heartIcon:after {
+  /* by setting the color to inherit the pseudo element takes the color of the connected element */
+  background-color: inherit;
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  /* the pseudo elements ought to be positioned halfway through the square; therefore they are offset by half of the chosen width/height */
+  width: var(--heart-icon-size);
+  height: var(--heart-icon-size);
+  top: 0;
+  left: calc(var(--heart-icon-size)/2);
+}
+.mainContent .heartIcon:before {
+  content: "";
+  background-color: inherit;
+  border-radius: 50%;
+  position: absolute;
+  width: var(--heart-icon-size);
+  height: var(--heart-icon-size);
+  top: calc(var(--heart-icon-size)/-2);
+  left: 0;
+}
+
+/* center content horizontally and vertically */
+.footer {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-top: 1px solid var(--font-color);
+}
+.footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  margin: 0 0.3rem;
+}
