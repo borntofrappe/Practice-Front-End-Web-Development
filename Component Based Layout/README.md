@@ -17,7 +17,7 @@ In the project at hand, the goal is to use React to manufacture a simple page la
 
 # Lessons Learned
 
-There's a bunch of lessons learned and applied in this project. A small legend is warranted.
+There's a bunch of lessons learned and applied in this project. A small schedule is warranted.
 
 - [React Rendering](#react-rendering)
 - [Elements and or Components](#elements-and-or-components)
@@ -219,4 +219,52 @@ Just remember to return a single HTML element with the return statement.
 
 ## CSS Grid
 
-// TODO add a couple of notes regarding the use of grid properties
+As the structure of the page is elementary, CSS grid properties mostly relate to align the content of each section horizontally and vertically, with the properties of `justify-items` and `align-items` respectively.
+
+```CSS
+.mainContent {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.footer {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+```
+
+That being said, there are also two use cases that go beyond the simple application of the mentioned couplet.
+
+- For the application container, a single column layout is specified and divided into three rows, one for each component.
+
+    ```CSS
+    .application {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 10fr 1fr;
+      height: 100vh;
+      width: 100%;
+    }
+    ```
+
+    The second component, as it relates to the most prominent section of the page, is given a greater portion of the available height.
+
+- For the navigation bar container, several keywords are used in the property of `grid-template-columns`.
+
+    ```CSS
+    .navigationBar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    }
+    ```
+    
+    These allow to create a layout which changes according to the available width. Keeping in mind that there are a total of 4 items in the grid container, the statement declares:
+    
+    - repeat for a certain amount of times a certain column structure. The `repeat` keyword accepts two items between parenthesis, literally the number of times to repeat the layout and the layout itself. For instance, `repeat(2, 100px 50px)` repeats a two-column structure twice (100px 50px 100px 50px);
+    
+    - while repeating, repeat the structure for how many times it takes to fill the available width. This is achieved with the keyword `auto-fit` included instead of a particular number of times;
+    
+    - the layout to be repeated should be a column that is at least 200px wide. If more space is available, stretch it to cover a portion of the remaining width. With `minmax`, it is exactly possible to specify between parentesis a range which details the minimum and maximum space which the layout should cover.
+
+
