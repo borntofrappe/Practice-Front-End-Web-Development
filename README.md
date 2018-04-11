@@ -47,5 +47,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Component Display**](https://codepen.io/borntofrappe/full/XEyQEX/)|Create a display which can used as a component in a larger project, to express information regarding the same.|component, css animation|8th April 2018|
 |[**Rolling Digits Display**](https://codepen.io/borntofrappe/full/eMbjEK/)|Create a very simple display in which numbers are updated with a rolling animation.|css animation, overflow, position|9th April 2018|
 |[**Heartbeat Icon**](https://codepen.io/borntofrappe/pen/RMvJxB)|Through HTML markup and CSS properties, create the icon of a heart, animated as to emulate a heartbeat.|pseudo-elements, css variables|10th April 2018|
+|[**Component Based Layout**](https://codepen.io/borntofrappe/pen/Yagrja)|Make use of the React library and CSS grid properties to create a simple layout for a landing-page-like application.|react, grid, pseudo-elements|11th April 2018|
 
 
