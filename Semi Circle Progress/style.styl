@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* define variables for 
+- color of background 
+- color of progress bar
+- progress bar size
+- semi-circle radius
+*/
+color-background = #FF6347
+color-progress-bar = #eee
+size-progress-bar = 15px
+size-semi-circle = 50vw
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family 'Lato', sans-serif
+    background-color color-background
+  
+/*
+push the semi-circle div to the bottom of the visible area
+
+the idea is to create a circle and cut out half of it through absolute positioning and overflow set to hidden
+*/
+.container
+    width 100%
+    height 100vh
+    display flex
+    justify-content center
+    align-items center
+    overflow hidden
+  
+input 
+    position absolute
+    top 0
+    width 90vw
+    padding 1rem
+  
+/*
+to actually create the progress bar the trick is as follows:
+- create pseudo elements, both :before and :after
+- make the div element and both pseudo-elements a circle with border radius
+- give the same background color to the element and the :after pseudo-element.
+- give the color of the progress bar to the :before pseudo element. As this is show below the :after pseudo-element, it is possible to show this "faux-border" by reducing the size of the :after pseudo-element
+
+- now that you see this solid border created by the :before pseudo-element, you can create a two-tone circle with the background property set to a linear gradient
+
+Linear gradient with solid colors.
+
+All this trouble to then animate the transform rotate property and show this "faux-border" as appearing and creting a progress animation along a semi-circle path
+*/
+.container .semi-circle
+    width size-semi-circle
+    height size-semi-circle
+    background-color color-background
+    border-radius 50%
+    position relative
+    top (size-semi-circle/2)
+    align-self: flex-end
+    &:after
+    &:before
+        content ''
+        position absolute
+        border-radius 50%
+    &:before
+        background linear-gradient(
+            to bottom, 
+            color-background 0%,
+            color-background 50%,
+            color-progress-bar 50%,
+            color-progress-bar 100%
+            )
+        top 0
+        right 0
+        bottom 0 
+        left 0
+        transform rotate(0)
+        animation rotate-semi-circle 1s 1.5s ease-in-out forwards
+    &:after
+        background-color color-background
+        top size-progress-bar
+        right size-progress-bar
+        bottom size-progress-bar 
+        left size-progress-bar
+    
+// introduce the progress bar with a simple animation
+@keyframes rotate-semi-circle 
+    to
+        transform rotate(90deg)
