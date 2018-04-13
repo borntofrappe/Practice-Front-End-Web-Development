@@ -45,8 +45,23 @@ The latter is a value altering how the element is rendered.
 Regardless of whichever approach is chosen, the higher the value passed for perspective, the more subtle the 3D effect will be.
 
 
-# // TODO: add notes regarding the transform property with all its rotate and translate values
+## Transform
 
+**`transform`**
+
+Several values of the `transform` property are specified in the project. These allow to modify several aspects of HTML elements, such as rotation (`rotate`) and overall position (`translate`).
+
+With particular regards to [3D transformations](https://css-tricks.com/almanac/properties/t/transform/#article-header-id-6), there exist multiple values allowing to tweak the different dimensions in which the elements can span.
+
+Values such as `rotateX`, `rotateY`, `rotateZ`, which allow to modify the rotation of the element in relation to the respective axis. `translateX`, `translateY`, `translateZ`, moving the element again in connection to the X,Y,Z axes.
+
+**`transform-`**
+
+In addition to these values, two properties are also used in connection to the analyzed property of `transform`. These are `transform.origin` and `transform-style`.
+
+`transform.origin` is extremely valuable in describing the "flexing point" in which the transformation takes place. By default it is set to `center center`, centering the transform property horizontally and vertically with respect to the affected element. By altering this value with keywords (`top`, `left`, `bottom`, `right`) or specifying absolute measures, it is possible to change exactly the origin (where the transformation would begin) as wanted/needed.
+
+`transform-style` is instead essential when building 3D transformations. With the value of `preserve-3d` it indeed allows to position nested items in a 3D space, instead of flattening all items in a 2D panel.
 
 ## Theme-ing
 
