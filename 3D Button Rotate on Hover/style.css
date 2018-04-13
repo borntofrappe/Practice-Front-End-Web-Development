@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* 
+define variables for 
+- colors of the background
+- color of the button element
+- color of the button text
+- color of the border for the button 
+- sizes of the button
+*/
+:root {
+  --background-gradient-top: #000128;
+  --background-gradient-bottom: #030a33;
+  --button-color: #7548d6;
+  --text-color: #eee;
+  --button-border-color: #000128;
+  --button-height: 64px;
+  --button-width: 300px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(
+    to bottom, 
+    var(--background-gradient-top),
+    var(--background-gradient-bottom)
+  );  
+}
+/* center content in the middle of the page */
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* include perspective property on the parent container, giving a subtle perspective on the nested children */
+  perspective: 1000px;
+  
+}
+/* create a simple round button in the top right corner of the page  */
+.container .toggle-theme {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 1s ease-out;
+}
+
+/* 
+for the 3D button the hover transition is achieved with a pseudo selector and transform properties  
+
+the line of through is as follows:
+- absolute position a pseudo element at the bottom of the button, with the same styling properties (background, border)
+- rotate the pseudo element from a transform-origin position of bottom center by 90degrees, hiding said pseudo element perpendicular to the visitor eyesight
+- on hover, alter transform properties of the element AND of the pseudo element as to rotate the first out of view in an upward fashion and the second into view in a forward animation
+
+there are a couple of mishaps corrected here and there (for instance, rotating the pseudo-element forces the text inside to be rotated as well), but those are (hopefully) fixed with the commented properties
+*/
+
+
+.container .hover-button {
+  /* explicit width and height make life much easier, as the rotation is accompanied by a vertical translation matching (half of) the height of the element */
+  height: var(--button-height);
+  width: var(--button-width);
+
+  /* position relative to absolute position the pseudo element */
+  position: relative;
+  /* transition to smoothen the change in properties */
+  transition: all 0.5s ease-out;
+  /* transform style to allow for the rotation to properly occur */
+  transform-style: preserve-3d;
+
+  /* styling properties */
+  outline: none;
+  background-color: var(--button-color);
+  border: 3px solid var(--button-border-color);
+  border-radius: 0.5rem;
+  
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text-color);
+  
+  cursor: pointer;  
+}
+
+/* 
+on hover rotate the element 90degrees out of sight, and move it upwards by a measure of half the height of the container 
+this to give the impression of a roll-out effect
+*/
+.container .hover-button:hover {
+  transform: translateY(calc(var(--button-height)/-2)) rotateX(90deg);
+}
+.container .hover-button:before {
+  content: 'Thank you 😇';
+  /* position the pseudo element to stretch the entirety of the connected element */
+  position: absolute;
+  /* include a minor "padding" as to compensate for the border of 3px in the connected element */
+  bottom: -3px;
+  left: -3px;
+  right: -3px;
+  top: -5px;
+  /* transform the pseudo element relative to an origin point located in the bottom center of the element  */
+  transform-origin: bottom center;
+  /* rotate the element out of view, 
+  changing also the rotation of the other axes to make the nested content legible (and not mirrored),
+  changing also the vertical coordinate as to move the pseudo element below the element by an amount matching the height of the element itself */
+  transform: rotateX(90deg) rotateY(180deg) rotateZ(180deg) translateY(var(--button-height));
+  /* set the element to be initially hidden */
+  opacity: 0;
+  /* include a transition to smoothen the change in properties */
+  transition: all 0.5s ease-out;
+
+  /* styling properties */
+  padding-top: 30 px;
+  background-color: var(--button-color);
+  border-radius: 0.5rem;
+  border: 3px solid var(--button-border-color);
+  padding-top: calc(var(--button-height)/4);
+}
+
+/* on hover maintain the properties of rotate and translate
+the change happens because the pseudo-element is basically attached to the element which is rotated/ otherwise transformed 
+think of this pseudo element as a rectangle making up the bottom of an imaginary box, of which the element shows the front 
+rotate the box, and the bottom comes into view  */
+.container .hover-button:hover:before {
+  transform: rotateX(90deg) rotateY(180deg) rotateZ(180deg) translateY(64px);
+  opacity: 1;
+}
