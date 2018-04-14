@@ -50,5 +50,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Component Based Layout**](https://codepen.io/borntofrappe/pen/Yagrja)|Make use of the React library and CSS grid properties to create a simple layout for a landing-page-like application.|react, grid, pseudo-elements|11th April 2018|
 |[**Semi Circle Progress Bar**](https://codepen.io/borntofrappe/pen/yKrqMe)|Create a progress bar which is actually the outline of a semi-circle and not a straight line.|stylus, git, pseudo-elements|12th April 2018|
 |[**3D Button Rotate on Hover**](https://codepen.io/borntofrappe/pen/BreORo/)|Create a 3D button with a transition showing a different side on hover. Include an option to change the theme of the page.|transform, perspective, pseudo-elements, themes|13th April 2018|
+|[**Codepen Challenge Donkey Kong**](https://codepen.io/borntofrappe/pen/GxbNyW)|Create a simple loading screen animation inspired by one of the unsung heroes of the video-game Donkey Kong.|svg, bit, animation, codepenchallenge|14th April 2018|
 
 
