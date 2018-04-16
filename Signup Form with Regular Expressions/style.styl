@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Tajawal');
+
+blue = #104891
+dark-blue = #10171D
+white = #EFF1F2
+yellow = #F09405
+
+*
+  box-sizing border-box
+  margin 0
+  padding 0
+  
+body
+  min-height 100vh
+  width 100%
+  font-family 'Open Sans', sans-serif
+  background-color blue
+    
+.container
+  width 100%
+  height 100vh
+  display flex
+  justify-content center
+  align-items center
+  padding 1rem 0
+  
+  .container__form
+    background white
+    color dark-blue
+    padding 2rem 2.5rem
+    border-radius 0.5rem
+    box-shadow 0 2px 15px dark-blue
+    
+#signup-form
+  font-size 1.2rem
+  .signup-form__field
+    display flex
+    flex-direction column
+    margin 0.5rem 0
+
+    label 
+      text-transform uppercase
+      
+    span
+      font-size 0.8rem
+      width 300px
+    input
+      outline none
+      border none
+      border 1px solid rgba(dark-blue, 0.2)
+      background white
+      margin 0.5rem 0
+      padding 0.5rem 1rem
+      font-size 1.1rem
+      transition border 0.2s ease-out
+      
+      // define a class of valid applied to the input elements as the regex matches
+      &.valid
+        border-color green
+        
+  button
+    outline none
+    background rgba(yellow, 0.9)
+    color white
+    font-size 1.2rem
+    border none
+    border-radius 0.2rem
+    padding 0.5rem 0.8rem
+    text-transform uppercase
+    font-weight bold
+    cursor pointer
+    transition background 0.2s ease-out
+    &:hover
+      background rgba(yellow, 1)
