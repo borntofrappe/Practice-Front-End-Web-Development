@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Signup Form with Regular Expressions</title>
+  <meta name="description" content="Create a signup form in which input elements are styled according to their value matching predefined conditions.">
+
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="container__form">
+      
+      <form id="signup-form">
+        
+        <div class="signup-form__field">
+          <label for="username" id="username-label">Username</label>
+          <span>At least four letters, ending with two numbers</span>
+          <input type="text" id="username"/>
+        </div>
+        
+        <div class="signup-form__field">
+          <label for="email" id="email-label">Email</label>
+          <span>Something similar to <em>phili@gmail.com</em></span>
+          <input type="email" id="email"/>
+        </div>
+        
+        <div class="signup-form__field">
+          <label for="password" id="password-label">Password</label>
+          <span>Between five and twenty characters</span>
+          <input type="password" id="password"/>
+        </div>
+        
+        <button>
+          Sign Up
+        </button>
+        
+      </form>
+      
+    </div>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
