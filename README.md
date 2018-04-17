@@ -52,5 +52,6 @@ If the inspiration strikes, exceptions can be made.
 |[**3D Button Rotate on Hover**](https://codepen.io/borntofrappe/pen/BreORo/)|Create a 3D button with a transition showing a different side on hover. Include an option to change the theme of the page.|transform, perspective, pseudo-elements, themes|13th April 2018|
 |[**Codepen Challenge Donkey Kong**](https://codepen.io/borntofrappe/pen/GxbNyW)|Create a simple loading screen animation inspired by one of the unsung heroes of the video-game Donkey Kong.|svg, bit, animation, codepenchallenge|14th April 2018|
 |[**Signup Form with Regular Expressions**](https://codepen.io/borntofrappe/pen/LdwbRv)|Create a signup form in which input elements are styled according to their value matching predefined conditions.|signup, regex|16th April 2018|
+|[**Bar Chart with D3.js**](https://codepen.io/borntofrappe/pen/qYWPVg)|Create a bar chart in order to display data with the JavaScript library D3.|d3js, bar chart|17th April 2018|
 
 

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin|Roboto");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #1d0d21;
+  background-color: #a5e830;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.container h1 {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-family: 'Cabin', sans-serif;
+  font-size: 2.5rem;
+}
+.container svg rect.bar {
+  cursor: pointer;
+  fill: #1d0d21;
+  transition: fill 0.2s ease-out;
+}
+.container svg rect.bar:hover {
+  fill: #25002e;
+}
+.container svg text {
+  fill: #1d0d21;
+  font-style: italic;
+  font-weight: bold;
+  opacity: 0;
+}

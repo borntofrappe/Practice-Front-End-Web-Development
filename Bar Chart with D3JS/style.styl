@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto');
+
+color-background = #a5e830
+color-text = #1D0D21
+font-text = 'Roboto', sans-serif
+font-header = 'Cabin', sans-serif
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background-color color-background
+
+.container
+    height 100vh
+    width 100%
+    padding 2rem
+    display flex 
+    flex-direction column 
+    align-items center 
+    justify-content center 
+    text-align center
+
+    h1
+        text-transform uppercase
+        margin-bottom 1rem
+        font-family font-header
+        font-size 2.5rem
+
+    svg         
+        rect.bar
+            cursor pointer
+            fill color-text
+            transition fill 0.2s ease-out
+            &:hover
+                fill saturation(color-text, 120%)
+        text
+            fill color-text
+            font-style italic
+            font-weight bold
+            opacity 0
