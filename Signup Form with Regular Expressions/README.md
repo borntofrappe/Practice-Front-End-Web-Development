@@ -45,7 +45,7 @@ These constructs already allow to look for decent patterns in an input element. 
 ```JS
 const pattern = /hello/;
 const missingPattern = /hallo/;
-const fillerText = 'Sometimes I just feel like saying hello is already too much for you. I mean, how much does it cost. Five \w`;
+const fillerText = "Sometimes I just feel like saying hello is already too much for you. I mean, how much does it cost. Five \w";
 
 pattern.test(fillerText); // returns true
 missingPattern.test(fillerText); // returns false
