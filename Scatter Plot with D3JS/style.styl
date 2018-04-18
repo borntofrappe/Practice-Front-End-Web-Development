@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+color-background = #87BAFE
+color-max = #C31C0F
+color-min = #2065F1
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family 'Lato', sans-serif
+    background-color color-background
+    
+.container 
+    height 100vh
+    width 100%
+    padding 2rem 3rem
+    display flex 
+    flex-direction column 
+    align-items center 
+    justify-content center 
+    text-align center
+
+    h1
+        color #444
+        font-size 2.5rem
+        border-bottom 5px double #444
+        margin-bottom 2rem
+    svg.frame
+        // on hover alter the properties of fill and radius, increasing the size of the circles and making them bolder
+        circle
+            transition all 0.4s ease-out
+            opacity 0
+        circle.datapoint-max 
+            fill saturation(color-max, 80%)
+            &:hover 
+                fill saturation(@fill, 150%)
+                r 12
+        circle.datapoint-min
+            fill saturation(color-min, 80%)
+            &:hover 
+                fill saturation(@fill, 150%)
+                r 12
+                
+                
