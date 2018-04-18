@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: #87bafe;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.container h1 {
+  color: #444;
+  font-size: 2.5rem;
+  border-bottom: 5px double #444;
+  margin-bottom: 2rem;
+}
+.container svg.frame circle {
+  transition: all 0.4s ease-out;
+  opacity: 0;
+}
+.container svg.frame circle.datapoint-max {
+  fill: #bd2115;
+}
+.container svg.frame circle.datapoint-max:hover {
+  fill: #d20f00;
+  r: 12;
+}
+.container svg.frame circle.datapoint-min {
+  fill: #2a68e7;
+}
+.container svg.frame circle.datapoint-min:hover {
+  fill: #1260ff;
+  r: 12;
+}
