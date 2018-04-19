@@ -54,5 +54,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Signup Form with Regular Expressions**](https://codepen.io/borntofrappe/pen/LdwbRv)|Create a signup form in which input elements are styled according to their value matching predefined conditions.|signup, regex|16th April 2018|
 |[**Bar Chart with D3.js**](https://codepen.io/borntofrappe/pen/qYWPVg)|Create a bar chart in order to display data with the JavaScript library D3.|d3js, bar chart|17th April 2018|
 |[**Scatter Plot with D3.js**](https://codepen.io/borntofrappe/pen/ZoEabR)|Create a two-dimensional panel in which to display the average monthly temperatures for the city of Paris.|d3js, scatter plot|18th April 2018|
+|[**Pulse Animation on Hover**](https://codepen.io/borntofrappe/pen/pVvWzv/)|Create a anchor link element with a neat transition on hover.|pseudo elements, border-color|19th April 2018|
 
 

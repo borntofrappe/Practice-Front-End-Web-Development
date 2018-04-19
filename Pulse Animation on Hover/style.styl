@@ -1,0 +1,67 @@
+color-background = #fff
+hover-color = #66d7ee
+icon-size = 3rem
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    background-color color-background
+
+div.container
+    // center the nested anchor link in the page 
+    height 100vh
+    width 100%
+    display flex 
+    justify-content center 
+    align-items center 
+
+    a.pulse-animation
+        padding 1rem
+        border-radius 50%
+        border 1px solid hover-color
+        background-color color-background
+        // transition the border color to a more saturated hue
+        transition border-color 0.3s ease-out
+
+        // include a pseudo element right where the border would sit, and animate the color of the background property
+        position relative 
+        &:before 
+            content ''
+            position absolute 
+            top -1px
+            right -1px
+            bottom -1px
+            left -1px
+            background-color hover-color
+            border-radius 50%
+            // position the pseudo element below the element itself
+            z-index -5
+
+        &:hover 
+            border-color saturation(hover-color, 200%)
+        &:hover:before
+            animation pulse 1.5s infinite ease-out
+
+        svg.twitter-icon
+            width icon-size
+            height icon-size
+            fill color-background
+            stroke hover-color
+            stroke-width 0.5px
+
+@keyframes pulse {
+    // change the background color to gradient and "increase" the size of the border
+    // showing a disappearing circular background 
+    70%, 100% {
+        top -1.5rem
+        right -1.5rem
+        bottom -1.5rem
+        left -1.5rem
+        background-color rgba(hover-color, 0)
+    }
+}

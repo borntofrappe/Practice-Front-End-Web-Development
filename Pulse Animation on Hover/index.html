@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Pulse Animation on Hover</title>
+  <meta name="description" content="Create an anchor link element with a neat transition on hover, giving the impression of a pulsating button/ rippling water ring.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <!-- include svg icon used in the anchor link -->
+  <svg style="display:none;">
+    <symbol id="twitter-icon" viewBox="0 0 26.458 19.844"><path d="M12.332 19.62S23.471 18.065 23.67 5.716c0 0 2.884-.766 2.785-1.34L23.47 4.28s2.785-1.149 2.685-2.202c0 0-3.083 1.436-3.68.67-.356-.643-7.763-5.634-9.846 3.375 0 0-8.553-1.34-10.642-6.127 0 0-.398 8.52 3.78 8.424 0 0-3.084.287-5.769-2.202 0 0 .696 4.5 6.962 5.265 0 0-4.078 1.628-4.476.575 0 0 2.686 3.063 6.565 2.201 0 0-4.575 4.5-8.454 3.83 0 0 5.868 2.489 11.736 1.531z"/></symbol>
+  </svg>
+
+  <!-- html markup with a simple container used to center an anchor link element -->
+  <div class="container">
+    <a href="https://twitter.com/borntofrappe" class="pulse-animation">
+      <!-- include SVG icon instead of plain text -->
+      <svg class="twitter-icon">
+        <use href="#twitter-icon"/>
+      </svg>
+    </a>
+  </div>
+  
+</body>
+</html>
