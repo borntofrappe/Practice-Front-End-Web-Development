@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+div.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.container a.pulse-animation {
+  padding: 1rem;
+  border-radius: 50%;
+  border: 1px solid #66d7ee;
+  background-color: #fff;
+  transition: border-color 0.3s ease-out;
+  position: relative;
+}
+div.container a.pulse-animation:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background-color: #66d7ee;
+  border-radius: 50%;
+  z-index: -5;
+}
+div.container a.pulse-animation:hover {
+  border-color: #55e2ff;
+}
+div.container a.pulse-animation:hover:before {
+  animation: pulse 1.5s infinite ease-out;
+}
+div.container a.pulse-animation svg.twitter-icon {
+  width: 3rem;
+  height: 3rem;
+  fill: #fff;
+  stroke: #66d7ee;
+  stroke-width: 0.5px;
+}
+@-moz-keyframes pulse {
+  70%, 100% {
+    top: -1.5rem;
+    right: -1.5rem;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background-color: rgba(102,215,238,0);
+  }
+}
+@-webkit-keyframes pulse {
+  70%, 100% {
+    top: -1.5rem;
+    right: -1.5rem;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background-color: rgba(102,215,238,0);
+  }
+}
+@-o-keyframes pulse {
+  70%, 100% {
+    top: -1.5rem;
+    right: -1.5rem;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background-color: rgba(102,215,238,0);
+  }
+}
+@keyframes pulse {
+  70%, 100% {
+    top: -1.5rem;
+    right: -1.5rem;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background-color: rgba(102,215,238,0);
+  }
+}
