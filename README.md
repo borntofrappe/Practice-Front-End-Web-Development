@@ -55,5 +55,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Bar Chart with D3.js**](https://codepen.io/borntofrappe/pen/qYWPVg)|Create a bar chart in order to display data with the JavaScript library D3.|d3js, bar chart|17th April 2018|
 |[**Scatter Plot with D3.js**](https://codepen.io/borntofrappe/pen/ZoEabR)|Create a two-dimensional panel in which to display the average monthly temperatures for the city of Paris.|d3js, scatter plot|18th April 2018|
 |[**Pulse Animation on Hover**](https://codepen.io/borntofrappe/pen/pVvWzv/)|Create a anchor link element with a neat transition on hover.|pseudo elements, border-color|19th April 2018|
+|[**First Letter in Paragraph**](https://codepen.io/borntofrappe/pen/deoWYV/)|Create a letterform right at the beginning of a paragraph, to ease in the reading of the same by highlighting the first letter of the text structure.|float, shape-outside|20th April 2018|
 
 
