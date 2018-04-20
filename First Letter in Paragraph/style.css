@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+:root {
+  --color-background: #eee;
+  --first-letter-size: 7rem;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--color-background);
+}
+.container {
+  padding: 1.5rem;
+  max-width: 700px;
+  margin: 1rem auto;
+  border: 7px solid rgba(0,0,0,0.5);
+  background-color: #fff;
+}
+
+.container .first-letter {
+  /* with a float property the placeholder div is moved on the same level of the following paragraph, to cover its rightful space at its left */
+  float: left;
+  /* with the property of shape outside it is moreover possible to wrap the following text around the div, following the path of a shape */
+  shape-outside: circle();
+  font-weight: bold;
+  padding: 1rem;
+  margin: 1rem;
+  width: var(--first-letter-size);
+  height: var(--first-letter-size);
+  border-radius: 50%;
+}
+/* .first-letter img {
+  center the asset in the placeholder div, by spanning the element to cover the entire width and height of the parent
+  width: 100%;
+  height: 100%;
+} */
+.first-letter svg {
+  /* center the asset in the placeholder div, by spanning the element to cover the entire width and height of the parent */
+  width: 100%;
+  height: 100%;
+}
+.container p {
+  margin-top: 1rem;
+  line-height: 2;
+}
+
+/* remove the border when the screen reaches the size of the max-width property of the container */
+@media only screen and (max-width: 700px) {
+  .container {
+    border: none;
+  }
+}
