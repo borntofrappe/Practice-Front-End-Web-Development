@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 :root {
-  --color-background: #eee;
+  --color-background: #444;
   --first-letter-size: 7rem;
 }
 * {
@@ -18,7 +18,7 @@ body {
   padding: 1.5rem;
   max-width: 700px;
   margin: 1rem auto;
-  border: 7px solid rgba(0,0,0,0.5);
+  border: 7px solid rgba(0,0,0,0.8);
   background-color: #fff;
 }
 
