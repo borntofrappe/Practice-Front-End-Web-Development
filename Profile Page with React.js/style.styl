@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+color-background = #eee
+color-text = #06505c
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family 'Lato', sans-serif
+    font-weight bold
+    font-size 1.1rem
+    color color-text
+    background-color color-background
+
+.app__container 
+    width 100%
+    min-height 100vh
+    display flex
+    flex-direction column
+    
+    
+    .navigation-bar
+        display flex
+        justify-content flex-end
+        align-items center
+        padding 1rem 2rem
+        
+        a
+            margin 0 1rem
+            
+            svg.svg--eye
+                width 36px
+                fill color-text
+                transition transform 0.3s ease-out
+
+                ellipse:nth-of-type(1)
+                    fill color-background
+                    
+                &:hover
+                    transform rotate(20deg)
+                    
+            svg.svg--plus
+                width 32px
+                transition transform 0.3s ease-out
+                path
+                    stroke color-text
+                    stroke-width 6px
+                    
+                &:hover
+                    transform rotate(180deg)
+        
+        
+    .content 
+        flex-grow 1
+        display flex
+        padding 1rem
+        justify-content center
+        min-height 100vh
+        align-items center
+        
+        .content-profile
+            display flex
+            flex-direction column
+            margin 0 1.5rem
+            max-width 400px
+            font-size 1.3rem
+            
+            svg.svg--placeholder--img
+                width 100%
+                height auto
+                fill color-text
+                border 2px solid color-text
+                margin-bottom 1rem
+                
+        .content-about
+            display flex
+            flex-direction column
+            max-width 400px
+            font-size 1.2rem
+            margin 2rem 1.5rem
+            h2
+                text-transform uppercase
+            p
+                line-height 1.4
+        
+        
+    .footer
+        display flex
+        justify-content center
+        align-items center
+        padding 1rem 0
+        border-top 4px solid rgba(color-text, 0.42)
+
+        
+        svg.svg--icon
+            margin 0 1rem
+            fill color-text
+            transition transform 0.3s ease-out
+            transform-origin left center
+            
+            ellipse
+                stroke-width 4px
+                stroke color-background
+            &:hover
+                transform scaleX(1.1)
+            
+            
+        a
+            text-decoration none
+            color inherit
+            p
+                text-transform uppercase
+                
+                
+@media only screen and (max-width: 600px)
+    .app__container .content
+        flex-direction column
