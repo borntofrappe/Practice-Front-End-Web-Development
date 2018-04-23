@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #06505c;
+  background-color: #eee;
+}
+.app__container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app__container .navigation-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.app__container .navigation-bar a {
+  margin: 0 1rem;
+}
+.app__container .navigation-bar a svg.svg--eye {
+  width: 36px;
+  fill: #06505c;
+  transition: transform 0.3s ease-out;
+}
+.app__container .navigation-bar a svg.svg--eye ellipse:nth-of-type(1) {
+  fill: #eee;
+}
+.app__container .navigation-bar a svg.svg--eye:hover {
+  transform: rotate(20deg);
+}
+.app__container .navigation-bar a svg.svg--plus {
+  width: 32px;
+  transition: transform 0.3s ease-out;
+}
+.app__container .navigation-bar a svg.svg--plus path {
+  stroke: #06505c;
+  stroke-width: 6px;
+}
+.app__container .navigation-bar a svg.svg--plus:hover {
+  transform: rotate(180deg);
+}
+.app__container .content {
+  flex-grow: 1;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+.app__container .content .content-profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5rem;
+  max-width: 400px;
+  font-size: 1.3rem;
+}
+.app__container .content .content-profile svg.svg--placeholder--img {
+  width: 100%;
+  height: auto;
+  fill: #06505c;
+  border: 2px solid #06505c;
+  margin-bottom: 1rem;
+}
+.app__container .content .content-about {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  font-size: 1.2rem;
+  margin: 2rem 1.5rem;
+}
+.app__container .content .content-about h2 {
+  text-transform: uppercase;
+}
+.app__container .content .content-about p {
+  line-height: 1.4;
+}
+.app__container .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 4px solid rgba(6,80,92,0.42);
+}
+.app__container .footer svg.svg--icon {
+  margin: 0 1rem;
+  fill: #06505c;
+  transition: transform 0.3s ease-out;
+  transform-origin: left center;
+}
+.app__container .footer svg.svg--icon ellipse {
+  stroke-width: 4px;
+  stroke: #eee;
+}
+.app__container .footer svg.svg--icon:hover {
+  transform: scaleX(1.1);
+}
+.app__container .footer a {
+  text-decoration: none;
+  color: inherit;
+}
+.app__container .footer a p {
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 600px) {
+  .app__container .content {
+    flex-direction: column;
+  }
+}
