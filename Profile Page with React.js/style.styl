@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+// define variables for the color palette
 color-background = #eee
 color-text = #06505c
 
@@ -18,6 +19,7 @@ body
     background-color color-background
 
 .app__container 
+// lay the section on top of one another, in a single column layout
     width 100%
     min-height 100vh
     display flex
@@ -25,37 +27,46 @@ body
     
     
     .navigation-bar
+    // display the navigation bar in a single row layout, push the items at the end of the row and center vertically
         display flex
         justify-content flex-end
         align-items center
         padding 1rem 2rem
         
         a
+        // push the items of the navigation bar from away one another
             margin 0 1rem
             
             svg.svg--eye
+            // include the SVG as a small icon
                 width 36px
                 fill color-text
                 transition transform 0.3s ease-out
 
                 ellipse:nth-of-type(1)
+                // change fill for the first ellipse element as to create the faux-eye 
                     fill color-background
                     
                 &:hover
+                // on hover rotate ever so slightly
                     transform rotate(20deg)
                     
             svg.svg--plus
+            // include svg as a small icon
                 width 32px
                 transition transform 0.3s ease-out
                 path
+                // visualize the plus sign with a stroke
                     stroke color-text
                     stroke-width 6px
                     
                 &:hover
+                // on hover rotate around the center
                     transform rotate(180deg)
         
         
     .content 
+    // for the content section lay the profile and about section side by side (on top of one another for small width devices)
         flex-grow 1
         display flex
         padding 1rem
@@ -64,13 +75,16 @@ body
         align-items center
         
         .content-profile
+        // for the profile sub-section, lay items in a single column layout 
             display flex
             flex-direction column
             margin 0 1.5rem
+            // set a max-width as to avoid too-long lines
             max-width 400px
             font-size 1.3rem
             
             svg.svg--placeholder--img
+            // include the placeholder image spanning the entirety of the container
                 width 100%
                 height auto
                 fill color-text
@@ -78,8 +92,10 @@ body
                 margin-bottom 1rem
                 
         .content-about
+        // for the about sub-section, lay items in a single column layout
             display flex
             flex-direction column
+            // max-width with the same reasoning used for the profile section
             max-width 400px
             font-size 1.2rem
             margin 2rem 1.5rem
@@ -90,6 +106,7 @@ body
         
         
     .footer
+    // lay the footer section as a single row layout, center in row
         display flex
         justify-content center
         align-items center
@@ -98,6 +115,7 @@ body
 
         
         svg.svg--icon
+        // include the svg icon 
             margin 0 1rem
             fill color-text
             transition transform 0.3s ease-out
@@ -107,6 +125,7 @@ body
                 stroke-width 4px
                 stroke color-background
             &:hover
+            // on hover increase horizontal size (from the left center as per transform-origin)
                 transform scaleX(1.1)
             
             
@@ -118,5 +137,6 @@ body
                 
                 
 @media only screen and (max-width: 600px)
+// on small screen sizes lay the content sub-sections vertically on top of one another
     .app__container .content
         flex-direction column
