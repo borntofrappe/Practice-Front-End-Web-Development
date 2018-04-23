@@ -1,8 +1,8 @@
+// target the HTML element in which to include the components
 const targetNode = document.querySelector("#app");
 
 // the page is divided into three sections, nested in a parent component
-
-// additional stateless functional components are manufactured for the bite-size components of each section
+// additional components are manufactured for the bite-size components of each section
 
 // define stateless functional components for the SVG graphics used in the project
 const ExploreProfilesGraphic = () => <svg className="svg--eye" width="40" height="40" viewBox="0 0 40 40">
@@ -28,7 +28,8 @@ const PlaceholderImageGraphic = () => <svg className="svg--placeholder--img" wid
           <circle cx="70%" cy="35%" r="18%" />
         </svg>;
 
-// navigation bar with two graphics included in anchor link elements
+
+// the navigation bar includes two graphics nested in anchor link elements
 const NavigationBar = () => {
   return(
     <nav className="navigation-bar">
