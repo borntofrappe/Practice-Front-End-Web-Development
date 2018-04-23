@@ -46,8 +46,6 @@ const NavigationBar = () => {
 };
 ```
 
-// TODO ADD NOTES ON REACT.JS STATE AND PROPERTIES
-
 ## Stateful Components
 
 Unlike previous efforts with the React library, the current project makes use of stateful components. Components with **state**. This is used to collect and centralize data in one component, which uses them as needed. 
