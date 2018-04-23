@@ -9,6 +9,8 @@ The purpose of this project is to pick up once more the knowledge gathered going
 - [x] create the layout for a profile page, in which a picture and information related to an arbitrary user are shown
 - [x] use properties and state values to gather information regarding the profile name, age or otherwise relevant information
 - [x] pass the properties and or state to child components as to lay out the exact information
+<!-- - provide an update menu in which the name, age or otherwise information can be updated
+- upon using such an update function, alter the information displayed on page. -->
 
 # Lessons Learned
 
@@ -48,4 +50,59 @@ const NavigationBar = () => {
 
 ## Stateful Components
 
-## State and Properties
+Unlike previous efforts with the React library, the current project makes use of stateful components. Components with **state**. This is used to collect and centralize data in one component, which uses them as needed. 
+
+This centralization also allows for a unidirectional flow of data, from a main, parent component to nested, child components. It is indeed possible to pass the values present in the state as **properties**, to nested components, and use these values directly in the JSX syntax.
+
+**Example**
+
+In a class component, a state can be included in the constructor method, with the object `this.state`.
+
+```JSX
+class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Vyro Uxta'
+    }
+  }
+};
+```
+
+In this example, a key for the 'name' is included for the value of 'Vyro Uxta'.
+
+Once instantiated, the key-value pairs of the state are accessible in the component itself, through the `this` keyword.
+
+Alternatively, they can be passed, distributed to nested components. They are included like ordinary attributes in HTML elements.
+
+```JSX
+class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Vyro Uxta'
+    }
+  }
+  render() {
+    return(
+      <div className="app__container">
+        <ContentSection name = {this.state.name} />
+      </div>
+    );
+  }
+};
+```
+
+The only minor difference is the inclusion of curly braces, used to include JS script.
+
+The nested component has then access to this value under the `props` preface.
+
+```JSX
+const ContentSection = (props) => {
+  return(
+      <h1>Hello {props.name}</h1>
+  );
+}
+```
+
+Just remember to include `props` between parens as it needs to be the argument of the function.
