@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Responsive Calculator Buttons</title>
+  <meta name="description" content="Create 3D buttons which change on press.">
+
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+  <!-- html structure with a container nesting the display and the grid of nine buttons -->
+  <div class="container">
+    <div class="container__display">
+      <p></p>
+    </div>
+
+    <div class="container__buttons">
+        <!-- emmet shortcut
+          button[data-value="$"]{$}*9 
+        -->
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+      </div>
+  </div>
+  
+
+<script src="script.js"></script>
+
+</body>
+</html>
