@@ -58,5 +58,6 @@ If the inspiration strikes, exceptions can be made.
 |[**First Letter in Paragraph**](https://codepen.io/borntofrappe/pen/deoWYV/)|Create a letterform right at the beginning of a paragraph, to ease in the reading of the same by highlighting the first letter of the text structure.|float, shape-outside|20th April 2018|
 |[**Codepen Challenge Paperboy**](https://codepen.io/borntofrappe/pen/deoBmL)|Create a grid layout for the first page of a newspaper in which items are shown in columns and rows depending on the screen size.|css grid, codepenchallenge|21st April 2018|
 |[**Profile Page with React.js**](https://codepen.io/borntofrappe/pen/bMVaro/)|Create a profile page to implement knowledge regarding React, stateful components and properties.|react, svg, state, properties|22nd April 2018|
+|[**Responsive Calculator Buttons**](https://codepen.io/borntofrappe/pen/YLqQMR)|Create 3D buttons which change on press.|stylus, js|24th April 2018|
 
 
