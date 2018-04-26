@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Pig-Latin Translate</title>
+  <meta name="description" content="Create a two-panel structure in which text is translated to pig-latin.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+
+</head>
+<body>
+
+  <!-- define SVG asset later used in the page -->
+  <svg style="display: none;">
+      <symbol id="pig-latin-icon" width="100" height="100" viewBox="0 0 26.458 26.458"><g transform="matrix(.39318 0 0 .3728 -24.186 -42.663)"><circle r="31.372" cy="149.967" cx="95.161" fill="#f49cc8"/><g transform="translate(.147)"><ellipse cy="140.781" cx="104.276" rx="7.443" ry="9.096" fill="#fff"/><ellipse cx="103.329" cy="145.577" rx="3.248" ry="3.969" fill="#f49cc8"/><ellipse ry="9.096" rx="7.443" cx="-85.752" cy="140.781" transform="scale(-1 1)" fill="#fff"/><ellipse ry="3.969" rx="3.248" cy="145.577" cx="-86.7" transform="scale(-1 1)" fill="#f49cc8"/></g><ellipse ry="6.281" rx="8.954" cy="157.352" cx="95.014" fill="#fff"/><path d="M95.415 158.407c.054-.115.298-.016.334.05.1.18-.231.325-.512.332-.502.014-.848-.268-.824-.535.035-.392.709-.65 1.359-.612.866.051 1.426.543 1.314 1.02-.142.6-1.19.983-2.205.892-1.23-.11-2.01-.819-1.804-1.504.242-.808 1.671-1.317 3.05-1.173 1.594.167 2.595 1.095 2.295 1.989-.341 1.016-2.153 1.652-3.898 1.453-1.957-.224-3.18-1.37-2.784-2.473.44-1.224 2.636-1.988 4.744-1.733" fill="#f49cc8" fill-rule="evenodd"/><ellipse ry="10.096" rx="9.531" cy="174.991" cx="81.087" fill="#f49cc8" stroke="#fff" stroke-width=".647" stroke-opacity=".941"/><g stroke="#f49cc8"><path d="M63.086 129.335a4.71 4.71 0 0 1 .733-6.635l8.106-6.493c2.041-1.635 6.656-1.882 6.636.734l-.118 15.71c1.635 2.04-15.357-3.316-15.357-3.316z" fill="#f49cc8" stroke-width="1.071"/><path d="M67.463 130.28a3.368 3.368 0 0 1 .524-4.744l5.796-4.642c1.46-1.169 4.758-1.346 4.744.524l-.084 11.233c1.169 1.46-10.98-2.37-10.98-2.37z" fill="#fff" stroke-width=".765"/></g><ellipse cx="107.012" cy="174.991" rx="9.531" ry="10.096" fill="#f49cc8" stroke="#fff" stroke-width=".647" stroke-opacity=".941"/><g stroke="#f49cc8"><path d="M127.237 129.335a4.71 4.71 0 0 0-.733-6.635l-8.106-6.493c-2.042-1.635-6.656-1.882-6.636.734l.118 15.71c-1.635 2.04 15.357-3.316 15.357-3.316z" fill="#f49cc8" stroke-width="1.071"/><path d="M122.86 130.28a3.368 3.368 0 0 0-.524-4.744l-5.796-4.642c-1.46-1.169-4.758-1.346-4.744.524l.084 11.233c-1.169 1.46 10.98-2.37 10.98-2.37z" fill="#fff" stroke-width=".765"/></g></g></symbol>
+  </svg>
+
+
+  <!-- html structure with a wrapping container nesting two elements, one in which to input text, the other one in which to display the translated text  -->
+  <div class="container">
+    <div class="input-text">
+      <textarea name="text"></textarea>
+    </div>
+    <div class="display-text">
+      <!-- include an svg asset to the positioned in the upper right corner -->
+      <svg class="pig-latin-icon">
+        <use href="#pig-latin-icon"/>
+      </svg>
+      <p></p>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
