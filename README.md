@@ -60,5 +60,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Profile Page with React.js**](https://codepen.io/borntofrappe/pen/bMVaro/)|Create a profile page to implement knowledge regarding React, stateful components and properties.|react, svg, state, properties|22nd April 2018|
 |[**Responsive Calculator Buttons**](https://codepen.io/borntofrappe/pen/YLqQMR)|Create 3D buttons which change on press.|stylus, js|24th April 2018|
 |[**Pig-Latin Translate**](https://codepen.io/borntofrappe/pen/VxKgQw/)|Create a two-panel structure in which text is translated to pig-latin.|regex, js, keyup, textContent|26th April 2018|
+|[**SVG Animation with Snap.svg**]()|Create straightforward animations with simple SVG shapes using the Snap.SVG library.|svg, scroll, snap.svg|29th April 2018|
 
 
