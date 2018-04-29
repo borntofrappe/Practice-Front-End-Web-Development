@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+font-main = 'Montserrat', sans-serif
+red = #D0021B
+black = #252525
+white = #FFFEFE
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    color black
+    background-color white
+    overflow-x hidden
+    
+.container 
+    padding 1.5rem 0.7rem
+    position relative
+
+nav 
+    display flex 
+    justify-content space-around
+    align-items center
+
+    p 
+        text-transform capitalize
+        cursor pointer
+        transition color 0.3s ease-out
+        
+        &.animation
+            // set a class which is applied/removed to those paragraphs which overlap/don't overlap with the red background        
+            color white
+
+        &:nth-of-type(1) 
+            font-size 1.4rem
+
+main
+    display flex 
+    padding 1rem 3rem
+    justify-content flex-start 
+    align-items center
+    height 100vh
+
+    h1
+        font-size 5rem
+        transition all 0.3s ease-out
+
+        &.animation
+            // include a class similarly to the paragraphs' implementation, to be applied depending on the SVG animation
+            color white
+
+section 
+    display flex 
+    height 100vh
+    justify-content center 
+    align-items center 
+    text-align center
+
+    h2
+        font-size 2.5rem
+
+footer 
+    display flex 
+    flex-direction column 
+    color white
+
+    .call-to-action
+        display flex 
+        flex-direction column 
+        height 400px
+        align-items center
+        justify-content center
+        text-align center
+
+        button 
+            padding 1rem 1.6rem
+            background none 
+            border 1px solid white 
+            border-radius 2rem
+            font-size 1.5rem
+            cursor pointer 
+            color inherit
+            outline none
+            transition all 0.2s ease-out 
+
+            &:hover 
+                color red
+                background-color white
+        p 
+            margin-top 1rem
+            font-size 1rem
+            line-height 1.4rem
+            
+
+    .departing-info
+        display flex 
+        justify-content space-around
+        padding 1rem
+
+        p
+            cursor pointer
+
+// for the SVG included in the markup, position them as needed in the page with CSS properties
+
+.svg-intro 
+    // position the introductory svg in the top left corner, right beneath the text
+    position absolute 
+    top 0 
+    left 0
+    z-index -5
+    // width and height to accommodate for the dimensions of the circle
+    width 100%
+    height 1000px
+.circle
+    fill red 
+
+.svg-outro
+    // position the departing svg in the bottom of the page, spanning the entire width and an accommodated height
+    position absolute 
+    bottom 0 
+    left 0 
+    z-index -5
+    width 100%
+    height 500px
+
+.rectangle
+    fill red
+    width 100%
+    height 500px
+
+/* with large screen devices, the last paragraph still resides on white background, so give it a contrast color */
+@media only screen and (min-width: 1000px)
+  nav p:last-of-type
+    color black
