@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/VxKgQw/).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/VxKgQw/).
 
 # Preface
 The purpose of this project is to replicate in some ways, but change in other ways the interface provided by [Google Translate](https://translate.google.com/). Indeed this project is tasked to have two main areas, one in which to type a string or strings of text and another one in which to display the text, translated in another language.
@@ -12,9 +12,13 @@ I decided to go with pig latin as it was one of the "mockup" languages introduce
 - [x] as soon as a character is typed, display an option in the upper right corner to delete the text present on page
 - [x] for the translated text container, as soon as there is something translated, include an option to share the text
 
-# Lessons Learned 
+# Notes 
 
-Here is the function used to translate from English/whichever language is typed in the text area and pig latin.
+**Translate**
+
+In order to translate the text from English/whichever language is typed in the text area to pig latin, the following function is used.
+
+It accepts a string as an argument and returns said string modified as to include prefixes and whatnot to achieve the "translation". The comments in the code already explain the purpose of each line.
 
 ```JS
 function translatePigLatin(str) {
@@ -63,6 +67,70 @@ function translatePigLatin(str) {
 }
 ```
 
-The challenge is then to include a regex which triggers a translation when a string is included in the text area.
+With the given, working function, the challenge is to then include a regular expression which triggers a translation when a string is included in the text area.
 
-TODO: add the logic behind the regex and the translate and display function
+**Regex**
+
+The regular expression used for the project looks for any character, however many there might be in succession, followed by a single white space.
+
+```JS
+const regex = /\w+ /gi;
+```
+
+This allows to retrieve single strings, but it comes with the price of including one extra character, the white space between string. This also means that a function triggered at this regular expression conveniance will be triggered only when a string is typed and another is being included. Only when a space is included, the script will translate the preceding string (taking care of not considering the extra white space character).
+
+
+**Display and Translate**
+
+The regular expression is used to check for the presence of a string in the text area element. It is also used to retrieve the actual string matching the pattern, through the `match()` function. This one, as allowed by the flags included in the regex, returns one or more strings in an array and it is therefore necessary to loop through this array to consider each text individually and translate each text one at a time.
+
+The following, well documented function achieves the desired effect, but a couple of words are warranted for the new type of loop hereby included and the inclusion of an extra variable in which to store the translated text.
+
+```JS
+function translateAndDisplay(event) {
+  // the event provides information regarding the input value under the tree event.target.value
+  let inputString = event.target.value.toLowerCase();
+  // string.match(regex) returns an array for all matches to the regular expression
+  let matchingString = inputString.match(regex);
+  // create an empty string in which to pour the results one after the other (used to then include the translated matches in the display)
+  let stringReturn = '';
+  
+  // if matching string is different than null (in which case there are no matches)
+  if(matchingString) {
+    // loop through the array 
+    for(let match of matchingString) {
+      // append all translated items to the empty string (as it is emptied on each iteration through the function, there's no risk of bloating the display container)
+      // match.length -1 as to avoid the white space separating each word
+      // + " " to include separation among the matches 
+      stringReturn += translatePigLatin(match.substring(0, match.length-1)) + " ";
+    }
+    // include the translated matches in the display container
+    displayText.textContent = stringReturn;
+  }
+}
+```
+
+*for*
+
+Instead of the usual for loop, 
+
+```JS
+for(let i = 0; i < array.length; i ++) {}
+```
+
+The code makes use of new-fangled syntax allows by ES6.
+
+```
+for(let something of somethingBigger) {}
+```
+
+The implications are virtually identical. The loop iterates through the string/array labeled in this instance `somethingBigger`, assigning at each iteration a character/array item to the variable in this instance labeled `something`.
+
+*let stringReturn = ''*
+
+In the function ,the purpose of this string is already explained, but its inclusion may seem confusing at first. Superfluous might be a better word. 
+
+At first, it would seem obviously better to include the translated text in the prescribed HTML element, directly through the `textContent` handle. Unfortunately this would come at the expense of an increasingly repeating string, which would concatenate previous values at each iteration.
+
+To avoid this compounding effect, the variable `stringReturn` is created to store the translated text, and it is updated at each iteration with the text included in the input element. Only outside of the for loop, the value of this string is then passed to the display method.
+
