@@ -61,5 +61,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Responsive Calculator Buttons**](https://codepen.io/borntofrappe/pen/YLqQMR)|Create 3D buttons which change on press.|stylus, js|24th April 2018|
 |[**Pig-Latin Translate**](https://codepen.io/borntofrappe/pen/VxKgQw/)|Create a two-panel structure in which text is translated to pig-latin.|regex, js, keyup, textContent|26th April 2018|
 |[**SVG Animation with Snap.svg**](https://codepen.io/borntofrappe/pen/VxPdXR/)|Create straightforward animations with simple SVG shapes using the Snap.SVG library.|svg, scroll, snap.svg|29th April 2018|
+|[**Repeating Radial Gradients**](https://codepen.io/borntofrappe/pen/xjqLJR/)|Create two informational cards in which repeating radial gradients provide a look of rippling water/waves.|repeating-radial-gradient, multiple background, svg stroke|30th April 2018|
 
 
