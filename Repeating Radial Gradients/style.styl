@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+white = #EBE9E7
+black = #252525
+font-main = 'Montserrat', sans-serif
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    background-color white 
+    color white 
+    
+.container
+    padding 1rem 
+    display flex 
+    flex-direction column 
+
+    .card
+        margin 3rem auto
+        width 80vw
+        height 80vh
+        // multiple backgrounds can be stacked one on top of another simply by comma separating background values
+        // breakpoints of the same values are used to implement a gradient with a solid colors alternating each other
+        // the repeating nature of the radial gradient makes sure that after 52px, the structure repeats itself
+        background repeating-radial-gradient(
+            circle at bottom center, 
+            transparent, 
+            transparent 50px, 
+            rgba(white, 20%) 50px, 
+            rgba(white, 20%) 52px),
+                linear-gradient(
+                    to top, 
+                    lighten(black, 40%), 
+                    lighten(black, 45%)
+                    );
+        box-shadow -5px 5px 15px rgba(black, 50%)
+        border-radius 0.7rem
+
+        display flex 
+        flex-direction column
+        align-items center 
+        justify-content center 
+        text-align center
+
+        .headers 
+            background rgba(black, 70%)
+            border-radius 5px
+            z-index 5
+            margin 0 0.5rem
+            padding 0.5rem
+
+            h1
+                margin 1rem 0
+                font-size 2.3rem
+                text-transform uppercase
+            h2
+                font-size 1.9rem
+                text-transform capitalize
+                margin 0.5rem 0
+
+            h3 
+                font-size 1.7rem 
+                text-transform capitalize
+
+    .card:nth-of-type(2)
+        // for the second card, the position of the origin of the radial gradient is altered as to match the position of the radio tower's head
+        background repeating-radial-gradient(
+            circle at center 125px, 
+            transparent, 
+            transparent 50px, 
+            rgba(white, 20%) 50px, 
+            rgba(white, 20%) 52px),
+                linear-gradient(
+                    to top, 
+                    lighten(black, 40%), 
+                    lighten(black, 45%)
+                    );
+        padding 2rem
+        position relative
+        align-items flex-start
+        justify-content flex-end
+
+        svg#radio-tower
+            // svg absolute positioned to encompass the entirety of its container (otherwise the animation would be cropped by the boundaries of the SVG canvas)
+            fill white
+            position absolute
+            bottom 0
+            left 0
+            height 100%
+            width 100%
+
+            circle 
+                // animation achieved by modifying the value of the stroke and stroke width (increases in size, changes to a transparent hue)
+                stroke rgba(white, 20%)
+                stroke-width 0
+                animation rippleAnimation 8s 2s ease-out infinite 
+
+            .text-message
+                fill lighten(black, 40%)
+
+@keyframes rippleAnimation 
+    to 
+        stroke rgba(white, 0%)
+        stroke-width 500px
+
+
+
