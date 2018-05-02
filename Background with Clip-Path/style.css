@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.flex-center,
+.container main,
+.container section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: #37394b;
+  color: #d1d1d1;
+}
+.container main {
+  height: 100vh;
+  background: linear-gradient(45deg, #10aa24, #11b326 50%, #13ce2c);
+  -webkit-clip-path: circle(30% at 50% 50%);
+  clip-path: circle(25% at 50% 50%);
+}
+.container main h1 {
+  text-transform: uppercase;
+  font-size: 4vmax;
+  margin: 1rem 0;
+}
+.container section {
+  height: 85vh;
+  background: linear-gradient(45deg, #10aa24, #11b326 50%, #13ce2c);
+  margin: 3rem 0;
+}
+.container section:nth-of-type(1) {
+  -webkit-clip-path: polygon(0% 35%, 100% 0%, 100% 65%, 0% 100%);
+  clip-path: polygon(0% 35%, 100% 0%, 100% 65%, 0% 100%);
+}
+.container section:nth-of-type(2) {
+  -webkit-clip-path: polygon(5% 20%, 98% 35%, 92% 75%, 2% 90%);
+  clip-path: polygon(5% 20%, 98% 35%, 92% 75%, 2% 90%);
+}
+.container section h2 {
+  text-transform: capitalize;
+  font-size: 3vmax;
+  margin: 1rem 0;
+}
+.container p {
+  font-size: 2vmax;
+  line-height: 2.2rem;
+}
+.container p code {
+  background-color: #d1d1d1;
+  color: #10aa24;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 800px) {
+  .container main h1 {
+    font-size: 2rem;
+  }
+  .container section h2 {
+    font-size: 1.8rem;
+  }
+  .container p {
+    font-size: 1.3rem;
+  }
+}

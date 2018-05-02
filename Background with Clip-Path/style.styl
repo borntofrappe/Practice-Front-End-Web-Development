@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+black = #252525
+greyish-blue = #37394B
+white = #ededed
+green = #10aa24
+font-main = 'Lato', sans-serif
+
+// define a "partial" which is repeated for the main and section element to completely center their content
+.flex-center 
+    display flex 
+    flex-direction column
+    justify-content center 
+    align-items center 
+    text-align center
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    background-color greyish-blue
+    color darken(white, 12%) 
+
+.container 
+
+    main 
+        height 100vh
+        // extend the defined partial
+        @extend .flex-center 
+        background linear-gradient(45deg, green, lighten(green, 3%) 50%, lighten(green, 12%))
+        // clip the background with the shape of a circle
+        -webkit-clip-path circle(30% at 50% 50%)
+        clip-path circle(25% at 50% 50%)             
+
+        h1 
+            text-transform uppercase
+            font-size 4vmax
+            margin 1rem 0
+
+    section 
+        height 85vh
+        @extend .flex-center 
+        background linear-gradient(45deg, green, lighten(green, 3%) 50%, lighten(green, 12%))
+        margin 3rem 0
+
+        // clip the background with a selected polygon
+        &:nth-of-type(1)
+            -webkit-clip-path polygon(0% 35%, 100% 0%, 100% 65%, 0% 100%)
+            clip-path polygon(0% 35%, 100% 0%, 100% 65%, 0% 100%)
+
+        &:nth-of-type(2)
+            -webkit-clip-path polygon(5% 20%, 98% 35%, 92% 75%, 2% 90%) 
+            clip-path polygon(5% 20%, 98% 35%, 92% 75%, 2% 90%)   
+
+        h2 
+            text-transform capitalize
+            font-size 3vmax
+            margin 1rem 0
+
+    p 
+        font-size 2vmax
+        line-height 2.2rem
+
+        code 
+            background-color darken(white, 12%) 
+            color green
+            padding 0.2rem 0.4rem
+            border-radius 4px
+
+
+// as the headers and paragraph might be too small on small devices, set a measure independent of the viewport size
+@media only screen and (max-width: 800px)
+    .container main h1 
+        font-size 2rem
+    .container section h2 
+        font-size 1.8rem
+    .container p 
+        font-size 1.3rem
