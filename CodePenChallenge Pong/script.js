@@ -4,12 +4,17 @@ button to toggle the pong game
 left and right rectangles for the paddles
 
 pong disk for the actual puck, animated to move around the screen
+
+score points
 */
 const pongButton = document.querySelector('.pong');
 const leftPaddle = document.querySelector('.rectangle--left');
 const rightPaddle = document.querySelector('.rectangle--right');
 
 const pongDisk = document.querySelector('.pong--disk');
+
+const leftScore = document.querySelector(".points--left");
+const rightScore = document.querySelector(".points--right");
 
 // listen for a click event on the central pong button, at which point begin/stop the game
 pongButton.addEventListener('click', togglePongGame);
@@ -73,21 +78,37 @@ function moverightPaddle(yFromTop) {
 boundaries of the disk
 0 - 100% horizontally and vertically
 
-starting from the center, change the properties of top/right/bottom/left 
+starting from the center, change the properties of top/left 
 
-when hitting the boundaries, solely changing the direction makes for a repetitive/predictable movement
+when hitting the boundaries, solely changing the direction makes for repetitive/predictable movement
 it would be best to include randomness, while at the same time maintaining a degree of "reasonable" change
 [meaning the disk shouldn't change extremely its trajectory]
+
+keeping the left and right movement constant, randomness can be included in the vertical change of position
+whenever the disk hits the left and right border, change the vertical direction with random value
+
+The following allows for numbers ranging from 0 to 3, including floating numbers and allowing for sharper/softer changes in direction
+Math.random()*3 
+
+Randomness can be included to actually change the direction, and not just its intensity
+already when the movement is first instantiated, through a ternary operator
 
 */
 function movePongDisk() {
     // place the disk in the middle of the screen, every time the function is called (at the start of the game && whenever a point is accomplished)
-    pongDisk.style.left = "calc(50% - 28px/2)";
-    pongDisk.style.top = "calc(50% - 28px/2)";
+    pongDisk.style.left = "calc(50% - 27px/2)";
+    pongDisk.style.top = "calc(50% - 27px/2)";
+    // reset the score
+    leftScore.textContent = 0;
+    rightScore.textContent = 0;
     
+    // increment top/left properties with a value of half a percent (multiplied by direction)
     let counter = 1/2;
-    let direction = 1;
-    let directionTop = 1;
+    // with ternary operators allow for random behavior in selecting the horizontal direction and in selecting the vertical direction as well as its intensity
+    let direction = Math.random() > 0.5 ? 1 : -1;
+    let directionTop = Math.random() > 0.5 ? Math.random()*3 : Math.random()*3 - 3;
+
+    // set initial values of 50
     let pongLeft = 50;
     let pongTop = 50;
 
@@ -96,39 +117,68 @@ function movePongDisk() {
     // finding the right mix is a bit of a trial-and-error phase
     // a fast interval guarantees a smooth transition
 
-    setInterval(function() {
+    let intervalID = setInterval(function() {
         // at every iteration change the left/top properties through the inclusion of a variable in the property value
         // increment the property by counter
         pongLeft += counter*direction;
         pongDisk.style.left = pongLeft + "%";
         
         // when hitting the boundaries of the window, multiply direction by -1 changing the value injected in the top/left property and allowing for the disk to move in the opposite direction
-        if(pongLeft >= 100 || pongLeft <= 0) {
+        if(pongLeft >= 98 || pongLeft <= -2) {
             direction*=-1;
-            // directionTop = (directionTop) * 2/(Math.round(Math.random(1)*4));            
+            directionTop = directionTop * -1/2;
+            
+            // change also the vertical direction to include randomness in the disk's movement
+            // remember to multiply 1 by the random number and not direction top (otherwise this would be an incrementally lower and lower number)
+            directionTop = Math.random() > 0.5 ? Math.random()*3 : Math.random()*3 - 3;           
         }
 
         // same logic for the top property; increment by counter, switch direction when hitting the boundaries of the window
         pongTop += counter*directionTop;
         pongDisk.style.top = pongTop + "%";
 
-        if(pongTop >= 100 || pongTop <= 0) {
+        if(pongTop >= 98 || pongTop <= -2) {
+            // do not change the intensity of the turn
             directionTop*=-1;
         }
 
+        if(pongLeft <= -1.75) {
+            if(pongTop < parseInt(leftPaddle.style.top.substr(0,2)) + 12.5 && pongTop > parseInt(leftPaddle.style.top.substr(0,2)) - 12.5) {
+                console.log("Nice catch");
+            }
+            else {
+                updateScore("r");
+            }
+        }
+        if(pongLeft >= 97.75) {
+            if(pongTop < parseInt(rightPaddle.style.top.substr(0,2)) + 12.5 && pongTop > parseInt(rightPaddle.style.top.substr(0,2)) - 12.5) {
+                console.log("Nice catch");
+            }
+            else {
+                updateScore("l");    
+            }
+        }
     }, 20);
-    // counter = 1;
-    // setInterval(function() {
-    //     pongDisk.style.left = counter + "%";
-    //     pongDisk.style.top = counter + "%";
-    //     if(counter < 100) {
-    //         counter ++;
-    //     }
-    // }, 24);
 }
+
+// clear all intervals within a reasonable range
 function stopPongDisk() {
-    for(let i = 0; i < 200; i ++) {
+    for(let i = 0; i < 1200; i ++) {
         clearInterval(i);
     }
 }
 
+
+function updateScore(side) {
+    if(side == "l") {
+        let score = parseInt(leftScore.textContent);
+        score++;
+        leftScore.textContent = score;
+    }
+    else if(side == "r") {
+        let score = parseInt(rightScore.textContent);
+        score++;
+        rightScore.textContent = score;
+    }
+    
+}
