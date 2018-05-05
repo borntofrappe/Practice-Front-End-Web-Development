@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here]().
+Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/pVWWBm/).
 
 # Preface 
 
@@ -19,6 +19,8 @@ It has been done before, yes. But not by me. And it's a good excuse to practice 
 
 - [x] create a disk which is to be animated as the puck for the game
 - [x] when the game is being played, move the disk left and right, top and bottom, continuously
-- [ ] when hitting a border of the window, change the direction of the movement (maybe in an interval, changing the direction by 35-45°)
-- [ ] specify the previous behavior solely for the top and bottom borders of the window, as well as the paddles on the left and right 
-- [ ] when hitting the left or right borders, without hitting the paddles, increase the point of the opposite side by 1, restart the game
+- [x] when hitting a border of the window, change the direction of the movement (maybe in an interval, changing the direction by 35-45°)
+- [x] specify the previous behavior solely for the top and bottom borders of the window, as well as the paddles on the left and right 
+- [x] when hitting the left or right borders, without hitting the paddles, increase the point of the opposite side by 1, restart the game
+
+## Notes
