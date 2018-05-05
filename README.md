@@ -62,6 +62,7 @@ If the inspiration strikes, exceptions can be made.
 |[**Pig-Latin Translate**](https://codepen.io/borntofrappe/pen/VxKgQw/)|Create a two-panel structure in which text is translated to pig-latin.|regex, js, keyup, textContent|26th April 2018|
 |[**SVG Animation with Snap.svg**](https://codepen.io/borntofrappe/pen/VxPdXR/)|Create straightforward animations with simple SVG shapes using the Snap.SVG library.|svg, scroll, snap.svg|29th April 2018|
 |[**Repeating Radial Gradients**](https://codepen.io/borntofrappe/pen/xjqLJR/)|Create two informational cards in which repeating radial gradients provide a look of rippling water/waves.|repeating-radial-gradient, multiple background, svg stroke|30th April 2018|
-|[**Background with Clip-Path**](https://codepen.io/borntofrappe/full/vjZYME/)|Learn about and put into practice the CSS property of **clip-path**.|clip-path, circle, polygon|2nd May 2018|
+|[**Background with Clip-Path**](https://codepen.io/borntofrappe/full/vjZYME/)|Learn about and put into practice the CSS property of clip-path.|clip-path, circle, polygon|2nd May 2018|
+|[**CodepenChallenge Pong**](https://codepen.io/borntofrappe/pen/pVWWBm/)|Create a very simple game of Pong which can be played with the mouse pointer.|mousemove, setinterval, codepenchallenge|5th May 2018|
 
 
