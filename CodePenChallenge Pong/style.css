@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +7,7 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   background-color: #000;
   color: #ededed;
   overflow: hidden;
@@ -31,18 +31,16 @@ body {
   width: 20px;
   background-color: #ededed;
   position: absolute;
-  top: calc(50% - 180px / 2);
-  margin-top: -90px;
+  top: 50%;
+  margin-top: -12.5%;
   transition: all 0.4s ease-out;
 }
 .container .rectangle--left {
+  position: each rectangle to its rightful side;
   left: 0;
 }
 .container .rectangle--right {
   right: 0;
-}
-.container .rectangle--right:hover {
-  top: 0;
 }
 .container .points {
   font-size: 3.2rem;
@@ -57,7 +55,7 @@ body {
 .container .points--right {
   right: 25%;
 }
-.container .pong {
+.container button.pong {
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -70,7 +68,7 @@ body {
   border: none;
   z-index: 5;
 }
-.container .pong:before {
+.container button.pong:before {
   content: '';
   position: absolute;
   top: calc(50% - 48px / 2);
@@ -81,7 +79,7 @@ body {
   background-color: #000;
   transition: all 0.25s cubic-bezier(0.1, -0.2, 0.75, 1.3);
 }
-.container .pong:after {
+.container button.pong:after {
   content: '';
   position: absolute;
   top: calc(50% - 32px / 2);
@@ -91,14 +89,15 @@ body {
   border-top: 16px solid transparent;
   border-left: 20px solid #ededed;
   border-bottom: 16px solid transparent;
+  transition: all 0.25s cubic-bezier(0.1, -0.2, 0.75, 1.3);
 }
-.container .pong.playing:before {
+.container button.pong.playing:before {
   top: 50%;
   left: 50%;
   width: 0;
   height: 0;
 }
-.container .pong.playing:after {
+.container button.pong.playing:after {
   border: none;
   width: 28px;
   height: 28px;
