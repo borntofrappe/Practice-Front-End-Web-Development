@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
+// define colors and font used in the project
 black = #000000
 white = #ededed
-font-main = 'Roboto', sans-serif
+font-main = 'Roboto Mono', monospace
 
 *
     box-sizing border-box
@@ -15,43 +16,50 @@ body
     font-family font-main
     background-color black 
     color white 
+    // overflow hidden as to avoid vertical scroll when the left and right paddles reach the bottom of the page
     overflow hidden
 
 .container 
     width 100%
     height 100vh
+    // position relative to absolute position all game elements in the DOM
     position relative
 
     &:before
+        // for the line separating the screen in twine create a pseudo element which is absolute positioned in the center of the page and spanning the entirety of the screen's height 
         content ''
         position absolute 
         top 0 
+        // minus 4px/2 to account for the actual width of the pseudo element (otherwise the left edge of the element would be centered)
         left calc(50% - 4px/2)
         height 100%
         width 4px 
         background-color white
 
     .rectangle
+        // for the rectangle use a percentage for the height as this will be used in the JS script and compared to the percentage for the puck
         height 25%
         width 20px
         background-color white
         position absolute 
-        top calc(50% - 180px/2)
-        margin-top -90px
+        top 50%
+        margin-top -12.5%
+        // transition for the change in vertical position, through the top property 
         transition all 0.4s ease-out
     
     .rectangle--left
+        position each rectangle to its rightful side 
         left 0
 
     .rectangle--right 
         right 0
-        &:hover
-            top 0
 
     .points
+        // for the score boards, style the text to be slightly bolder
         font-size 3.2rem
         font-weight bold
         letter-spacing 0.7rem
+        // position the divs at the top of the page (and on either side of the screen)
         position absolute 
         top 1.5rem 
 
@@ -61,7 +69,8 @@ body
     .points--right
         right 25%
     
-    .pong 
+    button.pong 
+        // for the button which allows to start/ stop a game, create a circle and absolute position it in the very center of the page
         width 64px
         height 64px
         border-radius 50%
@@ -72,9 +81,11 @@ body
         cursor pointer
         outline none 
         border none
+        // z index to impose the button on top of the puck which is created afterwards
         z-index 5
 
         &:before 
+            // with a pseudo-element, create a smaller circle and position it in the center of the screen 
             content ''
             position absolute 
             top calc(50% - 48px/2)
@@ -82,10 +93,13 @@ body
             width 48px
             height 48px
             border-radius 50%
+            // with a background color equal to the page's background color, this creates the illusion of a hollow circle
             background-color black
+            // include a transition which is enacted when a class is applied on the element, making the circle disappear as if reducing its size to 0
             transition all 0.25s cubic-bezier(0.1, -0.2, 0.75, 1.3)
         
         &:after
+            // with a pseudo-element, create a triangle facing east and position it within the smaller circle
             content ''
             position absolute 
             top calc(50% - 32px/2)
@@ -95,6 +109,8 @@ body
             border-top 16px solid transparent
             border-left 20px solid white
             border-bottom 16px solid transparent
+            // just like the other pseudo-element, this one is altered with the addition of a class, which makes it a square instead of a triangle 
+            transition all 0.25s cubic-bezier(0.1, -0.2, 0.75, 1.3)            
             
         &.playing:before
             top 50%
@@ -111,6 +127,7 @@ body
             background-color black
 
     .pong--disk
+        // for the puck, create a small circle and position it in the very center of the screen
         width 28px
         height 28px
         border-radius 50%
