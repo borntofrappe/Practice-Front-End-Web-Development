@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:700'); 
+
+// define variables for the colors and font used in the project
+white = #ededed
+purple = #9779B3
+font-main = 'Cabin Sketch', cursive
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    // background to the chosen white 
+    background-color white
+    
+.container 
+    // items displayed in a single column layout, centered in the page
+    height 100vh
+    width 100%
+    display flex
+    flex-direction column
+    align-items center 
+    justify-content center
+    text-align center
+    // color and text shadow with the chosen hue
+    color purple
+    text-shadow 0 2px 5px purple
+
+    h1 
+        font-size 5rem
+        text-transform uppercase
+
+    .monkey-hammer-hat
+        width 250px
+
+        #arm
+            // animation to alter the transform properties changing the values of horizontal and vertical position
+            transform translateX(0) translateY(0)
+            // animation lasting 1.5s, with a 1.5s delay, a cubic-bezier timing function which overshoots the change in property and infinite repetition
+            animation fix-issue 1.5s 1.5s cubic-bezier(.17,.67,.6,1.33) infinite
+
+    h2 
+        font-size 4rem
+        text-transform uppercase
+
+@keyframes fix-issue
+    // animation "finishing" at the 75% keyframe allowing for a small pause between iterations
+    40%
+        transform translateX(-2px) translateY(-1.5px)
+    75%, 100%
+        transform translateX(0) translateY(0)
+
+@media only screen and (max-width: 600px)
+    // for small screen sizes, hide the main header and reduce the size of the remaining elements
+    .container h1 
+        display none
+
+    .container h2 
+        font-size 2.3rem
+        margin 0 1rem
