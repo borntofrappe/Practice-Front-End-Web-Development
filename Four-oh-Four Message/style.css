@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin+Sketch:700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Cabin Sketch', cursive;
+  background-color: #ededed;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #9779b3;
+  text-shadow: 0 2px 5px #9779b3;
+}
+.container h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+.container .monkey-hammer-hat {
+  width: 250px;
+}
+.container .monkey-hammer-hat #arm {
+  transform-origin: center center;
+  transform: translateX(0) translateY(0);
+  animation: movearound 1.5s 1.5s cubic-bezier(0.17, 0.67, 0.6, 1.33) infinite;
+}
+.container h2 {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 600px) {
+  .container h1 {
+    display: none;
+  }
+  .container h2 {
+    font-size: 2.3rem;
+    margin: 0 1rem;
+  }
+}
+@-moz-keyframes movearound {
+  40% {
+    transform: translateX(-2px) translateY(-1.5px);
+  }
+  75%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@-webkit-keyframes movearound {
+  40% {
+    transform: translateX(-2px) translateY(-1.5px);
+  }
+  75%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@-o-keyframes movearound {
+  40% {
+    transform: translateX(-2px) translateY(-1.5px);
+  }
+  75%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes movearound {
+  40% {
+    transform: translateX(-2px) translateY(-1.5px);
+  }
+  75%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+}
