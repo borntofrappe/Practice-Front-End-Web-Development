@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: #252525;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.container .grasshopper-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 2rem;
+}
+.container .grasshopper-button svg {
+  fill: #9acd32;
+  width: 6rem;
+  height: auto;
+  position: relative;
+  top: 4px;
+  cursor: pointer;
+}
+.container .grasshopper-button svg.animated {
+  animation: grasshopp 1.5s ease-in-out;
+}
+.container .grasshopper-button button {
+  outline: none;
+  border: 2px solid #9acd32;
+  border-radius: 50px;
+  background-color: #252525;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #9acd32;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease-out;
+}
+.container .grasshopper-button button:hover {
+  background-color: #9acd32;
+  color: #252525;
+}
+/*
+- move the critter slightly downward, affecting the skewY property slightly and rapidly
+- move the critter upwards and begin its rotation 
+- at the top of the jump, while slightly conitnuing the ascent, rotate faster to reach almost a complete turn
+- coming down toward the ground, complete the 360
+
+*/
+@-moz-keyframes grasshopp {
+  0% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  3% {
+    transform: translateY(0) rotate(0) skewY(2deg);
+  }
+  35% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  70% {
+    transform: translateY(-150px) rotate(-10deg) skewY(0);
+  }
+  95% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+  97% {
+    transform: translateY(0) rotate(-360deg) skewY(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+}
+@-webkit-keyframes grasshopp {
+  0% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  3% {
+    transform: translateY(0) rotate(0) skewY(2deg);
+  }
+  35% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  70% {
+    transform: translateY(-150px) rotate(-10deg) skewY(0);
+  }
+  95% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+  97% {
+    transform: translateY(0) rotate(-360deg) skewY(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+}
+@-o-keyframes grasshopp {
+  0% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  3% {
+    transform: translateY(0) rotate(0) skewY(2deg);
+  }
+  35% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  70% {
+    transform: translateY(-150px) rotate(-10deg) skewY(0);
+  }
+  95% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+  97% {
+    transform: translateY(0) rotate(-360deg) skewY(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+}
+@keyframes grasshopp {
+  0% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  3% {
+    transform: translateY(0) rotate(0) skewY(2deg);
+  }
+  35% {
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+  70% {
+    transform: translateY(-150px) rotate(-10deg) skewY(0);
+  }
+  95% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+  97% {
+    transform: translateY(0) rotate(-360deg) skewY(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-360deg) skewY(0);
+  }
+}
