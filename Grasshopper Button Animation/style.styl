@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+black = #252525
+white = #ededed
+font-main = 'Lato', sans-serif
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    background-color black
+    
+.container
+    // center the content in the middle of the page
+    display flex 
+    height 100vh
+    justify-content center 
+    align-items center 
+
+    .grasshopper-button
+        // display the SVG and button one on top of another
+        display flex 
+        flex-direction column 
+        justify-content center 
+        margin 0 2rem
+
+        svg 
+            // for the fill to alter the appearance of the SVG, this needs not to have a fill attribute in its syntax (which would take precedence)
+            fill yellowgreen
+            width 6rem
+            // height auto allows for the SVG to take only the required height; otherwise, there might be some vertical displacement
+            height auto
+            // position relative to slightly push the SVG downward, behind the button
+            position relative 
+            top 4px
+            cursor pointer
+
+            &.animated
+                animation grasshopp 1.5s ease-in-out
+        
+        button 
+            outline none
+            border 2px solid yellowgreen
+            border-radius 50px 
+            background-color black
+
+            padding 1rem 1.5rem
+            
+            font-size 1.5rem
+            text-transform uppercase
+            font-weight bold
+            color yellowgreen 
+            
+            cursor pointer 
+            // z-index to position the button on top of the svg
+            z-index 5
+
+            // transition to smoothe the change on hover
+            transition all 0.3s ease-out
+
+            &:hover 
+                // on hover switch the background-color and color hues
+                background-color yellowgreen 
+                color black
+
+
+
+// structure for the jumping and rotating animation
+/*
+- move the critter slightly downward, affecting the skewY property slightly and rapidly
+- move the critter upwards and begin its rotation 
+- at the top of the jump, while slightly conitnuing the ascent, rotate faster to reach almost a complete turn
+- coming down toward the ground, complete the 360
+
+*/
+@keyframes grasshopp 
+    0%
+        transform translateY(0) rotate(0) skewY(0)
+
+    3%
+        transform translateY(0) rotate(0) skewY(2deg)
+
+    35%
+        transform translateY(0) rotate(0) skewY(0)
+
+    70%
+        transform translateY(-150px) rotate(-10deg) skewY(0)
+
+    95%
+        transform translateY(0) rotate(-360deg) skewY(0)
+
+    97%
+        transform translateY(0) rotate(-360deg) skewY(2deg)
+    
+    100%
+        transform translateY(0) rotate(-360deg) skewY(0)
+    
+
