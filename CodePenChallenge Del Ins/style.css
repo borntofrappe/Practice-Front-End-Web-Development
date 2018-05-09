@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+:root {
+  /* define variables for the color and font used 
+  and for the highlighter and eraser color, to be possibly updated at a later date */
+  --font-color: #205;
+  --background-color: #ededed;
+  --theme-color: #205;
+  --highlighter-color: rgba(255,255,0,0.6);
+  --eraser-color: rgba(255,255,255,1);
+  --font-main: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 50vh;
+  width: 100%;
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+.container__toggle-settings {
+  /* position the toggle button in the top left corner of the page */
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  /* none to remove the defeault styles of a button */
+  border: none;
+  outline: none;
+  background: none;
+  /* zindex to have the button always on top of the settings panel which is transitioned right in its position */
+  z-index: 10;
+  /* transition for slight changes for hover and click animations */
+  transition: transform 0.3s ease-out;
+}
+/* on hover and when clicked alter the button increasing its size */
+.container__toggle-settings:hover {
+  transform: scale(1.05);
+}
+.container__toggle-settings:active {
+  transform: scale(1.1);
+}
+
+.container__settings {
+  /* for the panel of options, position it out of view, to the left of the screen */
+  position: absolute;
+  top: 0;
+  left: -20rem;
+  /* padding to position the SVG assets below the toggle button  */
+  padding: 5.5rem 1rem 0;
+  /* flex to display the SVG assets in a single column layout */
+  display: flex;
+  flex-direction: column;
+  /* zindex to have the panel below the toggle button, but above the underlying text */
+  z-index: 5;
+  /* background color to have the panel visually stand on top of the possibly under-lapping text */
+  background-color: var(--background-color);
+  border-right: 2px solid var(--theme-color);
+  border-bottom: 2px solid var(--theme-color);
+  /* transition to smoothen the change in horizontal coorinate */
+  transition: left 0.3s ease-out;
+}
+/* with a class of active, bring the panel of options into view */
+.container__settings.active {
+  left: 0;  
+}
+.container__settings svg {
+  margin: 1rem 0;
+  height: 100px;
+  cursor: pointer;
+  padding: 0.5rem;
+  /* border initially not visible, applied only to the .active element */
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  /* transition to smoothen the change in border-color */
+  transition: all 0.3s ease-out;
+}
+.container__settings svg.active {
+  border-color: var(--theme-color);  
+}
+
+
+.container__text {
+  /* for the text, center the div in the page and give it a max width */
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  border-right: 2px solid var(--theme-color);
+}
+.container__text h1 {
+  text-align: right;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+.container__text p {
+  line-height: 2.5;
+  font-size: 1.4rem;
+}
+
+
+/* define here the style of the ins and del elements, styling how the text is displayed when it is highlighted and erased respectively */
+/* for both elements 1) remove the text-decoration and 1) set position relative to benefit from the absolute positioning of pseudo-elements */
+ins, del {
+  text-decoration: none;
+  position: relative;
+}
+
+ins:before, del:before {
+content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: skewX(-5deg);
+}
+/* for the highlight style, include a background below the text of a chosen color */
+ins:before {
+  z-index: -5;
+  background-color: var(--highlighter-color);
+}
+/* for the erase style, include a background on top of the text */
+del:before {
+  background-color: var(--eraser-color);
+}
+
+
+/* on small screen sizes simply remove the border-right applied on the text container */
+@media only screen and (max-width: 700px) {
+  .container__text {
+    border-right: none;
+  }
+}
