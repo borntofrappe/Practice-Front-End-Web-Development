@@ -6,8 +6,8 @@
   --font-color: #205;
   --background-color: #ededed;
   --theme-color: #205;
-  --highlighter-color: rgba(255,255,0,0.6);
-  --eraser-color: rgba(255,255,255,1);
+  --highlighter-color: rgb(160, 113, 230);
+  --eraser-color: #ffffff;
   --font-main: 'Lato', sans-serif;
 }
 
@@ -60,6 +60,7 @@ body {
   /* flex to display the SVG assets in a single column layout */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   /* zindex to have the panel below the toggle button, but above the underlying text */
   z-index: 5;
   /* background color to have the panel visually stand on top of the possibly under-lapping text */
@@ -75,7 +76,7 @@ body {
 }
 .container__settings svg {
   margin: 1rem 0;
-  height: 100px;
+  height: 80px;
   cursor: pointer;
   padding: 0.5rem;
   /* border initially not visible, applied only to the .active element */
@@ -88,6 +89,35 @@ body {
   border-color: var(--theme-color);  
 }
 
+.container__settings input[type="color"] {
+  /* for the input, as the svg icon ought to be the way with which it is possible to alter the color, display the input as a square on top of which the SVG asset is overlaid with a pseudo-element */
+  border: none; 
+  outline: none;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  position: relative;
+  /* include a margin left to push the input visually centered in the panel */
+  margin: 1rem 0 0 15px;
+}
+.container__settings input[type="color"]:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* beside the SVG, the solid hue of the background color allows to hide the underlying input  */
+  background: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458 26.458"><g transform="matrix(.52078 .11479 -.10934 .54674 -5.27 -39.92)" fill="#fff"><path d="M51.614 62.18a21.138 25.192 42.677 0 0-22.281 27.755A21.138 25.192 42.677 0 0 53.203 108a21.138 25.192 42.677 0 0 22.281-27.754 21.138 25.192 42.677 0 0-23.87-18.065zm1.049 6.017a3.464 3.464 0 0 1 4.102 2.679 3.464 3.464 0 0 1-2.678 4.102 3.464 3.464 0 0 1-4.103-2.678 3.464 3.464 0 0 1 2.679-4.103zm-9.166 5.717a3.464 3.464 0 0 1 4.102 2.68 3.464 3.464 0 0 1-2.679 4.101 3.464 3.464 0 0 1-4.102-2.678 3.464 3.464 0 0 1 2.679-4.103zm-5.932 9.084a3.464 3.464 0 0 1 4.102 2.679 3.464 3.464 0 0 1-2.678 4.102 3.464 3.464 0 0 1-4.103-2.679 3.464 3.464 0 0 1 2.68-4.102z" fill="#205"/><g transform="translate(2.664 .44)" fill="#205"><path d="M56.383 108.573c2.26-6.76 3.755-4.596 5.544-7.566 1.012-1.682 1.889-2.732-1.338-5.824-6.826-2.888-10.824 6.406-4.206 13.39z"/><rect transform="rotate(39.029)" ry="12.082" rx="12.082" y="13.788" x="103.84" height="15.87" width="6.279"/><rect transform="rotate(39.029)" width="6.279" height="9.362" x="103.84" y="20.296" rx="2.416" ry="2.416"/><rect transform="rotate(39.024) skewX(-.009)" ry="1.459" rx="2.416" y="29.723" x="103.838" height="5.652" width="6.279"/></g><path d="M57.793 109.277c2.26-6.76 3.755-4.597 5.544-7.567 1.012-1.681 1.889-2.732-1.338-5.823-6.826-2.888-10.824 6.406-4.206 13.39z"/><rect width="6.279" height="15.87" x="105.378" y="13.447" rx="12.082" ry="12.082" transform="rotate(39.029)"/><rect ry="2.416" rx="2.416" y="19.954" x="105.378" height="9.362" width="6.279" transform="rotate(39.029)"/><rect width="6.279" height="5.652" x="105.376" y="29.382" rx="2.416" ry="1.459" transform="rotate(39.024) skewX(-.009)"/></g></svg>'), 
+    var(--background-color);
+  background-size: contain;  
+}
+
+.container__settings svg.copy-text {
+  /* include a padding as the last svg asset slightly differs from the first two  */
+  padding-left: 15px;
+}
 
 .container__text {
   /* for the text, center the div in the page and give it a max width */
@@ -127,6 +157,7 @@ content: '';
 ins:before {
   z-index: -5;
   background-color: var(--highlighter-color);
+  opacity: 0.8;
 }
 /* for the erase style, include a background on top of the text */
 del:before {
