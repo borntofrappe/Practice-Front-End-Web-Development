@@ -94,3 +94,66 @@ function styleText(e) {
     }
 }
 
+
+/*
+beside the first two mutually exclusive options, the panel provides two icons to 
+1. change the color of the highlight 
+1. copy the highlighted text to the clipboard
+
+for the first task, the script is required to listen for the input type="color" and change the CSS variable --highlighter-color 
+for the second, the script should copy to the clipboard the text which is stored in the <ins> elements. All of them. Moreover, there should be some kind of visual confirmation that the action has taken place 
+*/
+
+// target the input
+const inputTypeColor = document.querySelector(".container__settings input[type='color']");
+// listen for an input event on the input, at which point trigger a function to change the color of the highlight
+inputTypeColor.addEventListener("input", changeHighlightColor);
+
+function changeHighlightColor(e) {
+    // e.target.value returns the color chosen by the color picker 
+    // color as a string of 7 characters, representing the hex code (like #ffff00)
+    
+    // target the root element 
+    const root = document.querySelector(":root");
+    // change the value of the CSS variable to this new color
+    root.style.setProperty("--highlighter-color", e.target.value);
+}
+
+// target the copy text icon
+const clipboard = document.querySelector(".container__settings .copy-text");
+// listen for a click on the svg asset, at which point copy the selected text to the clipboard
+clipboard.addEventListener("click", extractSelectedText);
+
+function extractSelectedText() {
+    // select all the highlighted sections in the paragraph (returns a node list, even if no selection is present (empty node list))
+    let ins = paragraph.querySelectorAll("ins");
+    // create an empty string in which to store all selections
+    let selection = "";
+
+    if(ins.length != 0) {
+        // loop through the node list 
+        for(let i = 0; i < ins.length; i++) {
+            // add each selection in the created variable, including a space between each finding
+            selection += ins[i].textContent + " ";
+        }
+        // with substr, remove the final whitespace, obtaining the exact selection to be copied to the clipboard
+        let returnSelection = selection.substr(0,selection.length-1);   
+        // call a function to copy the selected text 
+        copySelectedText(returnSelection);
+    }
+
+}
+
+// JS allows to easily copy the text found in a text area, through the execCommand() method
+// one rough way to therefore copy the text is to create a textarea, include the selected text in it and copy the selection
+// immediately afterwards, it is possible to remove the textarea element without losin the copied value
+function copySelectedText(text) {
+    let textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    // select text
+    textarea.select();
+    // copy to clipboard
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+}
