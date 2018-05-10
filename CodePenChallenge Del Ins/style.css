@@ -118,6 +118,10 @@ body {
   /* include a padding as the last svg asset slightly differs from the first two  */
   padding-left: 15px;
 }
+.container__settings svg.copy-text:active {
+  /* include a small transition whenever the SVG asset is clicked (rough way to visually confirm the click) */
+  transform: scale(1.2);
+}
 
 .container__text {
   /* for the text, center the div in the page and give it a max width */
