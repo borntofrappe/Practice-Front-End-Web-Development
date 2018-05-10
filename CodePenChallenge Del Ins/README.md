@@ -13,7 +13,7 @@ Select an eraser, visually annihilate the interacting element.
 
 V2
 
-The project so far described is already a neat one. Some time and attention can be even devoted to the different styled prompted by the insertion/deletion. 
+The project so far described is already a neat one. Some time and attention can be even devoted to the different styles prompted by the insertion/deletion. 
 
 That being said, there are a couple more ideas to prop something more similar to a useful application. 
 
@@ -29,3 +29,17 @@ Text which can be copied in two variants:
 
 - copy text (which copies all text except the deletions), 
 - copy highlight (which copies only the highlighted text). 
+
+# Update
+
+As the project developed, the considerations laid out in the roadmap where modified to create the a first final version visible in the working pen.
+
+This project features:
+
+- text which can be highlighted / erased at will
+- a way to pick a color to alter the appearance of the highlighted text
+- a way to copy the highlighted text to the clipboard. Text which can be then easily pasted elsewhere.
+
+There are some minor issues in terms of responsive design, meaning the interactions with the different options can be mightily improved, but in terms of the script, the application seems to be working fine.
+
+And that is already a nice milestone.
