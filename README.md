@@ -67,4 +67,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Four-oh-Four Message**](https://codepen.io/borntofrappe/pen/vjWQBm/)|Create a simple design for a 404 page, inspired by YouTube's own solution.|404, error, monkey|7th May 2018|
 |[**Grasshopper Button Animation**](https://codepen.io/borntofrappe/pen/KRZbja/)|Create a neat animation at the press of a button. Literally. And repeatedly.|button, hover, active, grasshopper|8th May 2018|
 |[**Codepen Challenge Del Ins**](https://codepen.io/borntofrappe/pen/WJMYmY/)|Create an entry for the CodePen Challenge of the first week of May. A simple application in which text can be highlighted and visually removed from the page.|ins, del, span, codepenchallenge|9th May 2018|
+|[**SVG Success Animation**](https://codepen.io/borntofrappe/pen/JvvvZb/)|Create a simple SVG animation for the (supposedly) successful interaction between visitors and a button.|svg, animate, stroke, beginElement|11th May 2018|
 
