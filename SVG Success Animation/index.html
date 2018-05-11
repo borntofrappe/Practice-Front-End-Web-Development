@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Success Animation</title>
+  <meta name="description" content="Create a simple SVG animation for the (supposedly) successful interaction between visitors and a button.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+  <!-- markup with a wrapping div nesting a button, used as a trigger, and the SVG element with the prescribed animation -->
+
+  <div class="container">
+
+    <button>Load Data</button>
+
+    <!-- no extra value is specified in the stylesheet; the entire animation is baked in this SVG syntax -->
+    <svg width="100px" height="100px" viewbox="0 0 100 100">
+      <!-- the later in the DOM, the higher on the page -->
+      <circle cx="50%" cy="50%" r="40" stroke="#252525" stroke-width="8" fill="transparent"/>
+      <circle cx="50%" cy="50%" r="40" stroke="#252525" stroke-width="8" fill="transparent" stroke-dasharray="300" stroke-dashoffset="-300" transform="rotate(210 50 50)">
+        <animate id="greenCircle" attributeName="stroke-dashoffset" begin="indefinite" dur="1s" to="0" fill="freeze"/>
+        <animate attributeName="stroke" begin="greenCircle.begin" dur="1s" to="#1ea247" fill="freeze"/>
+      </circle>
+
+      <polyline points="15 35 45 65 70 35" stroke="#1ea247" stroke-width="10" fill="none" stroke-dasharray="150" stroke-dashoffset="150">
+        <animate attributeName="stroke-dashoffset" begin="greenCircle.end" dur="0.5s" to ="-15" fill="freeze"/>
+        <animate attributeName="stroke-dasharray" begin="greenCircle.end" dur="0.5s" to ="80" fill="freeze"/>
+      </polyline>
+    </svg>
+
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

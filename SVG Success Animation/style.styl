@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Open Sans');
+
+// define variables for the font and color used in the stylesheet
+font-main = 'Open Sans', sans-serif
+color-background = #252525
+color-button = #ededed
+color-accent = #1EA247
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    background-color color-background
+    
+.container 
+    // display the content in the center of the page, in a single column layout
+    display flex 
+    flex-direction column 
+    align-items center
+    justify-content center 
+    height 100vh
+
+    button 
+        // remove default styles and change the background color
+        border none 
+        outline none 
+        background color-button
+        cursor pointer
+
+        border-radius 5px  
+        padding 0.8rem 1rem
+        color color-background
+        text-transform uppercase
+        font-size 1.2rem
+        font-family inherit
+        font-weight bold
+
+        // create distance between the button and the SVG
+        margin-bottom 1.5rem
+
+        // include transition to smoothen the changes introduced by the :hover and :active state
+        transition all 0.3s ease-out
+
+        &:hover
+            background lighten(color-button, 15%)
+            transform scale(1.05)
+        &:active
+            transform scale(1.1)
