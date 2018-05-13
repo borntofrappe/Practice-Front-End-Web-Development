@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Mask Fading Intro</title>
+  <meta name="description" content="Create a simple animation with SVG mask and linear gradients, to introduce some text on the screen with a fade-in.">
+
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+
+</head>
+<body>
+  
+  <!-- in a wrapping div include the SVG text and the animation through linearGradient and mask elements -->
+  <div class="container">
+
+    <!-- by default the svg is 200x200, but the dimension can be modified with CSS properties -->
+    <svg width="200" height="200" viewbox="0 0 100 100">
+      <defs>
+        <!-- in the defs block, three gradients are defined for each fading animation 
+
+        the mask indeed works hiding the black sections of the gradient and showing the white sections,
+        by generating different gradients and animating their width/height/ position it is therefore possible to include fading transitions -->
+
+        <linearGradient id="gradient-tic">
+          <!-- 
+            by default a gradient goes from left to right
+            stop elements define which colors are included where
+          -->
+          <stop offset="0" stop-color="#fff"/>
+          <stop offset="0.4" stop-color="#fff"/>
+          <stop offset="1" stop-color="#000"/>
+        </linearGradient>
+
+        <linearGradient id="gradient-tac" x1="0" x2="0" y1="0" y2="1">
+          <!-- 
+            x and y points define the direction of the gradient (here from the top to the bottom)
+          -->
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset="0.6" stop-color="#fff"/>
+            <stop offset="1" stop-color="#000"/>
+        </linearGradient>
+
+        <linearGradient id="gradient-toe" x1="1" x2="0" y1="0" y2="0">
+          <!-- 
+            x and y points define the direction of the gradient (here from the right to the left)
+          -->
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset="0.8" stop-color="#fff"/>
+            <stop offset="1" stop-color="#000"/>
+          </linearGradient>
+
+
+        <!-- mask elements can be included with svg elements, such as rectangles right here -->
+        <mask id="mask-tic">
+          <!-- 
+            the rectangle elements are given a fill equal to the gradient, 
+            and are transitioned into view to show the underlying text with the fading transition allowed by the gradients themselves 
+          -->
+          <rect x="0" y="0" width="0" height="35" fill="url(#gradient-tic)">
+            <!-- animate the left to right gradient to grow from left to right  -->
+            <animate id="width" attributeName="width" to="100" begin="0.5s" dur="0.6s" fill="freeze"/>
+          </rect>
+        </mask>
+        <mask id="mask-tac">
+          <rect x="0" y="35" width="100" height="0" fill="url(#gradient-tac)">
+            <!-- animate the top to bottom gradient to grow from top to bottom -->
+            <animate id="height" attributeName="height" to="35" begin="width.end" dur="0.5s" fill="freeze"/>
+          </rect>
+        </mask>
+        <mask id="mask-toe">
+          <rect x="100" y="60" width="100" height="40" fill="url(#gradient-toe)">
+            <!-- animate the right to left gradient to appear from right to left -->
+            <animate id="x" attributeName="x" to="-20" begin="height.end" dur="0.4s" fill="freeze"/>
+          </rect>
+        </mask>
+      </defs>
+
+      
+      <!-- apply each animated task to each separate text element -->
+      <text x="0" y="30" fill="#f36653" font-size="2rem" font-weight="bold" mask="url(#mask-tic)">TIC</text>
+      <text x="0" y="60" fill="#f36653" font-size="2rem" font-weight="bold" mask="url(#mask-tac)">TAC</text>
+      <text x="0" y="90" fill="#f36653" font-size="2rem" font-weight="bold" mask="url(#mask-toe)">TOE</text>
+    </svg>
+
+  </div>
+
+</body>
+</html>
