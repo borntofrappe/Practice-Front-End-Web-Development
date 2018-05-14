@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #1f1c3d;
+  background-color: #1f1c3d;
+}
+.container {
+  height: 100vh;
+  position: relative;
+}
+.container button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  transition: all 0.3s ease;
+}
+.container button:hover {
+  transform: scale(1.05) rotate(90deg);
+}
+.container button:active {
+  transform: scale(1.15) rotate(90deg);
+}
+.container .modal {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0) translateX(-30rem) translateY(10rem);
+  transition: all 0.3s ease-out;
+  color: #2e295a;
+  background: #f36653;
+  padding: 2rem;
+  border: 4px solid rgba(241,75,53,0.85);
+}
+.container .modal.active {
+  top: 7rem;
+  transform: scale(1) translateX(0) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+.container .modal fieldset {
+  padding: 0.8rem 1rem;
+  border-color: rgba(241,75,53,0.85);
+}
+.container .modal fieldset legend {
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  font-size: 1.3rem;
+  padding: 0.2rem 0.8rem;
+  text-transform: capitalize;
+}
+.container .modal fieldset label {
+  text-transform: uppercase;
+}
+.container .modal fieldset label:nth-of-type(1) {
+  margin-right: 10px;
+}
+.container .modal fieldset input:checked + label {
+  font-weight: bold;
+}

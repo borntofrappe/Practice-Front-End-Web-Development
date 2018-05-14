@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Settings Modal</title>
+  <meta name="description" content="Create a modal to alter the settings of a page, at the toggle of a button.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">  
+
+</head>
+<body>
+
+  <!-- define the SVG later used in the project, describing the settings icon -->
+  <svg style="display:none;">
+    <symbol id="settings-icon" width="100" height="100" viewBox="0 0 26.458334 26.45833"><g fill="#F36653" transform="matrix(.79347 0 0 .79347 2.785 -212.861)"><circle transform="translate(-.066 1.169)" cx="13.229" cy="283.771" r="13.229"/><path d="M11.31 268.267h3.992c2.008 0 1.996 5.375 1.996 5.375H9.315s.013-5.375 1.995-5.375z"/><path d="M9.648 270.625s-.38 2.054-2.09 2.772v.245h3v-.606zM16.964 270.625l-.166 3.017h1.97v-.383c-1.467-.811-1.804-2.634-1.804-2.634zM11.31 301.612h3.992c2.008 0 1.996-5.374 1.996-5.374H9.315s.013 5.374 1.995 5.374z"/><path d="M9.648 299.254s-.38-2.054-2.09-2.771v-.246h3v.607zM16.964 299.254l-.166-3.017h1.97v.383c-1.467.812-1.804 2.634-1.804 2.634zM29.836 283.087v3.992c0 2.008-5.375 1.995-5.375 1.995v-7.983s5.375.013 5.375 1.996z"/><path d="M27.478 281.425s-2.055-.38-2.772-2.09h-.245v3h.606zM27.478 288.741l-3.017-.167v1.972h.382c.812-1.468 2.635-1.805 2.635-1.805zM-3.51 283.087v3.992c0 2.008 5.375 1.995 5.375 1.995v-7.983s-5.375.013-5.375 1.996z"/><path d="M-1.151 281.425s2.054-.38 2.771-2.09h.245v3H1.26zM-1.151 288.741l3.016-.167v1.972h-.382c-.812-1.468-2.634-1.805-2.634-1.805z"/><g><path d="M23.642 271.84l2.823 2.823c1.42 1.42-2.39 5.212-2.39 5.212l-5.644-5.645s3.81-3.791 5.211-2.39z"/><path d="M20.8 272.332s-1.722 1.184-3.439.482l-.173.173 2.122 2.122.429-.429zM25.973 277.506l-2.251 2.015 1.393 1.394.271-.27c-.464-1.613.587-3.14.587-3.14z"/></g><g><path d="M.064 295.42l2.822 2.822c1.42 1.42 5.212-2.39 5.212-2.39l-5.645-5.645s-3.791 3.81-2.39 5.212z"/><path d="M.556 292.576s1.183-1.721.481-3.438l.174-.173 2.122 2.122-.43.429zM5.73 297.75l2.014-2.252 1.394 1.394-.27.271c-1.612-.464-3.139.587-3.139.587z"/></g><path d="M26.47 295.42l-2.822 2.822c-1.42 1.42-5.211-2.39-5.211-2.39l5.645-5.645s3.79 3.81 2.389 5.212z"/><path d="M25.979 292.576s-1.184-1.721-.482-3.438l-.173-.173-2.122 2.122.429.429zM20.805 297.75l-2.015-2.252-1.394 1.394.271.271c1.612-.464 3.138.587 3.138.587z"/><g><path d="M2.892 271.84L.07 274.663c-1.42 1.42 2.389 5.212 2.389 5.212l5.645-5.645s-3.81-3.791-5.212-2.39z"/><path d="M5.735 272.332s1.721 1.184 3.438.482l.174.173-2.122 2.122-.43-.429zM.562 277.506l2.25 2.015-1.393 1.394-.27-.27c.463-1.613-.587-3.14-.587-3.14z"/></g></g><g transform="matrix(.79347 0 0 .79347 2.732 -211.934)"><circle r="9.733" cy="283.771" cx="13.229" fill="#1f1c3d"/><circle cx="13.229" cy="283.771" r="6.142" fill="#F36653"/></g></symbol>
+  </svg>
+
+  <!-- in a wrapping div include a button to toggle the settings' panel and the div for the panel itself -->
+  <div class="container">
+
+    <button>
+      <!-- button nesting an SVG for the settings icon -->
+      <svg viewBox="0 0 26.458334 26.45833" aria-labelledby="title">
+        <title id="title">Toggle Settings</title>
+        <use href="#settings-icon"/>
+      </svg>
+    </button>
+
+    <div class="modal">
+      <!-- panel including two sets of radio button menus -->
+      <fieldset>
+        <legend>opponent</legend>
+        <input checked id="radio-human" type="radio" name="opponent" value="human">
+        <label for="radio-human">Human</label>
+        <input id="radio-computer" type="radio" name="opponent" value="computer">
+        <label for="radio-computer"><span></span>Computer</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>side</legend>
+        <input checked id="radio-x" type="radio" name="side" value="x">
+        <label for="radio-x">x</label>
+        <input id="radio-o" type="radio" name="side" value="o">
+        <label for="radio-o">o</label>
+      </fieldset>
+    </div><!-- close .modal div -->
+    
+  </div><!-- close the all-wrapping .container div -->
+
+<!-- script to toggle the visibility of the panel -->
+<script src="script.js"></script>
+
+</body>
+</html>

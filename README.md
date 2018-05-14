@@ -69,4 +69,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Codepen Challenge Del Ins**](https://codepen.io/borntofrappe/pen/WJMYmY/)|Create an entry for the CodePen Challenge of the first week of May. A simple application in which text can be highlighted and visually removed from the page.|ins, del, span, codepenchallenge|9th May 2018|
 |[**SVG Success Animation**](https://codepen.io/borntofrappe/pen/JvvvZb/)|Create a simple SVG animation for the (supposedly) successful interaction between visitors and a button.|svg, animate, stroke, beginElement|11th May 2018|
 |[**SVG Mask Fading Intro**](https://codepen.io/borntofrappe/pen/vjrRvO/)|Create a simple animation with SVG mask and linear gradients, to introduce some text on the screen with a fade-in.|svg, animate, mask, linearGradient|13th May 2018|
+|[**Modal for a Settings' Panel**](https://codepen.io/borntofrappe/pen/vjaeJd/)|Create a modal to alter the settings of a page, at the toggle of a button.|modal, settings, toggle|14th May 2018|
 
