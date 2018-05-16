@@ -70,4 +70,5 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Success Animation**](https://codepen.io/borntofrappe/pen/JvvvZb/)|Create a simple SVG animation for the (supposedly) successful interaction between visitors and a button.|svg, animate, stroke, beginElement|11th May 2018|
 |[**SVG Mask Fading Intro**](https://codepen.io/borntofrappe/pen/vjrRvO/)|Create a simple animation with SVG mask and linear gradients, to introduce some text on the screen with a fade-in.|svg, animate, mask, linearGradient|13th May 2018|
 |[**Modal for a Settings' Panel**](https://codepen.io/borntofrappe/pen/vjaeJd/)|Create a modal to alter the settings of a page, at the toggle of a button.|modal, settings, toggle|14th May 2018|
+|[**Gif to Web Animation**](https://codepen.io/borntofrappe/pen/erPyYE/)|Create a simple animation found in an gif file with HTML, CSS and possibly a few lines of JS.|gif, svg, animation|16th May 2018|
 

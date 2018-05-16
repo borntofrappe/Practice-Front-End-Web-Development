@@ -1,0 +1,148 @@
+/* define a variable for the properties of stroke-dasharray and stroke-dashoffset
+to be updated in the JS script with the exact length of the animated paths */
+:root {
+  --stroke-length: 200;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ededed;
+}
+.container {
+  /* center the content of the page in a single-row layout, in a wrapping row */
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+.container .svg-icon {
+  /* give a default width and height for the div which contains the SVG assets */
+  width: 100px;
+  height: 100px;
+  /* position relative to absolute position the children SVG elements (one on top of another) */
+  position: relative;
+  margin: 1rem 3.5rem;
+}
+.container .svg-icon svg {
+  width: 100%;
+  height: 100%;
+  /* position the SVG one on top of another, in the exact same position (they are stacked according to the HTML declaration) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  stroke: #b2b3b2;
+  /* apply an animation to move the stroke-dashoffset property from the same value of stroke-dasharray to 0, animating the stroke */
+  animation: drawStroke 5s infinite linear both;
+}
+
+@keyframes drawStroke {
+  /* begin the animation later and end it earlier than 0% and 100%, to allow for all, stacked and delayed strokes to be visible in the page */
+  0% {
+    stroke-dasharray: var(--stroke-length);
+    stroke-dashoffset: var(--stroke-length);
+    opacity: 1;
+  }
+  40% {
+    stroke-dasharray: var(--stroke-length);
+    stroke-dashoffset: var(--stroke-length);
+    opacity: 1;
+  }
+  80% {
+    stroke-dasharray: var(--stroke-length);
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  /* set opacity to 0 as to avoid the cumbersome visual of multiple strokes on top of one another */
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.container .svg-icon svg:nth-of-type(1) {
+  /* remove the animation for the first SVG, always shown on screen */
+  animation: none;
+}
+/* detail different stroke colors and different delays for each subsequent stroke */
+.container .svg-icon svg:nth-of-type(2) {
+  stroke: #33a652;
+  animation-delay: 1s;
+}
+
+.container .svg-icon svg:nth-of-type(3) {
+  stroke: #f7b904;
+  animation-delay: 1.25s;  
+}
+.container .svg-icon svg:nth-of-type(4) {
+  stroke: #e74234;  
+  animation-delay: 1.5s;
+}
+.container .svg-icon svg:nth-of-type(5) {
+  stroke: #2a79ee;  
+  animation-delay: 1.75s;
+}
+.container .svg-icon svg:nth-of-type(6) {
+  animation-delay: 2s;
+}
+/* for the star icon, flip it around the Y axis to allow for the line animation to occur counter-clockwise, like all other SVG  */
+.container .star-icon {
+  transform: rotateY(180deg);
+}
+
+.container .number-one {
+  /* for the div making up the number one, include a tall rectangle with rounded corners
+  with a linear gradient background include two different colors 
+  with pseudo-elements include then the appendage and colored bottom section of the number one */
+  height: 200px;
+  width: 50px;
+  background: linear-gradient(-30deg, #2a79ee 0%, #2a79ee 70%, #e74234 70%, #e74234 100%);
+  border-radius: 40px;
+  margin: 3rem;
+  /* position relative to absolute position the pseudo-elements */
+  position: relative;
+}
+.container .number-one:before {
+  /* for the number one appendage (the small section edging the rectangle to the left)
+  include a pseudo-element with a linear-gradient background and rotate the rectangle from the top  */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 110px;
+  width: 50px;
+  border-radius: 40px;
+  background: #f7b904;
+  /* rotate the rectangle and translate it right at the top of the rectangle */
+  transform-origin: center top;
+  transform: rotate(60deg) translateX(22px);
+  /* position the yellow rectangle below the rest of the composition */
+  z-index: -5;
+}
+.container .number-one:after {
+  /* for the bottom, colored section, include a pseudo-element with a background with a linear-gradient */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 110px;
+  width: 50px;
+  border-radius: 40px;
+  background: linear-gradient(30deg, #33a652 0%, #33a652 50%, transparent 50%, transparent 100%);
+}
+
+
+/* on smaller screen sizes, change the single row layout to a single column layout */
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+}
