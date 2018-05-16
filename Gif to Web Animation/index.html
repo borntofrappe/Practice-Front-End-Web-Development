@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Gif to Web Animation</title>
+  <meta name="description" content="Create a simple animation found in an gif file with HTML, CSS and possibly a few lines of JS.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+  
+  <!-- define the svg assets used in the project  -->
+  <svg style="display:none;">
+    <symbol id="cloud-icon" width="100" height="75" viewBox="0 0 26.458332 19.843817"><g><path d="M13.395.65a7.117 6.995 0 0 0-6.993 5.718A6.554 6.442 0 0 0 .65 12.752a6.554 6.442 0 0 0 6.554 6.442h13.109v-.01a5.793 5.693 0 0 0 5.496-5.683 5.793 5.693 0 0 0-5.307-5.67 7.117 6.995 0 0 0 .01-.186A7.117 6.995 0 0 0 13.395.65z" fill="none" stroke-width="1"/></g></symbol>
+
+    <symbol id="family-icon" width="100" height="85" viewBox="0 0 26.458208 22.524483"><g transform="matrix(1.09988 0 0 1.08608 -.146 -303.815)" fill="none" stroke-width="1"><ellipse cy="285.941" cx="6.799" rx="3.236" ry="3.192"/><ellipse cx="17.521" cy="284.355" rx="4.317" ry="4.257"/><path d="M9.883 297.937c.026.579.283 1.145.702 1.545.419.401.995.632 1.575.632s1.156-.23 1.575-.632c.419-.4.676-.966.702-1.545a2.286 2.286 0 0 0-.129-.863m-4.425 1.014a7.027 7.027 0 0 1 1.282-4.093 7.027 7.027 0 0 1 3.434-2.568 7.026 7.026 0 0 1 4.287-.073 7.027 7.027 0 0 1 3.52 2.45 7.029 7.029 0 0 1 1.42 4.133m-23.333 0a7.067 7.067 0 0 1 2.082-4.407 7.067 7.067 0 0 1 4.454-1.978 7.067 7.067 0 0 1 4.665 1.41 7.067 7.067 0 0 1 2.614 4.112c.06.285.104.573.129.863"/><ellipse cy="284.355" cx="17.521" rx="4.317" ry="4.257"/></g></symbol>
+    
+    <symbol id="message-icon" width="100" height="100" viewBox="0 0 26.455719 26.461253"><g fill="none"><path transform="matrix(.2541 0 0 .22573 0 -.22)" d="M9.06 2.475a7.542 7.542 0 0 0-7.558 7.558V114.555l26.766-26.992h66.79a7.543 7.543 0 0 0 7.56-7.56v-69.97a7.542 7.542 0 0 0-7.56-7.558z" stroke-width="3"/><g stroke-width="1"><path d="M4.406 282.149h16.415M4.406 287.23h16.415M4.406 291.537h10.802" transform="matrix(1.0563 0 0 .9266 -.094 -256.114)"/></g></g></symbol>
+
+    <symbol id="star-icon" width="100.005" height="100" viewBox="0 0 26.459761 26.473044"><g><path d="M12.143-44.16c.318 0 13.81 28.316 14.066 28.503.257.186 31.356 4.268 31.454 4.57.098.302-22.662 21.883-22.76 22.185-.098.303 5.63 31.14 5.373 31.327-.257.187-27.815-14.79-28.133-14.79-.318 0-27.876 14.977-28.133 14.79-.257-.187 5.471-31.024 5.373-31.327-.098-.302-22.858-21.883-22.76-22.185.098-.302 31.196-4.384 31.453-4.57.258-.187 13.749-28.502 14.067-28.502z" transform="matrix(.28146 0 0 .2955 9.812 13.492)" fill="none" stroke-width="3" /></g></symbol>
+  </svg>
+
+
+  <!-- in a wrapping container include the four SVG icons and the div used to create the number 1 right in the middle of them -->
+  <div class="container">
+
+    <!-- for each SVG, include multiple SVG copies in a div, to later stack them each on top of another
+    one for the SVG shown always on screen
+    four for the different stroke colors animated one after another
+    one with the same color of the first SVG to close the animation early
+    -->
+    <div class="svg-icon cloud-icon">
+      <svg>
+        <use href="#cloud-icon" />
+      </svg>
+      <svg>
+        <use href="#cloud-icon" />
+      </svg>
+      <svg>
+        <use href="#cloud-icon" />
+      </svg>
+      <svg>
+        <use href="#cloud-icon" />
+      </svg>
+      <svg>
+        <use href="#cloud-icon" />
+      </svg>
+      <svg>
+        <use href="#cloud-icon" />
+      </svg>
+    </div>
+
+    <div class="svg-icon family-icon">
+      <svg>
+        <use href="#family-icon" />
+      </svg>
+      <svg>
+        <use href="#family-icon" />
+      </svg>
+      <svg>
+        <use href="#family-icon" />
+      </svg>
+      <svg>
+        <use href="#family-icon" />
+      </svg>
+      <svg>
+        <use href="#family-icon" />
+      </svg>
+      <svg>
+        <use href="#family-icon" />
+      </svg>
+    </div>
+
+
+    <div class="number-one"></div>
+
+
+    <div class="svg-icon message-icon">
+      <svg>
+        <use href="#message-icon" />
+      </svg>
+      <svg>
+        <use href="#message-icon" />
+      </svg>
+      <svg>
+        <use href="#message-icon" />
+      </svg>
+      <svg>
+        <use href="#message-icon" />
+      </svg>
+      <svg>
+        <use href="#message-icon" />
+      </svg>
+      <svg>
+        <use href="#message-icon" />
+      </svg>
+    </div>
+
+    <div class="svg-icon star-icon">
+      <svg>
+        <use href="#star-icon" />
+      </svg>
+      <svg>
+        <use href="#star-icon" />
+      </svg>
+      <svg>
+        <use href="#star-icon" />
+      </svg>
+      <svg>
+        <use href="#star-icon" />
+      </svg>
+      <svg>
+        <use href="#star-icon" />
+      </svg>
+      <svg>
+        <use href="#star-icon" />
+      </svg>
+    </div>
+
+  </div><!-- close wrapping .container div -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
