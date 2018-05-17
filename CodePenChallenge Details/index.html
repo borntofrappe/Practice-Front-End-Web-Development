@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>CodepenChallenge Details: CSS Quiz</title>
+  <meta name="description" content="Answer a few queries for CSS-related concepts, in this neat quiz which uses details and summary elements. Project entry for the weekly CodepenChallenge.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  
+  <!-- nest in a wrapping container 
+    one div for each question and connected answer(s)
+    a header in which to show the result of the small quiz
+  -->
+  <div class="container">
+
+    <!-- each question in this "faq"  comprises a details element
+      in said details element:
+        a summary element provides the actual question
+        a div contains then four possible answers
+
+      in the JS script, upon choosing an answer, the correct answer is applied a class which visually remarks its rightful nature
+    -->
+
+    <div class="question">
+      <details>
+        <summary>
+          <h2>Which framework supports this project?</h2>
+        </summary>
+        <div class="answers">
+          <div class="answer">
+            Bulma
+          </div>
+          <div class="answer">
+            Bootstrap
+          </div>
+          <div class="answer">
+            Bibbity Bobbity Boo
+          </div>
+          <div class="answer correct-answer">
+            None of the above
+          </div>
+        </div>
+      </details>
+    </div><!-- close question div -->
+
+    <div class="question">
+      <details>
+        <summary>
+          <h2>Which CSS property created this background?</h2>
+        </summary>
+        <div class="answers">
+          <div class="answer">
+            mask
+          </div>
+          <div class="answer correct-answer">
+            clip-path
+          </div>
+          <div class="answer">
+            border
+          </div>
+          <div class="answer">
+            background
+          </div>
+        </div>
+      </details>
+    </div><!-- close question div -->
+
+    <div class="question">
+      <details>
+        <summary>
+          <h2>Which color was <span class="highlight">not</span> used in this page?</h2>
+        </summary>
+        <div class="answers">
+          <div class="answer">
+            #422980
+          </div>
+          <div class="answer">
+            #EB761F
+          </div>
+          <div class="answer correct-answer">
+            #252525
+          </div>
+          <div class="answer">
+            #00D539
+          </div>
+        </div>
+      </details>
+    </div><!-- close question div -->
+
+    <div class="question">
+      <details>
+        <summary>
+          <h2>Which font was used in this page?</h2>
+        </summary>
+        <div class="answers">
+          <div class="answer correct-answer">
+            Source Sans Pro
+          </div>
+          <div class="answer">
+            Open Sans
+          </div>
+          <div class="answer">
+            Lato
+          </div>
+          <div class="answer">
+            Montserrat
+          </div>
+        </div>
+      </details>
+    </div><!-- close question div -->
+
+    <div class="question">
+      <details>
+        <summary>
+          <h2>Which layout system arranged the elements of this page?</h2>
+        </summary>
+        <div class="answers">
+          <div class="answer">
+            Grid
+          </div>
+          <div class="answer">
+            Flexbox
+          </div>
+          <div class="answer">
+            Neither
+          </div>
+          <div class="answer correct-answer">
+            Both
+          </div>
+        </div>
+      </details>
+    </div><!-- close question div -->
+
+    <h1 class="result"></h1>
+
+  </div><!-- close the wrapping .container div -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

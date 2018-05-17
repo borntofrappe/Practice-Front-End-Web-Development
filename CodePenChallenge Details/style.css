@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+/* define variables for the font and colors used in the project */
+:root {
+  --font-main: 'Source Sans Pro', sans-serif;
+  --color-bg: #422980;
+  --color-txt: #EBEEF3;
+  --color-accent: #EB761F;
+  --color-accent-right-answer: #00D539;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-main);
+  color: var(--color-txt);
+  background: linear-gradient(to right, #5e3ead, var(--color-txt), #5e3ead);
+}
+
+.container {
+  /* display the questions and the header in a single column layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.container .question details summary {
+  background: var(--color-bg);
+  margin: 1rem;
+  max-width: 550px;
+  text-align: center;
+  /* create the peculiar background by creating a polygon with clip-path */
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+}
+.container .question details summary h2 {
+  padding: 1rem 3rem;
+  font-size: 2rem;
+}
+.container .question details summary h2 .highlight {
+  /* style highlighted words */
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.container .question details .answers {
+  /* display the four answers in a 2x2 grid which occupies the entirety of the width and height allocated by the details element */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 1.4rem;
+}
+
+.container .question details .answer {
+  background: var(--color-bg);
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  margin: 1rem;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  text-align: center;
+}
+.container .question details .answer:hover {
+  background: var(--color-accent);  
+}
+
+/* remove the default triangle for every summmary element */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.container .question details .reveal-chosen-answer {
+  /* change the background color for the answer which is given, but which is wrong (this class is applied in the JS script to the wrong answer) */
+  background: var(--color-accent);
+}
+
+.container .question details .reveal-correct-answer {
+  /* include an animation for the answer which is revealed to be correct (this class is applied in the JS script to the correct answer) */
+  animation: correctAnswer 1s step-start forwards 4;
+}
+@keyframes correctAnswer {
+  /* change background color from and to the chosen accent color
+    as per step-start, the animation moves discretely from one value to another
+    as per forwards, the animation retains the property described in the final keyframe
+  */
+  0%, 100% {
+    background: var(--color-accent-right-answer);
+  }
+  50% {
+    background: var(--color-bg);
+  }
+}
+
+h1.result {
+  background: var(--color-bg);
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  padding: 0.5rem 2rem;  
+}
+
+/* for small screen devices, include each of the four answers in a single row */
+@media screen and (max-width:700px) {
+  .container .question details .answers {
+    grid-template-columns: 1fr;
+  }
+}
+
