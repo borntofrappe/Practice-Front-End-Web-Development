@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Side by Side Images</title>
+  <meta name="description" content="Alternatively show one image or another, depending on the position of a controller. Drag the controller to show either one of the two, contrasting images.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  
+  <!-- 
+    in a wrapping container include two div elements, each nesting its own image
+   -->
+  <div class="container">
+    <!-- beside the two div elements containing the two images, define a div element for the controller -->    
+    
+    <div class="img-controller"></div>
+
+    <!-- 
+      the image which is included as second is the image which is modified in width and presence, in order to show/hide the image which is included as first
+      the later an element is defined in the HTML, the higher its z-index
+    -->
+    <div class="img img-color">
+      <!-- for the project's sake, the same image is used twice, but two different images could be included for "spot-the-difference" kind of scenarios -->
+      <img src="https://images.pexels.com/photos/187854/pexels-photo-187854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+    </div>
+    <div class="img img-filter">
+      <img src="https://images.pexels.com/photos/187854/pexels-photo-187854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
