@@ -72,3 +72,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Modal for a Settings' Panel**](https://codepen.io/borntofrappe/pen/vjaeJd/)|Create a modal to alter the settings of a page, at the toggle of a button.|modal, settings, toggle|14th May 2018|
 |[**Gif to Web Animation**](https://codepen.io/borntofrappe/pen/erPyYE/)|Create a simple animation found in an gif file with HTML, CSS and possibly a few lines of JS.|gif, svg, animation|16th May 2018|
 |[**Codepen Challenge Details**](https://codepen.io/borntofrappe/pen/OZaOWo/)|Answer a few queries for CSS-related concepts, in this neat quiz which uses details and summary elements.|details, summary, codepenchallenge|17th May 2018|
+|[**Side by Side Images**](https://codepen.io/borntofrappe/pen/wjRbgz)|AAlternatively show one image or another, depending on the position of a controller. Drag the controller to show either one of the two, contrasting images.|drag, image, filter|19th May 2018|

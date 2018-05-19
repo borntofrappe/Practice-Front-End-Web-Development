@@ -1,0 +1,81 @@
+:root {
+  /* define special properties for the size of the image */
+  --img-width: 80vw;
+  --img-height: calc(var(--img-width)/940*650);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: repeating-linear-gradient(45deg, #ededed11 0%, #ededed11 100px, #25252511 100px, #25252511 150px);
+}
+
+.container {
+  width: var(--img-width);
+  height: var(--img-height);
+  /* center the contents of the container in the page */
+  margin: 2rem auto;
+  /* position relative to absolute position the nested images */
+  position: relative;
+}
+.img-controller {
+  /* position the controller in the container, occupying a small width and the entirety of the parent's height */
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 20%;
+  width: 10px;
+  background: #ededed;
+  /* show the controller on top of the images */
+  z-index: 5;
+  filter: drop-shadow(1px 0 10px #25252511);
+  cursor: col-resize;
+}
+.img-controller:after {
+  /* for the controller include a "handler" right in the middle of the rectangle making up the controller (and dividing the two images) */
+  content: '';
+  position: absolute;
+  /* remember to offset for the height/width of the element in order to completely center it  */
+  top: calc(50% - 26px);
+  left: calc(50% - 26px);
+  width: 52px;
+  height: 52px;
+  background: #ededed;
+  /* include a background resembling a square rotated 45deg */
+  clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+}
+
+.img {
+  /* absolute position both images in the top left corner of the container (one on top of another) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--img-height);
+}
+.img-filter {
+  /* alter the aesthetics of the iiv nesting the top image for proof of concept, to create a marked difference between the two images */
+  filter: sepia(1) brightness(0.9);
+  /* 
+  set overflow to hidden and alter the width
+  as the image is later given a fixed, larger size, changing the width of the parent div (with hidden overflow) allows to "cut out" portions of that image 
+  */
+  overflow: hidden;
+  width: 20%;
+}
+.img-color {
+  /* for the div nesting the underlying image, let it cover the entire width of the parent container */
+  width: var(--img-width);
+}
+
+img {
+  /* 
+  for both images, size them to cover the entirety of the container
+  with a varying width and overflow hidden on the div nesting the top image, it is possible to show a portion of the image on one side and the remainder of the image on the other side, through the underlying img 
+  */
+  width: var(--img-width);
+  height: var(--img-height);
+}
