@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #252525;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+}
+#root textarea {
+  /* style the textarea element as to completely span the visible area in width and height */
+  width: 100%;
+  height: 100%;
+  /* remove default styling */
+  resize: none;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 1rem;
+  /* style nested text */
+  font-size: 2.2em;
+  font-family: inherit;
+  color: #32ff32;
+  letter-spacing: 0.2rem;
+  line-height: 1.3;
+  /* at the end of the line break the word to cover the entire width of the screen */
+  word-break: break-all;
+}

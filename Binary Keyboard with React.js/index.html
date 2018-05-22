@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Binary Keyboard with React.js</title>
+    <meta name="description" content="Practice with React state and controlled components to create a fun experiment with a makeshift digital keyboard.">
+
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+
+    <!-- include a single div in which to render the react component -->
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+      // target the HTML element in which to render the react component
+      const rootNode = document.querySelector("#root");
+
+      // create a component which renders the controlled textarea
+      class ControlledComponent extends React.Component {
+        constructor(props) {
+          super(props);
+          // in the state include a key for the value held by the textarea
+          this.state = {
+            textarea: ''
+          }
+          // bind the handleChange event to the component's context
+          this.handleChange = this.handleChange.bind(this);
+        }
+
+        // declare a method which takes as argument the event (change) and controls the textarea
+        handleChange(e) {
+          this.setState({
+            textarea: e.target.value
+          });
+        }
+
+        render() {
+          // in the render method modify the letters typed in the textarea to include binary code instead
+
+          let inputValue = this.state.textarea;
+          let arrayInputValue = [];
+
+          // loop through each character of the input string
+          for(let i = 0; i < inputValue.length; i++) {
+            // consider the ASCII code of each character (in its lower case form)
+            let charCode = inputValue.toLowerCase().charCodeAt(i);
+            // if the ASCII code relates to a lower case letter [a-z]
+            if(charCode >= 97 && charCode <= 122) {
+              // convert the ASCII code to binary 
+              let binaryCharCode = (charCode).toString(2);
+              // push the binary number to the initialized array
+              arrayInputValue.push(binaryCharCode);
+            }
+            // else (if for instance, a number is displayed), simply add the character to the array
+            else {
+              arrayInputValue.push(inputValue[i]);
+            }
+          }
+          // join together all the characters in the array, creating a string in which letters are morphed into binary numbers and numbers are just included as numbers
+          let binaryInputValue = arrayInputValue.join("");
+
+          /* return a single textarea with a value of the computed state and a method which allows react to monitor the element */
+          return (
+            <textarea placeholder="Waiting for input" value={binaryInputValue} onChange={this.handleChange}/>
+          );
+        }
+      }
+
+      // render the react component in the targeted node
+      ReactDOM.render(<ControlledComponent />, rootNode);
+    </script>
+
+  </body>
+</html>
