@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458334 26.458334">
+    <g transform="matrix(.5 0 0 .5 5.826 -122.07)">
+        <circle r="26.458" cy="270.599" cx="14.805" fill="#242422"/>
+        <g transform="translate(-14.68)">
+            <circle r="11.906" cy="270.599" cx="29.485" fill="#fff"/>
+            <circle cx="29.485" cy="270.599" r="11.774" fill="#242422"/>
+        </g>
+        <path d="M4.927 265.966h19.756l-9.878 14.557z" fill="#  "/>
+        <path d="M4.577 265.709l10.227 15.072 10.228-15.072zm.789.58h18.877l-9.439 13.91z" fill="#2153e8"/>
+    </g>
+</svg>
