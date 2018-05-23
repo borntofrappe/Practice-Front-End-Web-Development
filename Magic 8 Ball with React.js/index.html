@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Magic 8 Ball with React.js</title>
+  <meta name="description" content="Description.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>    
+
+</head>
+<body>
+  
+  <!-- include a single div in which to render the react component(s) -->
+  <div id="app"></div>
+  
+<script type="text/babel">
+  // select the HTML node in which to render the following component(s)
+  const app = document.querySelector("#app");
+
+  // declare a functional stateless component for the SVG asset
+  const MagicEightBallSvg = () => {
+    return(
+      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458334 26.458334">
+      <g transform="matrix(.5 0 0 .5 5.826 -122.07)">
+          <circle r="26.458" cy="270.599" cx="14.805" fill="#242422"/>
+          <g transform="translate(-14.68)">
+              <circle r="11.906" cy="270.599" cx="29.485" fill="#fff"/>
+              <circle cx="29.485" cy="270.599" r="11.774" fill="#242422"/>
+          </g>
+          <path d="M4.927 265.966h19.756l-9.878 14.557z" fill="#81a377"/>
+          <path d="M4.577 265.709l10.227 15.072 10.228-15.072zm.789.58h18.877l-9.439 13.91z" fill="#81a377"/>
+      </g>
+  </svg>
+    );
+  };
+
+  // declare a class component which renders the SVG and a paragraph element
+  class MainComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      // in the state declare a key which is used as the text of the paragraph
+      this.state = {
+        randomAnswer: ""
+      }
+      // bind an click event to the div containing the text of the paragraph
+      this.handleClick = this.handleClick.bind(this);
+    }
+    
+    // upon receiving a click event
+    handleClick() {
+      const possibleAnswers = [
+        'It is certain',
+        'It is decidedly so',
+        'Without a doubt', 
+        'Yes, definitely',
+        'You may rely on it',
+        'As I see it, yes',
+        'Outlook good',
+        'Yes',
+        'Signs point to yes',
+        'Reply hazy try again',
+        'Ask again later',
+        'Better not tell you now',
+        'Cannot predict now',
+        'Concentrate and ask again',
+        'Don\'t count on it', 
+        'My reply is no',
+        'My sources say no',
+        'Most likely',
+        'Outlook not so good',
+        'Very doubtful'
+      ];
+      
+      // select a random index to consider one of the possible strings in the array
+      let randomIndex = Math.floor(Math.random()*possibleAnswers.length);
+      // update the state with the random string
+      this.setState({
+        randomAnswer: possibleAnswers[randomIndex]
+      });
+    }
+    
+    render() {
+      // render the SVG component, plus a div with the onClick event and a paragraph with a value of the state key
+      return(
+        <div className="container">
+          <MagicEightBallSvg />
+          <div onClick={this.handleClick}>
+            <p>{this.state.randomAnswer}</p>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  // render the main component in the target HTML node
+  ReactDOM.render(<MainComponent />, app);
+
+</script>
+
+</body>
+</html>
