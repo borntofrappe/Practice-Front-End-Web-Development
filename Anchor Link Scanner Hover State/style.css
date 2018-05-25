@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* define variables used for the color of text, background, underline */
+:root {
+  --color-txt: #ededed;
+  --color-bg: #252525;
+  --color-accent: tomato;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: var(--color-txt);
+  background-color: var(--color-bg);
+}
+
+.container {
+  font-size: 2rem;
+  padding: 0 1.5rem;
+  margin: 3rem auto;
+  max-width: 700px;
+}
+.container p {
+  line-height: 1.8;
+}
+.container a {
+  /* remove default style */
+  text-decoration: none;  
+  color: inherit;
+
+  font-weight: bold;
+  /* position relative to absolute position the pseudo-element(s) */
+  position: relative; 
+}
+
+.container a:hover {
+  /* on hover change the color of the text, after a small period of time, to match with the vertical translation of the line */
+  transition: all 0.3s ease-out;
+  transition-delay: 0.3s;
+  color: var(--color-accent);
+}
+.container a:before {
+  /* create a line beneath the anchor link element */
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: var(--color-accent);
+}
+
+.container a:hover:before {
+  /* on hover (on the anchor link element), add an animation to the line right beneath the anchor link */
+  animation: scannerAnimation 0.7s cubic-bezier(.35,-0.7,.56,1) forwards;
+}
+
+@keyframes scannerAnimation {
+  /* in the animation 
+  change the vertical position of the pseudo-element
+  change the opacity when the animation starts to end 
+  */
+  0% {
+    bottom: -3px;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}

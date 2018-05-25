@@ -76,3 +76,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Binary Keyboard with React.js**](https://codepen.io/borntofrappe/pen/ELJPPj/)|Practice with React state and controlled components to create a fun experiment with a makeshift digital keyboard.|react, textarea, controlled component|22nd May 2018|
 |[**Magic 8 Ball with React.js**](https://codepen.io/borntofrappe/pen/pVmgqX/)|Create a magic 8 ball while practicing with components and conditional rendering in the React.js library.|react, svg, state, function|23rd May 2018|
 |[**Panel Toggled by a Button**](https://codepen.io/borntofrappe/pen/ZodQBm/)|Create a simple page in which a button toggles the appearance of a div element, with additional information regarding the page.|panel, modal, toggle|24nd May 2018|
+|[**Anchor Link Scanner Hover State**](https://codepen.io/borntofrappe/pen/zjgOWB/)|Create a neat hover state for anchor link elements.|anchor link, hover, scanner|25nd May 2018|
