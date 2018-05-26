@@ -10,12 +10,23 @@ body {
   width: 100%;
   font-family: 'Lato', sans-serif;
   color: #252525;
-  background-color: #A7A694;
+  background: 
+    linear-gradient(to bottom right, #F1F1EE 0%, #A7A694 10%, transparent 10%), 
+    linear-gradient(to bottom left, #F1F1EE 0%, #A7A694 10%, transparent 10%), 
+    linear-gradient(to top right, #F1F1EE 0%, #A7A694 10%, transparent 10%), 
+    linear-gradient(to top left, #F1F1EE 0%, #A7A694 10%, transparent 10%), 
+    #A7A694;
 }
 
 .container {
   max-width: 650px;
   margin: 2rem auto;  
+}
+.container h1 {
+  text-align: center;
+}
+.container h1 sub {
+  font-size: 1rem;
 }
 .container p {
   font-size: 1.4rem;
