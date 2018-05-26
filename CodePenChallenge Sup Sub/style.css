@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Pacifico");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #252525;
+  background-color: #A7A694;
+}
+
+.container {
+  max-width: 650px;
+  margin: 2rem auto;  
+}
+.container p {
+  font-size: 1.4rem;
+  /* increase the line-height to accommodate for the vertically positioned sup and sub elements */
+  line-height: 2;
+  margin: 1rem;
+}
+.container p:first-letter {
+  /* style the first letter of every paragraph to be larger and cursive */
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+}
+.container span.choice {
+  font-size: 1.4rem;
+  margin: 0 0.3rem;
+}
+.container p sub, .container p sup {
+  font-style: italic;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #838C7B;
+  transition: all 0.2s ease-out;
+  /* position relative to separate a little more the elements from each other, vertically */
+  position: relative;
+}
+.container p sup {
+  bottom: 10px;
+}
+.container p sub {
+  top: 10px;
+}
+.container p sub:hover, .container p sup:hover {
+  /* on hover change the color of the backround to match the color of the border */
+  background: #838C7B;
+}
+
