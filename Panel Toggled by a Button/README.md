@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/ZodQBm/).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/ZodQBm/).
 
 # Preface 
 
