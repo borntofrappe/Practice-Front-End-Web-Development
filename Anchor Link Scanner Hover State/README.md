@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/zjgOWB/).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/zjgOWB/).
 
 # Preface
 The purpose of this very small-scale project is the replication of a neat hover animation as witnessed on this inspiring blog post on [bezier curves in React](https://www.joshwcomeau.com/posts/dynamic-bezier-curves).
