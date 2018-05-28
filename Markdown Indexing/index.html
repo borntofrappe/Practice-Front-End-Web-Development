@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Markdown Indexing</title>
+  <meta name="description" content="Input: markdown text. Output: index for the markdown syntax, based on a list of reference-able headers.">
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+
+</head>
+<body>
+  
+  <!-- in a wrapping container include 
+    1) the input area in which to add markdown text
+    1) the button which allows to create the index based on the input area 
+    1) the output area in which to include the created index
+  -->
+  <div class="container">
+
+    <textarea placeholder="Include mardown text right here" class="input-area"></textarea>
+    
+    <button class="create-index enabled">
+      create index
+    </button>
+
+    <!-- include the output area as a readonly textarea element, in which to just display the index -->
+    <textarea placeholder="Have an index based on the markdown above displayed right here" class="output-area" readonly></textarea>
+    
+    <button class="copy-index disabled">
+      copy index
+    </button>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
