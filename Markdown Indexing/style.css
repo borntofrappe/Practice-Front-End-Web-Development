@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+:root {
+  --main-font: 'Source Sans Pro', sans-serif;
+  --color-black: #252525;
+  --color-grey: #d2dae2;
+  --color-white : #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--main-font);
+  color: var(--color-black);
+  background: var(--color-grey);
+  
+}
+
+/* display the textarea elements and buttons in a single column, with the input textarea taking up twice as much space as the output area */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-height: 100vh;
+  
+}
+
+.container textarea {
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: inherit;
+  resize: none;   
+  padding: 0.5rem;
+  filter: drop-shadow(0 0.5px 5px rgba(0,0,0,0.2));
+}
+
+.container textarea.input-area {
+  flex-grow: 2;
+}
+
+.container textarea.output-area {
+  flex-grow: 1;
+  /* visually confirm the readonly nature of the output textarea */
+  cursor: inherit;
+  outline: none;
+}
+
+.container button {
+  font-family: inherit;
+  color: inherit;
+  background: var(--color-white);
+  border: 2px solid var(--color-black);
+  margin: 1rem auto;
+  padding: 0.4rem 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  /* transition from the eventual hover/ active states */
+  transition: all 0.2s ease-out;
+  /* by default, visually dis-allow the buttons from being clicked */
+  cursor: not-allowed;
+}
+
+/* 
+create a class and hover/ active states to make the buttons evidently click-able
+this to visually enable the copy button only when text is present in the output textarea
+by default, the class is enabled on the create button already
+ */
+ .container button.enabled {
+   cursor: initial;
+ }
+.container button.enabled:hover {
+  background: var(--color-black);
+  color: var(--color-white);  
+}
+.container button.enabled:active {
+  transform: scale(1.05);
+}
