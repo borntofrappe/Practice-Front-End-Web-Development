@@ -79,3 +79,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Anchor Link Scanner Hover State**](https://codepen.io/borntofrappe/pen/zjgOWB/)|Create a neat hover state for anchor link elements.|anchor link, hover, scanner|25nd May 2018|
 |[**Codepen Challenge Sup Sub**](https://codepen.io/borntofrappe/pen/YLmrJY/)|Create an entry for the weekly challenge in which you can choose between two alternatives how to fill a multitude of sentences.|sup, sub, multiple choice|26nd May 2018|
 |[**Markdown Indexing**](https://codepen.io/borntofrappe/pen/jKNePz/)|Input: markdown text. Output: index for the markdown syntax, based on a list of reference-able headers.|markdown, regex, index|28nd May 2018|
+|[**Mobile and Fixed Navigation Bar**](https://codepen.io/borntofrappe/pen/OEJwQa/)|Create a navigation bar primed for mobile devices, which is always at the top of the viewport. Component of a portfolio page.|navbar, mobile, fixed|29nd May 2018|

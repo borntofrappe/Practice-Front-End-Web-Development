@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 200vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #252524;
+  background: repeating-linear-gradient(45deg, rgba(103,103,101,0.1) 0, rgba(103,103,101,0.1) 50px, #fff 50px, #fff 100px);
+  overflow-x: hidden;
+}
+.container nav {
+  display: flex;
+  padding: 1rem 1rem 1rem 2rem;
+  align-items: center;
+  font-size: 1.1rem;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+}
+.container nav svg {
+  width: 56px;
+  height: calc(56px * 0.56);
+}
+.container nav span#whitespace {
+  flex-grow: 1;
+}
+.container nav .toggle {
+  background: none;
+  border: none;
+  height: 20px;
+  width: 24px;
+  position: relative;
+  display: none;
+}
+.container nav .toggle span {
+  width: 24px;
+  height: 2px;
+  background: #252524;
+  position: absolute;
+  top: 0;
+  left: -3px;
+  transition: left 0.2s ease;
+}
+.container nav .toggle span:nth-of-type(2) {
+  top: 10px;
+  left: 0;
+}
+.container nav .toggle span:nth-of-type(3) {
+  top: 20px;
+  left: 3px;
+}
+.container nav .links {
+  display: flex;
+  align-items: center;
+}
+.container nav .links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #252524;
+  text-transform: uppercase;
+  position: relative;
+}
+.container nav .links a:before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background: #252524;
+  transition: all 0.3s ease;
+}
+.container nav .links a:hover:before {
+  width: 100%;
+  left: 0;
+}
+@media screen and (max-width: 650px) {
+  .container nav .toggle {
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  .container nav .toggle.toggle-active {
+    transform: rotate(90deg);
+  }
+  .container nav .toggle.toggle-active span {
+    left: 0;
+  }
+  .container nav .links {
+    position: absolute;
+    top: calc(56px * 0.56 + 2rem);
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 0 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .container nav .links a {
+    margin: 0.5rem 0;
+  }
+  .container nav .links.panel-active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
