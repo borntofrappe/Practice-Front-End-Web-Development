@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+// define variables for the font and colors used
+font-main = 'Lato', sans-serif
+color-text = #252524
+color-background = #fff
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    // increase the height of the body to allow for scroll to occur
+    min-height 200vh
+    width 100%
+    font-family font-main
+    color color-text
+    background repeating-linear-gradient(45deg, rgba(lighten(color-text, 30%), 0.1) 0, rgba(lighten(color-text, 30%), 0.1) 50px, color-background 50px, color-background 100px)  
+    overflow-x hidden
+    
+.container nav
+    // display the navigation bar in a single row layout
+    display flex 
+    padding 1rem 1rem 1rem 2rem 
+    align-items center
+    font-size 1.1rem
+    position fixed
+    width 100%
+    background color-background
+
+    svg 
+        width 56px
+        height calc(56px * 0.56)
+
+    span#whitespace 
+        flex-grow 1
+
+    .toggle
+        background none 
+        border none
+        height 20px
+        width 24px
+        // position relative to absolute position the nested span elements, intermittently
+        position relative
+        // display none to hide the button by default (and show it on mobile devices)
+        display none
+
+        span
+            // create three lines with the three span elements and position them at equal distance from each other, in the parent button
+            width 24px 
+            height 2px 
+            background color-text
+            position absolute
+            top 0 
+            left -3px
+            // include a transition to alter the property of left, when the toggle is switched to active
+            transition left 0.2s ease
+
+            &:nth-of-type(2)
+                top 10px
+                left 0
+            &:nth-of-type(3)
+                top 20px
+                left 3px
+
+    .links
+        // display the links in a row, following the pattern of the navigation bar
+        display flex 
+        align-items center
+        a 
+            margin 0 1rem
+            text-decoration none 
+            color color-text
+            text-transform uppercase
+            // position relative to absolute the pseudo-element beneath the anchor links
+            position relative
+
+            &:before 
+                content ''
+                position absolute
+                bottom -2px
+                left 50%
+                height 2px
+                width 0
+                background color-text
+                transition all 0.3s ease
+
+            &:hover:before 
+                width 100%
+                left 0
+            
+@media screen and (max-width: 650px)
+    // for small screen devices 
+    // - display the toggle button 
+    .container nav .toggle 
+        display inline-block
+        transition all 0.3s ease
+
+        // define classes which are toggled in the JS script at the click of the toggle button
+        &.toggle-active 
+            // for the toggle button, transform it and its contents to have three vertical lines lined up one after another
+            transform rotate(90deg)
+
+            span
+                left 0
+
+    // - change the layout of the anchor links to display them in a single column layout, in a div spanning the entire width and height of the viewport, below the navigation bar
+    .container nav .links
+        position absolute
+        top calc(56px * 0.56 + 2rem)
+        left 0
+        width 100%
+        height 100vh
+        padding 0 2rem
+        flex-direction column
+        align-items flex-start
+        background color-background
+        transform translateX(100%)
+        visibility hidden
+        // transition to alter the horizontal position and opacity of the panel, when the toggle button is switched
+        transition all 0.3s ease
+
+        a
+            margin 0.5rem 0
+
+
+        &.panel-active
+            // for the div containing the anchor link elements, transform it to display it in the screen
+            transform translateX(0)
+            visibility visible
