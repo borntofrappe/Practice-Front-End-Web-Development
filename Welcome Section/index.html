@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Welcome Message</title>
+  <meta name="description" content="Create a welcome section in which an image is placed right next to some short text and with some nice style. Component of a portfolio page">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  
+  <!-- in a wrapping container include a welcome section -->
+  <div class="container">
+
+    <!-- in the section include a figure element for an image and a div for connecting text -->
+    <section class="welcome">
+      <figure class="welcome__profile-img">
+        <img src="https://images.pexels.com/photos/730896/pexels-photo-730896.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+      </figure>
+      
+      <!-- format break lines and isolate particularly important text in a span element (important as in needed to be styled directly in CSS) -->
+      <div class="welcome__profile-txt">
+        <p>
+          Hello there<br> 
+          dolor sit amet consectetur 
+          <span class="profile-txt__special">
+            adipisicing elit
+          </span>. 
+          Reiciendis iure, vero praesentium ipsum eum magni fugit dolores 
+          nisi temporibus! Omnis cumque quam quisquam laudantium tempore 
+          aliquid ex quibusdam quod, odio atque nobis, explicabo nihil 
+          voluptate provident sequi facilis enim necessitatibus?
+        </p>      
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

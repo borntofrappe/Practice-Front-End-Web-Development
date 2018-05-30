@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.tooltip-style,
+.container section.welcome figure.welcome__profile-img:before,
+.container section.welcome div.welcome__profile-txt span.profile-txt__special:before {
+  background: #252525;
+  color: #fff;
+  padding: 0.3rem 0.5rem;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  filter: drop-shadow(0 1px 5px rgba(37,37,37,0.5));
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #252525;
+  background-color: #fff;
+}
+.container section.welcome {
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+.container section.welcome figure.welcome__profile-img {
+  float: left;
+  border-radius: 50%;
+  shape-outside: circle();
+  margin: 2rem;
+  position: relative;
+}
+.container section.welcome figure.welcome__profile-img:before {
+  content: 'Nice Picture';
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.22, -0.3, 0.68, 1.44);
+}
+.container section.welcome figure.welcome__profile-img:hover:before {
+  top: -35px;
+  opacity: 1;
+}
+.container section.welcome figure.welcome__profile-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: drop-shadow(0 1px 5px rgba(37,37,37,0.5));
+}
+.container section.welcome div.welcome__profile-txt {
+  line-height: 1.8;
+  font-size: 1.3rem;
+}
+.container section.welcome div.welcome__profile-txt span.profile-txt__special {
+  font-weight: bold;
+  position: relative;
+}
+.container section.welcome div.welcome__profile-txt span.profile-txt__special:before {
+  content: 'Nice text';
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  font-weight: initial;
+  filter: drop-shadow(0 1px 5px rgba(37,37,37,0.5));
+  transition: all 0.3s cubic-bezier(0.22, -0.3, 0.68, 1.44);
+  opacity: 0;
+}
+.container section.welcome div.welcome__profile-txt span.profile-txt__special:hover:before {
+  top: -2.8rem;
+  opacity: 1;
+}
+.container section.welcome div.welcome__profile-txt span.profile-txt__special:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #252525;
+  border-bottom: 10px solid transparent;
+  filter: drop-shadow(0 1px 5px rgba(37,37,37,0.5));
+  opacity: 0;
+}
+.container section.welcome div.welcome__profile-txt span.profile-txt__special:hover:after {
+  opacity: 1;
+  left: 70%;
+  transition: all 0.3s cubic-bezier(0.22, -0.3, 0.68, 1.44);
+  transition-delay: 0.2s;
+}
+@media screen and (max-width: 400px) {
+  .container section.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container section.welcome {
+    max-width: 1000px;
+  }
+  .container section.welcome div.welcome__profile-txt {
+    font-size: 3rem;
+  }
+}
