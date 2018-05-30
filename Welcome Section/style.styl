@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+// define variables for the font, color and special properties used
+font-main = 'Lato', sans-serif
+black = #252525
+white = #fff
+transition-cubic = all 0.3s cubic-bezier(.22,-0.3,.68,1.44)
+filter-shadow = drop-shadow(0 1px 5px rgba(black, 0.5))
+
+// define a class to style the tooltips of the page (to be @extended)
+.tooltip-style
+    background black 
+    color white
+    padding 0.3rem 0.5rem
+    border-radius 12px
+    font-size 1.05rem
+    filter filter-shadow
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    width 100%
+    font-family font-main
+    color black
+    background-color white
+
+.container 
+
+    section.welcome
+        // center the section in the screen and limit the width section in the viewport
+        max-width 800px
+        margin 5rem auto
+        padding 0 2rem
+
+        figure.welcome__profile-img
+            // float the image to the left of the parent container and include a shape-outside property to let the neighboring text coast on the circle created by the border-radius property
+            float left
+            border-radius 50%
+            shape-outside circle()
+            margin 2rem
+            // position relative to absolute position the connected pseudo-element, used to create a tooltip on hover 
+            position relative 
+            
+            &:before
+                // position the tooltip to display on hover atop the image
+                content 'Nice Picture'
+                position absolute 
+                top 0
+                left 1rem
+                // include some style shared by all tooltip in the page
+                @extend .tooltip-style
+                opacity 0
+                // include a transition with an easing function also specified in a variable
+                // transition the properties of top and opacity, on hover
+                transition transition-cubic
+
+            &:hover:before
+                top -35px
+                opacity 1
+
+            img
+                // create a round image to match the round container
+                width 200px
+                height 200px
+                border-radius 50%
+                filter filter-shadow               
+
+
+        div.welcome__profile-txt
+            line-height 1.8
+            font-size 1.3rem
+
+            span.profile-txt__special
+                font-weight bold
+                // position relative to absolute position the connecting pseudo element(s) 
+                position relative 
+
+                &:before
+                    // position the tooltip atop the span element
+                    content 'Nice text'
+                    position absolute 
+                    top -1rem
+                    right 0
+                    @extends .tooltip-style
+                    font-weight initial
+                    filter filter-shadow
+                    // transition the properties of top and opacity
+                    transition transition-cubic
+                    opacity 0
+
+                &:hover:before
+                    top -2.8rem
+                    opacity 1
+
+                &:after
+                    // position an down-facing arrow right to the bottom of the tooltip
+                    content ''
+                    position absolute 
+                    top -5px
+                    left 0
+                    // create a triangle pointing down with border properties
+                    border-left 10px solid transparent
+                    border-right 10px solid transparent
+                    border-top 10px solid black
+                    border-bottom 10px solid transparent
+                    filter filter-shadow
+                    // hide the element by default
+                    opacity 0
+
+                &:hover:after
+                    // transition the property of opacity and left, with a small delay
+                    // include the transition property with the hover selector to have the transition occur only as the mouse enters the element
+                    // as the mouse exits the element, there is no transition to hide the element
+                    opacity 1
+                    left 70%
+                    transition transition-cubic
+                    transition-delay 0.2s
+               
+               
+@media screen and (max-width: 400px)
+    // for (rather) small screen sizes display image and text in a single column layout
+    .container section.welcome
+        display flex 
+        flex-direction column 
+        justify-content center 
+        align-items center
+
+@media screen and (min-width: 1400px) 
+    // for large screen sizes, increase the font-size of the text and the width of the parent section
+    .container section.welcome
+        max-width 1000px
+    .container section.welcome div.welcome__profile-txt
+        font-size 3rem
