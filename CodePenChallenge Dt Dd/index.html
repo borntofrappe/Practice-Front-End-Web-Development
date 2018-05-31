@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>CodepenChallenge dt dd: Primer Accordion</title>
+  <meta name="description" content="Create an accordion-like feature for a card. Inspired by Primer, to create an entry for the weekly #codepenchallenge.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+
+  <!-- in a wrapping container include a div.card used to design the card  -->
+  <div class="container">
+    <div class="card">
+      <!-- in the card display a header and a div each for each option  -->
+
+      <h2>As you evaluate your site, consider if your content is:</h2>
+
+      <div class="card__option">
+        <!-- for each option include a div in which to include the description and a span used to display a + sign, to remark the toggle-able nature of the option -->
+        <div class="card__option--description">
+          <!-- for the description, include a term with dt element and an illustration of said term with a dd element  -->
+          <dl>
+            <dt>
+              perceivable
+            </dt>
+            <dd>
+              Can people know that your cotent exists with more than one sense?
+            </dd>
+          </dl>
+        </div>
+        <span class="card__option--toggle">+</span>
+      </div>
+
+      <div class="card__option">
+        <div class="card__option--description">
+          <dl>
+            <dt>
+              understandable
+            </dt>
+            <dd>
+              Can users take in and comprehend the information in a variety of ways?
+            </dd>
+          </dl>
+        </div>
+        <span class="card__option--toggle">+</span>
+      </div>
+
+      <div class="card__option">
+        <div class="card__option--description">
+          <dl>
+            <dt>
+              operable
+            </dt>
+            <dd>
+              Can users interact with and navigate your website?
+            </dd>
+          </dl>
+        </div>
+        <span class="card__option--toggle">+</span>
+      </div>
+
+      <div class="card__option">
+        <div class="card__option--description">
+          <dl>
+            <dt>
+              robust
+            </dt>
+            <dd>
+              Can people access your site using various browsers, operating systems, and assistive tools?
+            </dd>
+          </dl>
+        </div>
+        <span class="card__option--toggle">+</span>
+      </div>
+
+    </div><!-- close div.card -->
+
+  </div><!-- close div.container -->
+  
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+font-main = 'Open Sans', sans-serif
+black = #252525
+green = #84BC45
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    color black
+    background green
+
+div.container 
+    display flex
+    justify-content center 
+    align-items center 
+    min-height 100vh
+    padding 1rem 2rem
+
+    div.card 
+        background #fff
+        height 90vh 
+        width (@height * 0.8)
+        filter drop-shadow(0 1px 5px rgba(black, 0.3))
+        // transition the card into view
+        animation slideIn 0.3s 0.3s ease-out both
+        // display the contents of the div.card in a single column layout
+        display flex 
+        flex-direction column
+
+        h2, div.card__option
+            // set the header and div(s) element to each cover a portion of the card 
+            flex-grow 1
+            padding 2rem
+
+        h2 
+            font-weight 300
+
+        div.card__option
+            // lay the div containing the text and the span containing the plus + sign in a row
+            display flex 
+            align-items center
+            justify-content space-between
+            cursor pointer
+            // set transition for the change in background, prompted in the JS script
+            transition all 0.3s ease
+
+            span.card__option--toggle 
+                font-size 2rem
+                font-weight bold
+
+            div.card__option--description
+                dl
+                    // in a dl element, dt and dd element are already displayed vertically one after the other
+                    // no need to specify further layout properties (like flex)
+
+                    dt
+                        font-weight bold 
+                        font-size 1.15rem
+                        letter-spacing 0.05rem
+                        text-transform uppercase
+                        margin 0.2rem 0
+
+                    dd 
+                        font-size 1.1rem
+                        // by default hide the element
+                        opacity 0
+                        visibility hidden
+                        // set height to 0 to allow for the dt element to be centered horizontally in the parent div
+                        // otherwise, the element occupies space, even if not displayed on screen
+                        height 0
+
+                        &.active
+                            // define a class which transitions the dd element into view (through JS instructions)
+                            opacity 1
+                            visibility visible
+                            height 100%
+                            // set transition only to the class to prevent the transition from occurring evenly as the class is added and removed
+                            // this way the transition is set only when the class is added
+                            // additionally, transition opacity with a delay, giving the time to the browser to accommodate the space necessary for the dd element
+                            transition visibility 0.3s ease, opacity 0.3s 0.2s ease
+
+// define the animation for the div.card element
+@keyframes slideIn 
+    0% 
+        opacity 0
+        transform translateX(-20%)
+    100% 
+        opacity 1
+        transform translateX(0)
