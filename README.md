@@ -82,3 +82,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Mobile and Fixed Navigation Bar**](https://codepen.io/borntofrappe/pen/OEJwQa/)|Create a navigation bar primed for mobile devices, which is always at the top of the viewport. Component of a portfolio page.|navbar, mobile, fixed|29nd May 2018|
 |[**Welcome Section**](https://codepen.io/borntofrappe/pen/dKPKKP/)|Create a welcome section in which an image is placed right next to some short text and with some nice style. Component of a portfolio page.|welcome section, shape-outside, tooltip|30nd May 2018|
 |[**Codepen Challenge Dt Dd**](https://codepen.io/borntofrappe/pen/jKPaBv/)|Create an accordion with dd and dt elements, to participate in the weekly #codepenchallenge.|accordion, dt, dd|31st May 2018|
+|[**Technology Stack**](https://codepen.io/borntofrappe/pen/wXKJMY/)|Introduce multiple SVG icons for the different technologies currently under scrutiny. Play around with CSS animations.|svg, transform, animation|1st June 2018|
+

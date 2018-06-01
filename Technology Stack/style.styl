@@ -1,0 +1,71 @@
+color-background = #ededed
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    background color-background       
+
+.container section.stack
+    // center the section in the screen
+    margin 0 auto
+    padding 2rem
+
+    div.stack__icons
+        // display the svg icons one after another, in a row which wraps when the viewport is too small
+        display flex 
+        flex-wrap wrap 
+        justify-content center
+    
+        svg
+            width 90px
+            height @width
+            margin 12px
+
+
+@media screen and (min-width: 700px)
+    // for viewport larger than 700px include the svg in the contour of a circle
+    .container section.stack
+        width 700px
+        height @width
+
+        div.stack__icons
+            // position relative to absolute position the icons around the center of the icon
+            position relative 
+            height 100%
+
+            svg
+                // absolute position all icons in the center of the section, one on top of the other
+                position absolute 
+                width 90px
+                height @width
+                top calc(50% - 45px)
+                left @top
+            
+            // consider all svg one after the other, starting with the first, then the second and so on
+            for icon in 1..12
+                svg:nth-of-type({icon})
+                    // position the svg icons around the center of the section, 
+                    // each successive icon is positioned around the circle at a different degree
+                    transform rotate(-360deg/12*icon) translateX(250px) rotate(360deg/12*icon)
+                    // animate the svg icons to first hover on place and then rotate to assume the designed position
+                    animation slideIn 5s 2s ease both, levitate 1s 2 ease-in
+                    // modify the z-index to show the first icon on top of the second, on top of the third and so forth
+                    // 50 to still display the icons on top of the section element
+                    z-index 50 - icon
+
+@keyframes levitate 
+    0%, 100% 
+        transform translateX(250px) translateY(0)
+    50%
+        transform translateX(250px) translateY(18px)
+
+@keyframes slideIn 
+    0%
+        // for the rotating animation, set the initial keyframe only, which is adopted by the svg icons thanks to the animation-fill-mode set to both
+        transform rotate(0) translateX(250px) rotate(0)
+        
