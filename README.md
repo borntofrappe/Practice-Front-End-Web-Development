@@ -83,4 +83,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Welcome Section**](https://codepen.io/borntofrappe/pen/dKPKKP/)|Create a welcome section in which an image is placed right next to some short text and with some nice style. Component of a portfolio page.|welcome section, shape-outside, tooltip|30nd May 2018|
 |[**Codepen Challenge Dt Dd**](https://codepen.io/borntofrappe/pen/jKPaBv/)|Create an accordion with dd and dt elements, to participate in the weekly #codepenchallenge.|accordion, dt, dd|31st May 2018|
 |[**Technology Stack**](https://codepen.io/borntofrappe/pen/wXKJMY/)|Introduce multiple SVG icons for the different technologies currently under scrutiny. Play around with CSS animations.|svg, transform, animation|1st June 2018|
+|[**SVG Path and Waves**](https://codepen.io/borntofrappe/pen/GGpeRo/)|Practice with the svg element of path, particularly with the commands of bezier curves and arcs, to create a frame for a section of the page.|svg, bezier, arc|2nd June 2018|
 
