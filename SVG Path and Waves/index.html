@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Path and Arcs</title>
+  <meta name="description" content="Practice with the svg element of path, particularly with the commands of bezier curves and arcs, to create a frame for a section of the page.">
+  <link rel="stylesheet" type="text/css" href="style.css">  
+
+</head>
+<body>
+  
+  <!-- in a wrapping container include 
+    - a section, used to display some text surrounded by two SVG elements, which nicely frame the same text  
+    - another div container, used to display SVG elements making up the supporting animation
+  -->
+
+  <div class="container">
+    
+    <section class="container__main">
+      <!-- 
+        with the bezier curves commands draw a wave going from one edge of the page to the other
+        use the element twice, rotating one of them with CSS properties
+      -->
+      <svg viewbox="0 0 100 20">
+        <path d="M 0 0 Q 25 10 55 5 T 100 0"/>
+      </svg>
+
+      <p>Fresh as a summer breeze, clean as a mountain spring</p>
+
+      <svg viewbox="0 0 100 20">
+        <path d="M 0 0 Q 25 10 55 5 T 100 0"/>
+      </svg>
+    </section>  
+    
+    <div class="container__support">
+      <!-- 
+        with arcs commands draw simple wavy-lines with the intention of resembling a gust of wind
+        use the same svg again and again, positioning the different assets in different coordinates of the page in CSS
+      -->
+      <svg viewbox="0 0 110 40">
+        <path d="M 5 20 A 50 100 0 0 1 55 20 A 50 100 0 0 0 105 20"/>
+      </svg>
+      <svg viewbox="0 0 110 40">
+        <path d="M 5 20 A 50 100 0 0 1 55 20 A 50 100 0 0 0 105 20"/>
+      </svg>
+      <svg viewbox="0 0 110 40">
+        <path d="M 5 20 A 50 100 0 0 1 55 20 A 50 100 0 0 0 105 20"/>
+      </svg>
+      <svg viewbox="0 0 110 40">
+        <path d="M 5 20 A 50 100 0 0 1 55 20 A 50 100 0 0 0 105 20"/>
+      </svg>
+      <svg viewbox="0 0 110 40">
+        <path d="M 5 20 A 50 100 0 0 1 55 20 A 50 100 0 0 0 105 20"/>
+      </svg>
+    </div>
+
+  </div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

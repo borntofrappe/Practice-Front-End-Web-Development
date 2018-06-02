@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script');
+
+font-main = 'Nanum Pen Script', cursive;
+blue = #3F79F6
+lighter-blue = #548FFD
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    background white
+    font-family font-main
+    overflow-x hidden
+
+.container 
+    // center the text and framing svg elements in the page
+    display flex
+    min-height 100vh
+    align-items center
+    // position relative to absolute position the supporting svg elements making up the animation
+    position relative
+
+    section.container__main
+        width 100%
+        height 250px
+        background white
+        // center the paragraph element in the section
+        display flex
+        justify-content center
+        align-items center 
+        // position relative to absolute position the svg elements making up the frame of the section 
+        position relative
+
+        p
+            color blue
+            font-size 3.2rem
+            text-transform uppercase
+            text-align center 
+            margin 0 1rem
+        
+        svg
+            // absolute position the two svg elements, one at the bottom, the other (rotated) at the top of the section 
+            position absolute
+            width 100%
+            height auto 
+            // display only a light shadow beneath the white background
+            fill white
+            filter drop-shadow(0 1px rgba(lighter-blue, 0.5))
+            // z-index to position the svg element below the section itself (and display the shadow in the top/bottom of the svg)
+            z-index -10
+
+            &:nth-of-type(1)
+                bottom  100%
+                transform rotate(180deg)
+            &:nth-of-type(2)
+                top 100%
+
+    
+    div.container__support 
+        svg
+            // absolute position the supporting svg elements around the page, thanks to stylus range operator
+            position absolute
+            fill none
+            stroke rgba(lighter-blue, 0.7)
+            stroke-width 5px
+            stroke-linecap round
+            width 100px
+            height auto
+            transform rotate(-7deg)
+        for gust in 1..3
+            svg:nth-of-type({gust})
+                top 10%
+                left 25% * gust
+                // animate the svg elements, one after another to be drawn and un-drawn
+                animation gustOfWind 7s linear infinite both
+                animation-delay (gust * 2)s 
+        for gust in 4 5
+            svg:nth-of-type({gust})
+                bottom 10%
+                left 33% * (gust - 3)
+                animation gustOfWind 7s linear infinite both                
+                animation-delay ((gust - 3) * 2 + 1)s  
+
+
+@keyframes gustOfWind 
+    0%
+        // 140px retreived with a bit of experimentation, considering the 100px of the horizontal svg + some pixels for the arcs
+        stroke-dasharray 140px
+        stroke-dashoffset 140px
+    20%, 100%
+        stroke-dasharray 140px        
+        stroke-dashoffset -140px
