@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  color: #fff;
+  background-color: #252525;
+}
+#app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+#app svg {
+  width: 500px;
+  height: auto;
+}
+#app svg circle {
+  animation: drawCircle 1s 1s ease-in both;
+}
+#app svg path {
+  transform-origin: center center;
+  animation: drawPath 1s 2s ease-in both;
+}
+@-moz-keyframes drawPath {
+  0% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes drawPath {
+  0% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@-o-keyframes drawPath {
+  0% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@keyframes drawPath {
+  0% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@-moz-keyframes drawCircle {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: -70;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes drawCircle {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: -70;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@-o-keyframes drawCircle {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: -70;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@keyframes drawCircle {
+  0% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: -70;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
