@@ -1,0 +1,62 @@
+black = #252525
+white = #fff
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    color white
+    background-color black  
+
+#app 
+    // center the contents of the HTML document in the middle of the screen
+    width 100%
+    display flex 
+    justify-content center 
+    height 100vh
+    align-items center
+
+    svg
+        width 500px
+        height auto
+
+        circle 
+            // animate the circle element to be drawn into view
+            animation drawCircle 1s 1s ease-in both
+        path 
+            // center the origin of the path elements, allowing the clock hands to rotate centered in the middle of the SVG element
+            transform-origin center center 
+            // animate the path element(s) to be drawn into view, following the animation of the circle element
+            animation drawPath 1s 2s ease-in both
+
+
+@keyframes drawPath
+    0% 
+        // the path elements are a tad more than 50px long, but cutting the element earlier allows for the creation of a nice ending for the clock end
+        stroke-dasharray 50
+        stroke-dashoffset 50
+        opacity 0
+    70% 
+        opacity 1
+    100% 
+        stroke-dasharray 50
+        stroke-dashoffset 0
+        opacity 1
+
+@keyframes drawCircle
+    0% 
+        // a negative start for stroke-dashoffset allows to draw the circle counterclock-wise
+        stroke-dasharray 70
+        stroke-dashoffset -70
+        opacity 0
+    70% 
+        opacity 1
+    100% 
+        stroke-dasharray 70
+        stroke-dashoffset 0
+        opacity 1
+
