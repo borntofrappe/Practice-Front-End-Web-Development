@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* create css variables for the opacity of the darkness filter and the coordinate of the radial gradient which creates said filter 
+update both in the JS script
+*/
+:root {
+  --filter-opacity: 0.5;
+  --light-xcoor: 50%;
+  --light-ycoor: 16.5%;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #eee;
+  background: linear-gradient(to bottom, #121823, #31415f 90%, #121823);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+.container .container__img {
+  width: 75vw;
+  margin: 2rem 0;
+  position: relative;
+}
+.container .container__img:before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  bottom: -15px;
+  right: -15px;
+  background: radial-gradient(transparent, transparent 50%, #bebebe);
+  border-radius: 10px;
+  z-index: -5;
+}
+.container .container__img:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* the background is used to create a darkness filter, which is modified in opacity and position of the radial gradient */
+  background: 
+    radial-gradient(circle at var(--light-xcoor) var(--light-ycoor), rgba(18,24,35, 0.60) 20%, rgba(0,0,0, 0.1)),
+    radial-gradient(circle at calc(var(--light-xcoor)*-1) calc(var(--light-ycoor)*-1), rgba(18,24,35, 0.60) 20%, rgba(0,0,0, 0.1));
+  opacity: var(--filter-opacity);
+}
+.container .container__img img {
+  width: 100%;
+  height: 100%;
+}
+.container .container__range {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2rem;
+}
+.container .container__range svg {
+  width: 32px;
+  height: auto;
+  fill: #787f8a;
+  filter: drop-shadow(0 3px 5px rgba(18,24,35,0.4));
+}
+.container .container__range input[type="range"] {
+  margin: 0 1rem;
+  width: 50vw;
+}
+.container p {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 400px;
+}
+@media (min-width: 1000px) {
+  .container .container__img {
+    width: 55vw;
+  }
+}
