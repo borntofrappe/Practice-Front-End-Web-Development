@@ -84,5 +84,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Codepen Challenge Dt Dd**](https://codepen.io/borntofrappe/pen/jKPaBv/)|Create an accordion with dd and dt elements, to participate in the weekly #codepenchallenge.|accordion, dt, dd|31st May 2018|
 |[**Technology Stack**](https://codepen.io/borntofrappe/pen/wXKJMY/)|Introduce multiple SVG icons for the different technologies currently under scrutiny. Play around with CSS animations.|svg, transform, animation|1st June 2018|
 |[**SVG Path and Waves**](https://codepen.io/borntofrappe/pen/GGpeRo/)|Practice with the svg element of path, particularly with the commands of bezier curves and arcs, to create a frame for a section of the page.|svg, bezier, arc|2nd June 2018|
-|[**React Powered, SVG Styled Clock**](https://codepen.io/borntofrappe/full/wXGKpg/)|Create a clock with React.js and SVG elements, practicing with core React concepts and SVG syntax.|react, svg, clock|4th June 2018|
+|[**React Powered, SVG Styled Clock**](https://codepen.io/borntofrappe/pen/wXGKpg/)|Create a clock with React.js and SVG elements, practicing with core React concepts and SVG syntax.|react, svg, clock|4th June 2018|
+|[**Modify Images with CSS Variables**](https://codepen.io/borntofrappe/pen/zaKqvx/)|Create an image which slightly changes in appearance as the input[type="range"] is tweaked. This through the implementation and modification of a filter.|css variables, pseudo-element, images|6th June 2018|
 

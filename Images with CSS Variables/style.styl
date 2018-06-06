@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+font-main = 'Lato', sans-serif
+white = #eee
+darkblue = #121823
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    color white
+    // create a linear background which gives the impression of light from above
+    background linear-gradient(to bottom, darkblue, lighten(darkblue, 20%) 90%, darkblue)    
+
+.container
+    // center the contents of the wrapping container in a single column layout
+    display flex 
+    justify-content center 
+    height 100vh
+    align-items center 
+    flex-direction column 
+    padding 1rem 2rem
+
+
+    .container__img 
+        width 75vw
+        margin 2rem 0
+        // position relative for the makeshift border created by absolute-positioning the pseudo-element
+        position relative
+
+        &:before 
+            content ''
+            position absolute 
+            // create a makeshift border with a radial gradient, positioned below the image and radiating past it
+            top -15px
+            left -15px
+            bottom -15px
+            right -15px
+            background radial-gradient(transparent, transparent 50%, darken(white, 20%))
+            border-radius 10px
+            z-index -5
+
+        img 
+            width 100%
+            height 100%
+
+    .container__range
+        // display the svg icons and the input[type="range"] in a row and center the contents vertically
+        display flex 
+        align-items center 
+        margin 1rem 0 2rem
+
+        svg 
+            width 32px
+            height auto
+            fill #787F8A
+            filter drop-shadow(0 3px 5px rgba(darkblue, 0.4))
+            
+
+        input[type="range"]
+            margin 0 1rem
+            width 50vw
+    
+    p
+        font-size 1.2rem
+        text-align center
+        max-width 400px
+
+
+@media (min-width: 1000px) 
+    // on larger screens, reduce the size of the image as to display the underlying input[type="range"], which would be otherwise hidden below the fold
+    .container .container__img
+        width 55vw

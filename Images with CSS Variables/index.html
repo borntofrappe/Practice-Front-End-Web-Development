@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Modify Image with CSS Variables</title>
+  <meta name="description" content="Modify the appearance of an image by changing its light/color, with CSS variables and a pseudo-element. All attached to a input[type='range'].">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+
+</head>
+<body>
+  <!-- define the svg assets used later in the project -->
+  <svg style="display: none;">
+    <symbol id="moon" width="100" height="100" viewBox="0 0 26.458332 26.458321"><path d="M13.9 0A14.817 13.244 0 0 0 0 13.215a14.817 13.244 0 0 0 14.817 13.243 14.817 13.244 0 0 0 11.641-5.074 14.817 13.244 0 0 1-.916.03A14.817 13.244 0 0 1 10.725 8.17 14.817 13.244 0 0 1 13.901 0z"/></symbol>
+    <symbol id="sun" width="100" height="100" viewBox="0 0 26.458334 26.458334"><path d="M18.52 13.23a5.292 5.4 0 0 1-5.29 5.4 5.292 5.4 0 0 1-5.292-5.4 5.292 5.4 0 0 1 5.291-5.401 5.292 5.4 0 0 1 5.292 5.4zM26.458 13.218v1.131h-5.98v-1.131zM5.98 13.218v1.131H0v-1.131zM12.73 0h.997v6.789h-.996zM23.191 3.063l.705.8-4.229 4.8-.704-.8zM3.267 3.063l-.705.8 4.229 4.8.705-.8zM12.73 26.458h.997V19.67h-.996zM23.191 23.396l.705-.8-4.229-4.801-.704.8zM3.267 23.396l-.705-.8 4.229-4.801.705.8z"/></symbol>
+  </svg>
+
+  <!-- in a wrapping container include the image to be altered and a div for the controller of the image's appearance -->
+  <div class="container">
+
+    <picture class="container__img">
+      <img src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Path in a forest">
+    </picture>
+
+    <div class="container__range">
+      <!-- nest the input[type="range"] between two svg icons which are used to explain the effect of the input itself -->
+      <svg class="sun">
+        <use href="#sun"/>
+      </svg>
+
+      <!-- for the input in particular, set a 0-100 interval,
+      the value is later used in the stylesheet/script to alter the appearance of the image -->
+      <input type="range" name="light" min="0" max="100" value="50"/>
+
+      <svg class="moon">
+        <use href="#moon"/>
+      </svg>
+    </div>
+
+    <p>Slide to see how the picture changes throughout the day.</p>
+    
+  </div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
