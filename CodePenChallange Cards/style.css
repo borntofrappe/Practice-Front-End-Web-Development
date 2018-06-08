@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* 
+include css variables for the text included in pseudo elements and colors of the cards 
+adding these values as custom properties allows to update their values in JS, and immediately refresh the page
+*/
+:root {
+  --card: "6 ♦"; 
+  --suit: #DD5964;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #123034;
+  background-color: #123034;
+}
+
+/* center the card and button in the screen, in a single column layout */
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* style for the button */
+.container button {
+  border: 2px solid #f8f4f3;
+  padding: 1rem 2rem;
+  background: none;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  color: #f8f4f3;
+  /* transition to alter the button on hover and when it is pressed */
+  transition: all 0.2s ease;
+}
+.container button:hover {
+  color: #123034;
+  background: #f8f4f3;
+}
+.container button:active {
+  transform: scale(1.05);
+}
+
+/* style for the div.card */
+.container .card {
+  margin: 0 1rem 2rem;
+  padding: 2.2rem 2.5rem;
+  max-width: 300px;
+  background: #f8f4f3;
+  border-radius: 12px;
+  /* transition to alter properties when the card is refreshed (in JS) */
+  transition: all 0.2s ease;
+  /* position relative to absolute position pseudo elements */
+  position: relative;
+  /* cursor pointer to redirect to the hypothetical article */
+  cursor: pointer;
+}
+
+.container .card:after,
+.container .card:before {
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding: 5px;
+  /* include the color and content of the pseudo element as specified by the custom properties */
+  content: var(--card);
+  color: var(--suit);
+}
+/* position the pseudo elements at either end of the card */
+.container .card:after {
+  top: 0;
+  left: 0;
+}
+.container .card:before {
+  bottom: 0;
+  right: 0;
+}
+
+.container .card .card__content h3 {
+  margin: 1rem 0 1.5rem;
+  line-height: 1.4;
+}
+
+.container .card .card__content p {
+  line-height: 2;
+}
+
+/* include a class to be added and remove to the card, as its content is refreshed */
+.card--refresh {
+  transform: translateX(20px) rotate(2deg);
+}
+.card--refresh:after,
+.card--refresh:before,
+.card--refresh .card__content {
+  opacity: 0;
+}
