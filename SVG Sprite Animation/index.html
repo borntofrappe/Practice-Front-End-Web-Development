@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Sprite SVG Animation</title>
+  <meta name="description" content="Practice with sprite animation while creating a movable character from a popular game series.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+</head>
+<body>
+  
+  <!-- in a wrapping div include 
+    - a button to toggle a panel with controls (the character can be moved with arrow keys, but there needs to exist an alternative)
+    - a div in which to nest controls
+
+    - a div in which to display the sprite 
+  -->
+
+  <div class="container">
+
+    <button class="controller--toggle" title="Toggle Game Pad">
+      <svg viewBox="0 0 26.458 11.158" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-35.53 -141.45)"><circle cx="41.109" cy="147.03" r="5.579"/><circle cx="56.409" cy="147.03" r="5.579"/><rect x="40.264" y="141.62" width="15.807" height="8.96" rx=".7" ry="1.359"/></g><g fill="#fff" transform="translate(-35.53 -141.45)"><rect transform="rotate(90)" x="146.02" y="-42.943" width=".745" height="4.396" rx=".355" ry=".355"/><circle cx="56.486" cy="144.53" r=".881"/><circle cx="58.402" cy="146.45" r=".881"/><circle cx="54.416" cy="146.3" r=".881"/><circle cx="56.332" cy="148.21" r=".881"/><rect transform="scale(-1)" x="-41.118" y="-148.59" width=".745" height="4.396" rx=".355" ry=".355"/></g></svg>
+    </button>
+
+    <!-- hide the controls with a css class bearing the default label, which removes it from the page -->
+    <div class="controller--pad">
+      <button class="pad--arrow arrow--up"></button>
+      <button class="pad--arrow arrow--right"></button>
+      <button class="pad--arrow arrow--down"></button>
+      <button class="pad--arrow arrow--left"></button>
+    </div>
+
+    <div class="sprite"></div>
+
+  </div><!-- close .container div -->
+
+  
+<script src="script.js"></script>
+
+</body>
+</html>
