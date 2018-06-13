@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+font-main = 'Lato', sans-serif
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    // use plain black and white colors
+    background-color black
+
+// stretch the single div to cover the entirety of the page
+.container 
+    height 100vh
+    width 100%
+    // display the additional content in the center of the screen
+    display flex 
+    justify-content center 
+    align-items center
+
+    .container__content 
+        // display the header, separating svg and paragraph in a single column layout
+        display flex 
+        flex-direction column
+        align-items center 
+        text-align center
+        // padding to distance the contents from the border
+        padding 0 1rem
+        
+        h1 
+            text-transform uppercase
+            font-size 4.5rem
+            // for each piece of content, include an animation which changes the property of opacity and vertical translation
+            // this to introduce the text after the main animation
+            animation showContent 0.7s 4.8s ease-out both
+        svg 
+            // margin to separate the underlying paragraph
+            margin 0 0 3rem
+            // width specified with minimum and maximum values to avoid excessive svg renditions
+            min-width 200px
+            max-width 600px 
+            width 45vw
+            height auto 
+            animation showContent 0.68s 5s ease-out both
+
+        p 
+            text-transform uppercase
+            letter-spacing 0.25rem
+            animation showContent 0.8s 7.5s ease-out both
+
+
+    // the main animation is achieved with pseudo-elements
+    // include a vertical and an horizontal line with each pseudo element and then animate their presence on the screen
+    position relative 
+
+    &:before, &:after
+        content ''
+        position absolute
+        background white 
+        // z-index to have the psedo element below the actual content of the page
+        z-index -10
+
+    &:before
+        bottom 0
+        // for the before pseudo element, include a vertical stripe by animating it into view from below, have it expand horizontally and then have it envelop the entire screen
+        animation verticalStripe 3s 1s both
+
+    &:after 
+        left 0
+        // the reasoning for the vertical stripe is replicated for the horizontal stripe, but creating a line from left to right and have it expand vertically
+        animation horizontalStripe 3s 1s both
+
+@keyframes verticalStripe
+    // similar reasoning, for the other axis, is applied for the animation of the horizontal stripe
+    0% 
+        // from a single point of the page
+        width 10px
+        left calc(25% - (10px/2))    
+        height 0
+    6%, 32% 
+        // dtaw a line to completely reach the other end of the viewport
+        // reduce the size of the line to give an impression of a stroke of paint 
+        width 1.5px
+        // the left property is altered alongside the width property to have the line contract and expand from the center
+        left calc(25% - 1.5px/2) 
+        height 100vh
+    65%
+        // increase the size of the line
+        width 11vw
+        left calc(25% - 11vw/2)
+    67%
+        // barely increase the size, giving "pause" to the animation
+        width 12vw
+        left calc(25% - 12vw/2)
+    100%
+        // expand the line to completely evelope the screen
+        width 100%
+        left 0
+        height 100vh
+        
+@keyframes horizontalStripe
+    0%, 7%
+        height 10px
+        top calc(70% - (10px/2))    
+        width 0
+    12%, 32% 
+        height 1.5px
+        top calc(70% - 1.5px/2) 
+        width 100%
+    65%
+        height 6vw
+        top calc(70% - 6vw/2)
+    67%
+        height 7vw
+        top calc(70% - 7vw/2)
+    100%
+        height 100vh
+        top 0
+        width 100%
+        
+@keyframes showContent 
+    // animation to show the additional content changing the properties of transform and opacity
+    0%
+        transform translateY(10vh)
+        opacity 0
+    20%
+        opacity 0
+
+    100%
+        transform translateY(0)
+        opacity 1
+
+
+@media screen and (min-width: 1500px)
+    // on relatively large devices increase the size of the paragraph
+    // otherwise, as the screen width increases, the text here nested becomes barely legible
+    .container .container__content p
+        font-size 1.5rem
+        font-weight 300

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Video Game Intro Animation</title>
+  <meta name="description" content="Use CSS properties to replicate one scene from the video displayed by Nintendo in their recent showcase of the Smash Bros title.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+</head>
+<body>
+  
+<!-- create the animation with pseudo elements, based on a single div -->
+<div class="container">
+
+  <!-- the animation works just with the div, but additional content is included as sugar, as added bonus -->
+  <div class="container__content">
+    <!-- include 
+      - a header, 
+      - an svg which draws a neat underline for the header 
+      - a paragraph instructing on how to re-play the animation 
+    -->
+    <h1>Game On</h1>
+
+    <!-- draw with arcs commands a single shape, of a curved line slightly bent upwards -->
+    <svg viewbox='0 0 100 20'>
+      <path d='M 0 20 A 180 250 0 0 1 100 20 A 150 200 0 0 0 0 20' stroke='none' stroke-width='0' fill='#000'/>
+    </svg>    
+    
+    <p>Press anywhere to refresh the page</p>
+
+  </div><!-- close the div nesting filler content -->
+
+</div><!-- close the div allowing the animation -->
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -88,5 +88,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Modify Images with CSS Variables**](https://codepen.io/borntofrappe/pen/zaKqvx/)|Create an image which slightly changes in appearance as the input[type="range"] is tweaked. This through the implementation and modification of a filter.|css variables, pseudo-element, images|6th June 2018|
 |[**Codepen Challenge Cards**](https://codepen.io/borntofrappe/pen/xzgKYG/)|Create an entry for the weekly #CodepenChallenge, with a neat card redirecting the visitor to a hypothetical blog post.|blog, card, codepenchallenge|8th June 2018|
 |[**SVG Sprite Animation**](https://codepen.io/borntofrappe/pen/gKWqgb/)|Practice with sprite animation while creating a movable character from a popular game series.|sprite, svg, pokemon|12th June 2018|
+|[**Video Game Intro Animation**](https://codepen.io/borntofrappe/pen/MXoZbg/)|Use CSS properties to replicate one scene from the video displayed by Nintendo in their recent showcase of the Smash Bros title.|css animation, pseudo elements, smash bros|13th June 2018|
 
 
