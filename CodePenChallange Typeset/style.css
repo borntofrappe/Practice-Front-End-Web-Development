@@ -1,0 +1,206 @@
+/*
+font choices:
+// montserrat alternate - for headers
+// muli - for paragraphs and smaller text
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Muli");
+.sideway-text,
+h3:first-of-type + p:before,
+h3:first-of-type + p + p:before,
+h3:first-of-type + p + p + p:before {
+  position: absolute;
+  top: 0;
+  writing-mode: vertical-rl;
+  border-left: 1.5px solid rgba(37,37,37,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-weight: initial;
+  font-size: 1.1rem;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: #ededed;
+  color: #252525;
+  font-family: 'Muli', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80vh 1rem 0;
+}
+body:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  background: linear-gradient(to bottom, transparent 0, transparent 50%, #ededed 100%);
+  z-index: -5;
+}
+/*
+have the image be the first thing visualized on the page, stretching the entire width of the viewport 
+*/
+img {
+  width: 100%;
+  height: 80vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -15;
+}
+h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 4rem;
+  text-align: center;
+  margin: -20vh 0 10vh;
+}
+h1 + p {
+  text-align: right;
+  font-style: normal;
+  padding: 10px;
+  margin: -8vh 0 5rem;
+  border-right: 4px solid rgba(37,37,37,0.8);
+}
+p {
+  line-height: 2;
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+}
+strong {
+  position: relative;
+}
+strong:before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  background: #252525;
+  transition: all 0.5s ease-out;
+}
+strong:hover:before {
+  width: 100%;
+}
+blockquote {
+  border-left: 4px solid #252525;
+  margin: 3.5rem 4rem;
+  font-style: italic;
+  padding: 0 1.5rem;
+  background: rgba(37,37,37,0.1);
+}
+h3 {
+  font-size: 1.7rem;
+  margin: 3.5rem 0 2rem;
+}
+h3:nth-of-type(odd) {
+  text-align: right;
+}
+h3 ~ p:nth-of-type(odd) {
+  text-align: right;
+  shape-outside: circle(50%);
+}
+ul {
+  list-style: none;
+  counter-reset: special-counter;
+}
+ul li {
+  margin: 3.2rem 0;
+  padding: 0 1.5rem;
+  counter-increment: special-counter;
+  position: relative;
+}
+ul li:before {
+  content: counters(special-counter, ".");
+  color: #252525;
+  border-right: 5px solid rgba(37,37,37,0.3);
+  font-size: 1.1rem;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  top: -1rem;
+  left: -3rem;
+  text-align: center;
+  line-height: 3rem;
+}
+ul>li:nth-of-type(1) {
+  margin-left: 1rem;
+}
+ul>li:nth-of-type(2) {
+  margin-left: 2rem;
+}
+ul>li:nth-of-type(3) {
+  margin-left: 3rem;
+}
+ul>li:nth-of-type(4) {
+  margin-left: 4rem;
+}
+ul>li:nth-of-type(5) {
+  margin-left: 5rem;
+}
+ol {
+  list-style: none;
+  counter-reset: special-counter;
+}
+ol li {
+  margin-left: 3rem;
+}
+ul + p {
+  border-right: 1.5px solid rgba(37,37,37,0.7);
+  border-bottom: 1.5px solid rgba(37,37,37,0.7);
+  margin: 2rem;
+  padding: 0 2rem 0 4rem;
+  line-height: 2.2;
+  font-style: italic;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h3 ~ p {
+    text-align: left !important;
+  }
+  ul li {
+    padding: 0 1rem;
+  }
+  ul li:before {
+    border-right: 2px solid #252525;
+    border-radius: 0;
+    text-align: right;
+    padding-right: 5px;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h3:first-of-type + p {
+    position: relative;
+  }
+  h3:first-of-type + p:before {
+    content: 'long paragraph';
+    left: calc(100% + 100px);
+  }
+  h3:first-of-type + p + p {
+    position: relative;
+  }
+  h3:first-of-type + p + p:before {
+    content: 'keep going';
+    right: calc(100% + 100px);
+    transform: rotate(180deg);
+  }
+  h3:first-of-type + p + p + p {
+    position: relative;
+  }
+  h3:first-of-type + p + p + p:before {
+    content: 'almost there';
+    left: calc(100% + 100px);
+  }
+}
