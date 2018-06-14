@@ -1,0 +1,236 @@
+/*
+font choices:
+// montserrat alternate - for headers
+// muli - for paragraphs and smaller text
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Muli')
+  
+// define variables for values repeated in the stylesheet
+
+font-header = 'Montserrat Alternates', sans-serif
+font-paragraph = 'Muli', sans-serif
+white = #ededed
+black = #252525
+
+// define a partial to be extended later
+.sideway-text
+    position absolute
+    top 0 
+    writing-mode vertical-rl
+    border-left 1.5px solid rgba(black, 0.8)
+    text-transform uppercase
+    letter-spacing 0.3rem
+    font-weight initial 
+    font-size 1.1rem
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    background white
+    color black 
+    font-family font-paragraph
+    // limit the width of the page's content to 600px
+    max-width 600px
+    // center the area
+    margin 0 auto
+    // include a padding-top value equal to the height of the pseudo element which is used to create the fade-out transition of the image
+    // horizontal padding to distance the content from the surrounding window
+    padding 80vh 1rem 0
+  
+    &:before
+        // with a pseudo element, create a linear gradient which is used to "fade out" the image, by imposing on said element a color equal to the background color of the body
+        position absolute 
+        content ''
+        top 0 
+        left 0
+        width 100%
+        height 80vh
+        background linear-gradient(to bottom, transparent 0, transparent 50%, white 100%)
+        // z-index to have the pseudo element beneath the contents of the page
+        z-index -5
+
+/*
+have the image be the first thing visualized on the page, stretching the entire width of the viewport 
+*/
+img 
+    // for the image, have it span the entire width and the height set by the pseudo element on the body, to match
+    width 100%
+    height 80vh
+    position absolute 
+    top 0
+    left 0
+    // zindex to have the image beneath the pseudo element used as mask
+    z-index -15
+
+  
+h1
+    font-family font-header
+    font-weight 900
+    font-style italic
+    font-size 4rem
+    text-align center
+    // have the main header slightly overlap the fading image
+    margin -20vh 0 10vh
+  
+h1 + p
+    // style the paragraph immediately following the header as a subtitle
+    text-align right
+    font-style normal
+    padding 10px
+    // have the subtitle closer to the connecting header than the rest of the page
+    margin -8vh 0 5rem
+    border-right 4px solid rgba(black, 0.8)
+  
+p
+    line-height 2
+    font-size 1.1rem
+    margin 1.5rem 0
+  
+  strong
+        // include a text underline for the strong elements nested in paragraph elements, on hover
+        position relative
+        &:before 
+            position absolute 
+            content ''
+            height 2px
+            bottom -2px
+            left 0
+            width 0
+            background black
+            transition all 0.5s ease-out
+        &:hover:before
+            width 100%
+  
+blockquote
+    // for the blockquote, style it separately from the surrounding elements
+    border-left 4px solid black
+    margin 3.5rem 4rem
+    font-style italic
+    padding 0 1.5rem
+    background rgba(black, 0.1)
+  
+h3
+    font-size 1.7rem
+    margin 3.5rem 0 2rem
+    
+    // style the 1st, 3rd, hypothetical 5th header to be aligned to the right
+    &:nth-of-type(odd)
+        text-align right 
+    
+h3 ~ p:nth-of-type(odd)
+    // style the 1st, 3rd, hypothetical 5th paragraphs nested in headers to be aligned to the right
+    text-align right
+    shape-outside circle(50%)
+
+
+ul 
+    // include a custom bullet list for unordered and ordered list items
+    // through the counter properties
+    list-style none 
+    // reset the declared counter
+    counter-reset special-counter
+    li 
+        margin 3.2rem 0
+        padding 0 1.5rem
+        // increment the counter with every list item
+        counter-increment special-counter
+        // position relative to have the declared counter be absolute positioned to the left of the list items
+        position relative 
+        
+        &:before 
+            // declare the counter
+            content counters(special-counter, ".")
+            // style the counter
+            color black
+            border-right 5px solid rgba(black, 0.3)
+            font-size 1.1rem 
+            border-radius 50%
+            height 3rem
+            width @height
+            // position the counter
+            position absolute
+            top -1rem 
+            left -3rem
+            text-align center
+            line-height @height
+        
+
+for i in 1..5
+    // indent each subsequent list item of the unordered list by 1 additional rem
+    ul>li:nth-of-type({i})
+        margin-left 1rem*i
+
+ol 
+    list-style none 
+    // for the ordered list reset the counter (allowing CSS to include item number 1.1, 1.2, with higher specificity)
+    counter-reset special-counter
+    li  
+        margin-left 3rem
+
+ul + p 
+    // for the paragraph immediately following the unordered list (the last one), style it as a closing paragraph for the page
+    border-right 1.5px solid rgba(black, 0.7)
+    border-bottom 1.5px solid rgba(black, 0.7)
+    margin 2rem
+    padding 0 2rem 0 4rem
+    line-height 2.2
+    font-style italic
+
+
+@media (max-width: 600px)
+    // for small devices
+    h1 
+        font-size 2rem
+    
+    h3 ~ p
+        // have all the paragraphs nested in the header element aligned to the left
+        text-align left !important
+    
+    ul 
+        // alter the style of the special counter to have it simply as a number next to a separating, vertical line
+        li 
+            padding 0 1rem
+            &:before 
+                border-right 2px solid black
+                border-radius 0
+                text-align right
+                padding-right 5px
+
+@media (min-width: 1200px)
+    // for large devices
+    h1 
+        font-size 5rem
+
+    // target the first paragraph after the first header
+    h3:first-of-type + p
+        // position relative to absolute position the following pseudo element
+        position relative 
+
+        &:before
+            // with a pseudo element and the property of writing mode, include some text alongside the paragraph
+            @extends .sideway-text
+            content 'long paragraph'
+            left calc(100% + 100px)
+
+    // replicate the same logic for the second paragraph after the first header, altering the position and content of the pseudo element
+    h3:first-of-type + p + p 
+        position relative 
+
+        &:before 
+            @extends .sideway-text
+            content 'keep going'
+            right calc(100% + 100px)
+            transform rotate(180deg)
+
+    // replicate the same logic for the second paragraph after the first header, altering the position and content of the pseudo element
+    h3:first-of-type + p + p + p
+        position relative 
+
+        &:before 
+            @extends .sideway-text
+            content 'almost there'
+            left calc(100% + 100px)
