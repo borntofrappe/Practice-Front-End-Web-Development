@@ -1,6 +1,6 @@
 Link to the working pen right [here](https://codepen.io/borntofrappe/full/oyeQYr/).
 
-# Preface 
+# Inspiration 
 
 For the weekly [#codepenchallenge](https://codepen.io/challenges/2018/june/) I took inspiration from several sources:
 
@@ -10,8 +10,16 @@ For the weekly [#codepenchallenge](https://codepen.io/challenges/2018/june/) I t
 
 - [this insightful article](https://css-tricks.com/your-brain-on-front-end-development/) was an inspiration in general.
 
-As the challenge is mostly CSS related, any additional content I thought about adding can be added through pseudo-elements. 
+# Update
+
+As the challenge was mostly CSS related, any additional content has been included through pseudo-elements. 
 
 For the font themselves, I went with _Muli_ for paragraphs and _Montserrat Alternate_ for the headers. 
 
-The project turned out to be a great way to refresh CSS selectors.
+The project turned out to be a great way to refresh CSS selectors. Here's a brief note on the subject.
+
+- `>` can be used to target the elements directly nested in another element
+- `~` can be used to target _all_ the elements nested in another element
+- `+` can be used to target the element following another element
+
+Finally, as the project relied on having the image plastered atop the page and I did not want to sacrifice the aspect ratio of the same asset, I included media queries for large and small screens alike. In large devices, the image would be indeed stretched to maintain its 100% width.
