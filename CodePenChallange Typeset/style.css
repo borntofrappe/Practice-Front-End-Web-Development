@@ -1,30 +1,42 @@
 /*
+design choices:
+    default: display the image at the top of the page, fading out and introducing the text underneath
+    < 600px: displat the image always at the top of the page, but with a white gradient overlaid on top and fixed height
+    > 1000px: display the image in its default position, include text on the side of the body, include a few decorative elements next to the headers
+
 font choices:
-// montserrat alternate - for headers
-// muli - for paragraphs and smaller text
+    montserrat alternate - for headers
+    muli - for paragraphs and smaller text
+
+color choices:
+    white #fff (default)
+    black #252525
 */
 @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Muli");
-.sideway-text,
+.leaf-svg,
+h1:before,
+h3:before {
+  width: 100px;
+  height: 100px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 26.458336 26.458401'><path d='M12.264 21.416s3.406-.337 2.087-.128c-1.263.2 1.021 3.162 2.43 2.866 0 0-.27-.15-.994.921-.415.614-3.523-3.66-3.523-3.66z' fill='#c24e78'/><path d='M234.285 213.95s-155.215 167.528 0 257.142c155.215-89.614 0-257.143 0-257.143z' transform='matrix(.09318 0 0 .07942 -8.601 -15.435)' fill='#f28eb6' stroke='#c24e78' stroke-width='4'/><path d='M61.988 124.643s-12.58-27.528 0-68.036M56.928 79.844s6.281-1.738 9.355-7.083M56.394 91.47s12.695-2.272 13.497-6.548M56.928 102.561s13.498-1.737 15.235-5.345' fill='none' stroke='#c24e78' stroke-width='.529' transform='matrix(.35217 0 0 .30017 -8.601 -15.435)'/><path d='M73.5 107.907c-.936 3.34-14.968 5.746-14.968 5.746s-7.883.029-9.206-2.617M56.928 102.561s-7.98-.03-9.681-2.676M56.394 91.47s-6.88-.656-8.391-3.113M56.928 79.844s-4.767-.747-5.145-3.96' fill='none' stroke='#c24e78' stroke-width='.529' transform='matrix(.35217 0 0 .30017 -8.601 -15.435)'/></svg>");
+}
+.sideway-text-style,
 h3:first-of-type + p:before,
-h3:first-of-type + p + p:before,
-h3:first-of-type + p + p + p:before {
-  position: absolute;
-  top: 0;
-  writing-mode: vertical-rl;
-  border-left: 1.5px solid rgba(37,37,37,0.8);
+h3:first-of-type + p + p:before {
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   font-weight: initial;
   font-size: 1.1rem;
+  border-left: 1.5px solid rgba(37,37,37,0.8);
 }
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  min-height: 100vh;
-  background: #ededed;
+  background: #fff;
   color: #252525;
   font-family: 'Muli', sans-serif;
   max-width: 600px;
@@ -38,11 +50,12 @@ body:before {
   left: 0;
   width: 100%;
   height: 80vh;
-  background: linear-gradient(to bottom, transparent 0, transparent 50%, #ededed 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255,255,255,0.2)), color-stop(50%, rgba(255,255,255,0.2)), to(#fff));
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0, rgba(255,255,255,0.2) 50%, #fff 100%);
   z-index: -5;
 }
 /*
-have the image be the first thing visualized on the page, stretching the entire width of the viewport 
+have the image on top of the page, stretching the entire width of the viewport 
 */
 img {
   width: 100%;
@@ -52,8 +65,12 @@ img {
   left: 0;
   z-index: -15;
 }
-h1 {
+h1,
+h2,
+h3 {
   font-family: 'Montserrat Alternates', sans-serif;
+}
+h1 {
   font-weight: 900;
   font-style: italic;
   font-size: 4rem;
@@ -67,6 +84,9 @@ h1 + p {
   margin: -8vh 0 5rem;
   border-right: 4px solid rgba(37,37,37,0.8);
 }
+h1 + p strong:before {
+  background: none;
+}
 p {
   line-height: 2;
   font-size: 1.1rem;
@@ -79,10 +99,11 @@ strong:before {
   position: absolute;
   content: '';
   height: 2px;
-  bottom: -2px;
+  bottom: -2.5px;
   left: 0;
   width: 0;
   background: #252525;
+  -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
 strong:hover:before {
@@ -95,6 +116,9 @@ blockquote {
   padding: 0 1.5rem;
   background: rgba(37,37,37,0.1);
 }
+h2 {
+  font-size: 2rem;
+}
 h3 {
   font-size: 1.7rem;
   margin: 3.5rem 0 2rem;
@@ -104,7 +128,6 @@ h3:nth-of-type(odd) {
 }
 h3 ~ p:nth-of-type(odd) {
   text-align: right;
-  shape-outside: circle(50%);
 }
 ul {
   list-style: none;
@@ -119,8 +142,8 @@ ul li {
 ul li:before {
   content: counters(special-counter, ".");
   color: #252525;
-  border-right: 5px solid rgba(37,37,37,0.3);
   font-size: 1.1rem;
+  border-right: 5px solid rgba(37,37,37,0.8);
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -129,6 +152,13 @@ ul li:before {
   left: -3rem;
   text-align: center;
   line-height: 3rem;
+}
+ul ol {
+  list-style: none;
+  counter-reset: special-counter;
+}
+ul ol li {
+  margin-left: 3rem;
 }
 ul>li:nth-of-type(1) {
   margin-left: 1rem;
@@ -145,62 +175,152 @@ ul>li:nth-of-type(4) {
 ul>li:nth-of-type(5) {
   margin-left: 5rem;
 }
-ol {
-  list-style: none;
-  counter-reset: special-counter;
-}
-ol li {
-  margin-left: 3rem;
-}
 ul + p {
-  border-right: 1.5px solid rgba(37,37,37,0.7);
-  border-bottom: 1.5px solid rgba(37,37,37,0.7);
-  margin: 2rem;
-  padding: 0 2rem 0 4rem;
-  line-height: 2.2;
+  border: 4px solid rgba(37,37,37,0.8);
+  margin: 4rem 2rem 1rem;
+  padding: 2rem;
   font-style: italic;
+  position: relative;
+}
+ul + p:before {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 20px solid rgba(37,37,37,0.8);
+  border-right: 20px solid rgba(37,37,37,0.8);
+  border-top: 20px solid rgba(37,37,37,0.8);
+  border-bottom: 20px solid transparent;
 }
 @media (max-width: 600px) {
+  body {
+    padding: 20vh 1rem;
+  }
+  body:before {
+    height: 100vh;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.6)), to(#fff));
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), #fff);
+  }
   h1 {
+    margin: 2rem 0;
     font-size: 2rem;
   }
-  h3 ~ p {
-    text-align: left !important;
+  h1 + p {
+    margin: 1rem 0 2rem;
+    border-right: none;
+  }
+  img {
+    height: auto;
+  }
+  h3 ~ p:nth-of-type(odd) {
+    text-align: left;
   }
   ul li {
     padding: 0 1rem;
   }
   ul li:before {
-    border-right: 2px solid #252525;
+    border-right: 2px solid rgba(37,37,37,0.8);
     border-radius: 0;
     text-align: right;
     padding-right: 5px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
+  body {
+    padding: 2rem;
+    max-width: 700px;
+  }
+  body:before {
+    background: none;
+  }
+  img {
+    position: relative;
+    width: 100%;
+    -webkit-clip-path: polygon(0% 10%, 10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%);
+    clip-path: polygon(0% 10%, 10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%);
+  }
   h1 {
     font-size: 5rem;
+    margin: 1rem 0;
+    position: relative;
+  }
+  h1:before {
+    position: absolute;
+    content: '';
+    right: 100%;
+    bottom: 20px;
+    -webkit-transform: rotate(125deg);
+            transform: rotate(125deg);
+  }
+  h3 {
+    position: relative;
+  }
+  h3:before {
+    position: absolute;
+    content: '';
+    left: -100px;
+    bottom: 0;
+    -webkit-transform: rotate(125deg);
+            transform: rotate(125deg);
+  }
+  h3:nth-of-type(odd):before {
+    left: 100%;
+    -webkit-transform: rotate(-125deg) rotateY(180deg);
+            transform: rotate(-125deg) rotateY(180deg);
+  }
+  h1 + p {
+    margin: 1rem 0 2rem;
+  }
+  blockquote {
+    margin: 4.5rem 8rem;
+    padding: 1rem;
   }
   h3:first-of-type + p {
     position: relative;
   }
   h3:first-of-type + p:before {
-    content: 'long paragraph';
+    position: absolute;
+    top: 0;
     left: calc(100% + 100px);
+    content: 'long paragraph';
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
   }
   h3:first-of-type + p + p {
     position: relative;
   }
   h3:first-of-type + p + p:before {
-    content: 'keep going';
+    position: absolute;
+    top: 0;
     right: calc(100% + 100px);
-    transform: rotate(180deg);
+    content: 'keep going';
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   h3:first-of-type + p + p + p {
     position: relative;
   }
   h3:first-of-type + p + p + p:before {
+    position: absolute;
+    top: 0;
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+    border-left: 1.5px solid rgba(37,37,37,0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-weight: initial;
+    font-size: 1.1rem;
     content: 'almost there';
     left: calc(100% + 100px);
+  }
+  ul + p {
+    margin: 2rem 5rem;
   }
 }
