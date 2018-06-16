@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #d8ca0a;
+  background-color: #000;
+}
+/* center the text in page */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position relative to absolute position a pseudo element, used to present the text by removig a #000 overlay */
+  position: relative;
+}
+.container:before {
+  /* create a #000 rectangle stretching the visible area */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  /* position the dark area on top of the page's content */
+  z-index: 5;
+  /* animate the dark overlay ought of sight */
+  animation: introduceText 1.5s 2s ease-out forwards;
+}
+@keyframes introduceText {
+  to {
+    left: 100%;
+    /* width 0 to also avoid horizontal overflow */
+    width: 0;
+  }
+}
+
+svg {
+  /* stretch the text to occupy most of the viewport */
+  width: 90vw;
+  height: auto; 
+}
