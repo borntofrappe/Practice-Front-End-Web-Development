@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Text and Filter</title>
+  <meta name="description" content="Create a simple filter which is applied to SVG text to make it pop out of the page. But mainly, to replicate the text often found in an old-timey video game for playstation.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+
+</head>
+<body>
+  
+  <!-- in a wrapping container include the SVG -->
+  <div class="container">
+    <!-- the SVG is built like a component
+    copy paste the code in between the svg tags to have the text be styled with the defined filter primitives
+    the only properties added in CSS are width and height to have the SVG element span the visible area -->
+    
+    <svg width="450" height="50" viewbox="0 0 450 50">
+      <defs>
+        <!-- define a filter, later applied on a text element to style it as a 3D, bevelled text -->
+        <filter id="special-filter">
+          
+          <!-- dilate the text to make it glossy -->
+          <feMorphology in="SourceGraphic" operator="dilate" radius="2" result="glossyText"/>
+        
+          <!-- create an offset for the text, to be positioned to the bottom right of the glossy text (to give the impression of three dimensional text) -->
+          <feOffset dx="1" dy="1" in="SourceGraphic" result="offsetText"/>
+          <!-- create a colored area, to give the offset the color of a shadow -->
+          <feFlood flood-color="#252525" result="coloredArea" />
+          <!-- apply the colored area to the offset -->
+          <feComposite in="coloredArea" in2="offsetText" operator="in" result="coloredOffset"/>
+          
+          <!-- combine the glossy text with the colored offset to have them both coexist on the text -->
+          <feComposite operator="out" in="glossyText" in2="offset" result="glossyOffset"/>
+
+          
+          <!-- merge the glossyOffset with the coloredOffset, to have the offset be of the decided color -->
+          <feMerge>
+            <feMergeNode in="glossyOffset"/>
+            <feMergeNode in="coloredOffset"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- include text with the appropriate SVG element
+        text
+        - which stretches the entire viewbox
+        - which is capitalized in every letter
+        - which implements the defined filter 
+        - which uses the color defined in the CSS stylesheet, on the parent element (color which cascades to the fill attribute)
+        -->
+      <text x="7" y="40" font-size="28" letter-spacing="2" style="text-transform:uppercase" filter="url(#special-filter)" fill="currentColor">
+        The adventure continues
+      </text>
+    </svg>
+  </div>
+
+<!-- <script src="script.js"></script> -->
+</body>
+</html>
