@@ -90,4 +90,5 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Sprite Animation**](https://codepen.io/borntofrappe/pen/gKWqgb/)|Practice with sprite animation while creating a movable character from a popular game series.|sprite, svg, pokemon|12th June 2018|
 |[**Video Game Intro Animation**](https://codepen.io/borntofrappe/pen/MXoZbg/)|Use CSS properties to replicate one scene from the video displayed by Nintendo in their recent showcase of the Smash Bros title.|css animation, pseudo elements, smash bros|13th June 2018|
 |[**Codepen Challenge Typeset**](https://codepen.io/borntofrappe/pen/oyeQYr/)|With CSS properties (technically with Stylus), transform markdown text into an elegant blog.|pseudo-element, writing-mode, blog, codepenchallenge|14th June 2018|
+|[**SVG Filter and Text**](https://codepen.io/borntofrappe/pen/NzwqaZ/)|Create a simple filter which is applied to SVG text to make it pop out of the page. But mainly, to replicate the text often found in an old-timey video game for playstation.|svg, filter, text, spyro|16th June 2018|
 
