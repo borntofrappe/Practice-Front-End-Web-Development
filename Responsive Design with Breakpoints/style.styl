@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+font-main = 'Lato', sans-serif
+black = #252525
+white = #fff
+red = #e50914
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    color white
+    background-color lighten(black, 50%)
+
+// center the devices in the visible area
+.container
+    display flex
+    justify-content center
+    min-height 100vh
+    align-items center
+    padding 1rem
+
+.frame
+    // stretch the .frame div to span across the majority of the viewport
+    width 90vw
+    // set a height for the ratio of the biggest screen size (change the ratio for other breakpoints)
+    height (@width * 1024/1900)
+    // for large devices, show the frame as a television display, with the text 'How about a movie?' boldly in the center of the screen
+    border 15px solid lighten(black, 10%)
+    border-radius 5px
+    background white
+    // position relative to absolute position the pseudo-element(s)
+    position relative
+    // transition to neatly change the layout when the screen width changes
+    transition all 0.2s ease-out 
+
+    &:after
+        // include some text with a pseudo element
+        position absolute 
+        content 'how about a movie?'
+        // display the text in the center of the television
+        display flex
+        // width and height for the justify/align property to work correctly 
+        height 100%
+        width 100%
+        justify-content center 
+        align-items center
+        // style the text as big, bold and red
+        text-align center
+        color red    
+        font-size 5rem
+        font-weight 900
+        text-transform uppercase
+
+
+@media (max-width: 1024px) 
+    .frame
+        // for "medium" screen sizes change the ratio of the frame and include rounded corner for the top-left and top-right corners
+        height (90vw*1024/1152)
+        border-radius 20px 20px 2px 2px
+        background #0078d3
+        // include pseudo-elements to sort-of replicate a windows computer
+        &:after
+            content 'we have the big screen tonight'
+            line-height 1.5
+            color white
+            font-style italic
+
+        &:before 
+            // include a mouse cursor with the other pseudo element
+            height 32px
+            width 20px
+            position absolute
+            content ''
+            top 2rem
+            right 2rem
+            transform rotate(-20deg)
+            background url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='32' viewBox='0 0 5.2917085 8.4666128'><path d='M1.805 5.312V8.41h1.682V5.312l1.702.529L2.646.14.103 5.84z' fill='%23fff' stroke='%23000' stroke-width='.114'/></svg>")
+
+
+@media (max-width: 768px) 
+    // for "small" screen sizes, alter the width to height ratio
+    .frame
+        height (90vw*768/512)
+        border-radius 12px
+        background #f5ecd8
+        // with pseudo elements, include the UI of an e-book reader
+        &:after
+            content 'Chapter III'
+            font-size 2.5rem
+            top 1rem
+            height auto 
+            color black
+ 
+        &:before
+            content 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae minus sit odit officiis adipisci, magnam recusandae consectetur doloribus labore voluptatum ab laboriosam magni mollitia numquam hic eveniet inventore libero. Quaerat optio ratione ex voluptatibus nesciunt provident exercitationem?'
+            line-height 2          
+            color black
+            font-style normal
+            font-size 1.5rem
+            background initial
+            height 100% 
+            width auto
+            // place the text below the previous pseudo element
+            top 5rem
+            padding 1rem
+            // reset the properties set for the previous breakpoints
+            right initial 
+            transform rotate(0)
+            
+
+@media (max-width: 512px) 
+    .frame
+        // for "very small" devices, change the ratio 
+        height (90vw*512/384)
+        border-radius 5px
+        // include different border sizes for the top and bottom border, to replicate the UI of a phone
+        border-width 25px 15px 20px
+        border-color #fff
+        background black
+        
+        // with two pseudo element include a couple of words to emulate a messaging app
+        &:before, &:after
+            position absolute 
+            padding 0.5rem 1rem
+            // style the text message
+            color black 
+            text-transform capitalize
+            font-weight 900
+            font-size 1.5rem
+            border-radius 10px
+            background rgba(white, 0.9)
+            // size the width and height of the pseudo element to occupy strictly the space of the content
+            height auto 
+            width auto 
+            // reset top and right from the properties set in the previous breakpoint
+            top initial
+            right initial
+            font-style normal
+
+
+        &:after
+            // include a first text in the bottom right of the phone
+            content 'text me'
+            bottom 1rem
+            right 1rem
+            // animate the text to first appear and then move up as the second text comes in
+            animation showTextMessage 0.5s ease-out both, moveTextUpwards 0.5s 2s ease-out forwards
+
+        &:before
+            // include a second text message in the bottom left of the phone
+            content 'okay'
+            bottom 1rem
+            left 1rem  
+            // animate the text to appear, after the first one
+            animation showTextMessage 0.5s 2s ease-out both
+
+// create two animations, to 1) show the text messages and 1) move the message upwards (for one only)
+@keyframes showTextMessage 
+    0% 
+        opacity 0
+        transform translateY(85px)
+    50%
+        opacity 0
+    100%
+        opacity 1
+        transform translateY(0)
+
+@keyframes moveTextUpwards 
+    100%
+        transform translateY(-85px)
+
+
+
+
+        
