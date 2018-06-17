@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  background-color: #929292;
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+}
+.frame {
+  width: 90vw;
+  height: 48.50526315789474vw;
+  border: 15px solid #3b3b3b;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.frame:after {
+  position: absolute;
+  content: 'how about a movie?';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #e50914;
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+@media (max-width: 1024px) {
+  .frame {
+    height: 80vw;
+    border-radius: 20px 20px 2px 2px;
+    background: #0078d3;
+  }
+  .frame:after {
+    content: 'we have the big screen tonight';
+    line-height: 1.5;
+    color: #fff;
+    font-style: italic;
+  }
+  .frame:before {
+    height: 32px;
+    width: 20px;
+    position: absolute;
+    content: '';
+    top: 2rem;
+    right: 2rem;
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='32' viewBox='0 0 5.2917085 8.4666128'><path d='M1.805 5.312V8.41h1.682V5.312l1.702.529L2.646.14.103 5.84z' fill='%23fff' stroke='%23000' stroke-width='.114'/></svg>");
+  }
+}
+@media (max-width: 768px) {
+  .frame {
+    height: 135vw;
+    border-radius: 12px;
+    background: #f5ecd8;
+  }
+  .frame:after {
+    content: 'Chapter III';
+    font-size: 2.5rem;
+    top: 1rem;
+    height: auto;
+    color: #252525;
+  }
+  .frame:before {
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae minus sit odit officiis adipisci, magnam recusandae consectetur doloribus labore voluptatum ab laboriosam magni mollitia numquam hic eveniet inventore libero. Quaerat optio ratione ex voluptatibus nesciunt provident exercitationem?';
+    line-height: 2;
+    color: #252525;
+    font-style: normal;
+    font-size: 1.5rem;
+    background: initial;
+    height: 100%;
+    width: auto;
+    top: 5rem;
+    padding: 1rem;
+    right: initial;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+@media (max-width: 512px) {
+  .frame {
+    height: 120vw;
+    border-radius: 5px;
+    border-width: 25px 15px 20px;
+    border-color: #fff;
+    background: #252525;
+  }
+  .frame:before,
+  .frame:after {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    color: #252525;
+    text-transform: capitalize;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.9);
+    height: auto;
+    width: auto;
+    top: initial;
+    right: initial;
+    font-style: normal;
+  }
+  .frame:after {
+    content: 'text me';
+    bottom: 1rem;
+    right: 1rem;
+    -webkit-animation: showTextMessage 0.5s ease-out both, moveTextUpwards 0.5s 2s ease-out forwards;
+            animation: showTextMessage 0.5s ease-out both, moveTextUpwards 0.5s 2s ease-out forwards;
+  }
+  .frame:before {
+    content: 'okay';
+    bottom: 1rem;
+    left: 1rem;
+    -webkit-animation: showTextMessage 0.5s 2s ease-out both;
+            animation: showTextMessage 0.5s 2s ease-out both;
+  }
+}
+@-webkit-keyframes showTextMessage {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(85px);
+            transform: translateY(85px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes showTextMessage {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(85px);
+            transform: translateY(85px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes moveTextUpwards {
+  100% {
+    -webkit-transform: translateY(-85px);
+            transform: translateY(-85px);
+  }
+}
+@keyframes moveTextUpwards {
+  100% {
+    -webkit-transform: translateY(-85px);
+            transform: translateY(-85px);
+  }
+}
