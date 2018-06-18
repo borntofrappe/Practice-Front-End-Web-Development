@@ -92,4 +92,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Codepen Challenge Typeset**](https://codepen.io/borntofrappe/pen/oyeQYr/)|With CSS properties (technically with Stylus), transform markdown text into an elegant blog.|pseudo-element, writing-mode, blog, codepenchallenge|14th June 2018|
 |[**SVG Filter and Text**](https://codepen.io/borntofrappe/pen/NzwqaZ/)|Create a simple filter which is applied to SVG text to make it pop out of the page. But mainly, to replicate the text often found in an old-timey video game for playstation.|svg, filter, text, spyro|16th June 2018|
 |[**Responsive Design with Breakpoints**](https://codepen.io/borntofrappe/pen/KeyZvB/)|Practice with breakpoints and media queries to create a responsive site.|css, media queries, responsive|17th June 2018|
+|[**CSS Mouse Cursor**](https://codepen.io/borntofrappe/pen/dKJvqG/)|Create a cursor with a simple HTML structure and a few CSS properties.|css, pseudo-elements, cursor|18th June 2018|
 

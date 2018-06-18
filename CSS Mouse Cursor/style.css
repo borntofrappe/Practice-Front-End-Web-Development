@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #212C38;
+  /* remove the default cursor */
+  cursor: none;
+  /* avoid horizontal and vertical overflow (which would occur as the mouse hovers on the right and bottom eddges of the page) */
+  overflow: hidden;
+}
+
+div.mouse-cursor {
+  /* create an arrow facing north-west, with border properties */
+  width: 0;
+  height: 0;
+  /* with transparent border right and bottom, the arrow faces north-west
+  the border top property describes the second half of the arrow
+  the border bottom the former, so it's possible to style the arrow with two tones */
+  border-top: 1rem solid #aaa;
+  border-right: 0.75rem solid transparent;
+  border-bottom: 0.75rem solid transparent;
+  border-left: 1rem solid #fff;
+  /* absolute position the arrow somewhere in the screen (position updated with JS) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  filter: drop-shadow(0 2px 0 #252525);
+}
+/* with a pseudo-element, add a simple rectangle and position it right beneat the arrow, to re-create the outline of the mouse cursor */
+div.mouse-cursor:before {
+  content: '';
+  position: absolute;
+  width: 0.4rem;
+  height: 1rem;
+  /* color the pseudo-element to match the arrow two-color choices */
+  background: linear-gradient(to right, #fff 0%, #fff 50%, #aaa 50%, #aaa 100%);
+  /* rotate the rectangle to have the same direction of the arrow */
+  transform: rotate(-45deg);
+  top: -5px;
+  /* z-index to position the pseudo-element beneath the element */
+  z-index: -5;
+}
+/* with another pseudo-element, include a circle which is animated to expand in size and change in color (from a solid hue to a transparent counterpart) */
+div.mouse-cursor:after {
+  content: '';
+  position: absolute;
+  /* offset the pseudo element to the top left of the arrow (as this is created with border properties, top 0 left 0 points towards the center of the arrow) */
+  top: -0.75rem;
+  left: -0.75rem;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,1);
+  border-radius: 50px;
+}
+/* add an animation to the after pseudo-element, through a class given to the connected element */
+div.animation:after {
+  animation: 0.5s showClick ease-out;
+}
+
+@keyframes showClick {
+  /* expand the circle in size and dissipate in color */
+  to {
+    /* changing the size without changing the top and left properties expands the circle from the top left corner */
+    width: 4rem;
+    height: 4rem;
+    /* changing the top and left properties allows to expand the circle in place (it'd be -4rem, but it is offset by the border-width property) */
+    top: -3.25rem;
+    left: -3.25rem;
+    background: rgba(255,255,255,0);
+
+  }
+}
