@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>CSS Simple Lamp</title>
+  <meta name="description" content="Create a simple lamp with HTML markup and CSS stylesheet. Animate it with JS.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+
+</head>
+<body>
+  
+  <!-- in a wrapping container, include the lamp, made up of smaller div-components -->
+  <div class="container">
+
+    <div class="lamp">
+      <div class="lamp__base">
+        <div class="base--switch"></div>
+      </div>
+      <div class="lamp__stem"></div>
+      <div class="lamp__bulb"></div>
+      <div class="lamp__light"></div>
+
+      <!-- add also a paragraph which is shown depending on whether or not the lamp is turned on -->
+    </div>
+    <p class="lamp__message">Hello</p>
+
+  </div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
