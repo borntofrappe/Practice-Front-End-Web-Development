@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:900')
+
+font-main = 'Source Sans Pro', sans-serif
+color-text = #ededed
+color-background = #252525
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    color color-text
+    background-color color-background  
+    overflow-y hidden
+
+// display the lamp in the center of the screen
+.container
+    display flex 
+    justify-content center
+    min-height 100vh
+    align-items center
+
+// the lamp is contained in a 200px by 300px container
+.lamp
+    width 200px
+    height 300px
+    // translate the entire div to the left, as to allow for some space on the right (for the light of the lamp)
+    transform translateX(-50px)
+    // position relative to absolute position the components of the lamp (and the paragraph as well)
+    position relative
+
+    .lamp__base
+        // position a rounded rectangle in the bottom of the lamp container
+        position absolute
+        width 70%
+        height 20%
+        bottom 0
+        // center the base horizontally, based on the width
+        left ((100% - @width) /2)
+        background darken(white, 50%)
+        border-radius 50px 50px 10px 10px
+        z-index 0
+
+        &:before
+            // create a subsection of the element of a lighter color
+            position absolute 
+            content ''
+            bottom 0
+            // 10% and other percentages refer to the properties setup in the connected element (not of the first parent element with position relative, but of the first element with a position value)
+            left 10%
+            width 90%
+            height 90%
+            background white
+            border-radius 50px 50px 10px 10px
+
+        .base--switch
+            // position a rounded rectangle in the base of the lamp, for the switch which turns the lamp off and on
+            position absolute
+            width 40px
+            height 30px
+            border-radius 50%
+            background darken(white, 50%)
+            color white
+            z-index 5
+            left 40%
+            bottom 20%
+
+            &:before
+                // position a lighter area right in the middle of the rounded rectangle
+                content ''
+                position absolute 
+                border-radius 50%
+                width 60%
+                height 50%
+                left ((100% - @width) / 2)
+                bottom ((100% - @height) / 2)
+                // current color inherits the value of the color property, retrieved from the first element which has it set
+                background currentColor
+                // transition for the change in color as the flip gets switched
+                transition background 0.3s step-end
+
+    .lamp__stem
+        // position a tall rectangle atop the base
+        position absolute
+        height 70%
+        width 15%
+        bottom 20%
+        left 50%
+        background darken(white, 50%) 
+        border-radius 50px 10px 0 0
+        // rotate the rectangle from the bottom center (15px below the bottom)
+        transform-origin -15px center
+        transform rotate(15deg)
+        // position the stem behind the basis
+        z-index -5
+
+        &:before 
+            // create a subsection of the element of a lighter color
+            content ''
+            position absolute
+            bottom 0
+            left 30%
+            height 90%
+            width 70%
+            background white 
+            border-radius 50px 10px 0 0
+
+    .lamp__bulb
+        // position a rounded rectangle at the end of the stem
+        position absolute 
+        width 50%
+        height 35%
+        bottom 60%
+        left 60%
+        background darken(white, 50%) 
+        color darken(yellow, 30%)
+        border-radius 40px 0 0 40px
+        // rotate the rectangle to redirect the ray of light
+        transform rotate(25deg)
+
+        &:before 
+            // create a subsection of the element of a lighter color            
+            content ''
+            position absolute
+            background white
+            top 10%
+            left 10%
+            height 80%
+            width 90%
+            border-radius 40px 0 0 40px
+
+        &:after
+            // create a yellow bulb positioned below and to the right of the rounded rectangle
+            content ''
+            position absolute 
+            background currentColor 
+            border-radius 50%
+            width 40%
+            height @width
+            left (100% - @width/2)
+            bottom (50% - @width/2)
+            z-index -5
+            // transition to change the color as the switch gets flipped
+            transition background 0.3s step-end
+
+
+    .lamp__light 
+        // position a rectangle which recreates a ray of light, below the rounded rectanlge
+        position absolute 
+        bottom 60%
+        left 85%
+        background linear-gradient(to right, yellow, rgba(yellow, 0)) 
+        width 30px
+        height 35%
+        transform-origin left center
+        transform rotate(25deg)
+        border-radius 100px 0 0 100px
+        z-index -20
+        transition width 1s 0.2s linear
+
+.lamp__message
+    // position the paragraph element right next to the lamp, with a color matching the background
+    // as the light of the lamp goes under it, the text is revealed
+    font-size 2rem
+    text-transform uppercase
+    color color-background 
+    font-family font-main
+    z-index 5
+

@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:900");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #ededed;
+  background-color: #252525;
+  overflow-y: hidden;
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.lamp {
+  width: 200px;
+  height: 300px;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  position: relative;
+}
+.lamp .lamp__base {
+  position: absolute;
+  width: 70%;
+  height: 20%;
+  bottom: 0;
+  left: 15%;
+  background: #808080;
+  border-radius: 50px 50px 10px 10px;
+  z-index: 0;
+}
+.lamp .lamp__base:before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 10%;
+  width: 90%;
+  height: 90%;
+  background: #fff;
+  border-radius: 50px 50px 10px 10px;
+}
+.lamp .lamp__base .base--switch {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
+  background: #808080;
+  color: #fff;
+  z-index: 5;
+  left: 40%;
+  bottom: 20%;
+}
+.lamp .lamp__base .base--switch:before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: 60%;
+  height: 50%;
+  left: 20%;
+  bottom: 25%;
+  background: currentColor;
+  -webkit-transition: background 0.3s step-end;
+  transition: background 0.3s step-end;
+}
+.lamp .lamp__stem {
+  position: absolute;
+  height: 70%;
+  width: 15%;
+  bottom: 20%;
+  left: 50%;
+  background: #808080;
+  border-radius: 50px 10px 0 0;
+  -webkit-transform-origin: -15px center;
+          transform-origin: -15px center;
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+  z-index: -5;
+}
+.lamp .lamp__stem:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  height: 90%;
+  width: 70%;
+  background: #fff;
+  border-radius: 50px 10px 0 0;
+}
+.lamp .lamp__bulb {
+  position: absolute;
+  width: 50%;
+  height: 35%;
+  bottom: 60%;
+  left: 60%;
+  background: #808080;
+  color: #b2b300;
+  border-radius: 40px 0 0 40px;
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+}
+.lamp .lamp__bulb:before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 90%;
+  border-radius: 40px 0 0 40px;
+}
+.lamp .lamp__bulb:after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 50%;
+  width: 40%;
+  height: 40%;
+  left: 80%;
+  bottom: 30%;
+  z-index: -5;
+  -webkit-transition: background 0.3s step-end;
+  transition: background 0.3s step-end;
+}
+.lamp .lamp__light {
+  position: absolute;
+  bottom: 60%;
+  left: 85%;
+  background: -webkit-gradient(linear, left top, right top, from(#ff0), to(rgba(255,255,0,0)));
+  background: linear-gradient(to right, #ff0, rgba(255,255,0,0));
+  width: 30px;
+  height: 35%;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+  border-radius: 100px 0 0 100px;
+  z-index: -20;
+  -webkit-transition: width 1s 0.2s linear;
+  transition: width 1s 0.2s linear;
+}
+.lamp__message {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #252525;
+  font-family: 'Source Sans Pro', sans-serif;
+  z-index: 5;
+}
