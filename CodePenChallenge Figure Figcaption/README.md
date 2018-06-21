@@ -11,7 +11,10 @@ The focus is more on the design of the comic book strip, more than the actual co
 
 Update: in the end, the project proved to be more time-comsuming than anticipated, but it was an excellent project in which to practice CSS layouts, with grid and flex properties alike. Moreover, it was teach-able in terms of selectors and their specificity, and (almost as always), a neat excuse to tinker with pseudo-elements.
 
-Update: it came to me only at a later stage how the project is actually perfectly suited to be created with React. In hindsight, it is an obvious solution.
+
+## Refactor
+
+It came to me only at a later stage how the project is actually perfectly suited to be created with React. In hindsight, it is an obvious solution.
 
 Here a few notes for how to create the project with React. I stride to learn the tool, and it helps to repeat the process.
 
@@ -56,6 +59,13 @@ A few command-line instructions are needed to set up a React project.
 
     ```
     yarn run build
+    ```
+
+1. run a static server in which to display the app
+
+    ```
+    yarn global add serve
+    serve -s build
     ```
 
 ### Structure
