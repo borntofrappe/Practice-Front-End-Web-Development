@@ -4,15 +4,11 @@ Repository in which to experiment with simple front-end concepts.
 
 **Goody, when?**
 
-*1st March Update: The repository is now part of the 100 days of code challenge. Expect updates almost daily, instead of thrice a week.*
-
-<!-- 
 Project are scheduled for Monday, Wednesday and Friday. To be published before the end of the European day.
 
 If the inspiration strikes, exceptions can be made.
--->
 
-## List of Implemented Solutions:
+## List of Projects:
 
 |Reference|Short Description|Tags|Date|
 |---|---|---|---|
