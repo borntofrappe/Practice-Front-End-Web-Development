@@ -1,0 +1,13 @@
+.comic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 500px);
+    justify-content: center;
+}
+@media (max-width: 500px) {
+    .comic {
+      grid-template-columns: 300px;
+    }
+    .comic .vignette .vignette__illustration {
+      margin-top: 5rem;
+    }
+}
