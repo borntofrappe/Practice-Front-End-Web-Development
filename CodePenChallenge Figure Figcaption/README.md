@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here]().
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/VdxjyM/).
 
 # Preface 
 
@@ -67,6 +67,15 @@ A few command-line instructions are needed to set up a React project.
     yarn global add serve
     serve -s build
     ```
+
+After the application is built, it is possible to run the application on a static server.
+
+```
+npm install -g serve
+serve -s build
+```
+
+Then, you'll have the page available on a local host. `serve -s build` ought to be run in the parent folder nesting the react files, among which the build folder.
 
 ### Structure
 
