@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>#CodepenChallenge figure & figcaption: Comics with CSS</title>
+  <meta name="description" content="For the weekly #codepenchallenge create a grid-based design in which figure and figcaption elements are used to create a simple comic book.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+
+</head>
+<body>
+  <!-- in a wrapping container include multiple figure elements nesting each scene -->
+  <div class="comic">
+    <!-- with css position each vignette in a grid, side by side on large devices, on top of one another as the width of the screen is reduced -->
+
+    <figure class="vignette vignette--one">
+      <!-- in each figure element include 
+        - a caption with the appropriate element
+        - the illustration, theoretically with an img or svg element, but here practically drawn with HTML and CSS properties
+      -->
+
+      <figcaption class="vignette__caption">
+        Life with React's Dev Tools
+      </figcaption>
+
+      <div class="vignette__illustration">
+        <!-- for the illustration, draw a scene with HTML elements and CSS properties -->
+
+        <!-- 
+          for the particulars of scene #1:
+          - a header element including explanatory text 
+          - a div nesting an HTML-CSS drawn visual
+        -->
+        <h2 class="illustration__text">
+          Enough learning for today,
+          <br>
+          time to browse the web...
+        </h2>
+
+        <div class="illustration__visual">
+          <!-- the visual is made up of a computer screen, in which a simple UI is drawn
+          the focus of the computer screen and where the detail lies ought to be the top of the screen itself, where extensions reside  -->
+          <div class="computer">
+            <!-- divide the UI in a navigation bar and a display right underneath it -->
+            <div class="computer__navbar">
+              <!-- in the navbar include a couple of divs to draw browser's extensions -->
+              <div class="navbar--extension"></div>
+              <div class="navbar--extension"></div>
+            </div>
+
+            <div class="computer__display">
+                <!-- in the display include one div to draw the arrow of the mouse cursor and a simple rectangle which symbolizes an open window -->
+              <div class="display--cursor"></div>
+              <div class="display--tab">
+                <h3>Search for...</h3>
+              </div>
+            </div><!-- close the computer__display div-->
+          </div><!-- close the computer div -->
+
+        </div><!-- close the illustration__visual div -->
+
+      </div><!-- close the vignette div with the illustration-->
+
+    </figure><!-- close the figure element -->
+
+  <figure class="vignette vignette--two">
+    <!-- in each figure element include 
+      - a caption with the appropriate element
+      - the illustration, theoretically with an img or svg element, but here practically drawn with HTML and CSS properties
+      -->
+
+    <figcaption class="vignette__caption">
+      1st Time
+    </figcaption>
+
+    <div class="vignette__illustration">
+      <!-- for the illustration, draw a scene with HTML elements and CSS properties -->
+
+      <!-- 
+        for the particulars of scene #1:
+        - a header element including explanatory text 
+        - a div nesting an HTML-CSS drawn visual
+      -->
+      <h2 class="illustration__text">
+        Uh, neat...
+        <br>
+        This icon lights up
+        <br> 
+        when React is used
+      </h2>
+
+      <div class="illustration__visual">
+        <!-- the visual is made up of a computer screen, in which a simple UI is drawn
+        the focus of the computer screen and where the detail lies ought to be the top of the screen itself, where extensions reside  -->
+        <div class="computer">
+          <!-- divide the UI in a navigation bar and a display right underneath it -->
+          <div class="computer__navbar">
+            <!-- in the navbar include a couple of divs to draw browser's extensions -->
+            <div class="navbar--extension"></div>
+            <div class="navbar--extension"></div>
+          </div>
+
+          <div class="computer__display">
+              <!-- in the display include one div to draw the arrow of the mouse cursor and a simple rectangle which symbolizes an open window -->
+            <div class="display--cursor"></div>
+            <div class="display--tab">
+              <ul>
+                <li>something</li>
+                <li>something</li>
+                <li>something</li>
+              </ul>
+            </div>
+          </div><!-- close the computer__display div-->
+        </div><!-- close the computer div -->
+
+      </div><!-- close the illustration__visual div -->
+
+    </div><!-- close the signette__scene div with the illustration-->
+
+  </figure><!-- close the figure element -->
+
+    <figure class="vignette vignette--three">
+      <!-- in each figure element include 
+        - a caption with the appropriate element
+        - the illustration, theoretically with an img or svg element, but here practically drawn with HTML and CSS properties
+        -->
+    
+      <figcaption class="vignette__caption">
+        2nd Time
+      </figcaption>
+    
+      <div class="vignette__illustration">
+        <!-- for the illustration, draw a scene with HTML elements and CSS properties -->
+    
+        <!-- 
+          for the particulars of scene #1:
+          - a header element including explanatory text 
+          - a div nesting an HTML-CSS drawn visual
+        -->
+        <h2 class="illustration__text">
+            This site too...
+            <br>
+            I'm sure learning 
+            <br>
+            something popular
+        </h2>
+    
+        <div class="illustration__visual">
+          <!-- the visual is made up of a computer screen, in which a simple UI is drawn
+          the focus of the computer screen and where the detail lies ought to be the top of the screen itself, where extensions reside  -->
+          <div class="computer">
+            <!-- divide the UI in a navigation bar and a display right underneath it -->
+            <div class="computer__navbar">
+              <!-- in the navbar include a couple of divs to draw browser's extensions -->
+              <div class="navbar--extension"></div>
+              <div class="navbar--extension"></div>
+            </div>
+    
+            <div class="computer__display">
+                <!-- in the display include one div to draw the arrow of the mouse cursor and a simple rectangle which symbolizes an open window -->
+              <div class="display--cursor"></div>
+              <div class="display--tab">
+                <ul>
+                  <li>etwas</li>
+                  <li>etwas</li>
+                  <li>etwas</li>
+                </ul>
+              </div>
+            </div><!-- close the computer__display div-->
+          </div><!-- close the computer div -->
+    
+        </div><!-- close the illustration__visual div -->
+    
+      </div><!-- close the signette__scene div with the illustration-->
+    
+    </figure><!-- close the figure element -->
+
+
+    <figure class="vignette vignette--four">
+      <!-- in each figure element include 
+        - a caption with the appropriate element
+        - the illustration, theoretically with an img or svg element, but here practically drawn with HTML and CSS properties
+        -->
+    
+      <figcaption class="vignette__caption">
+        n-th Time
+      </figcaption>
+    
+      <div class="vignette__illustration">
+        <!-- for the illustration, draw a scene with HTML elements and CSS properties -->
+    
+        <!-- 
+          for the particulars of scene #1:
+          - a header element including explanatory text 
+          - a div nesting an HTML-CSS drawn visual
+        -->
+        <h2 class="illustration__text">
+            Somehow
+            <br>
+            I feel a tad...
+            <br>
+            conditioned
+        </h2>
+    
+        <div class="illustration__visual">
+          <!-- the visual is made up of a computer screen, in which a simple UI is drawn
+          the focus of the computer screen and where the detail lies ought to be the top of the screen itself, where extensions reside  -->
+          <div class="computer">
+            <!-- divide the UI in a navigation bar and a display right underneath it -->
+            <div class="computer__navbar">
+              <!-- in the navbar include a couple of divs to draw browser's extensions -->
+              <div class="navbar--extension"></div>
+              <div class="navbar--extension"></div>
+            </div>
+    
+            <div class="computer__display">
+                <!-- in the display include one div to draw the arrow of the mouse cursor and a simple rectangle which symbolizes an open window -->
+              <div class="display--cursor"></div>
+              <div class="display--tab">
+                <ul>
+                  <li>quelque chose</li>
+                  <li>quelque chose</li>
+                  <li>quelque chose</li>
+                </ul>
+              </div>
+            </div><!-- close the computer__display div-->
+          </div><!-- close the computer div -->
+    
+        </div><!-- close the illustration__visual div -->
+    
+      </div><!-- close the signette__scene div with the illustration-->
+    
+    </figure><!-- close the figure element -->
+
+    
+
+  </div><!-- close the all wrapping div -->
+
+<!-- <script src="script.js"></script> -->
+
+</body>
+</html>
