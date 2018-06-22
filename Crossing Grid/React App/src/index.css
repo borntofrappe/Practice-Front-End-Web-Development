@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Markazi+Text:700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Markazi Text', serif;
+  background-color: #1f1907;
+}

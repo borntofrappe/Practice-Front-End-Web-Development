@@ -1,0 +1,105 @@
+.IntroductoryText h2 {
+    font-size: 8rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffff5d;
+  }
+  .IntroductoryText h2:nth-of-type(1) {
+    animation: scrollTextDown 0.7s 1s cubic-bezier(0.22, -0.3, 0.68, 1.5) both, textStroke 0.5s 2s step-end forwards;
+  }
+  .IntroductoryText h2:nth-of-type(2) {
+    animation: scrollTextLeft 0.9s 0.3s cubic-bezier(0.22, -0.3, 0.68, 1.44) both, textStroke 0.5s 2s step-end forwards;
+  }
+  .IntroductoryText h2::selection {
+    background: #ffff7d;
+  }
+
+  @media (max-width: 600px) {
+    .IntroductoryText h2 {
+      font-size: 4.5rem;
+    }
+  }
+  @-moz-keyframes scrollTextLeft {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @-webkit-keyframes scrollTextLeft {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @-o-keyframes scrollTextLeft {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes scrollTextLeft {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @-moz-keyframes scrollTextDown {
+    0% {
+      transform: translateY(-100vh);
+    }
+    100% {
+      transform: translateY(1rem);
+    }
+  }
+  @-webkit-keyframes scrollTextDown {
+    0% {
+      transform: translateY(-100vh);
+    }
+    100% {
+      transform: translateY(1rem);
+    }
+  }
+  @-o-keyframes scrollTextDown {
+    0% {
+      transform: translateY(-100vh);
+    }
+    100% {
+      transform: translateY(1rem);
+    }
+  }
+  @keyframes scrollTextDown {
+    0% {
+      transform: translateY(-100vh);
+    }
+    100% {
+      transform: translateY(1rem);
+    }
+  }
+  @-moz-keyframes textStroke {
+    100% {
+      text-shadow: 4px 4px 0 #685417, 4px -4px 0 #685417, -4px 4px 0 #685417, -4px -4px 0 #685417;
+    }
+  }
+  @-webkit-keyframes textStroke {
+    100% {
+      text-shadow: 4px 4px 0 #685417, 4px -4px 0 #685417, -4px 4px 0 #685417, -4px -4px 0 #685417;
+    }
+  }
+  @-o-keyframes textStroke {
+    100% {
+      text-shadow: 4px 4px 0 #685417, 4px -4px 0 #685417, -4px 4px 0 #685417, -4px -4px 0 #685417;
+    }
+  }
+  @keyframes textStroke {
+    100% {
+      text-shadow: 4px 4px 0 #685417, 4px -4px 0 #685417, -4px 4px 0 #685417, -4px -4px 0 #685417;
+    }
+  }
