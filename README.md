@@ -91,3 +91,5 @@ If the inspiration strikes, exceptions can be made.
 |[**CSS Mouse Cursor**](https://codepen.io/borntofrappe/pen/dKJvqG/)|Create a cursor with a simple HTML structure and a few CSS properties.|css, pseudo-elements, cursor|18th June 2018|
 |[**CSS Simple Lamp**](https://codepen.io/borntofrappe/pen/OEvpLK/)|Create a simple lamp with HTML markup and CSS stylesheet. Animate it with JS.|position, z-index, currentColor|20th June 2018|
 |[**Codepen Challenge Figure Figcaption**](https://codepen.io/borntofrappe/pen/VdxjyM/)|Create a grid-based design in which figure and figcaption elements are used to create a simple comic book. Refactored with React|react, grid, figure, figcaption, codepenchallenge|21st June 2018|
+|[**Crossing Grid**](https://codepen.io/borntofrappe/pen/oyyXBR/)|Experiment with a simple grid structure and re-create the design of a packet of flower seeds.|react, grid, animal crossing|22st June 2018|
+
