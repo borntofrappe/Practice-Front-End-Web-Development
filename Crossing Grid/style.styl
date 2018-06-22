@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Markazi+Text:700')
+
+font-main = 'Markazi Text', serif
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    background-color darken(#685417, 70%)
+
+// center the content of the wrapping container horizontally and vertically, in a single column layout
+.container
+    display flex
+    flex-direction column
+    align-items center
+    min-height 100vh
+    justify-content center
+    // remove horizontal overflow caused by the header's animation
+    overflow-x hidden
+
+    .container__text
+        // properties for the div nesting the headers
+        // the headers are stacked on top of each other by default, as they are block elements       
+        h2
+            font-size 3rem + 5vw
+            text-align center
+            text-transform uppercase
+            color #FFFF5D
+            // include different animations for the different headers
+            // include a cubic-bezier timing function for both headers, which makes the transition overshot the final keyframe before settling to it
+            // include a second animation for each header, which includes a faux text stroke (without smooth transitions)
+            &:nth-of-type(1)
+                // show the first header scrolling from the top, after the second header is instroduced 
+                animation scrollTextDown 0.7s 1s cubic-bezier(.22,-0.3,.68,1.5) both, textStroke 0.5s 2s step-end forwards
+            &:nth-of-type(2)
+                // show the second header scrolling from the right, after a brief delay
+                animation scrollTextLeft 0.9s 0.3s cubic-bezier(.22,-0.3,.68,1.44) both, textStroke 0.5s 2s step-end forwards
+
+            &::selection
+                // for flair, change the background of the text when it is highlighted
+                background lighten(#FFFF5D, 20%)
+
+    .container__bags
+        // display the multiple packets side by side, in a wrapping div centered horizontally
+        display flex 
+        flex-wrap wrap
+        justify-content center
+
+        .bags--sample
+            // separate the bags from each other
+            margin 1rem
+            // keep the 9x12 ratio thought for the grid layout
+            width 180px
+            height (@width*12/9)
+            // create a grid 9 columns wide, 12 column tall
+            display grid 
+            grid-template-columns repeat(9, 1fr)
+            grid-template-rows repeat(13, 1fr)
+            // animate the div into view after the animation of the headers has finished running
+            animation showSample 0.4s 3s cubic-bezier(.22, 0,.68,1.44) both   
+
+        for sample in 1..3
+            // for each subsequent div, animate the element with increasing delay
+            .container__sample:nth-of-type({sample})
+                animation-delay (3s + sample / 2)
+
+        // style the different blocks making up the grid
+        for block in 1..120
+            span:nth-of-type({block})
+                    // color all blocks of a white color
+                    background #ddd 
+            // color the different blocks making up the design of the flower bag
+            if block in 12..16 || block in 20..26 || block in 30..34
+                span:nth-of-type({block})
+                    background #c71f16
+            if block in 47..53 || block in 56..62 || block in 65..71 || block in 74..80 || block in 83..89 || block in 92..98 || block in 101..107
+                span:nth-of-type({block})
+                    background #109121
+            if block in 48..50 || block == 58 || block in 22..24
+                span:nth-of-type({block})
+                    background #ddd
+            if block == 61 || block == 53 || block == 71
+                span:nth-of-type({block})
+                    background #66a1ee
+            if block == 66 || block in 74..76 || block == 84
+                span:nth-of-type({block})
+                    background #a866ee
+            if block == 88 || block in 96..98 || block == 106
+                span:nth-of-type({block})
+                    background #ee6d66
+            if block == 94 || block in 102..104
+                span:nth-of-type({block})
+                    background #e8b730
+            if block == 49 || block == 62 || block == 75 || block == 97 || block == 103
+                span:nth-of-type({block})
+                    background #e8e230
+
+// define the animations for the headers and the div element
+@keyframes scrollTextLeft 
+    // the second header is scrolled from the right
+    0% 
+        transform translateX(100vw)
+    100%
+        transform translateX(0)
+
+@keyframes scrollTextDown 
+    // the first header is scrolled from the top
+    0%
+        transform translateY(-100vh)
+    100%
+        transform translateY(1rem)
+
+@keyframes textStroke 
+    // include a stroke around the text with solid text-shadows
+    100%
+        text-shadow 4px 4px 0 #685417, 4px -4px 0 #685417, -4px 4px 0 #685417, -4px -4px 0 #685417
+
+@keyframes showSample
+    // scale the div element from the center
+    0%
+        transform scaleX(0) scaleY(0)
+    100%
+        transform scaleX(100%) scaleY(100%)
+
+@media (max-width: 600px)
+    // reduce the font-size for smaller screens
+    .container .container__text h2
+        font-size 4.5rem
