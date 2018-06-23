@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Fugaz One', cursive;
+  color: #fff;
+}
+
+.container {
+  /* center the text in the page */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  /* with a simple chequered pattern color the background of the page */
+  background: 
+    repeating-linear-gradient(to right, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 10vw, transparent 10vw, transparent 20vw),
+    repeating-linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 10vw, transparent 10vw, transparent 20vw);
+}
+
+h1 {
+  /* rotate the text to have the header slightly pointing upwards */
+  transform: rotateY(50deg) rotateZ(-4deg);
+  font-size: calc(4rem + 3vw);
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  text-align: center;
+  color: #252525;
+}
+/* change the colors of the selection
+the properties are altered for the span selector, as the header includes span elements added through the JS script */
+span::selection {
+  background: #252525;
+  color: #eee;
+}
+
+/* include a simple animation which changes the position of the span elements, moving them to the top and sligtly to the right */
+.animation {
+  animation: upAndToTheRight 1s ease-in-out infinite;
+  bottom: 0;
+  left: 0;
+  position: relative;
+}
+
+@keyframes upAndToTheRight {
+  40% {
+    bottom: 1rem;
+    left: 0.25rem;
+  }
+}
