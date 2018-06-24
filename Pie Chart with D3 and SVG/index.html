@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Pie Chart with D3 and SVG</title>
+  <meta name="description" content="Create a pie chart out of an array of numbers, drawing shapes with SVG and plotting out a chart with the popular JS library.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+
+</head>
+<body>
+
+  <!-- in a wrapping container include a button and a div which will be populated with the JS library -->
+  <div class="container">
+    <button class="container__refresh">🍰 <span class="extra--text">Gimme a </span> New Pie 🍰</button>
+
+    <div class="container__chart">
+      <!-- svg drawn in here -->
+    </div>
+
+  </div>
+
+<!-- reference the D3.JS library, before including a script using it -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
