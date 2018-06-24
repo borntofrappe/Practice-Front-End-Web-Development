@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #FCFCFD;
+  background-color: #252525;
+}
+/* center the content horizontally and vertically */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+/* style the button to be displayed boldly in the center of the screen */
+.container .container__refresh {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  color: white;
+  background: #252525;
+  border: 2px solid white;
+  border-radius: 12px;
+  /* transition for the hover and active state */
+  transition: all 0.2s ease-out;
+}
+/* on hover change the roundness of the rectangle's corners */
+.container .container__refresh:hover {
+  border-radius: 30px;
+}
+/* when active, switch the colors of the text and of the background, and slightly increase the dimension of the button */
+.container .container__refresh:active {
+  background: white;
+  color: #252525;
+  transform: scale(1.1);
+}
+
+/* scale the svg to be 50% of the smallest size between the height and the width of the screen */
+.container .container__chart svg {
+  width: 50vmin;
+  height: 50vmin;
+}
+
+/* style the slices of the pie chart by reducing their opacity */
+.slice {
+  opacity: 0.7;
+  /* transition for the hover state */
+  transition: all 0.3s ease-out;
+}
+/* on hover increase the opacity of the slices */
+.slice:hover {
+  opacity: 1;
+}
+
+/* for small screen sizes, remove the text deemed superfluous */
+@media (max-width: 800px) {
+  .extra--text {
+    display: none;
+  }
+}
