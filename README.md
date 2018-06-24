@@ -93,4 +93,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Codepen Challenge Figure Figcaption**](https://codepen.io/borntofrappe/pen/VdxjyM/)|Create a grid-based design in which figure and figcaption elements are used to create a simple comic book. Refactored with React|react, grid, figure, figcaption, codepenchallenge|21st June 2018|
 |[**Crossing Grid**](https://codepen.io/borntofrappe/pen/oyyXBR/)|Experiment with a simple grid structure and re-create the design of a packet of flower seeds.|react, grid, animal crossing|22nd June 2018|
 |[**Character by Character Animation**](https://codepen.io/borntofrappe/pen/yEEjNL/)|Create a simple animation which is applied to each separate character of a header.|js, animation, delay|23rd June 2018|
+|[**Pie Chart with D3 and SVG**](https://codepen.io/borntofrappe/pen/NzBWeO/)|Create a pie chart out of an array of numbers, drawing shapes with SVG and plotting out a chart with the popular JS library.|d3, js, svg, path|24th June 2018|
 
