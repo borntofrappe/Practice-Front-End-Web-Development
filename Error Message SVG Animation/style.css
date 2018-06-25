@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #2ba5df;
+}
+/* center the svg horizontally and display it right atop the visible area */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+/* allow the svg to resize itself, but to cover 100% of the viewport, and at most 1280px  */
+.container svg {
+  width: 100vw;
+  max-width: 1280px;
+  height: auto;
+}
