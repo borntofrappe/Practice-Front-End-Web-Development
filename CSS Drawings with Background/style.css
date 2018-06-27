@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(245,112,84,0.5) 0, rgba(245,112,84,0.5) 33%, rgba(243,86,53,0.5) 33%, rgba(243,86,53,0.5) 67%, rgba(241,60,22,0.5) 67%, rgba(241,60,22,0.5) 100%);
+    font-size: 8px;
+  }
+  .pkmn {
+    width: 20em;
+    height: 28em;
+    background: linear-gradient(#eab2d7, #eab2d7) 8em 22.5em/4em 2em, linear-gradient(#c94c85, #c94c85) 7em 21em/6em 3.5em, linear-gradient(#f57054, #f57054) 15em 20em/3.5em 3.5em, linear-gradient(#f57054, #f57054) 1.5em 20em/3.5em 3.5em, linear-gradient(#232323, #232323) 9em 18em/2em 0.75em, linear-gradient(#232323, #232323) 13em 13em/3.5em 3.5em, linear-gradient(#232323, #232323) 3.5em 13em/3.5em 3.5em, linear-gradient(#232323, #232323) 12.5em 0/5em 3em, linear-gradient(#ffed7a, #ffed7a) 12.5em 3em/5em 5em, linear-gradient(#232323, #232323) 2.5em 0/5em 3em, linear-gradient(#ffed7a, #ffed7a) 2.5em 3em/5em 5em, linear-gradient(#ffed7a, #ffed7a) 0 8em/20em 20em;
+    background-repeat: no-repeat;
+    transform: scale(0);
+  }
+  .pkmn-animation {
+    animation: introducePk 0.5s 5.5s cubic-bezier(0.22, -0.3, 0.68, 1.4) both;
+  }
+  .pkbll {
+    font-size: 10px;
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: linear-gradient(#fff, #fff) 50% 50%/1.3em 1.3em, linear-gradient(#f57054, #f57054) 50% 50%/2.5em 2.5em, linear-gradient(#f57054, #f57054) 50% 50%/7em 0.75em, linear-gradient(#fff, #fff) 50% 50%/5em 5em, linear-gradient(#f57054, #f57054) 50% 50%/7rem 7rem;
+    background-repeat: no-repeat;
+    width: 7em;
+    height: 7em;
+    transform-origin: center center;
+    transform: scale(0);
+  }
+  .pkbll-animation {
+    animation: introducePk 0.3s 0.7s cubic-bezier(0.22, -0.3, 0.68, 1.8) both, rotatePkbll 4s 1.5s cubic-bezier(0.22, -0.3, 0.68, 1.4), introducePk 0.3s 5.5s reverse cubic-bezier(0.22, -0.3, 0.68, 1.4) forwards;
+  }
+  @media (min-width: 1400px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  @-moz-keyframes introducePk {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @-webkit-keyframes introducePk {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @-o-keyframes introducePk {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @keyframes introducePk {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @-moz-keyframes rotatePkbll {
+    0% {
+      transform: rotate(0deg);
+    }
+    15%, 25% {
+      transform: rotate(90deg);
+    }
+    40%, 50% {
+      transform: rotate(180deg);
+    }
+    65%, 75% {
+      transform: rotate(270deg);
+    }
+    90%, 100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes rotatePkbll {
+    0% {
+      transform: rotate(0deg);
+    }
+    15%, 25% {
+      transform: rotate(90deg);
+    }
+    40%, 50% {
+      transform: rotate(180deg);
+    }
+    65%, 75% {
+      transform: rotate(270deg);
+    }
+    90%, 100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes rotatePkbll {
+    0% {
+      transform: rotate(0deg);
+    }
+    15%, 25% {
+      transform: rotate(90deg);
+    }
+    40%, 50% {
+      transform: rotate(180deg);
+    }
+    65%, 75% {
+      transform: rotate(270deg);
+    }
+    90%, 100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotatePkbll {
+    0% {
+      transform: rotate(0deg);
+    }
+    15%, 25% {
+      transform: rotate(90deg);
+    }
+    40%, 50% {
+      transform: rotate(180deg);
+    }
+    65%, 75% {
+      transform: rotate(270deg);
+    }
+    90%, 100% {
+      transform: rotate(360deg);
+    }
+  }
+  
