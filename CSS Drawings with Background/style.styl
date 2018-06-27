@@ -1,0 +1,102 @@
+// define the variables used in the drawings 
+yellow = #FFED7A
+red = #F57054
+black = #232323
+pink = #C94C85
+pinklight = #EAB2D7
+white = #FFFFFF
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    // position the drawing of the pokemon in the center of the screen (the poke-ball is absolute positioned in the bottom left corner)
+    display flex
+    justify-content center
+    min-height 100vh
+    align-items center
+    // include a linear gradient which repeats bands of the same color with darker variations
+    background linear-gradient(135deg, rgba(red, 0.5) 0, rgba(red, 0.5) 33%, rgba(darken(red, 10%), 0.5) 33%, rgba(darken(red, 10%), 0.5) 67%, rgba(darken(red, 20%), 0.5) 67%, rgba(darken(red, 20%), 0.5) 100%)
+    // set the default font-size which is inherited by the div elements when using the _em_ unit of measure
+    font-size 8px
+
+.pkmn
+    // include a rectangle 20 wide and 28 tall 
+    width 20em
+    height 28em
+    // include solid linear gradients, one on top of the other, to draw the pokemon shape
+    // the gradients are stacked with the first gradient on top of the second, on top of the third and so on
+    background linear-gradient(pinklight,pinklight) 8em 22.5em/ 4em 2em,
+                linear-gradient(pink,pink) 7em 21em/ 6em 3.5em,
+                linear-gradient(red, red) 15em 20em/ 3.5em 3.5em,
+                linear-gradient(red, red) 1.5em 20em/ 3.5em 3.5em,
+                linear-gradient(black, black) 9em 18em/ 2em 0.75em,
+                linear-gradient(black, black) 13em 13em/ 3.5em 3.5em,
+                linear-gradient(black, black) 3.5em 13em/ 3.5em 3.5em,
+                linear-gradient(black, black) 12.5em 0/ 5em 3em,
+                linear-gradient(yellow,yellow) 12.5em 3em/ 5em 5em,
+                linear-gradient(black, black) 2.5em 0/ 5em 3em,
+                linear-gradient(yellow,yellow) 2.5em 3em/ 5em 5em,
+                linear-gradient(yellow,yellow) 0 8em/ 20em 20em
+    // alter the default behavior of the background property which repeats itself
+    background-repeat no-repeat
+    // scale 0 for the animation only
+    transform scale(0)
+
+.pkmn-animation
+    // include an animation through a class, to scale the div element from scale(0) to scale(1)
+    animation introducePk 0.5s 5.5s cubic-bezier(.22,-0.3,.68,1.4) both
+
+.pkbll
+    // alter the size of the second div, by setting the font-size anew
+    // em inherits the first px measure found upstream
+    font-size 10px
+    // position the element in the bottom left corner
+    position absolute 
+    bottom 2rem 
+    left 2rem 
+    // through linear gradients draw the pokeball structure
+    background linear-gradient(white,white) 50% 50%/ 1.3em 1.3em,
+                linear-gradient(red, red) 50% 50%/ 2.5em 2.5em,
+                linear-gradient(red, red) 50% 50%/ 7em 0.75em,
+                linear-gradient(white,white) 50% 50%/ 5em 5em, 
+                linear-gradient(red, red) 50% 50%/ 7rem 7rem
+    background-repeat no-repeat
+    width 7em 
+    height 7em 
+    transform-origin center center
+    transform scale(0)
+
+.pkbll-animation
+    // include three animations for the pokeball div, one to scale it, one to rotate it 1 turn in four steps, one to scale it back (technically is the same animation, with a reverse value)
+    animation introducePk 0.3s 0.7s cubic-bezier(.22,-0.3,.68,1.8) both, rotatePkbll 4s 1.5s cubic-bezier(.22,-0.3,.68,1.4), introducePk 0.3s 5.5s reverse cubic-bezier(.22,-0.3,.68,1.4) forwards
+
+// define two animations
+// one animation to scale the div from 0 to 1 (used for both divs, and one time in reverse)
+@keyframes introducePk 
+    from 
+        transform scale(0)
+    to
+        transform scale(1)
+
+// one animation to rotate the div 360degrees, in four, intermittent steps
+@keyframes rotatePkbll 
+    0% 
+        transform rotate(0deg) 
+    15%,25% 
+        transform rotate(90deg)
+    40%, 50% 
+        transform rotate(180deg) 
+    65%, 75% 
+        transform rotate(270deg)
+    90%,100% 
+        transform rotate(360deg) 
+
+// from 1200px up, set a fixed font-size of 14px
+@media (min-width: 1400px)
+    body 
+        font-size 14px
