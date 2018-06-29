@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+/* 
+define variables used to span the different menu items in a single cell of a grid
+variables updated in JS for each menu item
+*/
+:root {
+  --grid-column: 1/2;
+  --grid-row: 1/2;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: #132C64;
+}
+/* remove default styles for anchor link and list item elements */
+a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: all 0.3s ease-out;
+}
+li {
+  list-style: none;
+}
+
+/* target the first ordered list and create a grid which spans the entire width of the screen*/
+nav > ol {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* include a default for the row equal to the size of the column, to create a square */
+  grid-auto-rows: 20vw;
+
+}
+/* target the list items of the first ordered list and position them in a cell of the grid (the values are updated in JS) */
+nav > ol > li {
+  grid-column: var(--grid-column);
+  grid-row: var(--grid-row);
+  /* center the content of each list item (the anchor link) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* style each list item similar to a card */
+  background: #fff;
+  color: #132C64;
+  /* transition for the change in rotation, when the list item is clicked */
+  transition: all 0.3s ease-out;
+  /* position relative to absolute position the nested ordered list */
+  position: relative;
+}
+/* absolute position the ordered list representing the second level of menus, spanning the parent list item  */
+.sub-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* center the content (the anchor link) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* rotate the nested ordered list (as the parent ordered list is to be rotated itself, this means the two are like two sides of the same coin) */
+  transform: rotateY(180deg);
+  /* zindex to position the element behind the parent ordered list */
+  z-index: -10;
+  /* opacity 0 to hide the sub-menu by default */
+  opacity: 0;
+  /* transition for the change in opacity */
+  transition: all 0.3s ease-out;
+
+}
+/* define a class which is applied to the list items when pressed, rotating the list item and applying a different background */
+li.pressed {
+  background: #A766FB;
+  transform: rotateY(180deg);
+}
+/* hide the anchor link of the option which is pressed */
+li.pressed > a {
+  opacity: 0;
+}
+/* show the sub-menu of the pressed option, if a submenu is present that is */
+li.pressed .sub-menu {
+  opacity: 1;
+}
+
+/* modify the font-size for large and small screen devices */
+@media (min-width: 1500px) {
+  a {
+    font-size: 2.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  a {
+    font-size: 1.5rem;
+  }
+}
