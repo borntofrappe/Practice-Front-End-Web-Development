@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  background: radial-gradient(#fff, rgb(255, 175, 255));
+}
+/* center the svg in the page */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
