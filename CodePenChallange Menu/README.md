@@ -32,4 +32,14 @@ The purpose of this project is the creation of an entry for the weekly #codepenc
 
 # My Take
 
-//TODO: add notes taken during the project
+For the weekly #codepenchallenge I had a couple of ideas. This is the one I finally chose.
+
+Show through several cards the options regarding the first level of the menu. Hide the nested, sub-menus.
+
+As the page loads, show these cards as cells of a grid. Show them as cells of a grid randomly positioned in an arbitrary number of columns and rows. Leave empty spaces, but avoid keeping two cells from having the same position.
+
+As the visitor interacts with one of the high-level options, the cell should be flipped, hiding the respective text and showing the additional menu.
+
+Update: as the project's design was indeed a little bare, I spent some time picking a nice color palette, as well as including appropriate column and row sizes, to always display the content. This even at the price of having cells displayed as rectangles instead of squares. I also chose to include a couple of SVG icons, as background in the middle of each cell. 
+
+While far from being the most delightful, pleasant menu, I do consider it rather neat. Especially from the development side, as it allowed me to tinker with grid and variables alike. I am rather fond of the random positioning of the initial cells, even if most people not reading the code won't actually know about it.

@@ -18,12 +18,13 @@ body {
   font-family: 'Lato', sans-serif;
   background-color: #132C64;
 }
+
 /* remove default styles for anchor link and list item elements */
 a {
   color: inherit;
   text-decoration: none;
-  font-size: 2rem;
-  transition: all 0.3s ease-out;
+  /* keep the anchor link to a reasonable size */
+  font-size: 1.5rem;
 }
 li {
   list-style: none;
@@ -34,11 +35,12 @@ nav > ol {
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  /* include a default for the row equal to the size of the column, to create a square */
-  grid-auto-rows: 20vw;
+  /* for both columns and rows, include a maximum size of auto, to prevent the content from spilling out of the container */
+  grid-template-columns: repeat(6, minmax(1fr, auto));
+  grid-auto-rows: minmax(15vw, auto );
 
 }
+
 /* target the list items of the first ordered list and position them in a cell of the grid (the values are updated in JS) */
 nav > ol > li {
   grid-column: var(--grid-column);
@@ -47,14 +49,15 @@ nav > ol > li {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   /* style each list item similar to a card */
-  background: #fff;
   color: #132C64;
   /* transition for the change in rotation, when the list item is clicked */
-  transition: all 0.3s ease-out;
+  transition: transform 0.3s ease-out;
   /* position relative to absolute position the nested ordered list */
   position: relative;
 }
+
 /* absolute position the ordered list representing the second level of menus, spanning the parent list item  */
 .sub-menu {
   position: absolute;
@@ -67,6 +70,7 @@ nav > ol > li {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  text-align: center;
   /* rotate the nested ordered list (as the parent ordered list is to be rotated itself, this means the two are like two sides of the same coin) */
   transform: rotateY(180deg);
   /* zindex to position the element behind the parent ordered list */
@@ -74,32 +78,71 @@ nav > ol > li {
   /* opacity 0 to hide the sub-menu by default */
   opacity: 0;
   /* transition for the change in opacity */
-  transition: all 0.3s ease-out;
-
+  transition: opacity 0.3s ease-out;
+  
 }
+
+/* 
+include as a background an icon for each successive list item 
+each SVG asset has a style attribute which sets opacity to a lower amount, as to not overpower the anchor link elements
+*/
+nav > ol > li:nth-of-type(1) {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="85" viewBox="0 0 26.458 22.49" style="opacity: 0.1"><g fill="#333"><path d="M3.307 15.227h7.099v7.262H3.307z"/><path d="M3.307 10.776l10.003-6.09 10.002 6.09v6.17H3.307z"/><path d="M16.214 15.227h7.099v7.262h-7.1zM13.23 0L0 9.214v2.577l13.23-9.214 13.228 9.214V9.214z"/></g></svg>') 50% 50% / 50% 50%, #fff;
+  background-repeat: no-repeat;
+}
+nav > ol > li:nth-of-type(2) {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458334 26.458334" style="opacity: 0.1"><g transform="translate(0 -270.542)"><circle r="12.588" cy="283.771" cx="13.229" fill="none" stroke="#252525" stroke-width="1.282"/><text y="292.932" x="6.264" style="line-height:1.25;-inkscape-font-specification:Ubuntu" font-weight="400" font-size="27.592" font-family="Ubuntu" letter-spacing="0" word-spacing="0" fill="#252525" stroke-width=".69"><tspan y="292.932" x="6.264" font-weight="700" font-family="serif">?</tspan></text></g></svg>') 50% 50% / 50% 50%, #fff;
+  background-repeat: no-repeat;
+}
+nav > ol > li:nth-of-type(3) {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458334 26.45833" style="opacity: 0.1"><g fill="#252525" transform="translate(2.785 -212.861) scale(.79347)"><circle transform="translate(-.066 1.169)" cx="13.229" cy="283.771" r="13.229"/><path d="M11.31 268.267h3.992c2.008 0 1.996 5.375 1.996 5.375H9.315s.013-5.375 1.995-5.375z"/><path d="M9.648 270.625s-.38 2.054-2.09 2.772v.245h3v-.606zm7.316 0l-.166 3.017h1.97v-.383c-1.467-.811-1.804-2.634-1.804-2.634zm-5.654 30.987h3.992c2.008 0 1.996-5.374 1.996-5.374H9.315s.013 5.374 1.995 5.374z"/><path d="M9.648 299.254s-.38-2.054-2.09-2.771v-.246h3v.607zm7.316 0l-.166-3.017h1.97v.383c-1.467.812-1.804 2.634-1.804 2.634zm12.872-16.167v3.992c0 2.008-5.375 1.995-5.375 1.995v-7.983s5.375.013 5.375 1.996z"/><path d="M27.478 281.425s-2.055-.38-2.772-2.09h-.245v3h.606zm0 7.316l-3.017-.167v1.972h.382c.812-1.468 2.635-1.805 2.635-1.805zm-30.988-5.654v3.992c0 2.008 5.375 1.995 5.375 1.995v-7.983s-5.375.013-5.375 1.996z"/><path d="M-1.151 281.425s2.054-.38 2.771-2.09h.245v3H1.26zm0 7.316l3.016-.167v1.972h-.382c-.812-1.468-2.634-1.805-2.634-1.805zm24.793-16.901l2.823 2.823c1.42 1.42-2.39 5.212-2.39 5.212l-5.644-5.645s3.81-3.791 5.211-2.39z"/><path d="M20.8 272.332s-1.722 1.184-3.439.482l-.173.173 2.122 2.122.429-.429zm5.173 5.174l-2.251 2.015 1.393 1.394.271-.27c-.464-1.613.587-3.14.587-3.14zM.064 295.42l2.822 2.822c1.42 1.42 5.212-2.39 5.212-2.39l-5.645-5.645s-3.791 3.81-2.39 5.212z"/><path d="M.556 292.576s1.183-1.721.481-3.438l.174-.173 2.122 2.122-.43.429zm5.174 5.174l2.014-2.252 1.394 1.394-.27.271c-1.612-.464-3.139.587-3.139.587zm20.74-2.33l-2.822 2.822c-1.42 1.42-5.211-2.39-5.211-2.39l5.645-5.645s3.79 3.81 2.389 5.212z"/><path d="M25.979 292.576s-1.184-1.721-.482-3.438l-.173-.173-2.122 2.122.429.429zm-5.174 5.174l-2.015-2.252-1.394 1.394.271.271c1.612-.464 3.138.587 3.138.587zM2.892 271.84L.07 274.663c-1.42 1.42 2.389 5.212 2.389 5.212l5.645-5.645s-3.81-3.791-5.212-2.39z"/><path d="M5.735 272.332s1.721 1.184 3.438.482l.174.173-2.122 2.122-.43-.429zm-5.173 5.174l2.25 2.015-1.393 1.394-.27-.27c.463-1.613-.587-3.14-.587-3.14z"/></g><g transform="translate(2.732 -211.934) scale(.79347)"><circle r="9.733" cy="283.771" cx="13.229" fill="#fff" fill-opacity=".941"/><circle cx="13.229" cy="283.771" r="6.142" fill="#252525"/></g></svg>') 50% 50% / 50% 50%, #fff;
+  background-repeat: no-repeat;
+}
+nav > ol > li:nth-of-type(4) {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458334 26.458309" style="opacity: 0.1"><g transform="translate(0 -270.542)" stroke="#252525" stroke-linecap="round" stroke-miterlimit="3.9"><path d="M.83 296.17l24.798-24.798" fill="none" stroke-width="1.643"/><rect ry="1.932" rx="2.463" y="177.894" x="206.738" height="4.124" width="6.546" transform="rotate(45)" fill="#252525" stroke-width="1.261"/><rect width="6.546" height="4.124" x="206.738" y="185.38" rx="2.463" ry="1.932" transform="rotate(45)" fill="#252525" stroke-width="1.261"/><rect ry="1.932" rx="2.463" y="192.866" x="206.738" height="4.124" width="6.546" transform="rotate(45)" fill="#252525" stroke-width="1.261"/><rect width="6.546" height="4.124" x="206.738" y="200.352" rx="2.463" ry="1.932" transform="rotate(45)" fill="#252525" stroke-width="1.261"/></g></svg>') 50% 50% / 50% 50%, #fff;
+  background-repeat: no-repeat;
+}
+nav > ol > li:nth-of-type(5) {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 39.687 26.458" style="opacity: 0.1"><g transform="matrix(-1.04083 0 0 1.09448 41.09 -285.976)" fill="#333"><ellipse cx="13.631" cy="276.821" rx="11.41" ry="7.534" stroke="#333" stroke-width="1.748"/><path d="M6.932 282.147s-.052 2.37-3.16 3.068c0 0 5.46.967 6.373-.9z"/></g><ellipse cx="17.506" cy="298.002" rx="11.41" ry="7.534" transform="matrix(1.22837 0 0 1.45448 -7.489 -422.48)" fill="#fff"/><g fill="#fff" transform="matrix(1.04083 0 0 1.09448 -.986 -291.461)"><ellipse ry="7.534" rx="11.41" cy="276.821" cx="13.631" stroke="#333" stroke-width="1.748"/><path d="M6.932 282.147s-.052 2.37-3.16 3.068c0 0 5.46.967 6.373-.9z" fill="#333"/></g></svg>') 50% 50% / 50% 50%, #fff;
+  background-repeat: no-repeat;
+}
+
+
 /* define a class which is applied to the list items when pressed, rotating the list item and applying a different background */
 li.pressed {
-  background: #A766FB;
   transform: rotateY(180deg);
+  /* position relative to absolute position a pseudo element, to simulate an active state */
+  position: relative;
+}
+/* add a background as overlay on the list item */
+li.pressed:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(167, 102, 251, 0.5);
 }
 /* hide the anchor link of the option which is pressed */
 li.pressed > a {
   opacity: 0;
+  visibility: hidden;
 }
-/* show the sub-menu of the pressed option, if a submenu is present that is */
+/* show the sub-menu of the pressed option */
 li.pressed .sub-menu {
   opacity: 1;
+  font-weight: bold;
 }
 
 /* modify the font-size for large and small screen devices */
 @media (min-width: 1500px) {
   a {
-    font-size: 2.7rem;
+    font-size: 2rem;
   }
 }
-
 @media (max-width: 600px) {
   a {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
