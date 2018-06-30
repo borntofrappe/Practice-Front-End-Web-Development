@@ -97,4 +97,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Error Message SVG Animation**](https://codepen.io/borntofrappe/pen/OEwKZa/)|Create with SVG syntax a simple animation, to display an error message with humor.|svg, smil, animation|25th June 2018|
 |[**CSS Drawings with Background**](https://codepen.io/borntofrappe/pen/QxZPQZ/)|Experiment drawing with CSS drawings through one div element and the background property.|css drawing, background, gradient|27th June 2018|
 |[**Codepen Challenge Menu**](https://codepen.io/borntofrappe/pen/qKLLjG/)|Create an entry for the weekly challenge, using CSS grid properties and CSS variables to experiment with a silly menu.|grid, variables, rotate, codepenchallenge|29th June 2018|
+|[**Hand-drawn SVG Syntax**](https://codepen.io/borntofrappe/pen/oymLLE/)|Create a small responsive logo using only a text editor.|syntax, svg, path, line|30th June 2018|
 
