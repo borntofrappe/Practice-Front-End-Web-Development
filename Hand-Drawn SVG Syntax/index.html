@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Hand-drawn SVG Syntax</title>
+  <meta name="description" content="Create a small responsive logo using only a text editor. This to practice with SVG syntax, regarding simple shapes and the mighty path element. Also because lacking access to SVG editing software.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+</head>
+<body>
+  
+  <!-- in a wrapping container used plainly to center the content include the hand-crafted SVG syntax with built-in style -->
+  <div class="container">
+
+    <!-- define through the viewbox attribute the width to height ratio of the SVG canvas -->
+    <svg viewbox="0 0 320 70">
+      <style>
+        /*
+        set the size of the SVG and for different media queries show different SVG elements 
+        - on "large" devices draw a straight underline, followed by cubic bezier curve which adds an accent to the letter _e_
+        - on "small" devices, draw the straight underline, preceded by another line. Rotate the SVG canvas to show the text vertically
+        */
+        svg {
+          width: 500px;
+        }
+        svg line:nth-of-type(2) {
+          display: none;
+        }
+        @media (max-width: 500px) {
+          svg {
+            transform: rotate(-90deg);
+          }
+          svg path {
+            display: none;
+          }
+          svg line:nth-of-type(2) {
+            display: inline-block;
+          }
+        }
+      </style>
+      <!-- the later the declaration, the higher the SVG element is on the page -->
+
+      <!-- draw the underline, always shown -->
+      <line x1="2" y1="65" x2="290" y2="65" stroke="#252525" stroke-width="3" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300">
+        <!-- animate the stroke as to emulate a drawing animation -->
+        <animate id="underline" attributeName="stroke-dashoffset" begin="1s" dur="1s" to="0" fill="freeze"/>
+      </line>
+      <!-- draw the sideline, shown only on smaller screen devices -->
+      <line x1="0" y1="5" x2="0" y2="65" stroke="#252525" stroke-width="3" stroke-linecap="round" stroke-dasharray="60" stroke-dashoffset="60">
+        <animate id="sideline" attributeName="stroke-dashoffset" begin="0s" dur="1s" to="0" fill="freeze"/>
+      </line>
+      <!-- draw a curve which wraps around the letter e, with quadratic bezier commands -->
+      <path d="M 290 65 Q 315 65 315 35 Q 315 -5 280 5 Q 255 15 260 35 Q 270 45 278 30" stroke="#252525" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="180" stroke-dashoffset="180">
+        <animate id="curve" attributeName="stroke-dashoffset" begin="underline.end" dur="0.4s" to="0" fill="freeze"/>
+      </path>
+      <!-- draw the accent, continuing in the direction of the preceding path element after a small pause -->
+      <path d="M 284 23 L 288 18" stroke="#252525" stroke-width="5" stroke-linecap="round" stroke-dasharray="10" stroke-dashoffset="10">
+        <animate id="accent" attributeName="stroke-dashoffset" begin="curve.end" dur="0.2s" to="0" fill="freeze"/>
+      </path>
+      <!-- include the text, which is framed by the line and path elements -->
+      <text x="0" y="55" font-size="3rem" font-family="ubuntu" font-weight="bold" fill="#252525">borntofrappe</text>
+    </svg>
+
+    
+  </div>
+
+
+<!-- <script src="script.js"></script> -->
+
+</body>
+</html>
