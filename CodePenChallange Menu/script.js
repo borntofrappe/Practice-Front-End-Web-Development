@@ -79,5 +79,4 @@ function showOptions(e) {
         mainOptions.forEach(mainOption => mainOption.classList.remove("pressed"));
         target.classList.add("pressed");
     }
-    
 }
