@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Target Shooting</title>
+  <meta name="description" content="Pull! Create a simple game of _clay target shooting_ in which visitors play with the mouse cursor to destroy targets. Targets which are thrown left and right on the screen.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+</head>
+<body>
+    
+  <!-- include an svg which is used to create a cursor resembling a target -->
+  <svg id="cursor" viewbox="0 0 100 100">
+    <!-- 
+      the new cursor is represented by a circle with four "ticks" positioned at all main cardinal points (norht, east and so forth)
+      the path element allows to draw even multiple segments by including the Z command, which ends a path, and following up with a M command, which moves the SVG to a new coordinate from which to start a new segment 
+      the effect can also be achieved by giving a solid fill to the circle and positioning it after the path element (remember SVG elements are stacked with later elements on top of previous ones)  
+    -->
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#F84A64" stroke-width="10">
+      <!-- 
+        create a simple animation which is included when a click event is registered on the page
+        instead of using begin:click, set begin to indefinite and trigger the animation in the JS script
+        -->
+      <animate id="shoot" attributeName="r" begin="indefinite" dur="0.1s" to="40"/>
+    </circle>
+    
+    <path d="M 50 0 v 20 Z M 50 80 v 20" stroke="#F84A64" stroke-width="10"/>
+    <path d="M 0 50 h 20 Z M 80 50 h 20" stroke="#F84A64" stroke-width="10"/>
+  </svg>
+
+  
+  <div class="container">
+      <h1 class="target">Pull!</h1>
+      <p>Click anywhere to start the game</p>
+      <!-- 
+        include an svg element which draws the clay target 
+        an ellipses with a linear-gradient as fill 
+      -->
+      <svg id="clay-target" viewbox="0 0 50 20">
+        <defs>
+          <linearGradient id="gradient" x1="100%" y1="0" x2="0" y2="100%">
+            <stop offset="0%" stop-color="#55BEFA"/>
+            <stop offset="50%" stop-color="#0e87cc"/>
+            <stop offset="100%" stop-color="#55BEFA"/>
+          </linearGradient>
+        </defs>
+        <ellipse class="target" cx="25" cy="10" rx="20" ry="10" fill="url(#gradient)"/>
+      </svg>
+  </div>
+
+    
+  <script src="script.js"></script>
+
+</body>
+</html>
