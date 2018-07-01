@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Exo:700");
+:root {
+  /* include a variable used to keep track of the score
+  as the score is included in a pseudo element, it needs to be wrapped in quotes (as in content: '') */
+  --score: '0';
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Exo', sans-serif;
+  color: rgba(248, 74, 100, 0.8);
+  background: #261630;
+  /* remove the default cursor */
+  cursor: none;
+  /* avoid overflow (which would occur as the mouse hovers on the right and bottom eddges of the page) */
+  overflow: hidden;
+}
+
+/* give a width to the cursor and position it absolutely in the middle of the page (rather pointless, as the SVG will tack the mouse pointer) */
+svg#cursor {
+  width: 50px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  /* 
+  z-index to position the made up cursor below the elements of the page 
+  otherwise the click event will always have as target the SVG cursor
+   */
+  z-index: -10;
+}
+
+/* spread the container div to cover the entire visible area */
+.container {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  padding: 2rem 1rem 0;
+  /* position relative to absolute position the "score", visualized through a pseudo element */
+  position: relative;
+}
+
+/* include a pseudo element which is used to display the score, in the bottom right corner of the container */
+.container:before {
+  position: absolute;
+  content: var(--score);
+  bottom:1rem;
+  right: 2rem;
+  font-size: 3rem;
+}
+
+.container h1 {
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(248, 74, 100, 0.3);
+}
+.container p {
+	color: rgba(248, 74, 100, 0.3);
+	letter-spacing: 0.3rem;
+	text-transform: uppercase;
+}
+/* style the way the header is highlighted */
+.container h1::selection, .container p::selection {
+  color: #261630;
+  background: rgba(248, 74, 100, 0.3);
+}
+
+/* 
+size the SVG which draws the clay target and absolute position it out of view
+in the JS script animate it to move randomly into view
+ */
+.container svg {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+}
