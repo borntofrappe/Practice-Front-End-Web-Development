@@ -8,7 +8,7 @@ To further my endeavors in this direction, and celebrate a little with a small s
 
 # Notes
 
-SVG tags such as `linearGradients` and `pattern` are ideally declared in one place and later referred in the elements which require them, however many time somebody may want to re-use the underlying syntax.
+SVG tags such as `linearGradients` and `pattern` are ideally declared in one place and later referred to in the elements which require them, however many time somebody may want to re-use the underlying syntax.
 
 **defs**
 
@@ -38,3 +38,5 @@ Following the declaration, the elements defined in between `degs` tags can be us
     <rect fill="url(#pattern)"/>
 </svg>
 ```
+
+// TODO: add notes on the following elements: clipPath, linearGradient, pattern. The html file already has some nice notes in comments
