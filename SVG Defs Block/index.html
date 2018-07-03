@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SVG Defs Block</title>
+  <meta name="description" content="Create a simple checkers board with SVG syntax. This to experiment with supporting SVG tags such as clipPath, linearGradient, pattern.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+  
+</head>
+<body>
+  
+  <!-- in a wrapping container include some filler text and the SVG making up the makeshift board -->
+  <div class="container">
+    <h1>let's play checkers</h1>
+
+
+    <svg viewbox="0 0 100 100">
+      <!-- in between defs tags (which describe elements not immediately rendered on the page), define a pattern through the element bearing the same name -->
+      <defs>
+        <!-- the attribute clipPathUnits is set to objectBoundingBox, which allows to include measures relative to the object to which the clip path is applied
+        reasoning: x="0" y="0.2" means the rectangle used in the clip will begin at the left of the bounded element, 20% from its top 
+        width="1" height="0.6" means the clip will take the entire width of the element and 60% if its height (hence covering the inner section of the board) -->
+        <clipPath id="clip-board" clipPathUnits="objectBoundingBox">
+          <rect x="0" y="0.2" width="1" height="0.6" />
+        </clipPath>
+
+        <!-- for the pattern element as well, patternUnits allows to include measures relative to the element to which the pattern is bound 
+        this refers to the measures of the pattern element
+        patternContentUnits refers instead to the measures of the elements _inside_ the pattern
+        by setting this value as well to objectBoundingBox (which it is not the default behavior of the element), both the pattern and its content include measures relative to the bounding box, the elemment to which they are applied
+        -->
+        <pattern id="checkers-board" x="0" y="0" width=".2" height=".2" patternUnits="objectBoundingBox" patternContentUnits="objectBoundingBox">
+          <!-- the first pattern creates a chequered board with alternating playing tiles -->
+          <rect x="0" y="0" width=".1" height=".1" fill="#E0AE78"/>
+          <rect x=".1" y="0" width=".1" height=".1" fill="#B6763C"/>
+          <rect x="0" y=".1" width=".1" height=".1" fill="#B6763C"/>
+          <rect x=".1" y=".1" width=".1" height=".1" fill="#E0AE78"/>
+          <circle cx=".05" cy=".05" r=".045" fill="#1C191F"/>
+          <circle cx=".15 " cy=".15  " r=".045" fill="#1C191F"/>
+        </pattern>
+        <pattern id="board" x="0" y="0" width=".2" height=".2" patternUnits="objectBoundingBox" patternContentUnits="objectBoundingBox">
+          <!-- the second pattern creates only the chequered board -->
+          <rect x="0" y="0" width=".1" height=".1" fill="#E0AE78"/>
+          <rect x=".1" y="0" width=".1" height=".1" fill="#B6763C"/>
+          <rect x="0" y=".1" width=".1" height=".1" fill="#B6763C"/>
+          <rect x=".1" y=".1" width=".1" height=".1" fill="#E0AE78"/>
+        </pattern>
+
+        <!-- four gradients are defined for each corner of the board
+        x1, y1 and x2, y2 describe the direction of the gradient (which in this case is top to bottom, right to left, and so forth) -->
+        <linearGradient id="border-top" x1="50%" y1="0" x2="50%" y2="100%">
+          <!-- the stop element allows to describe the color divide of the gradient 
+          equivalent to the CSS syntax 
+          linear-gradient(#684326, #684326 60%, #99704c 100%) -->
+          <stop offset="0%" stop-color="#684326"/>
+          <stop offset="60%" stop-color="#684326"/>
+          <stop offset="100%" stop-color="#99704c"/>
+        </linearGradient>
+
+        <linearGradient id="border-right" x1="100%" y1="50%" x2="0" y2="50%">
+          <stop offset="0%" stop-color="#684326"/>
+          <stop offset="60%" stop-color="#684326"/>
+          <stop offset="100%" stop-color="#99704c"/>
+        </linearGradient>
+
+        <linearGradient id="border-bottom" x1="50%" y1="100%" x2="50%" y2="0">
+          <stop offset="0%" stop-color="#684326"/>
+          <stop offset="60%" stop-color="#684326"/>
+          <stop offset="100%" stop-color="#99704c"/>
+        </linearGradient>
+
+        <linearGradient id="border-left" x1="0" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%" stop-color="#684326"/>
+          <stop offset="60%" stop-color="#684326"/>
+          <stop offset="100%" stop-color="#99704c"/>
+        </linearGradient>
+      </defs>
+      
+      <!-- the checkers board is made up of two rectangle elements, which describes the inner section, and four path elements, which describe the borders of the makeshift board -->
+
+      <!-- include two rectangles to display a chequered board and also have a smaller section devoted to the playing area -->
+      
+      <!-- include a rectangle with the chequered board and the playing tiles on all, alternating squares -->
+      <rect x="10" y="10" width="80" height="80" fill="url(#checkers-board)"/>
+      include a rectangle with only the chequered board and clip it to section the middle part of the board 
+      <!-- as this rectangle is declared after the first one, it will stack on top and hide the playing tiles -->
+      <rect clip-path="url(#clip-board)" x="10" y="10" width="80" height="80" fill="url(#board)"/>
+
+
+      <!-- include four distinct path element for each border of the checkers board -->
+      <!-- the border can be included with a single path element, as such: 
+          <path d="M 0 0 l 10 10 h 80 l 10 -10 Z M 0 0 l 10 10 v 80 l -10 10 Z M 100 0 l -10 10 v 80 l 10 10 Z M 0 100 l 10 -10 h 80 l 10 10 Z" stroke="#252525" stroke-width="1px" fill="red"/>  
+          
+          but four different sections allow to include a different a gradient for each section 
+      -->
+      <!-- wrap the four path elements in a group element to avoid repeating the attributes of stroke and stroke-width, which they all share -->
+      <g stroke="#2B252E" stroke-width="1px">
+        <path d="M 0 0 l 10 10 h 80 l 10 -10 Z"  fill="url(#border-top)"/>  
+        <path d="M 100 0 l -10 10 v 80 l 10 10 Z" fill="url(#border-right)"/>  
+        <path d="M 0 100 l 10 -10 h 80 l 10 10 Z" fill="url(#border-bottom)"/>  
+        <path d="M 0 0 l 10 10 v 80 l -10 10 Z" fill="url(#border-left)"/>  
+      </g>
+    </svg>
+
+    <p>not actual game</p>
+  </div><!-- close wrapping div -->
+
+
+<!-- <script src="script.js"></script> -->
+</body>
+</html>

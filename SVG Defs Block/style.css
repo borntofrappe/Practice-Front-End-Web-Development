@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Quicksand');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+  color: #2B252E;
+  background: #F9CA97;
+}
+
+.container {
+  margin: 1rem auto;
+  max-width: 500px;
+  width: 80vw;
+}
+.container h1 {
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+.container svg {
+  margin: 1rem 0;
+}
+.container p {
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+}
