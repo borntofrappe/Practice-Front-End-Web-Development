@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit')
+
+font-txt = 'Kanit', sans-serif
+color-txt = #ededed
+color-bg = #252525
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-txt
+    color color-txt
+    background color-bg    
+
+// center the contents of the container in the page
+// in a single column layout
+.container
+    display flex
+    flex-direction column
+    align-items center
+    min-height 100vh
+    justify-content center
+    padding 1.5rem 1rem
+    text-transform uppercase
+    text-align center
+
+    h1 
+        font-size 4rem
+
+    svg 
+        // set the width of the SVG, while the height is defined by proxy through the viewbox attribute
+        width 100px
+
+    label 
+        // separate the label and the input element from the top of the page's content
+        margin 4rem 0 1.8rem
+        font-size 2rem
+        letter-spacing 0.2rem
+
+    input 
+        min-width 250px
+        // position relative to position through pseudo element two makeshift values, at either end of the input
+        position relative
+
+        &:before, &:after
+            // position the pseudo element absolutely, style the text to be translucent
+            position absolute
+            top 0 
+            opacity 0.1
+            color #ededed 
+            font-size 1.5rem
+            font-weight bold
+            text-transform uppercase
+                    
+            // position the pseudo element at either end of the input, rotate both -45deg
+        &:before
+            content 'meh'
+            left 0
+            transform translateX(-4rem) rotate(-45deg) 
+        &:after
+            content 'wow'
+            right 0
+            transform translateX(4rem) rotate(-45deg) 
+

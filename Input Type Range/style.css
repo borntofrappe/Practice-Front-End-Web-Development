@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Kanit");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Kanit', sans-serif;
+  color: #ededed;
+  background: #252525;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.container h1 {
+  font-size: 4rem;
+}
+.container svg {
+  width: 100px;
+}
+.container label {
+  margin: 4rem 0 1.8rem;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+.container input {
+  min-width: 250px;
+  position: relative;
+}
+.container input:before,
+.container input:after {
+  position: absolute;
+  top: 0;
+  opacity: 0.1;
+  color: #ededed;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.container input:before {
+  content: 'meh';
+  left: 0;
+  transform: translateX(-4rem) rotate(-45deg);
+}
+.container input:after {
+  content: 'wow';
+  right: 0;
+  transform: translateX(4rem) rotate(-45deg);
+}
