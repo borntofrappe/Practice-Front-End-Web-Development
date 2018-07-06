@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>Input Type Range, Silly</title>
+  <meta name="description" content="Explore the HTML element of input. Specifically input of type range, to create something silly, but hopefully teaching."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+  <!-- in a wrapping container include fiiler content and a simple input of type="range"  -->  
+  <div class="container">
+
+      <h1>how long?</h1>
+
+      <!-- with a viewbox, draw a simple face with eyes, nose and mouth -->
+      <svg viewbox="0 0 100 100">
+        <circle r="40" cx="50" cy="50" fill="none" stroke="#ededed" stroke-width="4px"/>
+
+        <ellipse rx="8" ry="6" cx="35" cy="38" fill="none" stroke="#ededed" stroke-width="1.5px"/>
+        <circle r="3" cx="36" cy="40" fill="#ededed" stroke="none"/>
+        
+        <ellipse rx="8" ry="6" cx="65" cy="38" fill="none" stroke="#ededed" stroke-width="1.5px"/>
+        <circle r="3" cx="64" cy="40" fill="#ededed" stroke="none"/>
+
+        <path d="M 50 48 A 15 15 0 0 0 46 56 A 15 15 0 0 0 50 58" fill="none" stroke="#ededed" stroke-width="1.5px"/>
+
+        <ellipse rx="8" ry="1" cx="50" cy="75" fill="none" stroke="#ededed" stroke-width="1.5px"/>
+      </svg>
+
+
+      <!-- include an input type range and a connected label -->
+      <label for="howlong">this long</label>
+      <!-- initilize the input value to 0 -->
+      <input type="range" name="howlong" id="howlong" min="0" max="100" value="0">
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
