@@ -75,9 +75,6 @@ when active, flip the color and background colors */
 .container button:active {
   background: #f8f8fa;
   color: #422891;
-  /* when active, also increase the size and elevate the button to aim upward at the SVG to which the button is connected */
-
-  transform: scale(1.1) translateY(-10px);
 }
 
 .container details {
