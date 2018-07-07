@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+/* 
+define CSS variables used in the animation of the path element to precisely animate the length of the element, in a reasonable time-frame 
+variables updated in the script according to the length of the path element 
+*/
+:root {
+  --dasharray: 100;
+  --dashoffset: 100;
+  --animation-duration: 2s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: #f8f8fa;
+  background: linear-gradient(to top right, #463b89, #6c51a4);
+}
+/* display the contents of the container in a single column layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.container svg {
+  /* define the SVG area to be at most 500px wide (and therefore 250px tall, as defined by the viewbox attribute) */
+  width: 90vw;
+  max-width: 500px;
+  /* separate the SVG from the underlying content  */
+  margin-bottom: 1.5rem;
+  /* animate the svg element into view from the left side of the screen */
+  animation: introduceElement 0.5s 0.3s both;
+}
+
+.container button {
+  /* reset style of the button */
+  color: inherit;
+  font-family: inherit;
+  background: none;
+  border: 4px solid #f8f8fa;
+  border-radius: 10px;
+  cursor: pointer;
+  /* style the button to be prominently displayed in the middle of the page */
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  /* padding to distance the text from the surrounding border */
+  padding: 0.8rem 1.2rem;
+  /* margin to separate the underlying content */
+  margin-bottom: 3.5rem;
+  /* transition for the hover and active states */
+  transition: all 0.1s ease-out;
+  /* animate the button element much alike the svg, but briefly following the same element */
+  animation: introduceElement 0.5s 0.4s cubic-bezier(.22, -0.3, .68, 1.44) both;
+}
+
+/* on hover slightly whiten the background
+when active, flip the color and background colors */
+.container button:hover {
+  background: rgba(248,248,250,0.1);
+}
+
+.container button:active {
+  background: #f8f8fa;
+  color: #422891;
+}
+
+.container details {
+  /* style the details box similarly to the button */
+  border: 2px solid #f8f8fa;
+  border-radius: 10px;
+  /* padding to separate the text from the surrounding borders
+  horizontal padding to be matched by the div nested in the element      */
+  padding: 1rem 3rem;
+  /* animate the details element much alike the button and the svg, but briefly following the button element */
+  animation: introduceElement 0.5s 0.5s cubic-bezier(.22, -0.3, .68, 1.44) both;
+}
+
+.container details summary {
+  /* style the summary's text similarly to the button's text */
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.container details .settings {
+  /* display the label and input element in a single column layout */
+  display: flex;
+  flex-direction: column;
+  /* separate the div from the summary element which stands above it */
+  margin-top: 1rem;
+}
+
+.container details .settings label {
+  /* style the labels' text */
+  font-size: 1.15rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  /* margin to slightly separate the label from the surrounding input element */
+  margin: 0.8rem 0;
+  /* position relative to absolute position connected pseudo elements */
+  position: relative;
+}
+
+.container details .settings label:after,
+.container details .settings label:before {
+  /* include with pseudo elements simple pieces text, at either end of the input element */
+  position: absolute;
+  top: 2rem;
+  /* reduce opacity to avoid the text from overpowering the input elements to which they are visually connected */
+  opacity: 0.2;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transform: rotate(-45deg);
+}
+
+.container details .settings label:after {
+  left: -3rem;
+  content: 'nope';
+}
+
+.container details .settings label:before {
+  right: -3rem;
+  content: 'yep';
+}
+
+/* define the class which animates the svg path element */
+.animation {
+  animation: drawPath var(--animation-duration) ease-in forwards;
+}
+
+
+/* animate the stroke of the path element, to draw the element into view */
+@-moz-keyframes drawPath {
+  0% {
+    stroke-dasharray: var(--dasharray);
+    stroke-dashoffset: var(--dashoffset);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawPath {
+  0% {
+    stroke-dasharray: var(--dasharray);
+    stroke-dashoffset: var(--dashoffset);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-o-keyframes drawPath {
+  0% {
+    stroke-dasharray: var(--dasharray);
+    stroke-dashoffset: var(--dashoffset);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawPath {
+  0% {
+    stroke-dasharray: var(--dasharray);
+    stroke-dashoffset: var(--dashoffset);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* animate the element(s) into view from the left side of the screen */
+@-moz-keyframes introduceElement {
+  0% {
+    opacity: 0;
+    transform: translateX(-25vw);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes introduceElement {
+  0% {
+    opacity: 0;
+    transform: translateX(-25vw);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-o-keyframes introduceElement {
+  0% {
+    opacity: 0;
+    transform: translateX(-25vw);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes introduceElement {
+  0% {
+    opacity: 0;
+    transform: translateX(-25vw);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

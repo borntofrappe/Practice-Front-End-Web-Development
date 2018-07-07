@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>#CodepenChallenge: Signature Generator</title>
+  <meta name="description" content="Create an entry for the weekly #codepenchallenge, with a signature generator. Based on SVG syntax, specifically the path element and arc commands."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+  
+  <!-- in a wrapping container include
+    - the SVG in which to draw the signature 
+    - a button to trigger the signature
+    - a div for the controls' panel, nesting itself an input of type="range"
+  -->
+
+  <div class="container">
+    <svg viewbox="0 0 100 50">
+      <line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="1.5px"/>
+    </svg>
+
+    <button>generate signature ☝</button>
+
+    <details>
+      <summary>
+        tweak signature
+      </summary>
+      <div class="settings">
+        <label for="length">
+          long
+        </label>
+        <input type="range" id="length" name="length" min="100" max="200" value="150"/>
+
+      </div>
+    </details>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
