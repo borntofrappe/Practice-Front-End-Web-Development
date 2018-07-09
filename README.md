@@ -102,6 +102,7 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Defs Block**](https://codepen.io/borntofrappe/pen/pKBwvG/)|Create a simple checkers board with SVG syntax, to experiment with supporting elements in a between defs tags.|defs, clipPath, linearGradient, pattern|3rd July 2018|
 |[**Input Type Range**](https://codepen.io/borntofrappe/pen/xzvKGp/)|Explore the HTML element of input. Specifically input of type range.|input, range, mousemove, change|6th July 2018|
 |[**CodepenChallenge Signatures**](https://codepen.io/borntofrappe/full/WyVZVp/)|A signature generator based on SVG syntax. Specifically the path element and arc commands.|codepenchallenge, svg, path, arc|7th July 2018|
+|[**Responsive Poster JavaScript**](https://codepen.io/borntofrappe/pen/VBZRwg/)|Create a simple design for a responsive poster. Responsive and animated.|poster, js, css animation|9th July 2018|
 
 
 

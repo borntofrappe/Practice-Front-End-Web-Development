@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400|Fredoka+One");
+
+/* define variables for the color palette */
+:root {
+  --poster-bg: #EDEEE9;
+  --container-bg: #261630;
+  --poster-txt: #FE4922;
+  --poster-shadow: #ED0F0E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: var(--poster-txt);
+  background: var(--container-bg);
+  /* center the content of the page vertically  */
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.poster {
+  /* center the poster and limit the width of the poster */
+  padding: 3rem 5rem;
+  margin: 1rem auto;
+  width: 80vw;
+  max-width: 600px;
+  background: var(--poster-bg);
+}
+.poster {
+  font-size: 4.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+}
+.poster span {
+  /* display inline-block is essential for the transform property to properly function */
+  display: inline-block;
+  font-size: 5.5rem;
+  cursor: pointer;
+  /* transform origin to have both span be animated from the bottom center */
+  transform-origin: bottom center;
+}
+.poster p {
+  /* position the paragraph in the bottom right of the screen */
+  position: absolute;
+  font-size: 1rem;  
+  bottom: 1rem;
+  right: 1rem;
+  color: var(--poster-bg);
+  text-transform: uppercase;
+}
+
+.poster span.weak {
+  /* pick a bulky font for the .weak span */
+  font-family: 'Fredoka One', cursive;
+}
+.poster span.weak:hover {
+  /* on hover include the animation which makes the span of class .weak tumble */
+  animation: weakAnimation 1s ease-in both;
+}
+
+.poster span.dynamic {
+  /* position relative to absolute position the connected pseudo element */
+  position: relative;
+  font-weight: 300;
+}
+.poster span.dynamic:before {
+  /* create three lines with a pseudo element, and animate them as streaks around the span element */
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 20%, var(--poster-shadow) 20%, var(--poster-shadow) 24%, transparent 24%, transparent 48%, var(--poster-shadow) 48%, var(--poster-shadow) 52%, transparent 52%, transparent 76%, var(--poster-shadow) 76%, var(--poster-shadow) 80%, transparent 80%);
+  /* background repeat essential to allow for background-position to properly function */
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+.poster span.dynamic:hover {
+  /* animate the .dynamic span with a skew value for the transform property */
+  animation: dynamicAnimation 1s ease-in both;
+}
+.poster span.dynamic:hover:before {
+  /* animate the pseudo element with the properties of background-position, opacity and transform, for the value of translate
+  the lines are animated into view in the opposite direction of the skew
+  */
+  animation: dynamicAnimationBefore 1s ease-in both;
+}
+
+@keyframes weakAnimation {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes dynamicAnimation {
+  20%, 33% {
+    transform: skewX(-20deg);
+  }
+  53%, 67% {
+    transform: skewX(20deg);
+  }
+}
+@keyframes dynamicAnimationBefore {
+  20% {
+    opacity: 0.2;
+  }
+  22% {
+    opacity: 0;
+    background-position-x: -10vw;
+    transform: translateX(-200px);
+  }
+  23%, 33% {
+    background-position-x: 0;
+    transform: translateX(0);
+  }
+  51% {
+    opacity: 0.2;
+  }
+  53% {
+    opacity: 0;
+    background-position-x: 10vw;
+    transform: translateX(200px);
+  }
+}
+
+/* reduce the font-size for small screen sizes */
+@media (max-width: 600px) {
+  .poster {
+    font-size: 2rem;
+    padding: 1rem 2.5rem;
+  }
+  .poster span {
+    font-size: 3rem;
+  }
+}
