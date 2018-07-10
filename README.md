@@ -103,6 +103,7 @@ If the inspiration strikes, exceptions can be made.
 |[**Input Type Range**](https://codepen.io/borntofrappe/pen/xzvKGp/)|Explore the HTML element of input. Specifically input of type range.|input, range, mousemove, change|6th July 2018|
 |[**CodepenChallenge Signatures**](https://codepen.io/borntofrappe/full/WyVZVp/)|A signature generator based on SVG syntax. Specifically the path element and arc commands.|codepenchallenge, svg, path, arc|7th July 2018|
 |[**Responsive Poster JavaScript**](https://codepen.io/borntofrappe/pen/VBZRwg/)|Create a simple design for a responsive poster. Responsive and animated.|poster, js, css animation|9th July 2018|
+|[**D3JS Scales and Axes**](https://codepen.io/borntofrappe/pen/PBoLWY/)|Create a visual to easily understand how different scales map data with the popular data visualization library.|d3, axes, scales|10th July 2018|
 
 
 
