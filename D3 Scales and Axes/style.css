@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  color: #EA53AF;
+  background-color: #3E132E; }
+
+.container {
+  /* center the contents of the container */
+  text-align: center;
+  margin: 1rem 0; }
+  .container svg {
+    /* epxand the svg to occupy 80% of the viewport width */
+    margin: 3rem 0;
+    width: 80vw;
+    /* for the fill and stroke of the svg, inherit the color specified on the body */
+    fill: currentColor;
+    stroke: currentColor; }
+    .container svg g path {
+      /* the fill of the axis is by default #000, and needs overriding  */
+      fill: currentColor; }
