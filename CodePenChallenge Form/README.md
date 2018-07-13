@@ -242,8 +242,17 @@ There's also [plenty of discussion](https://css-tricks.com/alternatives-placehol
 Given the component-based structure of the project, the React library is a perfect choice to render the different form elements. The project structure can be described with the following components:
 
 - `index.js` renders the main component to the single `<div>` element present in the HTML
-- `app.js` manages the application, its possible state and its structure. This 'parent' component is responsible for how the application is built, by nesting multiple 'child' components with the actual HTML markup for the `<form>` elements.
+- `app.js` renders a single stateful component in `SignUpForm`. 
+- `SignUpForm` retains the state of the application and displays different HTML structures depending on the flow of the application. The flow is emulated by altering a key in the state and use it to display different JSX elements. A button triggers the change in state, through the `setState()` function and triggers a re-rendering of the page.
 
+### React Animation
+
+While the initial project is able to include the different sub-elements one after the other, it does so without allowing for any kind of transition. The JSX elements are rendered immediately, with no sense of pause nor action on the serer side. 
+
+It'd be neat to transition each sub-element in and out of view, altering properties of opacity and maybe horizontal coordinates as well.
+
+// TODO: research React animation
+// TODO: prevent the visitor from submitting the form when no text is included 
 
 
 
