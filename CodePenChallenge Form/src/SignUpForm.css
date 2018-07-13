@@ -1,0 +1,41 @@
+.SignUpForm {
+  /* width: 70vw; */
+  padding: 10vh 15vw;
+  border-radius: 12px;
+  background: hsl(195, 50%, 98%);
+  text-align: center;
+  box-shadow: 0 1px 5px hsl(195, 50%, 98%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+
+}
+.SignUpForm h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: calc(2rem + 1vw);
+  color: hsla(0, 0%, 15%, 0.7);
+}
+.SignUpForm button {
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border:none;
+  margin: 0.5rem 0;
+  background: #FD5477;
+  color: hsl(195, 50%, 98%);
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.SignUpForm button:hover {
+  box-shadow: 0 2.5px 7.5px #FD5477, 0 -2.5px 7.5px #FD5477;
+
+}
+.SignUpForm button:active {
+  transform: scale(1.1);
+}
