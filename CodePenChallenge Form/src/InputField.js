@@ -1,6 +1,7 @@
 import React from 'react';
 import './InputField.css';
 
+// render an input field depending on the value of props
 const InputField = (props) => {
   return(
     <div className="InputField">
