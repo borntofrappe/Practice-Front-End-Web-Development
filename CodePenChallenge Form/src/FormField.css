@@ -1,0 +1,21 @@
+/* style the div containing the error message with a background of the accent color */
+.FormField .ErrorMessage {
+  background: hsla(348, 98%, 66%, 0.6);
+  border-radius: 5px;
+  margin: 0.8rem 0 0.4rem;
+  padding: 0.5rem 0.8rem;
+  /* align paragraphs to the beginning of the div */
+  text-align-last: left;
+}
+
+.FormField .ErrorMessage p {
+  /* present the text boldly in the div  */
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: hsl(192, 45%, 98%);
+  font-weight: 600;
+}
+.FormField .ErrorMessage p:last-of-type {
+  /* slightly separate the last paragraph more than the other elements bearing the same tag */
+  margin: 0.35rem 0;
+}

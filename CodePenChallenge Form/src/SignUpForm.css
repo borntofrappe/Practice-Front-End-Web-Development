@@ -13,6 +13,24 @@
   box-shadow: 0 1px 5px hsl(195, 50%, 98%);
   /* center the text in the form */
   text-align: center;
+
+  /* by default, hide the component and slightly offset it to the bottom */
+  opacity: 0;
+  transform: translateY(10vh);
+  /* transition to ease the change in opacity and translateY  */
+  transition: all 0.1s ease-out;
+  /* slightly delay the transition which removes the SignUpForm from view, to assess the click on the submit button */
+  transition-delay: 0.2s;
+
+}
+
+/* include a class which is iteratively added and removed to animate the .SignUpForm compoentn */
+.AnimateForm {
+  opacity: 1;
+  transform: translateY(0);
+  /* specifying the transition on the .Animate class as well means that when the class is added, this transition applies (with 0.5s transition-duration)
+  when the class is removed, the previous transition takes hold (with 0.2s transition-duration) */
+  transition: all 0.4s ease-out;
 }
 
 .SignUpForm h1 {

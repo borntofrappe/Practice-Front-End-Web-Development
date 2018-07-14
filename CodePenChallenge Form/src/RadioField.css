@@ -1,0 +1,22 @@
+.RadioField {
+  /* display the contents of the option field (such as label and input) in a single column, vertically aligned to the start of the container */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* separate the input from the surrounding content (h1 and submit button) */
+  margin: 2rem 0 0.5rem;
+}
+.RadioField > label {
+  /* include some horizontal padding and a small indicator to the left of the text */
+  padding: 0 0.3rem;
+  border-left: 2.5px solid hsl(348, 98%, 66%);
+}
+
+.RadioField div {
+  margin: 1rem 0 0.2rem;
+  font-weight: 600;
+}
+.RadioField div label {
+  margin: 1rem 0 0.2rem;
+  padding: 0 0.5rem;
+}

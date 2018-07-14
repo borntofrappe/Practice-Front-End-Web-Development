@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/xJwJNP/).
+Link to the working [here](https://codepen.io/borntofrappe/full/xJwJNP/).
 
 # Preface 
 
@@ -259,8 +259,19 @@ While the initial project is able to include the different sub-elements one afte
 
 It'd be neat to transition each sub-element in and out of view, altering properties of opacity and maybe horizontal coordinates as well.
 
-// TODO: research React animation
-// TODO: prevent the visitor from submitting the form when no text is included 
+As I revised the project, I started tinkering with straightforward CSS animation. While learning about the subtle differences which can be introduced applying multiple transition properties on different selectors, I came up with a pretty simple, yet pleasing animation.
+
+This does not imply that _React Animation_ is a closed topic. By far, I need to research the subject, alongside many other React libraries. For the project at hand though, this means that CSS animation does the trick.
+
+Now it's just a matter of streamlining the project structure, trying to remove reduncancies while adding more input fields, such as those detailed by the [example pen](https://codepen.io/team/codepen/pen/QxXejz).
+
+There should exist an input field for:
+
+- password
+- favorite color
+- favorite ninja turtle
+
+To maintain the spirit of the project, and the impractical nature of the form, the final "awkward" form should only contain a few of the input fields found on the way. This to also give the clear feedback that everything you included before did not really count. Nor matter. A better copy might be included for the error message to support this statement.
 
 
 

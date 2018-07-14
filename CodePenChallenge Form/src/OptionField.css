@@ -1,0 +1,32 @@
+.OptionField {
+  /* display the contents of the option field (such as label and input) in a single column, vertically aligned to the start of the container */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* separate the input from the surrounding content (h1 and submit button) */
+  margin: 2rem 0 0.5rem;
+}
+.OptionField label {
+  /* include some horizontal padding and a small indicator to the left of the text */
+  padding: 0 0.3rem;
+  border-left: 2.5px solid hsl(348, 98%, 66%);
+}
+
+.OptionField .Select {
+  /* visually separate the select container from the label before it (and the button following after it)  */
+  margin: 1rem 0;
+}
+.OptionField .Select select {
+  /* include the chosen font */
+  font-family: inherit;
+  font-size: 0.9rem;
+  /* style the selection to have a transparent, slightly rounded border */
+  border: 2px solid hsla(0, 0%, 15%, 0.2);
+  border-radius: 2px;
+  padding: 0.8rem 1.2rem;
+}
+.OptionField .Select select,
+.OptionField .Select option {
+  /* bolden the text for the selection and the different options */
+  font-weight: 600;
+}
