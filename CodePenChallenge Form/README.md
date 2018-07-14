@@ -6,12 +6,11 @@ The weekly codepen challenge is all about forms. The challenge itself does provi
 
 The idea behind the project is a little unorthodox, but far from particularly original. 
 
-Instead of designing the form as a wholesome element, consider the different components making up the larger composition. 
+Instead of designing the form as a wholesome element, consider the different parts making up the larger composition. 
 
 Include first name. Include last name. Include a valid email. All these sub-elements can be considered components of the larger form. 
 
-As you consider this structure, separate the sub-elements from one another. Separate them visually and decidedly. 
-
+As you consider this structure, separate the sub-elements from one another. Separate them visually. 
 Instead of having them all in one screen, let them appear one after the other. Similarly to an hypothetical checkout process.
 
 This may seem contrived, and rightly so. The idea is to build a form, specifically a sign up form, that is designed to take a few steps. To take time. To create friction. This while presenting a beautiful, sleek interface. 
@@ -40,6 +39,15 @@ For colors, I wanted to have a soft palette, so I decided to pick a few hues res
 **Font**
 
 Montserrat: thin for the headers, semi-bold for the buttons.
+
+_Update_
+
+As I started developing the project, I decided to alter the color palette for the form. A nice blue gradient in the background is included, together with an accent pink/purple for the submit button. For the text, #252525 proved to be rather harsh, so I included some transparency through rgba hsla would have also worked).
+
+- background white: hsl(195, 50%, 98%)
+- blue gradient: hsl(198, 76%, 50%) to hsl(228, 62%, 36%)
+- pink: hsl(348, 98%, 66%)
+- black text: hsla(0, 0%, 15%, 0.7) with varying opacity
 
 ## Form
 
@@ -239,11 +247,11 @@ There's also [plenty of discussion](https://css-tricks.com/alternatives-placehol
 
 ## React
 
-Given the component-based structure of the project, the React library is a perfect choice to render the different form elements. The project structure can be described with the following components:
+Given the component-based structure of the project, the React library is a perfect choice to render the different form elements. The project is structured with the following components:
 
 - `index.js` renders the main component to the single `<div>` element present in the HTML
 - `app.js` renders a single stateful component in `SignUpForm`. 
-- `SignUpForm` retains the state of the application and displays different HTML structures depending on the flow of the application. The flow is emulated by altering a key in the state and use it to display different JSX elements. A button triggers the change in state, through the `setState()` function and triggers a re-rendering of the page.
+- `SignUpForm` displays the different HTML structures depending on the flow of the application. The flow is emulated by altering a key in the state and use it to display different JSX elements. A button triggers the change in state, through the `setState()` function and triggers a re-rendering of the page.
 
 ### React Animation
 

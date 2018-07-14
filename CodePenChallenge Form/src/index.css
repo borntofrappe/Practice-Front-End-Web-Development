@@ -7,7 +7,9 @@
 body {
   min-height: 100vh;
   width: 100%;
+  /* include the chosen font and colors */
   font-family: 'Montserrat', sans-serif;
   color: hsla(0, 0%, 15%, 0.95);
+  /* for the background, include a linear gradient with the chosen blue colors */
   background: linear-gradient(to bottom right,hsl(198, 76%, 50%), hsl(228, 62%, 36%));
 }
