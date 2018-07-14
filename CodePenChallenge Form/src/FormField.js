@@ -58,9 +58,9 @@ const FormField = (props) => {
         &&
         <div className="EntireForm">
           <div className="ErrorMessage">
-            <p>Ehm... this is awkward 😅</p>
+            <p>Ehm... this is awkward <span role="img" aria-label="Emoji expressing awkwardness">😅</span></p>
             <p>I forgot to register...</p>
-            <p>Let's cut it short 👌</p>
+            <p>Let's cut it short <span role="img" aria-label="Emoji explaining that everything is okay">👌</span></p>
           </div>
 
           <InputField for="first-name" type="text" label="First Name"/>
