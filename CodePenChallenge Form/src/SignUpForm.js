@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './SignUpForm.css';
 import InputField from './InputField';
-import { CSSTransitionGroup } from 'react-transition-group';
 
-
+// display different input field(s) depending on the flow of the application 
+// unidirectional flow from the first input field for the first name to the last input field
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -67,8 +67,6 @@ class SignUpForm extends Component {
           <InputField name="email" label="Email Address" type="email" />
         </div>
       }
-
-     
 
       <button type="submit" onClick = {this.handleClick}>Submit</button>
     </form>
