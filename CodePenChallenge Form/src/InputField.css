@@ -9,7 +9,7 @@
 .InputField label {
   /* include some horizontal padding and a small indicator to the left of the text */
   padding: 0 0.3rem;
-  border-left: 2.5px solid #FD5477;
+  border-left: 2.5px solid hsl(348, 98%, 66%);
 }
 
 .InputField input {
@@ -19,7 +19,6 @@
   /* style the input elements to have a transparent, slightly rounded border */
   padding: 0.8rem 1.2rem;
   border-radius: 2px;
-  border: 2px solid rgba(37,37,37,0.2);
+  border: 2px solid hsla(0, 0%, 15%, 0.2);
   margin: 0.5rem 0;
 }
-
