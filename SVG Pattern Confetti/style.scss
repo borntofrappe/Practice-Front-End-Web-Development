@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Chela+One');
+
+$font-txt: 'Chela One', cursive;
+$color-txt: #F7F7F7;
+$color-bg: #3367D6;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-txt;
+  color: $color-txt;
+  background: $color-bg;
+  overflow: hidden;
+}
+
+// center the text in the page
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  h1 {
+    // display the header boldly in the page
+    font-size: calc(5rem + 1vw);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    // include drop shadow as the font is slightly hard to read
+    text-shadow: 4px 4px 2px rgba(37,37,37,0.2);
+    // include a z-index to have the header atop the SVG which follows
+    z-index: 5;
+
+  }
+}
+
+svg {
+  // position the SVG to span the width and height of the screen (as the viewbox describes a square, the composition will be centered horizontally and vertically)
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -5;
+}
