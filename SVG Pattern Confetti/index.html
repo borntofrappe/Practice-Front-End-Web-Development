@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>SVG Pattern Confetti</title>
+  <meta name="description" content="Tinker with SVG elements and the pattern element in particular to create a cascade of confetti. Celebrating the end of the world cup."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- 
+  in a wrapping container include simply the header 
+  outside of the container include an svg used for the confetti
+  -->
+
+  <svg viewbox="0 0 1000 1000" fill="#fff">
+    <!-- 
+    include a pattern for the confetti, made oout of different elements
+    a circle, a triangle, a string, a rectangle and another string  
+
+    animate each element in opacity, in different time periods
+    -->
+    <defs>
+      <pattern id="confetti-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+          <circle cx="100" cy="100" r="8" opacity="0">
+            <animate attributeName="opacity" begin="0.8s" dur="4s" values="0;0.8;0;0" keyTimes="0;0.2;0.4;1" repeatCount="indefinite" />
+          </circle>
+          <path d="M 70 150 l 10 15 l 5 -15 Z" opacity="0">
+              <animate attributeName="opacity" begin="1.4s" dur="5s" values="0;0.7;0;0" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" />
+          </path>
+          <path d="M 150 150 q 20 20 7 14 t 5 10" opacity="0" fill="none" stroke="#fff" stroke-width="2">
+              <animate attributeName="opacity" begin="2.4s" dur="5s" values="0;0.9;0;0" keyTimes="0;0.2;0.4;1" repeatCount="indefinite" />
+          </path>
+          <rect x="180" y="20" width="10" height="5" transform-origin="180 20" transform="rotate(50)" opacity="0">
+            <animate attributeName="opacity" begin="3s" dur="5s" values="0;0.9;0;0" keyTimes="0;0.2;0.5;1" repeatCount="indefinite" />
+          </rect>
+          <path d="M 100 40 q 20 -10 10 0 t 10 0" opacity="0" fill="none" stroke="#fff" stroke-width="4">
+              <animate attributeName="opacity" begin="4s" dur="5s" values="0;0.8;0;0" keyTimes="0;0.2;0.4;1" repeatCount="indefinite" />
+          </path>
+        <!-- animate the overarching pattern to be translated vertically -->
+        <animate attributeName="y" begin="0.8s" dur="8s" from="0" to="1000" repeatCount="indefinite" />
+      </pattern>
+    </defs>
+    <!-- include a square with a fill made from the designed pattern -->
+    <rect x="0" y="0" width="1000" height="1000" fill="url(#confetti-pattern)"/>    
+  </svg>
+
+  <div class="container">
+    <h1>russia 2018</h1>
+  </div>
+  
+<!-- <script src="script.js"></script> -->
+</body>
+</html>
