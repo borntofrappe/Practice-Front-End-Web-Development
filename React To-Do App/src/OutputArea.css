@@ -1,0 +1,33 @@
+.OutputArea {
+  width: 80vw;
+  max-width: 400px;
+  min-height: 20vh;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background: linear-gradient(to bottom, hsl(237, 49%, 35%), hsl(258, 34%, 45%));
+  box-shadow: 0 1px 10px hsla(258, 34%, 45%,0.8);
+  border-radius: 12px;
+
+  animation: slideIn 0.8s 0.3s cubic-bezier(.22,-0.3,.68,1.44) both;
+
+  line-height: 2;
+  list-style: none;
+  font-size: 1.2rem;
+}
+.OutputArea li {
+  position: relative;
+}
+.OutputArea li:before {
+  position: absolute;
+  content: '';
+  left: 100%;
+  top: calc(50% - 10px/2);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 2px solid hsla(0, 0%, 100%, 0.5);
+  transition: background 0.3s ease-out;
+}
+.OutputArea li:hover:before {
+  background: hsla(0, 0%, 100%, 0.5);
+}

@@ -1,0 +1,37 @@
+.InputArea {
+  width: 80vw;
+  max-width: 400px;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 0;
+  background: #fff;
+  box-shadow: 0 1px 10px hsla(227, 15%, 36%,0.4);
+  border-radius: 12px;
+  animation: slideIn 0.7s 0.5s cubic-bezier(.22,-0.3,.68,1.44) both;
+
+  display: flex;
+}
+
+.InputArea button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  padding: 0 0.4rem;
+  transition: transform 0.2s ease-out;
+}
+.InputArea button:active {
+  transform: scale(1.1);
+}
+
+.InputArea input {
+  padding: 0 0.6rem;
+  flex-grow: 1;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}

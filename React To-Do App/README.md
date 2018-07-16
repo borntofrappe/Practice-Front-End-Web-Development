@@ -48,7 +48,7 @@ The application is structured with very few components. The state, without inclu
 
 - an input area, in which text can be included by means of an `<input>` element of `type="text"`;
 
-- an output area, in which the text "saved" from the input area is displayed, in a `<ul>` element, with as many `<li>` elements as there are to-do items.
+- an output area, in which the text included the input area is pushed, in a `<ul>` element, with as many `<li>` elements as there are to-do items.
 
 <!-- ## [Styled Components](https://www.styled-components.com/)
 
