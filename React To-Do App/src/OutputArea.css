@@ -1,0 +1,42 @@
+.OutputArea {
+  /* span the output area matching the size of the input area  */
+  width: 80vw;
+  max-width: 400px;
+  /* include a minimum width */
+  min-height: 4rem;
+  /* style the text to be dislayed boldy on a purple background */
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background: linear-gradient(to bottom, hsl(237, 49%, 35%), hsl(258, 34%, 45%));
+  box-shadow: 0 1px 10px hsla(258, 34%, 45%,0.8);
+  border-radius: 12px;
+  /* include an animation which occurs before the same animation for the input area */
+  animation: slideIn 0.8s 0.3s cubic-bezier(.22,-0.3,.68,1.44) both;
+}
+
+.OutputArea li {
+  /* position relative to absolute position the connected pseudo-element */
+  position: relative;
+  line-height: 2;
+  font-size: 1.1rem;
+  /* remove the bullet point used by defualt  */
+  list-style: none;
+}
+/* 
+with a pseudo element inlude a slightly transparent circle on the right of the list items 
+include a transition for the hover event occurring on the connected pseudo-element
+*/
+.OutputArea li:before {
+  position: absolute;
+  content: '';
+  left: 100%;
+  top: calc(50% - 10px/2);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 2px solid hsla(0, 0%, 100%, 0.5);
+  transition: background 0.3s ease-out;
+}
+.OutputArea li:hover:before {
+  background: hsla(0, 0%, 100%, 0.5);
+}

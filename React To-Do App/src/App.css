@@ -1,0 +1,23 @@
+/* display the input and output areas in a single column layout, in the middle of the screen */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* define an animation which is used by the input and output area, even with different values for the animation-delay property */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20vw);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
