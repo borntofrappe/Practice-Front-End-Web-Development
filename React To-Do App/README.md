@@ -1,6 +1,6 @@
 This app is currently being built through the `create-react-app` utiltiy. Link to a live pen will soon follow.
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/jpqLer/).
 
 # Preface
 
@@ -28,13 +28,6 @@ For the design of the page, I took inspiration from several sources:
 - For the input field, as well as the to-do list (which are visually connected), the text will have a color of #4F556A, while the background of the container boxes will have a color of #FFFFFF.
 
 - For the single `font-family` used on the page, [PT Sans](https://fonts.google.com/specimen/PT+Sans) is a good starter font. Additional thought might be included afterwards, once the application is up and running.
-
-<!-- 
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
-font-family: 'PT Sans', sans-serif;
--->
-
-
 
 # React 
 

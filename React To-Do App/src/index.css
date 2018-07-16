@@ -14,7 +14,9 @@ body {
   include a circle smaller than the entirety of the screen with a radial gradient
   below the circle, include a simple division with a linear gradient
   
-  include transparency to 1) reduce the intensity of the chosen colors and 1) lessen the weight of the hard stop in the lnear gradient
+  include transparency as to 
+  1) reduce the intensity of the chosen colors
+  1) lessen the weight of the hard stop in the lnear gradient
   */
   background: 
     radial-gradient(

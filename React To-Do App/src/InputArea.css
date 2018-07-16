@@ -1,16 +1,33 @@
 .InputArea {
+  /* span the input area to cover 80vw and at most 400px in width§  */
   width: 80vw;
   max-width: 400px;
+  /* distance the content from its borders and from the surrounding elements */
   padding: 1rem 1.5rem;
   margin: 2rem 0 0;
   background: #fff;
   box-shadow: 0 1px 10px hsla(227, 15%, 36%,0.4);
   border-radius: 12px;
+  /* include the animation defined in the App.css stylesheet */
   animation: slideIn 0.7s 0.5s cubic-bezier(.22,-0.3,.68,1.44) both;
-
+  /* display flex to have the input element take as much space as available */
   display: flex;
 }
 
+/* style the input element to spread the available space of the container, reset the style and add the font chosen for the project */
+.InputArea input {
+  flex-grow: 1;
+  padding: 0 0.6rem;
+  border: none;
+  color: inherit;
+  background: none;
+  font-family: inherit;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* reset the style of the button and display it rather visibly next to the input element */
 .InputArea button {
   background: none;
   border: none;
@@ -18,20 +35,9 @@
   color: inherit;
   font-size: 2rem;
   padding: 0 0.4rem;
+  /* transition for the active state */
   transition: transform 0.2s ease-out;
 }
 .InputArea button:active {
   transform: scale(1.1);
-}
-
-.InputArea input {
-  padding: 0 0.6rem;
-  flex-grow: 1;
-  border: none;
-  background: none;
-  color: inherit;
-  font-family: inherit;
-  outline: none;
-  font-size: 1.1rem;
-  font-weight: bold;
 }

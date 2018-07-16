@@ -1,8 +1,3 @@
-/* 
-#2D3185
-#644C9B 
-
-*/
 /* display the input and output areas in a single column layout, in the middle of the screen */
 .App {
   display: flex;
@@ -12,6 +7,7 @@
   justify-content: center;
 }
 
+/* define an animation which is used by the input and output area, even with different values for the animation-delay property */
 @keyframes slideIn {
   0% {
     opacity: 0;

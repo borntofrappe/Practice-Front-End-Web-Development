@@ -58,7 +58,7 @@ If the inspiration strikes, exceptions can be made.
 |[**Pig-Latin Translate**](https://codepen.io/borntofrappe/pen/VxKgQw/)|Create a two-panel structure in which text is translated to pig-latin.|regex, js, keyup, textContent|26th April 2018|
 |[**SVG Animation with Snap.svg**](https://codepen.io/borntofrappe/pen/VxPdXR/)|Create straightforward animations with simple SVG shapes using the Snap.SVG library.|svg, scroll, snap.svg|29th April 2018|
 |[**Repeating Radial Gradients**](https://codepen.io/borntofrappe/pen/xjqLJR/)|Create two informational cards in which repeating radial gradients provide a look of rippling water/waves.|repeating-radial-gradient, multiple background, svg stroke|30th April 2018|
-|[**Background with Clip-Path**](https://codepen.io/borntofrappe/full/vjZYME/)|Learn about and put into practice the CSS property of clip-path.|clip-path, circle, polygon|2nd May 2018|
+|[**Background with Clip-Path**](https://codepen.io/borntofrappe/pen/vjZYME/)|Learn about and put into practice the CSS property of clip-path.|clip-path, circle, polygon|2nd May 2018|
 |[**Codepen Challenge Pong**](https://codepen.io/borntofrappe/pen/pVWWBm/)|Create a very simple game of Pong which can be played with the mouse pointer.|mousemove, setinterval, codepenchallenge|5th May 2018|
 |[**Four-oh-Four Message**](https://codepen.io/borntofrappe/pen/vjWQBm/)|Create a simple design for a 404 page, inspired by YouTube's own solution.|404, error, monkey|7th May 2018|
 |[**Grasshopper Button Animation**](https://codepen.io/borntofrappe/pen/KRZbja/)|Create a neat animation at the press of a button. Literally. And repeatedly.|button, hover, active, grasshopper|8th May 2018|
@@ -101,11 +101,13 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Target Shooting**](https://codepen.io/borntofrappe/pen/ZRwRqz/)|Create a simple game of _clay target shooting_ in which visitors play with the mouse cursor to destroy targets.|svg, animation, game|1st July 2018|
 |[**SVG Defs Block**](https://codepen.io/borntofrappe/pen/pKBwvG/)|Create a simple checkers board with SVG syntax, to experiment with supporting elements in a between defs tags.|defs, clipPath, linearGradient, pattern|3rd July 2018|
 |[**Input Type Range**](https://codepen.io/borntofrappe/pen/xzvKGp/)|Explore the HTML element of input. Specifically input of type range.|input, range, mousemove, change|6th July 2018|
-|[**CodepenChallenge Signatures**](https://codepen.io/borntofrappe/full/WyVZVp/)|A signature generator based on SVG syntax. Specifically the path element and arc commands.|codepenchallenge, svg, path, arc|7th July 2018|
+|[**CodepenChallenge Signatures**](https://codepen.io/borntofrappe/pen/WyVZVp/)|A signature generator based on SVG syntax. Specifically the path element and arc commands.|codepenchallenge, svg, path, arc|7th July 2018|
 |[**Responsive Poster JavaScript**](https://codepen.io/borntofrappe/pen/VBZRwg/)|Create a simple design for a responsive poster. Responsive and animated.|poster, js, css animation|9th July 2018|
 |[**D3JS Scales and Axes**](https://codepen.io/borntofrappe/pen/PBoLWY/)|Create a visual to easily understand how different scales map data with the popular data visualization library.|d3, axes, scales|10th July 2018|
-|[**CodePenChallenge Form**](https://codepen.io/borntofrappe/full/xJwJNP/)|Create an entry for the weekly #codepenchallenge, with a visually appealing, but impractical form.|codepenchallenge, form, react, contrast|13th-14th July 2018|
+|[**CodePenChallenge Form**](https://codepen.io/borntofrappe/pen/xJwJNP/)|Create an entry for the weekly #codepenchallenge, with a visually appealing, but impractical form.|codepenchallenge, form, react, contrast|13th-14th July 2018|
 |[**SVG Pattern Confetti**](https://codepen.io/borntofrappe/pen/EpPQvM/)|Tinker with SVG elements and the pattern element in particular to create a cascade of confetti.|svg, pattern|15th July 2018|
+|[**React To-Do App**](https://codepen.io/borntofrappe/pen/jpqLer/)|Using React, create a simple to-do application to practice with state and set up the original project.|react, todo, state|16th July 2018|
+
 
 
 
