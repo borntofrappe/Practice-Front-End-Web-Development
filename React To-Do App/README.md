@@ -50,7 +50,7 @@ The application is structured with very few components. The state, without inclu
 
 - an output area, in which the text included the input area is pushed, in a `<ul>` element, with as many `<li>` elements as there are to-do items.
 
-<!-- ## [Styled Components](https://www.styled-components.com/)
+## [Styled Components](https://www.styled-components.com/)
 
 First off, and as explained in the library's home page, to use styled components it is necessary to include the dependency in the `package.json` file. 
 
@@ -60,6 +60,36 @@ In the root folder of the newly created `react-app`, the library is included by 
 npm install --save styled-components
 ```
 
-From there, it is a simple matter of specifying the components' styles through backticks. Like in the following snippet. -->
+Alternatively, include in the HTML document the following scipt tag, redirecting the project toward a CDN with the hosted library.
 
-<!-- # Redux -->
+```HTML
+<script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+```
+
+From there, it is a simple matter of specifying the components' styles through backticks. Like in the following snippet.
+
+**Update**
+
+While the syntax necessary to style the different components is easy to grasp and implement, I struggled incorporating the library in the first place. Apparently, installing `styled-components` creates a conflict with the `create-react-app` utility and it is necessary to _eject_ the application from the environment set up by default. As I did not plan to add this step today, I therefore decided to skip the library altogether. And be satisfied with the following snippet.
+
+```JS
+const Button = styled.button`
+  background: none;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  padding: 0 0.4rem;
+`;
+
+const InputArea = (props) => {
+  return (
+    <form className="InputArea" onSubmit={props.handleInput}>
+      <input type="text" placeholder="New task"/>
+      <Button>+</Button>
+    </form>
+  );
+}
+```
+
+The applicaion turned out to be a rather good excuse to practice with React, state and passing state as props. Always valuable experience. Now, and by that I mean next, it is a matter of learning how to incorporate Redux into the mix. There's a [tutorial](https://redux.js.org/) within reach to materialize this sentiment.

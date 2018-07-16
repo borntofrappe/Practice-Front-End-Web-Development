@@ -1,7 +1,7 @@
 .OutputArea {
   width: 80vw;
   max-width: 400px;
-  min-height: 20vh;
+  min-height: 4rem;
   padding: 1rem 1.5rem;
   color: #fff;
   background: linear-gradient(to bottom, hsl(237, 49%, 35%), hsl(258, 34%, 45%));

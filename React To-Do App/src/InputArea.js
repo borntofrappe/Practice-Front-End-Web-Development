@@ -1,9 +1,9 @@
 import React from 'react';
 import './InputArea.css';
 
-const InputArea = () => {
+const InputArea = (props) => {
   return (
-    <form className="InputArea">
+    <form className="InputArea" onSubmit={props.handleInput}>
       <input type="text" placeholder="New task"/>
       <button>+</button>
     </form>
