@@ -106,7 +106,7 @@ If the inspiration strikes, exceptions can be made.
 |[**D3JS Scales and Axes**](https://codepen.io/borntofrappe/pen/PBoLWY/)|Create a visual to easily understand how different scales map data with the popular data visualization library.|d3, axes, scales|10th July 2018|
 |[**CodePenChallenge Form**](https://codepen.io/borntofrappe/pen/xJwJNP/)|Create an entry for the weekly #codepenchallenge, with a visually appealing, but impractical form.|codepenchallenge, form, react, contrast|13th-14th July 2018|
 |[**SVG Pattern Confetti**](https://codepen.io/borntofrappe/pen/EpPQvM/)|Tinker with SVG elements and the pattern element in particular to create a cascade of confetti.|svg, pattern|15th July 2018|
-|[**React To-Do App**](https://codepen.io/borntofrappe/pen/jpqLer/)|Using React, create a simple to-do application to practice with state and set up the original project.|react, todo, state|16th July 2018|
+|[**React To-Do App**](https://codepen.io/borntofrappe/pen/jpqLer/)|Create a simple to-do application to practice with React and stateful and stateless components alike.|react, todo, state|16th July 2018|
 
 
 
