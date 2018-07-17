@@ -1,0 +1,35 @@
+/* style the overall project with the chosen font, color, background */
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+  color: hsl(227, 15%, 36%);
+  /* 
+  include a circle smaller than the entirety of the screen with a radial gradient
+  below the circle, include a simple division with a linear gradient
+  
+  include transparency as to 
+  1) reduce the intensity of the chosen colors
+  1) lessen the weight of the hard stop in the lnear gradient
+  */
+  background: 
+    radial-gradient(
+      circle at bottom right,
+      hsla(285, 31%, 61%, 0.6), 
+      hsla(285, 31%, 61%, 0.6) 30%,
+      transparent 30%
+      ), 
+    linear-gradient(
+      to top right, 
+      hsla(347, 20%, 91%, 0.8), 
+      hsla(279, 21%, 79%, 0.8) 50%, 
+      hsla(245, 33%, 53%, 0.8) 50%, 
+      hsla(245, 36%, 55%, 0.8)
+      );
+}

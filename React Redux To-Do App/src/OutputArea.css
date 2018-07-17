@@ -1,0 +1,70 @@
+.OutputArea {
+  /* span the output area matching the size of the input area  */
+  width: 80vw;
+  max-width: 400px;
+  /* include a fixed height which covers much of the available space
+  as items are included to spread past this measure, the overflow-y property allows to include a scrollbar  */
+  height: 75vh;
+  overflow-y: auto;
+  /* style the text to be dislayed boldy on a purple background */
+  padding: 1rem 2rem;
+  color: #fff;
+  background: linear-gradient(to bottom, hsl(237, 49%, 35%), hsl(258, 34%, 45%));
+  box-shadow: 0 1px 10px hsla(258, 34%, 45%, 0.8);
+  border-radius: 12px;
+  /* include an animation which occurs before the same animation for the input area */
+  animation: slideIn 0.75s 0.2s cubic-bezier(.22,-0.3,.68,1.44) both;
+}
+
+/* when the ul list is empty, meaning there are no todo items to display, include an SVG on top of the background achieved with the linear gradient */
+.OutputArea:empty {
+  /* position the svg in the center of the ul element, spanning 40% of its width
+  background: svg position/ size
+  */
+  background: 
+    url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 26.458 26.458" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-23.986 -37.68) scale(.3271)" fill="#2d3184"><circle cx="113.77" cy="155.64" r="40.443" fill="#634b99"/><path d="M119.857 129.535a15.085 15.085 0 0 0-12.955 6.433 15.085 15.085 0 0 0 1.124 18.676L93.421 179.81c-.457.787-.102 1.934-.102 1.934s1.198-.061 1.78-.761l18.611-22.37a15.085 15.085 0 0 0 17.923-5.364 15.085 15.085 0 0 0-3.725-21.005 15.085 15.085 0 0 0-8.051-2.709z"/><path d="M119.86 174.127a15.085 2.201 0 0 0-12.955.939 15.085 2.201 0 0 0 1.125 2.725l-14.605 3.672c-.458.115-.103.282-.103.282s1.198-.009 1.781-.111l18.611-3.264a15.085 2.201 0 0 0 17.923-.783 15.085 2.201 0 0 0-3.725-3.065 15.085 2.201 0 0 0-8.05-.395z" opacity=".4"/></g></svg>') 50% 50%/ 40% 40%,
+    linear-gradient(to bottom, hsl(237, 49%, 35%), hsl(258, 34%, 45%));
+  background-repeat: no-repeat;
+}
+
+
+.OutputArea li {
+  /* position relative to absolute position the connected pseudo-element */
+  position: relative;
+  font-size: 1rem;
+  /* remove the bullet point used by defualt  */
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+/* 
+with a pseudo element inlude a slightly transparent circle on the right of the list items 
+include a transition for the hover event occurring on the connected pseudo-element
+*/
+.OutputArea li:before {
+  position: absolute;
+  content: '';
+  left: 100%;
+  top: calc(50% - 15px/1.5);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 2px solid hsla(0, 0%, 100%, 1);
+  transition: background 0.3s ease-out;
+}
+.OutputArea li:hover:before {
+  background: hsla(0, 0%, 100%, 0.9);
+}
+
+/* for devices with width smaller than 400px absolute position the output area to the top of the page, and have it spread to cover the majority of the page  */
+@media (max-width: 400px) {
+  .OutputArea {
+    position: absolute;
+    width: 90vw;
+    height: 80vh;
+    top: 1rem;
+    /* remove the animation as it would be cumbersome on smaller-width devices */
+    animation: none;
+  }
+}
