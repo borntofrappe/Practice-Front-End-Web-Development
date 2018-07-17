@@ -1,0 +1,68 @@
+.InputArea {
+  /* span the input area to cover 80vw and at most 400px in width§  */
+  width: 80vw;
+  max-width: 400px;
+  /* distance the content from its borders and from the surrounding elements */
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 0;
+  background: #fff;
+  box-shadow: 0 1px 10px hsla(227, 15%, 36%,0.4);
+  border-radius: 12px;
+  /* include the animation defined in the App.css stylesheet */
+  animation: slideIn 0.7s 0.3s cubic-bezier(.22,-0.3,.68,1.44) both;
+  /* display flex to have the input element take as much space as available */
+  display: flex;
+  align-items: center;
+}
+
+/* style the input element to spread the available space of the container, reset the style and add the font chosen for the project */
+.InputArea input {
+  flex-grow: 1;
+  /* setting width to 100% allows the input element to take as much space as available, without pushing the neighboring button out of sight (it allows to resize the input element) */
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  color: inherit;
+  background: none;
+  font-family: inherit;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* reset the style of the button and display it rather visibly next to the input element */
+.InputArea button {
+  background: none;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  color: inherit;
+  /* transition for the different states of the button */
+  transition: transform 0.2s ease-out;
+}
+.InputArea button svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+}
+.InputArea button:hover, .InputArea button:focus{
+  transform: scale(1.1);
+  color: hsl(227, 15%, 26%);
+}
+.InputArea button:active {
+  transform: scale(1.25);
+  color: hsl(227, 15%, 26%);
+}
+
+/* for devices with width smaller than 400px fix the input area in the bottom section of the page, spanning the entirety of the available width and without rounded corners for the bottom section */
+@media (max-width: 400px) {
+  .InputArea {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    border-radius: 12px 12px 0 0;
+    /* remove the animation as it would be cumbersome on smaller-width devices */
+    animation: none;
+  }
+}
