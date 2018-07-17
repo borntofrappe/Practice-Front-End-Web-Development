@@ -1,6 +1,33 @@
 This app is currently being built through the `create-react-app` utiltiy. Link to a live pen will soon follow.
 
-<!-- Link to the working pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/GBqMdJ/).
+
+_Small Codepen Caveat_
+
+Unlike with `create-react-app`, in Codepen you include the libraries from the settings panel. To access the features these library offer, you may need to prefix the functions and variables with the library's name.
+
+For instance, the following, using a Provider from the library `react-redux`.
+
+```JS
+// render the only stateful component in the single div found in the HTML document, wrapped in the redux provider
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('root'));
+```
+
+On Codepen, it needs prefixing.
+
+```JS
+// render the only stateful component in the single div found in the HTML document, wrapped in the redux provider
+ReactDOM.render(
+  <ReactRedux.Provider store={store}>
+    <App />
+  </ReactRedux.Provider>, document.getElementById('root'));
+```
+
+This is mostly achieved with the camelcase name of the library, first letter capitalized as well, followed by a dot which allows to access the properties of the libraries. A small gotcha of which to be careful.
+
 
 # Preface
 
