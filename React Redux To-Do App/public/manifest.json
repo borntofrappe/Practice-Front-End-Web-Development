@@ -1,6 +1,6 @@
 {
   "short_name": "React To-Do App",
-  "name": "Create a simple to-do application to practice and learn React and Redux",
+  "name": "Create a simple application to practice with React and learn Redux.",
   "icons": [
     {
       "src": "favicon.ico",

@@ -34,12 +34,16 @@
 .InputArea button {
   background: none;
   border: none;
-  padding: 0 0.6rem;
-  font-family: inherit;
+  width: 2rem;
+  height: 2rem;
   color: inherit;
-  font-size: 2rem;
   /* transition for the different states of the button */
   transition: transform 0.2s ease-out;
+}
+.InputArea button svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
 }
 .InputArea button:hover, .InputArea button:focus{
   transform: scale(1.1);
