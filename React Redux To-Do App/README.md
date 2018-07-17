@@ -12,4 +12,21 @@ Before actually including [Redux](https://redux.js.org/), I decided to improve t
 
 CSS properties were included to 1) avoid unnerving overflow, 1) create a separate layout for devices holding a width smaller than 400px and 1) include a neat image when no item is present in the to-do list. Plus a neat SVG icon instead of a bland plus sign, for the button.
 
-<!-- TODO add redux -->
+# Redux
+
+In order to use Redux, as introduced in the @freecodecamp curriculum in the section bearing the same name, it is first necessary to install a few dependencies through `npm`. The following command, in the root folder of the `react-app`, installs the following packages:
+
+```code
+npm install redux react-redux redux-thunk --save
+```
+
+- redux: includes the redux library;
+
+- react-redux: includes the connect and provider functions required to pair the react library with the redux dependency;
+
+- redux-thunk: includes a package to deal with asyncronous code, and other utilities I assume. I'm actually not using the dependency in question, so additional research is momentarily not warranted.
+
+<!-- 
+add notes on using Redux in the application
+notes delayed to a future update as the project proved to be more challenging than anticipated
+-->
