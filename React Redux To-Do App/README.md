@@ -258,3 +258,14 @@ In the logic of the component, it is indeed possible to see how both state and t
 And that concludes the first stunt with the Redux library. Complex, hard to set up, but understandable in each small, incremental step.
 
 Definitely much more useful for lager applications. Applications which to more than adding a list of items to an unordered list.
+
+
+# Animation
+
+With React and Redux, the application does work, but lacks a certain je-ne-sais-quoi in that the list items are added and removed without pause, without transition.
+
+Luckily, the React community has a helpful library to include such transition, in [React Transition Group](https://reactcommunity.org/react-transition-group/). The library itself warrants a more careful read, but for the sake of the project, it allows to include an animation thanks to two components:
+
+- TransitionGroup
+
+- CSSTransition
