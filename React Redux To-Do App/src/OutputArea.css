@@ -16,8 +16,16 @@
   animation: slideIn 0.75s 0.2s cubic-bezier(.22,-0.3,.68,1.44) both;
 }
 
-/* when the ul list is empty, meaning there are no todo items to display, include an SVG on top of the background achieved with the linear gradient */
-.OutputArea:empty {
+/* when the ul list is empty, meaning there are no todo items to display, include an SVG on top of the background achieved with the linear gradient
+
+UPDATE: as a transition element is included and wraps the list, the .OutputArea component will never be empty
+
+Target instead the container responsible for the animation
+Include width and height properties to stretch the container as wide and tall as the component
+*/
+.OutputArea div:empty {
+	width: 100%;
+	height: 100%;
   /* position the svg in the center of the ul element, spanning 40% of its width
   background: svg position/ size
   */
@@ -67,4 +75,35 @@ include a transition for the hover event occurring on the connected pseudo-eleme
     /* remove the animation as it would be cumbersome on smaller-width devices */
     animation: none;
   }
+}
+
+
+/* define classes which are progressively added and removed in JS thanks to the react-transition-group-library
+for a transition with a defined name, four classes become available
+
+* name-enter, as soon as the animation starts
+* name-enter-active, animating the list item into view 
+* name-exit, as soon as the exit animation begins
+* name-exit-active, representing the last stage
+
+Think of them like keyframes. The animation is created by going from one class to the next until name-exit-active
+*/
+
+.fade-enter {
+	opacity: 0;
+	transform: translateY(10vh);
+}
+.fade-enter-active {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 0.2s ease-out;
+}
+.fade-exit {
+	opacity: 1;
+	transform: translateY(0);
+}
+.fade-exit-active {
+	opacity: 0;
+	transform: translateY(-10vh);
+	transition: all 0.2s ease-out;
 }
