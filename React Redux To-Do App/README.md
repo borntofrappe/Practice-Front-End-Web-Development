@@ -264,8 +264,61 @@ Definitely much more useful for lager applications. Applications which to more t
 
 With React and Redux, the application does work, but lacks a certain je-ne-sais-quoi in that the list items are added and removed without pause, without transition.
 
-Luckily, the React community has a helpful library to include such transition, in [React Transition Group](https://reactcommunity.org/react-transition-group/). The library itself warrants a more careful read, but for the sake of the project, it allows to include an animation thanks to two components:
+Luckily, the React community has a helpful library to include such transition, in [React Transition Group](https://reactcommunity.org/react-transition-group/). The library itself warrants a more careful read, but for the sake of the project, it allows to include an animation thanks to two components and a few CSS classes.
 
-- TransitionGroup
+**React Components**
 
-- CSSTransition
+- `TransitionGroup`. This component wraps all the list items, to programmatically track their different stages. As the items present in the grouping are included and removed, `TransitionGroup` allows to track their movement.
+
+  ```JS
+  <TransitionGroup>
+    { listItems }
+  </TransitionGroup>
+  ```
+  
+- `CSSTransition`. This component is instead responsible for specifying the type of animation which occurs on the specific list items. Among many others, it accepts a `key` attribute used to pair each transition to each list item. Moreover, and for the purposes of the animation, it accepts a string in `classNames`, used to identify CSS classes responsible for the animation (more on that soon) and an integer in `timeout`, detailing the duration of the animation.
+
+  ```JS
+  <CSSTransition key={index} classNames="fade" timeout={200}>
+    <li key={index} data-key={index} onClick={props.handleClick}>{listItem}</li>
+  </CSSTransition>
+  ```
+
+**CSS Classes**
+
+Once set up, the mentioned components allow to include animations through different CSS classes. Simply put, and for each list item, React progressively adds and removes CSS classes, which are themselves responsible for the transition. The components simply bake the CSS properties on the desired elements
+
+For each transition, four classes are available, each describing a different stage of the animation and all of them based on the string value found in the attribute `classNames`.
+
+- `.className-enter`;
+
+- `.className-enter-active`;
+
+- `.className-exit`;
+
+- `.className-exit-active`;
+
+As expressed in the `Output.css` commments, you can think of the properties specified in these classes much alike the properties you specify in a `@keyframes` animation. The elements go from one class to the other, altering the specified properties. The only difference is the addition, for each class which introduces change, of a `transition` property. This dictates the timing and timing function of the items which are introduced and removed from view.
+
+```CSS
+.fade-enter {
+	opacity: 0;
+	transform: translateY(10vh);
+}
+.fade-enter-active {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 0.2s ease-out;
+}
+.fade-exit {
+	opacity: 1;
+	transform: translateY(0);
+}
+.fade-exit-active {
+	opacity: 0;
+	transform: translateY(-10vh);
+	transition: all 0.2s ease-out;
+}
+```
+
+With the example snippet, the list items are animated into view by changing the opacity and vertical position, in a bottom-up fashion. They are then transitioned out of sight by changing the opacity and the vertical position, this time keeping steady the direction, upwards.

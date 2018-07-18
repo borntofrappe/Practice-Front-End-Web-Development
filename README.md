@@ -107,7 +107,7 @@ If the inspiration strikes, exceptions can be made.
 |[**CodePenChallenge Form**](https://codepen.io/borntofrappe/pen/xJwJNP/)|Create an entry for the weekly #codepenchallenge, with a visually appealing, but impractical form.|codepenchallenge, form, react, contrast|13th-14th July 2018|
 |[**SVG Pattern Confetti**](https://codepen.io/borntofrappe/pen/EpPQvM/)|Tinker with SVG elements and the pattern element in particular to create a cascade of confetti.|svg, pattern|15th July 2018|
 |[**React To-Do App**](https://codepen.io/borntofrappe/pen/jpqLer/)|Create a simple to-do application to practice with React and stateful and stateless components alike.|react, todo, state|16th July 2018|
-|[**React & Redux To-Do App**](https://codepen.io/borntofrappe/pen/GBqMdJ/)|Create a simple to-do application to practice with React and learn about Redux.|react, redux, todo|17th July 2018|
+|[**React & Redux To-Do App**](https://codepen.io/borntofrappe/pen/GBqMdJ/)|Create a simple to-do application to practice with React and learn about Redux. Now animated.|react, redux, transitiongroup, todo|17th-18th July 2018|
 
 
 
