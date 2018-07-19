@@ -89,11 +89,34 @@ The application is built with the following components in mind:
 
 In the referenced page, there exist a public API whic allows to retrieve information pertaining pokemon cards, from the trading card game.
 
-For the project at hand, different requests need to be carried out:
+For the project at hand, different requests need to be carried out depending on the page actually being displayed.
 
-**Card Grid**
+## Asynchronous Call
 
-For the grid of pokemon card, a request to all cards from the first set allows to retrieve images and information to be displayed in the grid.
+In order to display HTML elements on the basis of data retrieved from the public API, it is necessary to include _asynchronous_ logic. This practically means that the application needs to populate document once the information is actually retrieved. Without this logic React would render inexact components, without including the data which would be retrieved a tad too late.
+
+
+```JS
+componentDidMount() {
+let jsonURL = [];
+
+var myRequest = new Request(URL);
+
+fetch(myRequest).then((response) => {
+  return response.json();
+}).then((json) => {
+  let cards = json.cards;
+  cards.forEach(card => jsonURL.push(card.imageUrl));
+}).then(() => {
+  this.setState({
+    imgURL: jsonURL
+  });
+});
+```
+
+## API Endpoint
+
+Starting with the grid of cards, a request to all cards from the first set (dated 1999) allows to retrieve the URL of the images which are showcased in each grid item.
 
 With the following URL:
 
@@ -101,10 +124,7 @@ With the following URL:
 https://api.pokemontcg.io/v1/cards?setCode=base1
 ```
 
-A considerable obejct is returned. In the object, there exist a `cards` array, nesting the information to be included for the grid to display all cards. To simpy display the cards, the component needs to loop through the array and include the values found in `cards[i].imageURL`.
-
-
-<!-- https://api.pokemontcg.io/v1/cards?setCode=base1-45 -->
+A rather sizable object is obtained. In this object there exist a `cards` array. In such array, and for every card found in the API call, there exist a property of `imageUrl` nesting the exact URL which can be included in the grid items, to display the different images.
 
 # [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
 

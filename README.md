@@ -108,6 +108,7 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Pattern Confetti**](https://codepen.io/borntofrappe/pen/EpPQvM/)|Tinker with SVG elements and the pattern element in particular to create a cascade of confetti.|svg, pattern|15th July 2018|
 |[**React To-Do App**](https://codepen.io/borntofrappe/pen/jpqLer/)|Create a simple to-do application to practice with React and stateful and stateless components alike.|react, todo, state|16th July 2018|
 |[**React & Redux To-Do App**](https://codepen.io/borntofrappe/pen/GBqMdJ/)|Create a simple to-do application to practice with React and learn about Redux. Now animated.|react, redux, transitiongroup, todo|17th-18th July 2018|
+<!-- |[**React Router Card Grid**]()|Create a simple application to practice with React, public API(s), asynchronous code and to learn about React Router.|react, react router, fetch, api|19th July 2018| -->
 
 
 
