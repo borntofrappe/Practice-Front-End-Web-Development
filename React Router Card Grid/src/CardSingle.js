@@ -1,10 +1,16 @@
 import React from 'react';
-// import './CardSingle.css';
+import './CardSingle.css';
 
-const CardSingle = () => {
+const CardSingle = (props) => {
   return(
     <div className="CardSingle">
-      <h1>hello</h1>
+      <div className="Single"></div>
+      <div className="Details">
+        <h2>{props.name}</h2>
+        {
+          props.details.map(detail => <p>{detail}</p>)
+        }
+      </div>
     </div>
   );
 }

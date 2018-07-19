@@ -7,7 +7,10 @@ const CardGrid = (props) => {
     <div className="CardGrid">
       {
         props.cards.map(
-          card => <div className="Card">{card}</div>
+          (card, index) => 
+          <div className="Card" key={index}>
+            <img src={card}/>
+          </div>
         )
       }
     </div>

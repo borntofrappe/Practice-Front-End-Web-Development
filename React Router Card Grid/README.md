@@ -85,8 +85,26 @@ The application is built with the following components in mind:
   1. arbitrary information retrieved from the API, alongside the no-longer-rotated image of the card.
 
 
+# Data from [Pokemon TCG Developers](https://docs.pokemontcg.io/#documentationgetting_started)
+
+In the referenced page, there exist a public API whic allows to retrieve information pertaining pokemon cards, from the trading card game.
+
+For the project at hand, different requests need to be carried out:
+
+**Card Grid**
+
+For the grid of pokemon card, a request to all cards from the first set allows to retrieve images and information to be displayed in the grid.
+
+With the following URL:
+
+```code
+https://api.pokemontcg.io/v1/cards?setCode=base1
+```
+
+A considerable obejct is returned. In the object, there exist a `cards` array, nesting the information to be included for the grid to display all cards. To simpy display the cards, the component needs to loop through the array and include the values found in `cards[i].imageURL`.
+
+
+<!-- https://api.pokemontcg.io/v1/cards?setCode=base1-45 -->
 
 # [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
 
-
-# Data from [Pokemon TCG Developers](https://docs.pokemontcg.io/#documentationgetting_started)

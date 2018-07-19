@@ -20,9 +20,10 @@ rotate all cards
  */
 .CardGrid .Card {
   border-radius: 2px;
-  border: 10px solid hsl(56, 82%, 57%);
+  border: 2px solid hsl(56, 82%, 57%);
   background: radial-gradient(circle at 50% 50%, #214261 0, #214261 7%, #fff 7.5%, #fff 18%, #214261 18%, #214261 20%, #fff 21%), #fff;
   transform: rotate(7deg); 
+  transition: transform 0.3s ease-out;
 }
 /* rotate different cards (odds, each third, each fourth) by a different measure */
 .CardGrid .Card:nth-last-of-type(2n) {
@@ -36,4 +37,11 @@ rotate all cards
 }
 .CardGrid .Card:nth-last-of-type(6n) {
   transform: rotate(-2deg);
+}
+.CardGrid .Card img {
+  width: 100%;
+  height: 100%;
+}
+.CardGrid .Card:hover {
+  transform: scale(1.1) rotate(0);
 }

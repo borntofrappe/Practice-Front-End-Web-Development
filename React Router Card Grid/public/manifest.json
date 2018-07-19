@@ -1,6 +1,6 @@
 {
-  "short_name": "React To-Do App",
-  "name": "Create a simple application to practice with React and learn Redux.",
+  "short_name": "React Router Card Grid",
+  "name": "Create a simple application to practice with React, learn about React Router and how to include data from a public API.",
   "icons": [
     {
       "src": "favicon.ico",
