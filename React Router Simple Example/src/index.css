@@ -1,0 +1,29 @@
+/* include the chosen fonts for text and headers respectively, as well as a background color with the hues chosen for the project */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald');
+
+:root {
+  --font-txt: 'Open Sans', sans-serif;
+  --font-hdr: 'Oswald', sans-serif;
+  --color-theme: #6B8150;
+  --color-theme-drk: #2F4C12;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-txt);
+  color: #fff;
+  background: linear-gradient(to right, #fff 10vw, var(--color-theme) 10vw, var(--color-theme) 90vw, #fff 90vw);
+}
+
+/* remove the vertical white bands on smaller screens */
+@media (max-width: 500px) {
+  body {
+    background: var(--color-theme);
+    
+  }
+}

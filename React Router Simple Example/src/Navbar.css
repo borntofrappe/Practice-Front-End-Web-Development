@@ -1,0 +1,51 @@
+/* display the anchor link elements in a grid, rotate the grid and subsequently rotate the grid items in the opposing direction to give a scaffolding idea */
+.Navbar {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-items: center;
+  margin: 5rem 0;
+  transform: rotate(20deg);
+}
+
+.Navbar a {
+  transform: rotate(-20deg);
+
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  /* position relative for the pseudo element(s) */
+  position: relative;
+  /* transition for the hover state */
+  transition: all 0.2s ease-out;
+}
+/* 
+with pseudo elements include a line below the anchor link and a line leading downward and visually leading the eye toward the following item
+sort of like steps of a staircase
+*/
+.Navbar a:before, .Navbar a:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  background: #fff;
+}
+.Navbar a:before {  
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+.Navbar a:after {
+  left: 100%;
+  width: 2px;
+  height: 1.5rem;
+  /* rotate the line, which would otherwise result in a makeshift border-right */
+  transform-origin: bottom center;
+  transform: rotate(180deg);
+}
+
+/* on hover, flip the background and text color  */
+.Navbar a:hover {
+  background: #fff;
+  color: #6B8150;
+}
