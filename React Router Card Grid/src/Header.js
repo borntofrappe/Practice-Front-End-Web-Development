@@ -2,7 +2,6 @@ import React from 'react';
 import './Header.css';
 
 // with a stateless functional component render h1 and h2 elements, depending on the values retrieved from props
-
 const Header = (props) => {
   return(
     <div className="Header">

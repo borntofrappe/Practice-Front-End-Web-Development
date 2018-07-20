@@ -1,8 +1,8 @@
 .Header {
-  /* align the container and separate it from the surrounding elements, on top and at the bottom */
-  text-transform: capitalize;
+  /* align the container and separate it from the surrounding elements, vertically */
   text-align: center;
   margin: 5vh 0;
+  text-transform: capitalize;
 }
 /* size the header of the elements to be boldly displayed on the page */
 .Header h1{

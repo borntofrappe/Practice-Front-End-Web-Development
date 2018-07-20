@@ -1,5 +1,6 @@
 import React from 'react';
 import './CardGrid.css';
+import { Link } from 'react-router-dom';
 
 // with a stateless functional component, render a grid of cards based on the props passed as attributes
 const CardGrid = (props) => {
@@ -7,10 +8,10 @@ const CardGrid = (props) => {
     <div className="CardGrid">
       {
         props.cards.map(
-          (card, index) => 
-          <div className="Card" key={index}>
-            <img src={card}/>
-          </div>
+          (card) => 
+          <Link className="Card" key={card.id} to="/details" onClick={props.handleClick}>
+            <img src={card.imageUrl} alt={card.name} data-key={card.id}/>
+          </Link>
         )
       }
     </div>
