@@ -1,0 +1,31 @@
+/* render the components of the main container one on top of the other */
+.MainSingle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MainSingle a {
+  color: inherit;
+  font-size: 1rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  writing-mode: vertical-lr;
+}
+.MainSingle a span {
+  position: absolute;
+  right: 105%;
+  top: 0;
+  display: inline-block;
+  border-right: 0.75rem solid #fff;
+  border-bottom: 0.75rem solid transparent;
+  border-left: 0.75rem solid transparent;
+  border-top: 0.75rem solid transparent;
+  transition: right 0.2s ease-out;
+}
+.MainSingle a:hover span {
+  right: 115%;
+}

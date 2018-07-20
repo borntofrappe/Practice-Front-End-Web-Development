@@ -1,0 +1,48 @@
+/* within the CardSingle component, display the nested divs side by side, centered in the screen */
+.CardSingle {
+  display: flex;
+  /* center the flex items and distance them from the top and the bottom by a small measure */
+  justify-content: center;
+  margin: 5vh 0;
+}
+.CardSingle .Single {
+  /* resize the single card to be bigger than the cards in the grid */
+  width: calc(240px*1.2);
+  height: calc(320px*1.2);
+  border-radius: 2px;
+  border: 10px solid hsl(56, 82%, 57%);
+  background: radial-gradient(circle at 50% 50%, #214261 0, #214261 7%, #fff 7.5%, #fff 18%, #214261 18%, #214261 20%, #fff 21%), #fff;
+}
+.CardSingle .Single img {
+  width: 100%;
+  height: 100%;
+}
+.CardSingle .Details {
+  /* center the container of the few text elements and separate it visually from the surrounding components  */
+  text-align: center;
+  margin: 4vh 4vw 0;
+}
+/* resize the header and paragraph elements to prominently feature both */
+.CardSingle .Details h2 {
+  text-transform: uppercase;
+  font-size: calc(2rem + 1vw);
+}
+.CardSingle .Details p {
+  margin: 1rem 0;
+  border-left: 4px solid var(--color-txt);
+  font-size: calc(1.2rem + 1vw);
+}
+
+/* on devices with a width less than 700px, show the div for the card and the div with the details on top of one another */
+@media (max-width: 700px) {
+  .CardSingle {
+    flex-direction: column;
+    align-items: center;
+  }
+  .CardSingle a {
+    writing-mode: horizontal-tb;
+  }
+  .CardSingle a span {
+    top: calc(50% - 0.75rem);
+  }
+}
