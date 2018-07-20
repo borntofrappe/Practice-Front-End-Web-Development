@@ -1,3 +1,9 @@
+/*
+TODO: revise project and document better the codebase
+
+it works though!
+*/
+
 The project is currently being built locally, through the `create-react-app` utility. Link to a live pen soon to follow.
 
 <!-- Link to the work-in-progress pen right [here](). -->
