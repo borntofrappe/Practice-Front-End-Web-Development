@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald')
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family 'Oswald', sans-serif
+    color #EEEFF6
+    // include a neat gradient as background
+    background linear-gradient(to bottom right, #0072B5, #00127A 25%, #004097)
+    // hide overflow on both axes to avoid the scrollbar from appearing when the checkbox hits the edges of the window
+    overflow hidden
+
+input[type="checkbox"]
+    // absolute position the checkbox in the screen, atop the header
+    position absolute 
+    width 3rem
+    height @width
+    top 70vh
+    left calc(50% - 1.5rem)
+
+// absolute position the div nesting additional elements in the top of the screen, spanning the entire viewport's width
+div 
+    position absolute 
+    top 1.2rem
+    left 1.5rem
+    right 1.5rem
+    padding 0.7rem
+    // include a frame through solid shadows, around the div
+    box-shadow 0 1px 0 0.4rem #00F7FF, 0 1px 0 0.8rem darken(#00F7FF, 30%)
+    // display the contents of the div in a single row, aligning them vertically
+    display flex
+    align-items center
+
+    button 
+        border none 
+        // display the button boldy on the screen, with the appearance of an icon included through an SVG
+        width calc(3rem + 0.8vw)
+        height @width
+        // svg play button
+        background url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 26.458334 26.458334'><path d='M2.646 1.323L22.737 12.36 2.646 23.396z' fill='%23cccccc'/><path d='M3.721 3.062l20.091 11.037-20.09 11.036z' fill='%23ffffff'/></svg>")
+        background-size cover
+        cursor pointer 
+        // separate the button horizontally from the neighboring elements
+        margin 0 0.4rem 
+        // transition for the hover state
+        transition all 0.2s ease-out
+        
+        &:hover
+            animation tiltPlayButton 0.7s ease-out
+            
+
+    p
+        // boldy present the only paragraph in the center of the screen (you may need to include the same number of elements on either side to perfectly center the text)
+        flex-grow 1
+        text-align center
+        font-size calc(2.5rem + 1vw)
+        letter-spacing 0.1rem
+
+    // with span elements include the icons for the points and the hearts (used to visualize lives)
+    span
+        // separate the spans horizontally from the neighboring elements and size them exactly as the button
+        margin 0 0.4rem
+        width calc(3rem + 0.8vw)
+        height @width
+
+        &.heart
+            // for the spans with a class of heart, include a heart icon as a background
+            background url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 26.458334 26.458334'><path d='M5.503 1.323v4.465h-4.19v8.93h4.19v4.464h4.191v4.465h8.382v-4.465h4.191v-4.464h4.191v-8.93h-4.19V1.323h-4.192v4.465H9.694V1.323z' fill='%23d40000'/><path d='M4.191 2.811v4.465H0v8.93h4.191v4.465h4.191v4.464h8.382v-4.464h4.191v-4.465h4.191v-8.93h-4.19V2.81h-4.192v4.465H8.382V2.81z' fill='red'/></svg>")
+            background-repeat no-repeat
+            background-size cover
+
+            &:hover
+                // on hover momentarily increase the size of the spans
+                animation pulseHeartIcon 0.7s ease-out infinite
+
+        &.point
+            // for the spans with a class of point, include a star icon as a background
+            background url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 26.458334 26.458334'><path d='M11.293 0v2.848H8.47v2.849H2.823v2.848H0v2.849h2.823v2.848h2.824v2.848H2.823v5.697h2.824v2.848H8.47v-2.848h2.823v-2.849h2.824v2.849h2.822v2.848h2.824v-2.848h2.823V17.09h-2.823V14.24h2.823v-2.848h2.823V8.545h-2.823V5.697h-5.647V2.848h-2.823V0z' fill='%23d45500'/><path d='M12.342.823v2.849H9.52V6.52H3.872V9.37H1.05v2.848h2.823v2.848h2.824v2.848H3.872v5.697h2.824v2.848h2.823V23.61h2.823V20.76h2.824v2.849h2.822v2.848h2.824V23.61h2.823v-5.697h-2.823v-2.849h2.823v-2.848h2.823V9.369h-2.823V6.52h-5.647V3.672h-2.823V.823z' fill='%23f60'/></svg>")
+            background-repeat no-repeat
+            background-size cover
+            // by default hide the points from view (they are shown one at a time as the player scores points)
+            opacity 0
+
+            &:hover
+                // on hover momentarily increase the brightness and contrast
+                animation blingPointIcon 0.7s ease-out infinite
+
+        &.filler
+            // for the spans included to center the text in the screen, hide them from sight
+            visibility hidden
+            opacity 0
+
+// show the header at the bottom of the page    
+h1 
+    position absolute 
+    bottom 2rem
+    width 100%
+    padding 0 0.6rem
+    text-align center
+
+// for viewport < 500px reduce overall sizes used in the project
+@media (max-width: 500px)
+    div 
+        left 0.5rem
+        right 0.5rem
+        padding 0.5rem
+        box-shadow 0 1px 0 0.3rem #00F7FF, 0 1px 0 0.5rem darken(#00F7FF, 30%)
+
+    div button,
+    div span 
+        width 1.5rem
+        height @width
+
+    div p 
+        font-size 1.5rem
+
+    input[type="checkbox"]
+        width 2rem
+        height @width
+
+// for viewport > 1400px, remove the viewport unit for the size of the elements (stopping their measure to the specified units)
+@media (min-width: 1400px)
+    div button,
+    div span 
+        width 4rem
+
+    div p 
+        font-size 3.5rem
+
+// define animations for the play/stop button, the heart icons, the point icons
+@keyframes tiltPlayButton 
+    0%, 76%
+        transform rotate(0)
+    38%
+        transform rotate(15deg)
+
+@keyframes blingPointIcon 
+    0%, 76%
+        filter brightness(100%)
+    38%
+        filter brightness(150%) contrast(120%)
+        
+@keyframes pulseHeartIcon 
+    0%, 76%
+        transform scale(1)
+    38%
+        transform scale(1.2)
+
+
