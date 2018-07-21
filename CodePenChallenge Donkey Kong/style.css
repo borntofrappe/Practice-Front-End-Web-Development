@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron:900');
+
+/* define variables for the color of the background and of the text 
+for the outline of the text and for the duration of the loading animation built with SVG assets */
+:root {
+  --color-background: #000;
+  --color-text: #DC0153;
+  --stroke-size: 3px;
+  --animation-duration: 10s;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  /* use a font with a retro feel */
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--color-background);
+}
+/* display items in a single column layout  */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* nest the svg assets in a container occupying 80% of the viewport
+position relative to absolute position its nested items */
+.svg-assets {
+  display: inline-block;
+  width: 80vw;
+  position: relative;
+  
+}
+
+/* position the pixellated oil barrel to the very left of the parent container 
+use z-index to stack it on top of the other SVG asset */
+.svg-assets .barrel-px {
+  height: 12rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+/* position the pixellated flame right next to the barrel, animate it to move across the screen and change in orientation when changing direction */
+.svg-assets .flame-px {
+  width: 7rem;
+  position: absolute;
+  bottom: 0;
+  left: 3rem;
+  transform: rotateY(0);  
+  animation: move-around var(--animation-duration) 2s linear infinite;
+}
+@keyframes move-around {
+
+  49% {
+    transform: rotateY(0);
+  }
+  50% {
+    left: 80%;
+    transform: rotateY(180deg);
+  }
+  99% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    left: 3rem;
+    transform: rotateY(0);
+  }
+}
+
+/* to have only the outline of the text (its stroke), set its color to the color of the background and include solid text-shadows on either side */
+.container h1 {
+  margin-top: 1.5rem;
+  font-size: 5.5rem;
+  color: var(--color-background);
+  text-transform: uppercase;
+  text-shadow: 
+    var(--stroke-size) var(--stroke-size) 0 var(--color-text),
+    calc(var(--stroke-size)*-1) var(--stroke-size) 0 var(--color-text),
+    var(--stroke-size) calc(var(--stroke-size)*-1) 0 var(--color-text),
+    calc(var(--stroke-size)*-1) calc(var(--stroke-size)*-1) 0 var(--color-text);
+  position: relative;
+}
+/* to animate the loading text position a solid background on top of it and animate it out of view */
+.container h1:before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  bottom: -1rem;
+  right: 0;
+  width: 100%;
+  background-color: var(--color-background);
+  animation: loading-text-reveal 10s 10s linear forwards;
+}
+@keyframes loading-text-reveal {
+  to {
+    width: 0;
+  }
+}
+
+/* for smaller screen sizes reduce the size of the header */
+@media only screen and (max-width: 650px) {
+  .container h1 {
+    font-size: 2.8rem;
+  }
+}
