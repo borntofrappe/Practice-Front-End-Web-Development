@@ -111,6 +111,7 @@ If the inspiration strikes, exceptions can be made.
 |[**React Router Card Grid**]()|Create a simple application to practice with React, public API(s), asynchronous code and to learn about React Router.|react, react router, fetch, api|19th-20th July 2018|
 |[**Scattered Deck of Cards**](https://codepen.io/borntofrappe/pen/VBPKQm/)|Lay a deck of cards on an hypothetical table and in a scattered fashion. Proof of concept design for a larger project.|grid, card, deck|20th July 2018|
 |[**React Router Simple Example**](https://codepen.io/borntofrappe/pen/mjREXy/)|Learn about the basics of the React Library 'React Router', designing a neat, but very simplistic page with multiple paths.|react, react router, link, route|20th July 2018|
+|[**CodepenChallenge Checkboxes**](https://codepen.io/borntofrappe/pen/oMBQyV/)|Create an entry for the weekly #codepenchallenge, with a simple game centered around the input of type checkbox.|codepenchallenge, checkbox, game, vanilla js|21st July 2018|
 
 
 
