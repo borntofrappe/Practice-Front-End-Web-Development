@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Merienda:700')
+
+// include the fonts and color chosen for the project
+font-quote = 'Montserrat', sans-serif
+font-author = 'Merienda', cursive
+color-subtle = #b6b5b8
+color-bold = #fff
+gradient-light = #7b7b7b
+gradient-dark = #191919
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    // position the radial gradient with the origin horizontally centered and pushed slightly below the fold 
+    background radial-gradient(circle at center 120%, gradient-light, gradient-dark)
+    // center the SVG in the page
+    display flex 
+    justify-content center
+    align-items center
+
+svg 
+    // have the SVG span at most 800px, and for smaller widths 90% of the viewport
+    // the height is automatically filled by the viewbox
+    width 90vw
+    max-width 800px
+    // separate the svg from the surrounding elements (mainly the edges of the window and for large viewports)
+    margin 1rem 0
+
+    // include the chosen fonts and size the text elements to be boldy stretch in the frame
+    .text__quote
+        font-size 4.5rem
+        font-family font-quote
+        // text shadow to slightly elevate the quote 
+        text-shadow 0 0.3rem 0 gradient-dark
+
+    .text__author
+        font-size 3.5rem
+        font-family font-author
+        text-transform uppercase
+
+
+
+// reduce the text shadow for smaller widhts, in which the shadow is featured too prominently
+@media (max-width: 700px) 
+    svg .text__quote 
+        text-shadow 0 0.15rem 0 gradient-dark
+
