@@ -1,0 +1,15 @@
+{
+  "short_name": "Random Quote Machine",
+  "name": "Create a random quote machine for the @freeCodeCamp curriculum, to fulfill the first project of the **Front End Libraries** certification. Using React.js as a library and SVG syntax for the design of the page.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

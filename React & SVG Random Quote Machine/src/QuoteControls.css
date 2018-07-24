@@ -1,0 +1,57 @@
+/* separate the controls' panel from the SVG frame above */
+.QuoteControls {
+  margin: 1rem 0;
+}
+
+/* include the properties for the nested components (as these share property values, it makes sense to include them both together in the parent container stylesheet) */
+
+/* 
+size the buttons to be boldy displayed in the page, removing default styles as to show only the nested SVG 
+include a rounded border for both buttons, with padding avoiding the border from overlapping the SVG itself
+*/
+.ShareQuote, .GetNewQuote {
+  background: none;
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  /* transition for the hover, focus and active states */
+  transition: all 0.25s ease-out;
+  border: 3px solid var(--color-text-subtle);
+  border-radius: 50%;
+  margin: 0 1.5rem;
+  padding: 0.5rem;
+}
+.ShareQuote:hover, .ShareQuote:focus, .GetNewQuote:hover, .GetNewQuote:focus {
+  filter: brightness(120%);
+}
+.ShareQuote:active, .GetNewQuote:active {
+  transform: scale(1.25);
+}
+/* set the SVG to be 100% of the container, to make the viewbox 4rem by 4rem */
+.ShareQuote svg, .GetNewQuote svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* for smaller viewports reduce the size of the buttons, which would otherwise overwhelm the SVG frame */
+@media (max-width: 550px) {
+  .ShareQuote, .GetNewQuote {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* for larger viewports absolute position the buttons to the right of the frame */
+@media (min-width: 1100px) {
+  .QuoteControls {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10vh;
+    right: 5vw;
+  }
+  .ShareQuote, .GetNewQuote {
+    /* separate the buttons visually, but vertically */
+    margin: 1.5rem 0;
+  }
+}
