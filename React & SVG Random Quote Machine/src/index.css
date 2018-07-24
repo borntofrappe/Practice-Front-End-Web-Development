@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600|Merienda:700");
+
+/* include the colors and fonts used throughout the project */
+:root {
+  --color-theme-light: #7b7b7b;
+  --color-theme-dark: #191919;
+  --color-text-subtle: #b6b5b8;
+  --color-text-bold: #ffffff;
+  --font-quote: 'Montserrat', sans-serif;
+  --font-author: 'Merienda', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  /* include a gradient starting from the center and below the fold */
+  background: radial-gradient(circle at center 120%, var(--color-theme-light), var(--color-theme-dark));
+  color: var(--color-text-bold);
+}

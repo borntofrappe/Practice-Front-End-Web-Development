@@ -1,0 +1,11 @@
+/* 
+display the SVG frame and the controls' panel one on top of the other, in a single column layout 
+center them horizontally
+*/
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
