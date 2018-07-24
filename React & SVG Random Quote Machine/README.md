@@ -2,7 +2,7 @@ _Please Note_: the following is actually a project I set out to create for the *
 
 The following notes were included in the development of the application, at the time I first created it. I figured they still account for good practice with both **React.js** and **SVG**.
 
-Link to the working pen right [here](https://codepen.io/borntofrappe/pen/PBmzGL).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/PBmzGL).
 
 ## Preface
 
