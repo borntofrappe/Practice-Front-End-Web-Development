@@ -1,0 +1,113 @@
+// include the font and colors chosen for the project
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono')
+
+font = 'Open Sans', sans-serif
+color-theme = #9206F5
+color-phone = #fff 
+color-text = lighten(#252525, 20%)
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    width 100%
+    min-height 100vh
+    color color-text
+    background linear-gradient(to top left, color-theme, lighten(color-theme, 10%))   
+    // center the phone UI horizontally 
+    display flex
+    justify-content center 
+    margin 2.5rem 0
+
+.phone--ui
+    // style the phone UI to have a white background and be at most 350px wide
+    background color-phone
+    width 90vw
+    max-width 350px
+    // keeping the ratio of a normal phone, set the height in relation to the width property
+    height (90vw*1280/800)
+    max-height (350px*1280/800)
+    // include padding for the phone's application
+    padding 2rem 0.7rem 1rem
+    // include rounded corners and a notable shadow beneath the UI
+    border-radius 10px
+    box-shadow 7px 10px 10px darken(color-theme, 30%), -4px -2px 5px darken(color-theme, 30%)
+    // position relative to include a couple of visuals to remind of a phone outline
+    position relative
+    
+    // with one pseudo element each, include the volume and power buttons
+    &:before, &:after
+        content ''
+        position absolute
+        width 0.3rem
+        background color-phone
+        border-radius 0 5px 5px 0
+    // push the volume and power button to the right of the phone UI
+    // position them one after the other, following the padding included in the top of the UI
+    &:before
+        top 7%
+        left 100%
+        height 15%
+
+    &:after
+        top 25%
+        left 100%
+        height 8%
+
+
+.calculator
+    // stretch the calculator to cover the entirety of the width and height of the phone (minus padding)
+    background color-phone
+    width 100%
+    height 100%
+    // include the display and input area on top of one another (one taking 3/7 of the page, the other the rest)
+    display grid 
+    grid-template-columns 1fr
+    grid-template-rows 3fr 4fr
+    
+.calculator__display
+    // position the header responsible for the display in the bottom right corner of the screen
+    display flex
+    justify-content flex-end
+    align-items flex-end
+    border-bottom 1px solid rgba(color-text, 0.2)
+
+    h1
+        padding 0.5rem 1.2rem
+        font-family font
+        font-size 3rem
+
+.calculator__input
+    // include a grid of 4 columns and 5 rows
+    display grid
+    grid-template-columns repeat(4, 1fr)
+    grid-template-rows repeat(5, 1fr)
+
+    .input--button
+        // inherit color and font-family 
+        color inherit
+        font-family font
+        // remove default styles
+        background none
+        border none 
+        font-size 1.1rem
+
+        // span the selected butons to occupy two columns or rows
+        &[data-button="AC"]
+            grid-column span 2
+
+        &[data-button="="]
+            grid-row span 2
+
+        &[data-button="0"]
+            grid-column span 2
+
+        // on hover and on focus darken the background color (a notable difference is included to offset the brightness)
+        &:hover, &:focus
+            filter brightness(100%)
+            background darken(color-phone, 4%)
+        // when active, switch back to the default background color
+        &:active
+            background initial
