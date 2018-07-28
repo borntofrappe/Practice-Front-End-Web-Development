@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900|Ubuntu+Mono");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: #36416b;
+  background: rgba(255,214,51,0.8);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.8rem 2.4rem;
+}
+.container__intro {
+  text-align: center;
+}
+.container__intro h1 {
+  font-size: 3rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+.container__intro p {
+  line-height: 2;
+  font-size: 1.4rem;
+}
+table {
+  transform: rotateZ(-90deg) perspective(500px) rotateX(2deg);
+}
+table tr td {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffd633;
+  cursor: pointer;
+  border: 2px solid #f3a53c;
+  border-radius: 0 10px 10px 0;
+  padding: 0.6rem 2.2rem 0.6rem 0.6rem;
+  background: linear-gradient(to right, #36416b 92%, #f3a53c 92%, #f3a53c 97%, #36416b 97%);
+  transition: all 0.5s ease-out;
+  position: relative;
+}
+table tr td:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  background: #fff;
+  transition: all 0.5s ease-out;
+}
+table tr td:hover {
+  transform: translateY(-40px);
+}
+table tr td:hover:before {
+  height: 40px;
+}
+.container__snippet pre {
+  background: #36416b;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90vw;
+  overflow-x: auto;
+  animation: fadeIn 0.5s ease-out both;
+}
+.container__snippet pre code {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+@-moz-keyframes fadeIn {
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
