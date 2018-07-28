@@ -1,0 +1,47 @@
+<!-- in a wrapping container used for the overall positioning of the page's content, include 
+  - a container introducing the page
+  - a table responsible for the bookshelf 
+  - a container showcasing a snippet which is connected to the particular, clicked book
+-->
+
+<div class="container">
+
+  <div class="container__intro">
+    <h1>CSS Layout</h1>
+    <p>Positioning HTML elements any which way</p>
+  </div>
+
+  <!-- 
+    include one cell for each row, in which to show the different books
+    later this will allow to rotate the entire table and have the display flipped from horizontal, one on top of the other to vertical, one next to the other 
+  -->
+  <table class="container__table">
+    <tr>
+      <td id="grid">
+        grid
+      </td>
+    </tr>
+    <tr>
+      <td id="flex">
+        flex
+      </td>
+    </tr>
+    <tr>
+      <td id="float">
+        float
+      </td>
+    </tr>
+    <tr>
+      <td id="table">
+        table
+      </td>
+    </tr>
+  </table>
+
+
+  <div class="container__snippet">
+  </div>
+
+
+</div>
+
