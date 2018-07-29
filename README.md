@@ -115,4 +115,5 @@ If the inspiration strikes, exceptions can be made.
 |[**React & SVG Random Quote Machine**](https://codepen.io/borntofrappe/pen/PBmzGL/)|Create a random quote machine using the React.js library and SVG syntax.|react, svg, quote|23rd July 2018|
 |[**Phone UI Calculator**](https://codepen.io/borntofrappe/pen/djzGWQ)|Create the UI of a phone displaying a calculator's app.|ui, grid|25th July 2018|
 |[**CodePenChallenge Table**](https://codepen.io/borntofrappe/pen/yqPoqO/)|Create a simple layout with a table element.|codepenchallenge, table, layout|28th July 2018|
+|[**Insightful Tooltip**](https://codepen.io/borntofrappe/pen/ZjaZxQ/)|Create a simple tooltip to display insights or bits of trivia.|tooltip, css animation, trivia|29th July 2018|
 
