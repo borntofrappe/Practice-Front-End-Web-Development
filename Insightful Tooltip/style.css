@@ -1,13 +1,95 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Play");
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: 'Lato', sans-serif;
-  color: #252525;
-  background: #ededed;
-}
+  font-family: "Play", sans-serif;
+  color: #FFFEFF;
+  background: #413C68; }
+
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center; }
+
+.tooltip {
+  max-width: 450px;
+  width: 80vw;
+  background: #14131C;
+  transform: skewX(-25deg);
+  border-top-left-radius: 20px;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  position: relative; }
+  .tooltip:before, .tooltip:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%; }
+  .tooltip:before {
+    right: 0;
+    width: 100%;
+    background: #413C68;
+    animation: showTooltip 0.5s 1.5s ease-in-out forwards; }
+  .tooltip:after {
+    right: calc(100% - 10px);
+    width: 10px;
+    background: linear-gradient(to top, #3F8CE7, #4797ff, #3F8CE7);
+    animation: blink 0.5s 3 step-start both, introduceTooltip 0.5s 1.5s ease-in-out both; }
+  .tooltip p {
+    font-size: 1.25rem;
+    line-height: 2;
+    transform: translateX(-50vw) skewX(25deg);
+    opacity: 0;
+    animation: introduceText 0.6s 1.75s cubic-bezier(0.17, 0.67, 0.54, 1.25) forwards;
+    position: relative; }
+    .tooltip p:before, .tooltip p:after {
+      content: '';
+      position: absolute;
+      left: 0%;
+      top: -25%;
+      height: 150%;
+      width: 10px;
+      transform: skewX(-25deg);
+      animation: moveBand 2.5s ease-in-out infinite alternate; }
+    .tooltip p:before {
+      background: rgba(255, 30, 1, 0.1); }
+    .tooltip p:after {
+      background: rgba(255, 254, 255, 0.05);
+      animation-delay: 2.5s; }
+
+/*
+define the different animations
+- showTooltip to remove the :before pseudo element and show the div underneat
+- blink to flash the :after pseudo element (with a step timing function)
+- introduceTooltip to move the :after pseudo element to the right, visually introducing the div which is shown thanks to showTooltip
+- introduceText to have the text roll into view (remember the overflow property of the container, set to hidden)
+- moveBand to move the bands in the tooltip back and forward
+*/
+@keyframes showTooltip {
+  100% {
+    width: 0; } }
+
+@keyframes blink {
+  50% {
+    opacity: 0; }
+  0%, 100% {
+    opacity: 1; } }
+
+@keyframes introduceTooltip {
+  100% {
+    right: 0; } }
+
+@keyframes introduceText {
+  100% {
+    transform: translateX(0) skewX(25deg);
+    opacity: 1; } }
+
+@keyframes moveBand {
+  100% {
+    left: 95%; } }

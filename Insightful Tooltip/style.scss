@@ -1,8 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+// include the font and color chosen for the project
+@import url('https://fonts.googleapis.com/css?family=Play');
 
-$font-txt: 'Lato', sans-serif;
-$color-txt: #252525;
-$color-bg: #ededed;
+$font-txt: 'Play', sans-serif;
+$color-bg: #413C68;
+$color-txt: #FFFEFF;
+$purple-dark: #14131C;
+$blue: #3F8CE7;
+$blue-light: #4797ff;
+$red: #FF1E01;
 
 * {
   box-sizing: border-box;
@@ -12,7 +17,137 @@ $color-bg: #ededed;
 body {
   min-height: 100vh;
   width: 100%;
+  // include the chosen font, color and background color
   font-family: $font-txt;
   color: $color-txt;
   background: $color-bg;
 }
+
+// center the tooltip in the screen
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+// style the tooltip to be at most 450px, and 80% of the viewport otherwise
+.tooltip {
+  max-width: 450px;
+  width: 80vw;
+  background: $purple-dark;
+  // skew the tooltip and include a border-radius for the top left corner
+  transform: skewX(-25deg);
+  border-top-left-radius: 20px;
+  // include some space around the content and hide the text when it stands outside of the container
+  padding: 1rem 2rem;
+  overflow: hidden;
+  // include a pseudo element to show the tooltip rolling in (the pseudo element has the same color of the background and it is positioned atop the tooltip)
+  // include a pseudo element for the flashing blue band 
+  position: relative;
+
+  // both pseudo elements are positioned at the top of the tooltip and stretch all its height
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+  // the before pseudo element is used to hide the underlying div, and show it rolling in by translating the pseudo element out of sight1
+  &:before {
+    right: 0;
+    width: 100%;
+    background: $color-bg;
+    // animate the width to 0, after the blinking animation of the other pseudo element is completed (0.5s*3 -> 1.5s delay)
+    animation: showTooltip 0.5s 1.5s ease-in-out forwards;
+  }
+  // the after pseudo element is used to show the blinking cursor signalling the tooltip's entrance
+  // remember that :after is included atop :before
+  &:after {
+    // position the tooltip to the left edge of the container (deducting 10px as the element would be otherwise cropped)
+    right: calc(100% - 10px);
+    width: 10px;
+    // include the chosen gradient
+    background: linear-gradient(to top, $blue, $blue-light, $blue);
+    // animate the cursor to blink thrice and then move to the right as the tooltip is introduced into view
+    animation: blink 0.5s 3 step-start both, introduceTooltip 0.5s 1.5s ease-in-out both;
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 2;
+    // horizontally move the paragraph outside of the container's scope and skew it back to its normal skew-ness
+    // remember the container has a property of overflow set to hidden
+    transform: translateX(-50vw) skewX(25deg);
+    opacity: 0;
+    // animate the horizontal translation and opacity to have the text roll into view the tooltip structure is included
+    animation: introduceText 0.6s 1.75s cubic-bezier(.17,.67,.54,1.25) forwards;
+    // position relative to position bands of different color moving freely back and forth
+    position: relative;
+
+    // both pseudo elements have the same structure (with a height extending past the boundaries of the paragraph element; the difference is cropped)
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 0%;
+      top: -25%;
+      height: 150%;
+      width: 10px;
+      // skew the bands much alike the container
+      transform: skewX(-25deg);
+      // animate the bands to move right and left endlessly
+      // variation is included by the property of animation-delay, included for one of the bands
+      animation: moveBand 2.5s ease-in-out infinite alternate;
+    }
+    // include a different background color and animation-delay for exclusively one of the bands
+    &:before {
+      background: rgba($red, 0.1);
+    }
+
+    &:after {
+      background: rgba($color-txt, 0.05);
+      animation-delay: 2.5s;
+    }
+  }
+}
+
+/*
+define the different animations
+- showTooltip to remove the :before pseudo element and show the div underneat
+- blink to flash the :after pseudo element (with a step timing function)
+- introduceTooltip to move the :after pseudo element to the right, visually introducing the div which is shown thanks to showTooltip
+- introduceText to have the text roll into view (remember the overflow property of the container, set to hidden)
+- moveBand to move the bands in the tooltip back and forward
+*/
+@keyframes showTooltip {
+  100% {
+    width: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  0%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes introduceTooltip {
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes introduceText {
+  100% {
+    transform: translateX(0) skewX(25deg);
+    opacity: 1;
+  }
+}
+
+@keyframes moveBand {
+  100% {
+    left: 95%
+  }
+}
+
