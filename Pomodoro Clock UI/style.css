@@ -1,13 +1,178 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Dosis");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  min-height: 100vh;
   width: 100%;
-  font-family: 'Lato', sans-serif;
-  color: #252525;
-  background: #ededed;
+  font-family: 'Dosis', sans-serif;
+  color: #fff;
+  background: linear-gradient(to right, #351a52, #1f0f30, #351a52);
+  display: flex;
+  justify-content: center;
+  padding: 5vh 0;
+}
+.app {
+  max-width: 800px;
+  width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  background: #fe5461;
+  padding: 5vh 0;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #fe5461;
+}
+.app__visuals {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app__visuals .visuals--hourglass {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #fe5461, 0 0 0 10px #fff;
+  background: linear-gradient(to top, #fff 52%, transparent 52%);
+  margin: 2rem 0;
+}
+.app__visuals .visuals--timer {
+  font-size: calc(3rem + 1vw);
+}
+.app__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.app__controls .controls--btn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: inherit;
+  box-shadow: 0 0 0 1px #fe5461, 0 0 0 3px #fff;
+  border: none;
+  outline: none;
+  color: #fff;
+  transition: all 0.15s ease-out;
+}
+.app__controls .controls--btn:hover,
+.app__controls .controls--btn:focus {
+  box-shadow: 0 0 0 2px #fe5461, 0 0 0 6px #fff;
+}
+.app__controls .controls--btn:active {
+  background: #fff;
+  color: #fe5461;
+  transform: scaleX(1.2) scaleY(1.08);
+}
+.app__controls .controls--btn svg {
+  width: 80%;
+  height: 80%;
+  fill: currentColor;
+}
+.app__inputs {
+  grid-column: span 3;
+  margin: 15vh 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app__inputs .inputs--session {
+  display: flex;
+  align-items: center;
+}
+.app__inputs .inputs--session label {
+  font-size: 2rem;
+  margin: 0 0.5rem;
+}
+.app__inputs .inputs--session .session--time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app__inputs .inputs--session .session--time button {
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background: none;
+  border: none;
+}
+.app__inputs .inputs--session .session--time button:nth-of-type(odd) {
+  transform: rotate(-90deg);
+}
+.app__inputs .inputs--session .session--time button:nth-of-type(even) {
+  transform: rotate(90deg);
+}
+.app__inputs .inputs--session .session--time button svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  transition: all 0.2s ease-out;
+}
+.app__inputs .inputs--session .session--time button:hover svg,
+.app__inputs .inputs--session .session--time button:focus svg {
+  transform: scale(1.1);
+}
+.app__inputs .inputs--session .session--time button:active svg {
+  transform: scale(1.3);
+}
+.app__inputs .inputs--session .session--time input {
+  width: 3rem;
+  height: 2.25rem;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: inherit;
+  text-align: center;
+}
+/*
+for smaller viewports 
+- have the app cover the entirety of the screen (remove also the padding on the wrapping body)
+- have the grid detail a single column
+- have each section occupy that column
+- alter the margin to have the sections separated from one another, but vertically
+
+- change the layout of the nested elements 
+    the buttons in .app__controls ought to be in a row instead of a column (spreading the buttons apart from one another)
+    the label and div responsible for the input in .input--session ought to be in a column, on top of one another
+    the button and input elements in session--time ought to be in a row, one next to the other (alter the order property to have the increment button on the right and the decrement button on the left)
+*/
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+  .app {
+    width: 100vw;
+    border-radius: 0;
+    grid-template-columns: 1fr;
+  }
+  .app .app__visuals,
+  .app .app__controls,
+  .app .app__inputs {
+    grid-column: span 1;
+    margin: 0;
+  }
+  .app .app__controls {
+    margin: 10vh 0;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .app .app__inputs .inputs--session {
+    flex-direction: column;
+    align-items: center;
+  }
+  .app .app__inputs .inputs--session .session--time {
+    flex-direction: row;
+  }
+  .app .app__inputs .inputs--session .session--time button:nth-of-type(1) {
+    order: 1;
+  }
+  .app .app__inputs .inputs--session .session--time button:nth-of-type(2) {
+    order: -1;
+  }
 }

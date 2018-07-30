@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <title>Title</title>
-  <meta name="description" content="Description."/>
+  <title>Pomodoro Clock UI</title>
+  <meta name="description" content="Design the UI of a pomodoro clock application, for the soon to be functioning application, scheduled for the freeCodeCamp curriculum."/>
 
   <link rel="stylesheet" href="style.css"/>
   <!-- <link rel="icon" href="tab_icon.png"> -->
@@ -14,11 +14,118 @@
 </head>
 
 <body>
+  <!-- 
+    SVG set: include the svg assets used in the project 
+    - a right facing arrow for the start and increment/decrement buttons
+    - two rectangles for the pause button
+    - a square for the reset button
+
+    define a title for the latter two, while for the first SVG, as it is used in several instances, define the title with each use
+  -->
+  <svg style="display:none">
+    <symbol id="start" viewbox="0 0 100 100">
+      <path d="M 30 20 L 80 50 L 30 80Z"/>
+    </symbol>
+    <symbol id="pause" viewbox="0 0 100 100">
+      <title>Pause Pomodoro Clock</title>
+      <rect x="25" y="25" width="15" height="50"/>
+      <rect x="60" y="25" width="15" height="50"/>
+    </symbol>
+    <symbol id="reset" viewbox="0 0 100 100">
+      <title>Reset Pomodoro Clock</title>
+      <rect x="25" y="25" width="50" height="50"/>
+    </symbol>
+  </svg>
   
-  <!-- markup right here -->
+  <!--
+  in a wrapping container include 
+  - a section for the application's visuals; nesting
+    - a circle styled to visually relay how much time is left
+    - a header displaying exactly how much time is left
 
+  - a section for the application's controls, nesting one button each for 
+    - starting the timer
+    - pausing the timer
+    - stopping and resetting the timer
 
+    each button nests an SVG visually relaying the purpose of the buttons
 
-<script src="script.js"></script>
+  - a section for the application's input, nesting 
+    - two div grouping the different types of input (working session, break session), nesting
+      - a label
+      - a div nesting the input element and the buttons which will be used to update its value; nesting
+        - an input element (to allow the specification of a certain number of minutes)
+        - two buttons to increment/ decrement the input element value
+  -->
+
+  <main class="app">
+
+    <section class="app__visuals">
+      <div class="visuals--hourglass"></div>
+      <h2 class="visuals--timer">12:00</h2>
+    </section><!-- close first section, visuals section -->
+
+    <section class="app__controls">
+      <button class="controls--btn btn--start">
+        <svg>
+          <title>Start Pomodoro Clock</title>
+          <use xlink:href="#start"/>
+        </svg>
+      </button>
+      <button class="controls--btn btn--pause">
+        <svg>
+          <use xlink:href="#pause"/>
+        </svg>
+      </button>
+      <button class="controls--btn btn--reset">
+        <svg>
+          <use xlink:href="#reset"/>
+        </svg>
+      </button>
+    </section><!-- close second section, controls section -->  
+    
+    <section class="app__inputs">
+      <div class="inputs--session session--working">
+        <label>Working Session</label>
+        <div class="session--time">
+          <button>
+            <svg>
+              <title>Increment Working Session</title>      
+              <use xlink:href="#start" />
+            </svg>
+          </button>
+          <input type="text" value="25">
+          <button>
+            <svg>
+              <title>Decrement Working Session</title>
+              <use xlink:href="#start" />
+            </svg>
+          </button>
+        </div>
+      </div><!-- close div for the working session -->
+
+      <div class="inputs--session session--working">
+        <label>Break Session</label>
+        <div class="session--time">
+          <button>
+            <svg>
+              <title>Increment Break Session</title>
+              <use xlink:href="#start" />
+            </svg>
+          </button>
+          <input type="text" value="5">
+          <button>
+            <svg>
+              <title>Decrement Break Session</title>
+              <use xlink:href="#start" />
+            </svg>
+          </button>
+        </div>
+      </div><!-- close div for the break session -->
+    </section><!-- close third section, inputs section -->
+
+  </main><!-- close the element responsible for the entire application -->
+
+<!-- <script src="script.js"></script> -->
 </body>
 </html>
