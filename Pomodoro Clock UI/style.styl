@@ -1,0 +1,221 @@
+// define the chosen font and colors 
+@import url('https://fonts.googleapis.com/css?family=Dosis')
+
+font-txt = 'Dosis', sans-serif
+color-app = #FE5461
+color-bg = #1f0f30
+white = #fff
+// define a variable which is updated in the script to visually relay the amount of time left (by changing the linear-gradient used as background)
+gradient-height = ((25 - 12)/ 25 * 100)%
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    width 100%
+    font-family font-txt
+    color white
+    // include a gradient around the color chosen for the body
+    background linear-gradient(to right, lighten(color-bg, 10%), color-bg, lighten(color-bg, 10%))
+    // center the application horizontally and include some vertical padding
+    display flex 
+    justify-content center 
+    padding 5vh 0
+
+.app 
+    // limit the width of the application
+    max-width 800px
+    width 90vw
+    // create a grid of three columns each covering a third of the container
+    display grid
+    grid-template-columns repeat(3, 1fr)
+    // center the content of the sections in the column(s)
+    justify-items center
+    // include the chosen color and some padding to distance the content from the surrounding borders
+    background color-app
+    padding 5vh 0
+    border-radius 20px
+    box-shadow 0 0 10px color-app
+
+.app__visuals
+    // have the first section spread to cover two columns
+    grid-column span 2
+    // position the div responsible for the hourglass and its timer on top of one another
+    display flex 
+    flex-direction column 
+    align-items center
+
+    .visuals--hourglass
+        // include a circle which visually relays the time left in the session
+        width 250px
+        height @width
+        border-radius 50%
+        // include a nice border around the circle
+        box-shadow 0 0 0 5px color-app, 0 0 0 10px white
+        // how much time is left is conveyed by the linear gradient, and the threshold at which point the solid color turns transparent, with a hard stop
+        background linear-gradient(to top, white gradient-height, transparent gradient-height)
+        // separate the visual from the header below
+        margin 2rem 0
+    
+    .visuals--timer
+        font-size calc(3rem + 1vw)
+
+.app__controls
+    // display the buttons on top of one another
+    display flex 
+    flex-direction column
+    justify-content space-around
+
+    .controls--btn
+        // style the buttons to be round
+        width 5rem
+        height @width 
+        border-radius 50%
+        // include the same color of the background, and with the box-shadow property a neat border around it
+        // border doesn't allow the same subtlety of multiple shadows 
+        background inherit
+        box-shadow 0 0 0 1px color-app, 0 0 0 3px white
+        border none
+        outline none
+        // color specified to have it cascade to the SVG fill
+        color white
+        // transition for the hover and active state
+        transition all 0.15s ease-out
+
+        &:hover, &:focus
+            // on hover alter the shadows to expand the ring
+            box-shadow 0 0 0 2px color-app, 0 0 0 6px white
+
+        &:active
+            // when active, flip the color and background properties
+            // scale the buttons to be slightly bigger
+            background white 
+            color color-app
+            // scale the buttons more horizontally than vertically
+            transform scaleX(1.2) scaleY(1.08)
+        svg 
+            // stretch the svg to cover 80% of the button (given the SVG syntax, it is always centered)
+            width 80%
+            height 80%
+            // inherit the hue set by the color property of the parent element
+            fill currentColor
+
+    
+.app__inputs
+    // spread the third section across the entirety of the width
+    grid-column span 3
+    // separate the third section from the first two
+    margin 15vh 0 0
+    // display the wrapping div one on top of the other
+    display flex 
+    flex-direction column
+    // center horizontally
+    align-items center
+
+    .inputs--session
+        // display the label and div responsible for the input element one next to the other
+        display flex
+        // center vertically
+        align-items center
+
+        label 
+            font-size 2rem
+            margin 0 0.5rem
+
+        .session--time
+            // display the buttons and input element on top of one another
+            display flex
+            flex-direction column
+            // center horizontally
+            align-items center
+
+            button 
+                // padding to enlarge the press area and have the svg smaller than that
+                padding 0.5rem
+                width 3rem
+                height @width 
+                // color made cascading to the svg through currentColor
+                color white
+                background none 
+                border none
+                // rotate the buttons to have them pointing upwards/downwards
+                &:nth-of-type(odd)
+                    transform rotate(-90deg)
+
+                &:nth-of-type(even)
+                    transform rotate(90deg)
+                svg
+                    width 100%
+                    height @width
+                    fill currentColor
+                    // transition for the hover, focus and active states
+                    transition all 0.2s ease-out
+
+                // on hover slightly scale the buttons
+                &:hover svg, &:focus svg
+                    transform scale(1.1)
+                // when active notably scale the buttons
+                &:active svg
+                    transform scale(1.3)
+
+            
+            input 
+                // style the input element to occupy the same space of the buttons
+                width 3rem
+                height @width*0.75
+                // remove default style
+                background none 
+                border none 
+                color inherit
+                // style the text to be boldy displayed in the screen
+                font-size 1.4rem
+                font-weight bold
+                font-family inherit
+                // center the text in the input area
+                text-align center
+
+                
+
+
+/*
+for smaller viewports 
+- have the app cover the entirety of the screen (remove also the padding on the wrapping body)
+- have the grid detail a single column
+- have each section occupy that column
+- alter the margin to have the sections separated from one another, but vertically
+
+- change the layout of the nested elements 
+    the buttons in .app__controls ought to be in a row instead of a column (spreading the buttons apart from one another)
+    the label and div responsible for the input in .input--session ought to be in a column, on top of one another
+    the button and input elements in session--time ought to be in a row, one next to the other (alter the order property to have the increment button on the right and the decrement button on the left)
+*/
+@media (max-width: 600px)
+    body
+        padding 0 
+    .app
+        width 100vw
+        border-radius 0
+        grid-template-columns 1fr
+        
+        .app__visuals, .app__controls, .app__inputs
+            grid-column span 1
+            margin 0
+        .app__controls
+            margin 10vh 0
+            flex-direction row 
+            width 100%
+            justify-content space-around
+
+        .app__inputs .inputs--session
+            flex-direction column
+            align-items center
+
+        .app__inputs .inputs--session .session--time
+            flex-direction row
+            
+            button:nth-of-type(1)
+                order 1
+            button:nth-of-type(2)
+                order -1
