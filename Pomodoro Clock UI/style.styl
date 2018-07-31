@@ -1,12 +1,19 @@
-// define the chosen font and colors 
-@import url('https://fonts.googleapis.com/css?family=Dosis')
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Nova+Mono')
 
-font-txt = 'Dosis', sans-serif
-color-app = #FE5461
-color-bg = #1f0f30
-white = #fff
+/* define the fonts and colors used in the project
+- Nova Mono for the timer 
+- Ubuntu for the input's text
+
+- #ECECEC for the application background
+- #324252 for the application theme (color and body's background)
+*/
+
+font-text = 'Ubuntu', sans-serif
+font-timer = 'Nova Mono', monospace
+color-app-bg = #ECECEC
+color-app-theme = #324252
 // define a variable which is updated in the script to visually relay the amount of time left (by changing the linear-gradient used as background)
-gradient-height = ((25 - 12)/ 25 * 100)%
+gradient-height = ((25 - 0)/ 25 * 100)%
 
 *
     box-sizing border-box
@@ -15,10 +22,10 @@ gradient-height = ((25 - 12)/ 25 * 100)%
   
 body
     width 100%
-    font-family font-txt
-    color white
+    font-family font-text
+    color color-app-theme
     // include a gradient around the color chosen for the body
-    background linear-gradient(to right, lighten(color-bg, 10%), color-bg, lighten(color-bg, 10%))
+    background linear-gradient(to right, color-app-theme, darken(color-app-theme, 50%), color-app-theme)
     // center the application horizontally and include some vertical padding
     display flex 
     justify-content center 
@@ -29,15 +36,15 @@ body
     max-width 800px
     width 90vw
     // create a grid of three columns each covering a third of the container
-    display grid
+    display grid    
     grid-template-columns repeat(3, 1fr)
     // center the content of the sections in the column(s)
     justify-items center
     // include the chosen color and some padding to distance the content from the surrounding borders
-    background color-app
+    background color-app-bg
     padding 5vh 0
     border-radius 20px
-    box-shadow 0 0 10px color-app
+    box-shadow 0 0 4px color-app-bg
 
 .app__visuals
     // have the first section spread to cover two columns
@@ -49,18 +56,19 @@ body
 
     .visuals--hourglass
         // include a circle which visually relays the time left in the session
-        width 250px
+        width 225px
         height @width
         border-radius 50%
         // include a nice border around the circle
-        box-shadow 0 0 0 5px color-app, 0 0 0 10px white
+        box-shadow 0 0 0 5px color-app-bg, 0 0 0 10px color-app-theme
         // how much time is left is conveyed by the linear gradient, and the threshold at which point the solid color turns transparent, with a hard stop
-        background linear-gradient(to top, white gradient-height, transparent gradient-height)
+        background linear-gradient(to top, color-app-theme gradient-height, transparent gradient-height)
         // separate the visual from the header below
         margin 2rem 0
     
     .visuals--timer
         font-size calc(3rem + 1vw)
+        font-family font-timer
 
 .app__controls
     // display the buttons on top of one another
@@ -70,29 +78,29 @@ body
 
     .controls--btn
         // style the buttons to be round
-        width 5rem
+        width 4.25rem
         height @width 
         border-radius 50%
         // include the same color of the background, and with the box-shadow property a neat border around it
         // border doesn't allow the same subtlety of multiple shadows 
         background inherit
-        box-shadow 0 0 0 1px color-app, 0 0 0 3px white
+        box-shadow 0 0 0 1px color-app-bg, 0 0 0 3px color-app-theme
         border none
         outline none
         // color specified to have it cascade to the SVG fill
-        color white
+        color color-app-theme
         // transition for the hover and active state
         transition all 0.15s ease-out
 
         &:hover, &:focus
             // on hover alter the shadows to expand the ring
-            box-shadow 0 0 0 2px color-app, 0 0 0 6px white
+            box-shadow 0 0 0 2px color-app-bg, 0 0 0 7px color-app-theme
 
         &:active
             // when active, flip the color and background properties
             // scale the buttons to be slightly bigger
-            background white 
-            color color-app
+            background color-app-theme
+            color color-app-bg
             // scale the buttons more horizontally than vertically
             transform scaleX(1.2) scaleY(1.08)
         svg 
@@ -107,18 +115,23 @@ body
     // spread the third section across the entirety of the width
     grid-column span 3
     // separate the third section from the first two
-    margin 15vh 0 0
+    margin 20vh 0 0
     // display the wrapping div one on top of the other
     display flex 
     flex-direction column
     // center horizontally
     align-items center
-
+    // border top to include a line which separates the inputs from the main app
+    padding-top 1rem 
+    border-top 3px solid lighten(color-app-theme, 20%)
+    
     .inputs--session
         // display the label and div responsible for the input element one next to the other
         display flex
         // center vertically
         align-items center
+        // separate the two input areas from one another
+        margin 1rem 0
 
         label 
             font-size 2rem
@@ -132,12 +145,10 @@ body
             align-items center
 
             button 
-                // padding to enlarge the press area and have the svg smaller than that
-                padding 0.5rem
-                width 3rem
+                width 2rem
                 height @width 
                 // color made cascading to the svg through currentColor
-                color white
+                color lighten(color-app-theme, 20%)
                 background none 
                 border none
                 // rotate the buttons to have them pointing upwards/downwards
@@ -147,18 +158,21 @@ body
                 &:nth-of-type(even)
                     transform rotate(90deg)
                 svg
+                    // spread the SVG to have the visual spread to the width and height of the parent button element
                     width 100%
                     height @width
                     fill currentColor
                     // transition for the hover, focus and active states
                     transition all 0.2s ease-out
 
-                // on hover slightly scale the buttons
+                // on hover slightly scale the buttons and reset the color to its orginal lightness
                 &:hover svg, &:focus svg
                     transform scale(1.1)
-                // when active notably scale the buttons
+                    color color-app-theme
+                // when active notably scale the buttons and again reset the color
                 &:active svg
                     transform scale(1.3)
+                    color color-app-theme
 
             
             input 
@@ -181,9 +195,9 @@ body
 
 /*
 for smaller viewports 
-- have the app cover the entirety of the screen (remove also the padding on the wrapping body)
+- have the app cover the entirety of the screen (to achieve this remove also the padding on the wrapping body)
 - have the grid detail a single column
-- have each section occupy that column
+- have each section occupy the single column
 - alter the margin to have the sections separated from one another, but vertically
 
 - change the layout of the nested elements 
@@ -202,15 +216,32 @@ for smaller viewports
         .app__visuals, .app__controls, .app__inputs
             grid-column span 1
             margin 0
+
+        .app__visuals .visuals--hourglass
+            // reduce the size of the visual
+            width 175px
+            height @width
+
         .app__controls
             margin 10vh 0
             flex-direction row 
             width 100%
             justify-content space-around
 
-        .app__inputs .inputs--session
-            flex-direction column
-            align-items center
+            .controls--btn
+                // reduce the size of the buttons
+                width 3.75rem
+                height @width
+
+        .app__inputs 
+            margin 10vh
+            text-align center
+            
+            .inputs--session
+                flex-direction column
+                align-items center
+                // separate the two input areas from one another
+                margin 2rem 0
 
         .app__inputs .inputs--session .session--time
             flex-direction row
