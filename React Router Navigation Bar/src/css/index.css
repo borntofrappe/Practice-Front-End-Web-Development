@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700');
+/* define the fonts and colors used in the project */
+:root {
+  --font: 'Open Sans', sans-serif;
+  --color-bg: #252525;
+  --color-txt: #fff;
+  --color-home: #F1C40F;
+  --color-about: #16A085;
+  --color-projects: #E74C3C;
+  --color-contacts: #2980B9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-txt);
+  background: var(--color-bg);
+
+}
