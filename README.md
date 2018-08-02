@@ -116,5 +116,6 @@ If the inspiration strikes, exceptions can be made.
 |[**Phone UI Calculator**](https://codepen.io/borntofrappe/pen/djzGWQ)|Create the UI of a phone displaying a calculator's app.|ui, grid|25th July 2018|
 |[**CodePenChallenge Table**](https://codepen.io/borntofrappe/pen/yqPoqO/)|Create a simple layout with a table element.|codepenchallenge, table, layout|28th July 2018|
 |[**Insightful Tooltip**](https://codepen.io/borntofrappe/pen/ZjaZxQ/)|Create a simple tooltip to display insights or bits of trivia.|tooltip, css animation, trivia|29th July 2018|
-|[**Pomodoro Clock UI**](https://codepen.io/borntofrappe/pen/LBeMdy/)|Design the UI for a pomodoro clock application, to be created at a later moment with React|ui, design, pomodoro|30th July 2018|
+|[**Pomodoro Clock UI**](https://codepen.io/borntofrappe/pen/LBeMdy/)|Design the UI for a pomodoro clock application, to be created at a later moment with React.|ui, design, pomodoro|30th July 2018|
+|[**React Router Navigation Bar**](https://codepen.io/borntofrappe/pen/gjzjrE)|Create a simple navigation bar to practice with React Router.|react, react router, navbar|2nd August 2018|
 

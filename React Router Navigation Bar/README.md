@@ -1,3 +1,5 @@
+Link to the working pen [right here](https://codepen.io/borntofrappe/full/gjzjrE).
+
 # Preface
 
 The purpose of this project is the creation of a simple navigation bar, inspired by [Scott Tolinski](https://twitter.com/stolinski)'s [own website](http://scotttolinski.com/about) and using [React Router](https://github.com/ReactTraining/react-router). 
