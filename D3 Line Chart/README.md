@@ -38,7 +38,7 @@ Additonal fields might help in providing a more detailed visualization, but for 
 ```JS
 const riders = {
   hamilton: {
-    codename: 'ham'
+    codename: 'ham',
     position: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2]
   },
   bottas: {
@@ -80,10 +80,9 @@ Its inclusion allows for such methods as `.select()` and `append()`, used in the
 
 **SVG Margin**
 
-To have a more robust data visualization, which allows to easily include axes and data without fear of cropping out any elements, it is advisable to include an area inside of a wrapping `<svg>` element. This area, which can be included through a `<g>`roup element, can be defined inside of the parent node and safely include the data visualization.
+To have a more robust data visualization, which allows to easily include axes and data without fear of cropping out elements, it is advisable to include an area inside of a wrapping `<svg>` element. This area, which can be included through a `<g>`roup element, can be defined inside of the parent node and safely include the data visualization.
 
 ```JS
-// select the node in which to include the data visualization
 const containerData = d3.select("div.data");
 
 // define values which distance the data visualization from the wrapping <svg> element
@@ -96,7 +95,6 @@ const margin = {
 
 // define the width and height value deducting the respective margin values
 // this allows to later use the values for the data visualization as a whole, safely inside of the wrapping g element
-// without needing further adjustment with margin/ padding
 const w = 900 - margin.left - margin.right,
       h = 500 - margin.top - margin.bottom;
 
@@ -108,21 +106,25 @@ const svg = containerData
 
 // inside of the <svg> element include a <g> element, in which the data visualization will be included 
 // translate <g> to have the grouping element nestled inside of the SVG
-// this structure allows some space in which the data visualization can be depicted without fear of cropping
-// moreover, it allows to use the width and height values as is
 const svgCanvas = svg
                   .append("g")
                   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 ```
 
+As expressed in the comments, this practice has the bonus of: 
+
+1. including an area dedicated to the data visualization, of known size;
+
+1. include the data visualization inside of the area, displaying its contents appropriately and in full;
+
+1. work with SVG elements directly referencing the width and height values, without need of further adjustments through margin/padding/ad-hoc measures.
+
 **Data Viz: Line Chart**
 
-SVG can leverage two structures to draw lines: the `<polyline>` and `<path>` elements.
+<!-- TODO   Learn how to draw a line, learn how to draw two of them -->
 
-<!-- discover how to draw a line chart with the mentioned elements -->
-
-**Data Viz: finishing touches**
+<!-- **Data Viz: finishing touches**
 
 The SVG and path elements do a great job in describing the shuffle of riders across the race. That being said, a few modifications and upgrades can be included to provide a visualization pleasing to the eye and incredibly easy to understand.
 
@@ -136,4 +138,6 @@ The SVG and path elements do a great job in describing the shuffle of riders acr
 
 - to the right of the graph, a legend should display the riders in order, as positioned in the last measured lap;
 
-- atop the graph, a header should display additional information regarding the race (something similar to F! Race Lap Chart, Lap: 25/70, Budapest, #HungarianGP).
+- atop the graph, a header should display additional information regarding the race (something similar to F! Race Lap Chart, Lap: 25/70, Budapest, #HungarianGP).+
+
+ -->

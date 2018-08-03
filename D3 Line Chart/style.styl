@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:800')
-
-font-txt = 'Muli', sans-serif
-color-txt = #fff
-color-bg = #111
+@import url('https://fonts.googleapis.com/css?family=Orbitron:700|Lato')
+// include the chosen font and colors 
+font-header = 'Orbitron', sans-serif
+font-viz = 'Lato', sans-serif
+color-text = #F0F0F0
+color-theme-dark = #0F0F0F
+color-theme-light = #161616
 
 *
     box-sizing border-box
@@ -12,9 +14,9 @@ color-bg = #111
 body
     min-height 100vh
     width 100%
-    font-family font-txt
-    color color-txt
-    background color-bg    
+    font-family font-header
+    color color-text
+    background color-theme-dark    
 
 // stretch the container to cover at most 1200px 
 .container 
@@ -22,6 +24,10 @@ body
     max-width 1000px
     min-height 100vh
     margin 1.5rem auto
+    padding 1rem 
+    background color-theme-light
+    border-radius 20px 
+    box-shadow 0 2px 15px rgba(color-theme-light, 0.5)
 
     // display the header's elements one next to the other
     header
@@ -34,7 +40,20 @@ body
         h2 
             letter-spacing 0.1rem
             font-size calc(1rem + 1.25vw)
-            
+            text-transform uppercase
+
+    svg 
+        // style the SVG to show the axes and ticks on a dark screen
+        g  
+            fill color-text
+
+
+        text 
+            font-family font-viz
+            font-size 12px
+            text-transform uppercase
+            stroke none
+            fill currentColor
 
 // limit the growth of the h2 elements to 2rem, capped at 1200px 
 @media (min-width: 1200px)

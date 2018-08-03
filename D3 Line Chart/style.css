@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Muli:800");
+@import url("https://fonts.googleapis.com/css?family=Orbitron:700|Lato");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,15 +7,19 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: 'Muli', sans-serif;
-  color: #fff;
-  background: #111;
+  font-family: 'Orbitron', sans-serif;
+  color: #f0f0f0;
+  background: #0f0f0f;
 }
 .container {
   width: 90vw;
   max-width: 1000px;
   min-height: 100vh;
   margin: 1.5rem auto;
+  padding: 1rem;
+  background: #161616;
+  border-radius: 20px;
+  box-shadow: 0 2px 15px rgba(22,22,22,0.5);
 }
 .container header {
   display: flex;
@@ -26,6 +30,17 @@ body {
 .container header h2 {
   letter-spacing: 0.1rem;
   font-size: calc(1rem + 1.25vw);
+  text-transform: uppercase;
+}
+.container svg g {
+  fill: #f0f0f0;
+}
+.container svg text {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  stroke: none;
+  fill: currentColor;
 }
 @media (min-width: 1200px) {
   .container header h2 {
