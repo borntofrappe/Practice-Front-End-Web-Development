@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Muli:800");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +7,33 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: 'Lato', sans-serif;
-  color: #252525;
-  background: #ededed;
+  font-family: 'Muli', sans-serif;
+  color: #fff;
+  background: #111;
+}
+.container {
+  width: 90vw;
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: 1.5rem auto;
+}
+.container header {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+.container header h2 {
+  letter-spacing: 0.1rem;
+  font-size: calc(1rem + 1.25vw);
+}
+@media (min-width: 1200px) {
+  .container header h2 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 800px) {
+  .container header {
+    flex-direction: column;
+  }
 }

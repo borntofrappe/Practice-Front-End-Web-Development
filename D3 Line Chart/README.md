@@ -78,3 +78,62 @@ To benefit from D3 and connected methods, it is necessary to first include a ref
 
 Its inclusion allows for such methods as `.select()` and `append()`, used in the script to include an area dedicated to the chart and path elements for the different lines. 
 
+**SVG Margin**
+
+To have a more robust data visualization, which allows to easily include axes and data without fear of cropping out any elements, it is advisable to include an area inside of a wrapping `<svg>` element. This area, which can be included through a `<g>`roup element, can be defined inside of the parent node and safely include the data visualization.
+
+```JS
+// select the node in which to include the data visualization
+const containerData = d3.select("div.data");
+
+// define values which distance the data visualization from the wrapping <svg> element
+const margin = {
+  top: 20,
+  right: 40,
+  bottom: 20,
+  left: 40
+};
+
+// define the width and height value deducting the respective margin values
+// this allows to later use the values for the data visualization as a whole, safely inside of the wrapping g element
+// without needing further adjustment with margin/ padding
+const w = 900 - margin.left - margin.right,
+      h = 500 - margin.top - margin.bottom;
+
+// append an <svg> element with a viewBox attribute described by the width and height values
+// these augmented by the margin values as to have the SVg encompass exactly the measures defined by the absolute units (900 and 750) 
+const svg = containerData
+              .append("svg")
+              .attr("viewBox", `0 0 ${w + margin.left + margin.right} ${h + margin.top + margin.bottom}`);
+
+// inside of the <svg> element include a <g> element, in which the data visualization will be included 
+// translate <g> to have the grouping element nestled inside of the SVG
+// this structure allows some space in which the data visualization can be depicted without fear of cropping
+// moreover, it allows to use the width and height values as is
+const svgCanvas = svg
+                  .append("g")
+                  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+```
+
+**Data Viz: Line Chart**
+
+SVG can leverage two structures to draw lines: the `<polyline>` and `<path>` elements.
+
+<!-- discover how to draw a line chart with the mentioned elements -->
+
+**Data Viz: finishing touches**
+
+The SVG and path elements do a great job in describing the shuffle of riders across the race. That being said, a few modifications and upgrades can be included to provide a visualization pleasing to the eye and incredibly easy to understand.
+
+- the line should display a dot, but only for the last measurement;
+
+- the lines should have a different color. Riders of the same team should additionally share one color. This is where the inclusion of another field in the data object is advisable;
+
+- the x-axis should show a 'lap' label and one tick for each 5th lap;
+
+- the y-axis should show two axes, one at the left of the chart, with the mentioned three letter "code" name;
+
+- to the right of the graph, a legend should display the riders in order, as positioned in the last measured lap;
+
+- atop the graph, a header should display additional information regarding the race (something similar to F! Race Lap Chart, Lap: 25/70, Budapest, #HungarianGP).

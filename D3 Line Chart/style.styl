@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lato')
+@import url('https://fonts.googleapis.com/css?family=Muli:800')
 
-font-txt = 'Lato', sans-serif
+font-txt = 'Muli', sans-serif
 color-txt = #fff
 color-bg = #111
 
@@ -15,4 +15,36 @@ body
     font-family font-txt
     color color-txt
     background color-bg    
+
+// stretch the container to cover at most 1200px 
+.container 
+    width 90vw
+    max-width 1000px
+    min-height 100vh
+    margin 1.5rem auto
+
+    // display the header's elements one next to the other
+    header
+        display flex 
+        justify-content space-around 
+        flex-wrap wrap
+        // visually separate the header from the data viz
+        margin-bottom 5vh
+
+        h2 
+            letter-spacing 0.1rem
+            font-size calc(1rem + 1.25vw)
+            
+
+// limit the growth of the h2 elements to 2rem, capped at 1200px 
+@media (min-width: 1200px)
+    .container header h2 
+        font-size 2rem
+
+// display the headers in a single column below 800px
+@media (max-width: 800px)
+    .container 
+        header 
+            flex-direction column
+
 
