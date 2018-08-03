@@ -67,3 +67,14 @@ const riders = {
 _Small note_:
 
 While the first four data points aptly represent the riders' positions in the _Hungarian Gran Prix_, the four and fifth riders include made up positions to fill in the blanks. By including all riders, it won't be necessary to make this kind of adjustment.
+
+**Include Library**
+
+To benefit from D3 and connected methods, it is necessary to first include a reference to the library:
+
+```HTML
+<script src="https://d3js.org/d3.v5.min.js"></script>
+```
+
+Its inclusion allows for such methods as `.select()` and `append()`, used in the script to include an area dedicated to the chart and path elements for the different lines. 
+
