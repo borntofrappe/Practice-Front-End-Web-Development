@@ -120,24 +120,40 @@ As expressed in the comments, this practice has the bonus of:
 
 1. work with SVG elements directly referencing the width and height values, without need of further adjustments through margin/padding/ad-hoc measures.
 
-**Data Viz: Line Chart**
+**Line Chart**
 
-<!-- TODO   Learn how to draw a line, learn how to draw two of them -->
+To draw a line with an SVG element, the library has a two step process:
 
-<!-- **Data Viz: finishing touches**
+- create the line, detailing the `x` and `y` coordinates of each point;
+
+- include the line in the `d` attribute of a `path` element. 
+
+The difficult portion is to include a line based on data which will be included later. A mixture of visualization and a helpful of experimentation generates the desired result.
+
+For instance, and for the project at hand, the chart needs to draw a line, whose x-coordinate relates to each subsequent lap. The `x` coordinate is therefore based on an array nesting the lap values, weighed by the scale which plots the laps in the width of the SVG canvas.
+
+```JS
+const line = d3
+  .line()
+  .x((d, i) => xScale(laps[i]));
+```
+
+The y-coordinate is instead related to each subsequent driver. As the visualization includes the riders with a scaleBand function, an ordinal function, the line would actually be offset to the top of each band. To accommodate for such a change, it is possible to include a measure for the width of the band itself, and have the line centered exactly where the data requires it.
+
+```JS
+const line = d3
+  .line()
+  .y((d, i) => yScale(d) + yScale.bandwidth()/2);
+```
+
+The line here defined is fed to a path element, which includes as data the array describing the position of each subsequent rider. This data is directly accessed and used in the line function through the `d` argument.
+
+**Finishing touches**
 
 The SVG and path elements do a great job in describing the shuffle of riders across the race. That being said, a few modifications and upgrades can be included to provide a visualization pleasing to the eye and incredibly easy to understand.
 
-- the line should display a dot, but only for the last measurement;
-
 - the lines should have a different color. Riders of the same team should additionally share one color. This is where the inclusion of another field in the data object is advisable;
 
-- the x-axis should show a 'lap' label and one tick for each 5th lap;
+- atop the graph, a header should display additional information regarding the race (something similar to F1 Race Lap Chart, Lap: 25/70, Budapest).
 
-- the y-axis should show two axes, one at the left of the chart, with the mentioned three letter "code" name;
 
-- to the right of the graph, a legend should display the riders in order, as positioned in the last measured lap;
-
-- atop the graph, a header should display additional information regarding the race (something similar to F! Race Lap Chart, Lap: 25/70, Budapest, #HungarianGP).+
-
- -->
