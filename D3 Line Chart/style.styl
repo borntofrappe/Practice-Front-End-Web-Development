@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:700|Lato')
 // include the chosen font and colors 
 font-header = 'Orbitron', sans-serif
-font-viz = 'Lato', sans-serif
+font-visualization = 'Lato', sans-serif
 color-text = #F0F0F0
 color-theme-dark = #0F0F0F
-color-theme-light = #161616
+color-theme-light = #202020
 
 *
     box-sizing border-box
@@ -12,29 +12,29 @@ color-theme-light = #161616
     padding 0
   
 body
-    min-height 100vh
     width 100%
     font-family font-header
     color color-text
     background color-theme-dark    
 
-// stretch the container to cover at most 1200px 
 .container 
+    // stretch the container to cover at most 1000px 
     width 90vw
     max-width 1000px
-    min-height 100vh
     margin 1.5rem auto
     padding 1rem 
-    background color-theme-light
     border-radius 20px 
-    box-shadow 0 2px 15px rgba(color-theme-light, 0.5)
+    background color-theme-light
+    // include a noticeable shadow and an animation to show the container from the bottom of the screen 
+    box-shadow 0 2px 15px rgba(lighten(color-theme-light, 20%), 0.5)
+    animation rollUp 0.5s 0.5s cubic-bezier(.22,-.3,.68,2) both
 
-    // display the header's elements one next to the other
     header
+        // display the header's elements one next to the other
         display flex 
         justify-content space-around 
         flex-wrap wrap
-        // visually separate the header from the data viz
+        // visually separate the header from the data visualization
         margin-bottom 5vh
 
         h2 
@@ -44,16 +44,17 @@ body
 
     svg 
         // style the SVG to show the axes and ticks on a dark screen
-        g  
+        g, text  
             fill color-text
 
-
         text 
-            font-family font-viz
-            font-size 12px
+            font-family font-visualization
+            font-size 14px
             text-transform uppercase
-            stroke none
-            fill currentColor
+
+        path 
+            // draw the lines in the data visualization by animating stroke-dashoffset to 0
+            animation drawIn 3.5s 1.5s ease-in forwards
 
 // limit the growth of the h2 elements to 2rem, capped at 1200px 
 @media (min-width: 1200px)
@@ -66,4 +67,21 @@ body
         header 
             flex-direction column
 
+/*
+define the animations to 
+1. introduce the container 
+1. draw the SVG path elements 
+*/
+@keyframes rollUp
+    0%
+        opacity 0
+        transform translateY(15vh)
+    40%
+        opacity 0
+    100%
+        opacity 1
+        tranform translateY(0)
 
+@keyframes drawIn 
+    to 
+        stroke-dashoffset 0

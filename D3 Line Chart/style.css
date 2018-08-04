@@ -5,7 +5,6 @@
   padding: 0;
 }
 body {
-  min-height: 100vh;
   width: 100%;
   font-family: 'Orbitron', sans-serif;
   color: #f0f0f0;
@@ -14,12 +13,12 @@ body {
 .container {
   width: 90vw;
   max-width: 1000px;
-  min-height: 100vh;
   margin: 1.5rem auto;
   padding: 1rem;
-  background: #161616;
   border-radius: 20px;
-  box-shadow: 0 2px 15px rgba(22,22,22,0.5);
+  background: #202020;
+  box-shadow: 0 2px 15px rgba(77,77,77,0.5);
+  animation: rollUp 0.5s 0.5s cubic-bezier(0.22, -0.3, 0.68, 2) both;
 }
 .container header {
   display: flex;
@@ -32,15 +31,17 @@ body {
   font-size: calc(1rem + 1.25vw);
   text-transform: uppercase;
 }
-.container svg g {
+.container svg g,
+.container svg text {
   fill: #f0f0f0;
 }
 .container svg text {
   font-family: 'Lato', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
-  stroke: none;
-  fill: currentColor;
+}
+.container svg path {
+  animation: drawIn 3.5s 1.5s ease-in forwards;
 }
 @media (min-width: 1200px) {
   .container header h2 {
@@ -50,5 +51,82 @@ body {
 @media (max-width: 800px) {
   .container header {
     flex-direction: column;
+  }
+}
+/*
+define the animations to 
+1. introduce the container 
+1. draw the SVG path elements 
+*/
+@-moz-keyframes rollUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@-webkit-keyframes rollUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@-o-keyframes rollUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@keyframes rollUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@-moz-keyframes drawIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-o-keyframes drawIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawIn {
+  to {
+    stroke-dashoffset: 0;
   }
 }
