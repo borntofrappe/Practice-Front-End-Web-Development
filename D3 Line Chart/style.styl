@@ -27,7 +27,7 @@ body
     background color-theme-light
     // include a noticeable shadow and an animation to show the container from the bottom of the screen 
     box-shadow 0 2px 15px rgba(lighten(color-theme-light, 20%), 0.5)
-    animation rollUp 0.5s 0.5s cubic-bezier(.22,-.3,.68,2) both
+    animation rollUp 0.7s 0.5s cubic-bezier(.22,-.3,.68,2) both
 
     header
         // display the header's elements one next to the other
@@ -36,13 +36,18 @@ body
         flex-wrap wrap
         // visually separate the header from the data visualization
         margin-bottom 5vh
+        // animate the header from the top of the screen
+        animation rollDown 0.8s 0.7s cubic-bezier(.22,-.3,.68,2) both
+
 
         h2 
             letter-spacing 0.1rem
             font-size calc(1rem + 1.25vw)
             text-transform uppercase
-
+            
     svg 
+        // animate the svg container alike the header 
+        animation rollDown 0.8s 0.7s cubic-bezier(.22,-.3,.68,2) both
         // style the SVG to show the axes and ticks on a dark screen
         g, text  
             fill color-text
@@ -54,7 +59,7 @@ body
 
         path 
             // draw the lines in the data visualization by animating stroke-dashoffset to 0
-            animation drawIn 3.5s 1.5s ease-in forwards
+            animation drawIn 3.5s 1.75s ease-in forwards
 
 // limit the growth of the h2 elements to 2rem, capped at 1200px 
 @media (min-width: 1200px)
@@ -70,12 +75,23 @@ body
 /*
 define the animations to 
 1. introduce the container 
+1. introduce the header
 1. draw the SVG path elements 
 */
 @keyframes rollUp
     0%
         opacity 0
         transform translateY(15vh)
+    40%
+        opacity 0
+    100%
+        opacity 1
+        tranform translateY(0)
+
+@keyframes rollDown
+    0%
+        opacity 0
+        transform translateY(-5vh)
     40%
         opacity 0
     100%

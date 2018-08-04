@@ -18,18 +18,22 @@ body {
   border-radius: 20px;
   background: #202020;
   box-shadow: 0 2px 15px rgba(77,77,77,0.5);
-  animation: rollUp 0.5s 0.5s cubic-bezier(0.22, -0.3, 0.68, 2) both;
+  animation: rollUp 0.7s 0.5s cubic-bezier(0.22, -0.3, 0.68, 2) both;
 }
 .container header {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 5vh;
+  animation: rollDown 0.8s 0.7s cubic-bezier(0.22, -0.3, 0.68, 2) both;
 }
 .container header h2 {
   letter-spacing: 0.1rem;
   font-size: calc(1rem + 1.25vw);
   text-transform: uppercase;
+}
+.container svg {
+  animation: rollDown 0.8s 0.7s cubic-bezier(0.22, -0.3, 0.68, 2) both;
 }
 .container svg g,
 .container svg text {
@@ -41,7 +45,7 @@ body {
   text-transform: uppercase;
 }
 .container svg path {
-  animation: drawIn 3.5s 1.5s ease-in forwards;
+  animation: drawIn 3.5s 1.75s ease-in forwards;
 }
 @media (min-width: 1200px) {
   .container header h2 {
@@ -56,6 +60,7 @@ body {
 /*
 define the animations to 
 1. introduce the container 
+1. introduce the header
 1. draw the SVG path elements 
 */
 @-moz-keyframes rollUp {
@@ -101,6 +106,58 @@ define the animations to
   0% {
     opacity: 0;
     transform: translateY(15vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@-moz-keyframes rollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@-webkit-keyframes rollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@-o-keyframes rollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5vh);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    tranform: translateY(0);
+  }
+}
+@keyframes rollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5vh);
   }
   40% {
     opacity: 0;
