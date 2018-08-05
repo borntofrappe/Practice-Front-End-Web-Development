@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
   font-family: 'Lato', sans-serif;
   color: #f0f0f0;
-  background: radial-gradient(circle at 50% 50%, rgba(255,0,0,0.5) 30%, transparent 30.1%), #0a1e50;
+  background: radial-gradient(circle at 50% 50%, #dd1f19 30%, transparent 30.1%), #0a1e50;
   background-repeat: no-repeat;
 }
 .app {
