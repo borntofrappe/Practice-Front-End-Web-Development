@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <title>Title</title>
-  <meta name="description" content="Description."/>
+  <title>Drum Machine UI</title>
+  <meta name="description" content="Design the UI of the Drum Machine soon to be created for the 'Front End Libraries' certification @freeCodeCamp."/>
 
   <link rel="stylesheet" href="style.css"/>
   <!-- <link rel="icon" href="tab_icon.png"> -->
@@ -15,7 +15,36 @@
 
 <body>
   
-  <!-- markup right here -->
+  <!-- in a wrapping container include
+    - a container for the supporting elements, nesting (for now)
+      a container in which to display the pressed element
+
+    - a container for the clickable elements, nesting
+      nine clickable elements
+  -->
+
+  <div class="app">
+
+    <div class="app__support">
+      <div class="support--display">
+      </div>
+    </div><!-- close .app__support -->
+
+
+    <div class="app__main">
+      <button class="main--button" data-button="q">q</button>
+      <button class="main--button" data-button="w">w</button>
+      <button class="main--button" data-button="e">e</button>
+      <button class="main--button" data-button="a">a</button>
+      <button class="main--button" data-button="s">s</button>
+      <button class="main--button" data-button="d">d</button>
+      <button class="main--button" data-button="z">z</button>
+      <button class="main--button" data-button="x">x</button>
+      <button class="main--button" data-button="c">c</button>
+    </div><!-- close .app__main -->
+    
+  </div><!-- close .app -->
+
 
 <script src="script.js"></script>
 </body>
