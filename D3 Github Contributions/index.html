@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <title>Title</title>
-  <meta name="description" content="Description."/>
+  <title>D3.js Github Contributions</title>
+  <meta name="description" content="Replicate the visual on Github responsible for the number of contributions, using simple HTML elements and the D3.js library. No SVG syntax."/>
 
   <link rel="stylesheet" href="style.css"/>
   <!-- <link rel="icon" href="tab_icon.png"> -->
@@ -15,8 +15,13 @@
 
 <body>
   
-  <!-- markup right here -->
+  <!-- in a wrapping container, include a div in which D3.js will plot the grid cells -->
+  <div class="container">
+    <!-- header and div elements right here  -->
+  </div>
 
+<!-- include the JS library _before_ the instruction which leverage the same dependency -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
