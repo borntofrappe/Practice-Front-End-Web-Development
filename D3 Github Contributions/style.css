@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+/* 
+define the cell size used for the grid items
+*/
+:root {
+  --cell-size: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  color: hsl(210, 12%, 16%);
+  background: hsl(0, 0%, 100%);
+
+  /* center the container in the screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  /* display the paragraph and grid container in a single column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding to include a border around the visual */
+  padding: 1.2rem;
+  border: 1px solid hsla(210, 12%, 16%, 0.2);
+  border-radius: 4px;
+}
+.container .container__p {
+  font-size: 0.8rem;
+  /* separate the paragraph from the div below */
+  margin-bottom: 1.25rem; 
+}
+
+.container .container__grid {
+  /* create a grid of 7 column of equal size
+  include an implicit row of the same size */
+  display: grid;
+  grid-template-columns: repeat(7, var(--cell-size));
+  grid-auto-rows: var(--cell-size); 
+  /* slightly separate the cells from one another */
+  grid-gap: 3px;
+}
+
+.container #tooltip {
+  /* position absolute to freely move the tooltip where the mouse hovers */
+  position: absolute;
+  /* style the tooltip flipping the color and background properties  */
+  background: hsla(210, 12%, 16%, 0.8);
+  color: hsl(0, 0%, 100%);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 5px;
+  /* pointer events to have the cursor ignore the element */
+  pointer-events: none;
+  /* opacity altered when the cursor hovers on the grid items */
+  opacity: 0;
+  /* transition to smoothen the change in opacity */
+  transition: opacity 0.3s ease-out;
+}
+
+.container #tooltip:before {
+  /* include a left facing arrow on the left side of the tooltip container */
+  position: absolute;
+  content: '';
+  top: calc(50% - 0.4rem);
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-top: 0.4rem solid transparent;
+  border-right: 0.4rem solid hsla(210, 12%, 16%, 0.9);
+  border-bottom: 0.4rem solid transparent;
+  border-left: 0.4rem solid transparent;
+}
