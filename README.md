@@ -121,3 +121,4 @@ If the inspiration strikes, exceptions can be made.
 |[**D3 Line Chart**](https://codepen.io/borntofrappe/pen/PBBoYB/)|Create a data visualization with multiple lines each analysing the position of a hypothetical rider.|d3, js, path |3rd-4th August 2018|
 |[**Drum Machine UI**](https://codepen.io/borntofrappe/pen/wxxrRX/)|Design the UI of the Drum Machine soon to be created for the 'Front End Libraries' certification.|drum machine, ui, grid |5th August 2018|
 |[**D3 Github Contributions**](https://codepen.io/borntofrappe/pen/MBzmEO/)|Replicate the visual on Github responsible for the number of contributions, using simple HTML elements and the D3.js library.|d3, div, grid|8th August 2018|
+|[**D3 Column Chart**](https://codepen.io/borntofrappe/pen/YjdVLM)|Practice with D3. SVG syntax, ordinal scales, transitions, fetching data from a public API.|d3, column chart, scaleBand, fetch|9th August 2018|
