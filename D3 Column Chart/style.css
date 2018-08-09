@@ -1,18 +1,57 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
-:root {
-  --font-text: 'Lato', sans-serif;
-  --color-text: #252525;
-  --color-background: #f0f0f0;
-}
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  min-height: 100vh;
   width: 100%;
-  font-family: var(--font-text);
-  color: var(--color-text);
-  background: var(--color-background);
+  min-height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
+  color: #192b37;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  margin: 5vh 0 0;
+  background: linear-gradient(45deg, rgba(255,0,0,0.1) 33%, rgba(244,244,244,0.1) 33%, rgba(244,244,244,0.1) 67%, rgba(0,0,255,0.1) 67%);
+  background-repeat: no-repeat;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container p {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1.5rem;
+}
+.container #tooltip {
+  position: absolute;
+  opacity: 0;
+  color: #f4f4f4;
+  background: #192b37;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  pointer-events: none;
+  box-shadow: 0 0 0 3px #f4f4f4;
+}
+.container svg {
+  margin-top: 5vh;
+  width: 90vw;
+  max-width: 700px;
+}
+.container svg path,
+.container svg line {
+  fill: none;
+  stroke: #192b37;
+  stroke-width: 2px;
+}
+.container svg text {
+  fill: #192b37;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+}
+.container svg rect {
+  fill: #192b37;
 }
