@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Source+Code+Pro')
+
+// include the fonts and colors chosen for the project 
+font-text = 'Lato', sans-serif
+font-code = 'Source Code Pro', monospace
+color-text = #252525
+color-background = #fff
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background color-background
+    // center the container horizontally
+    display flex 
+    justify-content center 
+
+// display the contents of the container in a single column, with a capped width
+.container
+    display flex
+    flex-direction column 
+    align-items center 
+    max-width 700px
+    width 90vw
+
+// boldly present the "blog post" with a title and an uppercase subtitle
+header.container__header 
+    text-align center
+    line-height 2
+    margin 2vh 0 0
+    h1
+        font-weight 300
+        font-size calc(2rem + 0.8vh)
+    p
+        text-transform uppercase
+        letter-spacing 0.1rem
+
+section.container__step 
+    // separate each section vertically
+    margin 2.5vh 0
+    // display the contents of each section in a single column
+    display flex 
+    flex-direction column 
+    img     
+        // size the image according to the viewport, even if this cause the purpose of the map and area element to crumble
+        width 100%
+        margin 2.5vh 0
+
+    h2
+        font-weight 300
+        border-left 3px solid color-text
+        padding 0 0.8rem
+        margin-bottom 1rem
+        
+    p
+        font-size 1.1rem
+        line-height 2
+        
+
+    pre        
+        // center the code element
+        display flex 
+        justify-content center
+        margin 5vh 0
+        // have the pre element spread across the available width
+        width 100%
+
+        code 
+            // spread the code element in the parent container
+            width 100%
+            // specify particular padding for the code elements nested in a pre parent element
+            padding 0.2rem 1rem
+
+    code
+        // style all code elements with the chosen font and the color/background picks the opposite of the picks for the body
+        font-family font-code 
+        background color-text
+        color color-background
+        padding 0.1rem 0.3rem
+        border-radius 12px
+        line-height 1.4
+
+    ol, ul
+        // separate the lists vertically from the surrounding content
+        margin 2vh 5vw
+
+        li
+            line-height 2
+
+    blockquote 
+        // center the blockquote horizontally
+        display inline-block
+        align-self center
+        text-align center
+        // style the blockquote to have some kind of resemblance to a quote
+        margin 5vh 0
+        padding 1rem 1.8rem
+        background rgba(color-text, 0.1)
+        font-style italic
+        font-size 1.5rem
+        border-radius 10px
+        font-weight 300
