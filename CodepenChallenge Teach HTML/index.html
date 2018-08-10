@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <title>Title</title>
-  <meta name="description" content="Description."/>
+  <title>#CodePenChallenge: Teaching HTML</title>
+  <meta name="description" content="Create an entry for the weekly #codepenchallenge, trying to teach about two newly discovered HTML elements in a simple blog-post format."/>
 
   <link rel="stylesheet" href="style.css"/>
   <!-- <link rel="icon" href="tab_icon.png"> -->
@@ -15,8 +15,258 @@
 
 <body>
   
-  <!-- markup right here -->
+<!-- in a wrapping container, include a section for each step of the tutorial, following an informative header -->
 
-<script src="script.js"></script>
+<div class="container">
+
+  <header class="container__header">
+    <!-- in the informative header include a single h1 element followed by a subtitle -->
+    <h1>
+      Teaching <code>&lt;map&gt;</code> 
+      &
+      Teaching <code>&lt;area&gt;</code>
+    </h1>
+    <p>Discovering awesome HTML elements</p>
+
+  </header>
+
+  <!-- in each section include headers describing the section, followed by source code, unordered and ordered lists alike -->
+  
+  <section class="container__step step--intro">
+    <h2>Starting Point</h2>
+
+    <p>Say you have a good-looking, sharp picture.</p>
+
+    <img src="https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?cs=srgb&dl=abstract-ai-art-355948.jpg&fm=jpg" alt="Picture of a chalk-board"/>
+    
+    <p>Wouldn't it be nice to have it reference some nice URL?</p>
+    
+    <p>HTML can do that!</p>
+    
+    <p>Simply wrap the <code>&lt;img&gt;</code> element in between anchor link tags. The following markup for instance:</p>
+
+<pre>
+<code>
+&lt;a href="nice_url"&gt;
+  &lt;img 
+    src="img_url" 
+    alt="Nice sharp image" /&gt;
+&lt;/a&gt;
+</code>
+</pre>
+
+    <p>Allows such a feat:</p>
+
+    <a href="https://www.pexels.com/photo/abstract-blackboard-bulb-chalk-355948/" target="_blank">
+      <img src="https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?cs=srgb&dl=abstract-ai-art-355948.jpg&fm=jpg" alt="Picture of a chalk-board"/>
+    </a>
+
+    <p>Wouldn't it be <u>great</u> to have it reference <u>multiple</u> URLs, according to which section of the image was clicked?</p>
+    <p>HTML can do that!</p>
+    <p>You just need to get acquainted with two new friends: <code>&lt;map&gt;</code> and <code>&lt;area&gt;</code></p>
+  </section><!-- close the introductory section -->
+
+
+  <section class="container__step step--map">
+    <h2>Map</h2>
+    <p>The <code>&lt;map&gt;</code> element is used primarily for two reasons:</p>
+    <ol>
+      <li>
+        To group <code>&lt;area&gt;</code> elements;
+      </li>
+      <li>
+        To provide an identifier through the <code>name</code> attribute, as to later reference the map itself.
+      </li>
+    </ol>
+
+<pre>
+<code>
+&lt;map name="mapName"&gt;
+  &lt;area/&gt;
+  &lt;area/&gt;
+&lt;/map&gt;
+</code>
+</pre>
+    
+  </section><!-- close the map section -->
+
+
+  <section class="container__step step--area">
+    <h2>Area</h2>
+    <p>The <code>&lt;area&gt;</code> element is instead used to define a region, or regions, responsible for specified URLs.</p>
+    <p>The element itself has several attributes, each solving its own purpose:</p>
+
+    <ul>
+      <li>
+        <code>shape</code> defines the possible shape of the reference-able area (such as a rectangle, circle, polygon);
+      </li>
+      <li>
+        <code>coords</code> specifies the coordinates of the area. The values included with this attribute depend on the chosen shape;
+      </li>
+      <li>
+        <code>href</code> details the URL referenced by the area;
+      </li>
+      <li>
+        <code>target</code> dictates where the referenced link it's going to be opened, similalry to the attribute bearing the same name for anchor link elements;
+      </li>
+      <li>
+        <code>alt</code> includes some text, to be shown in case the browser fails to load the image, similarly to the attribute bearing the same name for image elements.
+      </li>
+    </ul>
+
+<pre>
+<code>
+  &lt;area 
+    shape="circle" 
+    coords="100, 100, 50"
+    href="nice_url" 
+    target="_blank" 
+    alt="Nice sharp area" /&gt;
+</code>
+</pre>
+    
+  </section><!-- close the area section -->
+
+
+  <section class="container__step step--map--area">
+    <h2>Map & Area</h2>
+    
+    <p>To fulfill the overarching purpose, two additional steps are required</p>
+    <ol>
+      <li>
+        Nest the <code>&lt;area&gt;</code> element(s) in a wrapping <code>&lt;map&gt;</code> element;
+<pre>
+<code>
+&lt;map name="mapName"&gt;
+  &lt;area 
+  shape="circle" 
+  coords="100, 100, 50"
+  href="nice_url" 
+  target="_blank" 
+  alt="Nice sharp area" /&gt;
+&lt;/map&gt;
+</code>
+</pre>
+
+      </li>
+      <li>
+        Reference the map in the <code>usemap</code> attribute of an <code>&lt;img/&gt;</code> element, alongside its other attributes.
+
+<pre>
+<code>
+&lt;img 
+  usemap="#mapName" 
+  src="img_url" 
+  alt="Nice sharp image"/&gt;
+</code>
+</pre>
+
+      </li>
+    </ol>
+
+  </section><!-- close the map+area section -->
+
+  <section class="container__step step--result">
+    <h2>In Practice</h2>
+
+    <p>Including the previous logic for the image included in the beginning of this simple tutorial, circle areas allow to have each "thought" bubble reference a particular URL</p>
+    
+    <map name="bubbles">
+      <area shape="circle" coords="100, 80, 50" href="#"/>
+      <area shape="circle" coords="100, 230, 50" href="#"/>
+      <area shape="circle" coords="120, 350, 40" href="#"/>
+
+      <area shape="circle" coords="600, 80, 50" href="#"/>
+      <area shape="circle" coords="600, 230, 50" href="#"/>
+      <area shape="circle" coords="580, 350, 40" href="#"/>
+    </map>
+
+    <img usemap="#bubbles" src="https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?cs=srgb&dl=abstract-ai-art-355948.jpg&fm=jpg" alt="Picture of a chalk-board"/>
+
+    <p>All with the following source code:</p>
+
+<pre>
+<code>
+&lt;map name="bubbles"&gt;
+  &lt;area 
+    shape="circle" 
+    coords="100, 80, 50" 
+    href="#"
+  /&gt;
+
+  &lt;area 
+    shape="circle" 
+    coords="100, 230, 50" 
+    href="#"
+  /&gt;
+
+  &lt;area 
+    shape="circle" 
+    coords="120, 350, 40" 
+    href="#"
+  /&gt;
+
+  &lt;area 
+    shape="circle" 
+    coords="600, 80, 50" 
+    href="#"
+  /&gt;
+
+  &lt;area 
+    shape="circle" 
+    coords="600, 230, 50" 
+    href="#"
+  /&gt;
+
+  &lt;area 
+    shape="circle" 
+    coords="580, 350, 40" 
+    href="#"
+  /&gt;
+
+&lt;/map&gt;
+
+&lt;img 
+  usemap="#bubbles" 
+  src="img_url" 
+  alt="Picture of a chalk-board"/&gt;
+</code>
+</pre>
+    
+  </section><!-- close the end result section -->
+
+  <section class="container__step step--ending">
+    <h2>Parting Thoughts</h2>
+
+    <p>Together, the <code>&lt;map&gt;</code> and <code>&lt;area&gt;</code> elements provide intriguing possibilities.</p>
+
+    <p>That being said, you should consider the following:</p>
+
+    <ul>
+      <li>The units specified in the <code>&lt;area&gt;</code> element refer to <strong>pixel</strong> unit.
+        <br>
+        Change the size of the image and the elements won't paint a pretty picture anymore.
+      </li>
+      <li>
+        I spent only an evening with the elements and the following MDN pages:
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map" target="_blank">map</a>
+          </li>
+          <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area" target="_blank">area</a>
+          </li>
+        </ul>
+        You can definitely achieve a better result than the one included in this page.
+      </li>
+    </ul>
+
+    <p>Other than that, tinker and experiment with the HTML elements at will. Hit the tab key to "visualize" the areas specified by the elements and have a blast.</p>
+    <blockquote>I sure had some fun #codepenchallenge</blockquote>
+  </section><!-- close the ending section -->
+
+</div>
+
+<!-- <script src="script.js"></script> -->
 </body>
 </html>
