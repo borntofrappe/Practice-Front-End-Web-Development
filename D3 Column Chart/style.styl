@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:300')
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,500')
 
 // define the colors and font used in the project
 font-text = 'Ubuntu', sans-serif
 color-text = #192B37
 color-background = #F4F4F4
+// include a transparent version of red, white, blue, to render a french flag in the background of the body 
 r = rgba(red, 0.1)
 w = rgba(#F4F4F4, 0.1)
 b = rgba(blue, 0.1)
@@ -19,10 +20,12 @@ body
     font-family font-text
     color color-text
     background color-background    
-    // center the container horizontally
+    // center the container in the page
     display flex 
     justify-content center 
-    margin 5vh 0 0
+    align-items center
+    // include a french flag as the background
+    // background-repeat to avoid repeating the linear gradient
     background linear-gradient(45deg, r 33%, w 33%, w 67%, b 67%)
     background-repeat no-repeat
 
@@ -30,6 +33,7 @@ body
     // display the contents of the container in a single column 
     display flex
     flex-direction column 
+    // center horizontally
     align-items center 
 
     p
@@ -38,28 +42,44 @@ body
         font-size 1.5rem
 
     #tooltip
+        // absolute position the tooltip and hide it initially (opacity altered when the cursor hovers on the rectangle elements)
         position absolute 
         opacity 0
+        // style the tooltip to have the color and background flipped in comparison to the body
         color color-background
         background color-text
         padding 0.8rem 1.2rem
         border-radius 10px
-        pointer-events none
+        // solid box shadow to have a border outide of the box representing the tooltip
         box-shadow 0 0 0 3px color-background
+        // pointer events none to avoid the tooltip from preventing the cursor from hovering on the rectangle elements themselves
+        pointer-events none
 
     svg 
-        margin-top 5vh
+        // separate the SVG from the surrounding elements and spread it across the viewport
+        margin 5vh 0
         width 90vw
-        max-width 700px
+        // cap the width of the SVG
+        max-width 750px
 
         path, line 
+            // for the path responsible for the axes
+            // for the line responsible for the ticks
+            // remove the fill, add stroke
             fill none 
             stroke color-text 
             stroke-width 2px
 
         text 
+            // for the ticks' labels
+            // include color and font chosen for the project
             fill color-text 
             font-family font-text
             font-size 1rem
-        rect 
+            // font weight to have the text less heavy than the paragraph element
+            font-weight 300
+        
+        rect
+            // for the rectangle elements
+            // include fill of the color chosen for the text 
             fill color-text
