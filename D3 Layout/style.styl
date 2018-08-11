@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display')
+
+// define the font and colors chosen for the project
+font-header = 'Playfair Display', serif
+font-text = 'Open Sans', sans-serif
+color-background = #490505
+color-background-l = #540000
+color-text = #F8FAF9
+color-accent = #31322C
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    // include the chosen gradient
+    background linear-gradient(to right, color-background, color-background-l)  
+
+.container
+    // center the elements horizontally, in a single column
+    display flex
+    flex-direction column
+    align-items center 
+
+header.container__header
+    // center the header, while scaling the h1 element and including the chosen font
+    text-align center
+    margin 5vh 0
+
+    h1 
+        font-size calc(3rem+1vh)
+        font-family font-header
+
+table.container__data
+    // center the text in the table
+    text-align center
+    th
+        // display the table headers boldly atop the table 
+        font-size 1.25rem
+        text-transform uppercase
+        font-weight 300
+        padding 0 0.5rem
+        border-top 1px solid color-text
+        border-bottom 1px solid color-text
+
+    td:nth-of-type(2)
+        // bolden the data values (second column)
+        font-weight 700
+
+section.container__viz 
+    // distance the container from the surrounding elements
+    margin 5vh 0
+    // display the visualization side by side, if the viewport is large enough
+    // otherwise occupy the entire width
+    // auto-fit doesn't add additional columns when additional space is available
+    display grid 
+    grid-template-columns repeat(auto-fit, minmax(400px, 1fr))
+    width 100%
+    // center the items in the grid
+    justify-items center
+    align-items center
+    // include implicit rows with a measure greater than the column, to have the visualization clearly and vertically separated
+    grid-auto-rows 500px
+
+    svg 
+        // have the SVG spread 400px 
+        width 400px
+
+        // for the slice of the pie chart and the bar of the bar chart, include a simple hover transition
+        path.slice, rect.bar
+            transition all 0.2s ease-out
+            &:hover
+                fill color-accent
+
+        text.label
+            // style the text included in both visualizations
+            fill color-text
+            font-size 0.75rem
+            font-weight 300

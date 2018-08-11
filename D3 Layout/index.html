@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>D3 Layout</title>
+  <meta name="description" content="Create a pie chart with D3.js, to understand how to visualize data in different layout configurations."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+  
+  <!-- 
+    in a wrapping container, include
+    - a header 
+    - a table, to be populated with random data
+    - a section with the data vizualizations, itself nesting
+      - one container for a bar chart 
+      - one container for a pie chart
+      both based on the random data
+  -->
+  <div class="container">
+    <header class="container__header">
+      <h1>Bar & Pie Charts</h1>
+    </header>
+
+    <table class="container__data">
+      <!-- include a single row, for the headers of the table 
+      table rows and td elements will be included with D3.js with random data 
+      -->
+      <tr>
+        <th>Data</th>
+        <th>Random Value</th>
+      </tr>
+    </table>
+
+    <!-- include the bar and pie chart one after the other -->
+    <section class="container__viz">
+      <div class="viz--bar"></div>
+      <div class="viz--pie"></div>
+    </section>
+      
+  </div>
+
+<!-- reference D3 before the custom JS instructions -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

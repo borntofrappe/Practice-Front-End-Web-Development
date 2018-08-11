@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #f8faf9;
+  background: -webkit-gradient(linear, left top, right top, from(#490505), to(#540000));
+  background: linear-gradient(to right, #490505, #540000);
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header.container__header {
+  text-align: center;
+  margin: 5vh 0;
+}
+header.container__header h1 {
+  font-size: calc(3rem + 1vh);
+  font-family: 'Playfair Display', serif;
+}
+table.container__data {
+  text-align: center;
+}
+table.container__data th {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 0 0.5rem;
+  border-top: 1px solid #f8faf9;
+  border-bottom: 1px solid #f8faf9;
+}
+table.container__data td:nth-of-type(2) {
+  font-weight: 700;
+}
+section.container__viz {
+  margin: 5vh 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  width: 100%;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-auto-rows: 500px;
+}
+section.container__viz svg {
+  width: 400px;
+}
+section.container__viz svg path.slice,
+section.container__viz svg rect.bar {
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+section.container__viz svg path.slice:hover,
+section.container__viz svg rect.bar:hover {
+  fill: #31322c;
+}
+section.container__viz svg text.label {
+  fill: #f8faf9;
+  font-size: 0.75rem;
+  font-weight: 300;
+}
