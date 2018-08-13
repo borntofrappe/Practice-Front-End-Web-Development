@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono')
+
+// include the font(s) and color(s) used in the project
+font-text = 'Raleway', sans-serif
+font-labels = 'Roboto Mono', monospace
+color-text = #F1E9DE
+color-background = #052C6F
+color-accent = #A69056
+color-males = #ABE2E8
+color-females = #FF425A
+
+
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    width 100%
+    min-height 100vh
+    font-family font-text
+    color color-text
+    background color-background
+
+.container 
+    // display the contents of the container in a single column 
+    display flex
+    flex-direction column 
+    // center horizontally
+    align-items center 
+
+header.container__header
+    text-align center
+    margin 1rem 0
+    // include a double border at either end of the header
+    border-top 8px double color-accent
+    border-bottom 8px double color-accent
+    padding 1.2rem 1.5rem
+    
+    h1
+        font-size calc(2rem + 1vw)
+        text-transform capitalize
+    h3
+        font-weight 300
+        text-transform uppercase
+        margin 0.5rem 0
+        letter-spacing 0.2rem
+
+div.container__visualization
+
+    #tooltip
+        // absolute position the tooltip and hide it initially (the opacity altered when the cursor hovers on the rectangle elements)
+        position absolute 
+        opacity 0
+        // style tooltip
+        color color-text
+        font-weight 700
+        background color-background
+        padding 0.8rem 1.2rem
+        border-radius 10px
+        // solid box shadow to have a border outide of the box representing the tooltip
+        box-shadow 0 0 0 3px color-accent
+        // pointer events none to avoid the tooltip from preventing the cursor from hovering on the rectangle elements themselves
+        pointer-events none
+        // transition to smoothen the change in opacity
+        transition opacity 0.3s ease-out
+
+    svg 
+        // separate the SVG from the surrounding elements and spread it across the viewport
+        margin 5vh 0 0
+        width 90vw
+        // cap the width of the SVG
+        max-width 750px
+        
+        path, line 
+            // for the path responsible for the axes
+            // for the line responsible for the ticks
+            // remove the fill, add stroke
+            fill none 
+            stroke color-text 
+            stroke-width 2px
+
+        text 
+            // for the ticks' labels
+            // include the chosen font and color
+            fill color-text 
+            font-family font-labels
+            font-size 1rem
