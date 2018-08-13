@@ -1,18 +1,73 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
-:root {
-  --font-text: 'Lato', sans-serif;
-  --color-text: #252525;
-  --color-background: #f0f0f0;
-}
+@import url("https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  min-height: 100vh;
   width: 100%;
-  font-family: var(--font-text);
-  color: var(--color-text);
-  background: var(--color-background);
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  color: #f1e9de;
+  background: #052c6f;
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header.container__header {
+  text-align: center;
+  margin: 1rem 0;
+  border-top: 8px double #a69056;
+  border-bottom: 8px double #a69056;
+  padding: 1.2rem 1.5rem;
+}
+header.container__header h1 {
+  font-size: calc(2rem + 1vw);
+  text-transform: capitalize;
+}
+header.container__header h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  letter-spacing: 0.2rem;
+}
+div.container__visualization #tooltip {
+  position: absolute;
+  opacity: 0;
+  color: #f1e9de;
+  font-weight: 700;
+  background: #052c6f;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 0 3px #a69056;
+          box-shadow: 0 0 0 3px #a69056;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+div.container__visualization svg {
+  margin: 5vh 0 0;
+  width: 90vw;
+  max-width: 750px;
+}
+div.container__visualization svg path,
+div.container__visualization svg line {
+  fill: none;
+  stroke: #f1e9de;
+  stroke-width: 2px;
+}
+div.container__visualization svg text {
+  fill: #f1e9de;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
 }

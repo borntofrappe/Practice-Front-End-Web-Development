@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <title>Title</title>
-  <meta name="description" content="Description."/>
+  <title>D3 Stack Layout</title>
+  <meta name="description" content="Practice with D3.js and stack layout in particular."/>
 
   <link rel="stylesheet" href="style.css"/>
   <!-- <link rel="icon" href="tab_icon.png"> -->
@@ -15,8 +15,18 @@
 
 <body>
   
-  <!-- markup right here -->
+  <!-- in a container, include a header and a div responsible for the visualization -->
+  <div class="container">
+    <header class="container__header">
+      <h1>Stack Layout</h1>
+      <h3>France 2000</h3>
+    </header>
 
+    <div class="container__visualization"></div>
+  </div>
+
+<!-- reference D3 before the custom JS instructions -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
