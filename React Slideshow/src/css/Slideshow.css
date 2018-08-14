@@ -1,0 +1,51 @@
+.Slideshow {
+  /* display the contents of the slideshow in a single column */
+  display: flex;
+  flex-direction: column;
+}
+/* style the different elements shown in the slides as wanted  */
+.Slideshow h1 {
+  /* title bold and centered */
+  text-align: center;
+  font-size: calc(4rem + 4vw);
+  margin: 1rem 0;
+  font-weight: 900;
+}
+.Slideshow h3 {
+  /* subtitle thin and spreading a bit more than the title */
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+.Slideshow h2 {
+  /* header capitalized */
+  text-transform: capitalize;
+  font-size: 2.5rem;
+}
+.Slideshow p {
+  /* paragraphs with a capped width  */
+  width: 90vw;
+  max-width: 500px;
+  line-height: 2;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+.Slideshow code {
+  /* code with the chosen font and a solid border-left */
+  font-family: var(--font-code);
+  font-size: 1.5rem;
+  line-height: 2;
+  border-left: 4px solid white;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+/* for smaller viewports reduce the size of the paragraphs and of the code */
+@media (max-width: 600px) {
+  .Slideshow p, .Slideshow code {
+    font-size: 1rem;
+  }
+}
