@@ -1,6 +1,6 @@
 {
   "short_name": "React Slideshow",
-  "name": "Create a React powered slideshow, detailing informative instructions regarding any topicm through a set of data.",
+  "name": "Create a React powered slideshow, detailing informative instructions regarding any topic through a set of data.",
   "icons": [
     {
       "src": "favicon.ico",
