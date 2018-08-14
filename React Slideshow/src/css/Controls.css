@@ -1,0 +1,39 @@
+.Controls {
+  /* absolute position the buttons in the bottom center of the page */
+  position: absolute;
+  bottom: 1rem;
+  /* -4rem to account for 1) the border-size and 1) the horizontal margin of the buttons */
+  left: calc(50% - 4rem);
+}
+.Controls button {
+  /* include arrows with border properties instead of normal buttons */
+  width: 0;
+  height: 0;
+  background: none;
+  border: none;
+  margin: 0 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  /* transition to smoothen the hover and active states */
+  transition: all 0.2s ease-out;
+}
+/* on hover increase the opacity of the buttons */
+.Controls button:hover {
+  color: rgba(255, 255, 255, 1);
+}
+/* when active, resize the buttons */
+.Controls button:active {
+  transform: scale(1.15);
+}
+.Controls button:nth-of-type(1) {
+  /* through currentColor, the buttons are styled with the same hue */
+  border-right: 1rem solid currentColor;
+  border-bottom: 1rem solid transparent;
+  border-left: 1rem solid transparent;
+  border-top: 1rem solid transparent;
+}
+.Controls button:nth-of-type(2) {
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-left: 1rem solid currentColor;
+  border-top: 1rem solid transparent;
+}

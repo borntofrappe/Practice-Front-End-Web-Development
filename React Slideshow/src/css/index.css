@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Raleway:400,900');
+
+/* define the values used throughout the project */
+:root {
+  --font-header: 'Raleway', sans-serif;
+  --font-code: 'Fira Mono', monospace;
+  --color-text: #f0f0f0;
+  --color-background-l: #5D6AF3;
+  --color-background: #4E5CE5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-header);
+  color: var(--color-text);
+  /* include the chosen background */
+  background: linear-gradient(to bottom right, var(--color-background-l), var(--color-background));
+}
