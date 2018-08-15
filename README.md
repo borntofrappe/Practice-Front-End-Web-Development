@@ -126,3 +126,4 @@ If the inspiration strikes, exceptions can be made.
 |[**D3 Pie Layout**](https://codepen.io/borntofrappe/pen/bjzxRK/)|Create a pie chart with D3.js, to understand how to visualize data in different layout configurations.|d3, pie, bar, random|11th August 2018|
 |[**D3 Stack Layout**](https://codepen.io/borntofrappe/pen/jpROKm/)|Practice with D3.js and stack layout in particular.|d3, stack, bar|13th August 2018|
 |[**React Slideshow**](https://codepen.io/borntofrappe/pen/vawBWW/)|Create a React powered slideshow, detailing informative instructions regarding any topic through a set of data.|react, slideshow, slides|14th August 2018|
+|[**CodePenChallenge Teach CSS**](https://codepen.io/borntofrappe/pen/oMROjm/)|Create an entry for the weekly #codepenchallenge, using the style element with a contenteditable property to teach about a simple CSS animation.|codepenchallenge, contenteditable, animation|15th August 2018|
