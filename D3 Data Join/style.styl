@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+color-text = #f0f0f0
+color-background = #0d2829
+color-bar = #69a8ed
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background color-background
+
+.container
+    // center the bar chart horizontally, limit its width
+    max-width 700px
+    width 80vw
+    margin 2rem auto
+    text-align center
+    
+    // style the headings to boldly introduce the text
+    h1#title
+        text-transform capitalize
+        font-size calc(2rem + 1vw)
+    h3#description
+        text-transform uppercase
+        letter-spacing 0.15rem
+        margin 0.5rem 0 0.8rem
+        font-weight 300
+
+    // style the button
+    button 
+        text-transform uppercase
+        font-family inherit
+        color color-text
+        background color-background
+        border 1px solid color-text
+        border-radius 5px
+        padding 0.5rem 1rem
+        margin-bottom 1rem
+        // transition for the hover state
+        transition all 0.25s ease-out
+
+        &:hover
+            // on hover, switch the color and background values
+            color color-background
+            background color-text
+            border-color color-background
+
+        &:active
+            // when clicked, increase the size of the button
+            transform scale(1.1)
+
+    svg g 
+        // for the axis ticks and lines, include a white stroke
+        path, line 
+            fill none 
+            stroke color-text
+            stroke-width 1px
+        // for the tick labels, include white text
+        text 
+            fill color-text
+            font-family inherit
+        // for the rectangle elements making up the bars, reduce the opacity
+        // change the opacity on hover
+        rect.bar
+            opacity 0.7
+            transition all 0.25s ease-out
+
+            &:hover
+                opacity 1
+
+

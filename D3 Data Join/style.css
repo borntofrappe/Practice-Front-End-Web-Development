@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #f0f0f0;
+  background: #0d2829;
+}
+.container {
+  max-width: 700px;
+  width: 80vw;
+  margin: 2rem auto;
+  text-align: center;
+}
+.container h1#title {
+  text-transform: capitalize;
+  font-size: calc(2rem + 1vw);
+}
+.container h3#description {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  margin: 0.5rem 0 0.8rem;
+  font-weight: 300;
+}
+.container button {
+  text-transform: uppercase;
+  font-family: inherit;
+  color: #f0f0f0;
+  background: #0d2829;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+.container button:hover {
+  color: #0d2829;
+  background: #f0f0f0;
+  border-color: #0d2829;
+}
+.container button:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.container svg g path,
+.container svg g line {
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 1px;
+}
+.container svg g text {
+  fill: #f0f0f0;
+  font-family: inherit;
+}
+.container svg g rect.bar {
+  opacity: 0.7;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+.container svg g rect.bar:hover {
+  opacity: 1;
+}
