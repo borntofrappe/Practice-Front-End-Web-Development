@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300')
+
+font-text = 'Lato', sans-serif
+color-background = #180221
+color-text = #eee
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    width 100%
+    font-family font-text
+    color color-text
+    background color-background    
+
+.container 
+    // limit the size of the container and cent it
+    width 90vw
+    max-width 800px
+    margin 1.5rem auto
+    text-align center
+
+    h1#title 
+        text-transform capitalize
+        font-size calc(2rem + 1vw)
+    h3#description
+        text-transform uppercase
+        letter-spacing 0.2rem
+        margin 0.5rem 0 5vh
+
+
+svg 
+    // for the line, remove its fill and include a subtle stroke
+    path.line 
+        fill none 
+        stroke rgba(color-text, 0.5)
+        stroke-width 1px
+    // for the area, include a subtle fill
+    path.area
+        fill rgba(color-text, 0.1)
+    // for the dots, include a stroke and a fill matching the background, efficiently hiding the line which flows beneath
+    circle.dot
+        fill color-background
+        stroke color-text
+        stroke-width 1px
+
+    .axis
+        // for the axis, include the color chosen to contrast the background for the axes, the ticks and the ticks' labels
+        path, line
+            fill none 
+            stroke rgba(color-text, 0.5)
+            stroke-width 1px
+        text 
+            fill rgba(color-text, 0.8)
+            font-family inherit
