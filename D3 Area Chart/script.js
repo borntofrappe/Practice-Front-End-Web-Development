@@ -5,12 +5,17 @@ const container = d3
 container
   .append("h1")
   .attr("id", "title")
-  .text("D3 Area Chart");
+  .text("Area Chart");
 
 container
   .append("h3")
   .attr("id", "description")
   .text("d3.line() && d3.area()");
+
+container
+  .append("p")
+  .attr("id", "update")
+  .text("now with grid lines and zoom too!");
 
 // include some arbitrary data with an array of objects
 // the line is described by a {points} number of points, with the horizontal coordinate incremented each time, while the vertical coordinate displays a random number
@@ -134,3 +139,46 @@ svgCanvas
   .duration(500)
   .delay((d, i) => 100 + 100*i)
   .attr("r", 5);
+
+// target all the horizontal ticks and include line elements making up vertical grid lines
+d3
+  .selectAll("g#x-axis g.tick")
+  .append("line")
+  .attr("class", "grid-line")
+  .attr("x1", 0)
+  .attr("x2", 0)
+  .attr("y1", 0)
+  .attr("y2", -height);
+
+// repeat the operation, but with regards to horizontal grid lines
+d3
+  .selectAll("g#y-axis g.tick")
+  .append("line")
+  .attr("class", "grid-line")
+  .attr("x1", 0)
+  .attr("x2", width)
+  .attr("y1", 0)
+  .attr("y2", 0);
+
+// through d3.zoom specify the behavior of the zoom and call a function triggered when the zoom/panning occurs
+const zoom = d3
+  .zoom()
+  .scaleExtent([1, 2])
+  .on("zoom", zoomFunction);
+
+// call the zoom function whenever the user interacts with the svg element
+svgContainer
+  .call(zoom);
+
+// create a zoom function which scales and moves the container of the visualization, as per the zoom/panning action
+function zoomFunction() {
+  // console.log(d3.event.transform)
+  let k = d3.event.transform.k;
+  let x = d3.event.transform.x;
+  let y = d3.event.transform.y;
+
+  svgCanvas.attr("transform", `translate(${x} ${y}) scale(${k})`);
+}
+
+
+
