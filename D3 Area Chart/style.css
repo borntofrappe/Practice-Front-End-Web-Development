@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -24,7 +23,12 @@ body {
 .container h3#description {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  margin: 0.5rem 0 5vh;
+  margin: 0.5rem 0;
+}
+.container p#update {
+  text-transform: uppercase;
+  margin-bottom: 5vh;
+  animation: rolldown 0.5s 1s ease-out both;
 }
 svg path.line {
   fill: none;
@@ -48,4 +52,67 @@ svg .axis line {
 svg .axis text {
   fill: rgba(238,238,238,0.8);
   font-family: inherit;
+}
+svg line.grid-line {
+  stroke: rgba(238,238,238,0.2);
+}
+@-moz-keyframes rolldown {
+  0% {
+    opacity: 0;
+    letter-spacing: 0;
+    transform: translateY(-15vh);
+  }
+  60% {
+    opacity: 0;
+    letter-spacing: 0;
+  }
+  100% {
+    letter-spacing: 0.3rem;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes rolldown {
+  0% {
+    opacity: 0;
+    letter-spacing: 0;
+    transform: translateY(-15vh);
+  }
+  60% {
+    opacity: 0;
+    letter-spacing: 0;
+  }
+  100% {
+    letter-spacing: 0.3rem;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes rolldown {
+  0% {
+    opacity: 0;
+    letter-spacing: 0;
+    transform: translateY(-15vh);
+  }
+  60% {
+    opacity: 0;
+    letter-spacing: 0;
+  }
+  100% {
+    letter-spacing: 0.3rem;
+    transform: translateY(0);
+  }
+}
+@keyframes rolldown {
+  0% {
+    opacity: 0;
+    letter-spacing: 0;
+    transform: translateY(-15vh);
+  }
+  60% {
+    opacity: 0;
+    letter-spacing: 0;
+  }
+  100% {
+    letter-spacing: 0.3rem;
+    transform: translateY(0);
+  }
 }

@@ -16,7 +16,7 @@ body
     background color-background    
 
 .container 
-    // limit the size of the container and cent it
+    // limit the size of the container and center it
     width 90vw
     max-width 800px
     margin 1.5rem auto
@@ -28,7 +28,12 @@ body
     h3#description
         text-transform uppercase
         letter-spacing 0.2rem
-        margin 0.5rem 0 5vh
+        margin 0.5rem 0
+    p#update
+        text-transform uppercase
+        margin-bottom 5vh
+        // include an animation to introduce the update with a delay
+        animation rolldown 0.5s 1s ease-out both
 
 
 svg 
@@ -55,3 +60,20 @@ svg
         text 
             fill rgba(color-text, 0.8)
             font-family inherit
+
+    // for the lines responsible for the grid lines, reduce the stroke to reduce their impact
+    line.grid-line
+        stroke rgba(color-text, 0.2)
+
+// include a simple animation for the update paragraph, showing the text after a small delay
+@keyframes rolldown 
+    0%
+        opacity 0
+        letter-spacing 0
+        transform translateY(-15vh)
+    60%
+        opacity 0
+        letter-spacing 0
+    100%
+        letter-spacing 0.3rem
+        transform translateY(0)
