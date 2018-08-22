@@ -129,3 +129,4 @@ If the inspiration strikes, exceptions can be made.
 |[**CodePenChallenge Teach CSS**](https://codepen.io/borntofrappe/pen/oMROjm/)|Create an entry for the weekly #codepenchallenge, using the style element with a contenteditable property to teach about a simple CSS animation.|codepenchallenge, contenteditable, animation|15th August 2018|
 |[**D3 Data Join**](https://codepen.io/borntofrappe/pen/dqbeBa/)|Create a simple bar chart to practice with several key D3.js concepts.|d3, data join, update enter exit|19th August 2018|
 |[**D3 Area Chart**](https://codepen.io/borntofrappe/pen/xaxPVv/)|Practice with shape generators to draw an area chart. Update with grid lines, zoom and panning.|d3, line, area, grid, zoom|20th-21st August 2018|
+|[**D3 Tree Layout**](https://codepen.io/borntofrappe/full/eLNRWK/)|Practice with the data visualization library to show hierarchical data in a tree structure.|d3, tree, hierarchy|22nd August 2018|
