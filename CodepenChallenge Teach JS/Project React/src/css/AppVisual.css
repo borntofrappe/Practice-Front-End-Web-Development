@@ -1,0 +1,21 @@
+/* section the container containing information in two columns, which collapse into one to guarantee at least 300px width */
+.AppVisual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+}
+
+/* center the text-based elements */
+.VisualText {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+/* align the paragraph to the top of its cell, to have it closer to the connected heading */
+.VisualText p {
+  align-self: start;
+}
+/* center the element(s) responsible for the snippet */
+.VisualCode {
+  align-self: center;
+  justify-self: center;
+}
