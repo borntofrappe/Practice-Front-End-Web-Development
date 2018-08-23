@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+:root {
+  --font: 'Lato', sans-serif;
+  --color-text: #252525;
+  --color-background: #f0f0f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  padding: 1rem;
+  /* hide vertical overflow, as to allow scroll only on the grid responsible for the buttons */
+  overflow-y: hidden;
+}
+
+/* section the wrapping container in two columns, the second of which occupies all the available space */
+.container {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: calc(65px + 1vw) 1fr;
+  grid-auto-rows: 100vh;
+}
+
+/* section the container containing information in two columns, which collapse into one to guarantee at least 300px width */
+.container__info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+/* center the text-based elements */
+.info--text {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+/* align the paragraph to the top of its cell, to have it closer to the connected heading */
+.info--text p {
+  align-self: start;
+}
+/* center the element(s) responsible for the snippet */
+.info--code {
+  align-self: center;
+  justify-self: center;
+}
+/* create a grid with one column and implicit rows matching the column size */
+.container__buttons {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: calc(50px + 1vw);
+  /*  
+  include auto overflow for the grid responsible for the buttons
+  effectively this squishes the width, which requires additional space to visually match the height 
+  */
+  overflow-y: auto;
+}

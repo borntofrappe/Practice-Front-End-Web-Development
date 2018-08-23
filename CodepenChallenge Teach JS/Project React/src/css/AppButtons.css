@@ -1,0 +1,12 @@
+/* create a grid with one column and implicit rows matching the column size */
+.AppButtons {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: calc(70px + 1vw);
+  /*  
+  include auto overflow for the grid responsible for the buttons
+  effectively this squishes the width, which requires additional space to visually match the height 
+  */
+  overflow-y: auto;
+}
