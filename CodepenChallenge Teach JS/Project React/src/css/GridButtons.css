@@ -1,5 +1,5 @@
 /* display the buttons in a single column */
-.AppButtons {
+.GridButtons {
   display: grid;
   grid-gap: 15px;
   grid-template-columns: 1fr;
@@ -14,7 +14,7 @@
 stretch the SVG to cover the buttons' width and height 
 remove pointer events to allow click events on the buttons instead
 */
-.AppButtons svg {
+.GridButtons svg {
   width: 100%;
   height: 100%;
   pointer-events: none;
