@@ -1,10 +1,12 @@
+The project is currently under construction with the `create-react-app` utility. Live pen soon to follow.
+
 <!-- Link to the work-in-progress pen right [here](). -->
 
 ## Preface
 
 With this project I plan to create an entry for the weekly #codepenchallenge, built around the topic of teaching a JavaScript concept.
 
-Inspired by @syntafm, and specifically episode number 46, the pen sets out to elucidate quite a handful of really helpful methods around arrays and objects.
+Inspired by @syntafm, and specifically [episode number 043](https://syntax.fm/show/043/20-javascript-array-and-object-methods-to-make-you-a-better-developer), the pen sets out to describe quite a handful of really helpful methods around arrays and objects.
 
 ## Design
 
@@ -24,9 +26,30 @@ On large screen the heading and brief should be one on top of the other, with th
 
 You can find a first rough "sketch" of this layout in the "Project Layout" folder.
 
-**Update**
+**Layout Update**
 
 When including more button elements than the vertical space can accommodate, the section displaying the content on the right is centered lower and lower on the screen. To avoid such a mishap, scrolling is allowed only on the columns responsible for the buttons' grid. This way the grid showing the content is simply centered in the viewport.
+
+**Color and Fonts Update**
+
+In terms of visuals, the project ought to resemble a simple dashboard, with the controller on the left and the content in the center, center right sections. 
+
+The color palette sets out to resemble the site of [syntaxfm](https://syntax.fm/) itself.
+
+- #1d1d1d for the background of the body and the color of the text;
+- #f9f9f9 for the background of the grid;
+- #f1c15d for accent color.
+
+The fonts chosen for the project distinguish themselves for the headings and the paragraphs:
+
+- Black Lato for headings;
+- Open Sans for paragraphs.
+
+Simple sans-serif fonts for both.
+
+**Methods Update**
+
+The buttons showcasing the different methods previously included simply a text, describing exactly the matching method. It is however more pleasing to the eye to include representative icons. Through SVG syntax, added to the object detailing the method, it is possible to achieve such a feat.
 
 ## Data
 
@@ -361,5 +384,3 @@ let myOtherObj = {
 let myExtendedObj = Object.assign({}, myObj, myOtherObj);
 // { user: "Johnny", password: "whyBother71", color: "silver" }
 ```
-
-// END of day 1, project scheduled to last 2 days
