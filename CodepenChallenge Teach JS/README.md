@@ -1,4 +1,4 @@
-The project is currently under construction with the `create-react-app` utility. Live pen soon to follow.
+The project is currently being developed through the `create-react-app` utility. Live pen soon to follow.
 
 <!-- Link to the work-in-progress pen right [here](). -->
 
@@ -6,54 +6,58 @@ The project is currently under construction with the `create-react-app` utility.
 
 With this project I plan to create an entry for the weekly #codepenchallenge, built around the topic of teaching a JavaScript concept.
 
-Inspired by @syntafm, and specifically [episode number 043](https://syntax.fm/show/043/20-javascript-array-and-object-methods-to-make-you-a-better-developer), the pen sets out to describe quite a handful of really helpful methods around arrays and objects.
+Inspired by @syntafm, and specifically [episode number 043](https://syntax.fm/show/043/20-javascript-array-and-object-methods-to-make-you-a-better-developer), the project sets out to describe quite a handful of really helpful methods around arrays and objects.
 
 ## Design
 
 The pen itself is divided in two main sections:
 
-- one column in which to list on multiple rows the different methods. These are included in sequence and in button elements, which allow to change the appearance of the other section, to display appropriate content;
+- one column in which to list on multiple rows the different methods. These are included in sequence and in button elements, which allow to change the appearance of the other section. As the user presses on a button, the other section is indeed scheduled to display the specific method in detail;
 
-- one column in which to explain each different method. This should at first include some kind of text presenting the project, but after a button on the left section is clicked, it should showcase the method, a brief description and a snippet describing a use-case.
+- one column in which to explain each different method. This should at first include some kind of text presenting the project, but after a button on the left section is clicked. The section should showcase the method, a brief description and a snippet describing a use-case.
 
 The two sections are always set to be side by side, with the first column occupying a fixed width and the second occupying the rest of the page.
 
-The first column is itself divided in grid cells, with each method separated in a cell of fixed width and matching height. The cells are always shown one on top of another, even at the price of including vertical scrolling.
+The first column is itself divided in grid cells, with each method separated in a cell of fixed width and matching height. The cells are always shown one on top of another, even at the price of causing vertical scrolling.
 
-The second column is contains three elements: a heading introducing the method, a brief shortly describing it and a snippet showcasing a use-case.
+The second column contains as mentioned three elements: a heading introducing the method, a brief shortly describing it and a snippet showcasing a use-case.
 
-On large screen the heading and brief should be one on top of the other, with the snippet on the side. On smaller viewports, each should occupy a row and the entirety of the parent's width. I am still uncertain whether the heading and brief should be in the same position in this instance, but this can be easily tested by changing the order property of this last element.
+On large screen the heading and brief should be one on top of the other, with the snippet on the side. On smaller viewports, each should occupy a row and the entirety of the parent's width. I am still uncertain whether the heading and brief should be in the same position in this instance, but this can be easily tested by changing the `order` property of this last element.
 
 You can find a first rough "sketch" of this layout in the "Project Layout" folder.
 
 **Layout Update**
 
-When including more button elements than the vertical space can accommodate, the section displaying the content on the right is centered lower and lower on the screen. To avoid such a mishap, scrolling is allowed only on the columns responsible for the buttons' grid. This way the grid showing the content is simply centered in the viewport.
+When including more button elements than the vertical space can accommodate, the section displaying the content on the right column is centered lower and lower on the screen. To avoid such a mishap, scrolling is allowed, but only on the column responsible for the buttons' grid. This way the grid showing the content is simply centered in the viewport, the page shows the application immediately and all methods are accessible, at most after some scrolling.
 
 **Color and Fonts Update**
 
-In terms of visuals, the project ought to resemble a simple dashboard, with the controller on the left and the content in the center, center right sections. 
+In terms of visuals, the project ought to resemble a simple dashboard, with the buttons in the left and the content in the center, center right sections. 
 
 The color palette sets out to resemble the site of [syntaxfm](https://syntax.fm/) itself.
 
-- #1d1d1d for the background of the body and the color of the text;
+- #1d1d1d for the color of the text;
+- #000000 for the background of the body;
 - #f9f9f9 for the background of the grid;
 - #f1c15d for accent color.
 
-The fonts chosen for the project distinguish themselves for the headings and the paragraphs:
+The snippet displayed after the heading and paragraph element has color and background color flipped with respect to the grid itself (#f9f9f9 and #1d1d1d respectively).
+
+The fonts chosen for the project distinguish themselves for the headings the paragraphs and the code snippet:
 
 - Black Lato for headings;
-- Open Sans for paragraphs.
-
-Simple sans-serif fonts for both.
+- Open Sans for paragraphs;
+- Fira Mono for code snippets.
 
 **Methods Update**
 
-The buttons showcasing the different methods previously included simply a text, describing exactly the matching method. It is however more pleasing to the eye to include representative icons. Through SVG syntax, added to the object detailing the method, it is possible to achieve such a feat.
+The buttons used to represent the different methods previously included only text, describing exactly the matching method. I decided to however turn to icon and SVG icons for a more visual representation.
+
+All SVG assets can be found in the 'Project Resources' folder.
 
 ## Data
 
-The methods which the pen tries to describe are as included with an array of objects, structured as follows:
+The methods described in the project are included with an array of objects, structured as follows:
 
 ```JS
 const methods = [
@@ -65,70 +69,82 @@ const methods = [
 ];
 ```
 
-I should be able to section the information in each field and later populate the right section with appropriate information.
+I should be able to section the information in each field and later populate the page according to which button is pressed.
 
-There should also be an additional section displaying introductory elements. While this might have the same structure (minus the snippet), it does mean it is advisable to change the name of the variable.
+There should also be an additional section displaying introductory elements. While this object in particular might have the same structure (minus the snippet), it does mean it is advisable to change the name of the variable.
 
-Without further ado, here's a short list of all the objects to be displayed on the screen,
+**Update**
 
-**JavaScript Array & Objects Methods**
-
-As featured @syntaxfm.
-
-**.filter()**
-
-Filter an array on the basis of a condition.
+With the inclusion of an SVG icon representing each button, an additional property is included for the SVG syntax behind each method, effectively updating the objects' structure as follows:
 
 ```JS
-// populate an array with random integers, which can be either positive or negative
+const data = [
+  {
+    heading: "",
+    brief: "",
+    icon: "",
+    snippet: ""
+  }
+];
+```
+
+Without further ado, here are all the elements displayed on the page, alongside the brief and snippet used to describe them.
+
+1. **array.filter()**
+
+  Filter an array on the basis of a condition.
+
+  ```JS
+  // array of random integers
+  let myArr = [];
+  for(let i = 0; i < 10; i++) {
+    // range [-50, 49]
+    myArr.push(Math.floor((Math.random() - 0.5) * 100));
+  }
+  // array of positive integers only
+  let positiveArr = myArr.filter((item) => item > 0);
+  ```
+
+**array.map()**
+
+Apply some logic on each array item.
+
+```JS
+// array of strings
+let past = ["the old times", "mmmbop, ba duba dop", "Jackie says relax"];
+
+// array of updated strings
+let nostalgia = past.map((item) => `Remember ${item}?`);
+// ["Remember the old times?", "Remember mmmbop, ba duba dop?", "Remember Jackie says relax?"]
+```
+
+_Small note_: in the project, where the code snippets are wrapped in between `backticks`, the backtick ` sign and curly {braces} need escaping.
+
+**array.reduce()**
+
+Return a single value based on a computation of the array and its items.
+
+```JS
+// array of random integers
 let myArr = [];
 for(let i = 0; i < 10; i++) {
   // range [-50, 49]
   myArr.push(Math.floor((Math.random() - 0.5) * 100));
 }
-// populate an array with only the positive integers of the previous array
-let positiveArr = myArr.filter((item) => item > 0);
-```
 
-**.map()**
-
-Easily modify array items in bulk.
-
-```JS
-// populate a list of something somebody might remember
-let past = ["the old times", "mmda, bab pab mmda", "Jackie says relax"];
-
-// return an array in which each item is preceded by a chosen verb
-let nostalgia = past.map((item) => `Remember ${item}`);
-// ["Remember the old times", "Remember mmda, bab pab mmda", "Remember Jackie says relax"]
-```
-
-**.reduce()**
-
-Return a single value based on a computation of the array and its items. The method accepts as argument acc, initialized to the first item and updated at every iteration, and curr, representing the current array item.
-
-```JS
-// populate an array with random integers, which can be either positive or negative
-let myArr = [];
-for(let i = 0; i < 10; i++) {
-  // range [-50, 49]
-  myArr.push(Math.floor((Math.random() - 0.5) * 100));
-}
-
-// compute the running total of the array
-// including in acc (which gets returned, the sum of all array items)
+// running total of the array
 let total = myArr.reduce((acc, curr) => acc+curr);
 ```
 
-**.forEach()**
+**array.forEach()**
 
-Loop through an array and include some kind of functionality with every iteration.
+Execute a function repeated for every array item.
 
 ```JS
 // target all buttons
 const buttons = document.querySelectorAll("button");
 
-// loop through the collection and attach an event listener to each button
+// attach an event listener on each button
 buttons.forEach((button) => button.addEventListener("click", gtd));
 
 function gtd() {
@@ -136,116 +152,118 @@ function gtd() {
 }
 ```
 
-**.some()**
+**array.some()**
 
 Check if some array items match a condition.
 
 ```JS
-// consider an array including five random integers between 0 and 9
+// array of random intgers
 let myArr = [];
 for(let i = 0; i < 10; i++) {
+  // range [0-9]
   myArr.push(Math.floor(Math.random()*10));
 }
 
-// check if some integers are even
-// returning true or false (mostly true)
+// are some integers even? (mostly true)
 myArr.some((item) => item % 2 === 0);
 ```
 
-**.every()**
+**array.every()**
 
-Check if all array items match a condition.
+Check if every array item matches a condition.
 
 ```JS
-// consider an array including five random integers between 0 and 9
+// array of random intgers
 let myArr = [];
 for(let i = 0; i < 10; i++) {
+  // range [0-9]
   myArr.push(Math.floor(Math.random()*10));
 }
 
-// check if all integers are even
-// returning true or false (mostly false)
+// is every integer even? (mostly false)
 myArr.every((item) => item % 2 === 0);
 ```
 
-**.includes()**
+**array.includes()**
 
 Check if an array contains a value.
 
 ```JS
-// consider an array including five random integers between 0 and 9
+// array of random intgers
 let myArr = [];
 for(let i = 0; i < 10; i++) {
+  // range [0-9]
   myArr.push(Math.floor(Math.random()*10));
 }
 
-// check if the array includes the number five
-// returning true or false (who knows)
+// is there a number five? (who knows)
 myArr.includes(5);
 ```
 
 **Array.from()**
 
-Create an array out of an iterable object. The method also accepts a second argument, in a function which allows to map through each item.
+Create an array out of an iterable object.
 
 ```JS
-// create an array out of the lowercase characters of an prescribed string
-let myArr = Array.from("JohNny", (letter) => letter.toLowerCase()); 
+let myStr = "JoHNnY";
+
+// array of lowercase characters
+let myArr = Array.from(myStr, (letter) => letter.toLowerCase()); 
 // ["j", "o", "h", "n", "n", "y"]
 ```
 
 **Array.of()**
 
-Create an array out of passing arguments.
+Create an array out of the values included as arguments.
 
 ```JS
-// create an array out of simple integers
+// array of arguments
 let myArr = Array.of(1, 2, 3); 
 // [1, 2, 3]
 ```
 
 **Object.values()**
 
-Return an array of all values contained in an object.
+Return all the values of an object, in an array.
 
 ```JS
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
 };
 
+// retrieve values
 let objVal = Object.values(myObj); 
-// ["Johhny", "ynnhoj5"]
+// ["Johnny",  "ynnhoj5"]
 ```
 
 **Object.keys()**
 
-Return an array of all keys contained in an object.
+Return all the keys of an object, in an array.
 
 ```JS
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
 };
 
+// retrieve keys
 let objVal = Object.keys(myObj); 
 // ["user", "password"]
 ```
 
 **Object.entries()**
 
-Return an array of all key-value pairs contained in an object.
+Return key-value pairs of an object, in nested arrays.
 
 ```JS
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
 };
 
-let objVal = Object.entries(myObj); 
+// retrieve key value pairs
+let objVal = Object.entries(myObj);
 // [ ["user", "Johnny"], ["password", "ynnho5"] ]
 ```
 
@@ -254,11 +272,10 @@ let objVal = Object.entries(myObj);
 Create a shallow copy of an array.
 
 ```JS
-// include an array
 let myArr = [1, 2, 3, 4];
 
-// create an array which extends upon the defined array
-let myExtendedArr = [...myArr, 5, 6, 7]; 
+// array which extends upon the previous one
+let myExtendedArr = [...myArr, 5, 6, 7];
 // [1, 2, 3, 4, 5, 6, 7];
 ```
 
@@ -267,13 +284,12 @@ let myExtendedArr = [...myArr, 5, 6, 7];
 Create a shallow copy of an object.
 
 ```JS
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
 };
 
-// create an object which extends upon the defined object
+// object which extends upon the previous one
 let myExtendedObj = {
   ...myObj,
   color: "silver"
@@ -283,29 +299,28 @@ let myExtendedObj = {
 
 **Array ...rest**
 
-Destructure array items.
+Destructure, access array items.
 
 ```JS
-// include an array
 let myArr = ["Johnny", "ynnhoj5", "silver", 12];
-
-// desctructure the array to store its items in several variables
+    
+// desctructure the array
 let [name, passowrd, ...rest] = myArr;
-// name references "Johnny"
-// password references "ynnhoj5"
-// rest references ["silver", 12]
+// name: "Johnny"
+// password: "ynnhoj5"
+// rest: ["silver", 12]
 ```
 
 **Function ...rest**
 
-Handle a flexible number of a function's arguments.
+Handle a flexible number of arguments in a function.
 
 ```JS
-// create a function which considers two parameters an additional catch-all param
+// function which considers a variable number of arguments
 function handleAll(name, password, ...args) {
   // log the first two arguments
   console.log(`name: ${name}, password: ${password}`);
-  // if the third argument, an array, is not empty, log also the third
+  // log [additional arguments]
   if(args.length !== 0) {
     console.log(`rest: ${args}`);
   }
@@ -320,19 +335,17 @@ handleAll("Jonnhy", "yhnnoj5", "silver", 12);
 
 **Object.freeze()**
 
-Prevent adding or modifying properties. In strict mode, such action would result in an error.
+Prevent adding or modifying properties.
 
 ```JS
 'use strict'
 
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
 }
 
-// prevent modifying existing properties
-// prevent adding new properties
+// freeze the object
 Object.freeze(myObj);
 
 myObj.user = "Elizabeth"; 
@@ -344,18 +357,17 @@ myObj.color = "silver";
 
 **Object.seal()**
 
-Prevent adding properties. In strict mode, such action would result in an error.
+Prevent adding properties.
 
 ```JS
 'use strict'
 
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
 }
 
-// prevent adding new properties
+// seal the object
 Object.seal(myObj);
 
 myObj.user = "Elizabeth"; 
@@ -367,10 +379,9 @@ myObj.color = "silver";
 
 **Object.assign()**
 
-Include in a target object property-value pairs of source object(s). Conflicting priorities are resolved by the value of the last instance.
+Include in a target object the entry(ies) of source object(s).
 
 ```JS
-// include an object
 let myObj = {
   user: "Johnny",
   password: "ynnhoj5"
@@ -380,7 +391,7 @@ let myOtherObj = {
   password: "whyBother71"
 }
 
-// include an object which considers the defined property value pairs
+// object merging the previous two
 let myExtendedObj = Object.assign({}, myObj, myOtherObj);
 // { user: "Johnny", password: "whyBother71", color: "silver" }
 ```
