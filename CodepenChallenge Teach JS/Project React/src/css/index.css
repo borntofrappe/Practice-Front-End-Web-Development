@@ -1,9 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url('https://fonts.googleapis.com/css?family=Lato:900|Open+Sans|Fira+Mono');
 
 :root {
-  --font: 'Lato', sans-serif;
-  --color-text: #252525;
-  --color-background: #f0f0f0;
+  --font-heading: 'Lato', sans-serif;
+  --font-paragraph: 'Open Sans', sans-serif;
+  --font-code: 'Fira Mono', monospace;
+  --color-text: #1d1d1d;
+  --color-background: #1d1d1d;
+  --color-grid: #f9f9f9;
+  --color-accent: #f1c15d;
 }
 
 * {
@@ -15,7 +19,7 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: var(--font);
+  font-family: var(--font-paragraph);
   color: var(--color-text);
   background-color: var(--color-background);
   /* include some padding around the page's content */

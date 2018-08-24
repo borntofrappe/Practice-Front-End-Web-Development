@@ -9,6 +9,7 @@
   display: grid;
   justify-items: center;
   align-items: center;
+  text-align: center;
 }
 /* align the paragraph to the top of its cell, to have it closer to the connected heading */
 .VisualText p {

@@ -16,9 +16,17 @@ class App extends Component {
     // included in the state under state.data
     this.state = {
       data: AppData,
-      section: 2
+      section: 0
     };
+    this.handleClick = this.handleClick.bind(this);
   } 
+
+  handleClick(e) {
+    let section = +e.target.getAttribute("id");
+    this.setState({
+      section: section+1
+    });
+  }
 
   /*
   render the specified components
@@ -29,8 +37,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppButtons headings={this.state.data.slice(1).map((item) => item.heading)}/>
-        <AppVisual data={this.state.data} section={this.state.section} />
+        <AppButtons 
+          buttons={this.state.data.slice(1).map((item) => {
+            return {
+              heading: item.heading,
+              icon: item.icon
+            }
+          })}
+          handleClick={this.handleClick}
+          />
+        <AppVisual 
+          data={this.state.data[this.state.section]} 
+          />
       </div>
     );
   }
