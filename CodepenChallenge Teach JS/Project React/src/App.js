@@ -1,43 +1,49 @@
 import React, { Component } from 'react';
 import './css/App.css';
-// import the components 
-// AppData as an object detailing the information required for the project
-import AppData from './AppData';
-// AppButtons as the grid responsible for the buttons
-import AppButtons from './AppButtons';
-// AppVisuals as the grid responsible for the visual matching the selected button
-import AppVisual from './AppVisual';
+// import the object detailing the data
+import data from './data';
+/* import the components
+- GridButtons for the section displaying the methods
+- GridVisual for the section displaying the details
+*/
+import GridButtons from './GridButtons';
+import GridVisual from './GridVisual';
 
 // in a stateful component render the components responsible for the application and manage its state
 class App extends Component {
   constructor(props) {
     super(props);
-    // AppData refers to an array of objects
-    // included in the state under state.data
+    // data refers to an array of objects, included in the state under state.data
+    // index is used to render a specific visual depending on the button pressed
     this.state = {
-      data: AppData,
-      section: 0
+      data: data,
+      index: 0
     };
+    // bind a method to update index according to the pressed button
     this.handleClick = this.handleClick.bind(this);
   } 
 
+  // update the index, based on the id of the button pressed
   handleClick(e) {
-    let section = +e.target.getAttribute("id");
+    let index = +e.target.getAttribute("id");
     this.setState({
-      section: section+1
+      index: index
     });
   }
 
   /*
   render the specified components
-  pass to the grid of buttons an array of only the headers, except for the first array item (which introduces introductory content)
-  pass to the visual of content the array of object as a whol
+  include 
+  - for the grid of buttons an array of objects, nesting the heading (used for the title) an the icon (used for the SVG)
+    include also the method triggered by the nested buttons
+  - for the grid of visuals the object in the array based on the button pressed
   */
 
   render() {
     return (
       <div className="App">
-        <AppButtons 
+
+        <GridButtons 
           buttons={this.state.data.slice(1).map((item) => {
             return {
               heading: item.heading,
@@ -46,12 +52,15 @@ class App extends Component {
           })}
           handleClick={this.handleClick}
           />
-        <AppVisual 
-          data={this.state.data[this.state.section]} 
+
+        <GridVisual 
+          data={this.state.data[this.state.index]} 
           />
+          
       </div>
     );
   }
+  
 }
 
 export default App;

@@ -1,10 +1,14 @@
-/* section the wrapping container in two columns, the second of which occupies all the available space */
+/* divide the main component in two columns
+the first column shows the buttons, in a small column
+the second column shows the visual, in the remaining space
+*/
 .App {
   display: grid;
   grid-gap: 12px;
   grid-template-columns: calc(60px + 1vw) 1fr;
+  /* span the main component to cover most of the viewport */
   height: 95vh;
   background: var(--color-grid);
-  border-radius: 2px;
+  /* include some space between the border and the content */
   padding: 1rem;
 }

@@ -5,7 +5,7 @@
   --font-paragraph: 'Open Sans', sans-serif;
   --font-code: 'Fira Mono', monospace;
   --color-text: #1d1d1d;
-  --color-background: #1d1d1d;
+  --color-background: #000000;
   --color-grid: #f9f9f9;
   --color-accent: #f1c15d;
 }
@@ -22,7 +22,7 @@ body {
   font-family: var(--font-paragraph);
   color: var(--color-text);
   background-color: var(--color-background);
-  /* include some padding around the page's content */
+  /* include some between the window and the main component */
   padding: 1rem;
   /* hide vertical overflow, as to allow scroll only on the grid responsible for the buttons */
   overflow: hidden;

@@ -395,3 +395,8 @@ let myOtherObj = {
 let myExtendedObj = Object.assign({}, myObj, myOtherObj);
 // { user: "Johnny", password: "whyBother71", color: "silver" }
 ```
+
+## React 
+
+The project is built with React through the following components:
+
