@@ -1,6 +1,6 @@
-The project is currently being developed through the `create-react-app` utility. Live pen soon to follow.
+The project has been developed through the `create-react-app` utility.
 
-<!-- Link to the work-in-progress pen right [here](). -->
+
 
 ## Preface
 
@@ -400,3 +400,52 @@ let myExtendedObj = Object.assign({}, myObj, myOtherObj);
 
 The project is built with React through the following components:
 
+- `index.js`, with the purpose of solely rendering the project in the chosen HTML node;
+
+- `App.js`, managing the state of the application and rendering the project's components;
+
+- `GridButtons.js`, rendering the grid of buttons showcasing the different array and object methods;
+
+- `GridVisual.js`, rendering the grid of heading, paragraph and snippet detailing the specific method.
+
+In addition to these JavaScript files, `data.js` includes and exports the array of objects responsible for the methods, their description, icon and snippet.
+
+**Styled Components**
+
+In addition to React, the project also makes use of the `styled-components` library, to style specifically the buttons as well as the heading/ paragraph/ snippet in their respective components. CSS files style the `div` containers and the overall layout of the page, while `styled-components` targets exclusively the style and the different, independent components.
+
+
+Just remember to always include the library in the component using its logic:
+
+```JSX
+import styled from 'styled-components';
+```
+
+And then you have access to the styling functionalities.
+
+```JSX
+const Button = styled.button`
+  margin: 2px;
+  background: none;
+  border: none;
+  opacity: 0.8;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transform: scale(1.1);
+  }
+`;
+```
+
+Instead of including HTML elements, include them the custom element as just defined.
+
+```JSX
+render() {
+  <div className="NormalContainer">
+    <Button>Custom Button</Button>
+  </div>
+}
+```
