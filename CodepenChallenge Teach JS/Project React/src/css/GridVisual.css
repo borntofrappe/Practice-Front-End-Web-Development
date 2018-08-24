@@ -1,0 +1,29 @@
+/* divide the component with the heading/brief/snippet in two columns, which collapse into one to guarantee at least 300px width */
+.GridVisual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+}
+
+/* center the text-based elements */
+.GridVisual .VisualText {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+/* align the paragraph to the top of its cell, to have it closer to the connected heading */
+.GridVisual .VisualText p {
+  align-self: start;
+}
+/* center the element(s) responsible for the snippet */
+.GridVisual .VisualCode {
+  align-self: center;
+  justify-self: center;
+}
+
+/* on viewports smaller than 400px remove the 300px min width */
+@media only screen and (max-width: 400px) {
+  .GridVisual {
+    grid-template-columns: 1fr;
+  }
+}
