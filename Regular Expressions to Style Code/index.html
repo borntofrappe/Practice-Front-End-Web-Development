@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>Regex to Style Code</title>
+  <meta name="description" content="Use regular expressions to format a code snippet, and include different visuals for comments and selected keywords."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+  
+  <!-- in a wrapping container include 
+    - one section for the code snippet
+    - one section for the code snippet styled through regex
+  -->
+
+  <div class="container">
+    <!--
+      the sections contain the same markup structure 
+      <pre>
+        <code> 
+        </code>
+      <pre>
+
+      the difference is included with a class attributed dynamically through JavaScript
+      each section is also introduced by an explanatory header
+    -->
+
+    <section class="container__snippet">
+      <p>Default</p>
+      <pre>
+        <code>
+          <!-- snippet  -->
+        </code>
+      </pre>
+    </section>
+
+    <section class="container__snippet snippet--regex">
+      <p>Regex</p>
+      <pre>
+        <code>
+          <!-- snippet  -->
+        </code>
+      </pre>
+    </section>
+
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
