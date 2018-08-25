@@ -1,18 +1,104 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Fira+Mono");
+
+/* define with custom properties the font and colors used in the project */
 :root {
-  --font-text: 'Lato', sans-serif;
-  --color-text: #252525;
-  --color-background: #f0f0f0;
+  /* font(s) and color(s) for text */
+  --font-text: 'Open Sans', sans-serif;
+  --font-code: 'Fira Mono', monospace;
+  --color-text: #f5f0f5;
+  /* color(s) for border */
+  --color-border: #f5f0f533;
+
+  /* color(s) for background */
+  --color-background: #18354A;
+  --color-background-light: #1c3b52;
+  --color-background-dark: #14232D;
+
+  /* color(s) for code snippet */
+  --color-comments: #0367D6;
+  --color-numbers: #F75D85;
+  --color-operators: #2BC506;
+  --color-functions: #FBDD00;
+  --color-keywords: #FA9800;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   min-height: 100vh;
   width: 100%;
   font-family: var(--font-text);
   color: var(--color-text);
-  background: var(--color-background);
+  /* include a subtle gradient with the source of light in the top left corner */
+  background: linear-gradient(to top left, var(--color-background), var(--color-background-light));
+}
+
+/* display the sections horizontally centered and on top of one another  */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* separate the sections from one another */
+.container__snippet {
+  margin: 1rem 0.5rem 1.25rem;
+  /* cap the width of the section to 700px */
+  max-width: 700px;
+  width: 90vw;
+  /* drop shadow through a filter allows to include a shadow around the irregular object (unlike box-shadow) */
+  filter: drop-shadow(1px 2px 2px var(--color-background-dark));
+}
+
+/* style the paragraph to visually lie on top of the code snippet */
+/* for the paragraph and pre element include border-radius and border left to visually connect them */
+.container__snippet p {
+  /* inline block to have the paragraph occupy only the space of its text */
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background: var(--color-background-dark);
+  /* top-left, top-right, bottom-right, bottom-left */
+  border-radius: 10px 10px 0 0;
+  border-left: 5px solid var(--color-border);
+}
+
+pre {
+  padding: 1rem 1.2rem;
+  background: var(--color-background-dark);
+  border-left: 5px solid var(--color-border);
+  border-radius: 10px;
+  /* specifically targeting one corner */
+  border-top-left-radius: 0;
+  /* spread the pre element to cover inasmuch as the container, and allow for horizontal scroll */
+  width: 100%;
+  overflow-x: auto;
+}
+/* for the code include the chosen monospace font */
+pre code {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  font-weight: 300
+}
+
+/* include classes applied to different sections of the code snippet */
+span.comments {
+  color: var(--color-comments);
+  font-style: italic;
+}
+span.numbers {
+  color: var(--color-numbers);
+}
+span.operators {
+  color: var(--color-operators);
+}
+span.keywords {
+  color: var(--color-keywords);
+}
+span.functions {
+  color: var(--color-functions);
 }
