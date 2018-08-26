@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
+
+/* include variables for the project 
+- fonts for headings and other text elements
+- colors for text, background gradient and SVG elements
+*/
+$font-heading: 'Pacifico', cursive;
+$font-text: 'Open Sans', sans-serif;
+$color-text: #2B3272;
+$color-svg: #f0f0f0;
+
+$color-gradient-start: #FF6CB2;
+$color-gradient-end: #C578E4;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-text;
+  color: $color-text;
+  background: linear-gradient(to bottom right, $color-gradient-start, $color-gradient-end);
+}
+
+// center the visualization (introductory elements included) in the viewport
+div.container {
+  max-width: 700px;
+  width: 90vw;
+  margin: 1rem auto 0;
+}
+// separate the HTML elements vertically and from the following SVG elements
+div.container__html {
+  margin-bottom: 0.5rem;
+  text-align: center;
+
+  // style the heading to boldly present the project
+  h1#title {
+    font-family: $font-heading;
+    font-size: calc(3rem + 1vw);
+  }
+
+  h3#description {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 300;
+  }
+  // include the paragraph referring to the asterisk fixed in the bottom right corner of the page, displayed vertically
+  p#asterisk {
+    text-transform: lowercase;
+    writing-mode: vertical-lr;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    // fine print
+    font-size: 0.8rem;
+  }
+
+}
+
+// include the tooltip as a div absolute positioned in the page, with pointer-events set to none to avoid overlaps on the underlying SVG elements
+div#tooltip {
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  background: $color-svg;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  color: $color-text;
+  font-weight: bold;
+  // small shadow to visually separate the tooltip from the visualizations
+  filter: drop-shadow(0 1px 5px $color-text);
+}
+
+// on smaler viewports position the paragraph where it'd normally be, beneath the headings 
+@media (max-width: 600px) {
+  div.container__html p#asterisk {
+    position: relative;
+    writing-mode: horizontal-tb;
+    right: initial;
+    bottom: initial;
+  }
+}
+
+
+svg.container__svg {
+  // in the data visualizations, style the following
+
+  // axis
+  g.axis {
+    stroke: $color-svg;
+    fill: $color-svg;
+    stroke-width: 2px;
+
+    // the paths making up the segments and the lines making up the ticks 
+    path, line {
+      fill: none;
+      stroke: inherit;
+    }
+    // the text for the ticks' labels
+    text {
+      stroke: none;
+      fill: inherit;
+      font-family: inherit;
+      font-size: 0.7rem;
+    }
+
+  }
+
+  // group responsible for each lollipop
+  g.lollipop {
+    fill: $color-svg;
+    stroke: $color-svg;
+    // transition for the hover state
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      // on hover change the fill and stroke to the color chosen for the headings
+      fill: $color-text;
+      stroke: $color-text;
+    }
+
+    // path respobsible for the lollipops' "stems"
+    path {
+      stroke-width: 3px;
+    }
+    // the circle elements inherit the fill color from the parent group element
+  }
+
+  // path responsible for each slice 
+  path.slice {
+    fill: $color-svg;
+    stroke: rgba($color-text, 0.3);
+    stroke-width: 1px;
+    // transition for the hover state
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      // on hover change the fill and stroke to the color chosen for the headings
+      fill: $color-text;
+    }
+  }
+}
