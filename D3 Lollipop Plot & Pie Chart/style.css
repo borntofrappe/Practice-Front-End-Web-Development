@@ -1,18 +1,99 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
-:root {
-  --font-text: 'Lato', sans-serif;
-  --color-text: #252525;
-  --color-background: #f0f0f0;
-}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Pacifico");
+/* include variables for the project 
+- fonts for headings and other text elements
+- colors for text, background gradient and SVG elements
+*/
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: var(--font-text);
-  color: var(--color-text);
-  background: var(--color-background);
-}
+  font-family: "Open Sans", sans-serif;
+  color: #2B3272;
+  background: -webkit-gradient(linear, left top, right bottom, from(#FF6CB2), to(#C578E4));
+  background: linear-gradient(to bottom right, #FF6CB2, #C578E4); }
+
+div.container {
+  max-width: 700px;
+  width: 90vw;
+  margin: 1rem auto 0; }
+
+div.container__html {
+  margin-bottom: 0.5rem;
+  text-align: center; }
+  div.container__html h1#title {
+    font-family: "Pacifico", cursive;
+    font-size: calc(3rem + 1vw); }
+  div.container__html h3#description {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 300; }
+  div.container__html p#asterisk {
+    text-transform: lowercase;
+    -webkit-writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
+            writing-mode: vertical-lr;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.8rem; }
+
+div#tooltip {
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  background: #f0f0f0;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  color: #2B3272;
+  font-weight: bold;
+  -webkit-filter: drop-shadow(0 1px 5px #2B3272);
+          filter: drop-shadow(0 1px 5px #2B3272); }
+
+@media (max-width: 600px) {
+  div.container__html p#asterisk {
+    position: relative;
+    -webkit-writing-mode: horizontal-tb;
+        -ms-writing-mode: lr-tb;
+            writing-mode: horizontal-tb;
+    right: initial;
+    bottom: initial; } }
+
+svg.container__svg g.axis {
+  stroke: #f0f0f0;
+  fill: #f0f0f0;
+  stroke-width: 2px; }
+  svg.container__svg g.axis path, svg.container__svg g.axis line {
+    fill: none;
+    stroke: inherit; }
+  svg.container__svg g.axis text {
+    stroke: none;
+    fill: inherit;
+    font-family: inherit;
+    font-size: 0.7rem; }
+
+svg.container__svg g.lollipop {
+  fill: #f0f0f0;
+  stroke: #f0f0f0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out; }
+  svg.container__svg g.lollipop:hover {
+    fill: #2B3272;
+    stroke: #2B3272; }
+  svg.container__svg g.lollipop path {
+    stroke-width: 3px; }
+
+svg.container__svg path.slice {
+  fill: #f0f0f0;
+  stroke: rgba(43, 50, 114, 0.3);
+  stroke-width: 1px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out; }
+  svg.container__svg path.slice:hover {
+    fill: #2B3272; }
