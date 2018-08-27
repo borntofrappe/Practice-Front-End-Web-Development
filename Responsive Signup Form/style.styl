@@ -1,8 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Lato')
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400')
 
-font-text = 'Lato', sans-serif
-color-text = #252525
-color-background = #f0f0f0
+// include font and colors used in the project
+font = 'Roboto', sans-serif
+// text and background use a variations of the chosen hue
+color-text = #F5F6F7
+color-background = #1D2733
+color-accent = #32A3DF
+color-success = #2AA181
+color-failure = #D7664F
 
 *
     box-sizing border-box
@@ -12,7 +17,125 @@ color-background = #f0f0f0
 body
     min-height 100vh
     width 100%
-    font-family font-text
+    font-family font
     color color-text
     background color-background    
+    // center the signup container in the page
+    display flex 
+    justify-content center
+    align-items center
 
+// include the two sections side by side
+.signup
+    display flex 
+    background lighten(color-background, 10%)
+
+section.signup__intro
+    // the header and paragraph, as block elements, occupy already the entirety of the container
+    // it is therefore not necessary to forcedly position them one on top of the other
+    max-width 400px
+    // padding to visually separate the content from the border (and the neighboring section)
+    padding 1rem
+
+    h2
+        font-size calc(2rem + 0.75vw)
+        font-weight 300
+        margin-bottom 20vh
+    p
+        font-size 1.2rem
+        line-height 2
+
+section.signup__input 
+    // display the div nesting input elements and the input of type submit one on top of one another
+    display flex 
+    flex-direction column 
+    background lighten(color-background, 20%)
+
+    .input--fields
+        // padding to match the same property used in the first section
+        padding 1rem
+        // have the div of input fields stretch to occupy the available height (while the input of type submit occupies the space strictly necessary for itself)
+        flex-grow 1
+        // display each input field on top of one another
+        display flex 
+        flex-direction column 
+        // space-around to fill the vertical available space
+        justify-content space-around
+        align-items center
+
+        .input--field 
+            // position relative to absolute position the label
+            position relative
+            
+            input 
+                border none
+                outline none
+                color color-text
+                font-size 1.1rem
+                font-family inherit
+                border-bottom 1px solid rgba(darken(color-text, 20%), 0.8)
+                background none
+                padding 0.5rem 1.2rem
+                // transiton for the hover state 
+                transition all 0.25s ease-out
+
+                &:hover 
+                    // remove the transparency of the bottom border 
+                    border-bottom-color color-text
+
+            label 
+                // absolute position the label where the input text would lie
+                position absolute
+                left 1rem
+                bottom 25%
+                text-transform uppercase
+                color rgba(darken(color-text, 20%), 0.8)
+                // pointer events set to none to allow the cursor to go through the label and affect the input element
+                pointer-events none
+                padding-left 0.2rem
+                // border left to animate a success/failure message dependant on the input values and regular expressions
+                border-left 3px solid @background
+                // transition for the change in position of the label and the change in color of its border-left
+                transition all 0.25s ease-out
+
+                &.focus
+                    left 0
+                    bottom 100%
+                    font-size 0.7rem
+                &.success
+                    border-left-color color-success
+                &.failure
+                    border-left-color color-failure
+
+            a 
+                color color-accent
+                text-decoration none
+
+    
+    input[type="submit"]
+        padding 1rem 1.2rem;
+        text-transform uppercase
+        color rgba(color-text, 0.7)
+        background rgba(color-accent, 0.4)
+        border none
+        // cursor not allowed, altered to pointer when all input elements and the checkbox are properly validated
+        cursor not-allowed
+        // transition for the change in color, background and cursor
+        transition all 0.25s ease-out
+        
+        &.success
+            color color-text
+            background color-accent
+            cursor pointer 
+
+// on smaller viewports, position the sections one on top of the other
+@media (max-width: 600px) 
+    .signup
+        flex-direction column
+        margin 0 1rem
+    // in the intro section, reduce the whitespace between header and paragraph
+    .signup__intro h2
+        margin-bottom 1rem
+    // in the input section, increase the whitespace between each individual div nesting input elements
+    .signup__input .input--fields .input--field
+        margin 1rem 0

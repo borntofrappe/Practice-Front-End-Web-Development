@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-  <title>Title</title>
-  <meta name="description" content="Description."/>
+  <title>Responsive SignUp Form</title>
+  <meta name="description" content="Create a signup form which changes in appearance depending on the viewport."/>
 
   <link rel="stylesheet" href="style.css"/>
   <!-- <link rel="icon" href="tab_icon.png"> -->
@@ -15,7 +15,48 @@
 
 <body>
   
-  <!-- markup right here -->
+  <!-- include a wrapping container for the signup form, and two sections, one introducing the form and the other detailing input elements -->
+  <div class="signup">
+    
+    <section class="signup__intro">
+      <h2>Create your account</h2>
+      <p>Four letter account name, valid email address, five letter username accepting numbers, seven letter password accepting numbers</p>
+    </section>
+      
+    <section class="signup__input">
+      <!-- nest all input except the input of type submit in a container (this to have this last element spread the entirety of the container, whilst the other are positioned with some padding) -->
+      <div class="input--fields">
+        <!-- include each input, alongside a label, within a div container -->
+        <div class="input--field">
+          <label for="name">Account name</label>
+          <input type="text" name="name" id="name">
+        </div>
+        <div class="input--field">
+          <label for="email">email</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div class="input--field">
+          <label for="surname">surname</label>
+          <input type="text" name="surname" id="surname">
+        </div>
+        <div class="input--field">
+          <label for="password">password</label>
+          <input type="password" name="password" id="password">
+        </div>
+
+        <!-- include a checkbox followed by some explanatory text -->
+        <div class="input--field">
+          <input type="checkbox">
+          Lorem ipsum <a href="#" class="highlight">dolor sit amen</a>.
+        </div>
+
+      </div><!-- close the div wrapping all input elements except the submit button -->
+
+      <!-- include an input of type submit -->
+      <input type="submit" value="create account">
+    </section>
+
+  </div>
 
 <script src="script.js"></script>
 </body>
