@@ -12,7 +12,8 @@ const regex = {
 const inputElements = document.querySelectorAll("input");
 const checkbox = document.querySelector("input[type='checkbox']");
 const submit = document.querySelector("input[type='submit']");
-
+// target all the labels, to check their status uniformly
+const labels = document.querySelectorAll("label");
 /*
 listen to the following events on the input elements 
 - focus, to move the label atop the respective input element
@@ -52,13 +53,15 @@ function handleKeyUp(e) {
   let name = target.name;
   let value = target.value;
 
-  
+  // target the connected label
   let label = target.parentElement.querySelector("label");
+  // if the regex for the connected input element validates the value, add a .success class and remove any existing .failure class
   if(regex[name].test(value)) {
     label.classList.remove("failure");
     label.classList.add("success");
   }
   else {
+    // else, and if the label already has a class of .sucess, remove it alongside the class bearing the same name for the submit element and add a class of failure
     if(label.classList.contains("success")) {
       label.classList.remove("success");
       submit.classList.remove("success");
@@ -67,18 +70,17 @@ function handleKeyUp(e) {
   }
 }
 
+// whenever an input element is subject to change, check if the checkbox is true and if all the labels bear a class of success
+// in this instance, allow for a click event on the submit element, by adding a .success function
+// otherwise, remove it 
 function handleChange(e) {
-  
   if(checkbox.checked) {
-    let labels = document.querySelectorAll("label");
     let some = true;
-
     labels.forEach(label => {
       if(!label.classList.contains("success")) {
         some = false;
       }
     });
-
     if(some) {
       submit.classList.add("success");
     }
