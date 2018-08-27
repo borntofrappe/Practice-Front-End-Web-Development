@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #f5f6f7;
+  background: #1d2733;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup {
+  display: flex;
+  background: #2d3c4e;
+}
+section.signup__intro {
+  max-width: 400px;
+  padding: 1rem;
+}
+section.signup__intro h2 {
+  font-size: calc(2rem + 0.75vw);
+  font-weight: 300;
+  margin-bottom: 20vh;
+}
+section.signup__intro p {
+  font-size: 1.2rem;
+  line-height: 2;
+}
+section.signup__input {
+  display: flex;
+  flex-direction: column;
+  background: #3c516a;
+}
+section.signup__input .input--fields {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+section.signup__input .input--fields .input--field {
+  position: relative;
+}
+section.signup__input .input--fields .input--field input {
+  border: none;
+  outline: none;
+  color: #f5f6f7;
+  font-size: 1.1rem;
+  font-family: inherit;
+  border-bottom: 1px solid rgba(190,197,203,0.8);
+  background: none;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.25s ease-out;
+}
+section.signup__input .input--fields .input--field input:hover {
+  border-bottom-color: #f5f6f7;
+}
+section.signup__input .input--fields .input--field label {
+  position: absolute;
+  left: 1rem;
+  bottom: 25%;
+  text-transform: uppercase;
+  color: rgba(190,197,203,0.8);
+  pointer-events: none;
+  padding-left: 0.2rem;
+  border-left: 3px solid #3c516a;
+  transition: all 0.25s ease-out;
+}
+section.signup__input .input--fields .input--field label.focus {
+  left: 0;
+  bottom: 100%;
+  font-size: 0.7rem;
+}
+section.signup__input .input--fields .input--field label.success {
+  border-left-color: #2aa181;
+}
+section.signup__input .input--fields .input--field label.failure {
+  border-left-color: #d7664f;
+}
+section.signup__input .input--fields .input--field a {
+  color: #32a3df;
+  text-decoration: none;
+}
+section.signup__input input[type="submit"] {
+  padding: 1rem 1.2rem;
+  text-transform: uppercase;
+  color: rgba(245,246,247,0.7);
+  background: rgba(50,163,223,0.4);
+  border: none;
+  cursor: not-allowed;
+  transition: all 0.25s ease-out;
+}
+section.signup__input input[type="submit"].success {
+  color: #f5f6f7;
+  background: #32a3df;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .signup {
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+  .signup__intro h2 {
+    margin-bottom: 1rem;
+  }
+  .signup__input .input--fields .input--field {
+    margin: 1rem 0;
+  }
+}
