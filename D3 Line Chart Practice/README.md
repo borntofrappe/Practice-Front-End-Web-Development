@@ -21,3 +21,17 @@ const trends = {
 ```
 
 A line chart might be quite easy to create. The y-coordinate of each point is determined by the mentioned values, while the x-coordinate is an ordinal one, literally incrementing for each data point to highlight the succession of days.
+
+## Design
+
+**Color Palette**
+
+- for the background of the body, a linear gradient beginning at the top right with #1490B9 and ending with #ADDEB0;
+- for the background of the panel, or card in which the visualizations are shown, #F9FCFF;
+- for the html line, #9CC2FD
+- for the css line, #A389F4
+- for the javascript line, #FDB39F, #FF9F38
+
+**Font**
+
+- [M PLUS 1p](https://fonts.google.com/specimen/M+PLUS+1p).
