@@ -8,15 +8,9 @@ I found the form to be quite entertaining, and a good excuse to practice with th
 
 - responsive design: the layout changes depending on the availability of the viewport. Flexbox seems to be the most efficient way to guarantee the columns' design, but I may be swayed to use grid;
 
-- SVG icons, for the different fields;
-
 - labels for the input element, showing up where the placeholder would lie and gravitating upward as the user actually focuses in and starts filling the form;
 
-- regular expressions, used for all fields and used to also provide visual feedback (grenn, red text marking the correctness of the input string);
-
-- input of type checkbox. Now, this was actually what I noticed the most out of the first visit, and it'd be grand to replicate. As the user checks the mandatory field, the square collapses, a circle pops rapidly before a check sign is drawn into view. With a few sparks to boost. I honestly do not know how to or even if I'll be able to replicate such a solution, but I'll try my best.
-
-One thing at a time though.
+- regular expressions, used for all fields and used to also provide visual feedback (grenn, red text marking the correctness of the input string).
 
 ## Design Choices
 
