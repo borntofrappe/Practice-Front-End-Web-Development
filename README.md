@@ -134,3 +134,4 @@ If the inspiration strikes, exceptions can be made.
 |[**Regex to Style Code**](https://codepen.io/borntofrappe/pen/GXoMNx/)|Use regular expressions to format a code snippet, and include different visuals for comments and selected keywords.|regex, code, style|25th August 2018|
 |[**D3 Lollipop Plot & Pie Chart**](https://codepen.io/borntofrappe/pen/gdPydW/)|Practice with D3 to display data in familiar layouts, but with different configurations and visuals.|d3, lollipop, pie|26th August 2018|
 |[**Responsive Signup Form**](https://codepen.io/borntofrappe/pen/bxebgv/)|Create a signup form which changes in appearance depending on the viewport.|form, regex, label|27th August 2018|
+|[**D3 Line Chart Practice**](https://codepen.io/borntofrappe/pen/GXjRVe/)|Practice with D3.js, while creating a line chart based on google trend results.|d3, line chart, path|28th August 2018|
