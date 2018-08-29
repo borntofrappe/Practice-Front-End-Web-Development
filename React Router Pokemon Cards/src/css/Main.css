@@ -1,0 +1,6 @@
+/* render the components of the main container one on top of the other */
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+/* include the selected font and colors */
+:root {
+  --font: 'Ubuntu', sans-serif;
+  --color-txt: #FFFFFF;
+  --color-bg: #09042E;
+  --color-bg-l: #1a1257;
+  --color-accent: #C71621;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-txt);
+  /* include the slightly changing gradient */
+  background: linear-gradient(to top, var(--color-bg), var(--color-bg-l));
+}
