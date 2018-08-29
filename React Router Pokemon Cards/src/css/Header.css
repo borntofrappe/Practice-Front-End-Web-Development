@@ -1,0 +1,6 @@
+.Header {
+  /* align the text of the container and separate it from the surrounding elements, vertically */
+  text-align: center;
+  margin: 5vh 0;
+  text-transform: capitalize;
+}

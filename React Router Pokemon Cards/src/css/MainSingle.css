@@ -1,0 +1,46 @@
+/* render the components of the main container one on top of the other */
+.MainSingle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* position the anchor link element in the top left corner */
+.MainSingle a {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  /* remove default properties */
+  color: inherit;
+  text-decoration: none;
+  text-transform: capitalize;
+  /* by default, show the link and nested element(s) in a single column */
+  writing-mode: vertical-lr;
+}
+/* style the span to represent a left-facing arrow */
+.MainSingle a span {
+  position: absolute;
+  right: 105%;
+  top: 0;
+  display: inline-block;
+  border-right: 0.75rem solid #fff;
+  border-bottom: 0.75rem solid transparent;
+  border-left: 0.75rem solid transparent;
+  border-top: 0.75rem solid transparent;
+  /* transition for the hover state */
+  transition: right 0.2s ease-out;
+}
+.MainSingle a:hover span {
+  /* when hovering on the anchor link element, push the left facing arrow further away */
+  right: 110%;
+}
+
+/* on smaller viewports, as to prevent anchor links element to overlap, change the orientation to horizontal  */
+@media (max-width: 700px) {
+  .MainSingle a {
+    writing-mode: horizontal-tb;
+  }
+  .MainSingle a span {
+    top: calc(50% - 0.75rem);
+  }
+}
