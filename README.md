@@ -135,3 +135,4 @@ If the inspiration strikes, exceptions can be made.
 |[**D3 Lollipop Plot & Pie Chart**](https://codepen.io/borntofrappe/pen/gdPydW/)|Practice with D3 to display data in familiar layouts, but with different configurations and visuals.|d3, lollipop, pie|26th August 2018|
 |[**Responsive Signup Form**](https://codepen.io/borntofrappe/pen/bxebgv/)|Create a signup form which changes in appearance depending on the viewport.|form, regex, label|27th August 2018|
 |[**D3 Line Chart Practice**](https://codepen.io/borntofrappe/pen/GXjRVe/)|Practice with D3.js, while creating a line chart based on google trend results.|d3, line chart, path|28th August 2018|
+|[**React Router Pokemon Cards**](https://codepen.io/borntofrappe/pen/YOpzLE/)|Practice with React, React Router, Styled Components as well as retrieving public data from an API to showcase pokemon cards, in a grid or in detail.|react, react router, styled components, fetch|29th August 2018|
