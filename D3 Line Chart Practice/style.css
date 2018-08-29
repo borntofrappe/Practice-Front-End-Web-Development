@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+1p");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'M PLUS 1p', sans-serif;
+  color: #343e4b;
+  background: #1490b9;
+}
+.container {
+  width: 90vw;
+  max-width: 750px;
+  padding: 1rem;
+  margin: 1.5rem auto;
+  text-align: center;
+  background: #f9fcff;
+  border-radius: 10px;
+  filter: drop-shadow(0 1px 4px #1490b9);
+}
+.container h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+}
+.container p {
+  display: inline;
+  margin: 0 0.5rem;
+  padding: 0 0.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.container #tooltip {
+  position: absolute;
+  opacity: 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  pointer-events: none;
+  transition: all 0.25s ease-out;
+}
+svg path {
+  fill: none;
+  stroke-width: 2px;
+}
+svg text {
+  stroke: none;
+  font-size: 0.4rem;
+}
+svg g.axis path,
+svg g.axis line {
+  stroke-width: 0.8px;
+  stroke: rgba(52,62,75,0.8);
+}

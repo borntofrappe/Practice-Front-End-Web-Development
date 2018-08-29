@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p')
+
+// include the chosen font and colors
+font = 'M PLUS 1p', sans-serif
+font-color = #343e4b
+bg-color = #1490B9
+bg-card = #F9FCFF
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font
+    color font-color
+    background bg-color
+
+.container 
+    // center the only div container horizontally and cap its width
+    width 90vw
+    max-width 750px
+    padding 1rem
+    margin 1.5rem auto
+    // center text
+    text-align center
+    background bg-card
+    border-radius 10px
+    filter drop-shadow(0 1px 4px bg-color)
+
+    h4
+        font-size 1.5rem
+        font-weight 300
+        text-transform uppercase
+        letter-spacing 0.1rem
+        margin-bottom 1rem
+    p
+        // display the paragraph elements side by side
+        display inline
+        margin 0 0.5rem
+        padding 0 0.25rem
+        text-transform uppercase
+        font-weight bold
+
+    #tooltip
+        // absolute position the tooltip and hide it initially (opacity altered when the cursor hovers on the rectangle elements)
+        position absolute 
+        opacity 0
+        padding 0.8rem 1.2rem
+        border-radius 10px
+        text-transform uppercase
+        font-weight bold
+        // pointer events none to avoid the tooltip from preventing the cursor from hovering on the rectangle elements themselves
+        pointer-events none
+        // transition to smoothen the change in position
+        transition all 0.25s ease-out
+
+svg 
+    /*
+    for all path elements, set a stroke-width 
+    alter it for the axis path, to have them visually less prominent 
+    */
+    path
+        fill none 
+        stroke-width 2px
+
+    text 
+        stroke none 
+        font-size 0.4rem
+
+    g.axis path, g.axis line 
+        stroke-width 0.8px
+        stroke rgba(font-color, 0.8)
