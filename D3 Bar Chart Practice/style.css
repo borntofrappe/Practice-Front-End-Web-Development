@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+/*
+include the chosen colors and font
+for the color palettem the text is based on a darker version of the background
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #13426d;
+  background: linear-gradient(to top right, #043b47, #065d70);
+}
+.container {
+  width: 90vw;
+  max-width: 550px;
+  margin: 0 auto;
+}
+section {
+  width: 100%;
+  background: #fff;
+  filter: drop-shadow(0 1px 1px #fff);
+  margin: 5vh 0;
+  padding: 1rem 1.2rem;
+  animation: rollIn 0.4s cubic-bezier(0.26, 1.29, 0.75, 1.41) both;
+}
+section h2 {
+  text-transform: capitalize;
+}
+section p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0.25rem 0 0.5rem;
+}
+section:nth-of-type(1) {
+  animation-delay: 1s;
+}
+section:nth-of-type(2) {
+  animation-delay: 2s;
+}
+#tooltip {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  background: #fff;
+  border-top: 0.5rem solid #0f3557;
+  filter: drop-shadow(0 0.5px 2px );
+  padding: 0.8rem 1rem;
+  border-radius: 0 0 5px 5px;
+  text-transform: capitalize;
+  line-height: 1.8;
+}
+#tooltip p {
+  padding: 0 0.25rem;
+}
+#tooltip p:nth-of-type(1) {
+  border-bottom: 2px solid rgba(15,53,87,0.5);
+  margin-bottom: 0.25rem;
+}
+.bar {
+  fill: #2784d9;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-out;
+}
+.bar:hover {
+  opacity: 1;
+}
+.accent {
+  fill: #ce1b18;
+}
+.axis text {
+  fill: #13426d;
+  font-size: 11px;
+}
+.axis path,
+.axis line {
+  stroke: rgba(19,66,109,0.8);
+  fill: none;
+  stroke-width: 1px;
+}
+@-moz-keyframes rollIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes rollIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+@-o-keyframes rollIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+@keyframes rollIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}

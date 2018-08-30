@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+/*
+include the chosen colors and font
+for the color palettem the text is based on a darker version of the background
+*/
+font-text = 'Lato', sans-serif
+color-bg = #043b47
+color-bar = #2784D9
+color-text = darken(color-bar, 50%)
+color-bar-accent = #CE1B18
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    // include a gradient with a slightly lighter version of the background color
+    background linear-gradient(to top right, color-bg, lighten(color-bg, 10%))
+
+.container
+    // cap the size of the container and center it
+    width 90vw
+    max-width 550px
+    margin 0 auto
+
+section
+    // have the sections spread to stretch the 550px top of the container
+    width 100%
+    // white background
+    background lighten(color-bg, 100%)
+    // filter to have a light shadow
+    filter drop-shadow(0 1px 1px @background)
+    // margin to distance the sections from the surrounding borders and each other
+    margin 5vh 0
+    // padding to include whitespace around the section's content
+    padding 1rem 1.2rem
+    // animation to roll the visualizations from the side
+    animation rollIn 0.4s cubic-bezier(.26,1.29,.75,1.41) both
+
+    h2
+        text-transform capitalize
+    p
+        font-size 1.2rem
+        line-height 1.5
+        // greater margin bottom to have the paragraph(s) visually connected to the header more than the visualization which follows
+        margin 0.25rem 0 0.5rem
+
+// animation delay of 1s for the first section, 2s for the second
+for i in 1 2
+    section:nth-of-type({i})
+        animation-delay (i)s
+
+#tooltip
+    // absolute position the tooltip, updating its left and top property with d3.js
+    position absolute
+    // z-index to have the div atop surrounding elements (even if it is appended first with D3.js)
+    z-index 100
+    // pointer events to avoid the tooltip from blocking the cursor
+    pointer-events none
+    // white background, dark border-top
+    background lighten(color-bg, 100%)
+    border-top 0.5rem solid darken(color-text, 20%)
+    // dark shadow to visually distance the tooltip from the viz beneath
+    filter drop-shadow(0 0.5px 2px @border-top-color)
+    padding 0.8rem 1rem
+    // border radius leaving the top-left and top-right unaffected (to have a straigth border-top)
+    border-radius 0 0 5px 5px
+    text-transform capitalize
+    line-height 1.8
+
+    p
+        padding 0 0.25rem
+
+        &:nth-of-type(1)
+            // include a line between paragraphs
+            border-bottom 2px solid rgba(darken(color-text, 20%), 0.5)
+            margin-bottom 0.25rem
+
+// color the rectangle elements with the chosen color, transition opacity on hover
+.bar
+    fill color-bar
+    opacity 0.6
+    transition opacity 0.2s ease-out
+
+    &:hover
+        opacity 1
+// include the accent color for the bar which needs highlighting
+.accent
+    fill color-bar-accent
+
+// for the axes, have the text of the tick labels slightly greater than the 10px default, and of the chosen color
+// have the path for the axes and the line for the ticks of the chosen, subdued color
+.axis
+    text
+        fill color-text
+        font-size 11px
+
+    path, line
+        stroke rgba(color-text, 0.8)
+        fill none
+        stroke-width 1px
+
+// define the simple animation for the section(s), allowing to roll it(them) in from the (right) side
+@keyframes rollIn
+    0%
+        opacity 0
+        transform translateX(10vw)
+    30%
+        opacity 0
+    100%
+        opacity 100%
+        transform translateX(0)
