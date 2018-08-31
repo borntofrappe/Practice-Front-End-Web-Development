@@ -1,0 +1,13 @@
+.AppSlide {
+    background: var(--color-slide);
+    /* displayed the content in a single column and horizontally centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* vertically include white space around the elements */
+    justify-content: space-around;
+    /* transition for the transform property, which is handled in App.js by updating the translate-slide custom property */
+    transition: transform 0.3s ease-out;
+    transform: translateX(var(--translate-slide));
+}

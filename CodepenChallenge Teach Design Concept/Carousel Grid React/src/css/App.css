@@ -1,0 +1,21 @@
+/* cap the width of the container */
+.App {
+  width: 85vw;
+  max-width: var(--max-width);
+  position: relative;
+  /* ! essential properties for the carousel */
+  /* position the sections in a grid */
+  display: grid;
+  /* include a single column layout, with implicit tracks added horizontally instead of vertically
+  have the columns, implicit or explcit, spread to cover 100% of the container
+  */
+  grid-template-columns: 100%;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  /* hide horizontal overflow, effectively hiding all columns except one */
+  overflow: hidden;
+  /* min height for visual appeal, to guarantee a reasonable width to height ratio despite the lack of content, which will be added in React-land */
+  min-height: 400px;
+  background: var(--color-bg);
+  box-shadow: 0 0 15px -2.5px var(--color-text-t);
+}

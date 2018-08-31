@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/*
+define custom properties for the font and colors used in the project
+different properties have often the same value, but they are specified as their value might be altered
+*/
+:root {
+  --font: 'Lato', sans-serif;
+  --color-bg: #E7EEF0;
+  --color-bg-d: rgb(221, 225, 226);
+  --color-text: #0F2325;
+  --color-border: var(--color-text);
+  --color-card: #fff;
+  --color-slide: var(--color-card);
+  --max-width-slide: 700px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* min-height: 100vh; */
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: linear-gradient(var(--color-bg), var(--color-bg-d), var(--color-bg));
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* center the container in the viewport , cap its width */
+.container {
+  width: 85vw;
+  max-width: var(--max-width-slide);
+
+  /* ! essential properties for the carousel */
+  /* position the sections in a grid */
+  display: grid;
+  /* include a single column layout, with implicit tracks added horizontally instead of vertically
+  have the columns, implicit or explcit, spread to cover 100% of the container
+  */
+  grid-template-columns: 100%;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  /* hide horizontal overflow, effectively hiding all columns except one */
+  overflow-x: hidden;
+  /* min height for visual appeal, to guarantee a reasonable width to height ratio despite the lack of content, which will be added in React-land */
+  min-height: 400px;
+  margin: 2rem auto;
+  background: var(--color-card);
+  box-shadow: 0 0 0 3px var(--color-border),0 1px 4px var(--color-border);
+}
+
+section {
+  margin: 1rem;
+  border: 2px solid var(--color-bg-d);
+  box-shadow: 0 0 5px var(--color-bg);
+  background: var(--color-slide);
+
+  /* animation to prove the validity of the layout */
+  animation: slideAround 30s 1s ease-out infinite alternate;
+
+  /* pointless layout for the content of the sections, displayed in a single column and centered in the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+/* define a translation to view the different slides one after the other
+! translate by an amount of the slides' width, multiplied by the number of slides minus one
+*/
+@keyframes slideAround {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-6* var(--max-width-slide)));
+  }
+}
+
+/* pointless style for the content of the sections */
+section h2 {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+section p {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.3rem;
+}

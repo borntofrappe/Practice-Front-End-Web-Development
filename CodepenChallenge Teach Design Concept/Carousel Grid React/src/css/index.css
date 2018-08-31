@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Montserrat');
+
+/*
+define custom properties for the font and colors used in the project
+*/
+:root {
+  --font-text: 'Montserrat', sans-serif;
+  --font-code: 'Fira Mono', monospace;
+  --color-bg: #fff;
+  --color-text: #0F2325;
+  --color-text-t: #0F232588;
+  --max-width: 700px;
+  /* translate slide is responsible to show one slide at a time, by translating all sections by 100%, 200% and so forth to the left */
+  --translate-slide: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  /* render a couple of neat SVG elements atop a white background */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="90%" cy="80%" r="15%" fill="#0041F3"/><circle cx="0" cy="0" r="40%" fill="#EE0034"/></svg>'), var(--color-bg);
+  background-repeat: no-repeat;
+  /* center the single container in the page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
