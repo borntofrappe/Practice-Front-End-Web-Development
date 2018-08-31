@@ -95,4 +95,4 @@ const content = [
 
 I decided to scrap the whole idea of SVG icons. Wasn't too proud of the result.
 
-The end result is well documented and soon live on codepen. The components are live and well in the 'Carousel Grid React' folder.
+The end result is well documented and live [right here](https://codepen.io/borntofrappe/full/OoWGYe/). The components are live and well in the 'Carousel Grid React' folder.
