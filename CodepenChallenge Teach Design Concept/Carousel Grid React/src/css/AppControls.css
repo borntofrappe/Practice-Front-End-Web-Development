@@ -1,0 +1,31 @@
+.AppControls {
+  /* position the controls always atop the other neighboring elements */
+  z-index: 100;
+  /* in the bottom left of the card */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* by default hide them, show them when hovering on the card itself */
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  background: var(--color-text);
+  padding: 0.5rem 0;
+  /* display the buttons side by side, in a 100px rectangle */
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+/* on hover on the card, show the controls */
+.App:hover .AppControls {
+  opacity: 1;
+}
+
+svg {
+  /* spread the SVG to occupy the size of the wrapping elements(buttons) */
+  width: 100%;
+  height: 100%;
+  fill: var(--color-bg);
+  /* pointer events none to allow click events on the buttons */
+  pointer-events: none;
+}
