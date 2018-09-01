@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
-:root {
-  --font-text: 'Lato', sans-serif;
-  --color-text: #252525;
-  --color-background: #f0f0f0;
-}
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +7,44 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: var(--font-text);
-  color: var(--color-text);
-  background: var(--color-background);
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #515151;
+  background: linear-gradient(to bottom left, #fff, #bfbfbf);
+}
+.container {
+  margin: 5vh 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 500px);
+  grid-auto-rows: max-content;
+  grid-gap: 20px;
+  justify-content: center;
+}
+.chart {
+  padding: 0.5rem 0;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 1px 5px solid #ccc;
+}
+.chart h2 {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+svg {
+  width: 70%;
+}
+#tooltip {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 1px 4px #515151;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: left;
+  line-height: 1.6;
+  transition: all 0.2s ease-out;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }

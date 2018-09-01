@@ -1,18 +1,64 @@
-@import url('https://fonts.googleapis.com/css?family=Lato')
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700')
 
-font-text = 'Lato', sans-serif
-color-text = #252525
-color-background = #f0f0f0
+font-text = 'Nanum Gothic', sans-serif
+color-text = #515151
+color-bg = #fff
 
 *
     box-sizing border-box
     margin 0
     padding 0
-  
+
 body
     min-height 100vh
     width 100%
     font-family font-text
     color color-text
-    background color-background    
+    // include the charts with a white background, on top of a slightly darker background for the body
+    background linear-gradient(to bottom left, color-bg, darken(color-bg, 25%))
 
+.container
+    // distance the grid from the top and bottom border
+    margin 5vh 0
+    // display the visualizations in a grid, side by side and if the viewport allows for them
+    display grid
+    grid-template-columns repeat(auto-fit, 500px)
+    // to avoid unnecessary whitespace, wrap the container to stretch vertically only as much as the visualization requires
+    grid-auto-rows max-content
+    grid-gap 20px
+    // center the grid
+    justify-content center
+
+.chart
+    // for each visualization, center the text
+    padding 0.5rem 0
+    text-align center
+    background color-bg
+    box-shadow 0 1px 5px solid darken(color-bg, 20%)
+
+    h2
+        font-size 1.4rem
+        line-height 1.5
+        font-weight bold
+        text-transform uppercase
+
+svg
+    // cap the size of the svg elements
+    width 70%
+
+// style the tooltip to present information with dark text on a white background, in a rounded box
+#tooltip
+    padding 0.5rem 1rem
+    border-radius 4px
+    background color-bg
+    box-shadow 0 1px 4px color-text
+    text-transform capitalize
+    font-weight bold
+    text-align left
+    line-height 1.6
+    // transition for the change in opacity and position
+    transition all 0.2s ease-out
+    position absolute
+    opacity 0
+    // pointer events to prevent the cursor from hovering of the underlying elements
+    pointer-events none
