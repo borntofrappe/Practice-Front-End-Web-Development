@@ -15,7 +15,7 @@ body
     font-family font-text
     color color-text
     // include the charts with a white background, on top of a slightly darker background for the body
-    background linear-gradient(to bottom left, color-bg, darken(color-bg, 25%))
+    background color-bg
 
 .container
     // distance the grid from the top and bottom border
@@ -25,7 +25,7 @@ body
     grid-template-columns repeat(auto-fit, 500px)
     // to avoid unnecessary whitespace, wrap the container to stretch vertically only as much as the visualization requires
     grid-auto-rows max-content
-    grid-gap 20px
+    grid-gap 50px
     // center the grid
     justify-content center
 
@@ -34,7 +34,7 @@ body
     padding 0.5rem 0
     text-align center
     background color-bg
-    box-shadow 0 1px 5px solid darken(color-bg, 20%)
+    box-shadow 0 0 5px darken(color-bg, 50%)
 
     h2
         font-size 1.4rem
@@ -51,7 +51,7 @@ svg
     padding 0.5rem 1rem
     border-radius 4px
     background color-bg
-    box-shadow 0 1px 4px color-text
+    box-shadow darken(color-bg, 50%)
     text-transform capitalize
     font-weight bold
     text-align left
