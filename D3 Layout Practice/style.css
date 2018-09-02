@@ -9,21 +9,21 @@ body {
   width: 100%;
   font-family: 'Nanum Gothic', sans-serif;
   color: #515151;
-  background: linear-gradient(to bottom left, #fff, #bfbfbf);
+  background: #fff;
 }
 .container {
   margin: 5vh 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 500px);
   grid-auto-rows: max-content;
-  grid-gap: 20px;
+  grid-gap: 50px;
   justify-content: center;
 }
 .chart {
   padding: 0.5rem 0;
   text-align: center;
   background: #fff;
-  box-shadow: 0 1px 5px solid #ccc;
+  box-shadow: 0 0 5px #808080;
 }
 .chart h2 {
   font-size: 1.4rem;
@@ -38,7 +38,7 @@ svg {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   background: #fff;
-  box-shadow: 0 1px 4px #515151;
+  box-shadow: #808080;
   text-transform: capitalize;
   font-weight: bold;
   text-align: left;
