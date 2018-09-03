@@ -1,0 +1,18 @@
+.CourtMatches{
+    background: var(--color-lines-t);
+    margin: 2rem 0;
+    /* increase the space between subsequent elements */
+    line-height: 2;
+}
+
+.CourtMatches article {
+    /* cap the size of the articles relative to the container and center them */
+    width: 70%;
+    margin: 0 auto;
+    padding: 1rem 0 1.5rem;
+}
+
+/* define a class toggled on the details of the court matches to remove them from view/ show them alternatively */
+.hidden {
+    display: none;
+}

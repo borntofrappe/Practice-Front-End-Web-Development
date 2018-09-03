@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+:root {
+  --font-text: 'Source Sans Pro', sans-serif;
+  --color-text: #3F3E46;
+  --color-bg: #F07B69;
+  /* include as the color of the lines of a tennis court #fff, with a transparent and a darker variation */
+  --color-lines: #ffffff;
+  --color-lines-t: #ffffff55;
+  --color-lines-d: #E1E9D2;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
