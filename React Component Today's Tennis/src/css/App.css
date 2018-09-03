@@ -1,0 +1,7 @@
+.App {
+    /* cap the width of the main component and center it */
+    width: 95vw;
+    max-width: 700px;
+    margin: 5vh auto 2rem;
+    padding: 1rem;
+}
