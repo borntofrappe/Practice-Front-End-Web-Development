@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+$color-text: #515151;
+$color-shadow: $color-text;
+$color-bg: #fff;
+$font: 'Mukta', sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font;
+  width: 100%;
+  background-color: $color-bg;
+}
+
+// lay the different containers and the button on top of one another
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container__display {
+  // display which color in a slightly round box
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: $color-text;
+  padding: 1rem;
+  border-radius: 2px;
+  // include a border through a solid box shadow
+  box-shadow: 0 0 0 4px $color-shadow;
+}
+
+// cap the width of the container nesting the colors
+// its width and height will be the basis of the children displaying the colors, as these occupy each a fraction of the wrapping container
+.container__colors {
+  max-width: 550px;
+  height: 50px;
+  width: 90vw;
+  filter: drop-shadow(0 1px 5px rgba($color-shadow, 0.1));
+  // display the nested items side by side
+  display: flex;
+
+  button {
+    // remove the default border
+    border: none;
+    // spread each button to occupy a fraction of the width of the wrapping container
+    flex-grow: 1;
+    // transition for the change on hover
+    transition: flex-grow 0.3s ease-out;
+
+    // round the first and last items to show the buttons as a connected rounded box
+    &:first-of-type {
+      border-radius: 10px 0 0 10px;
+    }
+    &:last-of-type {
+      border-radius: 0 10px 10px 0;
+    }
+
+    // on hover expand the hovered button by making it occupy twice the width of the other items
+    &:hover {
+      flex-grow: 2;
+    }
+  }
+
+}
+
+// replicate the same slightly rounded box of the display for the refresh button
+.container__refresh {
+  // remove default border
+  border: none;
+  background: $color-bg;
+  color: $color-shadow;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 1rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px $color-shadow;
+  // transition for the hover and active states
+  transition: all 0.3s ease-out;
+
+  // on hover flip the color and background color, flip also the solid shadow to have the solid dark border past a solid light border
+  &:hover {
+    background: $color-shadow;
+    color: $color-bg;
+    box-shadow: 0 0 0 4px $color-bg, 0 0 0 7px $color-shadow;
+  }
+  // on active rescale the button
+  &:active {
+    transform: scale(1.2);
+  }
+}

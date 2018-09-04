@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Mukta");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Mukta", sans-serif;
+  width: 100%;
+  background-color: #fff; }
+
+.container {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+
+.container__display {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #515151;
+  padding: 1rem;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 0 4px #515151;
+          box-shadow: 0 0 0 4px #515151; }
+
+.container__colors {
+  max-width: 550px;
+  height: 50px;
+  width: 90vw;
+  -webkit-filter: drop-shadow(0 1px 5px rgba(81, 81, 81, 0.1));
+          filter: drop-shadow(0 1px 5px rgba(81, 81, 81, 0.1));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .container__colors button {
+    border: none;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-transition: flex-grow 0.3s ease-out, -webkit-box-flex 0.3s ease-out;
+    transition: flex-grow 0.3s ease-out, -webkit-box-flex 0.3s ease-out;
+    transition: flex-grow 0.3s ease-out;
+    transition: flex-grow 0.3s ease-out, -webkit-box-flex 0.3s ease-out, -ms-flex-positive 0.3s ease-out; }
+    .container__colors button:first-of-type {
+      border-radius: 10px 0 0 10px; }
+    .container__colors button:last-of-type {
+      border-radius: 0 10px 10px 0; }
+    .container__colors button:hover {
+      -webkit-box-flex: 2;
+          -ms-flex-positive: 2;
+              flex-grow: 2; }
+
+.container__refresh {
+  border: none;
+  background: #fff;
+  color: #515151;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 1rem;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 0 4px #515151;
+          box-shadow: 0 0 0 4px #515151;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  .container__refresh:hover {
+    background: #515151;
+    color: #fff;
+    -webkit-box-shadow: 0 0 0 4px #fff, 0 0 0 7px #515151;
+            box-shadow: 0 0 0 4px #fff, 0 0 0 7px #515151; }
+  .container__refresh:active {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2); }
