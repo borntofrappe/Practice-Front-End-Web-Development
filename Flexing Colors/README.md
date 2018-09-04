@@ -1,8 +1,8 @@
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/RYgyRG/).
 
 ## Preface
 
-I was checking out [Colorleap](https://colorleap.app/time/1960), a neat web application showcasing different color across the ages, spanning from 2000bc close to modern time.
+I was checking out [ColorLeap](https://colorleap.app/time/1960), a neat web application showcasing different color across the ages, spanning from 2000bc close to modern time.
 
 One of the neat choices found on this website relates to the different colors. They are sorted either vertically, in a card, or horizontally, on their own, but still in rounded boxes. As you hover on a particular color, this one expands to cover twice, perhaps 1.5 its original size.
 
