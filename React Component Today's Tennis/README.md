@@ -2,7 +2,7 @@ Link to the working pen right [here](https://codepen.io/borntofrappe/full/EemEor
 
 ## Topics
 
-react, component, proptypes, styled components, structured data
+react, component, styled components, structured data
 
 ## Preface
 

@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/pen/MqpmPO).
+Link to the working pen right [here](https://codepen.io/borntofrappe/pen/MqpmPO).
 
 ## Preface
 
