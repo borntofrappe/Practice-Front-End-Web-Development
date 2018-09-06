@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+/* include the colors behind the application in two custom properties
+by exhancing their value in JS, relative to the root element, the change will cascade to the entire application */
+:root {
+  --theme-d: #052464;
+  --theme-l: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  background: var(--theme-l);
+}
+
+/* absolute position the svg at the top (and behind the following elements) */
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: var(--theme-d);
+  z-index: -100;
+}
+
+/* separate the content from the surrounding borders */
+.container {
+  padding: 10vh 0;
+}
+
+.container h1.container__title {
+  color: var(--theme-l);
+  font-size: calc(1rem + 2.5vw);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* rotate the first icon to have them symmetric with respect to the header they wrap
+to have the transform propety affect the span, you need to have them first as block elements (or inline-block) */
+.container h1.container__title span:first-of-type {
+  display: inline-block;
+  transform: rotateY(180deg);
+}
+
+/* cap the size of the card with the filler text and center it */
+.container div.container__card {
+  max-width: 400px;
+  width: 80vw;
+  margin: 10vh auto;
+  padding: 2rem;
+  background: var(--theme-l);
+  color: var(--theme-d);
+  line-height: 2;
+  font-size: 1.1rem;
+  /* include solid shadows on top of one another */
+  box-shadow:
+    0 0 0 3px var(--theme-d),
+    0 0 0 6px var(--theme-l),
+    0 0 0 10px var(--theme-d);
+}
+
+.container div.container__card button {
+  color: var(--theme-d);
+  background: var(--theme-l);
+  border: 2px solid var(--theme-d);
+  border-radius: 2px;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  padding: 0.5rem 1rem;
+  margin: 2rem 0 1rem;
+  /* transition for the hover and active state */
+  transition: all 0.25s ease-out;
+}
+
+/* on hover flip the color and background values */
+.container div.container__card button:hover {
+  background: var(--theme-d);
+  color: var(--theme-l);
+}
+
+/* when actice, rescale the button */
+.container div.container__card button:active {
+  transform: scale(1.2);
+}
+
+
+/* on smaller viewports rescale the svg to occupy a sizeable chunk (roughly 40% of the viewport) */
+@media (max-width: 600px) {
+  svg {
+    height: 100vh;
+  }
+}
