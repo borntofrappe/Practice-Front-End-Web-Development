@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>SVG Bezier & Color Flip</title>
+  <meta name="description" content="Practice with simple SVG syntax to animate a path element in its d attribute and tinker with CSS custom properties and simple JavaScript to flip the theme colors of the simple application."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+
+  <!-- include the svg responsible for the animation -->
+  <svg viewbox="0 0 100 50" class="container__wave">
+    <!-- starting at -->
+    <!-- <path d="M 0 0 H 100 V 40 Q 75 25 50 40 T 0 40"/> -->
+    <!-- ending at  -->
+    <!-- <path d="M 0 0 H 100 V 40 Q 75 25 50 40 T 0 40"/> -->
+
+    <path d="M 0 0 H 100 V 20 Q 75 12.5 50 20 T 0 20">
+      <animate
+      attributeName="d"
+      dur="15s"
+      repeatCount="indefinite"
+      values="M 0 0 H 100 V 20 Q 75 12.5 50 20 T 0 20; M 0 0 H 100 V 20 Q 75 32.5 50 20 T 0 20; M 0 0 H 100 V 20 Q 75 12.5 50 20 T 0 20"
+      keyTimes="0; 0.6; 1"/>
+    </path>
+  </svg>
+
+  <!-- in a wrapping container include
+    - a header
+    - a card displaying some random text and a button to flip the colors of the application
+  -->
+  <div class="container">
+
+    <h1 class="container__title">
+      <span>🏄</span>
+        wave with us
+      <span>🏄</span>
+    </h1>
+
+
+    <div class="container__card">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, nobis? Eaque odio dolorum nulla beatae aperiam delectus necessitatibus modi commodi, quibusdam laboriosam alias at nemo fugit ex est blanditiis nobis architecto! Recusandae, tempore ea delectus blanditiis voluptate excepturi expedita. Eveniet reiciendis ea adipisci illo nobis explicabo eligendi! Dignissimos, error id?
+      </p>
+
+      <button>flip colors</button>
+
+    </div>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
