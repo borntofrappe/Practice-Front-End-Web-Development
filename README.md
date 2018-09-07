@@ -143,3 +143,5 @@ If the inspiration strikes, exceptions can be made.
 |[**Flexing Colors**](https://codepen.io/borntofrappe/pen/RYgyRG/)|Experiment displaying a set of colors, laying each side by side. Highlight each color on hover by expanding their width.|flex, colors, random|4th September 2018|
 |[**CSS Layouts & SVG Practice**](https://codepen.io/borntofrappe/pen/ZMJjQL/)|Practice with simple CSS layout and a touch of SVG magic to replicate a section of the Gatsby website.|css, flex, svg, line|5th September 2018|
 |[**SVG Bezier & Color Flip**](https://codepen.io/borntofrappe/pen/oPGMQa/)|Practice with simple SVG syntax to animate a path element in its d attribute and tinker with CSS custom properties.|svg, path, animate, css|6th September 2018|
+|[**CodepenChallenge 404**](https://codepen.io/borntofrappe/pen/JaONOY/)|Create an entry for the weekly #CodepenChallenge, with a vector-based, possibly-intriguing visual.|codepenchallenge, 404, svg, mask|7th September 2018|
+
