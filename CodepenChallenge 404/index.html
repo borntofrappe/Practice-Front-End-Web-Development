@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>#CodepenChallenge Blowing a fuse</title>
+  <meta name="description" content="Create an entry for the weekly #CodepenChallenge, with a vector-based, possibly-intriguing visual."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+
+  <!-- include a single SVG, spanning the entire viewport -->
+
+  <svg width="100vw" height="100vh">
+    <!-- define a mask, used to re-create the light source corresponding to the mouse cursor -->
+    <defs>
+      <mask id="mask">
+        <!--
+          use a circle as a mask
+          include in the fill a gradient, allowing for transparency towards the outermost edges of the circle
+        -->
+
+        <circle cx="50%" cy="40%" r="100%" fill="url(#gradient)">
+          <!--
+            animate the mask to go from engulfing the entire viewport to rapidly hiding all the page's content to finally reach the defined size of the light source
+            begin the animation after the circle have finished their animation
+          -->
+          <animate
+            id="lightson"
+            attributeName="r"
+            dur="1s"
+            fill="freeze"
+            begin="circle-three.end + 0.1s"
+            values="100%; 0; 0; 82px"
+            keyTimes="0; 0.01; 0.8; 1"/>
+
+        </circle>
+
+
+      </mask>
+      <!--
+        include a radial gradient transitioning to #000 at the outermost edges of the circle
+        a mask functions showing whatever matches a white #fff color and progressively hiding what leads up to #000
+      -->
+      <radialGradient id="gradient">
+          <stop offset="75%" stop-color="#fff"/>
+          <stop offset="100%" stop-color="#000"/>
+      </radialGradient>
+
+    </defs>
+
+    <!--
+      include a black rectangle, before the SVG shapes on which the mask is applied
+      as the group element included afterwards is mostly hidden by the mask, this rectangle will be shown except for the masked portion
+    -->
+
+    <rect x="0" y="0" width="100%" height="100%" fill="#000"/>
+
+    <!-- include the mask on the rest of the SVG -->
+    <g mask="url(#mask)">
+
+      <!--
+        include a rectangle matching the dimensions of the previous one, to have the group element span the same width and height
+        remember that group elements occupy only the space of the elements they nest
+      -->
+      <rect x="0" y="0" width="100%" height="100%" fill="#F15A2B"/>
+
+      <!--
+        include text for introductory elements
+        all text elements share the same the same fill and text-anchor property (perfectly centering the text elements)
+        introductory text have also the imported Josefin font
+      -->
+      <g fill="#FFF" text-anchor="middle" font-family="Josefin Sans">
+        <text x="50%" y="40%" font-size="5rem">404</text>
+        <text x="50%" y="40%" dy="50px" font-size="2.5rem">Page Not Found</text>
+      </g>
+
+      <!-- include informative text atop three circles -->
+      <g fill="#FFF">
+
+        <!-- wrap the two text elements in a group, to avoid duplicating properties -->
+        <!-- aninate the text elements to diappear once the mask is instantiated -->
+        <g font-size="1.2rem" font-family="Open Sans" text-anchor="middle">
+          <text x="50%" y="60%">
+            Let me try to fix it...
+            <animate
+              attributeName="opacity"
+              to="0"
+              fill="freeze"
+              dur="0.1s"
+              begin="lightson.end"/>
+
+          </text>
+
+          <text x="50%" y="65%">
+              Hope nothing more breaks
+          </text>
+
+          <animate
+            attributeName="opacity"
+            to="0"
+            fill="freeze"
+            dur="0.1s"
+            begin="lightson.end"
+          />
+
+        </g>
+
+
+        <!-- include three circles, side by side and animate them into and out of view, in sequence -->
+        <circle cx="45%" cy="70%" r="0">
+
+          <animate id="circle-one"
+            attributeName="r"
+            values="0; 1%; 0"
+            keyTimes="0; 0.75; 1"
+            dur="0.5s"
+            begin="1.5s"
+          />
+
+        </circle>
+
+
+        <circle cx="50%" cy="70%" r="0">
+
+          <animate
+            id="circle-two"
+            attributeName="r"
+            dur="0.5s"
+            begin="circle-one.end + 0.5s"
+            values="0; 1%; 0"
+            keyTimes="0; 0.75; 1"
+          />
+
+        </circle>
+
+
+        <circle cx="55%" cy="70%" r="0">
+          <animate
+            id="circle-three"
+            attributeName="r"
+            dur="0.5s"
+            begin="circle-two.end + 0.5s"
+            values="0; 1%; 0"
+            keyTimes="0; 0.75; 1"
+          />
+        </circle>
+      </g>
+
+
+      <!--
+        include text elements, displayed after the mask is animated
+        hide them by default and animate them into view
+      -->
+      <g text-anchor="middle" fill="#fff" font-family="Open Sans" opacity="0">
+
+          <text x="50%" y="60%">
+            Oh-oh...
+          </text>
+
+        <!--
+          include link-able text by wrapping the text element in between anchor link tags
+        -->
+        <a href="#">
+          <text x="50%" y="65%" style="text-transform: uppercase; text-decoration: underline; fill:inherit;">
+            Try the homepage 😅
+          </text>
+        </a>
+        <animate
+          attributeName="opacity"
+          to="1"
+          dur="0.2s"
+          begin="lightson.end"
+          fill="freeze"
+        />
+      </g>
+
+    </g><!-- close the masked group element -->
+
+  </svg>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
