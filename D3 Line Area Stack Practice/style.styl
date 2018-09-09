@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700')
+
+font-text = 'Nanum Gothic', sans-serif
+color-text = #515151
+color-bg = #fff
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    // include the charts with a white background, on top of a slightly darker background for the body
+    background color-bg
+
+.container
+    display grid
+    grid-template-columns repeat(auto-fit, minmax(500px, 1fr))
+    grid-auto-rows max-content
+    justify-items center
+    grid-gap 20px
+    // separate the container from the surrounding window
+    margin 5vh 0
+
+
+.chart
+    width 500px
+    padding 1rem
+    background darken(color-bg, 5%)
+    box-shadow 0 1px 5px rgba(darken(color-bg, 50%), 0.5)
+
+p
+    line-height 2
+
+.axis
+
+    text
+        fill lighten(color-text, 20%)
+
+    // hide the path responsible for the axes
+    path
+        fill none
+        stroke none
+    // show the ticks as slightly transparent
+    line
+        stroke rgba(color-text, 0.3)
+
+
+
+// style the tooltip to present information with dark text on a white background, in a rounded box
+#tooltip
+    padding 0.5rem 1rem
+    border-radius 4px
+    background color-bg
+    box-shadow darken(color-bg, 50%)
+    text-transform capitalize
+    font-weight bold
+    text-align left
+    line-height 1.6
+    // transition for the change in opacity and position
+    transition all 0.2s ease-out
+    position absolute
+    opacity 0
+    // pointer events to prevent the cursor from hovering of the underlying elements
+    pointer-events none
