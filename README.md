@@ -145,3 +145,4 @@ If the inspiration strikes, exceptions can be made.
 |[**SVG Bezier & Color Flip**](https://codepen.io/borntofrappe/pen/oPGMQa/)|Practice with simple SVG syntax to animate a path element in its d attribute and tinker with CSS custom properties.|svg, path, animate, css|6th September 2018|
 |[**CodepenChallenge 404**](https://codepen.io/borntofrappe/pen/JaONOY/)|Create an entry for the weekly #CodepenChallenge, with a vector-based, possibly-intriguing visual.|codepenchallenge, 404, svg, mask|7th September 2018|
 |[**D3 Line Area Stack Practice**](https://codepen.io/borntofrappe/pen/KxZoXO/)|Practice with several D3 layouts to create a stacked structure, displaying different data with different colors.|d3, line, area, stack|9th September 2018|
+|[**D3 Box Plot**](https://codepen.io/borntofrappe/pen/LJQObZ/)|Practice with D3.js and SVG syntax to create a box plot, displaying quartiles, median, extreme values.|d3, box plot, svg|10th September 2018|
