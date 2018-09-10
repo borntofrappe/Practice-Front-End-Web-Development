@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+color-bg-start = #5B8BFA
+color-bg-end = #A768F7
+color-card = #FEFEFE
+color-text = #443785
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background linear-gradient(to bottom right, color-bg-start, color-bg-end)
+    background-repeat no-repeat
+
+.container
+    // cap the width of the container and center it
+    max-width 550px
+    width 85vw
+    margin 2rem auto
+    background color-card
+    box-shadow 0 1px 5px @background
+    // properties for the content of the container
+    padding 1.5rem 1rem
+    text-align center
+    line-height 1.5
+
+// absolute position the tooltip (which coordinates are detailed by D3.js and the d3 event)
+#tooltip
+    position absolute
+    padding 0.8rem 0.25rem
+    background color-card
+    box-shadow 0 0 0 3px color-text
+    color color-text
+    // pointer events to avoid overlaps
+    pointer-events none
