@@ -1,12 +1,26 @@
 # Practice-Front-End-Web-Development
 
-Repository in which to experiment with simple front-end concepts.
+**What?**
 
-**Goody, when?**
+Repository in which to experiment with simple front-end concepts. Detailing efforts in the land of:
 
-Project are scheduled for Monday, Wednesday and Friday. To be published before the end of the European day.
+- HyperText Markup Language (HTML);
 
-If the inspiration strikes, exceptions can be made.
+- Cascading StyleSheet (CSS and pre-processors);
+
+- JavaScript (JS);
+
+- Scalable Vector Graphic (SVG);
+
+- React (React.js and connected libraries);
+
+- Data Driven Documents (D3.js and SVG syntax).
+
+And hopefully more in the future.
+
+**When?**
+
+Whenever inspiration strikes, but periodically. There's nothing better than practice to fully understand and harness new concepts.
 
 ## List of Projects:
 
