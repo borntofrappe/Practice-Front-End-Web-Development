@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  background: radial-gradient(7em 7em at 80% 20%, #b51a1e 99%, transparent 100%), radial-gradient(6em 6em at 20% 80%, #0881fa 99%, transparent 100%), #fff;
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container .viz {
+  width: 600px;
+  margin: 5vh 1rem 1rem;
+  padding: 1rem 1.2rem;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(51,51,51,0.5);
+          box-shadow: 0 1px 4px rgba(51,51,51,0.5);
+  line-height: 2;
+}
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  line-height: 2;
+  padding: 0.85rem 0.5rem;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(51,51,51,0.8);
+          box-shadow: 0 1px 5px rgba(51,51,51,0.8);
+}

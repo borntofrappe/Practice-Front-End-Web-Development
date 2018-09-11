@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+color-text = #333
+color-bg = #fff
+// include the colors used to picture the cold-to-hot sprectrum
+color-cold = #0881FA
+color-hot = #B51A1E
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    // include two circles of different sizes and matching the colors picked for the project
+    background radial-gradient(7em 7em at 80% 20%, color-hot 99%, transparent 100%), radial-gradient(6em 6em at 20% 80%, color-cold 99%, transparent 100%), color-bg
+
+.container
+    // display the visualizations side by side, wrapping to a new line if necessary (if there's not enough space for them)
+    display flex
+    flex-wrap wrap
+    // center the div in the page
+    justify-content center
+    min-height 100vh
+    align-items center
+
+    .viz
+        // have the container for the visualizations represented as cards, 600px wide at the most
+        width 600px
+        margin 5vh 1rem 1rem
+        padding 1rem 1.2rem
+        background color-bg
+        box-shadow 0 1px 4px rgba(color-text, 0.5)
+        line-height 2
+
+#tooltip
+    // absolute position the tooltip and remove pointer events
+    position absolute
+    pointer-events none
+    line-height 2
+    padding 0.85rem 0.5rem
+    background color-bg
+    box-shadow 0 1px 5px rgba(color-text, 0.8)
