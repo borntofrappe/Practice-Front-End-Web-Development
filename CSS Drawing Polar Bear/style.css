@@ -1,0 +1,193 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    height: 100vh;
+    width: 100%;
+    background: #1ea8e9;
+    overflow: hidden;
+  }
+  div {
+    position: absolute;
+  }
+  .crate {
+    width: 5em;
+    height: 5em;
+    background: #f17b20;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .crate.top-left {
+    top: 3em;
+    left: 3em;
+  }
+  .crate.top-right {
+    top: 3em;
+    right: 3em;
+  }
+  .crate.bottom-left {
+    bottom: 3em;
+    left: 3em;
+  }
+  .crate.bottom-right {
+    bottom: 3em;
+    right: 3em;
+  }
+  .crate .inner {
+    width: 75%;
+    height: 75%;
+    left: 12.5%;
+    top: 12.5%;
+    background: #c05b0c;
+  }
+  .crate .inner .segment {
+    height: 100%;
+    width: 15%;
+    left: 42.5%;
+    background: #f5a160;
+  }
+  .crate .inner .segment:nth-of-type(1) {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .crate .inner .segment:nth-of-type(2) {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .crate:hover {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+    opacity: 0;
+  }
+  .bear {
+    border-radius: 50%;
+    width: 15em;
+    height: 15em;
+    background: #fff;
+    top: calc(50% - 7.5em);
+    left: calc(50% - 7.5em);
+  /* on hover
+      - move the ears downward (! by not including the rotate value, the ears are rotated to the initial value of 0)
+      - scale the eyes (slightly more vertically than horizontally)
+      - reduce the border of the mouth (which appears briefly as opening)
+      - move the arms on top of the mouth
+      */
+  }
+  .bear .ear {
+    width: 30%;
+    height: 35%;
+    background: #252525;
+    z-index: -50;
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: -webkit-transform 0.25s ease-out;
+    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  }
+  .bear .ear.left {
+    left: 0;
+    -webkit-transform: rotate(-45deg) translateY(10px);
+            transform: rotate(-45deg) translateY(10px);
+    border-radius: 50%;
+  }
+  .bear .ear.right {
+    right: 0;
+    -webkit-transform: rotate(45deg) translateY(10px);
+            transform: rotate(45deg) translateY(10px);
+    border-radius: 50%;
+  }
+  .bear .eye {
+    width: 20%;
+    height: 25%;
+    top: 25%;
+    background: #252525;
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: -webkit-transform 0.25s ease-out;
+    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  }
+  .bear .eye.left {
+    left: 25%;
+  }
+  .bear .eye.left .inner {
+    right: 5px;
+  }
+  .bear .eye.right {
+    right: 25%;
+  }
+  .bear .eye.right .inner {
+    left: 5px;
+  }
+  .bear .eye .inner {
+    background: #fff;
+    width: 50%;
+    height: 40%;
+    border-radius: 50%;
+    top: 5px;
+  }
+  .bear .nose {
+    border-top: 1.75rem solid #252525;
+    border-right: 1.25rem solid transparent;
+    border-bottom: 1.75rem solid transparent;
+    border-left: 1.25rem solid transparent;
+    width: 0;
+    height: 0;
+    left: calc(50% - 1.25rem);
+    top: 60%;
+  }
+  .bear .mouth {
+    width: 25%;
+    height: 5%;
+    border-radius: 0 0 50% 50%;
+    background: #fb5a82;
+    border: 4px solid #252525;
+    top: 80%;
+    left: 37.5%;
+    -webkit-transition: border 0.25s ease-out;
+    transition: border 0.25s ease-out;
+  }
+  .bear .arm {
+    background: #fff;
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    bottom: 0;
+    -webkit-box-shadow: 0 0 0 2px #252525;
+            box-shadow: 0 0 0 2px #252525;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .bear .arm.left {
+    left: 0;
+  }
+  .bear .arm.right {
+    right: 0;
+  }
+  .bear .arm .paw {
+    width: 95%;
+    height: 80%;
+    top: 15%;
+    left: 2.5%;
+    background: #252525;
+    border-radius: 50%;
+  }
+  .bear:hover .ear {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  .bear:hover .eye {
+    -webkit-transform: scaleX(1.1) scaleY(1.2);
+            transform: scaleX(1.1) scaleY(1.2);
+  }
+  .bear:hover .mouth {
+    border: 1px solid #252525;
+  }
+  .bear:hover .arm.left {
+    left: 15%;
+  }
+  .bear:hover .arm.right {
+    right: 15%;
+  }

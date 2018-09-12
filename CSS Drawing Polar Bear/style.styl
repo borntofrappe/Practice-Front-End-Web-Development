@@ -1,0 +1,192 @@
+white = #fff
+black = #252525
+reddish = #FB5A82
+maroonish = #F5A160
+blue = #1ea8e9
+
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    height 100vh
+    width 100%
+    background blue
+    // avoid overflow caused by the animation included on the crates
+    overflow hidden
+
+// let the absolute position cascade to all div elements
+div
+    position absolute
+
+.crate
+    width 5em
+    height @width
+    background darken(maroonish, 20%)
+    // transition for the change in scale and opacity on hover
+    transition all 0.25s ease-out
+
+    // position the four crates in the corners of the page
+    &.top-left
+        top 3em
+        left @top
+
+    &.top-right
+        top 3em
+        right @top
+    &.bottom-left
+        bottom 3em
+        left @bottom
+    &.bottom-right
+        bottom 3em
+        right @bottom
+
+    // draw the inner section as centered and occupying 75% of the container
+    .inner
+        width 75%
+        height @width
+        left 12.5%
+        top @left
+        background darken(maroonish, 40%)
+
+        .segment
+            // draw the x through two lines, rotated either way by 45%
+            height 100%
+            width 15%
+            left 42.5%
+            background maroonish
+
+            &:nth-of-type(1)
+                transform rotate(45deg)
+            &:nth-of-type(2)
+                transform rotate(-45deg)
+
+    &:hover
+        // on hover scale notably the crates and they are made destroyed
+        transform scale(3)
+        opacity 0
+
+// center circle making up the bear in the middle of the screen
+.bear
+    border-radius 50%
+    width 15em
+    height 15em
+    background #fff
+    top calc(50% - 7.5em)
+    left calc(50% - 7.5em)
+
+    // position the ears below the circle, at either end and slightly hidden behind
+    .ear
+        width 30%
+        height 35%
+        background black
+        z-index -50
+        // transition for the change on hover (occurrying when the cursor enters the entirety of the wrapping circle)
+        transition transform 0.25s ease-out
+
+        &.left
+            left 0
+            transform rotate(-45deg) translateY(10px)
+            border-radius 50%
+        &.right
+            right 0
+            transform rotate(45deg) translateY(10px)
+            border-radius 50%
+
+    .eye
+        // position the eyes inside the circle, in the top section and at either end
+        width 20%
+        height 25%
+        top 25%
+        background black
+        border-radius 50%
+        // transition for the change on hover (occurrying when the cursor enters the entirety of the wrapping circle)
+        transition transform 0.25s ease-out
+
+        // display the lens of the eyes in the top section, oriented toward the middle of the page
+        &.left
+            left 25%
+            .inner
+                right 5px
+
+        &.right
+            right 25%
+            .inner
+                left 5px
+
+        .inner
+            background white
+            width 50%
+            height 40%
+            border-radius 50%
+            top 5px
+
+    .nose
+        // include the nose as a rectangle, centered and pointing downward
+        border-top 1.75rem solid black
+        border-right 1.25rem solid transparent
+        border-bottom 1.75rem solid transparent
+        border-left 1.25rem solid transparent
+        width 0
+        height 0
+        left calc(50% - 1.25rem)
+        top 60%
+
+    .mouth
+        // include the mouth as a rounded rectangle, with a dark border
+        width 25%
+        height 5%
+        border-radius 0 0 50% 50%
+        background reddish
+        border 4px solid black
+        top 80%
+        left 37.5%
+        // transition for the change on hover (occurrying when the cursor enters the entirety of the wrapping circle)
+        transition border 0.25s ease-out
+
+    .arm
+        // include the arms as circles positioned at the very end of the bear
+        background white
+        width 35%
+        height 35%
+        border-radius 50%
+        bottom 0
+        // box shadow to include a nice border on the outside of the circles
+        box-shadow 0 0 0 2px black
+        // transition for the change on hover (occurrying when the cursor enters the entirety of the wrapping circle)
+        transition all 0.25s ease-out
+
+        &.left
+            left 0
+
+        &.right
+            right 0
+
+        .paw
+            // include the paws as darker sections, slightly offset to the bottom of the parent circles
+            width 95%
+            height 80%
+            top 15%
+            left 2.5%
+            background black
+            border-radius 50%
+
+
+    /* on hover
+    - move the ears downward (! by not including the rotate value, the ears are rotated to the initial value of 0)
+    - scale the eyes (slightly more vertically than horizontally)
+    - reduce the border of the mouth (which appears briefly as opening)
+    - move the arms on top of the mouth
+    */
+    &:hover .ear
+        transform translateY(20px)
+    &:hover .eye
+        transform scaleX(1.1) scaleY(1.2)
+    &:hover .mouth
+        border 1px solid black
+    &:hover .arm.left
+        left 15%
+    &:hover .arm.right
+        right 15%

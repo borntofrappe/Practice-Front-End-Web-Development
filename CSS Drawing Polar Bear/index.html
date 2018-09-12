@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>CSS Drawing Polar Bear</title>
+  <meta name="description" content="Or is it a panda? First drawing made with HTML elements and CSS syntax to stretch CSS selectors and absolute positioning."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- include the div elementsmaking up the polar bear -->
+  <!-- the bear is drawn as follows
+    bear (a simple circle)
+      ear (atop and either end of the bear)
+      eye (in the left/right half of the bear)
+        inner (showing some lens)
+      nose (triangle between eyes and mouth)
+      mouth (reddish seection surrounded by dark border)
+      arm (circles at the bottom of the bear)
+        paw (darker section of the arm)
+  -->
+  <div class="bear">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+
+    <div class="eye left">
+      <div class="inner"></div>
+    </div>
+    <div class="eye right">
+      <div class="inner"></div>
+    </div>
+
+    <div class="nose"></div>
+    <div class="mouth"></div>
+
+    <div class="arm left">
+      <div class="paw"></div>
+    </div>
+    <div class="arm right">
+      <div class="paw"></div>
+    </div>
+
+  </div><!-- close the bear div-->
+
+
+
+  <!-- include four crates, surrounding the polar bear -->
+  <!--
+    the crates are drawn as follows:
+    crate
+      inner (inner section of a darker color)
+        segment (two lines crossing each other to form an x)
+  -->
+  <div class="crate top-left">
+    <div class="inner">
+      <div class="segment"></div>
+      <div class="segment"></div>
+    </div>
+  </div>
+
+  <div class="crate top-right">
+    <div class="inner">
+      <div class="segment"></div>
+      <div class="segment"></div>
+    </div>
+  </div>
+
+  <div class="crate bottom-left">
+    <div class="inner">
+      <div class="segment"></div>
+      <div class="segment"></div>
+    </div>
+  </div>
+
+  <div class="crate bottom-right">
+    <div class="inner">
+      <div class="segment"></div>
+      <div class="segment"></div>
+    </div>
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
