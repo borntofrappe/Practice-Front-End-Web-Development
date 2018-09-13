@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+// include colors for the background, the moon and text (variations are included through color functions)
+color-bg = #fff
+color-moon = #32CDFF
+color-text = #777
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    width 100%
+    font-family font-text
+    color color-text
+    // include background slightly darker, to have the card with a white background stand out a little
+    background darken(color-bg, 5%)
+    // center the content in the middle of the screen
+    // the card and the button (which is absolute positioned in this central location)
+    display flex
+    justify-content center
+    min-height 100vh
+    align-items center
+
+.card
+    background color-bg
+    padding 5rem
+    // position the card atop the button which follows
+    z-index 100
+    // display the moon and text side by side
+    display flex
+    // vertically aligned
+    align-items center
+    // horizontally place whitespace around and between the elements
+    justify-content space-around
+    // include a box shadow below the card
+    box-shadow 0 0.4rem 0 darken(color-bg, 15%)
+    // position relative for the pseudo element making up the progress bar
+    position relative
+    // animation to make the card disappear once the progress bar is full
+    animation clearCard 0.5s 30s cubic-bezier(.42,-1,.88,1.44) forwards
+
+    &:before
+        // position a progress bar in the bottom of the card, overlapping on the solid box shadow (and matching it in height)
+        position absolute
+        content ''
+        top 100%
+        left 0
+        height 0.4rem
+        // animate the width, from 0 to 100%
+        background color-moon
+        width 0
+        animation loadMore 28s 2s ease-out forwards
+
+    p
+        font-weight bold
+        margin 2.5rem
+        font-size 1.15rem
+
+.moon
+    // draw the moon as a circle, with nested and absolute positioned eyes and mouth
+    width 82px
+    height @width
+    border-radius 50%
+    background color-moon
+    // include the orbit's trajectory through solid box shadows
+    box-shadow 0 0 0 10px color-bg, 0 0 0 11px rgba(color-moon, 0.5)
+    // position relative for the connected pseudo elements (as well as the nested elements), which are absolute positioned
+    position relative
+
+    &:before, &:after
+        // include two orbiting objects with pseudo elements
+        // in different positions, but animated jointy and sharing common properties
+        position absolute
+        content ''
+        background color-moon
+        border-radius 50%
+        // animate the orbits to have them rotate toward the same point
+        // 15 times (like the other smaller animations) to have the animation(s) terminate alongside the progress bar
+        animation orbit 2s ease-in-out 15 alternate forwards
+
+    // include the circles around the object through transform values, rotate + translate + rotate
+    // this property will be affected for the animation
+    &:before
+        // center the smaller moon and rotate it around the central body
+        width 12px
+        height @width
+        left calc(50% - 6px)
+        top @left
+        transform rotate(0) translateX(52px) rotate(-0)
+
+    &:after
+        // same, but for a different sized moon and different rotation
+        width 10px
+        height @width
+        left calc(50% - 5px)
+        top @left
+        transform rotate(-180deg) translateX(52px) rotate(180deg)
+
+
+    .eye
+        // include the eyes as slightly taller than wider rounded rectangles
+        position absolute
+        width 6px
+        height 16px
+        border-radius 50%
+        background darken(color-moon, 30%)
+        // animate the eyes in their top property, to move downward (and then back upwards)
+        top 35%
+        animation lookDown 2s ease-in-out 15 alternate forwards
+
+        // position the eyes one next to the other
+        &.left
+            left 50%
+
+        &.right
+            left 70%
+
+        &:before
+            // include through a before pseudo element small cheeks, right underneath the moon's eyes
+            position absolute
+            content ''
+            width 8px
+            height 4px
+            bottom 0
+            left calc(50% - 4px)
+            border-radius 50%
+            background lighten(color-moon, 30%)
+
+        &:after
+            // include through an after pseudo element small brows, right atop the moon's eyes
+            position absolute
+            content ''
+            width 8px
+            height 2px
+            bottom calc(100% + 10px)
+            left calc(50% - 4px)
+            border-radius 50% 50% 0 0
+            background darken(color-moon, 30%)
+
+    .mouth
+        // include the mouth as a small circle below the eyes & cheecks
+        position absolute
+        border-radius 50%
+        width 6px
+        height @width
+        // slightly offset to the right
+        top 65%
+        left 60%
+        background darken(color-moon, 30%)
+        // animate the mouth to move downward and reduce itself in size
+        animation gasp 2s ease-in-out 15 alternate forwards
+
+
+button
+    // absolute position the button, placing it out of the flow of the document, in the location set by the parent container
+    position absolute
+    border none
+    border-radius 5px
+    background color-moon
+    padding 0.5rem 0.75rem
+    color color-bg
+    font-size 1.1rem
+    font-weight bold
+    font-family inherit
+    text-transform uppercase
+    letter-spacing 0.1rem
+    // transition for the active state (barely noticeable, as the page gets refreshed as the button gets pressed)
+    transition all 0.25s ease-out
+
+    &:active
+        transform scale(1.1)
+
+
+// on smaller viewports include the paragraph and moon one on top of the other
+// reduce the padding
+@media (max-width: 500px)
+    .card
+        flex-direction column
+        padding 2rem
+
+
+// include the simple animations, each defining a single keyframe (alternated to the default value)
+@keyframes clearCard
+    100%
+        transform translateX(-100vh)
+        opacity 0
+
+@keyframes loadMore
+    100%
+        width 100%
+
+@keyframes orbit
+    100%
+        transform rotate(360deg) translateX(52px) rotate(-360deg)
+
+@keyframes lookDown
+    100%
+        top 60%
+        transform scale(0.8)
+
+@keyframes gasp
+    100%
+        top 80%
+        transform scale(0.7)
+

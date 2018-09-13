@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #777;
+  background: #f2f2f2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card {
+  background: #fff;
+  padding: 5rem;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-shadow: 0 0.4rem 0 #d9d9d9;
+          box-shadow: 0 0.4rem 0 #d9d9d9;
+  position: relative;
+  -webkit-animation: clearCard 0.5s 30s cubic-bezier(0.42, -1, 0.88, 1.44) forwards;
+          animation: clearCard 0.5s 30s cubic-bezier(0.42, -1, 0.88, 1.44) forwards;
+}
+.card:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  height: 0.4rem;
+  background: #32cdff;
+  width: 0;
+  -webkit-animation: loadMore 28s 2s ease-out forwards;
+          animation: loadMore 28s 2s ease-out forwards;
+}
+.card p {
+  font-weight: bold;
+  margin: 2.5rem;
+  font-size: 1.15rem;
+}
+.moon {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: #32cdff;
+  -webkit-box-shadow: 0 0 0 10px #fff, 0 0 0 11px rgba(50,205,255,0.5);
+          box-shadow: 0 0 0 10px #fff, 0 0 0 11px rgba(50,205,255,0.5);
+  position: relative;
+}
+.moon:before,
+.moon:after {
+  position: absolute;
+  content: '';
+  background: #32cdff;
+  border-radius: 50%;
+  -webkit-animation: orbit 2s ease-in-out 15 alternate forwards;
+          animation: orbit 2s ease-in-out 15 alternate forwards;
+}
+.moon:before {
+  width: 12px;
+  height: 12px;
+  left: calc(50% - 6px);
+  top: calc(50% - 6px);
+  -webkit-transform: rotate(0) translateX(52px) rotate(0);
+          transform: rotate(0) translateX(52px) rotate(0);
+}
+.moon:after {
+  width: 10px;
+  height: 10px;
+  left: calc(50% - 5px);
+  top: calc(50% - 5px);
+  -webkit-transform: rotate(-180deg) translateX(52px) rotate(180deg);
+          transform: rotate(-180deg) translateX(52px) rotate(180deg);
+}
+.moon .eye {
+  position: absolute;
+  width: 6px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00a1d5;
+  top: 35%;
+  -webkit-animation: lookDown 2s ease-in-out 15 alternate forwards;
+          animation: lookDown 2s ease-in-out 15 alternate forwards;
+}
+.moon .eye.left {
+  left: 50%;
+}
+.moon .eye.right {
+  left: 70%;
+}
+.moon .eye:before {
+  position: absolute;
+  content: '';
+  width: 8px;
+  height: 4px;
+  bottom: 0;
+  left: calc(50% - 4px);
+  border-radius: 50%;
+  background: #70dcff;
+}
+.moon .eye:after {
+  position: absolute;
+  content: '';
+  width: 8px;
+  height: 2px;
+  bottom: calc(100% + 10px);
+  left: calc(50% - 4px);
+  border-radius: 50% 50% 0 0;
+  background: #00a1d5;
+}
+.moon .mouth {
+  position: absolute;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  top: 65%;
+  left: 60%;
+  background: #00a1d5;
+  -webkit-animation: gasp 2s ease-in-out 15 alternate forwards;
+          animation: gasp 2s ease-in-out 15 alternate forwards;
+}
+button {
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+  background: #32cdff;
+  padding: 0.5rem 0.75rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+button:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+@media (max-width: 500px) {
+  .card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2rem;
+  }
+}
+@-webkit-keyframes clearCard {
+  100% {
+    -webkit-transform: translateX(-100vh);
+            transform: translateX(-100vh);
+    opacity: 0;
+  }
+}
+@keyframes clearCard {
+  100% {
+    -webkit-transform: translateX(-100vh);
+            transform: translateX(-100vh);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes loadMore {
+  100% {
+    width: 100%;
+  }
+}
+@keyframes loadMore {
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes orbit {
+  100% {
+    -webkit-transform: rotate(360deg) translateX(52px) rotate(-360deg);
+            transform: rotate(360deg) translateX(52px) rotate(-360deg);
+  }
+}
+@keyframes orbit {
+  100% {
+    -webkit-transform: rotate(360deg) translateX(52px) rotate(-360deg);
+            transform: rotate(360deg) translateX(52px) rotate(-360deg);
+  }
+}
+@-webkit-keyframes lookDown {
+  100% {
+    top: 60%;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+@keyframes lookDown {
+  100% {
+    top: 60%;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+@-webkit-keyframes gasp {
+  100% {
+    top: 80%;
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+@keyframes gasp {
+  100% {
+    top: 80%;
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}

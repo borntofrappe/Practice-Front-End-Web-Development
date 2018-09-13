@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>CSS Loader Tinycards</title>
+  <meta name="description" content="Create a simple loading animation after the loading screen included by Tinycards @duolingo."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- include in a card the simple structure which allows to draw a moon, surrounded by orbiting objects and made up of two simple eyes and a thin mouth -->
+  <div class="card">
+    <!-- include the orbit through a solid box shadow and orbiting objects through pseudo elements -->
+    <div class="moon">
+      <!-- try including brows and cheeks through pseudo elements -->
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="mouth"></div>
+    </div>
+    <p>Loading more...</p>
+  </div>
+
+
+  <!-- include a button (upon which the card is positioned), to replay the animation by refreshing the page -->
+  <button>Refresh</button>
+
+<script src="script.js"></script>
+</body>
+</html>
