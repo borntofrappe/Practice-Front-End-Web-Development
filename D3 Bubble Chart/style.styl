@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+color-text = #333
+color-card = #fff
+color-bg-start = #7B97EB
+color-bg-end = #58B4FD
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background linear-gradient(to right, color-bg-start, color-bg-end)
+
+// center the container horizontally
+.container
+    max-width 600px
+    width 90vw
+    margin 5vw auto 0
+    padding 1rem
+    background color-card
+    box-shadow 0 1px 4px color-card
+    line-height 2
