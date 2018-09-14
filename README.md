@@ -163,3 +163,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**D3 Stripes, Bars, Line**](https://codepen.io/borntofrappe/pen/LJdeRj/)|Practice with D3 and SVG syntax to display arbitrary data in alternative layouts: warming stripes and vertical bars, atop and below the x-axis.|d3, stripes, bars, line, svg|11th September 2018|
 |[**CSS Drawings Polar Bear**](https://codepen.io/borntofrappe/pen/jvxKgL)|Drawing made with HTML elements and CSS syntax to practice with CSS selectors and absolute positioning.|css, drawing, absolute|12th September 2018|
 |[**CSS Loader Tinycards**](https://codepen.io/borntofrappe/pen/yxExMw/)|Create a simple loading animation after the loading screen included by Tinycards @duolingo.|css, drawing, loader|13th September 2018|
+|[**D3 Bubble Plot**](https://codepen.io/borntofrappe/pen/YOjvOO/)|Practice with D3 and layouts to create a bubble plot.|d3, bubble plot, random|14th September 2018|
