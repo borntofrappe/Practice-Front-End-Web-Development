@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>Project's Skeleton</title>
+  <meta name="description" content="Create the basic skeleton of the application built for the #codepenchallenge."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- in a wrapping container include a simple structure
+    - div for a monitor
+      - header for the status code
+      - paragraph for the message informing the user
+
+    - svg line, animated to emulate establishing a connection between the button and the monitor
+
+    - button to "send" a request, animating the svg line and introducing the header and paragraph elements
+  -->
+
+  <div class="container">
+
+    <div class="container__monitor">
+      <h2>Error 500</h2>
+      <p>Error description.</p>
+    </div>
+
+    <svg class="container__wiring" viewbox="0 0 10 100">
+      <line x1="0" x2="0" y1="0" y2="100" stroke="#555" stroke-width="8px"/>
+    </svg>
+
+    <button class="container__button">Send Request</button>
+
+  </div>
+
+<!-- this document is purely for the aesthetics of the project
+javascript logic will be added through react -->
+<!-- <script src="script.js"></script> -->
+</body>
+</html>
