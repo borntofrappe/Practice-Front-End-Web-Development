@@ -1,0 +1,28 @@
+.AppSVG {
+    /* use the line as a separating entity between monitor and button */
+    height: 5rem;
+    /* animate the stroke-dasharray and dashoffset properties to obtain the desired result (longer segments leading to shorter segments/almost dots moving upwards) */
+    stroke-dasharray: var(--stroke-dash);
+    stroke-dashoffset: var(--stroke-dash);
+    /* the first animation allows to obtain the desired shape, while the second allows the shape to continually move unscathed */
+    /* delay the animation to allow for the monitor and button elements to enter in sequence */
+    animation: connect 4s 2s ease-in forwards, keepConnecting 4s 6s linear 5;
+  }
+
+/* include the animations for the svg line */
+@keyframes connect {
+    /* alter the stroke dash array property to have short segments separated by wider spaces */
+    100% {
+      stroke-dasharray: 4px 20px;
+      stroke-dashoffset: var(--stroke-dash);
+    }
+  }
+  @keyframes keepConnecting {
+    /* keep the dots moving by altering only the stroke-dash offset property
+    ! this will cause a jitter every time the animation is repeated
+    jitter which will be fixed in the larger project, where the exact length of the line is retrieved in JavaScript and used in the stroke-dash custom property
+    */
+    100% {
+      stroke-dashoffset: calc(4* var(--stroke-dash));
+    }
+  }

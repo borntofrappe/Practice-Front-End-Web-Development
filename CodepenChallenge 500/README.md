@@ -28,3 +28,7 @@ You can find a first rendition of the design in the 'Project Skeleton' folder. T
 As far as colors are concerned, I decided to include simple white/black-ish colors, and to add only a bit of flair in the activity bar of the monitor (in which to show two possible actions, through reddish and greenish circles).
 
 The SVG is to be animated in the `stroke-dasharray` and `stroke-dashoffset` properties, to envision a connection between the elements it separates.
+
+## Data
+
+For each error message, a short description is included, following which a "suggested message" is detailed. For status codes: 506, 507, 508, 510 much information is not available. I might opt to avoid them or include some generic information describing how developers don't know much about the issue, but they are working on it.

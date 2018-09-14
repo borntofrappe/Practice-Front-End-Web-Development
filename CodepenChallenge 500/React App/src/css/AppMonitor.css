@@ -1,0 +1,94 @@
+.AppMonitor {
+    /* cap the width of the monitor */
+    max-width: 750px;
+    width: 90vw;
+    /* include the height relative to the width, but at least wide a sizeable measure */
+    height: calc(90vw*0.4);
+    min-height: 300px;
+    border-radius: 5px;
+    background: var(--color-monitor);
+    box-shadow: 0 1px 5px var(--color-bg-d);
+    /* display the heading and paragraph elements in the center of the monitor */
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    /* include whitespace around the elements */
+    justify-content: space-around;
+    /* box shadow to recreate an activity bar atop the monitor */
+    border-top: 0.8rem solid var(--color-text);
+    /* position relative for pseudo elements */
+    position: relative;
+    /* animation to introduce the monitor, alongside the button */
+    animation: fadeDown 0.8s 0.5s cubic-bezier(.25,-0.3,.5,1.5) both;
+}
+
+/* include two circles for the activity bar atop the monitor  */
+.AppMonitor:before, .AppMonitor:after {
+    content: '';
+    position: absolute;
+    /*
+    -0.65rem as in
+    -> 0.8rem for the height of the border
+    -> 0.15rem for half the available space, which is obtained by subtracting the 0.8rem (size of the border) by 0.5rem (size of the dots)
+    */
+    top: -0.65rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+  /* position the two circles side by side */
+  .AppMonitor:before {
+    left: 0.5rem;
+    background: rgb(255, 146, 92);
+  }
+  .AppMonitor:after {
+    left: 1.5rem;
+    background: rgb(186, 255, 165);
+  }
+
+
+/* prominently display the heading in the center of the monitor */
+.AppMonitor h2 {
+    font-family: var(--font-code);
+    font-size: calc(1.5rem + 2.5vh);
+    text-transform: uppercase;
+    /* animation to display the text after the first animation of the sgv is included */
+    animation: fadeUp 0.7s 5.5s cubic-bezier(.25,-0.3,.5,1.5) both;
+  }
+  .AppMonitor p {
+    font-size: 1rem;
+    animation: fadeUp 0.7s 5.6s cubic-bezier(.25,-0.3,.5,1.5) both;
+  }
+
+
+/* include the animation for the monitor and button */
+@keyframes fadeDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-100vh) scale(1);
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* include the animation for the heading and paragraph */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100vh);
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
