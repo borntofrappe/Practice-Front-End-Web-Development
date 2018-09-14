@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono|Lato');
 
-
 /*
 include custom properties for
 - font (monospace for the status code, sans-serif for the description)
@@ -80,14 +79,15 @@ body {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--color-monitor);
 }
 /* position the two circles side by side */
 .container__monitor:before {
   left: 0.5rem;
+  background: rgb(255, 146, 92);
 }
 .container__monitor:after {
   left: 1.5rem;
+  background: rgb(186, 255, 165);
 }
 
 /* prominently display the heading in the center of the monitor */
