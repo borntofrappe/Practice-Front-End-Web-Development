@@ -1,0 +1,15 @@
+.AppMonitor {
+    /* cap the width of the monitor */
+    max-width: 750px;
+    width: 90vw;
+    /* include the height relative to the width, but at least wide a sizeable measure */
+    height: calc(90vw*0.4);
+    min-height: 350px;
+    /* display the heading and paragraph elements in the center of the monitor */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    /* include whitespace around the elements */
+    justify-content: space-around;
+}

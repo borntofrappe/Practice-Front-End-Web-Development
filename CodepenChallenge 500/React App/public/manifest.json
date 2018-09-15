@@ -1,0 +1,15 @@
+{
+  "short_name": "#CodepenChallenge Good 500 Error Copy",
+  "name": "Tinker with React and possibly styled components to create an entry for the #codepenchallenge.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

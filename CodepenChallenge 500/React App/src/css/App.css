@@ -1,0 +1,7 @@
+/* lay the monitor, svg and button one on top of the other, center them horizontally */
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}

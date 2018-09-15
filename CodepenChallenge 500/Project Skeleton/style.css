@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Lato');
+
+/*
+include custom properties for
+- font (monospace for the status code, sans-serif for the description)
+- colors for text, monitor and background
+- stroke-dash to completely hide/display the SVG line (this will be later retrieved in JavaScript and updated for the SVG line)
+*/
+:root {
+  --font-text: 'Lato', sans-serif;
+  --font-code: 'Fira Mono', monospace;
+  --color-text: #555;
+  --color-monitor: #F7FBFB;
+  --color-bg-d: #170D4E;
+  --color-bg-l: rgb(29, 18, 95);
+  --stroke-dash: 100px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  /* include the gradient as a two solid colors side by side */
+  background: linear-gradient(
+      to right,
+      var(--color-bg-d) 50%,
+      var(--color-bg-l) 50%
+    );
+}
+
+/* lay the monitor, svg and button one on top of the other, center them horizontally */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+}
+.container__monitor {
+  /* cap the width of the monitor */
+  max-width: 750px;
+  width: 90vw;
+  /* include the height relative to the width, but at least wide a sizeable measure */
+  height: calc(90vw*0.4);
+  min-height: 300px;
+  border-radius: 5px;
+  background: var(--color-monitor);
+  box-shadow: 0 1px 10px var(--color-text);
+  /* display the heading and paragraph elements in the center of the monitor */
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* include whitespace around the elements */
+  justify-content: space-around;
+  /* box shadow to recreate an activity bar atop the monitor */
+  border-top: 0.8rem solid var(--color-text);
+  /* position relative for pseudo elements */
+  position: relative;
+  /* animation to introduce the monitor, alongside the button */
+  animation: fadeDown 0.8s 0.5s cubic-bezier(.25,-0.3,.5,1.5) both;
+}
+/* include two circles for the activity bar atop the monitor  */
+.container__monitor:before, .container__monitor:after {
+  content: '';
+  position: absolute;
+  /*
+  -0.65rem as in
+  -> 0.8rem for the height of the border
+  -> 0.15rem for half the available space, which is obtained by subtracting the 0.8rem (size of the border) by 0.5rem (size of the dots)
+  */
+  top: -0.65rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+/* position the two circles side by side */
+.container__monitor:before {
+  left: 0.5rem;
+  background: rgb(255, 146, 92);
+}
+.container__monitor:after {
+  left: 1.5rem;
+  background: rgb(186, 255, 165);
+}
+
+/* prominently display the heading in the center of the monitor */
+.container__monitor h2 {
+  font-family: var(--font-code);
+  font-size: calc(3.5rem + 1vh);
+  text-transform: uppercase;
+  text-align: center;
+  /* animation to display the text after the first animation of the sgv is included */
+  animation: fadeUp 0.7s 5.5s cubic-bezier(.25,-0.3,.5,1.5) both;
+}
+.container__monitor p {
+  font-size: 1.5rem;
+  animation: fadeUp 0.7s 5.6s cubic-bezier(.25,-0.3,.5,1.5) both;
+}
+
+
+
+.container__wiring {
+  /* use the line as a separating entity between monitor and button */
+  height: 5rem;
+  /* animate the stroke-dasharray and dashoffset properties to obtain the desired result (longer segments leading to shorter segments/almost dots moving upwards) */
+  stroke-dasharray: var(--stroke-dash);
+  stroke-dashoffset: var(--stroke-dash);
+  /* the first animation allows to obtain the desired shape, while the second allows the shape to continually move unscathed */
+  /* delay the animation to allow for the monitor and button elements to enter in sequence */
+  animation: connect 4s 2s ease-in forwards, keepConnecting 4s 6s linear 5;
+}
+
+
+
+.container__button {
+  background: var(--color-monitor);
+  box-shadow: 0 1px 5px var(--color-text);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  /* animation to introduce the button after the monitor */
+  animation: fadeDown 0.7s 0.7s cubic-bezier(.25,-0.3,.5,1.5) both;
+}
+
+
+/* include the animation for the monitor and button */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh) scale(1);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* include the animation for the heading and paragraph */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* include the animations for the svg line */
+@keyframes connect {
+  /* alter the stroke dash array property to have short segments separated by wider spaces */
+  100% {
+    stroke-dasharray: 4px 20px;
+    stroke-dashoffset: var(--stroke-dash);
+  }
+}
+@keyframes keepConnecting {
+  /* keep the dots moving by altering only the stroke-dash offset property
+  ! this will cause a jitter every time the animation is repeated
+  jitter which will be fixed in the larger project, where the exact length of the line is retrieved in JavaScript and used in the stroke-dash custom property
+  */
+  100% {
+    stroke-dashoffset: calc(4* var(--stroke-dash));
+  }
+}

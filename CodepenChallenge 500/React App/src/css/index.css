@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Lato');
+
+/*
+include custom properties for
+- font (monospace for the status code, sans-serif for the description)
+- colors for text, monitor and background
+- stroke-dash to completely hide/display the SVG line (this will be updated JavaScript to consider the length of the SVG line at full)
+*/
+:root {
+  --font-text: 'Lato', sans-serif;
+  --font-code: 'Fira Mono', monospace;
+  --color-text: #555;
+  --color-monitor: #f7fbfb;
+  --color-bg-d: #170d4e;
+  --color-bg-l: #1d125f;
+  --stroke-dash: 100px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  /* include the gradient as a two solid colors side by side */
+  background: linear-gradient(
+      to right,
+      var(--color-bg-d) 50%,
+      var(--color-bg-l) 50%
+    );
+}
