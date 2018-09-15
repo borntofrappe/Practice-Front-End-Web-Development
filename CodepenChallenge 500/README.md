@@ -32,3 +32,22 @@ The SVG is to be animated in the `stroke-dasharray` and `stroke-dashoffset` prop
 ## Data
 
 For each error message, a short description is included, following which a "suggested message" is detailed. For status codes: 506, 507, 508, 510 much information is not available. I might opt to avoid them or include some generic information describing how developers don't know much about the issue, but they are working on it.
+
+## React App
+
+From the structure explained in the HTML+CSS skeleton, the application powered by React needs to account for the following dynamics:
+
+- immediately, as the page loads, introduce the monitor and button. Do not show at this stage the line connecting the two sections, and as a matter of fact retrieve the exact length of the line as to completely hide it;
+
+- once the button is pressed, and only then, alter the value of the button to go from "send request" to something along the lines of "sending". Jointly with this modification, begin the animation of the SVG line, and keep track of how long this animation will take as to later introduce the text at the right moment;
+
+- once the animation is completed, and after a brief delay, introduce the text. Stop therefore the animation of the SVG line and alter the text of the button as to display the mishap.
+
+This is important: do not allow a press on the button if the animation is currently ongoing. At first I thought about handling this case by resetting the animation, but it is better to handle one request at a time.
+
+
+## Styled Components
+
+To practice once more with the library, I decided to move the CSS logic for the style of the different HTML elements to styled components.
+
+// TOD0: after the project, adding comments where needed and properly documenting the effort #alwayslearning
