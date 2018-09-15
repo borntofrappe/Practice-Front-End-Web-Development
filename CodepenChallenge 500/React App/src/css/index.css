@@ -4,15 +4,15 @@
 include custom properties for
 - font (monospace for the status code, sans-serif for the description)
 - colors for text, monitor and background
-- stroke-dash to completely hide/display the SVG line (this will be later retrieved in JavaScript and updated for the SVG line)
+- stroke-dash to completely hide/display the SVG line (this will be updated JavaScript to consider the length of the SVG line at full)
 */
 :root {
   --font-text: 'Lato', sans-serif;
   --font-code: 'Fira Mono', monospace;
   --color-text: #555;
-  --color-monitor: #F7FBFB;
-  --color-bg-d: #BFC5CF;
-  --color-bg-l: #CBCED7;
+  --color-monitor: #f7fbfb;
+  --color-bg-d: #170d4e;
+  --color-bg-l: #1d125f;
   --stroke-dash: 100px;
 }
 

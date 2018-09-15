@@ -4,6 +4,6 @@ import './css/index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// render the single stafeful component responsible for the application
+// render the single stateful component responsible for the application
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
