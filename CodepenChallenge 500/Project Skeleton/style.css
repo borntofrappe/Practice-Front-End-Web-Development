@@ -11,8 +11,8 @@ include custom properties for
   --font-code: 'Fira Mono', monospace;
   --color-text: #555;
   --color-monitor: #F7FBFB;
-  --color-bg-d: #BFC5CF;
-  --color-bg-l: #CBCED7;
+  --color-bg-d: #170D4E;
+  --color-bg-l: rgb(29, 18, 95);
   --stroke-dash: 100px;
 }
 
@@ -51,7 +51,7 @@ body {
   min-height: 300px;
   border-radius: 5px;
   background: var(--color-monitor);
-  box-shadow: 0 1px 5px var(--color-bg-d);
+  box-shadow: 0 1px 10px var(--color-text);
   /* display the heading and paragraph elements in the center of the monitor */
   padding: 1rem 1.5rem;
   display: flex;
@@ -121,13 +121,13 @@ body {
 
 .container__button {
   background: var(--color-monitor);
-  box-shadow: 0 1px 5px var(--color-bg-d);
+  box-shadow: 0 1px 5px var(--color-text);
   border: none;
   border-radius: 5px;
   text-transform: uppercase;
   color: var(--color-text);
   padding: 0.75rem 1rem;
-  /* font-weight: bold; */
+  font-weight: bold;
   font-size: 1.1rem;
   /* animation to introduce the button after the monitor */
   animation: fadeDown 0.7s 0.7s cubic-bezier(.25,-0.3,.5,1.5) both;
