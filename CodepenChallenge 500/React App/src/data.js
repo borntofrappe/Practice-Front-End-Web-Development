@@ -1,5 +1,5 @@
 // detail the data in an array of objects
-// each object nesting a heading an array for the description (each item will be a new paragraph)
+// each object nests a heading and an array for the description (each item will be a new paragraph)
 const data = [
     {
         id: 0,
