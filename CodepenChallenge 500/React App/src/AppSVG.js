@@ -2,9 +2,10 @@ import React from 'react';
 
 // import styled components to style the button element
 import styled from 'styled-components';
+// import keyframes to create animations with the same library
 import { keyframes } from 'styled-components';
 
-// include a keyframe animation
+// include a keyframe animation for the svg line, to move said line from completely hidden to a series of dashes
 const connect = keyframes`
   100% {
     stroke-dasharray: 4px 20px;
@@ -12,6 +13,9 @@ const connect = keyframes`
   }
 `;
 
+// hide the svg element by default by including stroke-dasharray and stroke-dashoffset properties to a value which matches the length of the SVG
+// the custom property is updated as the components are mounted to exactly consider the length of the svg line
+// ! include the animation only through a class, applied as the button gets pressed
 const SVG = styled.svg`
   height: 5rem;
   stroke-dasharray: var(--stroke-dash);
