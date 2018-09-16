@@ -1,4 +1,4 @@
-/* lay the monitor, svg and button one on top of the other, center them horizontally */
+/* lay the monitor, svg line and button one on top of the other, horizontally centered */
 .App {
     display: flex;
     flex-direction: column;
