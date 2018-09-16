@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>Form Structure</title>
+  <meta name="description" content="Create the basic structure for a form used to practice with Node.js. Express and ejs among the most prominent dependencies."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- in a wrapping container include two introductory textual elements and a form  -->
+
+    <section class="introduction">
+      <h1>Silly Form</h1>
+      <p>Just a pretext to practice with back-end Node.js</p>
+    </section>
+
+    <!-- eventually the "action" attribute for the form will redirect toward a new page, but to avoid errors in this simple HTML+CSS structure remove it altogether -->
+    <form class="form">
+      <div class="form__field">
+        <label for="first-name">First Name*</label>
+        <input required type="text" name="first-name" id="first-name" placeholder="Jiminy">
+      </div>
+
+      <div class="form__field">
+        <label for="last-name">Last Name</label>
+        <input required type="text" name="last-name" id="last-name" placeholder="Cricket">
+      </div>
+      <div class="form__field">
+        <label for="color">Favorite Color</label>
+        <input required type="text" name="color" id="color" placeholder="Yellowgreen">
+      </div>
+      <div class="form__field">
+        <label for="number">Favorite Number</label>
+        <input required type="number" name="number" id="number" placeholder="72">
+      </div>
+      <div class="form__field">
+        <label for="email">Email Address</label>
+        <input required type="email" name="email" id="email" placeholder="jiminyellow72@cricket.hop">
+      </div>
+
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+
+<!-- <script src="script.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  color: #363840;
+  background-color: #e1e3eb;
+}
+
+.container {
+  max-width: 850px;
+  width: 90vw;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -webkit-box-shadow: 0 1px 10px rgba(54, 56, 64, 0.2);
+  box-shadow: 0 1px 10px rgba(54, 56, 64, 0.2);
+}
+
+.introduction {
+  display: grid;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: end;
+  background: #ffffff;
+  padding: 1rem;
+  line-height: 2;
+}
+.introduction h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 5px;
+}
+.introduction p {
+  font-weight: bold;
+}
+.introduction p span {
+  margin-left: 0.4rem;
+}
+
+.form {
+  display: grid;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: whitesmoke;
+  padding: 2rem 1rem;
+}
+.form p {
+  line-height: 2.5;
+  -ms-flex-item-align: center;
+  align-self: center;
+  border-left: 2px solid black;
+  padding-left: 0.5rem;
+}
+.form label {
+  text-transform: uppercase;
+  margin-right: 1rem;
+}
+.form input {
+  width: 100%;
+  background: none;
+  border: 1px solid rgba(75, 125, 255, 0.2);
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.form input::-webkit-input-placeholder {
+  opacity: 0.7;
+}
+.form input:-ms-input-placeholder {
+  opacity: 0.7;
+}
+.form input::-ms-input-placeholder {
+  opacity: 0.7;
+}
+.form input::placeholder {
+  opacity: 0.7;
+}
+.form button {
+  justify-self: center;
+  background: #4b7dff;
+  border: none;
+  border-radius: 20px;
+  padding: 1rem 0.75rem;
+  margin-top: 1.5rem;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 21, 75, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 21, 75, 0.3);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 4px;
+  font-size: 1rem;
+  text-shadow: 2px 2px rgba(128, 128, 128, 0.3);
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+.form button:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.form button:active {
+  -webkit-transform: translateY(-5px) scale(1.1);
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* change the color of the data templated in the ejs file (which is wrapped in between strong tags) */
+strong {
+  color: #4b7dff;
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

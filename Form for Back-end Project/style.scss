@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$color-bg: #E1E3EB;
+$color-svg: #4B7DFF;
+// for the form use a color function to have two different, connected hues
+$color-form: #FFFFFF;
+$color-text: #363840;
+$font: 'Lato', sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+.container {
+  // cap the width of the container and horizontally center it
+  max-width: 850px;
+  width: 90vw;
+  margin: 2rem auto;
+
+  // display the section with introductory elements and the form each in a column
+  // have the form take twice as much space as the section
+  // ! alter the layout for smaller viewports, simply by including a single column layout
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 0 1px 10px rgba($color-text, 0.2);
+}
+
+.introduction {
+  // display the header and paragraph elements each on the bottom of their respective grid
+  display: grid;
+  align-items: end;
+
+  background: $color-form;
+  padding: 1rem;
+  line-height: 2;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 5px;
+  }
+  p {
+    font-weight: bold;
+    // span for the second page
+    span {
+      margin-left: 0.4rem;
+    }
+  }
+}
+
+.form {
+  // center the grid cells making up the form__field(s) horizontally
+  display: grid;
+  justify-content: center;
+
+  background: darken($color-form, 4%);
+  padding: 2rem 1rem;
+
+  // paragraph for the second page
+  p {
+    line-height: 2.5;
+    align-self: center;
+    border-left: 2px solid black;
+    padding-left: 0.5rem;
+  }
+
+  label {
+    text-transform: uppercase;
+    margin-right: 1rem;
+  }
+
+  input {
+    // have the input span 100% of the grid cell, as to occupy a new line
+    width: 100%;
+    background: none;
+    border: 1px solid rgba($color-svg, 0.2);
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    &::placeholder {
+      opacity: 0.7;
+    }
+
+  }
+
+  button {
+    // center as to avoid stretching the button to occupy the entirety of the grid cell
+    justify-self: center;
+
+    background: $color-svg;
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 0.75rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 10px rgba(darken($color-svg, 50%), 0.3);
+
+    color: $color-form;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 1rem;
+    text-shadow: 2px 2px rgba(darken($color-form, 50%), 0.3);
+
+    // transition for simple modifications on hover and when active
+    transition: transform 0.25s ease-out;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+    &:active {
+      transform: translateY(-5px) scale(1.1);
+    }
+  }
+
+}
+
+/* change the color of the data templated in the ejs file (which is wrapped in between strong tags) */
+strong {
+  color: #4B7DFF;
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
