@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  background: repeating-linear-gradient(to bottom right, transparent 100px, rgba(31,29,161,0.1) 200px), -webkit-gradient(linear, left top, right bottom, from(#12115d), to(#111058));
+  background: repeating-linear-gradient(to bottom right, transparent 100px, rgba(31,29,161,0.1) 200px), linear-gradient(to bottom right, #12115d, #111058);
+}
+.container {
+  max-width: 550px;
+  width: 90vw;
+  margin: 2rem auto 1rem;
+  text-align: center;
+  background: #0f0e4f;
+  -webkit-box-shadow: 0 0 5px rgba(88,86,224,0.5);
+          box-shadow: 0 0 5px rgba(88,86,224,0.5);
+  padding: 1rem;
+}
+.container h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.container p {
+  font-size: 1.1rem;
+  display: inline-block;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 0.25rem;
+}
+.axis text {
+  font-family: 'Lato', sans-serif;
+  fill: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgba(255,255,255,0.8);
+}
+.bin {
+  fill: rgba(86,224,224,0.5);
+  -webkit-transition: fill 0.25s ease-out;
+  transition: fill 0.25s ease-out;
+}
+.bin:hover {
+  fill: #56e0e0;
+}
+#tooltip {
+  position: absolute;
+  background: #fff;
+  color: #12115d;
+  padding: 1rem 0.75rem;
+  border-top: 0.5rem solid #0e0e4a;
+  pointer-events: none;
+}

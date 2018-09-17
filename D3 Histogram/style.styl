@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+color-text = #fff
+color-background = #f0f0f0
+color-bg = #12115D
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background repeating-linear-gradient(to bottom right, transparent 100px, rgba(lighten(color-bg, 20%), 0.1) 200px), linear-gradient(to bottom right, color-bg, darken(color-bg, 5%))
+
+// cap the width of the container and center it
+.container
+    max-width 550px
+    width 90vw
+    margin 2rem auto 1rem
+    text-align center
+    background darken(color-bg, 15%)
+    box-shadow 0 0 5px rgba(lighten(color-bg, 50%), 0.5)
+    padding 1rem
+
+    h1
+        text-transform uppercase
+        letter-spacing 0.2rem
+
+    p
+        font-size 1.1rem
+        display inline-block
+        border-bottom 2px solid color-text
+        padding-bottom 0.25rem
+
+// style the axis to have a thin axis and ticks, and increase the ticks labels in size
+.axis
+    text
+        font-family font-text
+        fill rgba(color-text, 0.8)
+        font-size 0.9rem
+
+    path, line
+        fill none
+        stroke rgba(color-text, 0.8)
+
+// style the bin in relation to the color of the background, but slightly transparent
+.bin
+    fill rgba(lighten(hue(color-bg, 180deg), 50%), 0.5)
+    transition fill 0.25s ease-out
+
+    // on hover render the bin totally opaque
+    &:hover
+        fill lighten(hue(color-bg, 180deg), 50%)
+
+// absolute position the tooltip and style it according to the color of the text and of the background
+#tooltip
+    position absolute
+    background color-text
+    color color-bg
+    padding 1rem 0.75rem
+    border-top 0.5rem solid darken(color-bg, 20%)
+    pointer-events none
