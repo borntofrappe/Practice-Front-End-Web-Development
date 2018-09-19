@@ -1,0 +1,43 @@
+{
+  "name": "100DaysOfCode",
+  "children": [
+    {
+      "name": "Front End",
+      "children": [
+        {
+          "name": "React",
+          "category": "Front End",
+          "value": "17"
+        },
+        {
+          "name": "D3.js",
+          "category": "Front End",
+          "value": "25"
+        },
+        {
+          "name": "Vanilla JS",
+          "category": "Front End",
+          "value": "5"
+        },
+        {
+          "name": "CSS only",
+          "category": "Front End",
+          "value": "23"
+        },
+        {
+          "name": "SVG",
+          "category": "Front End",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "name": "Back End",
+      "value": "2"
+    },
+    {
+      "name": "FreeCodeCamp Certification",
+      "value": "3"
+    }
+  ]
+}

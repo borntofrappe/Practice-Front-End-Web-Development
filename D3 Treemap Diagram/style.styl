@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Henny+Penny|Open+Sans')
+
+font-text = 'Open Sans', sans-serif
+font-header = 'Henny Penny', cursive
+color-text = #252525
+color-bg = #040C1C
+color-card = #FFFFFF
+color-accent = #EE2BB1
+
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    background color-bg
+
+.container
+    width 90vw
+    max-width 1000px
+    margin 2rem auto 1rem
+    padding 1rem 0.8rem
+    color color-accent
+    background color-card
+    text-align center
+    box-shadow 0 2px 10px color-card
+
+    h1.title
+        font-family font-header
+        font-size calc(2rem + 1vw)
+        // add depth to the header, by way of a darker accent color
+        text-shadow 1px 1px darken(color-accent, 50%), 2px 2px darken(color-accent, 50%), 3px 3px darken(color-accent, 50%), 4px 4px darken(color-accent, 50%), 5px 5px darken(color-accent, 50%), 6px 6px darken(color-accent, 50%), 7px 7px darken(color-accent, 50%)
+
+    p.description
+        // include the paragraph as an inline element (as to have the pseudo element stretch over the element occupying only the space of its content)
+        display inline-block
+        text-transform uppercase
+        letter-spacing 0.15rem
+        padding 0 0.25rem
+        // transition for the hover state, delayed a little
+        transition all 0.25s ease-out
+        transition-delay 0.1s
+        // position relative for the pseudo element, used to add a border
+        position relative
+        // z-index to have the paragraph on top of the pseudo element
+        z-index 100
+
+        &:before
+            // include through a pseudo element a border, which stretches on hover to cover the height of the paragraph
+            position absolute
+            content ''
+            bottom -2px
+            left 0
+            width 100%
+            height 4px
+            background color-accent
+            transition height 0.25s ease-out
+            // z-index to have the pseudo element below the paragraph (but atop the container)
+            z-index -10
+
+        // on hover stretch the pseudo element and alter the color of the text, to have white text on top of accent background
+        &:hover
+            color color-card
+
+        &:hover:before
+            height calc(100% + 4px)
+
+
+
+#tooltip
+    // absolute position the tooltip, remove pointer events and style the tooltip to have it separate from the underlying content
+    position absolute
+    pointer-events none
+    padding 1rem 0.85rem
+    line-height 2
+    color color-text
+    background color-card
+    font-weight bold
+    box-shadow 0 1px 5px rgba(color-text, 0.2)
+    // z-index to have the tooltip atop other elements
+    z-index 100
+    // transition for the change in opacity, left and top properties
+    transition all 0.25s ease-out

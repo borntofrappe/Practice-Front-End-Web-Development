@@ -168,3 +168,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Form for Back-end Project**](https://codepen.io/borntofrappe/pen/yxxjmw/)|Create the basic structure for a form used to practice with Node.js. Express and ejs among the most prominent dependencies.|form, front-end, back-end|16th September 2018|
 |[**D3 Histogram**](https://codepen.io/borntofrappe/pen/jvezqE/)|Practice with the data visualization library to plot arbitrary data through an histogram.|d3, histogram, random|17th September 2018|
 |[**D3 Multiple Line Chart**](https://codepen.io/borntofrappe/pen/dqQjwj/)|Practice with D3 and the line layout to plot multiple, connected lines in the same visualization.|d3, line|18th September 2018|
+|[**D3 Treemap Diagram**](https://codepen.io/borntofrappe/pen/QVzzaK/)|Create a treemap diagram to practice with D3.js while celebrating the completion of the 100daysofcode challenge.|d3, treemap, 100daysofcode|19th September 2018|
