@@ -24,7 +24,7 @@ const data = {
         {
           "name": "D3.js",
           "category": "Front End",
-          "value": "25"
+          "value": "26"
         },
         {
           "name": "JS",
@@ -75,7 +75,7 @@ container
 const tooltip = container
   .append("div")
   .attr("id", "tooltip")
-  .style("opacity", "none");
+  .style("opacity", 0);
 
 
 
