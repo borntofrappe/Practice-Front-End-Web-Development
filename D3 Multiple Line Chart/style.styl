@@ -3,6 +3,7 @@
 font-text = 'Lato', sans-serif
 color-text = #16212C
 color-bg = #fff
+color-card = #F2E8DE
 
 *
     box-sizing border-box
@@ -14,7 +15,7 @@ body
     width 100%
     font-family font-text
     color color-text
-    background darken(color-bg, 50%)
+    background color-bg
 
 // cap the width of the container and center it horizontally
 // include the visualization as in a card, of a white background
@@ -22,27 +23,39 @@ body
     max-width 600px
     width 90vw
     margin 3rem auto 1rem
-    background darken(color-bg, 5%)
+    background color-card
     padding 1.5rem 1rem
     // position relative to include a small french flag through pseudo elements
     position relative
-    box-shadow 1px 2px 5px rgba(color-text, 0.5)
+    box-shadow 1px 2px 5px rgba(color-bg, 0.5)
 
     &:before, &:after
         position absolute
         content ''
         left 0
-        box-shadow 1px 0 10px rgba(color-bg, 0.2)
+        box-shadow 1px 0 10px rgba(darken(color-bg, 40%), 0.2)
     &:before
         bottom 100%
         height 0.5rem
         width 2px
-        background darken(color-text, 50%)
+        background darken(color-bg, 40%)
     &:after
         bottom calc(100% + 0.5rem)
         height 1rem
         width 1.5rem
         background linear-gradient(to right, blue 33%, white 33%, white 67%, red 67%)
+
+
+#tooltip
+    position absolute
+    padding 1rem 0.85rem
+    border-radius 4px
+    background color-bg
+    color color-text
+    line-height 2
+    border 2px solid rgba(color-text, 0.2)
+    pointer-events none
+    transition all 0.2s ease-out
 
 // style the axis labels and ticks
 .axis
