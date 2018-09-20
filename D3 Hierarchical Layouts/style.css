@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #001648;
+  background: linear-gradient(#002067, #00267b, #002067);
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.container .visualization {
+  background: #fafafa;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,22,72,0.2);
+  max-width: 600px;
+  width: 80vw;
+  margin: 1.5rem;
+  text-align: center;
+}

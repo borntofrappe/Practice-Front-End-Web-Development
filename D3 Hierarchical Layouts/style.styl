@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
+font-text = 'Open Sans', sans-serif
+color-card = #fafafa
+color-bg-d = #002067
+color-bg-l = lighten(color-bg-d, 5%)
+color-text = darken(color-bg-d, 30%)
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background linear-gradient(color-bg-d, color-bg-l, color-bg-d)
+
+.container
+    // display the visualizations side by side, if space allows for both of them
+    display flex
+    flex-wrap wrap
+    justify-content center
+    margin 2rem 0
+
+    .visualization
+        background color-card
+        padding 1rem 1.25rem
+        border-radius 10px
+        box-shadow 0 1px 4px rgba(color-text, 0.2)
+        max-width 600px
+        width 80vw
+        margin 1.5rem
+        text-align center
+
