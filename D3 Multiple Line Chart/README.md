@@ -1,4 +1,4 @@
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/dqQjwj/).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/dqQjwj/).
 
 ## Preface
 
@@ -49,4 +49,28 @@ In an array of objects, the data is formatted as in the `data.js` file.
 
 By looping through a for loop, it is possible to rather easily plot one line for each category and a series of circle elements on the same line. The loop allows to also incorporate a legend item for each line.
 
-Next up: making the chart responsive, showing a tooltip whenever hovering on the chart.
+**Tooltip on Hover**
+
+For the tooltip, the mentioned feature was achieved with a bit of trickery. The goal is to have a tooltip displayed on hover, disregarding the vertical dimension. Whenever the cursor hovers on the visualization, the tooltip ought to display information connected to all the lines, even if the cursor is actually not on the line.
+
+The trickery functions as follows:
+
+- include `path` and `circle` elements in a wrapping `g` element. This allows to later refer to the `circle` elements with the `:nth-of-type()` pseudo selector, referring directly to the group element which nests them;
+
+- include `rect` elements for each band, from the start to the end of the band and as tall as the entire SVG frame. The idea is to have the `mouseenter` and `mouseout` events triggered by the rectangle elements, in stead of the actual, underlying visualization;
+
+- include a `transparent` value for the `fill` property. This wary of the fact that a value of `none` would actually remove the rectangle elements from the reach of the cursor, preveting any event from being triggered;
+
+- on hover on the rectangle elements, consider the index of the hovered element and use it to target all `circle` elements with the same index. This is where the grouping of the path and circle elements comes into play. Indeed, the index of the rectangle element matches of the index targeting the circle elements through the specified pseudo selector;
+
+- retrieve information from the `circle` elements, which I failed to mention earlier is stored for each `circle` in a `data-rate` attribute. Include the pertinent information for the separate data points, each in a paragraph element.
+
+**Tooltip Position**
+
+For the position of the tooltip instead, the `width` and the `height` of the tooltip are used to lay the `div` container relative to the cursor. To access such dimensions, it is first necessary to retrieve the node which is the `div` element itself:
+
+```JS
+let tooltipBox = tooltip.node().getBoundingClientRect();
+```
+
+This will provide an object with many properties, among which `width` and `height`. Just remember to call this instance **after** the paragraph elements are appended to the container, as this would otherwise retrieve width and height information without considering the nested elements.
