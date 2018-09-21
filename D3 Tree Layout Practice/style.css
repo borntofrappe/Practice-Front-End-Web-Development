@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  color: #70768b;
+  background: #fcfcfd;
+}
+.container {
+  max-width: 1000px;
+  width: 90vw;
+  margin: 2rem auto 0;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 5px 5px #fcfcfd, 0 1px 5px 5px rgba(89,121,255,0.5);
+          box-shadow: 0 1px 5px 5px #fcfcfd, 0 1px 5px 5px rgba(89,121,255,0.5);
+  position: relative;
+  overflow: hidden;
+}
+.container:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 20px;
+  background: #5979ff;
+  -webkit-transform: translate(-25px, 10px) rotate(-45deg);
+          transform: translate(-25px, 10px) rotate(-45deg);
+}
