@@ -1,0 +1,81 @@
+{
+  "name": "Goals",
+  "children": [
+    {
+      "name": "FreeCodeCamp",
+      "children": [
+        {
+          "name": "MongoDB and Mongoose",
+          "category": "FreeCodeCamp"
+        },
+        {
+          "name": "APIs and Microservices Projects",
+          "category": "FreeCodeCamp"
+        },
+        {
+          "name": "Podcast Player Design",
+          "category": "FreeCodeCamp"
+        }
+      ]
+    },
+    {
+      "name": "D3.js",
+      "children": [
+        {
+          "name": "Density & Violin Plot",
+          "category": "D3.js"
+        },
+        {
+          "name": "3 Geomap Layouts",
+          "category": "D3.js"
+        },
+        {
+          "name": "Sunburst Diagram",
+          "category": "D3.js"
+        },
+        {
+          "name": "Stream Graph",
+          "category": "D3.js"
+        }
+      ]
+    },
+    {
+      "name": "React.js",
+      "children": [
+        {
+          "name": "React Router",
+          "category": "React.js"
+        },
+        {
+          "name": "React Animation",
+          "category": "React.js"
+        },
+        {
+          "name": "Redux",
+          "category": "React.js"
+        },
+        {
+          "name": "React Docs",
+          "category": "React.js"
+        }
+      ]
+    },
+    {
+      "name": "Others",
+      "children": [
+        {
+          "name": "SVG Flowchart",
+          "category": "Others"
+        },
+        {
+          "name": "SVG Icon Design",
+          "category": "Others"
+        },
+        {
+          "name": "So Good They Can't Ignore You",
+          "category": "Others"
+        }
+      ]
+    }
+  ]
+}
