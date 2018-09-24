@@ -22,7 +22,7 @@ And hopefully more in the future.
 
 Whenever inspiration strikes, but periodically. There's nothing better than practice to fully understand and harness new concepts.
 
-## List of Projects:
+## List of Projects
 
 |Reference|Short Description|Tags|Date|
 |---|---|---|---|
