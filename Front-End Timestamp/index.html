@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>Timestamp Front-End</title>
+  <meta name="description" content="Create the UI for the first project in the curriculum @freecodecamp, in the line of 'Microservices and API' challenges."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- in a wrapping container include a heading and multiple input elements (these are placed on top of the header itself) -->
+  <div class="timestamp">
+
+    <!-- in the visuals include a heading and multiple input elements -->
+    <div class="timestamp__visuals">
+      <h1>Timestamp</h1>
+      <!-- the input elements are wrapped in a div, which is placed on top of the heading -->
+      <div class="visuals--inputs">
+        <input type="number" id="day" value="1" min="1" max="31" />
+        <input type="number" id="month" value="1" min="1" max="12" />
+        <input type="number" id="year" value="2018" />
+      </div>
+    </div>
+
+    <!-- include a button elements to retrieve the time stamp (request fulilled in the backend project) -->
+    <button class="timestamp__button">Request stamp</button>
+    <!-- include a heading in which to visualize the time stamp (include some default text to have the heading occupy some space by default) -->
+    <h2 class="timestamp__stamp">Timestamp here</h2>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

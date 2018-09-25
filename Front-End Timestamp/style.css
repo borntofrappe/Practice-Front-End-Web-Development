@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald:300');
+
+:root {
+  /* include variables for the project */
+  --color-text: #000;
+  --color-background: #fff;
+  --color-accent: #f4511e;
+  --font-text: 'Open Sans', sans-serif;
+  --font-header: 'Oswald', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-text);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+/* center all elements in the page, one on top of the other */
+.timestamp {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timestamp__visuals {
+  /* position relative to absolute position the input elements relative to this container (and on top of the only other element, the heading) */
+  position: relative;
+}
+.timestamp__visuals h1 {
+  font-family: var(--font-header);
+  text-transform: uppercase;
+  font-size: calc(4rem + 1vw);
+  letter-spacing: calc(0.4rem + 1vw);
+}
+
+.visuals--inputs {
+  /* absolute position the input elements on top of the heading */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* padding to allow for space around the input elements (filled with a line through a pseudo element) */
+  padding: 0 2.5rem;
+  /* stretch the input elements to occupy the entirety of the parents width  */
+  width: 100%;
+  /* specify a solid background, which generates the strip on top of the heading */
+  background: #fff;
+  /* lay the input elements side by side */
+  display: flex;
+}
+
+/* through a pseudo element, centered horizontally, include a line _beneath_ the inputs' container */
+.visuals--inputs:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  /* z-index to avoid the default behavior of having the pseudo element _atop_ the connected element */
+  z-index: -100;
+}
+
+.visuals--inputs input {
+  /* have the input elements occupy each a fraction of the container */
+  flex-grow: 1;
+  /*
+  width set to 0 to let the flex-grow property actually divide the container in equal parts
+  otherwise the actual size of the flex items influences a larger area for the larger element (the input element for the year value)
+  */
+  width: 0;
+  /* remove default styling and add own styling */
+  background: #fff;
+  border: none;
+  padding: 0 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+button.timestamp__button {
+  background: var(--color-accent);
+  color: var(--color-background);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: inherit;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+  margin: 1rem 0 2rem;
+  box-shadow: 0 1px 10px var(--color-accent);
+  /* transition for the hover and active state */
+  transition: all 0.1s ease-out;
+}
+/* on hover flip the color and background values */
+button.timestamp__button:hover {
+  color: var(--color-accent);
+  background: var(--color-background);
+}
+/* when active reduce the box shadow and slightly push the button downward */
+button.timestamp__button:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0px var(--color-accent);
+}
+
+/* by default hide the heading displaying the time stamp, to have it visualized as the request is "processed" */
+.timestamp__stamp {
+  visibility: none;
+  opacity: 0;
+  text-align: center;
+  font-weight: 300;
+  /* transition for a slighter smoother change in opacity */
+  transition: opacity 0.2s ease-out;
+}
