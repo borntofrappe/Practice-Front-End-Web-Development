@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
+color-accent = #2229A2
+color-accent-two = #C659C2
+color-text = #373C56
+color-bg = #fff
+font = 'Open Sans', sans-serif
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    width 100%
+    font-family font
+    color color-text
+    background linear-gradient(color-bg 80%, darken(color-bg, 5%))
+
+// display the messages and helper-bot in a single column layout
+.app
+    display flex
+    flex-direction column 
+    // horizontally center the elements
+    align-items center
+    min-height 100vh
+    padding 1rem 0.5rem 0
+
+.app__messages 
+    // have the messages occupy the available space, pushing the helper-bot to the bottom
+    flex-grow 1
+    // as each div is nested in this container, position it below the previous one, in yet another single column layout
+    display flex
+    flex-direction column
+    // push the elements at the bottom, close to the helper-bot
+    justify-content flex-end
+    // horiontally centered
+    align-items center
+    text-align center
+    // cap the width and separate from the helper-bot
+    max-width 500px
+    margin-bottom 1.2rem
+
+    .messages--message
+        margin 0.5rem 0
+        padding 0.5rem 0.75rem
+        border-radius 10px
+        box-shadow 0 0 5px 0 rgba(color-accent, 0.5)
+        background #fff
+        // position relative to absolute position a down-facing arrow, below wach message
+        position relative 
+        // animation to introduce the elment slightly from the bottom
+        animation popUp 0.2s cubic-bezier(.26,1.21,.79,1.26) both
+
+        &:before 
+            // position a down facing arrow at the bottom center of each message
+            position absolute 
+            content ''
+            top 100%
+            left 50%
+            transform translate(-50%, 0)
+            width 0
+            height 0
+            border-top 7px solid rgba(color-accent, 0.2)
+            border-right 7px solid transparent
+            border-bottom 7px solid transparent
+            border-left 7px solid transparent
+
+        span 
+            font-weight bold 
+            color color-accent
+
+// draw the helper-bot through simple boxes
+.app__helper
+    // position relative to have all nested elements refer to the parent rectangle
+    position relative
+    height 140px
+    width 100px
+    // animate the helper-bot to zap to the middle of the screen
+    transform translate(-100vw, 0)
+    animation helperBot 0.25s 1s ease-out forwards
+
+    .helper--antenna
+        // include the antenna as a tall rectangle, with a pon-pon at the top added through a pseudo element
+        position absolute 
+        top 0
+        left 50%
+        height 25px
+        width 4px
+        background color-accent
+        // for added animation, have the antenna follow the movement of the main container (follow-through)
+        transform translate(-50%, 0) rotate(-8deg)
+        transform-origin bottom center
+        animation straightenUp 0.2s 1.2s cubic-bezier(.26,1.21,.79,2.56) forwards
+        
+        &:before
+            position absolute 
+            content ''
+            top 0
+            left 50%    
+            width 12px
+            height 12px
+            transform translate(-50%, 0)
+            border-radius 50%
+            background color-accent
+
+    .helper--head
+        // include the head as a rounded rectangle, right below the antenna
+        position absolute
+        top 25px
+        left 50%
+        width 80px
+        height 25px
+        transform translate(-50%, 0)
+        border-radius 30px 30px 20px 20px
+        border 2px solid color-accent
+
+        // add the eyes through pseudo elements
+        // they only differ in the border-radius and left property
+        &:before, &:after
+            position absolute 
+            content ''
+            top 50%
+            transform translate(-50%, -50%)
+            width 4px
+            height 15px
+            background color-accent
+            // animate the eyes to blink every so often (the animation lasts 5s, but it assumes the 100% value much earlier than 5s)
+            animation blink 5s 2s ease-out infinite
+
+        &:before
+            left 30%
+            border-radius 30px 20px 20px 30px
+
+        &:after
+            left 70%
+            border-radius 20px 30px 30px 20px
+    
+    // include the spine making up the neck and leg, with a straight line going from the head to the bottom of the container
+    // add a rounded rectangle at the very bottom, making up a makeshift wheel
+    .helper--spine
+        position absolute
+        top 50px
+        left 50%
+        width 4px
+        height 90px
+        transform translate(-50%, 0)
+        background color-accent
+
+        &:before
+            position absolute 
+            content ''
+            top 100%
+            left 50%
+            transform translate(-50%, -50%)
+            width 10px
+            height 15px
+            border-radius 50%
+            background color-accent
+
+    // include the arms with another straight line, spanning the width of the container
+    .helper--arms
+        position absolute 
+        top 85px 
+        left 50%
+        width 100px
+        height 2px
+        background color-accent
+        // have the arms slightly crooked, but straightened up as the helper-bot reaches the middle of the container
+        transform translate(-50%, 0) rotate(-25deg)
+        animation straightenUp 0.2s 1s cubic-bezier(.26,1.21,.79,2.56) forwards
+        
+        // include "hands" through pseudo elements, positioned at either end of the width
+        // they only different in the horizontal position
+        &:before, &:after
+            position absolute 
+            content ''
+            top 50%
+            height 10px
+            width 10px
+            border-radius 50%
+            transform translate(0, -50%)
+            background color-accent
+
+        &:before
+            right 0
+
+        &:after
+            left 0
+
+    // include the body as a rounded rectangle, in the middle of the container
+    .helper--body
+        position absolute 
+        top 65px
+        left 50%
+        height 65px
+        width 50px
+        border-radius 30px 30px 50px 50px
+        transform translate(-50%, 0)
+        background color-accent
+
+/*
+define the animations used in the project 
+- helper-bot to move the helper-bot to the middle of the screen
+- straightenUp to remove the rotation on the antenna and arms
+- blink to have the eyes rapidly close and open
+- popUp to include the messages (added through the JS script), slightly from the bottom 
+*/
+@keyframes helperBot
+    to 
+        transform translate(0, 0)
+
+@keyframes straightenUp
+    to 
+        transform translate(-50%, 0) rotate(0)
+
+@keyframes blink 
+    0%, 4%, 8%
+        height 15px 
+    2%, 6%
+        height 0
+
+@keyframes popUp
+    from 
+        opacity 0
+        transform translateY(2rem)
+    to
+        opacity 1
+        transform translateY(0)
