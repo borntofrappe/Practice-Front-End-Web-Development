@@ -1,6 +1,6 @@
 # Front End Request Header Parser
 
-<!-- Link to the working pen right [here]() -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/xybxrd).
 
 ## Preface
 
