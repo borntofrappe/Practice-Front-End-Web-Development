@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>Front End Request Header Parser</title>
+  <meta name="description" content="Create the UI ultimately used for the homapage of the back-end application developed for the @freeCodeCamp curriculum."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+  
+  <!-- 
+    in a wrapping container include 
+    - a section nesting different messages (included one at a time through a simple script)  
+    - a helper-bot, drawn with HTML elements and out of CSS properties
+  -->
+  <div class="app">
+
+    <section class="app__messages">
+      <!-- include the elements through the **.innerHTML** property, on the wrapping section -->
+
+      <!-- <div class="messages--message">
+        Hello there
+      </div>
+      <div class="messages--message">
+        Welcome to the <span>request header parser</span> microservice
+      </div>
+      <div class="messages--message">
+        Fancy words, right?
+      </div>
+      <div class="messages--message">
+        Simply put, it means you can ping the <span>server</span> at the following endpoint:
+      </div>
+      <div class="messages--message">
+        <code>[project_url]/api/whoami</code>
+      </div>
+      <div class="messages--message">
+        and have in return information regarding <span>your device</span>
+      </div>
+      <div class="messages--message">something similar to the following</div>
+      <div class="messages--message">
+        <code>{"ipaddress":"159.20.14.100","language":"en-US,en;q=0.5",
+            "software":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"}</code>
+      </div>
+      <div class="messages--message">And that's it!</div> -->
+    </section>
+  
+  
+    <!-- design the helper-bot -->
+    <div class="app__helper">
+      <!-- 
+        the helper-bot is designed through div-s and CSS properties
+        additional elements (the dot at the top of the antenna, the eyes in the head container) are included through pseudo elements 
+      -->
+      <div class="helper--antenna"></div>
+      <div class="helper--head"></div>
+      <!-- include the leg and arms as straight lines, with the torso on top (the later in the HTML, the higher the z-index) -->
+      <div class="helper--spine"></div>
+      <div class="helper--arms"></div>
+      <div class="helper--body"></div>
+    </div>
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
