@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+  <title>#CodepenChallenge 6.8 Minutes</title>
+  <meta name="description" content="Create an entry for the weekly #CodepenChallenge, animating a server waiting for a request that will never come."/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- include the single SVG drawing the entirety of the animation, include id attributes to target the different elements in the script -->
+  <svg xmlns="http://w  ww.w3.org/2000/svg" width="700" height="400" viewBox="0 0 185.20833 105.83334">
+
+    <!-- rectangle framing the drawing -->
+    <path id="svg-background" d="M0 0h185.208v105.833H0z" fill="#29323f" paint-order="stroke fill markers"/>
+
+    <!-- group element nesting the card inevitably shown as the overlapping server is moved out of the picture -->
+    <g id="svg-card" transform="translate(19.229 -21.686)">
+      <rect transform="matrix(-1 0 .22921 .97338 0 0)" width="16.993" height="16.799" x="-65.937" y="85.64" rx=".215" ry=".302" opacity=".25" paint-order="stroke fill markers"/>
+      <rect ry=".308" rx=".288" y="87.393" x="88.706" height="17.144" width="22.72" transform="matrix(1 0 -.3003 .95384 0 0)" fill="#fcfcfc" paint-order="stroke fill markers"/>
+      <text y="84.64" x="106.491" style="line-height:1.25;-inkscape-font-specification:'Fira Mono'" transform="skewX(-17.476) scale(.93963 1.06425)" font-weight="400" font-size="4.716" letter-spacing="0" word-spacing="0" font-family="Fira Mono" fill="#29323f" stroke-width=".118">
+        <tspan style="-inkscape-font-specification:'Fira Mono Medium';text-align:center" y="84.64" x="106.491" font-weight="500" text-anchor="middle">
+          REQUEST
+        </tspan>
+        <tspan style="-inkscape-font-specification:'Fira Mono Medium';text-align:center" y="90.536" x="106.491" font-weight="500" text-anchor="middle">
+          TIMEOUT
+        </tspan>
+      </text>
+    </g>
+
+    <!-- group nesting the server -->
+    <g id="svg-server">
+      <path d="M74.4 38.393h36.408v47.04H74.4z" fill="#357678" paint-order="stroke fill markers"/>
+      <g transform="matrix(-1.20548 0 0 1.20548 163.003 -238.764)">
+        <rect ry=".993" rx=".586" y="233.183" x="46.975" height="4.263" width="23.382" fill="#29323f" paint-order="stroke fill markers"/>
+        <circle r="1.081" cy="235.315" cx="66.987" fill="#357678" paint-order="stroke fill markers"/>
+        <rect width="23.382" height="4.263" x="46.975" y="233.183" rx=".586" ry=".993" fill="#29323f" paint-order="stroke fill markers"/>
+        <circle cx="66.987" cy="235.315" r="1.081" fill="#357678" paint-order="stroke fill markers"/>
+      </g>
+      <g transform="matrix(-1.20548 0 0 1.20548 163.003 -231.711)">
+        <rect width="23.382" height="4.263" x="46.975" y="233.183" rx=".586" ry=".993" fill="#29323f" paint-order="stroke fill markers"/>
+        <circle cx="66.987" cy="235.315" r="1.081" fill="#357678" paint-order="stroke fill markers"/>
+        <rect ry=".993" rx=".586" y="233.183" x="46.975" height="4.263" width="23.382" fill="#29323f" paint-order="stroke fill markers"/>
+        <circle r="1.081" cy="235.315" cx="66.987" fill="#357678" paint-order="stroke fill markers"/>
+      </g>
+      <g transform="matrix(-1.20548 0 0 1.20548 163.003 -224.658)">
+        <rect ry=".993" rx=".586" y="233.183" x="46.975" height="4.263" width="23.382" fill="#29323f" paint-order="stroke fill markers"/>
+        <circle r="1.081" cy="235.315" cx="66.987" fill="#357678" paint-order="stroke fill markers"/>
+        <rect width="23.382" height="4.263" x="46.975" y="233.183" rx=".586" ry=".993" fill="#29323f" paint-order="stroke fill markers"/>
+        <circle cx="66.987" cy="235.315" r="1.081" fill="#357678" paint-order="stroke fill markers"/>
+      </g>
+
+      <!--
+        group element making up the trophy
+        ! include it in the server group, to have both elements move when the timer reaches 480
+        separate it into smaller group elements, incrementally hidden as the timer progresses
+      -->
+      <g id="svg-trophy">
+        <!-- group making up the handles -->
+        <g id="trophy--handles" fill="none" stroke-width=".958" stroke-linecap="round">
+          <g transform="matrix(-.9373 -.3485 -.59236 .80567 234.183 60.032)">
+            <rect ry=".48" rx=".478" y="45.173" x="91.767" height="9.604" width="9.551" opacity=".1" stroke="#000" paint-order="stroke fill markers"/>
+            <rect width="9.551" height="9.604" x="91.389" y="44.623" rx=".478" ry=".48" stroke="#fbe57f" paint-order="stroke fill markers"/>
+          </g>
+          <g transform="matrix(.94251 .33418 -.06268 .99803 20.8 -17.46)">
+            <rect width="9.551" height="9.604" x="91.767" y="45.173" rx=".478" ry=".48" opacity=".1" stroke="#000" paint-order="stroke fill markers"/>
+            <rect ry=".48" rx=".478" y="44.623" x="91.389" height="9.604" width="9.551" stroke="#fbe57f" paint-order="stroke fill markers"/>
+          </g>
+        </g>
+
+        <!-- group making up the goblet -->
+        <g id="trophy--goblet" fill="#fbe57f">
+          <g transform="rotate(19.523 423.71 238.048) scale(1.42697)">
+          <rect width="1.486" height="5.172" x="49.499" y="130.488" rx=".411" ry=".544" opacity=".1" fill="#000" paint-order="stroke fill markers"/>
+          <g transform="matrix(.62115 0 0 .62143 19.398 51.86)" opacity=".1" fill="#000">
+          <rect ry="1.587" rx="3.001" y="134.412" x="45.733" height="2.995" width="8.979" paint-order="stroke fill markers"/>
+          <path d="M45.733 135.904h8.979v1.503h-8.979z" paint-order="stroke fill markers"/>
+          <rect y="136.503" x="44.134" height="2.408" width="12.177" rx=".299" ry=".298" paint-order="stroke fill markers"/>
+          </g>
+          <rect width="1.446" height="5.032" x="49.87" y="130.488" rx=".4" ry=".529" opacity=".1" fill="#000" paint-order="stroke fill markers"/>
+          <g transform="matrix(.62115 0 0 .62143 19.027 51.489)">
+          <rect width="8.979" height="2.995" x="45.733" y="134.412" rx="3.001" ry="1.587" paint-order="stroke fill markers"/>
+          <path d="M45.733 135.904h8.979v1.503h-8.979z" paint-order="stroke fill markers"/>
+          <rect ry=".298" rx=".299" width="12.177" height="2.408" x="44.134" y="136.503" paint-order="stroke fill markers"/>
+            <!-- group making up the top of the goblet -->
+            <g id="goblet--top">
+              <rect width="8.979" height="4.487" x="45.605" y="104.533" rx="3.001" ry="2.377" paint-order="stroke fill markers"/>
+              <rect ry="2.377" rx="4.711" y="106.323" x="43.046" height="4.487" width="14.096" paint-order="stroke fill markers"/>
+              <path d="M43.046 108.508h14.096v2.302H43.046z" paint-order="stroke fill markers"/>
+            </g>
+          </g>
+          <rect ry=".529" rx=".4" y="130.488" x="49.499" height="5.032" width="1.446" paint-order="stroke fill markers"/>
+          <g transform="translate(-1.144 -2.882) scale(1.02282)" opacity=".1" fill="#000">
+          <path d="M46.004 120.502h8.486v7.884h-8.486z" paint-order="stroke fill markers"/>
+          <rect ry="13.229" rx="13.229" width="8.486" height="7.884" x="46.004" y="124.578" paint-order="stroke fill markers"/>
+          </g>
+          <path d="M46.004 120.502h8.486v7.884h-8.486z" paint-order="stroke fill markers"/>
+          <rect y="124.578" x="46.004" height="7.884" width="8.486" rx="13.229" ry="13.229" paint-order="stroke fill markers"/>
+          </g>
+          <path d="M107.85 54.187l13.447 4.768-.774 2.183-13.446-4.768z" paint-order="stroke fill markers"/>
+        </g>
+
+        <!-- group making up the star -->
+        <g id="trophy--star" fill="none" stroke-linecap="round">
+          <path d="M113.736 60.133c.269.095.063 2.6.224 2.833.161.235 2.571.942 2.564 1.226-.007.283-2.452.862-2.626 1.088-.173.225-.1 2.737-.373 2.817-.272.08-1.578-2.066-1.846-2.161-.268-.095-2.634.75-2.795.515-.161-.234 1.477-2.139 1.485-2.423.007-.284-1.528-2.274-1.354-2.499.173-.225 2.49.744 2.763.664.273-.08 1.69-2.155 1.958-2.06z" opacity=".2" stroke="#000" stroke-width="1.077" paint-order="stroke fill markers"/>
+          <path d="M113.526 60.06c.264.094.06 2.555.219 2.787.158.23 2.528.925 2.521 1.204-.008.28-2.412.847-2.582 1.07-.17.221-.098 2.69-.366 2.769-.268.079-1.55-2.031-1.815-2.125-.263-.093-2.589.737-2.747.507-.158-.23 1.452-2.102 1.46-2.382.007-.28-1.502-2.234-1.332-2.456.17-.222 2.449.73 2.716.652.269-.08 1.663-2.118 1.926-2.025z" stroke="#fcfcfc" stroke-width="1.058" paint-order="stroke fill markers"/>
+        </g>
+
+        <!-- group nesting the leaves around the trophy -->
+        <g id="trophy--leaves">
+          <g transform="matrix(.69046 -.2104 .18667 .72657 -20.35 -103.335)">
+            <ellipse ry="2.809" rx="1.537" cy="259.58" cx="140.116" fill="#fbe57f" paint-order="stroke fill markers"/>
+            <path d="M140.116 262.389a1.537 2.809 0 0 1-1.33-1.405 1.537 2.809 0 0 1 0-2.808 1.537 2.809 0 0 1 1.33-1.405v2.809z" opacity=".1" paint-order="stroke fill markers"/>
+          </g>
+          <g transform="matrix(.6455 .03391 -.04358 .68336 46.608 -120.974)">
+            <ellipse cx="140.116" cy="259.58" rx="1.537" ry="2.809" fill="#fbe57f" paint-order="stroke fill markers"/>
+            <path d="M140.116 262.389a1.537 2.809 0 0 1-1.33-1.405 1.537 2.809 0 0 1 0-2.808 1.537 2.809 0 0 1 1.33-1.405v2.809z" opacity=".1" paint-order="stroke fill markers"/>
+          </g>
+          <g transform="matrix(.43208 .28659 -.27874 .46213 136.593 -94.306)">
+            <ellipse ry="2.809" rx="1.537" cy="259.58" cx="140.116" fill="#fbe57f" paint-order="stroke fill markers"/>
+            <path d="M140.116 262.389a1.537 2.809 0 0 1-1.33-1.405 1.537 2.809 0 0 1 0-2.808 1.537 2.809 0 0 1 1.33-1.405v2.809z" opacity=".1" paint-order="stroke fill markers"/>
+          </g>
+          <g transform="matrix(-.40373 -.59835 -.60265 .4467 320.213 17.413)">
+            <ellipse ry="2.809" rx="1.537" cy="259.58" cx="140.116" fill="#fbe57f" paint-order="stroke fill markers"/>
+            <path d="M140.116 262.389a1.537 2.809 0 0 1-1.33-1.405 1.537 2.809 0 0 1 0-2.808 1.537 2.809 0 0 1 1.33-1.405v2.809z" opacity=".1" paint-order="stroke fill markers"/>
+          </g>
+          <g transform="matrix(-.52269 -.38027 -.39662 .5582 279.321 -38.465)">
+            <ellipse cx="140.116" cy="259.58" rx="1.537" ry="2.809" fill="#fbe57f" paint-order="stroke fill markers"/>
+            <path d="M140.116 262.389a1.537 2.809 0 0 1-1.33-1.405 1.537 2.809 0 0 1 0-2.808 1.537 2.809 0 0 1 1.33-1.405v2.809z" opacity=".1" paint-order="stroke fill markers"/>
+          </g>
+          <g transform="matrix(-.5161 -.0496 -.07462 .5345 192.636 -74.435)">
+            <ellipse ry="2.809" rx="1.537" cy="259.58" cx="140.116" fill="#fbe57f" paint-order="stroke fill markers"/>
+            <path d="M140.116 262.389a1.537 2.809 0 0 1-1.33-1.405 1.537 2.809 0 0 1 0-2.808 1.537 2.809 0 0 1 1.33-1.405v2.809z" opacity=".1" paint-order="stroke fill markers"/>
+          </g>
+        </g>
+
+      </g>
+    </g>
+
+    <!-- text making up the timer -->
+    <text id="svg-timer" style="line-height:1.25;-inkscape-font-specification:'Fira Mono'" text-anchor="end" x="180.047" y="208.722" font-weight="400" font-size="10.24" letter-spacing="0" word-spacing="0" font-family="Fira Mono" fill="#fcfcfc" stroke-width=".256" transform="translate(0 -191.167)">
+      <tspan x="180.047" y="208.722" font-size="13.654">
+        0
+      </tspan>
+    </text>
+
+  </svg>
+
+  <!-- add a button to speed up the animation -->
+  <button>1x</button>
+
+
+<script src="script.js"></script>
+</body>
+</html>
