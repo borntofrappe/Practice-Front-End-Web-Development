@@ -25,6 +25,8 @@ body {
 }
 /* include a small shadow */
 svg {
+  /* 	height auto to avoid having the box-shadow exceed the vertical boundaries of the svg */
+	height: auto;
   box-shadow: 0 1px 5px var(--color-bg-d);
 }
 
