@@ -1,6 +1,6 @@
 # CodepenChallenge 6.8 Minutes
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/XxJqgV).
 
 ## Preface
 
