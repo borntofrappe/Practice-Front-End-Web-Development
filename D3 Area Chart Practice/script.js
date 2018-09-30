@@ -136,13 +136,14 @@ svgArea
 const lineArea = d3
   .line()
   .x((d, i) => xScaleArea(i) + xScaleArea.bandwidth() / 2)
-  .y(d => yScaleArea(d));
+  .y(d => yScaleArea(d))
+  .curve(d3.curveCardinal);
 
 svgArea
   .append('path')
   .attr('d', lineArea(dataArea.value))
   .attr('fill', 'none')
-  .attr('stroke', '#555555aa')
+  .attr('stroke', '#093497aa')
   .attr('stroke-width', '2px');
 
 // the SVG syntax behind the area is obtained through the area() function
@@ -153,12 +154,13 @@ const areaArea = d3
   // x() can be used in place of x0 and x1 if these values match
   .x((d, i) => xScaleArea(i) + xScaleArea.bandwidth() / 2)
   .y0(yScaleArea(0))
-  .y1(d => yScaleArea(d));
+  .y1(d => yScaleArea(d))
+  .curve(d3.curveCardinal);
 
 svgArea
   .append('path')
   .attr('d', areaArea(dataArea.value))
-  .attr('fill', '#55555511')
+  .attr('fill', '#09349722')
   .attr('stroke', 'none');
 
 
@@ -194,13 +196,6 @@ const svgStack = containerStacked
 // to have an array of 10 objects, each nesting 1 observation for each value of the subset
 const stackedData = [];
 
-// for(let i = 0; i < 10; i++) {
-//   sta
-// }
-// stackedData.push()
-// data.forEach((category) => {
-//   stackedData.push({});
-// })
 for (let j = 0; j < 10; j++) {
   stackedData.push({});
   for (let i = 0; i < 5; i++) {
@@ -260,26 +255,31 @@ svgStack
 const lineStack = d3
   .line()
   .x((d, i) => xScaleStack(i) + xScaleStack.bandwidth() / 2)
-  .y(d => yScaleStack(d[1]));
+  .y(d => yScaleStack(d[1]))
+  .curve(d3.curveCardinal);
 
+// AREA for the stacked area chart
+// considering also the first item of each array as the starting point
 const areaStack = d3
   .area()
   .x((d, i) => xScaleStack(i) + xScaleStack.bandwidth() / 2)
   .y0(d => yScaleStack(d[0]))
-  .y1(d => yScaleStack(d[1]));
+  .y1(d => yScaleStack(d[1]))
+  .curve(d3.curveCardinal);
 
+// for each one of the 10 stacked objects, add a path for the line and one for the area
 for (let i = 0; i < dataStack.length; i++) {
   svgStack
     .append('path')
     .attr('d', lineStack(dataStack[i]))
     .attr('fill', 'none')
-    .attr('stroke', '#555555aa')
+    .attr('stroke', '#093497aa')
     .attr('stroke-width', '2px');
 
   svgStack
     .append('path')
     .attr('d', areaStack(dataStack[i]))
-    .attr('fill', '#55555511')
+    .attr('fill', '#09349722')
     .attr('stroke', 'none');
 }
 

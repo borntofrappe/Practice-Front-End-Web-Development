@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,9 +7,9 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: 'Lato', sans-serif;
-  color: #16212c;
-  background: #fff;
+  font-family: "Open Sans", sans-serif;
+  color: #093497;
+  background: #0080ff;
 }
 .container {
   display: flex;
@@ -18,20 +18,28 @@ body {
   margin: 1.5rem 0;
 }
 .container .visualization {
-  max-width: 600px;
+  max-width: 500px;
   width: 90vw;
   margin: 0 1.5rem;
-  background: #f2e8de;
+  background: #f7fbff;
   padding: 1.5rem 1rem;
 }
+.container .visualization h1.title {
+  text-transform: uppercase;
+  margin: 0.25rem 0;
+  font-weight: thin;
+}
+.container .visualization p.description {
+  margin-bottom: 0.5rem;
+}
 .axis text {
-  font-family: 'Lato', sans-serif;
-  fill: rgba(22,33,44,0.8);
+  font-family: "Open Sans", sans-serif;
+  fill: rgba(9, 52, 151, 0.8);
   font-weight: bold;
   text-transform: capitalize;
 }
 .axis path,
 .axis line {
   fill: none;
-  stroke: rgba(22,33,44,0.5);
+  stroke: rgba(9, 52, 151, 0.5);
 }
