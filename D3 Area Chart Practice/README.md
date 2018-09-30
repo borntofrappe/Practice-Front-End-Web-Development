@@ -1,6 +1,6 @@
 # D3 Ridgeline Plot
 
-Link to the work-in-progress pen right [here]().
+Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/QZbyGj/).
 
 ## Preface
 
@@ -8,8 +8,8 @@ Through this project I plan to practice once more with D3.js, before starting a 
 
 I plan to practice with area charts, as in:
 
-- area chart;
+- [x] area chart;
 
-- stacked area chart;
+- [x] stacked area chart;
 
-- streamgraph.
+- [ ] streamgraph.
