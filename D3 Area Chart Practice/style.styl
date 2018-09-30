@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+font-text = 'Lato', sans-serif
+color-text = #16212C
+color-bg = #fff
+color-card = #F2E8DE
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background color-bg
+
+.container
+    // display the visualizations in a single row, but have them wrap to a new row if need be (if there's not enough space)
+    display flex
+    flex-wrap wrap
+    justify-content center
+    margin 1.5rem 0
+
+    .visualization
+        max-width 500px
+        width 90vw
+        margin 0 1.5rem
+        background color-card
+        padding 1.5rem 1rem
+
+
+// style the axis labels and ticks
+.axis
+    text
+        font-family font-text
+        fill rgba(color-text, 0.8)
+        font-weight bold
+        text-transform capitalize
+
+    path, line
+        fill none
+        stroke rgba(color-text, 0.5)
