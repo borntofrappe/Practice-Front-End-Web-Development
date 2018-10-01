@@ -1,26 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #093497;
   background: #0080ff;
 }
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 1.5rem 0;
 }
 .container .visualization {
   max-width: 500px;
   width: 90vw;
-  margin: 0 1.5rem;
+  margin: 1.5rem;
   background: #f7fbff;
   padding: 1.5rem 1rem;
 }
@@ -33,13 +39,21 @@ body {
   margin-bottom: 0.5rem;
 }
 .axis text {
-  font-family: "Open Sans", sans-serif;
-  fill: rgba(9, 52, 151, 0.8);
+  font-family: 'Open Sans', sans-serif;
+  fill: rgba(9,52,151,0.8);
   font-weight: bold;
   text-transform: capitalize;
 }
 .axis path,
 .axis line {
   fill: none;
-  stroke: rgba(9, 52, 151, 0.5);
+  stroke: rgba(9,52,151,0.5);
+}
+.area {
+  opacity: 0.55;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.area:hover {
+  opacity: 0.85;
 }

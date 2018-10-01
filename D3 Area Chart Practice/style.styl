@@ -27,7 +27,7 @@ body
     .visualization
         max-width 500px
         width 90vw
-        margin 0 1.5rem
+        margin 1.5rem
         background color-card
         padding 1.5rem 1rem
 
@@ -50,3 +50,11 @@ body
     path, line
         fill none
         stroke rgba(color-text, 0.5)
+
+// style the areas to have them slightly transparent
+.area
+    opacity 0.55
+    transition opacity 0.2s ease-out
+    // on hover increase the the opacity
+    &:hover
+        opacity 0.85
