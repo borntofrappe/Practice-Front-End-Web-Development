@@ -1,6 +1,6 @@
 # D3 Ridgeline Plot
 
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/QZbyGj/).
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/QZbyGj/).
 
 ## Preface
 
@@ -79,25 +79,25 @@ To have the entire visualization benefit from this logic, it is helpful to intro
 
 1. add a `clipPath` element specifying the structure of the clip itself:
 
-  ```JS
-  const clipArea = svgArea
-    .append('clipPath')
-    .attr('id', 'clipArea')
-    .append('rect')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', width)
-    .attr('height', height);
-  ```
+```JS
+const clipArea = svgArea
+  .append('clipPath')
+  .attr('id', 'clipArea')
+  .append('rect')
+  .attr('x', 0)
+  .attr('y', 0)
+  .attr('width', width)
+  .attr('height', height);
+```
 
-  Just be mindful to add an `id` attribute, which allows to target the element.
+Just be mindful to add an `id` attribute, which allows to target the element.
 
 1. reference the newly created element in the `clip-path` attribute of the selected, to-be-clipped, element:
 
-  ```JS
-  const svgAreaGroup = svgArea
-    .append('g')
-    .attr('clip-path', 'url(#clipArea)');
-  ```
+```JS
+const svgAreaGroup = svgArea
+  .append('g')
+  .attr('clip-path', 'url(#clipArea)');
+```
 
-  All the elements nested inside of this group element will be then visualized only inside of the mentioned frame.
+All the elements nested inside of this group element will be then visualized only inside of the mentioned frame.
