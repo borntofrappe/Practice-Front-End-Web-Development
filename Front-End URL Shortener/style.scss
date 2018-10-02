@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Bai+Jamjuree");
+
+$font-text: "Bai Jamjuree", sans-serif;
+$color-text: #444;
+$color-card: #fff;
+$color-bg-start: #545fc7;
+$color-bg-end: #b453a1;
+$color-accent: #2869f8;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-text;
+  color: $color-text;
+  // include chosen gradient
+  background: linear-gradient(to bottom right, $color-bg-start, $color-bg-end);
+  background-repeat: no-repeat;
+  padding: 2rem 0;
+}
+
+main {
+  // cap the width of the container, and center elements by default
+  max-width: 600px;
+  width: 90vw;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background: $color-card;
+  text-align: center;
+
+  // style the input and button elements similarly to one another, but with different colors
+  input,
+  button {
+    background: none;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  input {
+    border-color: lighten($color-text, 15%);
+    color: lighten($color-text, 15%);
+  }
+  button {
+    border-color: $color-accent;
+    color: $color-accent;
+    text-transform: uppercase;
+    // transition for the hover and active states
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background: $color-accent;
+      color: $color-card;
+    }
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+
+  // align the text of the container for the questions to the left
+  div.query {
+    text-align-last: left;
+    margin: 2rem 1rem;
+    line-height: 2.5;
+
+    h2 {
+      text-transform: uppercase;
+    }
+    span {
+      // highlight the selected elements targeting the span elements
+      font-weight: bold;
+      color: $color-accent;
+    }
+    code {
+      padding: 0.5rem 0.7rem;
+      background: rgba($color-text, 0.1);
+    }
+
+    ul {
+      // remove the default bullet point
+      list-style: none;
+
+      li {
+        padding: 0 1rem;
+        // position relative to absolute position the pseudo elements
+        position: relative;
+
+        // add through pseudo elements one arrow for each list item, pointing to the text itself
+        &:before,
+        &:after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          transform: translate(0, -50%);
+          transition: all 0.2s ease-out;
+        }
+        &:before {
+          left: 0;
+          border-top: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid lighten($color-text, 15%);
+        }
+        &:after {
+          right: 100%;
+          height: 1.5px;
+          width: 10px;
+          background: lighten($color-text, 15%);
+        }
+        &:hover:before,
+        &:hover:after {
+          transform: translate(0.5rem, -50%);
+        }
+      }
+    }
+  }
+}

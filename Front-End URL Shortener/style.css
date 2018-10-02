@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Bai+Jamjuree");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Bai Jamjuree", sans-serif;
+  color: #444;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#545fc7),
+    to(#b453a1)
+  );
+  background: linear-gradient(to bottom right, #545fc7, #b453a1);
+  background-repeat: no-repeat;
+  padding: 2rem 0;
+}
+
+main {
+  max-width: 600px;
+  width: 90vw;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background: #fff;
+  text-align: center;
+}
+main input,
+main button {
+  background: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  font-family: inherit;
+}
+main input {
+  border-color: #6a6a6a;
+  color: #6a6a6a;
+}
+main button {
+  border-color: #2869f8;
+  color: #2869f8;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+main button:hover {
+  background: #2869f8;
+  color: #fff;
+}
+main button:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+main div.query {
+  text-align-last: left;
+  margin: 2rem 1rem;
+  line-height: 2.5;
+}
+main div.query h2 {
+  text-transform: uppercase;
+}
+main div.query span {
+  font-weight: bold;
+  color: #2869f8;
+}
+main div.query code {
+  padding: 0.5rem 0.7rem;
+  background: rgba(68, 68, 68, 0.1);
+}
+main div.query ul {
+  list-style: none;
+}
+main div.query ul li {
+  padding: 0 1rem;
+  position: relative;
+}
+main div.query ul li:before,
+main div.query ul li:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+main div.query ul li:before {
+  left: 0;
+  border-top: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #6a6a6a;
+}
+main div.query ul li:after {
+  right: 100%;
+  height: 1.5px;
+  width: 10px;
+  background: #6a6a6a;
+}
+main div.query ul li:hover:before,
+main div.query ul li:hover:after {
+  -webkit-transform: translate(0.5rem, -50%);
+  transform: translate(0.5rem, -50%);
+}
