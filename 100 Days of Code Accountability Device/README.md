@@ -1,6 +1,8 @@
 # 100 Days of Code Accountability Device
 
-<!-- Link to the working pen right here -->
+Link to the working, vanilla JS pen right [here](https://codepen.io/borntofrappe/full/MPyKMK/).
+
+<!-- Link to the working, React pen right [here]() -->
 
 As to:
 
