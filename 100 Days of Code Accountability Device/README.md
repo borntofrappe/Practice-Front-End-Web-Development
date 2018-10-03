@@ -24,7 +24,7 @@ Such is the idea behind the updater in question. A simple tool allowing me to:
 
 - add tags by way of a submenu, collecting frequently used tags in a series of buttons. It'd be mightily helpful to have also a self-updating tag, in the form of R${round}D${day}, to increase the day as the challenges progresses.
 
-## Preface
+## Plan
 
 Since the project presents quite a new set of challenges, and perhaps and most importantly since I am a little bit rusty with the React framework, I plan to tackle the effort one bit at a time, and document my progress all the way through.
 
