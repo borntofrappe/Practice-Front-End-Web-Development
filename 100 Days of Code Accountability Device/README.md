@@ -2,7 +2,7 @@
 
 Link to the working, vanilla JS pen right [here](https://codepen.io/borntofrappe/full/MPyKMK/).
 
-<!-- Link to the working, React pen right [here]() -->
+Link to the working, React pen right [here](https://codepen.io/borntofrappe/full/YJWweQ).
 
 As to:
 
@@ -203,3 +203,19 @@ Once `react-redux` is installed and saved as a developer dependency, it is possi
    ```
 
 And that concludes the simply contribution made by Redux in the project.
+
+## Codepen
+
+A couple of note on publishing the React project on the platform:
+
+- if you get an error message in the form of `ReactDom` is not defined, check if Babel is enabled. If the error persist you may want to try a different version of the React and ReactDOM dependencies;
+
+- functions are imported from the dependencies as follows:
+
+  ```JS
+  const { createStore } = Redux;
+  const { Provider, connect } = ReactRedux;
+  const Component = React.Component;
+  const { default : styled } = styled;
+  const { render } = ReactDOM;
+  ```
