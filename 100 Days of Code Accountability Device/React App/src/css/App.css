@@ -1,0 +1,7 @@
+/* section the wrapping container in two columns, the second of which occupies all the available space */
+.App {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: calc(90px + 1vw) 1fr;
+  grid-auto-rows: 100vh;
+}
