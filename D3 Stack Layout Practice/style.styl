@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
+font-text = 'Open Sans', sans-serif
+color-text = #333
+color-bg = #555
+color-card = #F7FBFF
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background color-bg
+
+main.container
+    // display header and visualizations on top of one another
+    display flex
+    flex-direction column
+    align-items center
+    margin 1.5rem
+
+    // highlight all nested containers with a similar background
+    .container__intro
+        background color-card
+        padding 1rem 1.5rem
+        line-height 2
+
+    // display the visualizations in a wrapping row
+    .container__viz
+        display flex
+        flex-wrap wrap
+        justify-content center
+
+        .viz
+            max-width 500px
+            width 90vw
+            margin 1.5rem
+            background color-card
+            padding 1.5rem 1rem
+
+            h1.title
+                text-align center
+                text-transform uppercase
+                margin 0.25rem 0
+                font-weight thin
+            p.description
+                margin-bottom 1rem
+                line-height 2
+    a.source
+        font-size 0.8rem
+        color inherit
+        margin 1rem 0 0
+
+
+// style the axis labels and ticks
+.axis
+    text
+        font-family font-text
+        fill rgba(color-text, 0.9)
+        font-weight bold
+        text-transform capitalize
+
+    path, line
+        fill none
+        stroke rgba(color-text, 0.5)
+
+// style the areas to have them slightly transparent
+.area
+    opacity 0.55
+    transition opacity 0.2s ease-out
+    // on hover increase the the opacity
+    &:hover
+        opacity 1

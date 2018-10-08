@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  background: #555;
+}
+main.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1.5rem;
+}
+main.container .container__intro {
+  background: #f7fbff;
+  padding: 1rem 1.5rem;
+  line-height: 2;
+}
+main.container .container__viz {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.container .container__viz .viz {
+  max-width: 500px;
+  width: 90vw;
+  margin: 1.5rem;
+  background: #f7fbff;
+  padding: 1.5rem 1rem;
+}
+main.container .container__viz .viz h1.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0.25rem 0;
+  font-weight: thin;
+}
+main.container .container__viz .viz p.description {
+  margin-bottom: 1rem;
+  line-height: 2;
+}
+main.container a.source {
+  font-size: 0.8rem;
+  color: inherit;
+  margin: 1rem 0 0;
+}
+.axis text {
+  font-family: 'Open Sans', sans-serif;
+  fill: rgba(51,51,51,0.9);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgba(51,51,51,0.5);
+}
+.area {
+  opacity: 0.55;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.area:hover {
+  opacity: 1;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>D3 Stack Layout Practice</title>
+  <meta name="description" content="Practice with several layouts trying to understand the use case and practicality of each visualization." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!-- following a simple heading + paragraph explaining the project include the visualization(s) -->
+  <main class="container">
+    <div class="container__intro">
+      <h1>D3 Hot Tip 🔥</h1>
+      <p><strong>Stacked area chart</strong>: impressive way to highlight a system of connected variables.</p>
+      <p>Ineffective way to understand the trend of each individual component.</p>
+    </div>
+
+    <div class="container__viz">
+      <!-- include the stacked area chart -->
+      <div class="viz viz--stacked"></div>
+      <!-- include the visualization hihglighting the variables separately by appending a container each -->
+    </div>
+  </main>
+
+  <!-- reference the d3 library -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
