@@ -1,6 +1,6 @@
 # D3 Practice
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/ePgZap/).
 
 ## Preface
 
@@ -20,6 +20,6 @@ This particular project sets out to compensate such lacking consideration, tryin
 
 The first three visualizations concern stacked area charts. While they do provide an intriguing overview of the general trend, they are also difficult to read. This is where other visualizations, perhaps supporting visualizations might help.
 
-- [ ] re-create the visualization(s);
+- [x] re-create the visualization(s);
 
-- [ ] detail the individual "stacks" side by side, each in their own visualization.
+- [x] detail the individual "stacks" side by side, each in their own visualization.
