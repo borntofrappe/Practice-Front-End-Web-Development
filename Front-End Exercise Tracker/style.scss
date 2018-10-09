@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css?family=Niramit:300,400");
+
+$font: "Niramit", sans-serif;
+$color-bg: #fff;
+$color-card: #162027;
+$color-accent: #1ab188;
+$color-text: $color-card;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+// display all elements one on top of the other, and horizontally centered
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0.5rem;
+  padding: 1rem;
+  color: $color-bg;
+  background: $color-card;
+  box-shadow: 0 1px 5px $color-card;
+  // position relative to absolute position the poster relative to this container
+  position: relative;
+
+  h1 {
+    // slightly push the container nesting the form elements downward
+    margin-bottom: 1rem;
+    font-weight: 300;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+// absolute position the poster in the top left corner
+.app__poster {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  background: $color-bg;
+  color: $color-accent;
+  padding: 1rem 2rem;
+  // include a noticeable shadow and rotate the card adding some perspective
+  box-shadow: -1rem 0.5rem 3rem rgba(darken($color-card, 20%), 0.3);
+  transform: perspective(400px) rotateY(20deg) rotateZ(-5deg);
+
+  h3 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-shadow: 0 1px 5px rgba($color-card, 0.1);
+
+    // align the second heading to the right
+    &:nth-of-type(2) {
+      text-align: right;
+    }
+  }
+  svg {
+    // add a small shadow beneath the svg
+    filter: drop-shadow(0 1px 5px rgba($color-card, 0.08));
+    width: 150px;
+    height: 150px;
+  }
+}
+
+// on smaller viewports remove the poster, as it creates unnecessary noise
+@media (max-width: 900px) {
+  .app__poster {
+    display: none;
+  }
+}
+
+.app__form {
+  // separate the forms from one another
+  margin: 1rem 0;
+  background: $color-bg;
+  color: $color-text;
+  padding: 1rem 3rem;
+
+  h3 {
+    font-size: 1.4rem;
+    // create additional space around the heading
+    margin: 0.5rem 0;
+  }
+
+  // display the form elements (input elements and submit button) on top of one another
+  form {
+    display: flex;
+    flex-direction: column;
+    // display the label and input element on top of one another
+    div {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        // add a solid border to the left of each label
+        border-left: 4px solid $color-text;
+        padding: 0 0.4rem;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      input {
+        // add a dashed border around each input
+        border: 2px dashed rgba($color-text, 0.8);
+        background: $color-bg;
+        padding: 0.5rem 1rem;
+        color: $color-text;
+        font-size: 1.1rem;
+        margin: 0.2rem 0;
+
+        &::placeholder {
+          color: inherit;
+          opacity: 0.8;
+        }
+      }
+    }
+
+    button {
+      margin: 1rem 0;
+      background: $color-card;
+      color: $color-bg;
+      padding: 1rem 0.5rem;
+      border: none;
+      border-radius: 5px;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      // transition for the hover and active state
+      transition: all 0.2s ease-out;
+      // flip the color and background value on hover
+      &:hover {
+        color: $color-card;
+        background: $color-bg;
+        box-shadow: 0 0 0 1px currentColor;
+      }
+      &:active {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

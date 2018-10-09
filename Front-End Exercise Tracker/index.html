@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Front-End Exercise Tracker</title>
+  <meta name="description" content="Create the UI for the fourth project in the line of **API and Microservices** challenges @freecodecamp." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="tab_icon.png"> -->
+
+</head>
+
+<body>
+
+  <!--
+  in a wrapping container include
+    - a header detailing the purpose of the page
+    - one container for the motivational poster
+    - one container for the user form
+    - one container for the exercise form
+  -->
+  <main class="app">
+    <h1>Exercise Tracker Microservice</h1>
+
+    <!-- create the motivational poster out of two headings, wrapping an animated SVG asset -->
+    <div class="app__poster">
+      <h3>Work hard</h3>
+      <!-- with simple SVG elements draw a stopwatch, animated as to rotate the central hand -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewbox="0 0 100 100">
+        <!-- the SVG stopwatch inherits the hue from the color property of the closest parent, as visible by uncommenting the following style tags -->
+        <!-- <style>
+          g {
+            color: tomato;
+          }
+        </style> -->
+        <g>
+          <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="5" />
+          <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5" />
+          <!-- animate the rectangle to emulate a click on the stopwatch -->
+          <rect x="75" y="14" width="10" height="12" transform="rotate(225)" transform-origin="80 20" fill="currentColor">
+            <animate id="startTimer" begin="1s" attributeName="height" dur="0.3s" values="12; 5; 5; 12" keyTimes="0; 0.3; 0.8; 1"
+              fill="freeze" />
+          </rect>
+          <!-- animate the hand to emulate the quick passage of time -->
+          <path d="M 50 50 h -4 l 4 -26 l 4 26 z" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(-20 0 0)"
+            transform-origin="50 50">
+            <animateTransform id="timeSession" begin="startTimer.end" attributeName="transform" attributeType="XML"
+              type="rotate" from="-20 0 0" to="520 0 0" dur="1s" fill="freeze" />
+          </path>
+        </g>
+      </svg>
+
+      <h3>Keep track</h3>
+    </div><!-- close the poster div -->
+
+    <!-- in each container include a form, following a heading detailing the purpose of what follows -->
+    <!-- include each label+input pair in a wrapping container -->
+    <div class="app__form form--user">
+      <h3>Register User</h3>
+      <!-- as to register the user simply include a single input element, to include the username -->
+      <form>
+        <div>
+          <label for="username">Username*</label>
+          <input required type="text" name="username" id="username" placeholder="Timothy">
+        </div>
+
+        <button>
+          submit
+        </button>
+      </form>
+    </div><!-- close the div for the user form -->
+
+
+    <div class="app__form form--exercise">
+      <h3>Register Exercise</h3>
+      <!--
+      as to register the exercise include multiple input elements, for:
+        - the user id,
+        - the exercise's description
+        - the exercise's duration
+        - the exercise's date (this made up of three separate input elements, for the year, month and day value)
+      -->
+      <form>
+        <div>
+          <label for="userid">User ID*</label>
+          <input required type="text" name="userid" id="userid" placeholder="SyouNR_5Q">
+        </div>
+        <div>
+          <label for="description">Description*</label>
+          <input type="text" name="description" id="description" placeholder="Squats">
+        </div>
+        <div>
+          <label for="duration">Duration*</label>
+          <input type="number" min="0" name="duration" id="duration" placeholder="15">
+        </div>
+
+        <div>
+          <label for="date">Date*</label>
+          <input type="number" min="1990" max="2050" name="date-year" id="date-year" placeholder="2018">
+          <input type="number" min="1" max="12" name="date-month" id="date-month" placeholder="10">
+          <input type="number" min="1" max="31" name="date-day" id="date-day" placeholder="09">
+        </div>
+
+        <button>
+          submit
+        </button>
+      </form>
+    </div><!-- close the div for the exercise form -->
+
+  </main>
+
+  <!-- <script src="script.js"></script> -->
+</body>
+
+</html>

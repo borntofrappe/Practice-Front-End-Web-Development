@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Niramit:300,400");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Niramit", sans-serif;
+  color: #162027;
+  background-color: #fff;
+}
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 1rem 0.5rem;
+  padding: 1rem;
+  color: #fff;
+  background: #162027;
+  -webkit-box-shadow: 0 1px 5px #162027;
+  box-shadow: 0 1px 5px #162027;
+  position: relative;
+}
+.app h1 {
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.app__poster {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  background: #fff;
+  color: #1ab188;
+  padding: 1rem 2rem;
+  -webkit-box-shadow: -1rem 0.5rem 3rem rgba(0, 0, 0, 0.3);
+  box-shadow: -1rem 0.5rem 3rem rgba(0, 0, 0, 0.3);
+  -webkit-transform: perspective(400px) rotateY(20deg) rotateZ(-5deg);
+  transform: perspective(400px) rotateY(20deg) rotateZ(-5deg);
+}
+.app__poster h3 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-shadow: 0 1px 5px rgba(22, 32, 39, 0.1);
+}
+.app__poster h3:nth-of-type(2) {
+  text-align: right;
+}
+.app__poster svg {
+  -webkit-filter: drop-shadow(0 1px 5px rgba(22, 32, 39, 0.08));
+  filter: drop-shadow(0 1px 5px rgba(22, 32, 39, 0.08));
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 900px) {
+  .app__poster {
+    display: none;
+  }
+}
+
+.app__form {
+  margin: 1rem 0;
+  background: #fff;
+  color: #162027;
+  padding: 1rem 3rem;
+}
+.app__form h3 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+.app__form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.app__form form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.app__form form div label {
+  border-left: 4px solid #162027;
+  padding: 0 0.4rem;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+.app__form form div input {
+  border: 2px dashed rgba(22, 32, 39, 0.8);
+  background: #fff;
+  padding: 0.5rem 1rem;
+  color: #162027;
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+.app__form form div input::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.8;
+}
+.app__form form div input:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.8;
+}
+.app__form form div input::-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.8;
+}
+.app__form form div input::placeholder {
+  color: inherit;
+  opacity: 0.8;
+}
+.app__form form button {
+  margin: 1rem 0;
+  background: #162027;
+  color: #fff;
+  padding: 1rem 0.5rem;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.app__form form button:hover {
+  color: #162027;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0 1px currentColor;
+  box-shadow: 0 0 0 1px currentColor;
+}
+.app__form form button:active {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
