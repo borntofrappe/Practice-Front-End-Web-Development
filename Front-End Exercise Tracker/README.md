@@ -1,6 +1,6 @@
 # Exercise Tracker UI
 
-<!-- Link to the working pen right here -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/pen/dgvNLK).
 
 ## Preface
 
