@@ -1,6 +1,6 @@
 # React Search Component
 
-<!-- Link to the working project right [here]() -->
+Link to the working project right [here](https://codepen.io/borntofrappe/full/mzBPyQ).
 
 ## Preface
 
