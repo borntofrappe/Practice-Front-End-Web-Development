@@ -1,8 +1,8 @@
 import React from 'react';
 import './css/AppInput.css';
-import styled, { keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-// animation for the label 
+// animation for the label
 const pointDown = keyframes`
   0%, 50% {
     transform: translate(-50%, 0);
@@ -52,13 +52,11 @@ const Input = styled.input`
 `;
 
 /* in a stateless component render a label and the controlled input element */
-const AppInput = (props) => {
-  return(
-    <div className="AppInput">
+const AppInput = props => (
+  <div className="AppInput">
       <Label>Type your or anybody else's name</Label>
-      <Input type="text" placeholder="Tim" value={props.input} onChange={props.handleInput}/>
+      <Input type="text" placeholder="Tim" value={props.input} onChange={props.handleInput} />
     </div>
-  );
-}
+);
 
 export default AppInput;
