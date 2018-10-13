@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Mali|Open+Sans");
+
+/* 
+define variables used in the project 
+*/
+:root {
+  --font-header: "Mali", cursive;
+  --font-text: "Open Sans", sans-serif;
+  --color-text: #fff;
+  --color-bg: #212530;
+  --color-accent: #2e79e3;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  /* include noticeable space between the .App container and the surrounding window */
+  padding: 5vh 10vw 0;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
