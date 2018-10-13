@@ -25,28 +25,27 @@ const Field = styled.p`
 
 /* in a stateless component render a container for each array item and nest within one paragraph for each value of the nested object */
 const AppOutput = (props) => {
-
   // add first a makeshift entry to introduce the containers which follow
   const output = props.output;
-  output.unshift({name: "Name", dates: ["Dates"], type: "Type", area: "Area"});
-  const Output = output.map((storm, index) => {
-    return (
-      <div className="AppOutput" key={index}>
-        <Field>{storm.name}</Field>
-        {/* the _date_ property holds an array of values, so be sure to join them into a string */}
-        <Field>{storm.dates.join(", ")}</Field>
-        <Field>{storm.type}</Field>
-        <Field>{storm.area}</Field>
-      </div>
-    );
+  output.unshift({
+    name: 'Name', dates: ['Dates'], type: 'Type', area: 'Area'
   });
-  return(
+  const Output = output.map((storm, index) => (
+    <div className="AppOutput" key={index}>
+      <Field>{storm.name}</Field>
+      {/* the _date_ property holds an array of values, so be sure to join them into a string */}
+      <Field>{storm.dates.join(', ')}</Field>
+      <Field>{storm.type}</Field>
+      <Field>{storm.area}</Field>
+    </div>
+  ));
+  return (
     <React.Fragment>
       {
         Output
       }
     </React.Fragment>
   );
-}
+};
 
 export default AppOutput;
