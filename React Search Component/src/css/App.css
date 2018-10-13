@@ -1,0 +1,10 @@
+/*  display the elements on top of one another */
+.App {
+  display: flex;
+  flex-direction: column;
+  /* horizontally centered */
+  align-items: center;
+  /* adding a rounded border atop */
+  border-radius: 12px;
+  border-top: 2px solid var(--color-text);
+}

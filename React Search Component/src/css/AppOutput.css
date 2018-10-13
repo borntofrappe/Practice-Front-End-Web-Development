@@ -1,0 +1,13 @@
+/* display the paragraph elements in a row */
+.AppOutput {
+  display: flex;
+  margin: 1rem 0;
+  /* 
+  stretch the container to cover the entire width
+  each paragraph will take up a portion of this width 
+  */
+  width: 100%;
+  border-left: 2px solid #fff;
+  background: #ffffff11;
+  padding: 0.5rem 0;
+}

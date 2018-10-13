@@ -1,0 +1,7 @@
+/* display the label and the input element atop of one another */
+.AppInput {
+  display: flex;
+  flex-direction: column;
+  /* horizontally centered */
+  align-items: center;
+}
