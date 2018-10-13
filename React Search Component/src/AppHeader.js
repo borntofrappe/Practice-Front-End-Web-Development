@@ -18,13 +18,11 @@ const HeaderDescription = styled.h3`
   text-align: center;
 `;
 /* in a stateless component render the heading elements which introduce the application */
-const AppHeader = () => {
-  return(
-    <div className="AppHeader">
-      <HeaderTitle>Is there a storm with your name?</HeaderTitle>
-      <HeaderDescription>Find out!</HeaderDescription>
-    </div>
-  );
-}
+const AppHeader = () => (
+  <div className="AppHeader">
+    <HeaderTitle>Is there a storm with your name?</HeaderTitle>
+    <HeaderDescription>Find out!</HeaderDescription>
+  </div>
+);
 
 export default AppHeader;
