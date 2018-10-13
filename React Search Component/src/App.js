@@ -6,7 +6,7 @@ import AppOutput from './AppOutput';
 // import the data stored in ./data/storm.js
 import { storms } from './data/storms';
 
-/* in the stateful component 
+/* in the stateful component
 - include in the state the value for the input element and the one for the output component
 - bind the method used to update the input element and the matching state
 */
@@ -28,7 +28,7 @@ class App extends Component {
     // create a regex to target those object which name starts with the retrieved value
     const regex = new RegExp(`^${input.toLowerCase()}`);
     // create an array of object whose name matches the regular expression
-    const output = (input !== "") ? storms.filter(storm => regex.test(storm.name.toLowerCase())) : "";
+    const output = (input !== '') ? storms.filter(storm => regex.test(storm.name.toLowerCase())) : '';
 
     // update the input state to contain the new value
     // update the output state to contain the updated array
@@ -37,19 +37,19 @@ class App extends Component {
       output
     });
   }
-  
+
   /*
   render:
   - a header component to introduce the project
-  - an input component detailing a label and controlled input element 
+  - an input component detailing a label and controlled input element
   - an output component describing one set of elements for each item in the output array
   */
   render() {
     return (
       <div className="App">
-        <AppHeader/>
+        <AppHeader />
         {/* the input component requires the value of the input element and the function updating it */}
-        <AppInput input={this.state.input} handleInput={this.handleInput}/>
+        <AppInput input={this.state.input} handleInput={this.handleInput} />
         {/* include the output component only if the output variable contains at least one item */}
         {
           (this.state.output.length > 0) && <AppOutput output={this.state.output} />
