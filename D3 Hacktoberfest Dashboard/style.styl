@@ -1,0 +1,81 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua:800|Roboto')
+
+// detail root variable(s)
+font-text = 'Roboto', sans-serif
+font-header = 'Inknut Antiqua', serif
+color-text = #FFFFFF
+color-bg = #532A3D
+// the visualizations are plotted on a makeshift card, with colors opposite to the page
+color-card-text = color-bg
+color-card-bg = color-text
+color-accent = #FDA365
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-text
+    color color-text
+    background color-bg
+
+// display the h1 element and visualizations on top of one another
+.container
+    display flex
+    flex-direction column 
+    align-items center 
+    // cap the wdith and center the element horizontally
+    max-width 650px
+    width 90vw
+    margin 1rem auto
+    padding 1rem 2rem
+    background darken(color-bg, 20%)
+    border-radius 5px
+
+    h1
+        font-family font-header
+        font-size 2.8rem
+        letter-spacing 0.1rem
+
+.viz
+    background color-card-bg
+    color darken(color-card-text, 50%)
+    padding 1rem 0.5rem
+    margin 1rem 0
+    border-radius 7px
+    width 100%
+
+// in the visualizations style the axes to reduce their weight
+.axis
+    line, path 
+        stroke rgba(color-card-text, 0.4)
+        stroke-width 1px
+        fill none
+    text
+        stroke none 
+        fill lighten(color-card-text, 10%)
+        font-family inherit
+        text-transform uppercase
+
+// style the tooltip to prominently display the data ultimately included through paragraph elements
+#tooltip
+    opacity 0
+    position absolute 
+    pointer-events none
+    padding 1rem 
+    background color-text
+    color darken(color-card-text, 50%)
+    box-shadow 0 1px 5px rgba(color-card-text, 0.2)
+    line-height 2
+
+    p
+        text-transform capitalize
+        padding 0 0.5rem
+        font-size 1.1rem
+        letter-spacing 0.03rem
+        &:nth-of-type(2)
+            font-weight bold
