@@ -1,6 +1,6 @@
 # D3 Hacktoberfest Dashboard
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/VEMGjP/).
 
 ## Preface
 
@@ -10,10 +10,10 @@ While checking my progress in the initiative I did notice the visualizations cou
 
 Here's the one-two of this project:
 
-- [ ] re-create the visualization highlighting the number of contributions across the days of the week.
+- [x] re-create the visualization highlighting the number of contributions across the days of the week.
 
   The pie chart used in this regard is not the most stimulating visualization, often creating a visual which is quite hard to read. A loollipop chart might detail a more understandable structure.
 
-- [ ] re-create the visualization mapping the number of contributions since the beginning of the month.
+- [x] re-create the visualization mapping the number of contributions since the beginning of the month.
 
   The area chart showcased on the website is actually quite a catch of a visualization. There are however a couple of minor tweaks which may improve its impact. At the top of my head, the inclusion of a tooltip whenever the visitor hovers on **any** section of the area chart, and not only on the small dots detailed in the individual data points.
