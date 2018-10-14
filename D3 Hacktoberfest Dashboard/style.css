@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Inknut+Antiqua:800|Roboto");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background: #532a3d;
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 650px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  background: #422231;
+  border-radius: 5px;
+}
+.container h1 {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 2.8rem;
+  letter-spacing: 0.1rem;
+}
+.viz {
+  background: #fff;
+  color: #2a151f;
+  padding: 1rem 0.5rem;
+  margin: 1rem 0;
+  border-radius: 7px;
+  width: 100%;
+}
+.axis line,
+.axis path {
+  stroke: rgba(83,42,61,0.4);
+  stroke-width: 1px;
+  fill: none;
+}
+.axis text {
+  stroke: none;
+  fill: #6d3750;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+#tooltip {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  padding: 1rem;
+  background: #fff;
+  color: #2a151f;
+  -webkit-box-shadow: 0 1px 5px rgba(83,42,61,0.2);
+          box-shadow: 0 1px 5px rgba(83,42,61,0.2);
+  line-height: 2;
+}
+#tooltip p {
+  text-transform: capitalize;
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.03rem;
+}
+#tooltip p:nth-of-type(2) {
+  font-weight: bold;
+}
