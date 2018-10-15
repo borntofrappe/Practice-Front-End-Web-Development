@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Front-End File Metadata</title>
+  <meta name="description" content="Create the UI for the soon to be fifth and final project for the **API and Microservices** certification @freecodecamp." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="Icon.png"> -->
+
+</head>
+
+<body>
+
+  <!--
+    include the input elements required by the application in a _main_ element
+    add an extra container for a small animation
+  -->
+  <div class="app">
+    <main class="app__input">
+      <input type="submit" value="Choose File">
+      <input type="submit" value="Upload">
+    </main>
+
+    <!--
+      the animation is centered around the simple image of a file
+      animate it in and out of view, each time with a different file types (text/plain, video/mp4)
+    -->
+    <div class="file">
+      <p>text/plain</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

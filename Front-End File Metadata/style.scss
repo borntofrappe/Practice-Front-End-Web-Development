@@ -1,0 +1,172 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+// detail root variable(s)
+$font: "Lato", sans-serif;
+$color-text: #31312d;
+$color-bg: #f3e9d3;
+$color-accent: #cbd4e6;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// include a repeating-linear-gradient with the chosen colors
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: $font;
+  color: $color-text;
+  background: repeating-linear-gradient(
+    to bottom right,
+    $color-accent 0,
+    $color-accent 300px,
+    $color-bg 300px,
+    $color-bg 600px
+  );
+}
+// display the application's elements on top of one another
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // overflow hidden to hide the file icon as it goes in and out of the container
+  overflow: hidden;
+  background: $color-bg;
+  // cap the width and center the container
+  width: 80vw;
+  max-width: 550px;
+  margin: 10vh auto;
+  padding: 6rem 2rem 4rem;
+  // include a border and a solid shadow toward the bottom right end of the container
+  border-radius: 5px;
+  border: 2px solid $color-text;
+  box-shadow: 10px 10px 0 0 $color-text;
+  // position relative to absolute position the pseudo elements
+  position: relative;
+  // include a thin line separating the container from a hypothetical bar
+  &:before {
+    position: absolute;
+    content: "";
+    top: 2rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $color-text;
+  }
+  // include a circle emulating a possible icon on the window container
+  &:after {
+    position: absolute;
+    content: "";
+    top: 1rem;
+    left: 1rem;
+    width: 1rem;
+    height: 1rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid $color-text;
+  }
+  // on hover change the background color of the circle to emulate a working, terminal terminal
+  &:hover:after {
+    animation: focus 2s ease-in-out infinite;
+  }
+}
+// define the animation for the circle element
+@keyframes focus {
+  0%,
+  100% {
+    background: initial;
+  }
+  50% {
+    background: $color-text;
+  }
+}
+// display the input elements atop one another
+.app__input {
+  display: flex;
+  flex-direction: column;
+  // style the input element to match the theme of the application
+  // on hover flip the color and background value
+  input {
+    background: none;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px $color-text;
+    padding: 0.5rem 0.75rem;
+    font-family: inherit;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    // margin to separate the input elements from one another
+    margin: 0.5rem 0;
+    // transition for the hover state
+    transition: all 0.25s ease-out;
+    &:hover {
+      background: $color-text;
+      color: $color-bg;
+      box-shadow: 0 0 0 3px $color-bg, 0 0 0 6px $color-text;
+    }
+  }
+}
+// draw the icon for the file through a simple rectangle with the top right corner folded
+// ! to maintain the top right corner with a border for the rest of the application use both the before and after pseudo element
+// mindful of the fact that the :after pseudo element lays on top of the :before one
+.file {
+  margin-top: 2rem;
+  height: 150px;
+  width: 120px;
+  background: lighten(
+    $color-bg,
+    5%
+  ); // position the text in the bottom right corner of the container
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0.5rem;
+  // animation to move the file icon in and out of view
+  animation: popUp 5s 2s ease-in alternate infinite both;
+  // position relative to absolute position the pseudo elements
+  position: relative;
+  // use the :after pseudo element to draw an arrow pointing down and to the left
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    border-top: 1rem solid $color-bg;
+    border-right: 1rem solid $color-bg;
+    border-bottom: 1rem solid $color-text;
+    border-left: 1rem solid $color-text;
+  }
+  // use the :before pseudo element to detail the border
+  // as the :after pseudo element overlaps, the border is cut out for the top rught corner
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 4px solid $color-text;
+  }
+  p {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+}
+// animation moving the icon file in and out of view, pausing briefly in the middle of the container
+@keyframes popUp {
+  0% {
+    transform: translateX(100vw);
+  }
+  25%,
+  75% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
