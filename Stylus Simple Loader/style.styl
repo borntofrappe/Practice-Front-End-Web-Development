@@ -1,0 +1,57 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=Kodchasan")
+
+// detail root variable(s)
+font = "Kodchasan", sans-serif
+color-bg = #211
+particles = 7
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font
+    color color-text
+    background color-bg
+
+// center the wrapping container in the window
+.field
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    // display all nested div elements one after the other
+    display flex
+
+    .particle
+        // include the particles as circles
+        width 20px
+        height @width
+        border-radius 50%
+        // center the text included for context
+        color color-bg
+        text-align center
+        line-height 20px
+        text-transform uppercase
+        font-weight bold
+        margin 5px
+        // include a simple animation which makes the particles jump up and slightly separate each from one another
+        animation wave 1.5s ease-in-out infinite both alternate
+        // style the background of each nested element according to its index
+        // alter the delay to have a cascading effect
+        for i in 1..particles
+            &:nth-of-type({i})
+                background hsl(360/particles*i, 80%, 40%)
+                animation-delay (i*0.1)s
+
+@keyframes wave
+    50%
+        // animate the transform property to move all items vertically
+        // changing the scale instead of the width/height properties allow to avoid moving the neighboring elements
+        transform translateY(-15vh) scale(1.5)
+        // alter the margin value to give an impresion of an expanding/contracting wave
+        margin 20px

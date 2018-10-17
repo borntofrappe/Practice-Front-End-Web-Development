@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Kodchasan");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Kodchasan", sans-serif;
+  color: color-text;
+  background: #211;
+}
+.field {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.field .particle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #211;
+  text-align: center;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 5px;
+  -webkit-animation: wave 1.5s ease-in-out infinite both alternate;
+  animation: wave 1.5s ease-in-out infinite both alternate;
+}
+.field .particle:nth-of-type(1) {
+  background: #b8a014;
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.field .particle:nth-of-type(2) {
+  background: #43b814;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.field .particle:nth-of-type(3) {
+  background: #14b872;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.field .particle:nth-of-type(4) {
+  background: #1472b8;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.field .particle:nth-of-type(5) {
+  background: #4314b8;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.field .particle:nth-of-type(6) {
+  background: #b814a0;
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.field .particle:nth-of-type(7) {
+  background: #b81414;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+@-webkit-keyframes wave {
+  50% {
+    -webkit-transform: translateY(-15vh) scale(1.5);
+    transform: translateY(-15vh) scale(1.5);
+    margin: 20px;
+  }
+}
+@keyframes wave {
+  50% {
+    -webkit-transform: translateY(-15vh) scale(1.5);
+    transform: translateY(-15vh) scale(1.5);
+    margin: 20px;
+  }
+}
