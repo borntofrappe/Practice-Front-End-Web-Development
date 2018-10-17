@@ -1,6 +1,6 @@
 # Stylus Simple Loader
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/pen/EdExxZ).
 
 ## Preface
 
