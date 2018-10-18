@@ -1,0 +1,206 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Creepster");
+
+/* detail root variables */
+:root {
+  --font: "Creepster", cursive;
+  --color-bg: #1d1e22;
+  --color-bone: #fffefd;
+  --color-text: var(--color-bone);
+  --rotation: 0deg;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  /* display the button and skeleton one on top of the other */
+  display: flex;
+  flex-direction: column;
+  /* horizontally centered */
+  align-items: center;
+  padding: 1rem 0 0;
+}
+/*
+style the button as a ghost button,
+swapping its background and color on hover,
+increasing its size when active
+*/
+button {
+  font-family: inherit;
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  border: 2px solid var(--color-bone);
+  border-radius: 5px;
+  background: none;
+  color: var(--color-bone);
+  padding: 0.5rem 1rem;
+  /* transition for the hover and active states */
+  transition: all 0.2s ease-out;
+}
+button:hover {
+  background: var(--color-bone);
+  color: initial;
+}
+button:active {
+  transform: scale(1.1);
+}
+
+/* separate the skeleton from the preceding button */
+.skeleton {
+  margin-top: 10vh;
+  position: relative;
+  height: 50vh;
+  max-height: 500px;
+  min-height: 350px;
+  width: 50vw;
+  max-width: 250px;
+  min-width: 205px;
+}
+/* absolute position the different bones in the container, to make up a skeleton */
+.skeleton div {
+  position: absolute;
+  background: var(--color-bone);
+}
+/*
+target each div through the `nth-child()` pseudo selector
+by later including paragraph elements **before** the div elements, each bone is made "disappearing"
+*/
+
+/* skeleton's head */
+.skeleton div:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 40%;
+  width: 60%;
+  border-radius: 50% 50% 10% 10%;
+}
+/* skeleton's eyes */
+.skeleton div:nth-child(1):before,
+.skeleton div:nth-child(1):after {
+  position: absolute;
+  content: "";
+  background: var(--color-bg);
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  top: 40%;
+}
+.skeleton div:nth-child(1):before {
+  left: 10%;
+}
+.skeleton div:nth-child(1):after {
+  right: 10%;
+}
+/* skeleton's neck */
+.skeleton div:nth-child(2) {
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10%;
+  height: 5%;
+}
+/* skeleton's chest */
+.skeleton div:nth-child(3) {
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 60%;
+  height: 7%;
+  border-radius: 10px;
+}
+.skeleton div:nth-child(4) {
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 65%;
+  height: 7%;
+  border-radius: 10px;
+}
+.skeleton div:nth-child(5) {
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10%;
+  height: 10%;
+}
+.skeleton div:nth-child(6) {
+  top: 74%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 40%;
+  height: 10%;
+  border-radius: 10px;
+}
+/* skeleton's arms */
+.skeleton div:nth-child(7) {
+  top: 50%;
+  left: 5%;
+  transform: rotate(5deg);
+  width: 8%;
+  height: 22%;
+  border-radius: 10px;
+}
+.skeleton div:nth-child(8) {
+  top: 50%;
+  right: 5%;
+  transform: rotate(-5deg);
+  width: 8%;
+  height: 22%;
+  border-radius: 10px;
+}
+/* skeleton's legs */
+.skeleton div:nth-child(9) {
+  top: 86%;
+  left: 30%;
+  transform: rotate(4deg);
+  width: 10%;
+  height: 15%;
+  border-radius: 10px;
+}
+.skeleton div:nth-child(10) {
+  top: 86%;
+  right: 30%;
+  transform: rotate(-4deg);
+  width: 10%;
+  height: 15%;
+  border-radius: 10px;
+}
+
+/* style the paragraph elements (included before the div elements) to draw up simple icons for bones */
+.skeleton p {
+  background: var(--color-bone);
+  width: 10px;
+  height: 40px;
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+}
+/* through pseudo element make up both extremities of each bone */
+.skeleton p:before,
+.skeleton p:after {
+  position: absolute;
+  content: "";
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 7px 10px, #fff 7px, transparent 7px),
+    radial-gradient(circle at 18px 10px, #fff 7px, transparent 7px);
+  width: 25px;
+  height: 20px;
+  left: 50%;
+}
+.skeleton p:before {
+  top: 0;
+}
+.skeleton p:after {
+  top: 100%;
+}
