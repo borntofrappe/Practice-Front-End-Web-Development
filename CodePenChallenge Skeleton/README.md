@@ -1,6 +1,6 @@
 # CodepenChallenge Skeleton
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/bmMVrJ).
 
 ## Preface
 
