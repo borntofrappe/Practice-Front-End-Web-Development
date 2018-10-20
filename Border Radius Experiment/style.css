@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: #2c339f;
+  /* 	display the heading and blob one atop the other */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+h2 {
+  text-align: center;
+  color: #dd5833;
+  font-family: "Source Code Pro", monospace;
+}
+
+.blob {
+  /* 	display the blob as a noticeable div with a defined gradient */
+  height: 300px;
+  width: 300px;
+  background: radial-gradient(#dd5833, #ea603a);
+  filter: drop-shadow(0 0 3px #dd583355);
+  /* 	transition for the border-radius property */
+  transition: border-radius 0.2s ease-out;
+}
