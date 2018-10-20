@@ -1,6 +1,6 @@
 # Border Radius Experiment
 
-<!-- Link to the working pen right [here]() -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/OBEEag).
 
 ## Preface
 

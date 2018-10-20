@@ -187,3 +187,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Front-End File Metadata**](https://codepen.io/borntofrappe/pen/mzqzLa)|Create the UI for the fifth and final project in the line of API and Microservices challenges @freecodecamp.|front-end, input, file|15th October 2018|
 |[**Stylus Simple Loader**](https://codepen.io/borntofrappe/pen/EdExxZ)|Tinker with stylus and CSS animation to create a simple loading animation.|stylus, animation, pug|17th October 2018|
 |[**CodepenChallenge Skeleton**](https://codepen.io/borntofrappe/pen/bmMVrJ)|Craft a simple project in which visitors are instructed to pick a bone, simply by pressing on one of them.|codepenchallenge, skeleton, pseudo selector, pug|18th September 2018|
+|[**Border Radius Experiment**](https://codepen.io/borntofrappe/pen/OBEEag)|Tinker with the border-radois property and the many values it can assume.|border-radius, css, random|20th October 2018|
