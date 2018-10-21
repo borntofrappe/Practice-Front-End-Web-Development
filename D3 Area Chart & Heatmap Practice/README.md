@@ -1,6 +1,6 @@
 # D3 Area Chart and Heatmap Practice
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/pen/XxBXeR).
 
 ## Preface
 

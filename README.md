@@ -188,3 +188,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Stylus Simple Loader**](https://codepen.io/borntofrappe/pen/EdExxZ)|Tinker with stylus and CSS animation to create a simple loading animation.|stylus, animation, pug|17th October 2018|
 |[**CodepenChallenge Skeleton**](https://codepen.io/borntofrappe/pen/bmMVrJ)|Craft a simple project in which visitors are instructed to pick a bone, simply by pressing on one of them.|codepenchallenge, skeleton, pseudo selector, pug|18th September 2018|
 |[**Border Radius Experiment**](https://codepen.io/borntofrappe/pen/OBEEag)|Tinker with the border-radois property and the many values it can assume.|border-radius, css, random|20th October 2018|
+|[**D3 Area Chart & Heatmap Practice**](https://codepen.io/borntofrappe/pen/XxBXeR/)|Practice with D3, mapping real data through an area chart and a heatmap.|d3, heatmap, area, line|21st October 2018|
