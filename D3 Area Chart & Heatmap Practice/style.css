@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "PT Sans", sans-serif;
+  color: #262626;
+  background: repeating-linear-gradient(
+    -60deg,
+    #262626,
+    #262626 10px,
+    #323232 10px,
+    #323232 20px
+  );
+}
+.container {
+  max-width: 600px;
+  margin: 1rem auto;
+  width: 90vw;
+  background: #5b5b5b;
+  box-shadow: 0 1px 5px #222;
+  padding: 1rem;
+}
+.container h1 {
+  position: relative;
+  left: -2rem;
+  display: inline-block;
+  background: #ffd700;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  box-shadow: 0 0 1px #998100;
+  position: relative;
+}
+.container h1:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-top: 1rem solid #998100;
+  border-right: 1rem solid #998100;
+  border-bottom: 1rem solid transparent;
+  border-left: 1rem solid transparent;
+  z-index: -10;
+}
+.container p {
+  line-height: 2;
+}
+.container .viz {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 0 1px #998100;
+}
+.container a {
+  color: #d4d4d4;
+}
+#tooltip {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  padding: 1rem 1.5rem;
+  line-height: 2;
+  border-top: 5px solid #262626;
+  background: #fff;
+  box-shadow: 0 1px 4px #515151;
+  border-radius: 0 0 4px 4px;
+}
+#tooltip p:nth-of-type(1) {
+  font-weight: bold;
+}
