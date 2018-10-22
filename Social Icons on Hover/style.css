@@ -26,6 +26,7 @@ body {
   align-items: center;
   min-height: 100vh;
   justify-content: space-around;
+  overflow: hidden;
 }
 /* display the icons in a wrapping row */
 .container__icons {
@@ -34,8 +35,8 @@ body {
   flex-wrap: wrap;
 }
 .container__icons a {
-  width: 82px;
-  height: 82px;
+  width: 100px;
+  height: 100px;
   margin: 1rem;
   position: relative;
 }
@@ -71,7 +72,7 @@ body {
   opacity: 0.5;
 }
 /* the expanding background is applied through JavaScript, adding/removing a selected class */
-.social__links a.hovered:before {
+.container__icons a.hovered:before {
   /* transition included on hover to smoothen the expansion and not the contraction */
   transition: all 1.2s ease-out;
   width: 200vmax;
