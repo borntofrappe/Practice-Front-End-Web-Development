@@ -189,3 +189,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**CodepenChallenge Skeleton**](https://codepen.io/borntofrappe/pen/bmMVrJ)|Craft a simple project in which visitors are instructed to pick a bone, simply by pressing on one of them.|codepenchallenge, skeleton, pseudo selector, pug|18th September 2018|
 |[**Border Radius Experiment**](https://codepen.io/borntofrappe/pen/OBEEag)|Tinker with the border-radois property and the many values it can assume.|border-radius, css, random|20th October 2018|
 |[**D3 Area Chart & Heatmap Practice**](https://codepen.io/borntofrappe/pen/XxBXeR/)|Practice with D3, mapping real data through an area chart and a heatmap.|d3, heatmap, area, line|21st October 2018|
+|[**Social Icons on Hover**](https://codepen.io/borntofrappe/pen/aRamNm/)|Experiment displaying social icons in a dedicated section.|social, icons, hover|22nd October 2018|

@@ -1,6 +1,6 @@
 # Social Icons on Hover
 
-<!-- Link to the working pen right [here]() -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/aRamNm/)
 
 ## Preface
 
