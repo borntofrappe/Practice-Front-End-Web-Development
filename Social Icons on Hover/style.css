@@ -1,0 +1,95 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro");
+
+/* detail root variables */
+:root {
+  --font: "Maven Pro", sans-serif;
+  --color-text: #333;
+  --color-bg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+}
+/* diplay the container nesting the icons and the heading one atop the otehr */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: space-around;
+}
+/* display the icons in a wrapping row */
+.container__icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.container__icons a {
+  width: 82px;
+  height: 82px;
+  margin: 1rem;
+  position: relative;
+}
+.container__icons a:nth-of-type(1) {
+  color: #3fb0fe;
+}
+.container__icons a:nth-of-type(2) {
+  color: #109121;
+}
+.container__icons a:nth-of-type(3) {
+  color: #545454;
+}
+.container__icons a:nth-of-type(4) {
+  color: #242424;
+}
+.container__icons a svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+/* include an expanding background through a pseudo element (expanding on hover) */
+.container__icons a:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  background: currentColor;
+  border-radius: 50%;
+  z-index: -10;
+  opacity: 0.5;
+}
+/* the expanding background is applied through JavaScript, adding/removing a selected class */
+.social__links a.hovered:before {
+  /* transition included on hover to smoothen the expansion and not the contraction */
+  transition: all 1.2s ease-out;
+  width: 200vmax;
+  height: 200vmax;
+  opacity: 0.1;
+}
+
+/* define the animation added through javascript for the message matching the hovered anchor links */
+@keyframes anchorLinkHover {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
