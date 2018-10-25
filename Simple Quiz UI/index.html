@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Simple Quiz UI</title>
+  <meta name="description" content="Create the UI ultimately used for a React & Redux project, to propose a series of questions regarding the winter season." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="Icon.png"> -->
+
+</head>
+
+<body>
+
+  <!--
+    in a wrapping container display the question atop the possible answers
+    use a custom design for the ordered list, opting for bold indicators
+  -->
+  <div class="app">
+    <div class="app__question">
+      <h3 class="question--counter">9/13</h3>
+      <h2 class="question--query">
+        Are roads more dangerous in winter?
+      </h2>
+      <ol class="question--answers">
+        <li>Yes</li>
+        <li>No</li>
+        <li>Yes and no</li>
+      </ol>
+    </div>
+
+    <!-- following the question, and once an answer is given, show a container detailing the correct answer -->
+    <div class="app__answer hidden">
+      <h2 class="answer--correct">Correct!</h2>
+      <p class="answer--detail">Not really... actually I don't know today. Come back tomorrow for a full-blown quiz,
+        built with React and
+        Redux.
+      </p>
+      <p>
+        At least I can tell you selected <strong></strong> ;)
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

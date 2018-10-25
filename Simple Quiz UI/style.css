@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Lora|Lato");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  color: #252a37;
+  background-color: #fff; }
+
+.app {
+  max-width: 400px;
+  width: 85vw;
+  margin: 1rem auto 0; }
+
+.app__question {
+  font-family: "Lora", serif;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 5px 1px rgba(191, 191, 191, 0.8); }
+  .app__question .question--counter {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    padding: 0.5rem 0;
+    border-bottom: 0.2rem solid #252a37; }
+  .app__question .question--query {
+    text-align: center;
+    margin: 1rem 0 1.5rem;
+    font-weight: 300;
+    font-size: 1.4rem; }
+  .app__question .question--answers {
+    line-height: 4;
+    list-style: none;
+    font-size: 1.2rem;
+    counter-reset: special-counter; }
+    .app__question .question--answers li {
+      margin-left: 2rem;
+      padding-left: 1.5rem;
+      counter-increment: special-counter;
+      position: relative;
+      cursor: pointer; }
+      .app__question .question--answers li:before {
+        content: counter(special-counter);
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        background: #252a37;
+        color: #fff;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        text-align: center;
+        line-height: 2.5rem;
+        transform: translateY(-50%);
+        opacity: 0.7;
+        transition: opacity 0.2s ease-out; }
+      .app__question .question--answers li:hover:before {
+        opacity: 1; }
+
+.app__answer {
+  font-family: "Lora", serif;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 5px 1px rgba(191, 191, 191, 0.8);
+  transition: transform 0.2s ease-out; }
+  .app__answer.hidden {
+    transform: scale(0);
+    transition-delay: 0.05s; }
+  .app__answer h2 {
+    text-align: center;
+    margin: 0.5rem 0; }
+  .app__answer p {
+    line-height: 2; }
