@@ -190,3 +190,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Border Radius Experiment**](https://codepen.io/borntofrappe/pen/OBEEag)|Tinker with the border-radois property and the many values it can assume.|border-radius, css, random|20th October 2018|
 |[**D3 Area Chart & Heatmap Practice**](https://codepen.io/borntofrappe/pen/XxBXeR/)|Practice with D3, mapping real data through an area chart and a heatmap.|d3, heatmap, area, line|21st October 2018|
 |[**Social Icons on Hover**](https://codepen.io/borntofrappe/pen/aRamNm/)|Experiment displaying social icons in a dedicated section.|social, icons, hover|22nd October 2018|
+|[**Simple Quiz UI**](https://codepen.io/borntofrappe/pen/ePbbQa)|Create the UI ultimately used for a React & Redux project, to propose a series of questions regarding the winter season.|ui, quiz, front-end|25th October 2018|
