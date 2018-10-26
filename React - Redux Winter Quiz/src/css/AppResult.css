@@ -1,0 +1,11 @@
+.AppResult {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+h1 {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 1rem 0 0.5rem;
+}
