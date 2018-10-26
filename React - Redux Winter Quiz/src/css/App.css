@@ -1,0 +1,15 @@
+.App {
+  max-width: 400px;
+  width: 85vw;
+  margin: 1rem auto 0;
+  /* display the contents of the application in a single column */
+  display: flex;
+  flex-direction: column;
+}
+/* detail properties shared by all div elements */
+.App div {
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  background: #fff;
+  box-shadow: 0 1px 5px 1px rgba(191, 191, 191, 0.8);
+}
