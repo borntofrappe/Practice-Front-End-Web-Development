@@ -9,8 +9,8 @@ const initialState = {
   data: data
 }
 
-
 // create the store, currently simply returning the initial state
+// in a more apt application of redux, actions and action creators would be set up to return a single array's item
 const reducer = (state = initialState) => state;
 const store = createStore(reducer);
 
