@@ -1,28 +1,32 @@
 import React from 'react';
-// import './css/AppAnswer.css';
 // import styled components
 import styled from 'styled-components'
 
+// through the class of .hidden also set a height of 0, to avoid vertical overflow from the get-go
 const Answer = styled.div`
-  padding: 1rem 2rem;
-  box-shadow: 0 1px 5px 1px rgba(191, 191, 191, 0.8);
   text-align: center;
   transition: transform 0.2s ease-out;
   transition-delay: 0.05s;
 
   &.Hidden {
     transform: scale(0);
+    height: 0;
     visibility: none;
     opacity: 0;
   }
 `;
 
 const Verdict = styled.h2`
-  text-align: center;
-  margin: 0.5rem 0;
+  font-size: 1.4rem;
+  margin: 0.8rem 0;
+`;
+const Correction = styled.p`
+  margin: 0.8rem 0 1rem;
+  font-size: 1.2rem;
 `;
 
 const Explanation = styled.p`
+  font-size: 1.1rem;
   line-height: 2;
   text-align: initial;
 `;
@@ -33,6 +37,7 @@ const Button = styled.button`
   border: 1px solid #252525;
   padding: 0.5rem 1rem;
   border-radius: 4px;
+  font-size: 1.2rem;
   font-family: inherit;
   color: inherit;
   transition: all 0.2s ease-out;
@@ -50,7 +55,7 @@ const Button = styled.button`
 
 /*
 render whether the answer was correct or not
-detail the right answer in this last case 
+detail also the explanation behind the question
 detail a button to continue to the next question
 */
 const AppAnswer = (props) => {
@@ -68,8 +73,10 @@ const AppAnswer = (props) => {
   const { answers, correctAnswer, explanation } = data;
   // show the component adding or omitting a class of Hidden
   const className = (isHidden) ? ' AppAnswer Hidden' : 'AppAnswer';
+
+  // render the answer atop the explanation and a button to move forwards
   return (
-    <Answer className={className}>
+    <Answer className={ className }>
     {
       isCorrect
       ?
@@ -77,11 +84,11 @@ const AppAnswer = (props) => {
       :
       <>
         <Verdict>Sorry, wrong answer</Verdict>
-        <p>The right answer was <strong>{answers.find(answer => answer.answer === correctAnswer).value}</strong></p>
+        <Correction>The right answer was: <strong>{ answers.find(answer => answer.choice === correctAnswer).value }</strong></Correction>
       </>
     }
-      <Explanation>{explanation}</Explanation>
-      <Button onClick={nextQuestion}>{ isLast ? "Continue" : "Check your Score"}</Button>
+      <Explanation>{ explanation }</Explanation>
+      <Button onClick={ nextQuestion }>{ isLast ? "Continue" : "Check your Score"}</Button>
     </Answer>
   );
 }
