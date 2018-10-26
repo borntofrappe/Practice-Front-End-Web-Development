@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 // import the store from the redux folder
 import store from './redux/store.js';
 
-// wrap the application in the provider, detailing the daa in the store's state
+// wrap the application in the provider, detailing the store
 ReactDOM.render(
   <Provider store={store}>
     <App />
