@@ -7,7 +7,7 @@
    * explanation
  * 
  * answers' objects structure
-  * answer,
+  * choice,
   * value
  */
 let data = [
@@ -16,15 +16,15 @@ let data = [
     question: 'What causes a runny nose when it is cold?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'A disease'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'The cold'
       },
       {
-        answer: 2,
+        choice: 2,
         value: 'Gravity'
       }
     ],
@@ -36,11 +36,11 @@ let data = [
     question: 'Is it necessary to eat more when it is cold?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -52,11 +52,11 @@ let data = [
     question: 'Does skin hair retain warmth?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -68,11 +68,11 @@ let data = [
     question: 'Christmas on the balcony, Easter by the fire?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -84,15 +84,15 @@ let data = [
     question: 'Does the perceived temperature matters?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       },
       {
-        answer: 2,
+        choice: 2,
         value: 'Depends for whom'
       }
     ],
@@ -104,11 +104,11 @@ let data = [
     question: 'A small glass helps warming up, right?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -120,11 +120,11 @@ let data = [
     question: 'Does the cold temperature causes diseases?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Mostly yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'Mostly no'
       }
     ],
@@ -136,11 +136,11 @@ let data = [
     question: 'Can vitamines help against infections?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -152,11 +152,11 @@ let data = [
     question: 'Are there more deaths in winter?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -168,15 +168,15 @@ let data = [
     question: 'Are roads more dangerous in winter?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       },
       {
-        answer: 2,
+        choice: 2,
         value: 'Yes and no'
       }
     ],
@@ -188,11 +188,11 @@ let data = [
     question: 'Are leaves in autum "dead"?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -204,11 +204,11 @@ let data = [
     question: 'Are snowflakes unique in shape?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -220,11 +220,11 @@ let data = [
     question: 'Is snow white?',
     answers: [
       {
-        answer: 0,
+        choice: 0,
         value: 'Yes'
       },
       {
-        answer: 1,
+        choice: 1,
         value: 'No'
       }
     ],
@@ -239,4 +239,6 @@ const fiftyFifty = () => Math.random() > 0.5;
 data.forEach(question => question.answers.sort(() => (fiftyFifty()) ? 1 : -1));
 // randomize the data for the position of the questions
 data = data.sort(() => (fiftyFifty()) ? 1 : -1);
+
+// export the now-randomized data
 export default data;
