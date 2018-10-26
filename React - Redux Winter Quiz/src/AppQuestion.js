@@ -1,24 +1,19 @@
 import React from 'react';
-import './css/AppQuestion.css';
 // import styled components
 import styled from 'styled-components'
 
-const Question = styled.div`
-  padding: 1rem 2rem;
-  box-shadow: 0 1px 5px 1px rgba(191, 191, 191, 0.8);
-
-`;
-
-const Query = styled.h2`
+const Question = styled.h2`
   text-align: center;
   margin: 1rem 0 1.5rem;
   font-weight: 300;
   font-size: 1.4rem;
 `;
+
+// when hovering on the list items change the color of the special indicator as well as the background of the list item
 const Answers = styled.ol`
+  font-size: 1.2rem;
   line-height: 4;
   list-style: none;
-  font-size: 1.2rem;
   counter-reset: special-counter;
 
   li {
@@ -30,9 +25,9 @@ const Answers = styled.ol`
     transition: all 0.2s ease-out;
 
     &:before {
-      content: counter(special-counter);
+    content: counter(special-counter);
     position: absolute;
-    right: calc(100% - 0.5rem);
+    right: 100%;
     top: 50%;
     background: #252a37;
     color: #fff;
@@ -45,15 +40,13 @@ const Answers = styled.ol`
     transition: all 0.2s ease-out;
     }
     &:hover:before {
-      border: 1px solid #fff;
-      background: #999;
+      background: #252a3799;
     }
     &:hover {
-      background: #99999944;
+      background: #252a3722;
     }
   }
 `;
-
 
 const AppQuestion = (props) => {
   /** information needed
@@ -67,23 +60,23 @@ const AppQuestion = (props) => {
   const { showAnswer } = props;
 
   // create a series of list items, one for each possible option
-  const answersOptions = answers.map(answer => 
+  const choices = answers.map(answer => 
     <li 
-      key={answer.answer} 
-      answer={answer.answer}
-      onClick={showAnswer}>
-        {answer.value}
+      key={ answer.answer } 
+      choice={ answer.choice }
+      onClick={ showAnswer }>
+        { answer.value }
     </li>
     );
 
   // render the question and the answers in an ordered list
   return (
-    <Question className="AppQuestion">
-      <Query>{question}</Query>
+    <div className="AppQuestion">
+      <Question>{ question }</Question>
       <Answers>
-        {answersOptions}
+        { choices }
       </Answers>
-    </Question>
+    </div>
   );
 }
 
