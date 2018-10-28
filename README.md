@@ -192,3 +192,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Social Icons on Hover**](https://codepen.io/borntofrappe/pen/aRamNm/)|Experiment displaying social icons in a dedicated section.|social, icons, hover|22nd October 2018|
 |[**Simple Quiz UI**](https://codepen.io/borntofrappe/pen/ePbbQa)|Create the UI ultimately used for a React & Redux project, to propose a series of questions regarding the winter season.|ui, quiz, front-end|25th October 2018|
 |[**React & Redux Winter Quiz**](https://codepen.io/borntofrappe/pen/ZqwVmm/)|Recreate a simple quiz in which visitors can answer multiple-choice queries regarding the winter seasons and its common misconceptions.|react, redux, styled-components|25-26th October 2018|
+|[**Canvas Experiment**](https://codepen.io/borntofrappe/pen/wYOONv/)|Tinker with the canvas element while creating a simple drawing application.|html, canvas, drawing|28th October 2018|
