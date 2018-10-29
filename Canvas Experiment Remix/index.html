@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Canvas Experiment Remix</title>
+  <meta name="description" content="Experiment with the canvas element." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="Icon.png"> -->
+
+</head>
+
+<body>
+  <!--
+  include, one atop the other:
+  - a header
+  - a canvas element
+  - a div nesting button element for the colors
+  - a div nesting button elements for the tools (currently nesting a simple button to clear the canvas)
+  -->
+
+  <div class="container">
+    <h1 class="container__header">
+      For the artist within you
+    </h1>
+
+    <canvas class="container__canvas">
+    </canvas>
+
+    <div class="container__colors">
+      <!-- detail a hue in a data attribute, to later retrieve the same value with JavaScript -->
+      <button data-hue="0" class="selection"></button>
+      <button data-hue="60"></button>
+      <button data-hue="120"></button>
+      <button data-hue="180"></button>
+      <button data-hue="240"></button>
+      <button data-hue="300"></button>
+    </div>
+
+
+    <div class="container__tools">
+      <button>Start Fresh</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
