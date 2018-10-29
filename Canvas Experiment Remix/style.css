@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Mali");
+/* root variables */
+:root {
+  --color-theme: tomato;
+  --color-bg: #fff;
+  --font: "Mali", cursive;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  color: var(--color-theme);
+  font-family: var(--font);
+  background: var(--color-bg);
+}
+.container {
+  /* display the header, nested elements one atop the other */
+  display: flex;
+  flex-direction: column;
+  /* horizontally centered */
+  align-items: center;
+  text-align: center;
+}
+.container__header {
+  margin: 1rem 0;
+}
+/* display the color buttons side by side and in a wrapping row */
+.container__colors {
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: centerx;
+  justify-content: center;
+}
+/* style the buttons as circles */
+.container__colors button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  margin: 1rem 1.25rem;
+  border-radius: 50%;
+  opacity: 0.7;
+  /* position relative to include a couple of drops of paint with pseudo elements */
+  /* pseudo elements attached to a class, included through JavaScript */
+  position: relative;
+  /* transition for the hover and active states */
+  transition: all 0.2s ease-out;
+}
+/* on hover set the element as fully opaque */
+.container__colors button:hover,
+.container__colors button:focus {
+  opacity: 1;
+}
+/* when active, scale them ever so slightly */
+.container__colors button:active {
+  transform: scale(1.1);
+}
+/* detail the color matching the data-hue attribute */
+.container__colors button:nth-of-type(1) {
+  background: hsl(0, 50%, 60%);
+}
+.container__colors button:nth-of-type(2) {
+  background: hsl(60, 50%, 60%);
+}
+.container__colors button:nth-of-type(3) {
+  background: hsl(120, 50%, 60%);
+}
+.container__colors button:nth-of-type(4) {
+  background: hsl(180, 50%, 60%);
+}
+.container__colors button:nth-of-type(5) {
+  background: hsl(240, 50%, 60%);
+}
+.container__colors button:nth-of-type(6) {
+  background: hsl(300, 50%, 60%);
+}
+/* include two drops of paint with pseudo elements
+with pseudo elements and attached to a class, as to display the drops for the selected color
+*/
+.container__colors button.selection:before {
+  position: absolute;
+  content: "";
+  left: 80%;
+  top: 100%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: inherit;
+}
+.container__colors button.selection:after {
+  position: absolute;
+  content: "";
+  left: 100%;
+  top: 70%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: inherit;
+}
+/* include a noticeable border around the canvas (the width and height are set in the JS script) */
+canvas {
+  border: 1rem solid var(--color-theme);
+}
+/*
+style the button to have a solid shadow as a border
+this to later transition the box-shadow property to show two overlapping borders
+*/
+.container__tools button {
+  background: none;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 1px var(--color-theme);
+  padding: 0.25rem 0.5rem;
+  margin: 1rem 0;
+  color: var(--color-theme);
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  /* transition for the hover and active states */
+  transition: all 0.25s ease-out;
+}
+/* on hover change the box shadow property to show two overlapping borders */
+.container__tools button:hover {
+  box-shadow: 0 0 0 2px var(--color-theme), 0 0 0 5px var(--color-bg),
+    0 0 0 8px var(--color-theme);
+}
+/* when active, scale the button ever so slightly */
+.container__tools button:active {
+  transform: scale(1.1);
+}
