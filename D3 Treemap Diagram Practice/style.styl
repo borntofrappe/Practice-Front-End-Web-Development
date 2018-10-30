@@ -1,0 +1,48 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans')
+
+// detail root variable(s)
+font = 'Open Sans', sans-serif
+font-header = 'Fredoka One', cursive
+color-text = #333
+color-bg = #fff
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    width 100%
+    min-height 100vh
+    font-family font
+    color color-text
+    // include a simple texture through a rotated rectangle (rotating it inside of the SVG crops out a noticeable part)
+    background url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' fill='none' stroke='green' stroke-width='2px' opacity='0.07' transform='rotate(45)'/></svg>"), color-bg
+    background-size 100px, 100%
+    background-position-y -50px, 0
+    background-repeat repeat, no-repeat
+
+h1
+    font-family font-header
+    font-size 2.5rem
+    letter-spacing 0.05rem
+
+p
+    line-height 2
+    font-size 1.1rem
+
+.container
+    // cap the width of the container and center it horizontally
+    max-width 600px
+    width 85vw
+    margin 1rem auto 0
+
+    #tooltip
+        background color-bg
+        padding 1rem
+        max-width 400px
+        border-radius 4px
+        box-shadow 0 1px 5px rgba(color-text, 0.5)
+        transition all 0.2s ease-out
+
