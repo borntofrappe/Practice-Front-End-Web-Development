@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' fill='none' stroke='green' stroke-width='2px' opacity='0.07' transform='rotate(45)'/></svg>"),
+    #fff;
+  background-size: 100px, 100%;
+  background-position-y: -50px, 0;
+  background-repeat: repeat, no-repeat;
+}
+h1,
+h2 {
+  font-family: "Fredoka One", cursive;
+}
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05rem;
+}
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+p {
+  line-height: 2;
+  font-size: 1.1rem;
+}
+.container {
+  max-width: 700px;
+  width: 85vw;
+  margin: 1rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(51, 51, 51, 0.25);
+  box-shadow: 0 1px 4px rgba(51, 51, 51, 0.25);
+  padding: 1rem;
+}
+.container div {
+  margin: 1rem 0;
+}
+.container div svg {
+  margin: 1rem 0;
+}
+.container #tooltip {
+  background: #fff;
+  padding: 1rem;
+  max-width: 400px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
+  box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
