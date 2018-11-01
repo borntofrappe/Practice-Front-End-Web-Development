@@ -196,3 +196,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Canvas Experiment Remix**](https://codepen.io/borntofrappe/pen/dgLBpR/)|Tinker with the canvas element while creating a simple drawing application. Now with brushes, now with color.|html, canvas, drawing|29th October 2018|
 |[**D3 Treemap Practice**](https://codepen.io/borntofrappe/pen/RezNOz/)|Practice with a hierarchical layout to visualize data regarding Kickstarter pledges.|d3, hierarchy, treemap|30th October 2018|
 |[**D3 Hierarchy Practice**](https://codepen.io/borntofrappe/pen/yRmOrK/)|Practice with a hierarchical layouts and improve the previous visualization.|d3, hierarchy, treemap, pack, legend|31st October 2018|
+|[**D3 Spider Plot**]()|Practice with D3 to visualize arbitrary data in a spider, or joy, plot.|d3, spider, object constancy|1st November 2018|
