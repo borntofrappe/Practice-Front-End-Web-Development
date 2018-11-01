@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Poor+Story|Open+Sans");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  color: #fa5b05;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 26.458 26.458'><g opacity='0.1' fill='%2366BBFF' stroke='%2366BBFF' transform='matrix(.75783 -.41498 .43753 .71877 -119.893 -172.752)'><path d='M29.659 264.329s-.73 8.154-8.662 4.208m8.662 8.366s-.73-8.155-8.662-4.209m-11.81-8.365s.73 8.154 8.661 4.208m-8.661 8.366s.73-8.155 8.661-4.209' fill='none' stroke-width='.211'/><path d='M17.009 256.746s-9.45 5.291-.756 11.717m5.517-11.717s9.448 5.291.755 11.717' fill='none' stroke-width='.265'/><path d='M17.009 283.122s-9.45-4.405-.756-9.755m5.517 9.755s9.448-4.405.755-9.755' fill='none' stroke-width='.241'/><circle r='4.158' cy='267.329' cx='19.466' paint-order='stroke fill markers'/><circle cx='19.56' cy='271.581' r='6.142' paint-order='stroke fill markers'/></g></svg>"),
+    #1c2845;
+  background-size: 100px, 100%;
+  background-position: -50px, 0;
+  background-repeat: repeat, no-repeat;
+}
+h1,
+h2 {
+  font-family: "Poor Story", cursive;
+}
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05rem;
+}
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+p {
+  line-height: 2;
+  font-size: 1.2rem;
+}
+.container {
+  max-width: 700px;
+  width: 85vw;
+  margin: 1rem auto;
+  background: #1c2845;
+  box-shadow: 0 1px 4px rgba(58, 83, 142, 0.25);
+  padding: 1rem;
+}
+.container svg {
+  margin: 1rem 0 0;
+}
+.container #tooltip {
+  background: #1c2845;
+  padding: 1rem;
+  max-width: 400px;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(250, 91, 5, 0.5);
+  transition: all 0.2s ease-out;
+}
