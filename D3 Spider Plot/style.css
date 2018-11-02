@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poor+Story|Open+Sans");
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -15,17 +16,12 @@ body {
   background-position: -50px, 0;
   background-repeat: repeat, no-repeat;
 }
-h1,
-h2 {
-  font-family: "Poor Story", cursive;
-}
 h1 {
+  font-family: "Poor Story", cursive;
   font-size: 2.5rem;
-  letter-spacing: 0.05rem;
-}
-h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  text-shadow: 1px 1px #1c2845, -1px 1px #1c2845, 1px -1px #1c2845,
+    -1px -1px #1c2845, 2px 2px #fa5b05, -2px 2px #fa5b05, 2px -2px #fa5b05,
+    -2px -2px #fa5b05;
 }
 p {
   line-height: 2;
@@ -36,6 +32,7 @@ p {
   width: 85vw;
   margin: 1rem auto;
   background: #1c2845;
+  -webkit-box-shadow: 0 1px 4px rgba(58, 83, 142, 0.25);
   box-shadow: 0 1px 4px rgba(58, 83, 142, 0.25);
   padding: 1rem;
 }
@@ -43,10 +40,20 @@ p {
   margin: 1rem 0 0;
 }
 .container #tooltip {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
   background: #1c2845;
   padding: 1rem;
   max-width: 400px;
   border-radius: 4px;
+  -webkit-box-shadow: 0 1px 5px rgba(250, 91, 5, 0.5);
   box-shadow: 0 1px 5px rgba(250, 91, 5, 0.5);
+  -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+}
+.container #tooltip p:nth-of-type(1) {
+  font-weight: bold;
+  border-bottom: 2px solid #fa5b05;
+  padding: 0 0.2rem;
 }

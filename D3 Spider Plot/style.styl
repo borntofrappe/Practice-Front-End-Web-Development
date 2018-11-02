@@ -23,14 +23,11 @@ body
     background-position -50px, 0
     background-repeat repeat, no-repeat
 
-h1, h2
-    font-family font-header
 h1
+    font-family font-header
     font-size 2.5rem
-    letter-spacing 0.05rem
-h2
-    text-transform uppercase
-    letter-spacing 0.1rem
+    text-shadow 1px 1px color-bg, -1px 1px color-bg, 1px -1px color-bg, -1px -1px color-bg, 2px 2px color-text, -2px 2px color-text, 2px -2px color-text, -2px -2px color-text
+
 p
     line-height 2
     font-size 1.2rem
@@ -47,11 +44,20 @@ p
     svg
         margin 1rem 0 0
 
+    // style the tooltip to show the first paragraph bolder and more relevant the the rest
     #tooltip
+        position absolute
+        pointer-events none
+        opacity 0
         background color-bg
         padding 1rem
         max-width 400px
         border-radius 4px
         box-shadow 0 1px 5px rgba(color-text, 0.5)
         transition all 0.2s ease-out
+
+        p:nth-of-type(1)
+            font-weight bold
+            border-bottom 2px solid color-text
+            padding 0 0.2rem
 
