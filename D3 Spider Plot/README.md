@@ -17,3 +17,7 @@ I am sure the approach is not the best way to plot a spider, or joy plot. I am a
 - retrieve the x and y coordinates of the circle points;
 
 - use a path or polygon element to connect all those coordinates.
+
+## Update
+
+The approach turned out to be the wrong solution. Retrieving the x and y coordinates of the rotated points returns the original coordinates, not the new ones. Turns out, "all" I needed was a bit of math. Including a couple of formulae (in the realm of trigonometry) it is possible to identify the specific points and later include circle and path elements as needed.
