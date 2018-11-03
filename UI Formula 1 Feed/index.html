@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Formula 1 Feed UI</title>
+  <meta name="description" content="Create the UI for the Formula one updates as proposed by the official website every race weekend." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="Icon.png"> -->
+
+</head>
+
+<body>
+  <!-- feed markup
+    main, nesting all updates
+    one div for each update, detailing through heading and text elements for different updates
+    ultimately and in the dashboard the div will be created through input element(s)
+  -->
+
+  <main class="feed">
+    <div class="feed__item feed__overview">
+      <h4>Overview</h4>
+      <ul>
+        <li>Round 19 of 21 takes place at the Autodromo Hermanos Rodriguez in Mexico</li>
+        <li>Verstappen wins ahead of Vettel and Raikkonen</li>
+        <li>Hamilton becomes world champion after finishing 4th</li>
+      </ul>
+    </div>
+
+    <div class="feed__item">
+      <h2>Race day</h2>
+      <h3>12:40</h3>
+      <p>Hello and welcome to live coverage from the Mexican Grand Prix...</p>
+    </div>
+
+    <div class="feed__item">
+      <p>We are here at the Autodromo Hermanos Rodriguez for Round 19 of the 2018 championship. Today could see Lewis
+        Hamilton wrap up the title - starting third, one place ahead of Sebastian Vettel, the odds are in his favour...</p>
+    </div>
+
+    <div class="feed__item feed__mercedes">
+      <p>Of course, Hamilton wrapped up his fourth world title at this race last year. Will history repeat itself? If
+        it does, he will be just the third five-time world champion, after Juan Manuel Fangio and Michael Schumacher...</p>
+    </div>
+
+  </main>
+
+  <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
