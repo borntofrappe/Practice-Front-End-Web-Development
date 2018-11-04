@@ -3,7 +3,8 @@
 include the data, in the form of three variables
 - riders, an array describing an object for each rider, its name and position in the races
 - races, an array of strings describing the circuits
-- points, an array of integer describing the number of points according to position (starting with 0 for the 0-th index)
+- points, an array of integer describing the number of points according to position
+(starting with 0 for the 0-th index)
 */
 const riders = [
   {
@@ -101,13 +102,20 @@ const select = container
 // for each rider (found in the riders array) add an option to the select element
 // sort the riders alphabetically
 const ridersSorted = riders.sort((a, b) => ((a.name[0] > b.name[0]) ? 1 : -1));
-for (rider of ridersSorted) {
+for (const rider of ridersSorted) {
   select
     .append('option')
     // each option has a value equal to the name of the rider
     .attr('value', rider.name)
     .text(rider.name);
 }
+
+// add an empty heading in which to display the total number of points
+// keep a reference to the span in which to detail the actual number
+const riderPoints = container
+  .append('h2')
+  .text('Points:')
+  .append('span');
 
 // SVG FRAME
 const margin = {
@@ -169,13 +177,25 @@ containerFrame
 function drawPlot(riderName) {
   // find the instance in the riders array matching the selected name
   const riderSelection = riders.find(rider => rider.name === riderName);
+  const riderPosition = riderSelection.position;
+  // compute the number of points for the rider
+  let total = 0;
+  for (const position of riderPosition) {
+    if (position < points.length) {
+      total += points[position];
+    }
+  }
+
+  // detail the number of points in the span element
+  riderPoints
+    .text(total);
 
   // create the update selection
   // selection of existing rectangles, to which the data is bound
   const update = containerFrame
     .selectAll('rect')
     // include for the data the position assumed by the rider in each circuit
-    .data(riderSelection.position, (d, i) => i);
+    .data(riderPosition, (d, i) => i);
 
   // create the enter selection, for those rectangle elements to be added to fit the data
   const enter = update
@@ -220,7 +240,7 @@ function drawPlot(riderName) {
 // call the function for the first rider
 drawPlot(ridersSorted[0].name);
 
-// attach a listener for the input event on the select element as to call the function with the new rider's name
+// attach a listener on the select element as to call the function with the new rider's name
 select
   .on('change', () => {
     const name = d3.event.target.value;
