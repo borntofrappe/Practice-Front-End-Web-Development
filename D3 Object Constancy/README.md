@@ -1,6 +1,6 @@
 # D3 Object Constancy
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/wQBgJM/).
 
 ## Preface
 

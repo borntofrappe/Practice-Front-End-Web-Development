@@ -198,3 +198,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**D3 Hierarchy Practice**](https://codepen.io/borntofrappe/pen/yRmOrK/)|Practice with a hierarchical layouts and improve the previous visualization.|d3, hierarchy, treemap, pack, legend|31st October 2018|
 |[**D3 Spider Plot**](https://codepen.io/borntofrappe/pen/MzWwRv)|Practice with D3 to visualize arbitrary data in a spider, or joy, plot.|d3, spider, halloween|1st-2nd November 2018|
 |[**UI Formula 1 Feed**](https://codepen.io/borntofrappe/pen/yQLRNL)|Create the UI for the Formula one updates as proposed by the official website every race weekend.|ui, f1|3rd November 2018|
+|[**D3 MotoGP Rankings**](https://codepen.io/borntofrappe/pen/wQBgJM)|Practice with the concept of object constancy to display the number of points for multiple MotoGP riders.|d3, bar plot, object constancy|4th November 2018|
