@@ -1,0 +1,15 @@
+/*  display the main and section elements side by side */
+.App {
+  display: flex;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+/*
+on smaller viewports display the main and section elements on top of one another */
+@media (max-width: 600px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+  }
+}

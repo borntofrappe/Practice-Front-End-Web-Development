@@ -1,0 +1,15 @@
+/* lay the buttons one on top of the other */
+.AppSupport {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* on smaller viewports display the buttons in a centered row */
+@media (max-width: 600px) {
+  .AppSupport {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

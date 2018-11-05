@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Nova+Mono|Open+Sans");
+
+/*
+define variables used in the project
+a pair of colors are chosen for each theme
+*/
+:root {
+  --color-bg-dark: #4d1894;
+  --color-bg-darker: #21046c;
+  --color-bg-light: #5181db;
+  --color-bg-lighter: #71a0f6;
+
+  --font-header: "Nova Mono", monospace;
+  --font-text: "Open Sans", sans-serif;
+  --color-text: #fff;
+  --color-card: var(--color-text);
+  --color-bg-start: var(--color-bg-dark);
+  --color-bg-end: var(--color-bg-darker);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-text);
+  color: var(--color-text);
+  background: linear-gradient(var(--color-bg-start), var(--color-bg-end));
+}

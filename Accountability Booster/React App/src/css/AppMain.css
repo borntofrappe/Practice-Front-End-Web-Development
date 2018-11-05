@@ -1,0 +1,7 @@
+/* display the header/textarea/button on top of one another */
+.AppMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
