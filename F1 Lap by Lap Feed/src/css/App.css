@@ -1,0 +1,24 @@
+.App {
+  max-width: 700px;
+  width: 90vw;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+.App:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 5vw;
+  max-width: 30px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fff 0px,
+    #fff 10px,
+    rgba(51, 51, 51, 0.2) 10px,
+    rgba(51, 51, 51, 0.2) 11px,
+    #fff 12px
+  );
+}
