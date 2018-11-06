@@ -1,6 +1,6 @@
 {
-  "short_name": "Formula One Lap by Lap Feed",
-  "name": "Re-create the feed as proposed by the F1 website every race weekend.",
+  "short_name": "F1 Lap by Lap",
+  "name": "Re-create the feed as proposed by the F1 website every race weekend, to describe the circuit and the unfolding of the event.",
   "icons": [
     {
       "src": "favicon.ico",
