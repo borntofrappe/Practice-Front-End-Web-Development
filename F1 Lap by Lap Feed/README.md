@@ -1,6 +1,6 @@
 # F1 Lap by Lap Feed
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/MzaEjL/).
 
 ## Preface
 
@@ -39,3 +39,7 @@ handleInput(e) {
 This way the `input` element in which the user types, and only this `input` element, will be updated with the specified text.
 
 Once the application is working, is a simple matter of modernizing the look with the desired property value pairs.
+
+## Second Update
+
+For the style of the application, I benefited plenty from `styled-components`. The end result, also found on Codepen on the link referenced above, is a rather neat display of a simple dashboard. I still believe much can be improved, from documenting the code base a little better (plenty was coded in the spur of the moment), to adding new features such as icons for the teams. The style can also be improved, perhaps with an unobtrusive texture in the background. Something to think about.
