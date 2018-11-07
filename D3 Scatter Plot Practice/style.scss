@@ -1,0 +1,61 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+// detail root variable(s)
+$font: "Open Sans", sans-serif;
+$color-card: #f9fafa;
+$color-bg: #3b3d43;
+$color-text: $color-bg;
+$color-accent: #8adee0;
+$color-accent: #ed5f66;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: $font;
+  color: $color-text;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g opacity='0.4' fill='none' stroke='%23ed5f66' stroke-width='4px'><circle cx='50' cy='50' r='20'/></g></svg>")
+    $color-bg;
+  background-position: -25px, 0;
+}
+
+// center the container horizontally
+.container {
+  margin: 1rem auto;
+  max-width: 700px;
+  width: 90vw;
+  background: $color-card;
+  padding: 1rem;
+  line-height: 1.5;
+
+  #tooltip {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px #33333366;
+    font-size: 1;
+    padding: 0.5rem 0.75rem;
+
+    strong {
+      color: $color-accent;
+    }
+  }
+
+  svg {
+    margin: 2rem 0 1rem;
+    text {
+      font-family: inherit;
+      font-size: 0.8rem;
+    }
+    .axis text {
+      font-size: 0.6rem;
+    }
+  }
+}
