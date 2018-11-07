@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   width: 100%;
   font-family: "Open Sans", sans-serif;
   color: #3b3d43;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g opacity='0.4' fill='none' stroke='%23ed5f66' stroke-width='4px'><circle cx='50' cy='50' r='20'/></g></svg>") #3b3d43;
-  background-position: -25px, 0; }
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g opacity='0.4' fill='none' stroke='%23ed5f66' stroke-width='4px'><circle cx='50' cy='50' r='20'/></g></svg>")
+    #3b3d43;
+  background-position: -25px, 0;
+}
 
 .container {
   margin: 1rem auto;
@@ -17,22 +21,35 @@ body {
   width: 90vw;
   background: #f9fafa;
   padding: 1rem;
-  line-height: 1.5; }
-  .container #tooltip {
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px #33333366;
-    font-size: 1;
-    padding: 0.5rem 0.75rem; }
-    .container #tooltip strong {
-      color: #ed5f66; }
-  .container svg {
-    margin: 2rem 0 1rem; }
-    .container svg text {
-      font-family: inherit;
-      font-size: 0.8rem; }
-    .container svg .axis text {
-      font-size: 0.6rem; }
+  line-height: 1.5;
+}
+.container h1 {
+  font-weight: 300;
+  border-left: 0.5rem solid #3b3d43;
+  padding-left: 0.5rem;
+  display: inline-block;
+}
+.container #tooltip {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 4px #33333366;
+  box-shadow: 0 1px 4px #33333366;
+  font-size: 1;
+  padding: 0.5rem 0.75rem;
+}
+.container #tooltip strong {
+  color: #ed5f66;
+}
+.container svg {
+  margin: 2rem 0 1rem;
+}
+.container svg text {
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+.container svg .axis text {
+  font-size: 0.6rem;
+}
