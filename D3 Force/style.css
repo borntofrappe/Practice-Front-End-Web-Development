@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Prompt:600");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #fefefe;
+  background-color: #ffbc00;
+}
+
+.container {
+  max-width: 700px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #111;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 5px rgba(17, 17, 17, 0.2);
+  box-shadow: 0 1px 5px rgba(17, 17, 17, 0.2);
+  line-height: 1.5;
+}
+.container #tooltip {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  background: #fefefe;
+  border-radius: 4px;
+  padding: 1rem;
+  color: #111;
+  -webkit-box-shadow: 0 1px 5px rgba(17, 17, 17, 0.5);
+  box-shadow: 0 1px 5px rgba(17, 17, 17, 0.5);
+}
+.container #tooltip strong {
+  border-bottom: 2px dashed #805e00;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "Prompt", sans-serif;
+  letter-spacing: 0.1rem;
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+}
