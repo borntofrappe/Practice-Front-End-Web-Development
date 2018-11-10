@@ -1,0 +1,64 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Josefin+Sans:600");
+
+// detail root variable(s)
+$font: "Open Sans", sans-serif;
+$font-header: "Josefin Sans", sans-serif;
+$color-bg: #313131;
+$color-container: #313131;
+$color-text: #fff;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font;
+  color: $color-text;
+  background: radial-gradient(lighten($color-bg, 50%), $color-bg 110%);
+}
+// cap the width of the single container and center it horizontally
+.container {
+  max-width: 700px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: $color-container;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba($color-container, 0.2);
+  line-height: 1.5;
+
+  // describe the tooltip as an absolute positioned element
+  // hidden by default, and without pointer events
+  #tooltip {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    background: $color-text;
+    border-radius: 4px;
+    padding: 1rem;
+    color: $color-container;
+    box-shadow: 0 1px 5px rgba($color-container, 0.5);
+    max-width: 300px;
+    border-left: 4px inset darken($color-bg, 25%);
+
+    p:nth-of-type(1) {
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+h1 {
+  font-family: $font-header;
+  letter-spacing: 0.1rem;
+  font-size: 2.5rem;
+}
+p {
+  font-size: 1.1rem;
+}
