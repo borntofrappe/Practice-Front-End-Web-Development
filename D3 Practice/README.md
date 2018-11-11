@@ -1,6 +1,6 @@
 # D3 Practice
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/YRGGWY/).
 
 ## Preface
 
