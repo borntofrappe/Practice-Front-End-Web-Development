@@ -1,6 +1,6 @@
 # D3 Practice
 
-Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/full/YRGGWY/).
+Link to the work-in-progress cpllection right [here](https://codepen.io/collection/XeWPww/).
 
 ## Preface
 
@@ -10,13 +10,33 @@ Perhaps better labeled as D3 phamplet. With this at least two-days effort I plan
 
 The larger application is made up of multiple visualizations. To cope with each one of them, they are developed separately and found separately in the following folders:
 
-- Line Chart Time Series. A line chart making use of a time scale and showcasing the price of gasoline and diesel over the years.
+- [Line Chart Time Series](https://codepen.io/borntofrappe/full/MzjOEZ). A line chart making use of a time scale and showcasing the price of gasoline and diesel over the years.
 
-- Stacked Column Chart. Two columns describing the proportion of the change in price due to taxes.
+- [Stacked Column Chart](https://codepen.io/borntofrappe/full/RqGeQX). Two columns describing the proportion of the change in price due to taxes.
+
+- [Side by Side Column Chart](https://codepen.io/borntofrappe/full/YRGRQq/). Multiple columns displaying the rise in taxes since 2013.
 
 ## Development notes
 
 A few thoughts jotted down while developing the application.
+
+### Update 12/11
+
+Barring unforseen circumstances, I am on the path of completing every separate visualizations, pretty rapidbly. To further motivate development, here's a short list of what is left:
+
+- a line chart detailing the price of barrel oil;
+
+- a single stacked bar to describe the componsition of the price of fuel;
+
+- an inordinate amount of stacked columns for the percentage of taxes and other costs in the price of gasoline and diesel;
+
+- simple bars displaying information of how taxes are distributed;
+
+- something similar to a heatmap detailing the contribution of automobiles and heavy weight vehicles to carbon emissions;
+
+- a bar plot detailing the price of gasoline across countries.
+
+Mostly, it is a matter of applying the concept already applied with the three visualizations, but with different colors/specifics.
 
 ### Update 11/11
 
