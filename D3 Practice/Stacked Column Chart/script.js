@@ -49,7 +49,7 @@ containerMessage
 
 containerMessage
   .append('p')
-  .text('Roughly a third of the price rise is due to an increase in taxes.');
+  .text('Roughly a third of the change in price is due to an increase in taxes.');
 
 // SVG FRAME
 const margin = {
@@ -71,7 +71,6 @@ const containerFrame = container
 // for the horizontal scale a band scale, two simply plot the two stacked column side by side
 const xScale = d3
   .scaleBand()
-  // month is here an integer between 1 and 12
   .domain(d3.range(2))
   .range([0, width]);
 
@@ -79,7 +78,7 @@ const xScale = d3
 const yScale = d3
   .scaleLinear()
   .domain([0, 100])
-  .range([height, 0]);
+  .range([0, height]);
 
 // on the horizontal axis hide the ticks labels
 // ! the vertical axis is not used
@@ -95,6 +94,7 @@ containerFrame
   .call(xAxis);
 
 // add text labels _below_ the x axis
+// for gasoline
 containerFrame
   .append('text')
   .text('Gasoline')
@@ -110,6 +110,7 @@ containerFrame
   .attr('text-anchor', 'middle')
   .attr('y', height + margin.bottom);
 
+// for diesel
 containerFrame
   .append('text')
   .text('Diesel')
@@ -134,13 +135,13 @@ it is applied on an array detailing one observation per type, such as
 [
   { taxes: 37, others: 63 }
 ]
-it is clearly through for more complex datasets
+it is clearly thought for more complex datasets
 */
 const stack = d3
   .stack()
   .keys(['others', 'taxes']);
 
-// loop through the array of values and add rectangles for each stacked array
+// loop through the array of values and add elements for each stacked array
 for (let i = 0; i < priceRise.length; i += 1) {
   // make an array out of the single objects contained in the array
   const priceArray = [priceRise[i]];
@@ -165,7 +166,7 @@ for (let i = 0; i < priceRise.length; i += 1) {
         .style('left', `${d3.event.pageX}px`)
         .style('top', `${d3.event.pageY}px`);
     })
-    .on('mouseout', (d) => {
+    .on('mouseout', () => {
       tooltip
         .style('opacity', 0)
         .selectAll('p')
@@ -179,42 +180,55 @@ for (let i = 0; i < priceRise.length; i += 1) {
     .attr('x', xScale(i) + xScale.bandwidth() / 4)
     .attr('width', xScale.bandwidth() / 2)
     // d[0] provides in the first two items the starting and ending point
-    // cognizant of the fact that 0 is mapped to height and 100 to 0
-    // d[0][1] - d[0][0] gives the height
-    .attr('y', d => yScale(d[0][1]))
-    .attr('height', d => height - yScale(d[0][1] - d[0][0]))
+    .attr('y', d => height - yScale(d[0][1]))
+    .attr('height', d => yScale(d[0][1] - d[0][0]))
     .attr('fill', colors[priceRise[i].type])
-    // reduce the opacity of each second rectangle
+    // reduce the opacity of each second rectangle, the one showing other costs
     .attr('opacity', (d, index) => (index === 1 ? 0.8 : 0.2));
 
   // for each group add also a path and a text label to highlight the opaque section
   containerGroups
     .append('path')
     .attr('d', (d) => {
+      // detail the d attribute based on whether the path refers to gasoline or diesel
+      // path element drawing a a tab to the left and to the right alternatively
+      const tabWidth = xScale.bandwidth() / 10;
+      const tabHeight = yScale(d[0][1] - d[0][0]);
+      const tabOriginY = height - yScale(d[0][1]);
       if (i === 0) {
-        return `M ${xScale(i) + xScale.bandwidth() / 5} ${yScale(d[0][0])} h ${-xScale.bandwidth() / 10} v ${yScale(d[0][1] - d[0][0]) - height} h ${xScale.bandwidth() / 10}`;
+        return `M ${xScale(i) + tabWidth * 2} ${tabOriginY} h ${-tabWidth} v ${tabHeight} h ${tabWidth}`;
       }
 
-      return `M ${width - xScale.bandwidth() / 5} ${yScale(d[0][0])} h ${xScale.bandwidth() / 10} v ${yScale(d[0][1] - d[0][0]) - height} h ${-xScale.bandwidth() / 10}`;
+      return `M ${width - tabWidth * 2} ${tabOriginY} h ${tabWidth} v ${tabHeight} h ${-tabWidth}`;
     })
     .attr('fill', 'none')
-    .attr('stroke', '#777')
-    .attr('stroke-width', '2px')
+    .attr('stroke', '#555')
+    .attr('stroke-width', '1px')
     .attr('opacity', (d, index) => (index === 1 ? 1 : 0));
 
-  // console.log(stack(priceArray)[0].key)
+  // add a text element next to each "tab"
   containerGroups
     .append('text')
-    .text(d => `${d.key}: ${d[0].data.taxes}%`)
-    .attr('x', (d) => {
-      if (i === 0) {
-        return xScale(i);
-      }
-      return width;
-    })
+    .text(d => `${d.key}: ${d[0].data[d.key]}%`)
+    .attr('x', () => ((i === 0) ? xScale(i) : width))
     .attr('text-anchor', 'middle')
-    .attr('y', d => yScale(d[0][1]) + yScale(d[0][0]) / 2)
+    // vertically centered at half the width of each rectangle
+    .attr('y', d => height - yScale(d[0][0]) - yScale(d[0][1] - d[0][0]) / 2)
     .style('writing-mode', 'vertical-rl')
     .style('text-transform', 'capitalize')
     .attr('opacity', (d, index) => (index === 1 ? 1 : 0));
 }
+
+
+/* to show others instead of taxes simply change the order of the keys function
+from this: :
+const stack = d3
+  .stack()
+  .keys(['others', 'taxes']);
+
+const stack = d3
+  .stack()
+  .keys(['taxes', 'others']);
+
+the second type will be shown
+*/
