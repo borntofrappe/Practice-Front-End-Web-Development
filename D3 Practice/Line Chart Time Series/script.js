@@ -1,6 +1,6 @@
 /* globals d3 */
 /*
-create a line chart using
+create a line chart using priceCarburant
 , detailing the price of diesel and gasoline from may 2017 to october 2018, with a monthly cadence
 */
 

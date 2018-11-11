@@ -12,6 +12,8 @@ The larger application is made up of multiple visualizations. To cope with each 
 
 - Line Chart Time Series. A line chart making use of a time scale and showcasing the price of gasoline and diesel over the years.
 
+- Stacked Column Chart. Two columns describing the proportion of the change in price due to taxes.
+
 ## Development notes
 
 A few thoughts jotted down while developing the application.
