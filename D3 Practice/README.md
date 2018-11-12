@@ -1,22 +1,22 @@
-# D3 Practice
+# Infograph: Taxes on gasoline and diesel
 
-Link to the work-in-progress cpllection right [here](https://codepen.io/collection/XeWPww/).
+Link to the work-in-progress collection right [here](https://codepen.io/collection/XeWPww/). Visualizations are being created separately to better understand each uniqueness and later merge them in a single comprehensive infograph on the subject-
 
 ## Preface
 
-Perhaps better labeled as D3 phamplet. With this at least two-days effort I plan to recreate [this visualization @lemondefr](https://www.lemonde.fr/les-decodeurs/article/2018/11/09/petit-manuel-a-lire-avant-de-debattre-de-la-hausse-des-prix-du-carburant_5381196_4355770.html). This allows me to practice with D3 as a whole, and trying to build a more complex visualizations. Good practice with D3 and as it turns out, SVG as well.
+The purpose of this rather intensive effort is the recreation of a visualization proposed by the French newspaper @lemondefr in its 'Decodeurs' feature, and available [right here](https://www.lemonde.fr/les-decodeurs/article/2018/11/09/petit-manuel-a-lire-avant-de-debattre-de-la-hausse-des-prix-du-carburant_5381196_4355770.html). It is actually a small manual centered around the recent increase in taxes on gasoline and diesel, providing multiple visualizations in a single phamphlet.
 
 ## Project Structure
 
-The larger application is made up of multiple visualizations. To cope with each one of them, they are developed separately and found separately in the following folders:
+The larger application is made up of multiple visualizations. To cope with this complexity, the visualizations are developed separately, available in different folders of this repository and live on codepen, as follows:
 
-- [Line Chart Time Series](https://codepen.io/borntofrappe/full/MzjOEZ). A line chart making use of a time scale and showcasing the price of gasoline and diesel over the years.
+- [Line Chart Time Series](https://codepen.io/borntofrappe/full/MzjOEZ). Visualization describing the price of diesel and gasoline from May 2017 to October 2018.
 
-- [Stacked Column Chart](https://codepen.io/borntofrappe/full/RqGeQX). Two columns describing the proportion of the change in price due to taxes.
+- [Stacked Column Chart](https://codepen.io/borntofrappe/full/RqGeQX). Visualization describing how much of the rise in price is due to taxes, and how much is due to other costs.
 
-- [Side by Side Column Chart](https://codepen.io/borntofrappe/full/YRGRQq/). Multiple columns displaying the rise in taxes since 2013.
+- [Side by Side Column Chart](https://codepen.io/borntofrappe/full/YRGRQq/). Visualization describing the increase of taxes since 2013 and on an early basis. Showing for each year two columns side by side.
 
-- [Single Line Chart Time Series](https://codepen.io/borntofrappe/full/jQVmMW/). A line chart for the price of a barrel of oil. In dollars and potentially in euros by swapping a couple of values.
+- [Single Line Chart Time Series](https://codepen.io/borntofrappe/full/jQVmMW/). Visualization describing the evolution of price of oil, considering the price of a barrel of brent.
 
 ## Development notes
 
@@ -28,7 +28,7 @@ Barring unforseen circumstances, I am on the path of completing every separate v
 
 - [x] a line chart detailing the price of barrel oil;
 
-- a single stacked bar to describe the componsition of the price of fuel;
+- [x] a single stacked bar to describe the componsition of the price of fuel;
 
 - an inordinate amount of stacked columns for the percentage of taxes and other costs in the price of gasoline and diesel;
 
