@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Josefin+Sans:600");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  background: #fff;
+}
+
+.container {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1rem auto 0;
+  padding: 1rem;
+  line-height: 1.5;
+  background: #fff;
+  border-top: 4px solid #fb5100;
+  box-shadow: 0 1px 0 1px rgba(51, 51, 51, 0.3);
+}
+.container .message {
+  text-align: center;
+}
+.container .message p {
+  margin: 0.5rem 0 1rem;
+}
+.container .message h4 {
+  background: #fb5100;
+  padding: 0.3rem 0.6rem;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0.7rem 0 1rem;
+}
+.container #tooltip {
+  text-align: initial;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  background: #fff;
+  border-radius: 4px;
+  padding: 1rem;
+  box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
+}
+.container #tooltip p:nth-of-type(1) {
+  margin: 0.5rem 0;
+}
+.container .axis text {
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: #737373;
+}
