@@ -18,6 +18,8 @@ The larger application is made up of multiple visualizations. To cope with this 
 
 - [Single Line Chart Time Series](https://codepen.io/borntofrappe/full/jQVmMW/). Visualization describing the evolution of price of oil, considering the price of a barrel of brent.
 
+- [Stacked Bars and Simple Heatmap](https://codepen.io/borntofrappe/full/XyNoJv/). Visualizations describing the components of the price of gasoline, how taxes are distributed and how much vehicles contribute to gas emissions.
+
 ## Development notes
 
 A few thoughts jotted down while developing the application.
@@ -32,9 +34,9 @@ Barring unforseen circumstances, I am on the path of completing every separate v
 
 - an inordinate amount of stacked columns for the percentage of taxes and other costs in the price of gasoline and diesel;
 
-- simple bars displaying information of how taxes are distributed;
+- [x] simple bars displaying information of how taxes are distributed;
 
-- something similar to a heatmap detailing the contribution of automobiles and heavy weight vehicles to carbon emissions;
+- [x] something similar to a heatmap detailing the contribution of automobiles and heavy weight vehicles to carbon emissions;
 
 - a bar plot detailing the price of gasoline across countries.
 
