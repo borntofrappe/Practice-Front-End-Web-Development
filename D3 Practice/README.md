@@ -16,6 +16,8 @@ The larger application is made up of multiple visualizations. To cope with each 
 
 - [Side by Side Column Chart](https://codepen.io/borntofrappe/full/YRGRQq/). Multiple columns displaying the rise in taxes since 2013.
 
+- [Single Line Chart Time Series](https://codepen.io/borntofrappe/full/jQVmMW/). A line chart for the price of a barrel of oil. In dollars and potentially in euros by swapping a couple of values.
+
 ## Development notes
 
 A few thoughts jotted down while developing the application.
@@ -24,7 +26,7 @@ A few thoughts jotted down while developing the application.
 
 Barring unforseen circumstances, I am on the path of completing every separate visualizations, pretty rapidbly. To further motivate development, here's a short list of what is left:
 
-- a line chart detailing the price of barrel oil;
+- [x] a line chart detailing the price of barrel oil;
 
 - a single stacked bar to describe the componsition of the price of fuel;
 
