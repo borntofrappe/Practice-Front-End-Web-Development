@@ -55,4 +55,13 @@ body {
       margin: 0.5rem 0;
     }
   }
+  .axis text {
+    font-size: 0.8rem;
+    font-family: inherit;
+    color: lighten($color-text, 25%);
+  }
+  .axis path,
+  .axis line {
+    stroke: lighten($color-text, 50%);
+  }
 }
