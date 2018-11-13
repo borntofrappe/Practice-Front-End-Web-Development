@@ -28,6 +28,12 @@ The larger application is made up of multiple visualizations. To cope with this 
 
 A few thoughts jotted down while developing the application.
 
+### Update 13/11
+
+With all the visualizations completed, it is a matter of crafting the infograph as a whole. In the development I discovered better and better ways to craft the visualizations, to the point that even the first couple of folders in this very project contain D3 logic I consider rather hack-y.
+
+With repetition comes improvement and demand for additional improvements. There are incidentally many lines of code repeating each other over and over. With this in mind, and perhaps for future projects with D3, it might be best to actually craft a function, a re-usable chunk of code which accepts a few parameters, among which the data, and spits out a fitting visualization.
+
 ### Update 12/11
 
 Barring unforseen circumstances, I am on the path of completing every separate visualizations, pretty rapidbly. To further motivate development, here's a short list of what is left:
@@ -36,13 +42,13 @@ Barring unforseen circumstances, I am on the path of completing every separate v
 
 - [x] a single stacked bar to describe the componsition of the price of fuel;
 
-- an inordinate amount of stacked columns for the percentage of taxes and other costs in the price of gasoline and diesel;
+- [x] an inordinate amount of stacked columns for the percentage of taxes and other costs in the price of gasoline and diesel;
 
 - [x] simple bars displaying information of how taxes are distributed;
 
 - [x] something similar to a heatmap detailing the contribution of automobiles and heavy weight vehicles to carbon emissions;
 
-- a bar plot detailing the price of gasoline across countries.
+- [x] a bar plot detailing the price of gasoline across countries.
 
 Mostly, it is a matter of applying the concept already applied with the three visualizations, but with different colors/specifics.
 
