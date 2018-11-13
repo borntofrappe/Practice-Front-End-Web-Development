@@ -20,9 +20,9 @@ The larger application is made up of multiple visualizations. To cope with this 
 
 - [Stacked Bars and Simple Heatmap](https://codepen.io/borntofrappe/full/XyNoJv/). Visualizations describing the components of the price of gasoline, how taxes are distributed and how much vehicles contribute to gas emissions.
 
-<!-- - Stacked Column Charts. Visualizations describing the portion of gasoline, or diesel, price devoted to taxes and the portion to other costs. -->
+- [Stacked Column Charts](https://codepen.io/borntofrappe/full/GwrLgr/). Visualizations describing the portion of gasoline, or diesel, price devoted to taxes and the portion to other costs.
 
-<!-- - Bar Plot Countries. Visualizations describing the price of gasoline (detailing taxes and other costs) for a selection of countries. -->
+- [Stacked Bar Plot](https://codepen.io/borntofrappe/full/BGpEow/). Visualizations describing the price of gasoline (detailing taxes and other costs) for a selection of countries.
 
 ## Development notes
 
