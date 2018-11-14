@@ -26,6 +26,16 @@ The larger application is made up of multiple visualizations. To cope with this 
 
 - [Stacked Bar Plot](https://codepen.io/borntofrappe/full/BGpEow/). Visualizations describing the price of gasoline (detailing taxes and other costs) for a selection of countries.
 
+## Pending Issues:
+
+- the connecting line on the shorter section ought to elongate itself until the end of the longer section;
+
+- spacing could be improved for headings and paragraphs. The stylesheet could use for a few global property value pairs, as to maintain consistency throughout the application;
+
+- the vertical axes for the line charts could use an additional character (in \$ and €), but it is debatable;
+
+- the stacked bar currently doesn't have a tooltip, so nothing occurs on hover. This might be changed, but the labels already detail quite the picture.
+
 ## Development notes
 
 A few thoughts jotted down while developing the application.
@@ -33,6 +43,8 @@ A few thoughts jotted down while developing the application.
 ### Update 14/11
 
 Honestly, I thought I'd be done by Wednesday, but I still have a long way to go to finish the visualization. As I reminder, the visualization I am trying to emulate is [this one](https://www.lemonde.fr/les-decodeurs/article/2018/11/09/petit-manuel-a-lire-avant-de-debattre-de-la-hausse-des-prix-du-carburant_5381196_4355770.html) and what is left is mostly text. Just a couple of visualizations benefiting from data binding.
+
+Decided to add a section on pending issues. The application is in dire need of optimization, but here I will include annoynances I have around the current state of things.
 
 ### Update 13/11
 
