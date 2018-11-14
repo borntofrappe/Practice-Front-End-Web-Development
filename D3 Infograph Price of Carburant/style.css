@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Josefin+Sans:600");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  background: #fff; }
+
+.container {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  line-height: 1.5;
+  background: #fff;
+  border-top: 4px solid #fb5100;
+  box-shadow: 0 1px 0 1px rgba(51, 51, 51, 0.3); }
+  .container .visualization {
+    margin: 1rem 0; }
+    .container .visualization .message {
+      text-align: center;
+      margin-bottom: 1rem; }
+    .container .visualization .detail {
+      padding-left: 2rem;
+      line-height: 2;
+      margin: 1rem 0; }
+  .container .connecting {
+    margin: 1rem 0; }
+  .container .intermittent {
+    margin: 1rem 0;
+    text-align: center; }
+  .container .fork {
+    display: flex;
+    justify-content: center; }
+    .container .fork div {
+      text-align: center;
+      width: 0;
+      flex-grow: 1; }
+  .container h4 {
+    color: #fff;
+    background: #fb5100;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 0.7rem 0 1rem; }
+  .container #tooltip {
+    text-align: initial;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    background: #fff;
+    border-radius: 4px;
+    padding: 1rem;
+    box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5); }
+    .container #tooltip p:nth-of-type(1) {
+      margin: 0.5rem 0; }
+    .container #tooltip p.diesel,
+    .container #tooltip p.gasoline {
+      position: relative;
+      padding-left: 0.25rem; }
+      .container #tooltip p.diesel:before,
+      .container #tooltip p.gasoline:before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        width: 7px;
+        height: 7px;
+        border-radius: 50%; }
+    .container #tooltip p.diesel:before {
+      background: #2b70b4; }
+    .container #tooltip p.gasoline:before {
+      background: #8cb999; }
+  .container .axis path,
+  .container .axis line {
+    stroke: #33333355;
+    stroke-width: 1px; }
+  .container .axis text {
+    font-family: inherit;
+    fill: #777;
+    font-size: 0.7rem; }
