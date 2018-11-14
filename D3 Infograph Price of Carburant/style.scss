@@ -6,6 +6,7 @@ $font: "Open Sans", sans-serif;
 $color-bg: #fff;
 $color-container: #fff;
 $color-text: #333;
+$color-axes: #333333;
 $color-accent: #fb5100;
 $color-diesel: #2b70b4;
 $color-gasoline: #8cb999;
@@ -24,7 +25,7 @@ body {
 }
 // cap the container's width and center it horizontally
 .container {
-  max-width: 600px;
+  max-width: 650px;
   width: 90vw;
   margin: 1rem auto;
   padding: 1rem;
@@ -32,112 +33,165 @@ body {
   background: $color-container;
   border-top: 4px solid $color-accent;
   box-shadow: 0 1px 0 1px rgba($color-text, 0.3);
+}
 
-  // the larget container will nest
-  // 1. a container used to nest each visualization
-  .visualization {
-    margin: 1rem 0;
+// in separate each visualization vertically and position the nested items in a single row
+.visualization {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  // horizontally centered
+  align-items: center;
+  line-height: 2;
 
-    // in the .visualization container the following elements are specified
-    // 1. a container centering the message and increasing the whitespace around the nested paragraphs
-    .message {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    // 1. unordered list adding whitespace around the bullet points
-    // increase white space around and inside the container for the unordered list
-    .detail {
-      padding-left: 2rem;
-      line-height: 2;
-      margin: 1rem 0;
-    }
-  }
-
-  // 1. an svg element to simply connect the visualizations
-  .connecting {
-    margin: 1rem 0;
-  }
-  // 1 a utility container for those headings appearing on their own to connect other elements
-  .intermittent {
-    margin: 1rem 0;
+  // in the visualization a container is used to center the central message
+  .message {
     text-align: center;
+    max-width: 400px;
   }
 
-  // 1. a container to divide the nested content as to occupy half the width (for parallel sections)
-  .fork {
-    display: flex;
-    justify-content: center;
-
-    div {
-      text-align: center;
-      // width 0 to truly have each nested item take a portion of the container
-      width: 0;
-      flex-grow: 1;
-    }
+  // in the visualization, an unordered list is styled to show a few bullet points
+  .detail {
+    padding-left: 1rem;
+    margin: 1rem 0;
   }
 
-  h4 {
-    color: $color-container;
-    background: $color-accent;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-    display: inline-block;
-    margin: 0.7rem 0 1rem;
-  }
+  // ! in the main container slightly reduce the width of the svg visualizations
+  svg {
+    width: 80%;
 
-  // describe the tooltip as an absolute positioned element
-  // hidden by default, and without pointer events
-  #tooltip {
-    text-align: initial;
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-    background: $color-container;
-    border-radius: 4px;
-    padding: 1rem;
-    box-shadow: 0 1px 5px rgba($color-text, 0.5);
-
-    // increase the white space around the first paragraph of the lot
-    p:nth-of-type(1) {
-      margin: 0.5rem 0;
-    }
-
-    // include through a pseudo element a circle, matching the color used for the different lines in the visualization
-    p.diesel,
-    p.gasoline {
-      position: relative;
-      padding-left: 0.25rem;
-
-      &:before {
-        position: absolute;
-        content: "";
-        top: 50%;
-        right: 100%;
-        transform: translateY(-50%);
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
+    // style all axes with similar properties
+    .axis {
+      opacity: 0.7;
+      path,
+      line {
+        stroke: $color-axes;
+        stroke-width: 1px;
+        opacity: 0.7;
+      }
+      text {
+        font-family: inherit;
+        fill: $color-axes;
+        font-size: 1rem;
       }
     }
-    p.diesel:before {
-      background: $color-diesel;
+  }
+}
+
+// beside the visualizations, the application includes
+// an svg element used to visually connect surrounding elements
+.connecting {
+  margin: 0.5rem 0;
+}
+
+// a utility container used to center headers appearing on their own, in between visualizations
+.intermittent {
+  text-align: center;
+}
+// a header using the color accent as background
+h4 {
+  color: $color-container;
+  background: $color-accent;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  display: inline-block;
+  margin: 0.7rem 0 1rem;
+}
+
+// a container to split the main column in two, for the forks in the road
+.fork {
+  display: flex;
+  justify-content: center;
+
+  // split the space in two equal portions
+  .half {
+    width: 100%;
+    flex-grow: 1;
+    // display the nested content in a single column
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // add a bit of space surrounding the elements
+    margin: 0 1rem;
+    line-height: 2;
+
+    // in each half-container, increase the size of the svg to encompass the entire width
+    svg {
+      width: 100%;
+      margin: 1rem 0;
+
+      // increase the relevance of the axes given the smaller size
+      .axis {
+        path,
+        line {
+          stroke: $color-axes;
+          stroke-width: 2px;
+          opacity: 0.7;
+        }
+        text {
+          font-family: inherit;
+          fill: $color-axes;
+          font-size: 1.3rem;
+        }
+      }
+      // style the text outside of the axes (general purpose labels) to be even larger
+      text {
+        font-family: inherit;
+        fill: $color-axes;
+        font-size: 1.8rem;
+      }
     }
-    p.gasoline:before {
-      background: $color-gasoline;
+
+    // center the headings
+    h3 {
+      text-align: center;
+    }
+    // space the paragraph elements
+    p {
+      margin: 0.5rem 0;
+      line-height: 2;
     }
   }
+}
 
-  .axis {
-    path,
-    line {
-      stroke: #33333355;
-      stroke-width: 1px;
+// for the tooltip, absolute position the container, hide it by default
+#tooltip {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  background: $color-container;
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: initial;
+  box-shadow: 0 1px 5px rgba($color-text, 0.5);
+
+  // increase the white space around the first paragraph of the lot
+  p:nth-of-type(1) {
+    margin: 0.5rem 0;
+  }
+
+  // include through a pseudo element a circle, matching the color used for the different lines in the visualization
+  p.diesel,
+  p.gasoline {
+    position: relative;
+    padding-left: 0.25rem;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      right: 100%;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
     }
-    text {
-      font-family: inherit;
-      fill: #777;
-      font-size: 0.7rem;
-    }
+  }
+  p.diesel:before {
+    background: $color-diesel;
+  }
+  p.gasoline:before {
+    background: $color-gasoline;
   }
 }
