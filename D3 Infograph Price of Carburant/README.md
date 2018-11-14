@@ -1,6 +1,8 @@
 # Infograph: Taxes on gasoline and diesel
 
-Link to the work-in-progress collection right [here](https://codepen.io/collection/XeWPww/). Visualizations are being created separately to better understand each uniqueness and later merge them in a single comprehensive infograph on the subject-
+Link to the work-in-progress collection right [here](https://codepen.io/collection/XeWPww/). Visualizations are being created separately to better understand each uniqueness and later merge them in a single comprehensive infograph on the subject.
+
+Link to the work-in-progress-pen right [here](https://codepen.io/borntofrappe/full/YRGGWY). This is where the entire infograph is being crafted.
 
 ## Preface
 
