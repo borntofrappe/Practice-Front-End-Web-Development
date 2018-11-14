@@ -30,6 +30,10 @@ The larger application is made up of multiple visualizations. To cope with this 
 
 A few thoughts jotted down while developing the application.
 
+### Update 14/11
+
+Honestly, I thought I'd be done by Wednesday, but I still have a long way to go to finish the visualization. As I reminder, the visualization I am trying to emulate is [this one](https://www.lemonde.fr/les-decodeurs/article/2018/11/09/petit-manuel-a-lire-avant-de-debattre-de-la-hausse-des-prix-du-carburant_5381196_4355770.html) and what is left is mostly text. Just a couple of visualizations benefiting from data binding.
+
 ### Update 13/11
 
 With all the visualizations completed, it is a matter of crafting the infograph as a whole. In the development I discovered better and better ways to craft the visualizations, to the point that even the first couple of folders in this very project contain D3 logic I consider rather hack-y.
