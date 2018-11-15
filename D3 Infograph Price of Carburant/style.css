@@ -1,42 +1,79 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Josefin+Sans:600");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  width: 100%;
   font-family: "Open Sans", sans-serif;
   color: #333;
   background: #fff;
 }
 
 .container {
-  max-width: 650px;
+  max-width: 700px;
   width: 90vw;
   margin: 1rem auto;
   padding: 1rem;
-  line-height: 1.5;
   background: #fff;
   border-top: 4px solid #fb5100;
+  -webkit-box-shadow: 0 1px 0 1px rgba(51, 51, 51, 0.3);
   box-shadow: 0 1px 0 1px rgba(51, 51, 51, 0.3);
+}
+.container svg {
+  margin: 1rem 0;
 }
 
 .visualization {
-  margin: 1rem 0;
+  margin: 0 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   line-height: 2;
+}
+.visualization ol {
+  margin: 0 1rem 0 3rem;
+  list-style: none;
+  counter-reset: special-counter;
+}
+.visualization ol li {
+  margin: 1rem 0;
+  counter-increment: special-counter;
+  position: relative;
+}
+.visualization ol li:before {
+  content: counter(special-counter);
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 0.8rem;
+  border-radius: 50%;
+  background: #8cb999;
+  color: #333;
+  border: 2px solid #333;
+  font-weight: bold;
+  text-align: center;
+  line-height: 10px;
+  width: 10px;
+  height: 10px;
+}
+.visualization p {
+  margin: 1rem 2rem;
 }
 .visualization .message {
   text-align: center;
   max-width: 400px;
-}
-.visualization .detail {
-  padding-left: 1rem;
-  margin: 1rem 0;
 }
 .visualization svg {
   width: 80%;
@@ -46,13 +83,11 @@ body {
 }
 .visualization svg .axis path,
 .visualization svg .axis line {
-  stroke: #333333;
   stroke-width: 1px;
   opacity: 0.7;
 }
 .visualization svg .axis text {
   font-family: inherit;
-  fill: #333333;
   font-size: 1rem;
 }
 
@@ -62,6 +97,7 @@ body {
 
 .intermittent {
   text-align: center;
+  margin: 1rem 10%;
 }
 
 h4 {
@@ -75,38 +111,53 @@ h4 {
 }
 
 .fork {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 .fork .half {
   width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  margin: 0 1rem;
   line-height: 2;
+  margin: 0 1rem;
 }
 .fork .half svg {
   width: 100%;
-  margin: 1rem 0;
 }
 .fork .half svg .axis path,
 .fork .half svg .axis line {
-  stroke: #333333;
   stroke-width: 2px;
   opacity: 0.7;
 }
 .fork .half svg .axis text {
   font-family: inherit;
-  font-size: 0.5rem;
+  font-size: 1.5rem;
+}
+.fork .half svg .axis.small text {
+  font-size: 0.7rem;
 }
 .fork .half svg text {
   font-family: inherit;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 .fork .half h3 {
   text-align: center;
+  margin: 1rem 0;
 }
 .fork .half p {
   margin: 0.5rem 0;
@@ -120,7 +171,9 @@ h4 {
   background: #fff;
   border-radius: 4px;
   padding: 1rem;
+  line-height: 2;
   text-align: initial;
+  -webkit-box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
   box-shadow: 0 1px 5px rgba(51, 51, 51, 0.5);
 }
 #tooltip p:nth-of-type(1) {
@@ -137,6 +190,7 @@ h4 {
   content: "";
   top: 50%;
   right: 100%;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 7px;
   height: 7px;

@@ -1,12 +1,11 @@
 // import font(s)
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Josefin+Sans:600");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 // detail root variable(s)
 $font: "Open Sans", sans-serif;
 $color-bg: #fff;
 $color-container: #fff;
 $color-text: #333;
-$color-axes: #333333;
 $color-accent: #fb5100;
 $color-diesel: #2b70b4;
 $color-gasoline: #8cb999;
@@ -18,45 +17,73 @@ $color-gasoline: #8cb999;
 }
 
 body {
-  width: 100%;
   font-family: $font;
   color: $color-text;
   background: $color-bg;
 }
 // cap the container's width and center it horizontally
 .container {
-  max-width: 650px;
+  max-width: 700px;
   width: 90vw;
   margin: 1rem auto;
   padding: 1rem;
-  line-height: 1.5;
   background: $color-container;
   border-top: 4px solid $color-accent;
   box-shadow: 0 1px 0 1px rgba($color-text, 0.3);
+  svg {
+    margin: 1rem 0;
+  }
 }
 
-// in separate each visualization vertically and position the nested items in a single row
+// each visualization is nested in a .visualization container, displaying items in a single column
 .visualization {
-  margin: 1rem 0;
+  margin: 0 2rem 1rem;
   display: flex;
   flex-direction: column;
   // horizontally centered
   align-items: center;
   line-height: 2;
 
+  // for the ordered list add whitespace around the list items and include a special counter
+  ol {
+    margin: 0 1rem 0 3rem;
+    list-style: none;
+    counter-reset: special-counter;
+
+    li {
+      margin: 1rem 0;
+      counter-increment: special-counter;
+      position: relative;
+
+      &:before {
+        content: counter(special-counter);
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translate(-50%, -50%);
+        padding: 0.8rem;
+        border-radius: 50%;
+        background: $color-gasoline;
+        color: $color-text;
+        border: 2px solid $color-text;
+        font-weight: bold;
+        text-align: center;
+        line-height: 10px;
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+  p {
+    margin: 1rem 2rem;
+  }
   // in the visualization a container is used to center the central message
   .message {
     text-align: center;
     max-width: 400px;
   }
 
-  // in the visualization, an unordered list is styled to show a few bullet points
-  .detail {
-    padding-left: 1rem;
-    margin: 1rem 0;
-  }
-
-  // ! in the main container slightly reduce the width of the svg visualizations
+  // in the main container reduce the width of the svg visualizations
   svg {
     width: 80%;
 
@@ -65,13 +92,11 @@ body {
       opacity: 0.7;
       path,
       line {
-        stroke: $color-axes;
         stroke-width: 1px;
         opacity: 0.7;
       }
       text {
         font-family: inherit;
-        fill: $color-axes;
         font-size: 1rem;
       }
     }
@@ -87,7 +112,9 @@ body {
 // a utility container used to center headers appearing on their own, in between visualizations
 .intermittent {
   text-align: center;
+  margin: 1rem 10%;
 }
+
 // a header using the color accent as background
 h4 {
   color: $color-container;
@@ -113,39 +140,40 @@ h4 {
     flex-direction: column;
     align-items: center;
     // add a bit of space surrounding the elements
-    margin: 0 1rem;
     line-height: 2;
+    margin: 0 1rem;
 
     // in each half-container, increase the size of the svg to encompass the entire width
     svg {
       width: 100%;
-      margin: 1rem 0;
 
       // increase the relevance of the axes given the smaller size
       .axis {
         path,
         line {
-          stroke: $color-axes;
           stroke-width: 2px;
           opacity: 0.7;
         }
         text {
           font-family: inherit;
-          fill: $color-axes;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
+        }
+
+        &.small text {
+          font-size: 0.7rem;
         }
       }
       // style the text outside of the axes (general purpose labels) to be even larger
       text {
         font-family: inherit;
-        fill: $color-axes;
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
     }
 
     // center the headings
     h3 {
       text-align: center;
+      margin: 1rem 0;
     }
     // space the paragraph elements
     p {
@@ -163,6 +191,7 @@ h4 {
   background: $color-container;
   border-radius: 4px;
   padding: 1rem;
+  line-height: 2;
   text-align: initial;
   box-shadow: 0 1px 5px rgba($color-text, 0.5);
 
