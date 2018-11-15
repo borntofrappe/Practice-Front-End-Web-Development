@@ -1,8 +1,8 @@
 # Infograph: Taxes on gasoline and diesel
 
-Link to the work-in-progress collection right [here](https://codepen.io/collection/XeWPww/). Visualizations are being created separately to better understand each uniqueness and later merge them in a single comprehensive infograph on the subject.
+Link to the working collection right [here](https://codepen.io/collection/XeWPww/). Visualizations are being created separately to better understand each uniqueness and later merge them in a single comprehensive infograph on the subject.
 
-Link to the work-in-progress-pen right [here](https://codepen.io/borntofrappe/full/YRGGWY). This is where the entire infograph is being crafted.
+Link to the working right [here](https://codepen.io/borntofrappe/full/YRGGWY). This is where the entire infograph is being crafted.
 
 ## Preface
 
@@ -39,6 +39,10 @@ The larger application is made up of multiple visualizations. To cope with this 
 ## Development notes
 
 A few thoughts jotted down while developing the application.
+
+### Update 15/11
+
+Completed the visualization. Beside the countless lines of code, this has certainly been a very teaching project. All I need is perhaps a break from D3, while I contemplate other web related projects,
 
 ### Update 14/11
 
