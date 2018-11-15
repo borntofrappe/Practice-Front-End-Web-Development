@@ -192,8 +192,8 @@ const taxesComponents = {
 };
 
 // percentages (not totalling 100)
-const emissionsComponent = {
-  car: 16,
+const emissionComponents = {
+  automobiles: 16,
   heavyWeight: 6
 };
 
@@ -270,7 +270,7 @@ const countriesGasoline = [
     other: 0.47
   },
   {
-    country: 'United Kingdom',
+    country: 'UK',
     taxes: 0.89,
     other: 0.47
   },
@@ -1798,7 +1798,7 @@ const xAxisOtherCosts = d3
   .axisBottom(xScaleOtherCosts)
   .tickSizeOuter(0)
   .tickPadding(10)
-  .tickFormat(d => ((formatAxes(d) === '2009' || formatAxes(d) === '2018') ? formatAxes(d) : ''))
+  .tickFormat(d => ((formatAxes(d) === '2009' || formatAxes(d) === '2018') ? formatAxes(d) : ''));
 
 containerFrameOtherCostsGasoline
   .append('g')
@@ -1991,7 +1991,6 @@ containerGroupsOtherCostsDiesel
   .attr('stroke-width', '1px')
   .attr('fill', `${colors.diesel}`);
 
-
 containerFrameOtherCostsDiesel
   .append('path')
   .attr('d', `M 0 ${yScaleOtherCosts(50)} h ${widthOtherCosts}`)
@@ -2007,3 +2006,676 @@ containerFrameOtherCostsDiesel
   .attr('font-size', '0.7rem')
   .attr('font-weight', 'bold')
   .text('50%');
+
+// line connecting to the rest of the application
+const containerConnectingState = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+containerConnectingState
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 v ${heightConnecting - 7}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px');
+
+containerConnectingState
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} ${heightConnecting - 7} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// SERIES of bars highlighting how much the state earns
+const containerTaxesComponents = container
+  .append('div')
+  .attr('class', 'visualization');
+
+const messageTaxesComponents = containerTaxesComponents
+  .append('div')
+  .attr('class', 'message');
+
+messageTaxesComponents
+  .append('h3')
+  .text('How much does that make to the state?');
+
+messageTaxesComponents
+  .append('p')
+  .style('color', '#FB5100')
+  .style('font-weight', 'bold')
+  .text('34 billions of euro');
+
+containerTaxesComponents
+  .append('p')
+  .text('These come from the receipts for the TICPE, main tax on fuel, in 2018.');
+
+containerTaxesComponents
+  .append('p')
+  .text('They are distributed to:');
+
+const marginTaxesComponents = {
+  top: 20,
+  right: 20,
+  bottom: 20,
+  left: 20
+};
+
+const widthTaxesComponents = 500 - (marginTaxesComponents.left + marginTaxesComponents.right);
+const heightTaxesComponents = 300 - (marginTaxesComponents.top + marginTaxesComponents.bottom);
+
+const containerFrameTaxesComponents = container
+  .append('svg')
+  .attr('viewBox', `0 0 ${widthTaxesComponents + (marginTaxesComponents.left + marginTaxesComponents.right)} ${heightTaxesComponents + (marginTaxesComponents.top + marginTaxesComponents.bottom)}`)
+  .append('g')
+  .attr('transform', `translate(${marginTaxesComponents.left}, ${marginTaxesComponents.top})`);
+
+// SCALES and AXES
+// x: linear scale from 0 up to the greates value of the dataset
+const xScaleTaxesComponents = d3
+  .scaleLinear()
+  .domain([0, d3.max(Object.values(taxesComponents))])
+  .range([0, widthTaxesComponents]);
+
+// no axes are being used
+// additionally, the vertical dimension is simply coomputed on the basis of the height
+
+// include one group for each value of the data point
+const containerGroupsTaxesComponents = containerFrameTaxesComponents
+  .selectAll('g')
+  .data(Object.values(taxesComponents))
+  .enter()
+  .append('g')
+  // vertically position each group at a fraction of the height
+  .attr('transform', (d, i) => `translate(0, ${heightTaxesComponents / Object.values(taxesComponents).length * i})`);
+
+// in each group add a text label and a rectangle scaled according to the bound data
+containerGroupsTaxesComponents
+  .append('text')
+  .attr('x', 0)
+  .attr('y', 0)
+  .attr('font-size', '0.9rem')
+  .attr('font-weight', 'bold')
+  .style('text-transform', 'capitalize')
+  .text((d, i) => Object.keys(taxesComponents)[i]);
+
+containerGroupsTaxesComponents
+  .append('rect')
+  .attr('x', 0)
+  .attr('y', heightTaxesComponents / 16)
+  .attr('width', d => xScaleTaxesComponents(d))
+  .attr('height', heightTaxesComponents / 16)
+  .attr('fill', colors.gasoline);
+
+// add digits at the end of each bar, detailing the percentage
+containerGroupsTaxesComponents
+  .append('text')
+  .attr('x', d => xScaleTaxesComponents(d))
+  // centered in the rectangle
+  .attr('y', heightTaxesComponents / 16)
+  .attr('alignment-baseline', 'hanging')
+  .attr('text-anchor', 'end')
+  .attr('fill', '#333')
+  .text(d => `${d}%`);
+
+
+// line connecting text elements describing how the funds are spent
+const containerConnectingArgent = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+containerConnectingArgent
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 v ${heightConnecting - 7}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px');
+
+containerConnectingArgent
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} ${heightConnecting - 7} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// header and paragraph elements detailing the way taxes are used
+const intermittentText = container
+  .append('div')
+  .attr('class', 'intermittent');
+
+intermittentText
+  .append('h3')
+  .text('What is the state doing of all that money?');
+
+intermittentText
+  .append('p')
+  .append('strong')
+  .text('It finances the ecological transition, but not only:');
+
+intermittentText
+  .append('p')
+  .html('All collected taxes won\'t finance environmental measures: <strong>7.2 billions of euro are poured directly</strong>, on 33.8 billions total. The rest is versed in a common fund of the budget.');
+
+intermittentText
+  .append('p')
+  .text('In a rather symptomatic manner, the 3.9 billions collected from the rise in taxes on fuel in 2019 will not influence the budget for ecological transition.');
+
+// connecting element toward an ordered list detailing how the state fights again pollution
+const containerConnectingTaxes = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+containerConnectingTaxes
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 v ${heightConnecting - 7}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px');
+
+containerConnectingTaxes
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} ${heightConnecting - 7} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// header and ordered list describing  the way the state tackles pollution
+const intermittentMeasures = container
+  .append('div')
+  .attr('class', 'intermittent');
+
+intermittentMeasures
+  .append('h3')
+  .text('So, the state takes advantage of contributors under the pretext of fighting against pollution?');
+
+intermittentMeasures
+  .append('p')
+  .text('That is simplistic:');
+
+const intermittentMeasuresList = intermittentMeasures
+  .append('ol');
+
+intermittentMeasuresList
+  .append('li')
+  .html('the state and territorial collectivities <strong>finance the environmental transition on other basis</strong>.');
+
+intermittentMeasuresList
+  .append('li')
+  .html('Even if directed toward the general budget, <strong>taxes on carburants can be indirectly used to finance environmental measure</strong>, or other connected measures, like for the transport infrastructure.');
+
+intermittentMeasuresList
+  .append('li')
+  .html('That being said <strong>an greater effort in transparency</strong> could be achieved.');
+
+// line connecting to the second fork
+const containerConnectingPollution = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+containerConnectingPollution
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 v ${heightConnecting - 7}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px');
+
+containerConnectingPollution
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} ${heightConnecting - 7} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// intermittent container directing toward the second fork
+const intermittentPollution = container
+  .append('div')
+  .attr('class', 'intermittent');
+
+intermittentPollution
+  .append('h3')
+  .text('But still, do our cars pollute that much?');
+
+intermittentPollution
+  .append('p')
+  .text('Yes, really.');
+
+// connecting element toward the second fork
+const containerConnectingSecondFork = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+containerConnectingSecondFork
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 q 0 ${heightConnecting / 5} ${widthConnecting / 20} ${heightConnecting / 5} h ${widthConnecting / 20} q ${widthConnecting / 6} 0 ${widthConnecting * 3 / 20} ${heightConnecting * 4 / 5 - 5}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px')
+  .attr('fill', 'none');
+
+containerConnectingSecondFork
+  .append('path')
+  .attr('d', `M ${widthConnecting * 3 / 4} ${heightConnecting - 5} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+containerConnectingSecondFork
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 q 0 ${heightConnecting / 5} -${widthConnecting / 20} ${heightConnecting / 5} h -${widthConnecting / 20} q -${widthConnecting / 6} 0 -${widthConnecting * 3 / 20} ${heightConnecting * 4 / 5 - 5}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px')
+  .attr('fill', 'none');
+
+containerConnectingSecondFork
+  .append('path')
+  .attr('d', `M ${widthConnecting * 1 / 4} ${heightConnecting - 5} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// second fork in the road, displaying visualization on emissions
+const pollutionFork = container
+  .append('div')
+  .attr('class', 'fork');
+
+// first half of the fork
+const pollutionFirstHalf = pollutionFork
+  .append('div')
+  .attr('class', 'half');
+
+pollutionFirstHalf
+  .append('h4')
+  .html('C0<sub>2</sub>');
+
+// HEATMAP displaying the compoments of pollution
+const containerEmissionComponents = pollutionFirstHalf
+  .append('div')
+  .attr('class', 'visualization');
+
+containerEmissionComponents
+  .append('p')
+  .text('Individual cars and heavy weight vehicles are responsible for a substantial portion of the gas emissions in France.');
+
+const marginEmissionComponents = {
+  top: 20,
+  right: 80,
+  bottom: 140,
+  left: 80
+};
+
+
+const widthEmissionComponents = 500 - (marginEmissionComponents.left + marginEmissionComponents.right);
+const heightEmissionComponents = 500 - (marginEmissionComponents.top + marginEmissionComponents.bottom);
+
+const containerFrameEmissionComponents = containerEmissionComponents
+  .append('svg')
+  .attr('viewBox', `0 0 ${widthEmissionComponents + (marginEmissionComponents.left + marginEmissionComponents.right)} ${heightEmissionComponents + (marginEmissionComponents.top + marginEmissionComponents.bottom)}`)
+  .append('g')
+  .attr('transform', `translate(${marginEmissionComponents.left}, ${marginEmissionComponents.top})`);
+
+// include 100 rectangles with same width as height
+containerFrameEmissionComponents
+  .selectAll('rect.square')
+  .data(d3.range(100))
+  .enter()
+  .append('rect')
+  .attr('class', 'square')
+  .attr('x', (d, i) => {
+    // position the squares horizontally changing the coordinate every 10 squares
+    // for the first: x
+    // for the eleventh: x = 0 + a portion of the width and so forth
+    const squareGap = Math.floor(i / 10);
+    return squareGap * (widthEmissionComponents / 10);
+  })
+  .attr('y', (d, i) => {
+    // position the square vertically according to the unit
+    // for the first (eleventh, twenty-first and so on): y = 0
+    // for the second (twelvth, twenty-second and so forth) y = 0 + a portion of the height
+    const numberString = i.toString();
+    const unitString = numberString[numberString.length - 1];
+    const unit = parseInt(unitString);
+    return unit * (heightEmissionComponents / 10);
+  })
+  .attr('width', widthEmissionComponents / 10)
+  .attr('height', heightEmissionComponents / 10)
+  // color the first squares according to the value for automobiles
+  // the last squares according to the value of heavy eight vehicles
+  .attr('fill', (d, i) => {
+    if (i < emissionComponents.automobiles) {
+      return colors.automobiles;
+    }
+    if (i < 100 - emissionComponents.heavyWeight) {
+      return '#77777777';
+    }
+    return colors.heavyWeight;
+  })
+  // stroke equal to the background to fake a gap between the squares
+  .attr('stroke', '#fff')
+  .attr('stroke-width', '2px');
+
+// append text labels below the heatmap
+containerFrameEmissionComponents
+  .append('text')
+  .attr('x', 10)
+  .attr('y', heightEmissionComponents + marginEmissionComponents.top * 2)
+  .attr('font-weight', 'bold')
+  .attr('alignment-baseline', 'hanging')
+  .attr('fill', colors.automobiles)
+  .text(`${emissionComponents.automobiles} %`);
+
+containerFrameEmissionComponents
+  .append('text')
+  .attr('x', 10)
+  .attr('y', heightEmissionComponents + 5)
+  .attr('alignment-baseline', 'hanging')
+  .attr('fill', colors.automobiles)
+  .text('Automobiles');
+
+// append text labels below the heatmap
+containerFrameEmissionComponents
+  .append('text')
+  .attr('x', widthEmissionComponents - 10)
+  .attr('y', heightEmissionComponents + 5)
+  .attr('text-anchor', 'end')
+  .attr('font-weight', 'bold')
+  .attr('alignment-baseline', 'hanging')
+  .attr('fill', colors.heavyWeight)
+  .text(`${emissionComponents.heavyWeight} %`);
+
+containerFrameEmissionComponents
+  .append('text')
+  .attr('x', widthEmissionComponents - 10)
+  .attr('y', heightEmissionComponents + marginEmissionComponents.top * 2)
+  .attr('text-anchor', 'end')
+  .attr('alignment-baseline', 'hanging')
+  .attr('fill', colors.heavyWeight)
+  .text('Heavy weight');
+
+// include path straight lines visually connecting the labels with the heatmap
+containerFrameEmissionComponents
+  .append('path')
+  .attr('d', `M ${5} ${heightEmissionComponents} v ${marginEmissionComponents.top}`)
+  .attr('stroke', colors.automobiles)
+  .attr('stroke-width', '3px');
+
+containerFrameEmissionComponents
+  .append('path')
+  .attr('d', `M ${widthEmissionComponents - 5} ${heightEmissionComponents} v ${marginEmissionComponents.top * 2}`)
+  .attr('stroke', colors.heavyWeight)
+  .attr('stroke-width', '3px');
+
+
+// second half of the fork
+const pollutionSecondHalf = pollutionFork
+  .append('div')
+  .attr('class', 'half');
+
+pollutionSecondHalf
+  .append('h4')
+  .text('Atmospheric Pollution');
+
+// text elements detailing the beginning of the fork
+const intermittentAtmospheric = pollutionSecondHalf
+  .append('div')
+  .attr('class', 'intermittent');
+
+intermittentAtmospheric
+  .append('p')
+  .html('Fine particles and in particular those emitted by old diesel vehicles, affect heavily the air quality and have <strong>health consequences</strong>.');
+
+intermittentAtmospheric
+  .append('p')
+  .text('On 425 000 premature deaths every year for the pollution of air in Europe, 10 000 can be attributed directly to emissions of nitrogen oxides, from diesel engines.');
+
+// connecting line toward other text describing atmospheric pollution
+const containerConnectingText = pollutionSecondHalf
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${(heightConnecting * 2)}`);
+
+containerConnectingText
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 v ${(heightConnecting * 2) - 7}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '2px');
+
+containerConnectingText
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} ${(heightConnecting * 2) - 7} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// text elements describing the pollution provoked by new engines
+const intermittentEngine = pollutionSecondHalf
+  .append('div')
+  .attr('class', 'intermittent');
+
+intermittentEngine
+  .append('h3')
+  .text('Aren\'t new engines less pollutant?');
+
+intermittentEngine
+  .append('p')
+  .html('Even most recent vehicles (gasoline as well as diesel) don\'t resolve all problems. <strong>Even electric cars have defects</strong>, notably tied to the lifecycle of batteries and the production of electricity required for their functioning.');
+
+intermittentEngine
+  .append('p')
+  .html('Beyond the type of engine and carburant used, <strong>all vehicles pollute</strong>, because of degradation of tires, breaks and their global lifecycle.');
+
+// connecting element closing the second fork
+const containerConnectingSecondForkEnd = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+// this one detailing two arrows mergin in a single point in the middle
+containerConnectingSecondForkEnd
+  .append('path')
+  .attr('d', `M ${widthConnecting / 4} 0 q 0 ${heightConnecting / 2} ${widthConnecting / 10} ${heightConnecting / 2} h ${widthConnecting / 25} q ${widthConnecting / 9} 0 ${widthConnecting * 11 / 100} ${heightConnecting / 2 - 5}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px')
+  .attr('fill', 'none');
+
+containerConnectingSecondForkEnd
+  .append('path')
+  .attr('d', `M ${widthConnecting * 3 / 4} 0 q 0 ${heightConnecting / 2} -${widthConnecting / 10} ${heightConnecting / 2} h -${widthConnecting / 25} q -${widthConnecting / 9} 0 -${widthConnecting * 11 / 100} ${heightConnecting / 2 - 5}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px')
+  .attr('fill', 'none');
+
+
+containerConnectingSecondForkEnd
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} ${heightConnecting - 5} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+// intermittent header
+container
+  .append('div')
+  .attr('class', 'intermittent')
+  .append('h3')
+  .text('Still, the price of fuel has reached delirious levels in France...');
+
+
+// tbird fork
+const containerConnectingThirdFork = container
+  .append('svg')
+  .attr('class', 'connecting')
+  .attr('viewBox', `0 0 ${widthConnecting} ${heightConnecting}`);
+
+containerConnectingThirdFork
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 q 0 ${heightConnecting / 5} ${widthConnecting / 20} ${heightConnecting / 5} h ${widthConnecting / 20} q ${widthConnecting / 6} 0 ${widthConnecting * 3 / 20} ${heightConnecting * 4 / 5 - 5}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px')
+  .attr('fill', 'none');
+
+containerConnectingThirdFork
+  .append('path')
+  .attr('d', `M ${widthConnecting * 3 / 4} ${heightConnecting - 5} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+containerConnectingThirdFork
+  .append('path')
+  .attr('d', `M ${widthConnecting / 2} 0 q 0 ${heightConnecting / 5} -${widthConnecting / 20} ${heightConnecting / 5} h -${widthConnecting / 20} q -${widthConnecting / 6} 0 -${widthConnecting * 3 / 20} ${heightConnecting * 4 / 5 - 5}`)
+  .attr('stroke', colors.black)
+  .attr('stroke-width', '1px')
+  .attr('fill', 'none');
+
+containerConnectingThirdFork
+  .append('path')
+  .attr('d', `M ${widthConnecting * 1 / 4} ${heightConnecting - 5} l -5 -5 h 10 l -5 5`)
+  .attr('fill', colors.black);
+
+
+// third fork in the road, displaying visualization on price across countries
+const countriesFork = container
+  .append('div')
+  .attr('class', 'fork');
+
+// first half of the fork
+const countriesFirstHalf = countriesFork
+  .append('div')
+  .attr('class', 'half');
+
+countriesFirstHalf
+  .append('h4')
+  .html('No more than before');
+
+countriesFirstHalf
+  .append('p')
+  .html('It is clear that the recent rise in prices weighs on the wallet of households. But compared to the purchasing power of minimum salary, <strong>the cost of gasoline is not at historic heights</strong> - far from there.');
+
+countriesFirstHalf
+  .append('p')
+  .text('Working an hour of minimum wage actually allows to purchase around six liters of gasoline, against only three liters forty years ago.');
+
+// second half of the fork
+const countriesSecondHalf = countriesFork
+  .append('div')
+  .attr('class', 'half');
+
+countriesSecondHalf
+  .append('h4')
+  .html('And others in Europe?');
+
+countriesSecondHalf
+  .append('p')
+  .html('<strong>France is in the top section</strong> in terms of price and level of taxation, but not in terms of disparate proportions.');
+
+countriesSecondHalf
+  .append('p')
+  .text('Taxes represent between 50 and 70% of the price of fuel among the countries of the European Union.');
+
+// BAR plot detailing the price of fuel across countries
+// SVG FRAME
+const marginCountries = {
+  top: 20,
+  right: 20,
+  bottom: 20,
+  left: 50
+};
+const widthCountries = 200 - (marginCountries.left + marginCountries.right);
+const heightCountries = 300 - (marginCountries.top + marginCountries.bottom);
+
+const containerFrameCountries = countriesSecondHalf
+  .append('svg')
+  .attr('viewBox', `0 0 ${widthCountries + (marginCountries.left + marginCountries.right)} ${heightCountries + (marginCountries.top + marginCountries.bottom)}`)
+  .append('g')
+  .attr('transform', `translate(${marginCountries.left}, ${marginCountries.top})`);
+
+// SCALES AND AXES
+// for the horizontal scale describe a linear scale from 0 to 2 (euro per liter)
+const xScaleCountries = d3
+  .scaleLinear()
+  .domain([0, max.priceCarburant])
+  .range([0, widthCountries]);
+
+// for the vertical scale, a band scale based on an array of countries
+const yScaleCountries = d3
+  .scaleBand()
+  .domain(countriesGasoline.map(countries => countries.country))
+  .range([0, heightCountries]);
+
+// for the horizontal dimension add an axis above the visualization
+const xAxisCountries = d3
+  .axisTop(xScaleCountries)
+  .ticks(2)
+  .tickSize(0)
+  .tickFormat(d => `${d} €`);
+
+containerFrameCountries
+  .append('g')
+  .attr('class', 'x axis')
+  .call(xAxisCountries);
+
+// for the vertical dimension add labels for each country
+const yAxisCountries = d3
+  .axisLeft(yScaleCountries)
+  .tickSizeOuter(0)
+  .tickSize(0)
+  .tickPadding(5);
+
+containerFrameCountries
+  .append('g')
+  .attr('class', 'y axis')
+  .call(yAxisCountries);
+
+// one one group for each data point
+const containerGroupsCountries = containerFrameCountries
+  .selectAll('g.group')
+  .data(countriesGasoline)
+  .enter()
+  .append('g')
+  .attr('class', 'group')
+  .attr('transform', (d, i) => `translate(0, ${yScaleCountries(d.country)})`)
+  // on hover detail pertinent information in the tooltip
+  .on('mouseenter', function (d) {
+    d3
+      .select(this)
+      .attr('opacity', 0.7);
+
+    tooltip
+      .append('p')
+      .append('strong')
+      .text(d.country);
+
+    tooltip
+      .append('p')
+      .html(`<strong>Total price of a liter of gasoline</strong>: ${formatDecimal(d.taxes + d.other)}€`);
+
+    tooltip
+      .append('p')
+      .html(`<strong>Taxes</strong>: ${d.taxes}€`);
+
+    tooltip
+      .append('p')
+      .html(`<strong>Others</strong>: ${d.other}€`);
+
+    tooltip
+      .style('opacity', 1)
+      .style('left', `${d3.event.pageX}px`)
+      .style('top', `${d3.event.pageY}px`);
+  })
+  .on('mouseout', function (d) {
+    d3
+      .select(this)
+      .attr('opacity', 1);
+
+    tooltip
+      .style('opacity', 0)
+      .selectAll('p')
+      .remove();
+  });
+
+// for each group add a rectangle based on the described values
+containerGroupsCountries
+  .append('rect')
+  .attr('x', 0)
+  .attr('y', yScaleCountries.bandwidth() / 4)
+  .attr('width', d => xScaleCountries(d.taxes))
+  .attr('height', yScaleCountries.bandwidth() / 2)
+  .attr('fill', d => (d.country === 'France') ? colors.diesel : colors.gasoline);
+
+containerGroupsCountries
+  .append('rect')
+  .attr('x', d => xScaleCountries(d.taxes))
+  .attr('y', yScaleCountries.bandwidth() / 4)
+  .attr('width', d => xScaleCountries(d.other))
+  .attr('height', yScaleCountries.bandwidth() / 2)
+  .attr('fill', d => (d.country === 'France') ? `${colors.diesel}55` : `${colors.gasoline}${colors.transparency[3]}`);
+
+// it might be beneficial to also include a rectangle spanning the entire width and height of the band
+containerGroupsCountries
+  .append('rect')
+  .attr('x', 0)
+  .attr('y', 0)
+  .attr('width', d => xScaleCountries(2))
+  .attr('height', yScaleCountries.bandwidth())
+  .attr('fill', 'transparent');
