@@ -1,6 +1,6 @@
 # React Tutorial Tic Tac Toe
 
-<!-- Link to the working pen right [here] -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/rQGyxm/).
 
 ## Preface
 
