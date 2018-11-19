@@ -1,0 +1,10 @@
+.BoardGame {
+  margin: 1rem 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 10px;
+}
+p {
+  font-size: 1.3rem;
+}

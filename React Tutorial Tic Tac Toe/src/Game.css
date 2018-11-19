@@ -1,0 +1,18 @@
+/* display the header, board and potentially the time travel section in a card */
+.Game {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2;
+  text-align: center;
+}
+h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+  font-size: 2.8rem;
+}

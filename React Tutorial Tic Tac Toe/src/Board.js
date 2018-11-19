@@ -1,5 +1,7 @@
 import React from 'react';
 import Square from './Square.js';
+import './Board.css';
+
 
 // create a function to establish a winner
 // accepting as argument an array of 9 values describing the board
@@ -90,19 +92,13 @@ class Board extends React.Component {
     return (
       <div className="Board">
         <p>{status}</p>
-        <div className="Row">
+        <div className="BoardGame">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
-        </div>
-
-        <div className="Row">
           {this.renderSquare(3)}
           {this.renderSquare(4)}
           {this.renderSquare(5)}
-        </div>
-
-        <div className="Row">
           {this.renderSquare(6)}
           {this.renderSquare(7)}
           {this.renderSquare(8)}
