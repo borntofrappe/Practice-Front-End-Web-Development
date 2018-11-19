@@ -50,16 +50,17 @@ class Game extends React.Component {
           squares: Array(9).fill(null)
         }
       ],
-      xNext: true
+      xNext: true,
+      index: 0
     }
   }
 
   // create a function used when cligking clicking one of the squares in the grid
   handleClick(i) {
     // retrieve the array of objects from the state
-    const history = this.state.history;
+    const history = this.state.history.slice(0, this.state.index + 1);
     // retrieve the last object
-    const current = history[history.length - 1];
+    const current = history[this.state.index];
     // create a copy of the array contained in the last object
     const squares = [...current.squares];
     // pre-emptively quit the function if a winner can already be declared or the button already matches a non null value
@@ -72,8 +73,17 @@ class Game extends React.Component {
     // toggle xNext to toggle between the two letters
     this.setState({
       history: [...history, { squares }],
-      xNext: !this.state.xNext
+      xNext: !this.state.xNext,
+      index: history.length
     });
+  }
+
+  jumpTo(index) {
+    console.log(`Jump to ${index}`);
+    this.setState({
+      index,
+      xNext: (index % 2) === 0
+    })
   }
 
 
@@ -86,7 +96,7 @@ class Game extends React.Component {
   */
   render() {
     const history = this.state.history;
-    const current = history[history.length - 1];
+    const current = history[this.state.index];
     const winner = declareWinner(current.squares);
 
     let status;
@@ -96,13 +106,22 @@ class Game extends React.Component {
       status = `Player's turn: ${(this.state.xNext) ? 'X' : 'O'}`;
     }
 
+    const moves = history.map((squares, index) => {
+      const description = index ? `Go to move #${index}` : `Go to game start`;
+      return (
+        <li key={index}>
+          <button onClick={() => this.jumpTo(index)}>{description}</button>
+        </li>
+      );
+    });
+
     return (
       <div className="Game">
         <h1>Tic Tac Toe</h1>
         <p>{status}</p>
         {/* in the board pass the method to update the state as well as the last array of values */}
         <Board handleClick={(i) => this.handleClick(i)} squares={current.squares} />
-        <TimeTravel />
+        <TimeTravel moves={moves} />
       </div>
     );
   }

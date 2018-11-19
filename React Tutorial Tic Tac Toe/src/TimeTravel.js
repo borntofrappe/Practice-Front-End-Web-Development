@@ -9,10 +9,7 @@ class TimeTravel extends React.Component {
       <div className="TimeTravel">
         <details>
           <ul>
-            <li>Turn 1</li>
-            <li>Turn 2</li>
-            <li>Turn 3</li>
-            <li>Turn 4</li>
+            {this.props.moves}
           </ul>
           <summary>TIme Travel</summary>
         </details>

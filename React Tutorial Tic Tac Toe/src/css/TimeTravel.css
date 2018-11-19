@@ -7,3 +7,22 @@
 .TimeTravel details ul {
   list-style: none;
 }
+.TimeTravel button {
+  font-size: 1rem;
+  color: var(--color-text);
+  background: none;
+  border: 1px solid var(--color-text);
+  font-weight: 300;
+  padding: 0.25rem 1rem;
+  margin: 0.25rem 0;
+  font-family: var(--font);
+  transition: all 0.2s ease-out;
+}
+.TimeTravel button:hover {
+  color: var(--color-bg);
+  border: 1px solid var(--color-bg);
+  background: var(--color-text);
+}
+.TimeTravel button:active {
+  transform: scale(1.1);
+}
