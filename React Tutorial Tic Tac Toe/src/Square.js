@@ -1,7 +1,7 @@
 import React from 'react';
-import './Square.css';
+import './css/Square.css';
 
-// with a functional component render a button with a specified class and the method allowing to change its value according to the state's logic
+// with a functional component render a button, detailing the value and method from the props object
 const Square = props => {
   return (
     <button
@@ -12,6 +12,5 @@ const Square = props => {
     </button>
   );
 }
-
 
 export default Square;
