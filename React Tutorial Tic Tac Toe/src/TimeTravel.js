@@ -1,5 +1,5 @@
 import React from 'react';
-// import './css/TimeTravel.css';
+import './css/TimeTravel.css';
 
 // for the time traveling feature add the different moves in a <details> element
 // this to highlight them only when requested (by clicking on the summary element)

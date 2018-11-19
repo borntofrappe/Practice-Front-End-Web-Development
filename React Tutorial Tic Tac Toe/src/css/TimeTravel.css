@@ -1,0 +1,9 @@
+.TimeTravel {
+  text-align: center;
+}
+.TimeTravel details {
+  line-height: 2;
+}
+.TimeTravel details ul {
+  list-style: none;
+}

@@ -67,12 +67,12 @@ class Game extends React.Component {
       return;
     }
     // alter the value of the respective button including an X or O value
-    squares[i] = (this.state.xIsNext) ? 'X' : 'O';
+    squares[i] = (this.state.xNext) ? 'X' : 'O';
     // update the state adding the new array to the history property
     // toggle xNext to toggle between the two letters
     this.setState({
       history: [...history, { squares }],
-      xNext: !this.state.xIsNext
+      xNext: !this.state.xNext
     });
   }
 
@@ -91,7 +91,7 @@ class Game extends React.Component {
 
     let status;
     if (winner) {
-      status = `Winning side: ${winner}. Congrats!`
+      status = `Winning side: ${winner}!`
     } else {
       status = `Player's turn: ${(this.state.xNext) ? 'X' : 'O'}`;
     }

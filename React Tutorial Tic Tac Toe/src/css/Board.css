@@ -1,8 +1,25 @@
 .Board {
-  margin: 1rem 0 2rem;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  grid-gap: 10px;
+  grid-gap: 2px; */
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0 2rem;
 }
-
+.Square {
+  width: 100px;
+  height: 100px;
+  opacity: 0.95;
+  border: 3px solid var(--color-bg);
+  transition: all 0.2s ease-out;
+}
+.Square:hover {
+  opacity: 1;
+  border-width: 1px;
+}
+.Square:active {
+  border-width: 5px;
+}
