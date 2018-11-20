@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Proza+Libre");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  background: repeating-linear-gradient(-80deg, #373737 0px, #373737 250px, #3c5661 250px, #3c5661 450px);
+}
+.container {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #3c5661;
+  box-shadow: 0 1px 5px #212121;
+  line-height: 2;
+  text-align: center;
+}
+h1 {
+  font-weight: 300;
+  font-family: "Proza Libre", sans-serif;
+  text-transform: capitalize;
+}
+p {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}

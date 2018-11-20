@@ -1,0 +1,41 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Proza+Libre')
+
+// detail root variable(s)
+font = "Open Sans", sans-serif
+font-header = "Proza Libre", sans-serif
+color-text = #fff
+color-bg-l = #3C5661
+color-bg-d = #373737
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font
+    color color-text
+    background repeating-linear-gradient(-80deg, color-bg-d 0px, color-bg-d 250px, color-bg-l 250px, color-bg-l 450px)
+
+// center the container horizontally and cap its width
+.container
+    max-width 600px
+    width 90vw
+    margin 1rem auto
+    padding 1rem
+    background color-bg-l
+    box-shadow 0 1px 5px darken(color-bg-d, 40%)
+    line-height 2
+    text-align center
+
+h1
+    font-weight 300
+    font-family font-header
+    text-transform capitalize
+
+p
+    text-transform uppercase
+    letter-spacing 0.1rem
