@@ -1,26 +1,29 @@
+/* center the text in the timetravel component */
 .TimeTravel {
   text-align: center;
 }
-.TimeTravel details {
-  line-height: 2;
-}
+/* remove the bullet points */
 .TimeTravel details ul {
   list-style: none;
+  margin-top: 0.5rem;
 }
+/* style each button as a ghost button, flipping the color and background property on hover */
 .TimeTravel button {
   font-size: 1rem;
   color: var(--color-text);
   background: none;
-  border: 1px solid var(--color-text);
+  border: 2px solid var(--color-text);
+  border-radius: 4px;
   font-weight: 300;
   padding: 0.25rem 1rem;
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   font-family: var(--font);
   transition: all 0.2s ease-out;
 }
 .TimeTravel button:hover {
   color: var(--color-bg);
-  border: 1px solid var(--color-bg);
+  border: 2px dashed var(--color-bg);
+  box-shadow: 0 0 0 4px var(--color-text);
   background: var(--color-text);
 }
 .TimeTravel button:active {

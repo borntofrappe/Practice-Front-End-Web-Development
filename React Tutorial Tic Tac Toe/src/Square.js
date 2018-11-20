@@ -2,13 +2,14 @@ import React from 'react';
 import './css/Square.css';
 
 // with a functional component render a button, detailing the value and method from the props object
-const Square = props => {
+// destructure the value retrieved from props in the argument of the function
+const Square = ({ value, handleClick }) => {
   return (
     <button
       className="Square"
-      onClick={props.handleClick}
+      onClick={handleClick}
     >
-      {props.value}
+      {value}
     </button>
   );
 }

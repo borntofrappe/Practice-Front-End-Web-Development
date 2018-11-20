@@ -5,9 +5,8 @@ import './css/Board.css';
 // in a stateful component render the board with nine different elements, positioned in a grid
 class Board extends React.Component {
 
-  // create a render function which details a Square component (made up to be a button)
-  // pass to this component the value retrieved from the array of values
-  // pass als the function to update the state, both for the respective index value
+  // instead of using the following render function, create nine squares by mapping through the received array
+  /*
   renderSquare(i) {
     return (
       <Square
@@ -16,19 +15,23 @@ class Board extends React.Component {
       />
     );
   }
+  */
 
   render() {
+    // map through the array and create nine squares with the specified value and onClick method
+    const squares = this.props.squares.map((square, index) => {
+      return (
+        <Square
+          value={square}
+          key={index}
+          handleClick={() => this.props.handleClick(index)}
+        />
+      );
+    })
+    // render a container in which the nine squares are wrapped
     return (
       <div className="Board">
-        {this.renderSquare(0)}
-        {this.renderSquare(1)}
-        {this.renderSquare(2)}
-        {this.renderSquare(3)}
-        {this.renderSquare(4)}
-        {this.renderSquare(5)}
-        {this.renderSquare(6)}
-        {this.renderSquare(7)}
-        {this.renderSquare(8)}
+        {squares}
       </div>
     );
   }

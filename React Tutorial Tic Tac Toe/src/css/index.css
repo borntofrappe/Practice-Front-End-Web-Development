@@ -1,9 +1,10 @@
 /* import font(s) */
 @import url("https://fonts.googleapis.com/css?family=Allerta+Stencil|Source+Code+Pro:900");
+
 /* detail root variables */
 :root {
-  --font: "Allerta Stencil", sans-serif;
-  --font-button: "Source Code Pro", monospace;
+  --font-serif: "Allerta Stencil", sans-serif;
+  --font-mono: "Source Code Pro", monospace;
   --color-text: #efeee7;
   --color-bg: #223458;
 }
@@ -17,8 +18,9 @@
 body {
   width: 100%;
   min-height: 100vh;
-  font-family: var(--font);
+  font-family: var(--font-serif);
   color: var(--color-text);
+  /* atop a solid background add the SVG pattern, on both sides of the page */
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.458 26.458" opacity="0.1"><g transform="translate(2.646 -273.187)"><ellipse cx="3.509" cy="287.754" rx="2.603" ry="2.588" fill="none" stroke="%23fff" stroke-width="1.812" stroke-linecap="round" paint-order="stroke fill markers"/><g transform="matrix(.29742 .1707 -.17171 .29567 36.105 196.22)" fill="%23fff"><rect ry=".794" rx=".794" y="238.843" x="52.118" height="23.813" width="5.292" paint-order="stroke fill markers"/><rect transform="rotate(90)" width="5.292" height="23.813" x="248.104" y="-66.67" rx=".794" ry=".794" paint-order="stroke fill markers"/></g><g transform="matrix(.29742 -.1707 .17171 .29567 -48.452 228.336)" fill="%23fff"><rect width="5.292" height="23.813" x="52.118" y="238.843" rx=".794" ry=".794" paint-order="stroke fill markers"/><rect ry=".794" rx=".794" y="-66.67" x="248.104" height="23.813" width="5.292" transform="rotate(90)" paint-order="stroke fill markers"/></g><ellipse cy="285.947" cx="17.658" rx="2.603" ry="2.588" fill="none" stroke="%23fff" stroke-width="1.812" stroke-linecap="round" paint-order="stroke fill markers"/></g></svg>'),
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.458 26.458" opacity="0.1"><g transform="translate(2.646 -273.187)"><ellipse cx="3.509" cy="287.754" rx="2.603" ry="2.588" fill="none" stroke="%23fff" stroke-width="1.812" stroke-linecap="round" paint-order="stroke fill markers"/><g transform="matrix(.29742 .1707 -.17171 .29567 36.105 196.22)" fill="%23fff"><rect ry=".794" rx=".794" y="238.843" x="52.118" height="23.813" width="5.292" paint-order="stroke fill markers"/><rect transform="rotate(90)" width="5.292" height="23.813" x="248.104" y="-66.67" rx=".794" ry=".794" paint-order="stroke fill markers"/></g><g transform="matrix(.29742 -.1707 .17171 .29567 -48.452 228.336)" fill="%23fff"><rect width="5.292" height="23.813" x="52.118" y="238.843" rx=".794" ry=".794" paint-order="stroke fill markers"/><rect ry=".794" rx=".794" y="-66.67" x="248.104" height="23.813" width="5.292" transform="rotate(90)" paint-order="stroke fill markers"/></g><ellipse cy="285.947" cx="17.658" rx="2.603" ry="2.588" fill="none" stroke="%23fff" stroke-width="1.812" stroke-linecap="round" paint-order="stroke fill markers"/></g></svg>'),
     var(--color-bg);
@@ -26,31 +28,22 @@ body {
   background-size: 250px, 250px, 100%;
   background-position-x: calc(100% + 50px), -50px, 0;
   background-position-y: calc(100% + 100px), -50px, 0;
+  /* display the content in a single column, horizontally centered1 */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0;
 }
-
+/* global properties */
 h1 {
-  font-family: var(--font);
   text-transform: uppercase;
   font-weight: 300;
   font-size: 3rem;
 }
 p {
-  line-height: 2;
-  font-weight: 900;
-  font-size: 1.2rem;
+  line-height: 3;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
   text-align: center;
-  margin: 0.5rem 0 1rem;
-}
-button {
-  font-family: var(--font-button);
-  font-weight: 900;
-  background: none;
-  border: none;
-  color: var(--color-bg);
-  background: var(--color-text);
-  font-size: 2rem;
 }
