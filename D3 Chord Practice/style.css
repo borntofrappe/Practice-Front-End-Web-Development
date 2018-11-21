@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  background: #303950;
+}
+.container {
+  max-width: 700px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  line-height: 2;
+  text-align: center;
+}
+.container #tooltip {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  padding: 1rem;
+  background: #fff;
+  color: #303950;
+  line-height: 2;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  font-family: "Ubuntu Condensed", sans-serif;
+  text-transform: capitalize;
+}
+p {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+button {
+  border: none;
+  background: #fff;
+  color: #303950;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  margin-bottom: 0;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+button:hover,
+button:active,
+button.active {
+  background: #303950;
+  color: #fff;
+  -webkit-box-shadow: 0 0 0 2px #fff;
+  box-shadow: 0 0 0 2px #fff;
+}
+button:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

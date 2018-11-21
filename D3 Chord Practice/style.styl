@@ -1,0 +1,70 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed')
+
+// detail root variable(s)
+font = "Open Sans", sans-serif
+font-header = "Ubuntu Condensed", sans-serif
+color-text = #fff
+color-bg = #303950
+color-star = #FFE75D
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font
+    color color-text
+    background color-bg
+
+// center the container horizontally and cap its width
+.container
+    max-width 700px
+    width 90vw
+    margin 1rem auto
+    padding 1rem
+    line-height 2
+    text-align center
+
+    #tooltip
+        pointer-events none
+        position absolute
+        opacity 0
+        padding 1rem
+        background color-text
+        color color-bg
+        line-height 2
+        transition all 0.2s ease-out
+
+h1
+    font-size 2.5rem
+    font-weight 300
+    font-family font-header
+    text-transform capitalize
+
+p
+    text-transform uppercase
+    letter-spacing 0.1rem
+
+button
+    border none
+    background color-text
+    color color-bg
+    padding 0.5rem 1rem
+    margin 1rem
+    margin-bottom 0
+    border-radius 5px
+    font-family inherit
+    font-size 1.1rem
+    transition all 0.2s ease-out
+
+    &:hover, &:active, &.active
+        background color-bg
+        color color-text
+        box-shadow 0 0 0 2px color-text
+
+    &:active
+        transform scale(1.1)
