@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:700");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#649cdf),
+    to(#4f8edb)
+  );
+  background: linear-gradient(to bottom, #649cdf, #4f8edb);
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+main h1 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 3rem;
+}
+main p {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin: 0.7rem 0 1.5rem;
+}
+main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+main input {
+  display: inline;
+  background: #fff;
+  color: #2667b8;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-family: inherit;
+}
+main input::-webkit-input-placeholder {
+  color: inherit;
+}
+main input::-ms-input-placeholder {
+  color: inherit;
+}
+main input::placeholder {
+  color: inherit;
+}
+main .conversion p {
+  border-radius: 2px;
+  background: #2a73cd;
+  border: 4px dotted #fff;
+  padding: 1rem;
+}
+main button {
+  background: #2667b8;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.3rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin: 1rem 0 3rem;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+main button:hover {
+  background: #fff;
+  color: #2667b8;
+  -webkit-box-shadow: 0 0 2px rgba(29, 80, 142, 0.5);
+  box-shadow: 0 0 2px rgba(29, 80, 142, 0.5);
+}
+main button:active {
+  -webkit-transform: translateY(0.2rem);
+  transform: translateY(0.2rem);
+}
+main details summary {
+  font-size: 1.25rem;
+}
+main details ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  list-style: none;
+}
+main details ul li {
+  margin: 0.4rem 0;
+  padding-left: 0.5rem;
+  border-left: 4px solid #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+}

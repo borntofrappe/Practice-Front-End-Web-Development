@@ -1,0 +1,111 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:700");
+
+// detail root variable(s)
+$font: "Open Sans", sans-serif;
+$font-header: "Quicksand", sans-serif;
+$color-text: #fff;
+$color-bg: #4f8edb;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font;
+  color: $color-text;
+  background: linear-gradient(to bottom, lighten($color-bg, 5%), $color-bg);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+
+  h1 {
+    font-family: $font-header;
+    font-size: 3rem;
+  }
+  p {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    margin: 0.7rem 0 1.5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input {
+    display: inline;
+    background: $color-text;
+    color: darken($color-bg, 15%);
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: none;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-family: inherit;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+  .conversion {
+    p {
+      border-radius: 2px;
+      background: darken($color-bg, 10%);
+      border: 4px dotted $color-text;
+      padding: 1rem;
+    }
+  }
+  button {
+    background: darken($color-bg, 15%);
+    color: $color-text;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.3rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 1rem 0 3rem;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background: $color-text;
+      color: darken($color-bg, 15%);
+      box-shadow: 0 0 2px rgba(darken($color-bg, 25%), 0.5);
+    }
+    &:active {
+      transform: translateY(0.2rem);
+    }
+  }
+
+  details {
+    summary {
+      font-size: 1.25rem;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      list-style: none;
+
+      li {
+        margin: 0.4rem 0;
+        padding-left: 0.5rem;
+        border-left: 4px solid $color-text;
+        font-weight: bold;
+        font-size: 1.1rem;
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+}

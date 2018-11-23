@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Front End Imperial Metric Converter</title>
+    <meta
+      name="description"
+      content="Create an HTML, CSS, JavaScript based solution for the first backend project in the **Information Security and Quality Assurance** certification @freecodecamp."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!--
+      detail a simple UI for the project
+      main
+        header and paragraph (introducing the project)
+        form
+          input number
+          input text
+        div (container for the converted measure)
+    -->
+    <main>
+      <h1>Imperial & Metric</h1>
+      <p>Unit Converter</p>
+      <form>
+        <input
+          type="number"
+          id="number"
+          name="number"
+          min="1"
+          placeholder="1"
+        />
+        <input type="text" id="unit" name="unit" placeholder="oz" />
+      </form>
+      <div class="conversion"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
