@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:700");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #f33266;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#fe6e32),
+    color-stop(#f33266),
+    to(#b62275)
+  );
+  background: linear-gradient(to bottom right, #fe6e32, #f33266, #b62275);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Quicksand", sans-serif;
+}
+
+main {
+  background: #fff;
+  max-width: 700px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+main h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+main h2 {
+  font-size: 2rem;
+}
+main p {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin: 0.7rem 0 1.5rem;
+}
+main section {
+  margin: 1rem 0 1.5rem;
+}
+
+.backend h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.backend ol {
+  list-style-position: inside;
+}
+.backend ol li {
+  line-height: 2.5;
+  font-size: 1.1rem;
+}
+
+.backend code {
+  font-size: 1.25rem;
+  font-family: monospace;
+  background: rgba(254, 110, 50, 0.2);
+}
+
+.frontend form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.frontend form input {
+  margin: 0.75rem 0;
+  color: #fff;
+  background: #f33266;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.1rem;
+  font-family: inherit;
+}
+.frontend form input::-webkit-input-placeholder {
+  color: inherit;
+}
+.frontend form input::-ms-input-placeholder {
+  color: inherit;
+}
+.frontend form input::placeholder {
+  color: inherit;
+}
+
+.frontend .conversion {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+.frontend .conversion p {
+  text-transform: initial;
+  font-size: 1.2rem;
+  display: inline-block;
+  color: #fff;
+  background: #e50d47;
+  padding: 1.2rem 1rem 1rem;
+  letter-spacing: 0.1rem;
+  position: relative;
+}
+.frontend .conversion p:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  border-top: 0.75rem solid #fff;
+  border-right: 0.75rem solid transparent;
+  border-bottom: 0.75rem solid transparent;
+  border-left: 0.75rem solid transparent;
+}
+
+.frontend details ul {
+  list-style: none;
+}
+.frontend details ul li {
+  margin: 1rem 0;
+  padding-left: 0.3rem;
+  border-left: 3px solid #f33266;
+}

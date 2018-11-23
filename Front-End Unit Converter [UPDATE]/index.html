@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Front End Imperial Metric Converter</title>
+    <meta
+      name="description"
+      content="Create the UI for the first backend project in the **Information Security and Quality Assurance** certification @freecodecamp. Describing the functionality of the page and a working form using only JavaScript."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!--
+      application structure
+      - main (wrapping the entire application)
+        h1 (title)
+        p (description)
+
+        section (describing the backend)
+          h2 (title)
+          div (container for user stories)
+            h3 (title)
+            ol (describing the different user stories)
+
+          div (container for example usage)
+            h3 (title)
+            pre
+              code (describing the example usage)
+
+          div (container for example return)
+            h3 (title)
+            pre
+              code (decribing an example return)
+
+        section (describing the frontend)
+          h2 (title)
+          form
+            input (number)
+            input (text)
+          div (in which to show the converted measure, as you type in the input elements)
+    -->
+    <main>
+      <h1>Imperial & Metric</h1>
+      <p>Unit Converter</p>
+
+      <section class="backend">
+        <h2>Back End</h2>
+
+        <div>
+          <h3>User Stories</h3>
+          <ol>
+            <li>
+              I will help prevent the client from trying to guess(sniff) the
+              MIME type.
+            </li>
+            <li>I will prevent cross-site scripting (XSS) attacks.</li>
+            <li>
+              I can <strong>GET</strong> <code>/api/convert</code> with a single
+              parameter containing an accepted number and unit and have it
+              converted.
+            </li>
+            <li>
+              Hint: Split the input by looking for the index of the first
+              character.
+            </li>
+            <li>
+              I can convert 'gal' to 'L' and vice versa.
+              <strong>(1 gal to 3.78541 L)</strong>
+            </li>
+            <li>
+              I can convert 'lbs' to 'kg' and vice versa.
+              <strong>(1 lbs to 0.453592 kg)</strong>
+            </li>
+            <li>
+              I can convert 'mi' to 'km' and vice versa.
+              <strong>(1 mi to 1.60934 km)</strong>
+            </li>
+            <li>
+              If my unit of measurement is invalid, returned will be
+              <code>'invalid unit'</code>.
+            </li>
+            <li>
+              If my number is invalid, returned with will
+              <code>'invalid number'</code>.
+            </li>
+            <li>
+              If both are invalid, return will be
+              <code>'invalid number and unit'</code>.
+            </li>
+            <li>
+              I can use fractions, decimals or both in my parameter(ie. 5, 1/2,
+              2.5 / 6), but if nothing is provided it will default to 1.
+            </li>
+            <li>
+              My return will consist of the initNum, initUnit, returnNum,
+              returnUnit, and string spelling out units in format
+              <code>{initNum} {initial_Units}</code> converts to
+              <code>{returnNum} {return_Units}</code> with the result rounded to
+              5 decimals.
+            </li>
+            <li>All 16 unit tests are complete and passing.</li>
+            <li>All 5 functional tests are complete and passing.</li>
+          </ol>
+        </div>
+        <!-- close div for user stories -->
+
+        <div>
+          <h3>Example Usage</h3>
+          <code>
+            /api/convert?input=4gal<br />
+            /api/convert?input=4gal<br />
+            /api/convert?input=4gal<br />
+            /api/convert?input=4gal<br />
+          </code>
+        </div>
+
+        <div>
+          <h3>Example Return</h3>
+          <code
+            >{initNum: 3.1, initUnit: 'mi', returnNum: 5.0000008, returnUnit:
+            'km', string: '3.1 miles converts to 5.00002 kilometers'}</code
+          >
+        </div>
+      </section>
+
+      <section class="frontend">
+        <h2>Front End</h2>
+        <form>
+          <input
+            type="number"
+            id="number"
+            name="number"
+            min="1"
+            placeholder="1"
+          />
+          <input type="text" id="unit" name="unit" placeholder="oz" />
+        </form>
+        <div class="conversion"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
