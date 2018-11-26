@@ -209,3 +209,5 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**D3 Chord Practice**](https://codepen.io/borntofrappe/pen/WYMMNN)|Practice with D3.js, building on top of previous efforts with a chord layout to create an interactive visualization.|d3, chord, ribbon, arc, interactive|21st November 2018|
 |[**Front-End Unit Converter**](https://codepen.io/borntofrappe/pen/zMWpEx)|Create an HTML, CSS, JavaScript based solution for the first backend project in the Information Security and Quality Assurance certification @freecodecamp.|front-end, metric, imperial, input|22nd November 2018|
 |[**Front-End Unit Converter [UPDATE]**](https://codepen.io/borntofrappe/pen/BGxpmK)|Create the UI for the first backend project in the **Information Security and Quality Assurance** certification @freecodecamp.|front-end, metric, imperial, input|23rd November 2018|
+|[**D3 Sankey Diagram**](https://codepen.io/borntofrappe/pen/KrBypK/)|Practice with D3 and another possible visualization for network diagrams, with a sankey diagram.|d3, sankey, network|27th November 2018|
+
