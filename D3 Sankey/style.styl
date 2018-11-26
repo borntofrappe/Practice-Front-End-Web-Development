@@ -1,0 +1,56 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Caesar+Dressing|Open+Sans')
+
+// detail root variable(s)
+font = "Open Sans", sans-serif
+font-header = "Caesar Dressing", cursive
+color-container = #FFFFFF
+color-bg-l = #42424E
+color-bg-d = #2D2C35
+color-text = color-bg-d
+color-accent = #040AFA
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    min-height 100vh
+    width 100%
+    font-family font
+    color color-text
+    background linear-gradient(to bottom, color-bg-l, color-bg-l 70%, color-bg-d 70%)
+
+h2
+    font-family font-header
+    font-size calc(3rem + 1vw)
+    display inline-block
+    border-bottom 2px dashed color-text
+
+.container
+    max-width 800px
+    margin 1rem auto
+    padding 1rem 2rem
+    border-radius 2px
+    background color-container
+    box-shadow 0 0 2px color-bg-d
+
+    div
+        margin-bottom 1.5rem
+
+    p
+        margin 0.8rem 0 0.4rem
+    a
+        color inherit
+
+    #tooltip
+        pointer-events none
+        position absolute
+        opacity 0
+        padding 1rem
+        background color-container
+        box-shadow 0 0 4px rgba(color-bg-l, 0.2)
+        line-height 2
+        transition all 0.2s ease-out
+
