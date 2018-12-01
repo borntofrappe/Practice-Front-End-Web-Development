@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
+  background: #f7f7f7;
+  overflow: hidden;
+}
+
+h3 {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-weight: 300;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+.dino {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 180px;
+  width: 120px;
+}
+.dino div {
+  position: absolute;
+  background: #535353;
+}
+.dino .head {
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 25%;
+  border-radius: 6px 8px 10px 0;
+}
+.dino .head:before,
+.dino .head:after {
+  position: absolute;
+  content: "";
+  background: #f7f7f7;
+}
+.dino .head:before {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  top: 15%;
+  left: 20%;
+  animation: blink 2s step-end infinite;
+}
+.dino .head:after {
+  width: 40%;
+  height: 15%;
+  left: 60%;
+  top: 70%;
+  border-radius: 8px 5px 0 0;
+}
+.dino .neck {
+  top: 25%;
+  left: 40%;
+  width: 35%;
+  height: 30%;
+}
+.dino .body {
+  top: 28%;
+  left: 35%;
+  width: 35%;
+  height: 30%;
+}
+.dino .arm {
+  top: 35%;
+  left: 70%;
+  width: 12%;
+  height: 3%;
+}
+.dino .arm:before {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 70%;
+  width: 30%;
+  height: 120%;
+  background: inherit;
+}
+.dino .posterior {
+  top: 31%;
+  left: 30%;
+  width: 35%;
+  height: 30%;
+}
+.dino .tail {
+  left: 20%;
+  top: 34%;
+  width: 10%;
+  height: 25%;
+}
+.dino .tail:before,
+.dino .tail:after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50%;
+  background: inherit;
+}
+.dino .tail:before {
+  right: 100%;
+  top: -10%;
+}
+.dino .tail:after {
+  right: 150%;
+  top: -20%;
+}
+.dino .leg {
+  top: 61%;
+  height: 5%;
+  width: 8%;
+}
+.dino .leg.left {
+  left: 35%;
+}
+.dino .leg.right {
+  left: 50%;
+}
+.dino .leg:before,
+.dino .leg:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  background: inherit;
+}
+.dino .leg:before {
+  top: 100%;
+  width: 45%;
+  height: 100%;
+}
+.dino .leg:after {
+  top: 150%;
+  width: 100%;
+  height: 55%;
+}
+
+.gauge {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 50%;
+  max-width: 300px;
+  transform: translate(-50%, 0);
+  height: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(83, 83, 83, 0.5), 0 2px 15px rgba(83, 83, 83, 0.2);
+  background: repeating-linear-gradient(
+    120deg,
+    #535353,
+    #535353 10px,
+    #f7f7f7 12px,
+    #f7f7f7 20px
+  );
+  background-size: 0 100%;
+  transition: all 0.3s linear;
+  background-repeat: no-repeat;
+}
+
+@keyframes blink {
+  0%,
+  20% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(0);
+  }
+}

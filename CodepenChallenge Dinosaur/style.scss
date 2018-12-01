@@ -1,0 +1,203 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+// root variable(s)
+$font: "Open Sans", sans-serif;
+$dino: #535353;
+$bg: #f7f7f7;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font;
+  color: $dino;
+  background: $bg;
+  overflow: hidden;
+}
+h3 {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-weight: 300;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+// draw a dinosaur with the specified elements
+// turns out I misjudged the proportion of the head/body
+// instead of adjusting them all I just included a gauge below the dinosaur, to keep track of the momentum
+.dino {
+  // position the dinosaur at the bottom of the screen
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 180px;
+  width: 120px;
+
+  // properties shared by all containers
+  div {
+    position: absolute;
+    background: $dino;
+  }
+  // slightly rounded rectangle
+  .head {
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 25%;
+    border-radius: 6px 8px 10px 0;
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      background: $bg;
+    }
+    // rectangle with a dot for an eye
+    &:before {
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      top: 15%;
+      left: 20%;
+      animation: blink 2s step-end infinite;
+    }
+    // rectangle with an overlapping rectangle for a mouth
+    &:after {
+      width: 40%;
+      height: 15%;
+      left: 60%;
+      top: 70%;
+      border-radius: 8px 5px 0 0;
+    }
+  }
+  // rectangles for the neck and body
+  .neck {
+    top: 25%;
+    left: 40%;
+    width: 35%;
+    height: 30%;
+  }
+  .body {
+    top: 28%;
+    left: 35%;
+    width: 35%;
+    height: 30%;
+  }
+  // rectangles for the arm
+  .arm {
+    top: 35%;
+    left: 70%;
+    width: 12%;
+    height: 3%;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 100%;
+      left: 70%;
+      width: 30%;
+      height: 120%;
+      background: inherit;
+    }
+  }
+  // rectangle for the posterior
+  .posterior {
+    top: 31%;
+    left: 30%;
+    width: 35%;
+    height: 30%;
+  }
+  // rectangle and pseudo elements for the tail
+  .tail {
+    left: 20%;
+    top: 34%;
+    width: 10%;
+    height: 25%;
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 50%;
+      background: inherit;
+    }
+    &:before {
+      right: 100%;
+      top: -10%;
+    }
+    &:after {
+      right: 150%;
+      top: -20%;
+    }
+  }
+  // rectangles and pseudo elements for the legs (positioned according to the additional left/right class)
+  .leg {
+    top: 61%;
+    height: 5%;
+    width: 8%;
+    &.left {
+      left: 35%;
+    }
+    &.right {
+      left: 50%;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      background: inherit;
+    }
+    &:before {
+      top: 100%;
+      width: 45%;
+      height: 100%;
+    }
+    &:after {
+      top: 150%;
+      width: 100%;
+      height: 55%;
+    }
+  }
+}
+// position the bar below the dinosaur, add a striped background
+.gauge {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 50%;
+  max-width: 300px;
+  transform: translate(-50%, 0);
+  height: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba($dino, 0.5), 0 2px 15px rgba($dino, 0.2);
+  background: repeating-linear-gradient(
+    120deg,
+    $dino,
+    $dino 10px,
+    $bg 12px,
+    $bg 20px
+  );
+  // by default don't show the striped background
+  // property altered in the script
+  background-size: 0 100%;
+  transition: all 0.3s linear;
+  background-repeat: no-repeat;
+}
+// animation for the eye made up with the pseudo element for the .head container
+@keyframes blink {
+  0%,
+  20% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(0);
+  }
+}
