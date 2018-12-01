@@ -210,4 +210,5 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Front-End Unit Converter**](https://codepen.io/borntofrappe/pen/zMWpEx)|Create an HTML, CSS, JavaScript based solution for the first backend project in the Information Security and Quality Assurance certification @freecodecamp.|front-end, metric, imperial, input|22nd November 2018|
 |[**Front-End Unit Converter [UPDATE]**](https://codepen.io/borntofrappe/pen/BGxpmK)|Create the UI for the first backend project in the **Information Security and Quality Assurance** certification @freecodecamp.|front-end, metric, imperial, input|23rd November 2018|
 |[**D3 Sankey Diagram**](https://codepen.io/borntofrappe/pen/KrBypK/)|Practice with D3 and another possible visualization for network diagrams, with a sankey diagram.|d3, sankey, network|27th November 2018|
+|[**CodepenChallenge Dinosaur**](https://codepen.io/borntofrappe/pen/MzLWXL/)|Draw a simple and animated dinosaur after the buddy of any offline google request.|cpc, css, dinosaur|30th November 2018|
 
