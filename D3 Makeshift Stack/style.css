@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #ecf5fe;
+  background: #181743;
+}
+.container {
+  max-width: 400px;
+  margin: 2rem auto 1rem;
+  padding: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+.container p {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  line-height: 2;
+  margin: 1rem 0;
+}
+.container select {
+  margin: 1rem 0;
+  border: 2px solid #ecf5fe;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  background: #181743;
+  color: inherit;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.container select option {
+  background: inherit;
+}
+.container #tooltip {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  padding: 1rem;
+  background: #ecf5fe;
+  color: #181743;
+  line-height: 2;
+  transition: all 0.2s ease-out;
+}
