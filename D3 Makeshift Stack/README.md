@@ -1,6 +1,6 @@
 # D3 Makeshift Stack
 
-<!-- Link to the work-in-progress pen right [here](). -->
+Link to the working pen right [here](https://codepen.io/borntofrappe/pen/vQbjGJ).
 
 ## Preface
 
