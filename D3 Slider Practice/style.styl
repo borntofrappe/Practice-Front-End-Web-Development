@@ -1,0 +1,50 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Open+Sans')
+
+// detail root variable(s)
+font = 'Open Sans', sans-serif
+font-mono = 'IBM Plex Mono', monospace
+color-bg = #E6E9EC
+color-card = #2E2F40
+color-text = #ECF5FE
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    width 100%
+    font-family font
+    color color-text
+    background url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 26.458 26.458'><g opacity='0.08' transform='translate(-1.467 -48.59) scale(.26095)'><circle cx='56.318' cy='236.902' r='38.176' fill='none' stroke='%23223458' stroke-width='4.762' stroke-linecap='round' paint-order='stroke fill markers'/><g fill='%23223458' transform='translate(-.904 1.423)'><ellipse transform='scale(-1 1)' cx='-43.706' cy='228.208' rx='3.78' ry='7.56' paint-order='stroke fill markers'/><path d='M51.524 213.925s-2.637-1.058-7.818-1.058c-5.937 0-7.817 1.058-7.817 1.058-.377.05-.687.152-.687.34v1.588c0 .188.31.39.687.34 0 0 5.188-1.059 7.817-1.059 2.63 0 7.818 1.059 7.818 1.059.377.05.687-.152.687-.34v-1.588c0-.188-.31-.29-.687-.34z' paint-order='stroke fill markers'/></g><path d='M39.774 256.679s2.306 1.66 7.336 2.901c5.764 1.423 7.843.846 7.843.846.379.041.704.018.749-.165l.38-1.542c.046-.183-.207-.454-.585-.494 0 0-5.29-.216-7.843-.847-2.553-.63-7.336-2.901-7.336-2.901-.354-.14-.704-.017-.749.166l-.38 1.54c-.045.184.231.356.585.496z' fill='%23223458' paint-order='stroke fill markers'/><g fill='none' stroke='%23223458' stroke-linecap='round' transform='translate(-.904 1.423)'><circle r='11.508' cy='229.414' cx='69.824' stroke-width='2.899' paint-order='stroke fill markers'/><path d='M81.9 233.488s6.664-1.087 6.664 7.242c0 8.328-4.106 27.323 0 29.693 4.106 2.37 4.707-7.966 4.707-7.966' stroke-width='4.054'/></g></g></svg>"), color-bg
+    background-size 200px
+    background-position -100px -50px
+    background-repeat repeat
+
+.container
+    max-width 700px
+    margin 2rem auto 1rem
+    padding 1rem
+    text-transform capitalize
+    background color-card
+    box-shadow 0 1px 4px rgba(color-card, 0.5)
+    p
+        font-weight 300
+        text-transform uppercase
+        letter-spacing 0.1rem
+        line-height 2
+
+        &:nth-of-type(1)
+            border-bottom 1px solid rgba(color-text, 0.2)
+            display inline-block
+
+        &:nth-of-type(2)
+            margin 2rem 0 1rem
+            text-align center
+
+    svg
+        text
+            font-size 1rem
+            font-family font-mono
+
