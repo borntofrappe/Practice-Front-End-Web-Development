@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Open+Sans");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,15 +6,17 @@
 }
 body {
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #ecf5fe;
-  background: #181743;
+  background: #e6e9ec;
 }
 .container {
   max-width: 700px;
   margin: 2rem auto 1rem;
   padding: 1rem;
   text-transform: capitalize;
+  background: #2e2f40;
+  box-shadow: 0 1px 4px rgba(46,47,64,0.5);
 }
 .container p {
   font-weight: 300;
@@ -23,7 +25,7 @@ body {
   line-height: 2;
 }
 .container p:nth-of-type(1) {
-  border-bottom: 1px solid rgba(236, 245, 254, 0.2);
+  border-bottom: 1px solid rgba(236,245,254,0.2);
   display: inline-block;
 }
 .container p:nth-of-type(2) {
@@ -32,6 +34,5 @@ body {
 }
 .container svg text {
   font-size: 1rem;
-  opacity: 0.7;
-  font-family: inherit;
+  font-family: 'IBM Plex Mono', monospace;
 }
