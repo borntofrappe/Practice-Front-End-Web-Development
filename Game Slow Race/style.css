@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+/*
+css properties
+beside those properties used for the color/font of the application
+--dist is used to translate the racers horizontally
+*/
+:root {
+  --font: "Varela Round", sans-serif;
+  --white: #ffffff;
+  --black: #34343a;
+  --black-t: #34343a33;
+  --dist: 0px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+/* display the controls one next to the other, in a wrapping row */
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.controls button {
+  margin: 0.5rem;
+  width: 90px;
+  height: 90px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  padding: 0.5rem;
+  /* by default add a cursor of not-allowed
+  these properties will be applied when removing the class of able
+  */
+  cursor: not-allowed;
+}
+.controls button svg {
+  width: 100%;
+  height: 100%;
+}
+/* style the buttons with a class of .able to add transitions */
+.controls button.able {
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--black);
+}
+.controls button.able:hover {
+  background: var(--black);
+}
+.controls button.able:active {
+  background: var(--black);
+  transform: scale(1.1);
+}
+
+/* place the result, hidden by default in the center of the page */
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  text-align: center;
+  font-family: var(--font);
+  padding: 1rem;
+  background: var(--black);
+  box-shadow: 0 1px 5px var(--black-t);
+}
+/* by means of a class animate the heading into view */
+.show-result {
+  animation: showResult 0.25s cubic-bezier(0.2, 1.38, 0.79, 1.46) both;
+}
+@keyframes showResult {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* show the racers (made up of svg elements) one atop the other */
+.racers {
+  display: flex;
+  flex-direction: column;
+}
+.racers svg {
+  margin: 0 0.5rem;
+  transform: translate(var(--dist), 0);
+  filter: drop-shadow(0 1px 5px var(--black-t));
+  width: 100px;
+  height: 100px;
+}
+
+/* detail a chequered flag using the background property of the container */
+.goal {
+  position: fixed;
+  right: 0%;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='100' viewBox='0 0 13.229 26.458'><g fill-opacity='.941'><path fill='%23888' paint-order='stroke fill markers' d='M0 0h6.615v6.615H0zM6.615 6.614h6.615v6.615H6.615z'/><path fill='%23fff' paint-order='stroke fill markers' d='M6.615 0h6.615v6.615H6.615zM0 6.614h6.615v6.615H0z'/><path fill='%23888' paint-order='stroke fill markers' d='M0 13.23h6.615v6.614H0zM6.615 19.843h6.615v6.615H6.615z'/><path fill='%23fff' paint-order='stroke fill markers' d='M6.615 13.23h6.615v6.614H6.615zM0 19.843h6.615v6.615H0z'/></g></svg>");
+  box-shadow: 0 0 5px var(--black-t);
+  background-size: 100px;
+  z-index: -200;
+}
