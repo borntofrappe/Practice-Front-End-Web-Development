@@ -214,3 +214,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**D3 Makeshift Stack**](https://codepen.io/borntofrappe/pen/vQbjGJ/)|Create a stack chart without the benefit of d3.stack(). Tinkering with a simple dataset to highlight arbitrary data.|d3, stack, juice|1st December 2018|
 |[**D3 Slider**](https://codepen.io/borntofrappe/pen/NEJxom)|Add interactivity to a line chart in the form of a drag-gable slider.|d3, line, slider|2nd-3rd December 2018|
 |[**D3 Slider Practice**](https://codepen.io/borntofrappe/pen/JeVRXj)|Use a real dataset to practice with a draggable element, highlighting a line chart.|d3, line, slider|3rd December 2018|
+|[**Game Slow Race**](https://codepen.io/borntofrappe/pen/PxvJwQ)|Create a simple racing game to practice with CSS and JS animation. Choose between two and five snails and let the race unfold.|game, css, js, animation|4th December 2018|
