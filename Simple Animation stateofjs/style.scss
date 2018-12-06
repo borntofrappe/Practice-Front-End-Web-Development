@@ -1,0 +1,141 @@
+// import font(s)
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700");
+
+// detail variable(s)
+$font: "IBM Plex Mono", monospace;
+$bg: #212424;
+$accent-red: #fe6a6a;
+$accent-blue: #41c7c7;
+$text: #e1e1e1;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: $font;
+  color: $text;
+  background: $bg;
+}
+
+.container {
+  min-height: 100vh;
+  // center the content in the page
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+// display the content of .grid in a 5*3 grid
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 85px);
+  grid-template-rows: repeat(3, 85px);
+  grid-gap: 1px;
+}
+// style the button akin to the button on the stateofjs website
+// important: transition-duration ought to match the interval used in JS to avoid jumps in the scene
+.grid button {
+  text-transform: capitalize;
+  color: inherit;
+  font-family: inherit;
+  border: none;
+  box-shadow: 0 0 1px $text;
+  background: none;
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+
+  // for each successive button add a label in the top left corner
+  &:after {
+    position: absolute;
+    content: "1";
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    margin: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+  &:nth-of-type(2):after {
+    content: "2";
+  }
+  &:nth-of-type(3):after {
+    content: "3";
+  }
+  &:nth-of-type(4):after {
+    content: "4";
+  }
+  &:nth-of-type(5):after {
+    content: "5";
+  }
+  &:nth-of-type(6):after {
+    content: "6";
+  }
+  &:nth-of-type(7):after {
+    content: "7";
+  }
+  &:nth-of-type(8):after {
+    content: "8";
+  }
+  &:nth-of-type(9):after {
+    content: "9";
+  }
+  &:nth-of-type(10):after {
+    content: "10";
+  }
+  &:nth-of-type(11):after {
+    content: "11";
+  }
+
+  // add spces between buttons exactly like the stateofjs website
+  &:nth-child(4) {
+    grid-column: 5/6;
+  }
+  &:nth-child(10) {
+    grid-column: 3/4;
+  }
+  &.js {
+    color: $accent-blue;
+  }
+  &.year {
+    color: $accent-red;
+  }
+}
+// for the final button style it similar to the previous one, but detail here the transition in CSS
+.mouse {
+  cursor: pointer;
+  text-transform: capitalize;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 2rem;
+  border: 1.25px solid currentColor;
+  margin-top: 4.5rem;
+  padding: 0.75rem 2.5rem;
+  position: relative;
+  transition: all 0.2s ease-out;
+
+  &:hover,
+  &:focus {
+    color: $accent-red;
+    border-color: $accent-red;
+  }
+
+  &:before {
+    text-transform: lowercase;
+    content: "mouseenter to";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    margin: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  &:hover:before {
+    content: "mouseout to";
+  }
+}

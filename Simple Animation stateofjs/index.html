@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Simple Animation: the stateofJS</title>
+    <meta
+      name="description"
+      content="Tinker with simple transition applied to the transform property to animate and stop animating a series of grid item."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!--
+      an effect similar to the one found in the cited website relies on SVG and a d3 simulate function
+      something perhaps to consider in a separate effort
+
+      for the project at hand the grid is made up of a series of buttons, positioned with grid properties
+      below the grid add a button to restore the grid back to its original position on mouseenter
+    -->
+
+    <div class="container">
+      <div class="grid">
+        <button class="state">st</button>
+        <button class="state">at</button>
+        <button class="state">e</button>
+        <button class="state">of</button>
+        <button class="js">ja</button>
+        <button class="js">va</button>
+        <button class="js">sc</button>
+        <button class="js">ri</button>
+        <button class="js">pt</button>
+        <button class="year">20</button>
+        <button class="year">18</button>
+      </div>
+      <button class="mouse">Focus</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "IBM Plex Mono", monospace;
+  color: #e1e1e1;
+  background: #212424;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 85px);
+  grid-template-rows: repeat(3, 85px);
+  grid-gap: 1px;
+}
+
+.grid button {
+  text-transform: capitalize;
+  color: inherit;
+  font-family: inherit;
+  border: none;
+  box-shadow: 0 0 1px #e1e1e1;
+  background: none;
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+}
+.grid button:after {
+  position: absolute;
+  content: "1";
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  margin: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.grid button:nth-of-type(2):after {
+  content: "2";
+}
+.grid button:nth-of-type(3):after {
+  content: "3";
+}
+.grid button:nth-of-type(4):after {
+  content: "4";
+}
+.grid button:nth-of-type(5):after {
+  content: "5";
+}
+.grid button:nth-of-type(6):after {
+  content: "6";
+}
+.grid button:nth-of-type(7):after {
+  content: "7";
+}
+.grid button:nth-of-type(8):after {
+  content: "8";
+}
+.grid button:nth-of-type(9):after {
+  content: "9";
+}
+.grid button:nth-of-type(10):after {
+  content: "10";
+}
+.grid button:nth-of-type(11):after {
+  content: "11";
+}
+.grid button:nth-child(4) {
+  grid-column: 5/6;
+}
+.grid button:nth-child(10) {
+  grid-column: 3/4;
+}
+.grid button.js {
+  color: #41c7c7;
+}
+.grid button.year {
+  color: #fe6a6a;
+}
+
+.mouse {
+  cursor: pointer;
+  text-transform: capitalize;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 2rem;
+  border: 1.25px solid currentColor;
+  margin-top: 4.5rem;
+  padding: 0.75rem 2.5rem;
+  position: relative;
+  transition: all 0.2s ease-out;
+}
+.mouse:hover,
+.mouse:focus {
+  color: #fe6a6a;
+  border-color: #fe6a6a;
+}
+.mouse:before {
+  text-transform: lowercase;
+  content: "mouseenter to";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+.mouse:hover:before {
+  content: "mouseout to";
+}
