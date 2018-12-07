@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400");
+/* root variables */
+:root {
+  /* --sea-d: #5c869c; */
+  /* --ground: #2dd68a; */
+  --accent: #6fd4dd;
+  --bg: #212139;
+  --dialog: #fff;
+  --scale: 1;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--bg);
+}
+/* position the paragraph and the button at the bottom of the page */
+.container {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/* style the heading as to have a label animated toward the button element */
+h1 {
+  display: inline-block;
+  font-weight: 400;
+  background: var(--dialog);
+  color: var(--bg);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  position: relative;
+}
+h1:before {
+  position: absolute;
+  content: "";
+  left: 2%;
+  top: 100%;
+  border-top: 0.7rem solid var(--dialog);
+  border-right: 0.7rem solid transparent;
+  border-bottom: 0.7rem solid transparent;
+  border-left: 0.7rem solid transparent;
+  animation: readText 2s 0.5s ease-out forwards;
+}
+
+/* style the button to "press" it as the label above it indicates */
+button {
+  width: 60px;
+  height: 40px;
+  background: var(--accent);
+  border: none;
+  border-radius: 4px 4px 2px 2px;
+  animation: pressButton 0.3s 2.5s cubic-bezier(0.42, 1.31, 0.89, 1.44) both;
+  position: relative;
+  font-family: inherit;
+}
+/* through a pseudo element include a simple label to visualize the button being clicked */
+button:before {
+  position: absolute;
+  content: "click";
+  left: 100%;
+  bottom: 0;
+  font-size: 0.9rem;
+  color: var(--dialog);
+  opacity: 0;
+  animation: clickButton 0.4s 2.65s ease-out forwards;
+}
+
+/* animation for the label, moved from the left of the paragraph to its mirrored right */
+@keyframes readText {
+  100% {
+    left: calc(98% - 1.4rem);
+  }
+}
+/* animation for the button, offsetting the difference in height with an equal margin-top value */
+@keyframes pressButton {
+  100% {
+    margin-top: 20px;
+    height: 20px;
+  }
+}
+/* animation for the click label, shown briefly as the button is "pressed" */
+@keyframes clickButton {
+  20%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(1rem, -1rem);
+  }
+}
