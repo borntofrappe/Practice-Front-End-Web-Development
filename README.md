@@ -215,4 +215,5 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**D3 Slider**](https://codepen.io/borntofrappe/pen/NEJxom)|Add interactivity to a line chart in the form of a drag-gable slider.|d3, line, slider|2nd-3rd December 2018|
 |[**D3 Slider Practice**](https://codepen.io/borntofrappe/pen/JeVRXj)|Use a real dataset to practice with a draggable element, highlighting a line chart.|d3, line, slider|3rd December 2018|
 |[**Game Slow Race**](https://codepen.io/borntofrappe/pen/PxvJwQ)|Create a simple racing game to practice with CSS and JS animation. Choose between two and five snails and let the race unfold.|game, css, js, animation|4th December 2018|
-|[**Simple Animation stateofjs**](https://codepen.io/borntofrappe/pen/YRoaaR)|Tinker with a simple transition applied to the transform property. This to animate and stop animating a series of grid item.|css, js, animation|4th December 2018|
+|[**Simple Animation stateofjs**](https://codepen.io/borntofrappe/pen/YRoaaR)|Tinker with a simple transition applied to the transform property. This to animate and stop animating a series of grid item.|css, js, animation|5th December 2018|
+|[**D3 Simulation Experiment**](https://codepen.io/borntofrappe/pen/gQVQYe)|Experiment with d3.simulation to create a simple animation of moving dots.|d3, simulation, animation|6th-7th December 2018|
