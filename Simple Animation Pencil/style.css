@@ -1,0 +1,118 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro:700|Open+Sans");
+
+/* root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  --font-heading: "Maven Pro", sans-serif;
+  --bg: #dbd6d2;
+  --pencil-body: #ffc80d;
+  --pencil-line: #292929;
+  --pencil-rubber: #f2463c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  background: var(--bg);
+}
+.pencil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 200px;
+  border-radius: 2px;
+  /* draw the body of the pencil as a simple backgound with three parallel lines */
+  background: linear-gradient(
+    to right,
+    var(--pencil-line),
+    var(--pencil-line) 10%,
+    var(--pencil-body) 10%,
+    var(--pencil-body) 46%,
+    var(--pencil-line) 46%,
+    var(--pencil-line) 54%,
+    var(--pencil-body) 54%,
+    var(--pencil-body) 90%,
+    var(--pencil-line) 90%
+  );
+  /* use the border to create the rubber atop the pencil */
+  border-top: 20px solid var(--pencil-rubber);
+  /* animate the pencil from the bottom of the div */
+  transform-origin: 50% 100%;
+  animation: shake 3s infinite both ease-in-out;
+}
+/* with a pseudo element detail the tip of the pencil */
+.pencil:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-top: 20px solid currentColor;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid transparent;
+}
+/* detail a line through another pseudo element, and animate it in opposition to the pencil */
+.pencil:before {
+  content: "";
+  position: absolute;
+  top: calc(100% + 20px);
+  height: 2px;
+  background: var(--pencil-line);
+  animation: draw 3s infinite both ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  10% {
+    transform: translate(-100%, -50%) rotate(-4deg);
+  }
+  20% {
+    transform: translate(-50%, -50%) rotate(4deg);
+  }
+  30% {
+    transform: translate(0%, -50%) rotate(6deg);
+  }
+}
+@keyframes draw {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  10% {
+    width: 50%;
+    left: 50%;
+  }
+  12% {
+    width: 0;
+    left: 50%;
+  }
+  20% {
+    width: 50%;
+    left: 0%;
+  }
+  22% {
+    width: 0%;
+    left: 50%;
+  }
+  30% {
+    width: 50%;
+    left: 0;
+  }
+  32% {
+    width: 0;
+    left: 50%;
+  }
+}
