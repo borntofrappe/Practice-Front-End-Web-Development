@@ -22,16 +22,22 @@ class App extends Component {
           name: 'spring',
           url: 'http://react-spring.surge.sh'
         }
+      ],
+      icons: [
+        'thumbs',
+        'volume',
+        'crown',
+        'book'
       ]
     }
   }
   render() {
-    const { links } = this.state;
+    const { links, icons } = this.state;
     return (
       <div className="App">
         <Navigation links={links} />
         <Hero />
-        <Details />
+        <Details icons={icons} />
         <Sendoff />
       </div>
     );

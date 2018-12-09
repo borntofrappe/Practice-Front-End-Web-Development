@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Emotion Spring Practice",
+  "name": "Practice with two popular React libraries allowing to style and animate components",
   "icons": [
     {
       "src": "favicon.ico",

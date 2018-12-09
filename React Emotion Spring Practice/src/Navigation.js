@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 
 const anchorLink = ({ url, name }) => (
   <a
-    href={`#${url}`}
+    href={url}
     css={{
       color: 'inherit',
       textTransform: 'uppercase',
@@ -32,7 +32,8 @@ const Navigation = ({ links }) => {
         display: 'flex',
         justifyContent: 'space-around',
         padding: '2rem 1rem',
-        background: 'var(--theme-dd)'
+        background: 'var(--theme-dd)',
+        zIndex: 100
       }}>
       {
         links.map(link => anchorLink(link))

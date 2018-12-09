@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 
-
 const Hero = () => {
   return (
     <div
@@ -43,15 +42,6 @@ const Hero = () => {
             color: 'var(--theme-dd)',
             background: 'var(--theme-l)',
             borderColor: 'var(--theme-l)'
-          },
-          '&::after': {
-            content: 'hello',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'var(--theme-l)'
           }
         }}>
         Neat button
