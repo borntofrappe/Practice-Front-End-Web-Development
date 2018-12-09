@@ -5,10 +5,12 @@
 :root {
   --font: "Lato", sans-serif;
   --font-heading: "Montserrat", sans-serif;
-  --text: #fff;
+  --text: #ffffff;
+  --text-t: #ffffff77;
   --theme-l: #48e5d6;
   --theme-d: #040a25;
-  --theme-dd: rgb(1, 4, 15);
+  --theme-dt: #040a25aa;
+  --theme-dd: #01040f;
   --accent: #5509bb;
 }
 
@@ -23,7 +25,7 @@ body {
   width: 100%;
   font-family: var(--font);
   color: var(--text);
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458 26.458"><g opacity="0.1" fill="none" stroke="#fff" stroke-width="1.093" stroke-linecap="round"><path d="M68.52 219.894v8.293M72.656 224.04h-8.273" transform="matrix(.42448 0 0 .42071 -25.772 -90.943)"/></g></svg>'),
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458 26.458"><g opacity="0.1" fill="none" stroke="%23fff" stroke-width="1.093" stroke-linecap="round"><path d="M68.52 219.894v8.293M72.656 224.04h-8.273" transform="matrix(.42448 0 0 .42071 -25.772 -90.943)"/></g></svg>'),
     var(--theme-d);
   background-size: 50px, 100%;
 }

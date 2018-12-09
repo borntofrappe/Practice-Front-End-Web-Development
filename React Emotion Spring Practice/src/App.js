@@ -3,7 +3,6 @@ import Navigation from './Navigation';
 import Hero from './Hero';
 import Details from './Details';
 import Sendoff from './Sendoff';
-// import { Spring } from 'react-spring';
 
 class App extends Component {
   constructor(props) {
