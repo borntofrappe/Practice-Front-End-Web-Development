@@ -13,9 +13,9 @@ const Sendoff = () => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        background: 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458 26.458"><g fill="%23fff" opacity="0.5" transform="matrix(.4846 0 0 .4834 -28.193 -104.296)"><ellipse cx="67.83" cy="234.49" rx="1.25" ry="1.25" paint-order="stroke fill markers"/><ellipse ry="1" rx="1" cy="223.944" cx="100.936" paint-order="stroke fill markers"/><ellipse cx="109.14" cy="247.262" rx="0.9" ry="0.9" paint-order="stroke fill markers"/><ellipse ry="2.5" rx="2.5" cy="260.42" cx="97.365" paint-order="stroke fill markers"/><ellipse cx="67.637" cy="265.839" rx="1.8" ry="1.8" paint-order="stroke fill markers"/><ellipse ry="2.1" rx="2.1" cy="219.977" cx="85.396" paint-order="stroke fill markers"/><ellipse ry="1.161" rx="1.158" cy="250.358" cx="75.745" paint-order="stroke fill markers"/></g></svg>\'), var(--theme-dd)',
+        background: 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458 26.458"><g fill="%23fff" opacity="0.5" transform="matrix(.4846 0 0 .4834 -28.193 -104.296)"><ellipse cx="67.83" cy="234.49" rx="1.25" ry="1.25" paint-order="stroke fill markers"/><ellipse ry="1" rx="1" cy="223.944" cx="100.936" paint-order="stroke fill markers"/><ellipse cx="109.14" cy="247.262" rx="0.9" ry="0.9" paint-order="stroke fill markers"/><ellipse ry="2.5" rx="2.5" cy="260.42" cx="97.365" paint-order="stroke fill markers"/><ellipse cx="67.637" cy="265.839" rx="1.8" ry="1.8" paint-order="stroke fill markers"/><ellipse ry="2.1" rx="2.1" cy="219.977" cx="85.396" paint-order="stroke fill markers"/><ellipse ry="1.161" rx="1.158" cy="250.358" cx="75.745" paint-order="stroke fill markers"/></g></svg>\'), var(--theme-d)',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: '400px',
+        backgroundSize: '600px',
         backgroundPosition: '50%'
       }}>
       <Spring
@@ -55,7 +55,7 @@ const Sendoff = () => {
         }}>
 
         <Spring
-          delay={1200}
+          delay={1500}
           from={{ opacity: 0, transform: 'translate(0, 10rem)' }}
           to={{ opacity: 1, transform: 'translate(0, 0)' }}
         >

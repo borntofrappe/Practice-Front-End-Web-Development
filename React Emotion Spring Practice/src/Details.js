@@ -14,7 +14,7 @@ const Details = ({ icons }) => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        background: 'var(--theme-d)'
+        background: 'var(--theme-dd)'
       }}>
       <Spring
         delay={850}
@@ -45,7 +45,7 @@ const Details = ({ icons }) => {
             <p
               style={{ opacity, transform }}
               css={{
-                margin: '1rem 0',
+                margin: '1rem 0 2rem',
                 fontSize: '1.1rem',
                 borderBottom: '1px dashed var(--text)',
                 padding: '0.25rem 0'
@@ -67,7 +67,7 @@ const Details = ({ icons }) => {
         {
           icons.map((icon, index) =>
             <Spring
-              delay={1500}
+              delay={1500 + 200 * index}
               from={{ opacity: 0 }}
               to={{ opacity: 1 }}
             >
