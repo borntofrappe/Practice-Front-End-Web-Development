@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import SVGIcons from './SVGIcons';
 import { Spring } from 'react-spring';
 
+// show the icons through the SVG component and the defined strings
 const Details = ({ icons }) => {
   return (
     <div
@@ -16,8 +17,9 @@ const Details = ({ icons }) => {
         flexDirection: 'column',
         background: 'var(--theme-dd)'
       }}>
+
       <Spring
-        delay={850}
+        delay={700}
         from={{ opacity: 0, transform: 'translate(0, -0.5rem)' }}
         to={{ opacity: 1, transform: 'translate(0, 0)' }}
       >
@@ -36,7 +38,7 @@ const Details = ({ icons }) => {
       </Spring>
 
       <Spring
-        delay={950}
+        delay={850}
         from={{ opacity: 0, transform: 'translate(0, -0.5rem)' }}
         to={{ opacity: 1, transform: 'translate(0, 0)' }}
       >
@@ -55,7 +57,7 @@ const Details = ({ icons }) => {
         }
       </Spring>
 
-
+      {/* show the icons in a wrapping row */}
       <div
         className="Icons"
         css={{
@@ -64,9 +66,11 @@ const Details = ({ icons }) => {
           justifyContent: 'center',
           flexWrap: 'wrap'
         }}>
+        {/* animate the icons progressively into view, on hover alter the rotation and drop-shadow */}
         {
           icons.map((icon, index) =>
             <Spring
+              key={index}
               delay={1500 + 200 * index}
               from={{ opacity: 0 }}
               to={{ opacity: 1 }}
@@ -74,7 +78,6 @@ const Details = ({ icons }) => {
               {
                 ({ opacity }) =>
                   <div
-                    key={index}
                     style={{ opacity }}
                     css={{
                       margin: '2rem',
@@ -98,15 +101,10 @@ const Details = ({ icons }) => {
                     <SVGIcons icon={icon} />
                   </div>
               }
-
-
             </Spring>
-
           )
         }
       </div>
-
-
     </div>
   );
 }

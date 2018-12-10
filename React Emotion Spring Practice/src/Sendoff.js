@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core'
 import { Spring } from 'react-spring';
 
+// show the svg making up the astronaut below a simple heading
 const Sendoff = () => {
   return (
     <div

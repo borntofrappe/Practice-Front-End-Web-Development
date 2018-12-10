@@ -1,41 +1,22 @@
 /** @jsx jsx */
+// import jsx for styling (with emotion), spring for animation
 import { jsx } from '@emotion/core'
 import { Spring } from 'react-spring';
 
-const anchorLink = ({ url, name }) => (
-  <a
-    key={name}
-    href={url}
-    css={{
-      color: 'inherit',
-      textTransform: 'uppercase',
-      letterSpacing: '0.2rem',
-      textDecoration: 'none',
-      transition: 'color 0.2s ease-out',
-      '&:hover': {
-        color: 'var(--theme-l)'
-      }
-    }}>
-    {
-      name
-    }
-  </a>
-);
-
+// show the anchor link elements transitioning the navigation first and the anchor link later
 const Navigation = ({ links }) => {
   return (
-
     <Spring
-      delay={500}
-      from={{ opacity: 0, transform: 'translate(0, -1rem)' }}
-      to={{ opacity: 1, transform: 'translate(0, 0)' }}
+      delay={250}
+      from={{ opacity: 0 }}
+      to={{ opacity: 1 }}
     >
       {
 
-        ({ opacity, transform }) =>
+        ({ opacity }) =>
           <nav
             className="Navigation"
-            style={{ opacity, transform }}
+            style={{ opacity }}
             css={{
               position: 'fixed',
               top: 0,
@@ -47,11 +28,39 @@ const Navigation = ({ links }) => {
               zIndex: 100
             }}>
             {
-              links.map(link => anchorLink(link))
+              links.map((link, index) =>
+                <Spring
+                  key={link.name}
+                  delay={350 + 200 * index}
+                  from={{ opacity: 0, transform: 'translateY(-2rem)' }}
+                  to={{ opacity: 1, transform: 'translateY(0)' }}
+                >
+                  {
+                    ({ opacity, transform }) =>
+                      <a
+                        href={link.url}
+                        style={{ opacity, transform }}
+                        css={{
+                          color: 'inherit',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.2rem',
+                          textDecoration: 'none',
+                          transition: 'color 0.2s ease-out',
+                          '&:hover': {
+                            color: 'var(--theme-l)'
+                          }
+                        }}
+                      >
+                        {link.name}
+                      </a>
+                  }
+
+                </Spring>
+              )
             }
-          </nav >
+          </nav>
       }
-    </Spring >
+    </Spring>
 
   );
 }

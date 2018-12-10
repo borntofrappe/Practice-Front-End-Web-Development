@@ -2,10 +2,11 @@
 import { jsx } from '@emotion/core'
 import { Spring } from 'react-spring';
 
+// show the strings for the heading each in a span (animated in sequence)
+// below the heading detail a button and in between a connecting svg element
 const Hero = ({ hero }) => {
   return (
     <div
-      id="hero"
       className="Hero"
       css={{
         minHeight: '110vh',
@@ -13,7 +14,9 @@ const Hero = ({ hero }) => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        background: 'linear-gradient(to right, transparent, var(--theme-dt) 30%, var(--theme-dt) 70%, transparent)'
+        // escape the single quotes ' in the svg background
+        background: 'linear-gradient(to right, transparent, var(--theme-dt) 30%, var(--theme-dt) 70%, transparent), url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 26.458 26.458"><g opacity="0.1" fill="none" stroke="%23fff" strokeWidth="1.093" stroke-linecap="round"><path d="M68.52 219.894v8.293M72.656 224.04h-8.273" transform="matrix(.42448 0 0 .42071 -25.772 -90.943)"/></g></svg>\'), var(--theme-d)',
+        backgroundSize: '100%, 50px, 100%'
       }}>
 
       <h1
@@ -25,15 +28,16 @@ const Hero = ({ hero }) => {
         }}>
         {
           hero.map((span, index) =>
+            // detail the key in the wrapping spring component
             <Spring
-              delay={1000 + index * 200}
+              key={span}
+              delay={1400 + index * 200}
               from={{ opacity: 0, transform: 'translate(0, 1.5rem)' }}
               to={{ opacity: 1, transform: 'translate(0, 0)' }}
             >
               {
                 ({ opacity, transform }) =>
                   <span
-                    key={span}
                     style={{ opacity, transform }}
                     css={{
                       margin: '0 0.5rem',
@@ -44,15 +48,13 @@ const Hero = ({ hero }) => {
                   </span>
               }
             </Spring>
-
           )
         }
       </h1>
 
-
-
+      {/* delay progressively mounting up */}
       <Spring
-        delay={1200}
+        delay={1800}
         from={{ opacity: 0, transform: 'translate(0, -1rem)' }}
         to={{ opacity: 1, transform: 'translate(0, 0)' }}
       >
@@ -85,9 +87,10 @@ const Hero = ({ hero }) => {
         }
       </Spring>
 
+      {/* line connecting the button with the underlying element */}
       <Spring
         config={{ mass: 1, tension: 200, velocity: 40, friction: 15 }}
-        delay={2500}
+        delay={2800}
         from={{ strokeDasharray: 50, strokeDashoffset: 50 }}
         to={{ strokeDasharray: 50, strokeDashoffset: 0 }}
       >
@@ -102,14 +105,15 @@ const Hero = ({ hero }) => {
                 margin: '-0.5rem 0'
               }}
             >
-              <path d="M 1 0 v 50" stroke="#fff" stroke-width="1" />
+              <path d="M 1 0 v 50" stroke="#fff" strokeWidth="1" />
             </svg>
         }
       </Spring>
 
+      {/* paragraph 'banner' animated with higher velocity */}
       <Spring
         config={{ mass: 1, tension: 170, velocity: 40 }}
-        delay={2600}
+        delay={3000}
         from={{ opacity: 0, transform: 'translate(0, -3rem) rotateZ(8deg)' }}
         to={{ opacity: 1, transform: 'translate(0, 0) rotateZ(-4deg)' }}
       >
@@ -131,8 +135,6 @@ const Hero = ({ hero }) => {
           </p>
         }
       </Spring>
-
-
     </div>
   );
 }
