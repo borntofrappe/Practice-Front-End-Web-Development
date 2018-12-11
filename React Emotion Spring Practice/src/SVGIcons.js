@@ -1,5 +1,6 @@
 import React from 'react';
 
+// render different svg icons depending on the prop value
 const SVGIcons = ({ icon }) => {
   switch (icon) {
     case 'thumbs':
