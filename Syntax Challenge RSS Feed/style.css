@@ -1,0 +1,96 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro:700");
+
+/* detail root variables */
+:root {
+  --font-heading: "Source Sans Pro", sans-serif;
+  --font: "Open Sans", sans-serif;
+  --color-text: #333;
+  --color-accent: #ddae49;
+  --color-card: #fff;
+  --color-bg: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+.container {
+  max-width: 800px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: var(--color-card);
+  line-height: 2;
+}
+
+.container h1 {
+  font-family: var(--font-heading);
+  font-size: calc(2rem + 1vw);
+  text-align: center;
+}
+.container strong {
+  color: var(--color-accent);
+}
+.container ul {
+  margin: 1rem 0;
+  list-style: none;
+  counter-reset: special-counter;
+}
+.container ul li {
+  counter-increment: special-counter;
+  position: relative;
+  line-height: 3;
+}
+.container ul li:before {
+  content: counter(special-counter);
+  color: var(--color-accent);
+  font-size: 2rem;
+  background: var(--color-bg);
+  border-radius: 50%;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  height: 12px;
+  width: 12px;
+  line-height: 12px;
+  text-align: center;
+  transform: translate(-50%, -50%) rotate(12deg);
+  padding: 1rem;
+  font-family: monospace;
+}
+
+.container em:after {
+  content: "...";
+}
+
+h2 {
+  color: var(--color-accent);
+  text-align: center;
+  margin-top: 2rem;
+  font-size: calc(3rem + 1vw);
+  animation: showDuration 0.5s 0.25s cubic-bezier(0.2, 1.36, 0.72, 1.37) both;
+}
+@keyframes showDuration {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
