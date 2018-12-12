@@ -219,3 +219,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**D3 Simulation Experiment**](https://codepen.io/borntofrappe/pen/gQVQYe)|Experiment with d3.simulation to create a simple animation of moving dots.|d3, simulation, animation|6th-7th December 2018|
 |[**Simple Animation Pencil**](https://codepen.io/borntofrappe/pen/ebOKYr)|Inspired by the website showcasing what can be achieved through a single div, create a pencil and try animating it.|css, drawing|8th December 2018|
 |[**React Emotion Spring Practice**](https://codepen.io/borntofrappe/pen/BvyJmb)|Practice with two popular react libraries to style and animate a simple page.|react, emotion, spring|8th-9th-10th December 2018|
+|[**Syntax Challenge RSS Feed**](https://codepen.io/borntofrappe/pen/zyvZwx)|Retrieve the cumulative duration of a podcast from its rss feed.|challenge, js, rss|12th December 2018|
