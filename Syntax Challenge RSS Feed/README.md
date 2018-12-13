@@ -1,6 +1,6 @@
 # Syntax Challenge #1
 
-Link to the working pen right [here](https://codepen.io/borntofrappe/pen/zyvZwx)
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/zyvZwx)
 
 ## Preface
 
