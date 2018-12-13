@@ -1,4 +1,5 @@
 /* globals d3 */
+// data in the form of an array of objects, detailing values as % percentages
 const data = [
   {
     country: 'Belgium',
@@ -134,14 +135,16 @@ const data = [
   }
 ];
 
-// global variable to keep track of the number of countries to highlight in the visualization
-// and update through the input
+// global variables to centralize the values used for the input and the color
+// the idea is to show a subset of the data, and later allow to alter this number
+// within boundaries
 const countries = {
   min: 12,
   max: data.length,
   color: '#f24537'
 };
 
+// CONTAINER && TOOLTIP
 const container = d3
   .select('.container');
 
@@ -159,6 +162,7 @@ containerHTML
   .attr('class', 'title')
   .text('Cultural Events in Europe');
 
+// wrap the number within a strong element, to later target and change the value as the number of countries changes
 containerHTML
   .append('p')
   .attr('class', 'description')
@@ -174,6 +178,7 @@ containerHTML
 // wrap the input between two elements used to show the minimum and maximum values
 const containerInput = containerHTML
   .append('div')
+  // use D3 to create an horizontal row in which to wrap the input in between the minimum and maximum values
   .style('display', 'flex')
   .style('padding', '0.5rem 0.25rem')
   .style('color', '#fff')
@@ -196,7 +201,6 @@ containerInput
   .append('p')
   .text(countries.max);
 
-
 // SVG FRAME
 const margin = {
   top: 20,
@@ -207,19 +211,14 @@ const margin = {
 const width = 500 - (margin.left + margin.right);
 const height = 500 - (margin.top + margin.bottom);
 
-
 const containerFrame = container
   .append('svg')
   .attr('viewBox', `0 0 ${width + (margin.left + margin.right)} ${height + (margin.top + margin.bottom)}`)
   .append('g')
   .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-// detail a subset of the data according to the number of countries selected
-// by default the minimum value
-const sortData = data.sort((a, b) => (a.value > b.value) ? -1 : 1);
-
-
-// scales and axes
+// SCALES && AXES
+// ! describing only the range as the domain is added with the data
 const xScale = d3
   .scaleLinear()
   .range([0, width]);
@@ -235,7 +234,7 @@ containerFrame
   .attr('class', 'x axis')
   .call(xAxis);
 
-// use the countries in the vertical scale
+// use an ordinal scale for the y dimension
 const yScale = d3
   .scaleBand()
   .range([0, height]);
@@ -250,12 +249,21 @@ containerFrame
   .attr('class', 'y axis')
   .call(yAxis);
 
-function plotData(dataset) {
-  xScale.domain([0, d3.max(dataset, d => d.value) * 1.1]);
-  yScale.domain(dataset.map(d => d.country));
 
+// function plotting the lollipop chart according to the subset of data
+function plotData(dataset) {
+  // update the scale with the domain, on the basis of the dataset
+  xScale
+    .domain([0, d3.max(dataset, d => d.value) * 1.1]);
+  yScale
+    .domain(dataset.map(d => d.country));
+
+  // select the axes and update their appearance
+  // ! technically it is only the y axis changing, as the added values are always less than the existing ones
+  // updating the x axis is overkill
   d3
     .select('g.x.axis')
+    .transition()
     .call(d3
       .axisBottom(xScale)
       .tickSize(0)
@@ -263,10 +271,18 @@ function plotData(dataset) {
 
   d3
     .select('g.y.axis')
+    .transition()
     .call(d3
       .axisLeft(yScale)
       .tickSize(0)
       .tickPadding(10));
+
+  /*
+      update-enter-exit pattern
+      update: existing elements, alter only the properties which need adjusting (like the size and coordinates)
+      enter: new elements, create and append elements
+      exist: old elements, delete
+  */
 
   const update = containerFrame
     .selectAll('g.group')
@@ -278,6 +294,10 @@ function plotData(dataset) {
   const exit = update
     .exit();
 
+
+  // update the position (and the dimension) of the existing elements
+  // ! the elements making up the visualization are wrapped in a container
+  // ! this container allows to describe the different elements of the u-e-e pattern
   update
     .attr('transform', (d) => `translate(0, ${yScale(d.country)})`);
 
@@ -298,6 +318,8 @@ function plotData(dataset) {
     .selectAll('rect')
     .attr('height', yScale.bandwidth());
 
+
+  // introduce elements for the new selection
   const enterGroup = enter
     .append('g')
     .attr('class', 'group')
@@ -363,15 +385,21 @@ function plotData(dataset) {
     .attr('height', yScale.bandwidth())
     .attr('fill', 'transparent');
 
+  // remove elements for the no-longer-necessary selection
   exit.remove();
 }
 
+// sort the data from highest % value to lowest
+const sortData = data.sort((a, b) => (a.value > b.value) ? -1 : 1);
+// plot the lollipop chart considering a subset of the larger data
 plotData(sortData.slice(0, countries.min));
 
+// when altering the value in the input of type range, plot the new subset of data
+// ! alter also the text found in the HTML container
 inputRange
   .on('change', () => {
     const { value } = d3.event.target;
-    d3
+    containerHTML
       .select('strong')
       .text(value);
     plotData(sortData.slice(0, value));
