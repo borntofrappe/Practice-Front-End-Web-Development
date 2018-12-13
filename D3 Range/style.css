@@ -1,0 +1,64 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* detail root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  --color-text: #1b1313;
+  --color-text-t: #1b131355;
+  --color-accent: #f24537;
+  --color-card: #f0efef;
+  --color-bg: #2c2323;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+.container {
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: var(--color-card);
+}
+
+.container h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container p {
+  margin: 1rem;
+  line-height: 2;
+}
+/* stretch the input to cover the totality of its container */
+.container input {
+  width: 100%;
+}
+
+.axis line,
+.axis path {
+  stroke: var(--color-bg);
+}
+.axis text {
+  fill: var(--color-bg);
+  font-family: inherit;
+}
+#tooltip {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  padding: 1rem;
+  background: var(--color-card);
+  color: var(--color-bg);
+  box-shadow: 0 1px 2px var(--color-text-t);
+}
