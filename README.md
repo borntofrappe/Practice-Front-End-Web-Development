@@ -220,3 +220,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Simple Animation Pencil**](https://codepen.io/borntofrappe/pen/ebOKYr)|Inspired by the website showcasing what can be achieved through a single div, create a pencil and try animating it.|css, drawing|8th December 2018|
 |[**React Emotion Spring Practice**](https://codepen.io/borntofrappe/pen/BvyJmb)|Practice with two popular react libraries to style and animate a simple page.|react, emotion, spring|8th-9th-10th December 2018|
 |[**Syntax Challenge RSS Feed**](https://codepen.io/borntofrappe/pen/zyvZwx)|Retrieve the cumulative duration of a podcast from its rss feed.|challenge, js, rss|12th December 2018|
+|[**D3 Range**](https://codepen.io/borntofrappe/pen/JwGOZx)|Visualize the European countries most frequently participating to cultural activities.|input, range, update-enter-exit|13th December 2018|
