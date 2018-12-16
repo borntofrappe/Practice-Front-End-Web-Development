@@ -16,7 +16,10 @@
   </head>
 
   <body>
-    <!-- svg set -->
+    <!--
+      svg set
+      detailing a triangle and two rectangles for the play / pause buttons respectively
+    -->
     <svg style="display: none;">
       <symbol id="pause" viewBox="0 0 100 100" >
         <g transform="translate(25, 25)" stroke="none" fill="currentColor">
@@ -30,7 +33,18 @@
       </symbol>
     </svg>
 
-    <!-- app's structure -->
+    <!-- app's structure
+      - app (wrapping container)
+      - player (podcast player)
+        - vinyl (circle displaying an image for the podcast)
+        - episode (container for the podcast information)
+          - progress (bar displaying the completion of the episode)
+          - controls (container for the buttons controlling the application (currently only play/pause))
+            - svg (using the play arrow/ pause rectangles)
+            - audio
+          - timing (displaying the length of the episode and the current timestamp)
+          - info (container for the title and description)
+    -->
 
     <main class="app">
       <div class="player">
@@ -63,9 +77,9 @@
               Can: Code and Science Tots, and Founder Gym alumna. Erica
               started...
             </p>
-          </div>
-        </div>
-      </div>
+          </div><!-- close episode--info -->
+        </div><!-- close player__episode -->
+      </div><!-- close player -->
     </main>
 
     <script src="script.js"></script>
