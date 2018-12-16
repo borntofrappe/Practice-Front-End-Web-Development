@@ -18,7 +18,7 @@
   <body>
     <!-- svg set -->
     <svg style="display: none;">
-      <symbol id="pause" viewBox="0 0 100 100">
+      <symbol id="pause" viewBox="0 0 100 100" >
         <g transform="translate(25, 25)" stroke="none" fill="currentColor">
           <rect x="0" y="0" width="20" height="55" />
           <rect x="30" y="0" width="20" height="55" />
@@ -37,12 +37,22 @@
         <div class="player__vinyl"></div>
 
         <div class="player__episode">
+          <div class="episode--progress"></div>
           <div class="episode--controls">
+
             <button class="controls--toggle">
-              <svg width="50" height="50"><use href="#play" /></svg>
+              <svg width="50" height="50">
+                <use href="#play" />
+              </svg>
+              <audio src="http://traffic.libsyn.com/freecodecamp/Abbey_and_Erica_interview_.mp3?dest-id=603849" />
             </button>
+
           </div>
-          <p class="episode--timing"><span>00:00</span> / <span>52:36</span></p>
+          <p class="episode--timing">
+            <span class="timing--current">00:00:00</span>
+            /
+            <span class="timing--total">01:09:12</span>
+          </p>
 
           <div class="episode--info">
             <h2 class="info--title">

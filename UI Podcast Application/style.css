@@ -22,7 +22,7 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 .player .player__vinyl {
-  margin: 1rem 1rem 2rem;
+  margin: 1rem;
   width: calc(10rem + 2.5vw);
   height: calc(10rem + 2.5vw);
   border-radius: 50%;
@@ -43,26 +43,16 @@ body {
   animation: rotateDiv 20s linear infinite;
 }
 .player .player__episode {
-  position: relative;
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.player .player__episode:before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translate(-50%, 0);
+.player .player__episode .episode--progress {
   width: 50%;
   height: 5px;
-  background: linear-gradient(
-    to right,
-    #007e00,
-    #007e00 0%,
-    rgba(255, 255, 255, 0.8) 0%
-  );
+  background: linear-gradient(to right, #007e00, #007e00 0%, #fff 0%);
+  margin-bottom: 2rem;
 }
 .player .player__episode .episode--controls {
   display: flex;
@@ -79,12 +69,14 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.7);
   transition: all 0.2s ease-out;
 }
-.player .player__episode .episode--controls button:hover {
+.player .player__episode .episode--controls button:hover,
+.player .player__episode .episode--controls button:focus {
   box-shadow: 0 0 0 3px #007e00, 0 0 0 5px #fff;
 }
 .player .player__episode .episode--controls button svg {
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
 .player .player__episode .episode--timing {
   margin: 1rem 0 2rem;

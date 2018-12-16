@@ -30,7 +30,7 @@ body
     background rgba(white, 0.25)
 
     .player__vinyl
-        margin 1rem 1rem 2rem
+        margin 1rem
         width calc(10rem + 2.5vw)
         height @width
         border-radius 50%
@@ -44,21 +44,16 @@ body
             animation rotateDiv 20s linear infinite
 
     .player__episode
-        position relative
         padding 1rem 0
         display flex
         flex-direction column
         align-items center
 
-        &:before
-            content ''
-            position absolute
-            bottom 100%
-            left 50%
-            transform translate(-50%, 0)
+        .episode--progress
             width 50%
             height 5px
-            background linear-gradient(to right, green, green 0%, rgba(white, 0.8) 0%)
+            background linear-gradient(to right, green, green 0%, white 0%)
+            margin-bottom 2rem
 
         .episode--controls
             display flex
@@ -73,12 +68,13 @@ body
                 color white
                 border 2px solid rgba(white, 0.7)
                 transition all 0.2s ease-out
-                &:hover
+                &:hover, &:focus
                     box-shadow 0 0 0 3px green, 0 0 0 5px white
 
                 svg
                     width 100%
                     height @width
+                    pointer-events none
         .episode--timing
             margin 1rem 0 2rem
 
