@@ -1,0 +1,92 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700')
+
+// detail root variable(s)
+font = "Lato", sans-serif
+white = #fff
+green = #007e00
+green-d = #006400
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    width 100%
+    font-family font
+    color white
+    background green-d
+
+.player
+    max-width 400px
+    width 90vw
+    margin 1rem auto
+    display flex
+    justify-content center
+    flex-direction column
+    align-items center
+    padding 1rem
+    background rgba(white, 0.25)
+
+    .player__vinyl
+        margin 1rem 1rem 2rem
+        width calc(10rem + 2.5vw)
+        height @width
+        border-radius 50%
+        background linear-gradient(to bottom right, transparent, rgba(white, 0.4), transparent), url('https://d33wubrfki0l68.cloudfront.net/cce87b74a290f321f582cb56a12007343ff2d77e/bb9e6/img/glyph.png'), repeating-radial-gradient(green-d 0, green-d 3px, green 4px)
+        background-repeat no-repeat
+        background-size 100%, 50%, 100%
+        background-position 0%, 50% 50%, 100%
+        box-shadow 0 1px 5px rgba(green-d, 0.7)
+
+        &.playing
+            animation rotateDiv 20s linear infinite
+
+    .player__episode
+        position relative
+        padding 1rem 0
+        display flex
+        flex-direction column
+        align-items center
+
+        &:before
+            content ''
+            position absolute
+            bottom 100%
+            left 50%
+            transform translate(-50%, 0)
+            width 50%
+            height 5px
+            background linear-gradient(to right, green, green 0%, rgba(white, 0.8) 0%)
+
+        .episode--controls
+            display flex
+            flex-direction column
+            align-items center
+            button
+                width 56px
+                height @width
+                background none
+                padding 0.5rem
+                border-radius 50%
+                color white
+                border 2px solid rgba(white, 0.7)
+                transition all 0.2s ease-out
+                &:hover
+                    box-shadow 0 0 0 3px green, 0 0 0 5px white
+
+                svg
+                    width 100%
+                    height @width
+        .episode--timing
+            margin 1rem 0 2rem
+
+        .episode--info
+            text-shadow 0 1px 5px rgba(green, 0.7)
+            p
+                line-height 2
+
+@keyframes rotateDiv
+    to
+        transform rotate(360deg)
