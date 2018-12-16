@@ -46,7 +46,7 @@ const playAudio = () => {
     timingCurrent.textContent = `${currentHours < 10 ? `0${currentHours}` : currentHours}:${currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes}:${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds}`;
 
     // update the progress bar
-    episodeProgress.style.background = `linear-gradient(to right, #006400, #006400 ${timer / total * 100}%, white ${currentTime / total * 100}%)`;
+    episodeProgress.style.background = `linear-gradient(to right, #006400, #006400 ${currentTime / total * 100}%, white ${currentTime / total * 100}%)`;
   }, 1000);
 };
 
