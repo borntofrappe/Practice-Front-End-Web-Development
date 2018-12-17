@@ -1,6 +1,6 @@
 # UX Podcast App
 
-<!-- Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/YdWpXN). -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/YdGwow).
 
 ## Preface
 
