@@ -25,6 +25,7 @@ const timingCurrent = document.querySelector('.timing--current');
 
 // variable(s) to keep track of the play/pause alternative, as well the mute/ un-muted pair and to adjust the progress bar according to the total length of the podcast
 let isPlaying = false;
+let isMute = false;
 let intervalID = 0;
 const episodeDuration = 4152;
 
@@ -87,3 +88,64 @@ const toggleEpisode = () => {
 };
 
 toggleButton.addEventListener('click', toggleEpisode);
+
+// function muting (or restoring the volume) of the audio
+const toggleVolume = () => {
+  isMute = !isMute;
+  if (isMute) {
+    muteButton.innerHTML = `
+    <svg width="50" height="50">
+      <use href = "#mute" />
+    </svg>`;
+    audio.volume = 0;
+  }
+  else {
+    muteButton.innerHTML = `
+    <svg width="50" height="50">
+      <use href = "#volume" />
+    </svg>`;
+    audio.volume = 1;
+  }
+}
+
+muteButton.addEventListener('click', toggleVolume);
+
+// function called to change the speed rate
+const changeSpeedRate = () => {
+  // retrieve the text from the speedButton
+  // ! this is a string, which therefore needs parsing
+  const { textContent } = speedButton;
+  // find which speed matches the option detailed in the root array
+  const indexSpeed = speedOptions.indexOf(parseFloat(textContent, 10));
+  // detail the following speed rate (or the original if the application reaches the last option)
+  if (indexSpeed < speedOptions.length - 1) {
+    audio.playbackRate = speedOptions[indexSpeed + 1];
+    speedButton.textContent = speedOptions[indexSpeed + 1];
+  } else {
+    audio.playbackRate = speedOptions[0];
+    speedButton.textContent = speedOptions[0];
+  }
+}
+
+speedButton.addEventListener('click', changeSpeedRate);
+
+// function called to stop the audio
+const stopAudio = () => {
+  audio.pause();
+  audio.currentTime = 0;
+
+  // beside stopping the audio, alter the UI features dependant on the current timestamp
+  // ! it'd behoove me to use a function such as changeUI(timestamp) and have it change the appearance depending on the seconds' value
+  isPlaying = false;
+  toggleButton.innerHTML = `
+    <svg width="50" height="50">
+      <use href = "#play" />
+    </svg>`;
+  vinyl.style.transform = 'rotate(0deg)';
+  episodeProgress.style.background = 'linear-gradient(to right, green, green 0%, white 0%)';
+  timingCurrent.textContent = '00:00:00';
+
+  clearInterval(intervalID);
+}
+
+stopButton.addEventListener('click', stopAudio);
