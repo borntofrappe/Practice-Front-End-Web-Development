@@ -1,0 +1,101 @@
+// using font and color from the fcc style guide
+// https://design-style-guide.freecodecamp.org/
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700')
+font = "Lato", sans-serif
+white = #fff
+// ! in javascript green would refer to the CSS hex color, not the pre-processed value
+green = #007e00
+green-d = #006400
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    width 100%
+    font-family font
+    color white
+    background green-d
+
+// cap the width of the container and display the content in a single column
+// horizontally centered
+.player
+    max-width 400px
+    width 90vw
+    margin 1rem auto
+    display flex
+    justify-content center
+    flex-direction column
+    align-items center
+    padding 1rem
+    // thin white layer to separate the player from the body
+    background rgba(white, 0.25)
+
+    // vinyl created out of a rounded div with a repeating-radial-gradient
+    .player__vinyl
+        margin 1rem
+        width calc(10rem + 2.5vw)
+        height @width
+        border-radius 50%
+        // above the repeating-radial-gradient add the image of the freeCodeCamp logo and a linear gradient to give a small glow/shadow
+        background linear-gradient(to bottom right, transparent, rgba(white, 0.4), transparent), url('https://d33wubrfki0l68.cloudfront.net/cce87b74a290f321f582cb56a12007343ff2d77e/bb9e6/img/glyph.png'), repeating-radial-gradient(green-d 0, green-d 3px, green 4px)
+        background-repeat no-repeat
+        // center the second backgrond value (the image)
+        background-size 100%, 50%, 100%
+        background-position 0%, 50% 50%, 100%
+        box-shadow 0 1px 5px rgba(green-d, 0.7)
+
+        // when adding a class of .playing the div is animated through the transform property, to have the vinyl rotated
+        &.playing
+            animation rotateDiv 20s linear infinite
+
+    // repeat the single column theme for the container nesting the episode
+    .player__episode
+        padding 1rem 0
+        display flex
+        flex-direction column
+        align-items center
+
+        // the progress bar is made of a simple div with a gradient depicting the current progress through hard stop values
+        .episode--progress
+            width 50%
+            height 5px
+            background linear-gradient(to right, green-d, green-d 0%, white 0%)
+            margin-bottom 2rem
+
+        // center the buttons horizontally
+        // ! currently there exist a single button, so this container is pretty self-serving
+        .episode--controls
+            display flex
+            flex-direction column
+            align-items center
+            // style the button to have the SVG encapsulated in a thin boreded circle
+            button
+                width 56px
+                height @width
+                background none
+                padding 0.5rem
+                border-radius 50%
+                color white
+                border 2px solid rgba(white, 0.7)
+                transition all 0.2s ease-out
+                &:hover, &:focus
+                    box-shadow 0 0 0 3px green, 0 0 0 5px white
+
+                svg
+                    width 100%
+                    height @width
+                    pointer-events none
+
+        .episode--timing
+            margin 1rem 0 2rem
+
+        .episode--info
+            text-shadow 0 1px 5px rgba(green, 0.7)
+            p
+                line-height 2
+
+@keyframes rotateDiv
+    to
+        transform rotate(360deg)

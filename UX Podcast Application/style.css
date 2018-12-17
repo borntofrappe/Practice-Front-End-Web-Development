@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  background: #006400;
+}
+.player {
+  max-width: 400px;
+  width: 90vw;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.25);
+}
+.player .player__vinyl {
+  margin: 1rem;
+  width: calc(10rem + 2.5vw);
+  height: calc(10rem + 2.5vw);
+  border-radius: 50%;
+  background: linear-gradient(
+      to bottom right,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    ),
+    url("https://d33wubrfki0l68.cloudfront.net/cce87b74a290f321f582cb56a12007343ff2d77e/bb9e6/img/glyph.png"),
+    repeating-radial-gradient(#006400 0, #006400 3px, #007e00 4px);
+  background-repeat: no-repeat;
+  background-size: 100%, 50%, 100%;
+  background-position: 0%, 50% 50%, 100%;
+  box-shadow: 0 1px 5px rgba(0, 100, 0, 0.7);
+}
+.player .player__vinyl.playing {
+  animation: rotateDiv 20s linear infinite;
+}
+.player .player__episode {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player .player__episode .episode--progress {
+  width: 50%;
+  height: 5px;
+  background: linear-gradient(to right, #007e00, #007e00 0%, #fff 0%);
+  margin-bottom: 2rem;
+}
+.player .player__episode .episode--controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player .player__episode .episode--controls button {
+  width: 56px;
+  height: 56px;
+  background: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease-out;
+}
+.player .player__episode .episode--controls button:hover,
+.player .player__episode .episode--controls button:focus {
+  box-shadow: 0 0 0 3px #007e00, 0 0 0 5px #fff;
+}
+.player .player__episode .episode--controls button svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.player .player__episode .episode--timing {
+  margin: 1rem 0 2rem;
+}
+.player .player__episode .episode--info {
+  text-shadow: 0 1px 5px rgba(0, 126, 0, 0.7);
+}
+.player .player__episode .episode--info p {
+  line-height: 2;
+}
+@-moz-keyframes rotateDiv {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotateDiv {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotateDiv {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateDiv {
+  to {
+    transform: rotate(360deg);
+  }
+}

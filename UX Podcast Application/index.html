@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>UI Podcast Application</title>
+    <meta
+      name="description"
+      content="Create the UI for a soon-to-be React application allowing to play episodes from the freeCodeCamp podcast."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!--
+      svg set
+      detailing a triangle and two rectangles for the play / pause buttons respectively
+    -->
+    <svg style="display: none;">
+      <symbol id="pause" viewBox="0 0 100 100" >
+        <g transform="translate(25, 25)" stroke="none" fill="currentColor">
+          <rect x="0" y="0" width="20" height="55" />
+          <rect x="30" y="0" width="20" height="55" />
+        </g>
+      </symbol>
+
+      <symbol id="play" viewBox="0 0 100 100">
+        <path d="M 30 20 L 80 50 L 30 80" stroke="none" fill="currentColor" />
+      </symbol>
+    </svg>
+
+    <!-- app's structure
+      - app (wrapping container)
+      - player (podcast player)
+        - vinyl (circle displaying an image for the podcast)
+        - episode (container for the podcast information)
+          - progress (bar displaying the completion of the episode)
+          - controls (container for the buttons controlling the application (currently only play/pause))
+            - svg (using the play arrow/ pause rectangles)
+            - audio
+          - timing (displaying the length of the episode and the current timestamp)
+          - info (container for the title and description)
+    -->
+
+    <main class="app">
+      <div class="player">
+        <div class="player__vinyl"></div>
+
+        <div class="player__episode">
+          <div class="episode--progress"></div>
+          <div class="episode--controls">
+
+            <button class="controls--toggle">
+              <svg width="50" height="50">
+                <use href="#play" />
+              </svg>
+              <audio src="http://traffic.libsyn.com/freecodecamp/Abbey_and_Erica_interview_.mp3?dest-id=603849" />
+            </button>
+
+          </div>
+          <p class="episode--timing">
+            <span class="timing--current">00:00:00</span>
+            /
+            <span class="timing--total">01:09:12</span>
+          </p>
+
+          <div class="episode--info">
+            <h2 class="info--title">
+              Ep. 51: Erica Peterson, founder, entrepreneur, and mother
+            </h2>
+            <p class="info--description">
+              Abbey Rennemeyer interviews Erica Peterson, the founder of Moms
+              Can: Code and Science Tots, and Founder Gym alumna. Erica
+              started...
+            </p>
+          </div><!-- close episode--info -->
+        </div><!-- close player__episode -->
+      </div><!-- close player -->
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
