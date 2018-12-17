@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.25);
+  background: #267b26;
 }
 .player .player__vinyl {
   margin: 1rem;
@@ -39,39 +39,46 @@ body {
   background-position: 0%, 50% 50%, 100%;
   box-shadow: 0 1px 5px rgba(0, 100, 0, 0.7);
 }
-.player .player__vinyl.playing {
-  animation: rotateDiv 20s linear infinite;
-}
 .player .player__episode {
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 .player .player__episode .episode--progress {
-  width: 50%;
-  height: 5px;
-  background: linear-gradient(to right, #007e00, #007e00 0%, #fff 0%);
+  width: 60%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #006400, #006400 0%, #fff 0%);
   margin-bottom: 2rem;
 }
 .player .player__episode .episode--controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .player .player__episode .episode--controls button {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   background: none;
   padding: 0.5rem;
   border-radius: 50%;
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.7);
+  margin: 0.5rem;
   transition: all 0.2s ease-out;
 }
-.player .player__episode .episode--controls button:hover,
-.player .player__episode .episode--controls button:focus {
+.player .player__episode .episode--controls button:hover {
   box-shadow: 0 0 0 3px #007e00, 0 0 0 5px #fff;
+}
+.player .player__episode .episode--controls button:nth-of-type(1) {
+  grid-column: 1/-1;
+  width: 56px;
+  height: 56px;
+}
+.player .player__episode .episode--controls button.controls--speed:after {
+  content: "x";
 }
 .player .player__episode .episode--controls button svg {
   width: 100%;
@@ -82,28 +89,14 @@ body {
   margin: 1rem 0 2rem;
 }
 .player .player__episode .episode--info {
-  text-shadow: 0 1px 5px rgba(0, 126, 0, 0.7);
+  text-shadow: 0 2px 3px rgba(0, 126, 0, 0.8);
+  padding: 0 1rem;
+}
+.player .player__episode .episode--info h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 .player .player__episode .episode--info p {
   line-height: 2;
-}
-@-moz-keyframes rotateDiv {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes rotateDiv {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes rotateDiv {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotateDiv {
-  to {
-    transform: rotate(360deg);
-  }
 }

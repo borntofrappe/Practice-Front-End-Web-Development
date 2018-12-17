@@ -4,6 +4,7 @@
 font = "Lato", sans-serif
 white = #fff
 // ! in javascript green would refer to the CSS hex color, not the pre-processed value
+green-l = #267B26
 green = #007e00
 green-d = #006400
 
@@ -30,7 +31,7 @@ body
     align-items center
     padding 1rem
     // thin white layer to separate the player from the body
-    background rgba(white, 0.25)
+    background green-l
 
     // vinyl created out of a rounded div with a repeating-radial-gradient
     .player__vinyl
@@ -46,42 +47,51 @@ body
         background-position 0%, 50% 50%, 100%
         box-shadow 0 1px 5px rgba(green-d, 0.7)
 
-        // when adding a class of .playing the div is animated through the transform property, to have the vinyl rotated
-        &.playing
-            animation rotateDiv 20s linear infinite
-
     // repeat the single column theme for the container nesting the episode
     .player__episode
         padding 1rem 0
         display flex
         flex-direction column
         align-items center
+        width 100%
 
         // the progress bar is made of a simple div with a gradient depicting the current progress through hard stop values
         .episode--progress
-            width 50%
-            height 5px
+            width 60%
+            height 8px
+            border-radius 4px
             background linear-gradient(to right, green-d, green-d 0%, white 0%)
             margin-bottom 2rem
 
-        // center the buttons horizontally
-        // ! currently there exist a single button, so this container is pretty self-serving
+        // display the buttons in a grid
+        // the first one encompassing the entirety of the width
+        // the remaining sharing a fraction of the horizontal space
         .episode--controls
-            display flex
-            flex-direction column
-            align-items center
+            display grid
+            justify-items center
+            grid-template-columns 1fr 1fr 1fr
             // style the button to have the SVG encapsulated in a thin boreded circle
             button
-                width 56px
+                width 48px
                 height @width
                 background none
                 padding 0.5rem
                 border-radius 50%
                 color white
                 border 2px solid rgba(white, 0.7)
+                margin 0.5rem
                 transition all 0.2s ease-out
-                &:hover, &:focus
+                &:hover
                     box-shadow 0 0 0 3px green, 0 0 0 5px white
+                // increase the size of the first button
+                // ! stretch it to cover the entire row
+                &:nth-of-type(1)
+                    grid-column 1/-1
+                    width 56px
+                    height 56px
+                // for the speed button add an x after the number
+                &.controls--speed:after
+                    content 'x'
 
                 svg
                     width 100%
@@ -92,10 +102,11 @@ body
             margin 1rem 0 2rem
 
         .episode--info
-            text-shadow 0 1px 5px rgba(green, 0.7)
+            text-shadow 0 2px 3px rgba(green, 0.8)
+            padding 0 1rem
+            h2
+                font-size 1.5rem
+                font-weight 500
+                margin-bottom 0.5rem
             p
                 line-height 2
-
-@keyframes rotateDiv
-    to
-        transform rotate(360deg)
