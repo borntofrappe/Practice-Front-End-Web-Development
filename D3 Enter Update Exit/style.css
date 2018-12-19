@@ -1,0 +1,72 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro:700|Open+Sans");
+
+/* detail root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  --font-heading: "Maven Pro", sans-serif;
+  --color-text: #a00500;
+  --color-bg: #fff;
+  --color-accent: #e10600;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+.introduction {
+  line-height: 1.5;
+}
+.introduction h1 {
+  font-family: var(--font-heading);
+}
+.introduction p {
+  line-height: 2;
+  margin: 0.75rem 0;
+}
+
+/* display the buttons in a wrapping row */
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+.controls button {
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 5px;
+  background: none;
+  color: var(--color-accent);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: all 0.2s ease-out;
+}
+.controls button:hover {
+  color: var(--color-bg);
+  background: var(--color-accent);
+}
+.controls button.selection {
+  color: var(--color-bg);
+  background: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}
