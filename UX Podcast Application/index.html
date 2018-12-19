@@ -23,7 +23,7 @@
       - a square for the stop button
     -->
     <svg style="display: none;">
-      <symbol id="pause" viewBox="0 0 100 100" >
+      <symbol id="pause" viewBox="0 0 100 100">
         <g transform="translate(25, 25)" stroke="none" fill="currentColor">
           <rect x="0" y="0" width="20" height="55" />
           <rect x="30" y="0" width="20" height="55" />
@@ -35,20 +35,27 @@
       </symbol>
 
       <symbol id="volume" viewBox="0 0 100 100">
-        <path d="M 20 40 L 40 35 L 70 10 V 90 L 40 65 L 20 60" stroke="none" fill="currentColor" />
+        <path
+          d="M 18 38 L 40 33 L 60 10 H 70 V 90 H 60 L 40 67 L 18 62"
+          stroke="none"
+          fill="currentColor"
+        />
       </symbol>
 
       <symbol id="mute" viewBox="0 0 100 100">
-        <path d="M 20 40 L 40 35 L 70 10 V 90 L 40 65 L 20 60" stroke="none" fill="currentColor" />
+        <path
+          d="M 18 38 L 40 33 L 60 10 H 70 V 90 H 60 L 40 67 L 18 62"
+          stroke="none"
+          fill="currentColor"
+        />
         <g transform="translate(50, 50) rotate(45)">
           <rect x="-5" y="-50" width="10" height="100" fill="currentColor" />
         </g>
       </symbol>
 
       <symbol id="stop" viewBox="0 0 100 100">
-        <path d="M 20 20 H 80 V 80 H 20" stroke="none" fill="currentColor" />
+        <path d="M 25 25 H 75 V 75 H 25" stroke="none" fill="currentColor" />
       </symbol>
-
     </svg>
 
     <!-- app's structure
@@ -64,53 +71,54 @@
     -->
 
     <main class="app">
+      <div class="app__tooltip"></div>
       <div class="player">
         <div class="player__vinyl"></div>
 
         <div class="player__episode">
           <div class="episode--progress"></div>
           <div class="episode--controls">
-
             <button class="controls--toggle">
-              <svg width="50" height="50">
-                <use href="#play" />
-              </svg>
-              <audio src="http://traffic.libsyn.com/freecodecamp/Abbey_and_Erica_interview_.mp3?dest-id=603849" />
+              <svg><use href="#play" /></svg>
+              <audio
+                src="http://traffic.libsyn.com/freecodecamp/Abbey_and_Erica_interview_.mp3?dest-id=603849"
+              ></audio>
             </button>
 
             <button class="controls--mute">
-              <svg width="50" height="50">
-                <use href="#volume" />
-              </svg>
+              <svg><use href="#volume" /></svg>
             </button>
 
             <button class="controls--speed">1</button>
 
             <button class="controls--stop">
-              <svg width="50" height="50">
-                <use href="#stop" />
-              </svg>
+              <svg><use href="#stop" /></svg>
             </button>
-
           </div>
           <p class="episode--timing">
-            <span class="timing--current">00:00:00</span>
-            /
+            <span class="timing--current">00:00:00</span> /
             <span class="timing--total">01:09:12</span>
           </p>
 
           <div class="episode--info">
-            <h2 class="info--title">
-              Ep. 51: Erica Peterson, founder, entrepreneur, and mother
-            </h2>
+            <h2 class="info--title">The freeCodeCamp Podcast Player</h2>
             <p class="info--description">
-              Abbey Rennemeyer interviews Erica Peterson, the founder of Moms
-              Can: Code and Science Tots, and Founder Gym alumna. Erica
-              started...
+              Originally scheduled as a React-Application, naturally evolved
+              with vanilla JavaScript.
             </p>
-          </div><!-- close episode--info -->
-        </div><!-- close player__episode -->
-      </div><!-- close player -->
+            <p class="info--description">React app soon to follow...</p>
+            <p class="info--description">As soon as I figure out:</p>
+            <ul>
+              <li>how to select other episodes</li>
+              <li>how to provide include the show notes</li>
+            </ul>
+            <p>in an aesthetically pleasing package.</p>
+          </div>
+          <!-- close episode--info -->
+        </div>
+        <!-- close player__episode -->
+      </div>
+      <!-- close player -->
     </main>
 
     <script src="script.js"></script>
