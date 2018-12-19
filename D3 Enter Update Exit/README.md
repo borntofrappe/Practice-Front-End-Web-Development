@@ -1,6 +1,6 @@
 # D3 Enter-Update-Exit
 
-<!-- Semi-proud result live [right here on codepen](). -->
+Semi-proud result live [right here on codepen](https://codepen.io/borntofrappe/full/XoNXoB).
 
 ## Preface
 
