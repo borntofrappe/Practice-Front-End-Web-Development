@@ -1,6 +1,6 @@
 # RSS Feed Fetching
 
-<!-- Link to the proud (and live!) pen [right here]() -->
+Link to the proud (and live!) pen [right here](https://codepen.io/borntofrappe/full/vvxzyR)
 
 ## Preface
 
