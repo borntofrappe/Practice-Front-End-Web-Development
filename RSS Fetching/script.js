@@ -1,4 +1,4 @@
-const URL = 'http://podcast.freecodecamp.org/rss';
+const URL = 'https://podcast.freecodecamp.org/rss';
 const containerEpisodes = document.querySelector('.episodes');
 
 // function called to display the RSS information in the DOM
