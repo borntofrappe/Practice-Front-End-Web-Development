@@ -1,0 +1,81 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Cambay|Open+Sans");
+
+/* detail root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  --font-heading: "Cambay", sans-serif;
+  --white: #fff;
+  --white-t: #ffffff44;
+  --black: #333;
+  --theme: #315694;
+  --theme-t: #31569477;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  background: var(--theme);
+}
+.container {
+  color: var(--white);
+  max-width: 450px;
+  width: 90vw;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+}
+.container h1 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  line-height: 2;
+}
+.container a {
+  color: inherit;
+  margin: 1rem 0;
+}
+.episode {
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px var(--white-t);
+  color: var(--black);
+  background: #fff;
+  margin: 1rem 0;
+  animation: introduce 1s cubic-bezier(0.24, 1.07, 0.72, 1.25) both;
+  border-bottom: 2px solid var(--theme-t);
+}
+.episode h3 {
+  font-weight: 300;
+  line-height: 2;
+}
+.episode__details {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/*
+animation introducing each episode as slightly ascending
+each episode staggered with increasing delay
+*/
+@keyframes introduce {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
