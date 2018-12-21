@@ -21,6 +21,7 @@
       - a triangle and two rectangles for the play / pause button
       - a simple drawing for the volume button, overlayed by a bar to create also a mute icon
       - a square for the stop button
+      - a plus sign for more episodes
     -->
     <svg style="display: none;">
       <symbol id="pause" viewBox="0 0 100 100">
@@ -56,6 +57,11 @@
       <symbol id="stop" viewBox="0 0 100 100">
         <path d="M 25 25 H 75 V 75 H 25" stroke="none" fill="currentColor" />
       </symbol>
+
+      <symbol id="more" viewBox="0 0 100 100">
+        <rect x="40" y="10" width="20" height="80" fill="currentColor" />
+        <rect x="10" y="40" width="80" height="20" fill="currentColor" />
+      </symbol>
     </svg>
 
     <!-- app's structure
@@ -68,10 +74,10 @@
             - four button elements (nesting an SVG or simply text, for the speed button)
           - timing (displaying the length of the episode and the current timestamp)
           - info (container for the title and description)
+        - more (container for additional episodes)
     -->
 
     <main class="app">
-      <div class="app__tooltip"></div>
       <div class="player">
         <div class="player__vinyl"></div>
 
@@ -100,25 +106,112 @@
             <span class="timing--total">01:09:12</span>
           </p>
 
-          <div class="episode--info">
-            <h2 class="info--title">The freeCodeCamp Podcast Player</h2>
-            <p class="info--description">
-              Originally scheduled as a React-Application, naturally evolved
-              with vanilla JavaScript.
-            </p>
-            <p class="info--description">React app soon to follow...</p>
-            <p class="info--description">As soon as I figure out:</p>
-            <ul>
-              <li>how to select other episodes</li>
-              <li>how to provide include the show notes</li>
-            </ul>
-            <p>in an aesthetically pleasing package.</p>
-          </div>
-          <!-- close episode--info -->
+          <h2 class="episode--title">
+            Ep. 51: Erica Peterson, founder, entrepreneur, and mother
+          </h2>
+
+          <button class="episode--more">
+            <svg><use href="#more" /></svg>
+          </button>
         </div>
         <!-- close player__episode -->
+        <!--
+          the panel showing additional episodes is tucked at the bottom of the application
+          it contains a wrapper for the episodes (with vertical scroll) and a button to close the panel
+         -->
+        <div class="player__more hidden">
+          <div class="more--episodes">
+            <!--
+                each episode is nested in a container displaying the content in a row
+                inside of a button replicate the same structure (svg-audio) seen in the main part of the application
+              -->
+            <div class="episodes--episode">
+              <h3>Ep. 51: Erica Peterson, founder, entrepreneur, and mother</h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/Abbey_and_Erica_interview_.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+            <div class="episodes--episode">
+              <h3>
+                Ep 50 - Sacha Greif, designer, developer, and open source
+                creator
+              </h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/sacha-greif.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+            <div class="episodes--episode">
+              <h3>
+                Ep 49 - Lyle Troxell, software engineer at Netflix and radio
+                show host
+              </h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/49-lyle-troxell.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+            <div class="episodes--episode">
+              <h3>Ep 48 - Ali Spittel, creator of Zen of Programming</h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/48-ali-spittel.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+            <div class="episodes--episode">
+              <h3>
+                Ep. 47 - Laurence Bradford - interview with the creator of
+                LearnToCodeWith.me
+              </h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/46-Laurence-Bradford.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+            <div class="episodes--episode">
+              <h3>
+                Ep. 46 - Alexander Kallaway - Interview with the creator of
+                100DaysOfCode
+              </h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/46-Alexander-Kallaway-Creator-of-100DaysOfCode.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+            <div class="episodes--episode">
+              <h3>
+                Ep. 45 - Dropout turned Software Engineer Dylan Israel -
+                developer interview
+              </h3>
+              <button class="episode--play">
+                <svg><use href="#play" /></svg>
+                <audio
+                  src="http://traffic.libsyn.com/freecodecamp/Engineer_and_Course_Creator_Dylan_Israel_-_Developer_Interview.mp3?dest-id=603849"
+                ></audio>
+              </button>
+            </div>
+          </div>
+          <!-- close more--episodes  -->
+          <button class="more--close">Close</button>
+        </div>
+        <!-- close player__more -->
       </div>
       <!-- close player -->
+      <!-- append the tooltip at the very bottom to have it stand atop the entirety of the application -->
+      <div class="app__tooltip"></div>
     </main>
 
     <script src="script.js"></script>

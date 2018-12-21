@@ -7,6 +7,7 @@ white = #fff
 green-l = #267B26
 green = #007e00
 green-d = #006400
+green-dd = #004400
 
 *
     box-sizing border-box
@@ -32,6 +33,8 @@ body
     padding 1rem
     // thin white layer to separate the player from the body
     background green-l
+    // position relative for the panel containing more episodes
+    position relative
 
     // vinyl created out of a rounded div with a repeating-radial-gradient
     .player__vinyl
@@ -103,20 +106,122 @@ body
         .episode--timing
             margin 1rem 0 2rem
 
-        .episode--info
+        .episode--title
             text-shadow 0 2px 3px rgba(green, 0.8)
             padding 0 1rem
-            h2
-                font-size 1.5rem
-                font-weight 500
-                margin-bottom 0.5rem
-            p
-                line-height 2
-                margin 0.5rem 0
+            font-size 1.5rem
+            font-weight 500
+            margin-bottom 0.5rem
 
-            ul
-                list-style inside
-                line-height 2
+
+        .episode--more
+            // position the button used to select other episodes to the right of the player
+            align-self flex-end
+            margin-right 0.75rem
+            width 42px
+            height @width
+            border 1.2px solid rgba(white, 0.4)
+            border-radius 50%
+            background none
+            color white
+            padding 0.6rem
+            transition all 0.2s ease-out
+            font-family inherit
+
+            &:hover
+                background rgba(white, 0.15)
+
+            svg
+                width 100%
+                height 100%
+                pointer-events none
+
+
+    // position the panel with more episodes at the bottom the application
+    // at the bottom and stretching to cover x% of the height
+    .player__more
+        position absolute
+        bottom 0
+        left 0
+        width 100%
+        height 70%
+        // position the content in a column, pushed at the bottom
+        display flex
+        flex-direction column
+        justify-content flex-end
+        border-top 2.5px solid rgba(white, 0.4)
+        transition all 0.3s ease-out
+        // toggle the panel through a .hidden class (applied by default)
+        &.hidden
+            height 0
+            opacity 0
+            visibility none
+
+        // ! overflow-y auto to allow for the content to be contained in the container
+        .more--episodes
+            overflow-y auto
+            height 100%
+            // properties to style the scrollbar
+            &::-webkit-scrollbar
+                width 0.2rem
+
+            &::-webkit-scrollbar-track
+                -webkit-box-shadow inset 0 0 0.5rem green-dd
+
+            &::-webkit-scrollbar-thumb
+                border-radius 0.8rem
+                background-color white
+                outline 0.08rem solid white
+
+            // display the content of each episode in a simple row
+            .episodes--episode
+                display flex
+                align-items center
+                padding 1.25rem 1rem
+                background green-l
+                border-top 2px solid rgba(white, 0.4)
+                // for the first episode remove the (otherwise redundant) border
+                &:nth-child(1)
+                    border-top none
+                h3
+                    // width 0 combined with flex grow to maintain a consistent width
+                    width 0
+                    flex-grow 1
+                    font-weight 900
+                    font-size 1rem
+                    margin-right 0.75rem
+                // style of the button matching the design of the previous elements
+                // TODO: mixin/extent or simply a global style for buttons
+                button
+                    width 40px
+                    height @width
+                    border 1.2px solid rgba(white, 0.7)
+                    border-radius 50%
+                    background none
+                    color white
+                    padding 0.6rem
+                    transition all 0.2s ease-out
+                    &:hover
+                        background rgba(white, 0.15)
+                    svg
+                        width 100%
+                        height 100%
+                        pointer-events none
+
+        // buttons closing the panel
+        // simply centered text, slightly translucent on hover
+        .more--close
+            padding 0.75rem 0
+            background green-dd
+            border none
+            color white
+            font-size 1.1rem
+            font-family inherit
+            transition all 0.2s ease-out
+
+            &:hover
+                color rgba(white, 0.9)
+
 
 // style the tooltip to be hidden by default and absolute positioned
 .app__tooltip
