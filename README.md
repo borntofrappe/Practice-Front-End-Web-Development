@@ -225,3 +225,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**UX Podcast Application**](https://codepen.io/borntofrappe/pen/YdGwow)|Create the design for a soon-to-be React application allowing to play episodes from the freeCodeCamp podcast. Updated with a few added functionalities.|ux, podcast, freeCodeCamp|17th-19th-20th December 2018|
 |[**D3 Enter-Update-Exit**](https://codepen.io/borntofrappe/pen/XoNXoB)|Highlight the number of points scored by F1 drivers across the years, to practice with the enter-update-exit pattern in D3.|d3, enter, update, exit|18th December 2018|
 |[**RSS Feed**](https://codepen.io/borntofrappe/pen/vvxzyR)|Retrieve information from an RSS feed, with particular attention dedicated to the publication date and duration.|rss, secure, fetch|21st December 2018|
+|[**React Watch**](https://codepen.io/borntofrappe/pen/ebRVJd)|Practice with React and SVG to built a neat clock.|wip, react, svg|25th December 2018|
