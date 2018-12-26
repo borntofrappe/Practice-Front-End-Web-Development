@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Digits from './Digits';
 
 class Watch extends Component {
   constructor(props) {
@@ -23,6 +24,11 @@ class Watch extends Component {
             fill="none"
             stroke="#ddd"
             strokeWidth="2px" />
+
+          <Digits
+            howMany={4}
+            spread={size / 2}
+            distance={size / 2} />
 
           <circle
             cx={size / 2}
