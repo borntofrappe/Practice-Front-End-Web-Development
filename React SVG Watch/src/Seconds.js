@@ -15,7 +15,7 @@ const Seconds = ({ size, seconds, spread }) => {
         strokeWidth="2px"
         strokeLinecap="square"
         fill="none"
-        class={(i === seconds + 1) ? 'current' : ''}
+        className={(i === seconds + 1) ? 'current' : ''}
         d={d}
         transform={rotate} />
     );
@@ -27,7 +27,7 @@ const Seconds = ({ size, seconds, spread }) => {
   return (
     <g>
       {/* ticks nested in a group to specifically target the path elements in CSS */}
-      <g class="seconds">
+      <g className="seconds">
         {
           SecondsPath
         }
@@ -37,7 +37,7 @@ const Seconds = ({ size, seconds, spread }) => {
         fill="#eee"
         d={markerPath}
         transform={markerRotation}
-        class={seconds === 59 ? 'fix' : ''} />
+        className={seconds === 59 ? 'fix' : ''} />
     </g>
   );
 };

@@ -8,7 +8,7 @@ const Hours = ({ hours, size }) => {
   const rotate = `rotate(${hourTwelve * 360 / 12})`;
 
   return (
-    <g class="hand">
+    <g className="hand">
       <path
         stroke="#999"
         strokeWidth="5px"
@@ -17,7 +17,7 @@ const Hours = ({ hours, size }) => {
         d={d}
         transform={rotate}
         // 'fix', so to speak, to roughly avoid the rotation which occurs from 12 to 1 o clock (same for minutes and seconds)
-        class={hours === 12 ? 'fix' : ''} />
+        className={hours === 12 ? 'fix' : ''} />
     </g>
   );
 };

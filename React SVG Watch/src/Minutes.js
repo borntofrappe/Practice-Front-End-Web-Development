@@ -6,7 +6,7 @@ const Minutes = ({ size, minutes }) => {
   const d = `M 0 0 v -${size}`;
   const rotate = `rotate(${minutes * 360 / 60})`;
   return (
-    <g class="hand">
+    <g className="hand">
       <path
         // thinner and with a more evident color
         stroke="#eee"
@@ -15,7 +15,7 @@ const Minutes = ({ size, minutes }) => {
         fill="none"
         d={d}
         transform={rotate}
-        class={minutes === 60 ? 'fix' : ''} />
+        className={minutes === 60 ? 'fix' : ''} />
     </g>
   );
 };
