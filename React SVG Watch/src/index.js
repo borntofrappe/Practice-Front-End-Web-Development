@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Watch from './Watch';
+import SVGatch from './SVGatch';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Watch />, document.getElementById('root'));
+ReactDOM.render(<SVGatch />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
