@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Hours = ({ spread, size, hours }) => {
-  const translate = `translate(${spread}, ${spread})`;
 
 
   const hourTwelve = hours >= 12 ? hours -= 12 : hours;
@@ -9,7 +8,7 @@ const Hours = ({ spread, size, hours }) => {
   const rotate = `rotate(${hourTwelve * 360 / 12})`;
 
   return (
-    <g transform={translate}>
+    <g>
       <path
         stroke="#999"
         strokeWidth="4px"

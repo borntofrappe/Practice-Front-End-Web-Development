@@ -1,10 +1,6 @@
 import React from 'react';
 
 const Digits = ({ howMany, spread, distance }) => {
-  // center the group element
-  const translate = `translate(${spread}, ${spread})`;
-
-
   // describe the digits to be displayed around the clock
   const baseDigit = 12 / howMany;
   const digits = [];
@@ -34,7 +30,7 @@ const Digits = ({ howMany, spread, distance }) => {
   });
 
   return (
-    <g transform={translate}>
+    <g>
       {
         DigitsText
       }

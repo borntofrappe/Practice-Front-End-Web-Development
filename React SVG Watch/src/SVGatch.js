@@ -15,42 +15,45 @@ class Watch extends Component {
 
   render() {
     const { date, size, margin } = this.state;
-    const transform = `translate(${margin} ${margin})`;
+    const translate = `translate(${margin} ${margin})`;
+    const center = `translate(${size / 2} ${size / 2})`;
     return (
       <svg width={size + (margin * 2)} height={size + (margin * 2)}>
-        <g transform={transform}>
-          <circle
-            cx={size / 2}
-            cy={size / 2}
-            r={size / 2.2}
-            fill="none"
-            stroke="#ddd"
-            strokeWidth="2px" />
+        <g transform={translate}>
+          <g transform={center}>
+            <circle
+              cx="0"
+              cy="0"
+              r={size / 2.3}
+              fill="none"
+              stroke="#ccc"
+              strokeWidth="2px" />
 
-          <Digits
-            howMany={4}
-            spread={size / 2}
-            distance={size / 2} />
+            <Digits
+              howMany={4}
+              spread={size / 2}
+              distance={size / 2} />
 
-          <Hours
-            hours={date.getHours()}
-            spread={size / 2}
-            size={size / 4}
-          />
+            <Hours
+              hours={date.getHours()}
+              spread={size / 2}
+              size={size / 4.5}
+            />
 
-          <Minutes
-            minutes={date.getMinutes()}
-            spread={size / 2}
-            size={size / 3}
-          />
+            <Minutes
+              minutes={date.getMinutes()}
+              spread={size / 2}
+              size={size / 3.5}
+            />
 
-          <circle
-            cx={size / 2}
-            cy={size / 2}
-            r="5"
-            fill="#5941f3"
-            stroke="#fff"
-            strokeWidth="3px" />
+            <circle
+              cx="0"
+              cy="0"
+              r="5"
+              fill="#5941f3"
+              stroke="#fff"
+              strokeWidth="3px" />
+          </g>
         </g>
       </svg>
     );
