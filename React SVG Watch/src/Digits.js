@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Digits = ({ howMany, spread, distance }) => {
+const Digits = ({ howMany, distance }) => {
   // describe the digits to be displayed around the clock
   const baseDigit = 12 / howMany;
   const digits = [];

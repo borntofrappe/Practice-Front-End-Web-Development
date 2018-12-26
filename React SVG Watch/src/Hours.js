@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hours = ({ spread, size, hours }) => {
+const Hours = ({ size, hours }) => {
 
 
   const hourTwelve = hours >= 12 ? hours -= 12 : hours;
@@ -8,10 +8,10 @@ const Hours = ({ spread, size, hours }) => {
   const rotate = `rotate(${hourTwelve * 360 / 12})`;
 
   return (
-    <g>
+    <g class="hand">
       <path
         stroke="#999"
-        strokeWidth="4px"
+        strokeWidth="5px"
         strokeLinecap="round"
         fill="none"
         d={d}

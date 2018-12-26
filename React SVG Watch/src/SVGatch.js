@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Digits from './Digits';
 import Hours from './Hours';
 import Minutes from './Minutes';
+import Seconds from './Seconds';
 
 class Watch extends Component {
   constructor(props) {
@@ -11,6 +12,15 @@ class Watch extends Component {
       size: 225,
       margin: 25
     };
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      const date = new Date();
+      this.setState({
+        date
+      });
+    }, 1000);
   }
 
   render() {
@@ -31,19 +41,22 @@ class Watch extends Component {
 
             <Digits
               howMany={4}
-              spread={size / 2}
               distance={size / 2} />
 
             <Hours
               hours={date.getHours()}
-              spread={size / 2}
               size={size / 4.5}
             />
 
             <Minutes
               minutes={date.getMinutes()}
-              spread={size / 2}
               size={size / 3.5}
+            />
+
+            <Seconds
+              seconds={date.getSeconds()}
+              spread={size / 2.7}
+              size={size / 30}
             />
 
             <circle
