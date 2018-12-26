@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Digits from './Digits';
+import Hours from './Hours';
+import Minutes from './Minutes';
 
 class Watch extends Component {
   constructor(props) {
@@ -29,6 +31,18 @@ class Watch extends Component {
             howMany={4}
             spread={size / 2}
             distance={size / 2} />
+
+          <Hours
+            hours={date.getHours()}
+            spread={size / 2}
+            size={size / 4}
+          />
+
+          <Minutes
+            minutes={date.getMinutes()}
+            spread={size / 2}
+            size={size / 3}
+          />
 
           <circle
             cx={size / 2}
