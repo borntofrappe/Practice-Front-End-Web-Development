@@ -1,6 +1,9 @@
 import React from 'react';
 
+// seconds component, taking the current seconds, drawing 60 ticks for each second in the dial and highlighting the current second
+// additionally detailing a triangle pointing toward the current second
 const Seconds = ({ size, seconds, spread }) => {
+  // seconds ticks
   const SecondsPath = [];
   for (let i = 1; i <= 60; i++) {
     const rotate = `rotate(${i * 360 / 60})`;
@@ -14,16 +17,27 @@ const Seconds = ({ size, seconds, spread }) => {
         fill="none"
         class={(i === seconds + 1) ? 'current' : ''}
         d={d}
-        transform={rotate}>
-
-      </path>
+        transform={rotate} />
     );
   }
+
+  // triangle marker
+  const markerPath = `M 0 -${spread - 5} l 5 7 h -10 Z`;
+  const markerRotation = `rotate(${(seconds + 1) * 360 / 60})`;
   return (
-    <g class="seconds">
-      {
-        SecondsPath
-      }
+    <g>
+      {/* ticks nested in a group to specifically target the path elements in CSS */}
+      <g class="seconds">
+        {
+          SecondsPath
+        }
+      </g>
+      <path
+        stroke="none"
+        fill="#eee"
+        d={markerPath}
+        transform={markerRotation}
+        class={seconds === 59 ? 'fix' : ''} />
     </g>
   );
 };

@@ -1,6 +1,6 @@
 {
   "short_name": "React SVGatch",
-  "name": "Practice with React and SVG to create a rather enticing visual, for a simple clock dispaying the current time.",
+  "name": "Practice with React and SVG to create a rather enticing visual, for a simple clock displaying the current time.",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,6 +1,6 @@
 # React Watch
 
-Semi-proud work-in-progress pen [right here](https://codepen.io/borntofrappe/full/ebRVJd).
+Proud, and live!, pen [right here](https://codepen.io/borntofrappe/full/ebRVJd).
 
 ## Preface
 
@@ -131,3 +131,15 @@ componentDidMount() {
     }, 1000);
   }
 ```
+
+### More than Seconds
+
+As mentioned, the `Seconds` component suffered from a considerable issue: being too subtle. To compensate, a marker is introduced in the form of triangle, pointed toward the current second. This leverages a `path` element, simply using a few lines to craft the triangle in question.
+
+### Pending Issues
+
+There are still a few issues with how the rotation is applied to the `path` elements. Indeed, as the elements go from 360 to 0, it is animated _backwards_,
+
+Additionally, as one tabs over to another page, the elements are not transitioned until the tab is switched back. It is entertaining, but unexpected. I might find a solution experimenting a bit more, but this project is considered good and done.
+
+Pretty nifty watch.

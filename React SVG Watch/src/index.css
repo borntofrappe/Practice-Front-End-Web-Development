@@ -19,15 +19,22 @@ svg {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-svg g.hand path {
-  transition: all 1s ease-out;
+/* transition for all path elements */
+svg g path {
+  transition: all 1s linear;
 }
+svg g path.fix {
+  transition: none;
+  transform: rotate(0);
+}
+/* transition for the path elements representing the seconds ticks
+as to 'maintain' so to speak an impression of the current tick, increase the duration of the transition */
 svg g.seconds path {
   opacity: 0.2;
-  transition: 15s ease-out all;
+  transition: 10s linear all;
 }
 svg g.seconds path.current {
   opacity: 1;
   stroke-width: 3px;
-  transition: 1s ease-out all;
+  transition: 1s linear all;
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+// digits component, taking in the number of digits to show and mapping the digits around the clock
+// for instance 4 digits --> 3, 6, 9, 12, positioned at 3, 6, 9, 12 o'click respectively
 const Digits = ({ howMany, distance }) => {
   // describe the digits to be displayed around the clock
   const baseDigit = 12 / howMany;
@@ -17,8 +19,9 @@ const Digits = ({ howMany, distance }) => {
         x="0"
         y="0"
         fill="#ccc"
-        opacity="1"
-        fontSize="0.8rem"
+        opacity="0.5"
+        fontWeight="400"
+        fontSize="0.85rem"
         textAnchor="middle"
         alignmentBaseline="middle"
         transform={rotate}
