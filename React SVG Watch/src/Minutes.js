@@ -1,10 +1,11 @@
 import React from 'react';
 
 // minutes component, taking the current minutes and drawing a hand rotated as per the number of minutes
-const Minutes = ({ size, minutes }) => {
+const Minutes = ({ size, minutes, turn }) => {
+
 
   const d = `M 0 0 v -${size}`;
-  const rotate = `rotate(${minutes * 360 / 60})`;
+  const rotate = `rotate(${minutes * 360 / 60 + (360 * turn)})`;
   return (
     <g className="hand">
       <path
@@ -14,8 +15,7 @@ const Minutes = ({ size, minutes }) => {
         strokeLinecap="round"
         fill="none"
         d={d}
-        transform={rotate}
-        className={minutes === 60 ? 'fix' : ''} />
+        transform={rotate} />
     </g>
   );
 };

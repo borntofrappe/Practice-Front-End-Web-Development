@@ -23,10 +23,6 @@ svg {
 svg g path {
   transition: all 1s linear;
 }
-svg g path.fix {
-  transition: none;
-  transform: rotate(0);
-}
 /* transition for the path elements representing the seconds ticks
 as to 'maintain' so to speak an impression of the current tick, increase the duration of the transition */
 svg g.seconds path {

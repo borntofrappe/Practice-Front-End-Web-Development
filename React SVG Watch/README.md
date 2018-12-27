@@ -143,3 +143,9 @@ There are still a few issues with how the rotation is applied to the `path` elem
 Additionally, as one tabs over to another page, the elements are not transitioned until the tab is switched back. It is entertaining, but unexpected. I might find a solution experimenting a bit more, but this project is considered good and done.
 
 Pretty nifty watch.
+
+### Final Update
+
+I was still thinking about the issue the day after, so after a bit of thinking, I came up with a solution. It is not the most elegant fix, but it works far better than adding and removing a transition on the 359 degree threshold.
+
+Simply put, through `state` I keep track of the number of times the hands and the marker go around the clock and increment the rotation by a matching number of turns. Instead of going back to 0 degrees, I rotate the hands and the marker 360, then 361 and so forth and so on.

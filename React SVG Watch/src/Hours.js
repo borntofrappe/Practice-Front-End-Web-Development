@@ -2,10 +2,13 @@ import React from 'react';
 
 // hours component, taking the current hours and drawing a hand rotated as per the number of hours
 // 12 hours clock
-const Hours = ({ hours, size }) => {
+const Hours = ({ hours, size, turn }) => {
+
+
   const hourTwelve = hours >= 12 ? hours -= 12 : hours;
   const d = `M 0 0 v -${size}`;
-  const rotate = `rotate(${hourTwelve * 360 / 12})`;
+  // turn allowing to go past the 0-360 range
+  const rotate = `rotate(${hourTwelve * 360 / 12 + (360 * turn)})`;
 
   return (
     <g className="hand">
@@ -15,9 +18,7 @@ const Hours = ({ hours, size }) => {
         strokeLinecap="round"
         fill="none"
         d={d}
-        transform={rotate}
-        // 'fix', so to speak, to roughly avoid the rotation which occurs from 12 to 1 o clock (same for minutes and seconds)
-        className={hours === 12 ? 'fix' : ''} />
+        transform={rotate} />
     </g>
   );
 };
