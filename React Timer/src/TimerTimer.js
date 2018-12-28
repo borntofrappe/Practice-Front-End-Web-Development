@@ -25,6 +25,10 @@ const OutputElement = styled.span`
   }
 `;
 
+function formatTime(time) {
+  return time >= 10 ? time : `0${time}`;
+}
+
 const TimerTimer = ({ timeTotal, handleTimerAdd }) => {
   let seconds = timeTotal;
   let minutes = 0;
@@ -50,9 +54,10 @@ const TimerTimer = ({ timeTotal, handleTimerAdd }) => {
 
         {
           Object.entries(time).map(entry => {
-            if (entry[1] > 0) {
-              return (<OutputElement key={entry[0]}>{entry[1]}</OutputElement>);
+            if (entry[1] === 0 && entry[0] !== 'seconds') {
+              return '';
             }
+            return (<OutputElement key={entry[0]}>{formatTime(entry[1])}</OutputElement>);
           })
         }
       </Output>
