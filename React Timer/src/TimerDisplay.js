@@ -7,7 +7,7 @@ const Display = styled.div`
   align-items: center;
   padding: 0.5rem 0.75rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #ffffff55;
+  border-bottom: 2px solid #ffffff11;
   transition: color 0.2s ease-out;
   color: ${props => props.isInput ? '#ffffff' : '#ffffff55'};
 `;

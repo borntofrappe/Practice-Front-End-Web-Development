@@ -36,10 +36,14 @@ class Timer extends Component {
         m: 0,
         s: 0
       },
-      input: ''
+      input: '',
+      isTimer: false,
+      isPlaying: false
     };
     this.handleDial = this.handleDial.bind(this);
     this.handleDialBack = this.handleDialBack.bind(this);
+    this.handleTimerStart = this.handleTimerStart.bind(this);
+    this.handleTimerToggle = this.handleTimerToggle.bind(this);
   }
 
   updateTime(input) {
@@ -86,19 +90,81 @@ class Timer extends Component {
     this.updateTime(input);
   }
 
+  handleTimerStart() {
+    this.setState({
+      isTimer: true,
+      isPlaying: true
+    })
+  }
+  handleTimerToggle() {
+    this.setState({
+      isPlaying: !this.state.isPlaying
+    })
+  }
+
   render() {
-    const { time, input } = this.state;
+    const { time, input, isTimer, isPlaying } = this.state;
+
+    let { s: seconds, m: minutes, h: hours } = time;
+    while (seconds >= 60) {
+      seconds -= 60;
+      minutes += 1;
+    }
+    while (minutes >= 60) {
+      minutes -= 60;
+      hours += 1;
+    }
+    const timeTimer = {
+      hours,
+      minutes,
+      seconds
+    }
     return (
       <TimerApp>
-        <TimerDisplay isInput={input.length !== 0} time={time} handleDialBack={this.handleDialBack} />
-        <TimerDial handleDial={this.handleDial} />
         {
-          input &&
-          <TimerButton>
-            <svg viewBox="0 0 100 100">
-              <path d="M 40 30 l 30 20 l -30 20 Z" stroke="#eee" strokeWidth="7px" fill="currentColor" />
-            </svg>
-          </TimerButton>
+          isTimer ?
+            <>
+              <h2>Thanks for hopping by</h2>
+              <p>
+                The timer ought to begin right now
+                <br />
+                Just need to figure a stylisg way :)
+                <br />
+              </p>
+              <p>Coming soon, a timer for:</p>
+              <ul>
+                {
+                  Object.entries(timeTimer).map(entry => <li key={entry[0]}>{entry[1]} {entry[0]}</li>)
+                }
+              </ul>
+              <TimerButton onClick={this.handleTimerToggle}>
+                {
+                  isPlaying ?
+                    <svg viewBox="0 0 100 100">
+                      <rect x="30" y="30" width="10" height="40" stroke="#eee" strokeWidth="6px" fill="currentColor" />
+                      <rect x="60" y="30" width="10" height="40" stroke="#eee" strokeWidth="6px" fill="currentColor" />
+                    </svg>
+                    :
+                    <svg viewBox="0 0 100 100">
+                      <path d="M 40 30 l 30 20 l -30 20 Z" stroke="#eee" strokeWidth="7px" fill="currentColor" />
+                    </svg>
+                }
+              </TimerButton>
+            </>
+            :
+            <>
+              <TimerDisplay isInput={input.length !== 0} time={time} handleDialBack={this.handleDialBack} />
+              <TimerDial handleDial={this.handleDial} />
+              {
+                input &&
+                <TimerButton onClick={this.handleTimerStart}>
+                  <svg viewBox="0 0 100 100">
+                    <path d="M 40 30 l 30 20 l -30 20 Z" stroke="#eee" strokeWidth="7px" fill="currentColor" />
+                  </svg>
+                </TimerButton>
+              }
+            </>
+
         }
       </TimerApp>
     );

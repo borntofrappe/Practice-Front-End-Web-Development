@@ -13,7 +13,7 @@ const Digit = styled.button`
   transition: all 0.2s ease-out;
   font-weight: 600;
   position: relative;
-  color: #d9daee;
+  color: #ffffff55;
   &:nth-of-type(1) {
     grid-row: 4/5;
     grid-column: 1/-1;
