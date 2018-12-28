@@ -25,7 +25,7 @@ const OutputElement = styled.span`
   }
 `;
 
-const TimerTimer = ({ timeTotal }) => {
+const TimerTimer = ({ timeTotal, handleTimerAdd }) => {
   let seconds = timeTotal;
   let minutes = 0;
   let hours = 0;
@@ -56,7 +56,7 @@ const TimerTimer = ({ timeTotal }) => {
           })
         }
       </Output>
-      <TimerAdd>+1:00</TimerAdd>
+      <TimerAdd onClick={handleTimerAdd}>+1:00</TimerAdd>
 
     </TimerOutput>
   )

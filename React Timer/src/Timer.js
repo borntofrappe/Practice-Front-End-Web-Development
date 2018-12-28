@@ -52,6 +52,7 @@ class Timer extends Component {
     this.handleDialBack = this.handleDialBack.bind(this);
     this.handleTimerStart = this.handleTimerStart.bind(this);
     this.handleTimerToggle = this.handleTimerToggle.bind(this);
+    this.handleTimerAdd = this.handleTimerAdd.bind(this);
   }
 
   updateTime(input) {
@@ -109,7 +110,8 @@ class Timer extends Component {
       if (timeTotal === 0) {
         clearInterval(this.intervalID);
         this.setState({
-          isTimer: false
+          isTimer: false,
+          input: ''
         })
       }
     }, 1000);
@@ -136,6 +138,14 @@ class Timer extends Component {
     })
   }
 
+  handleTimerAdd() {
+    const { timeTotal } = this.state;
+    this.setState({
+      timeTotal: timeTotal + 60
+    })
+
+  }
+
   render() {
     const { time, input, isTimer, isPlaying, timeTotal } = this.state;
 
@@ -144,7 +154,7 @@ class Timer extends Component {
         {
           isTimer ?
             <React.Fragment>
-              <TimerTimer timeTotal={timeTotal} />
+              <TimerTimer timeTotal={timeTotal} handleTimerAdd={this.handleTimerAdd}/>
               <TimerControls>
                 <TimerButton onClick={this.handleTimerToggle}>
                   {
