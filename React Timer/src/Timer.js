@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import TimerDisplay from './TimerDisplay';
 import TimerDial from './TimerDial';
+import TimerTimer from './TimerTimer';
 
 const TimerApp = styled.div`
   max-width: 380px;
@@ -26,6 +27,12 @@ const TimerButton = styled.button`
     box-shadow: 0 1px 5px 0px #1c1cdd;
   }
 `;
+
+const TimerControls = styled.div`
+ display: flex;
+ align-items: center;
+ margin-top: 1.5rem;
+`;
 // main component rendered through index.js
 class Timer extends Component {
   constructor(props) {
@@ -36,6 +43,7 @@ class Timer extends Component {
         m: 0,
         s: 0
       },
+      timeTotal: 0,
       input: '',
       isTimer: false,
       isPlaying: false
@@ -48,18 +56,19 @@ class Timer extends Component {
 
   updateTime(input) {
     const inputTime = input.padStart(6, 0);
-    let h = inputTime.substring(0, 2);
-    let m = inputTime.substring(2, 4);
-    let s = inputTime.substring(4);
-
+    let h = parseInt(inputTime.substring(0, 2), 10);
+    let m = parseInt(inputTime.substring(2, 4), 10);
+    let s = parseInt(inputTime.substring(4));
+    const timeTotal = h * 60 * 60 + m * 60 + s;
 
     const time = {
-      h: parseInt(h, 10),
-      m: parseInt(m, 10),
-      s: parseInt(s, 10)
+      h,
+      m,
+      s
     };
     this.setState({
-      time
+      time,
+      timeTotal
     })
   }
 
@@ -90,69 +99,72 @@ class Timer extends Component {
     this.updateTime(input);
   }
 
+  startTimer() {
+    this.intervalID = setInterval(() => {
+      let { timeTotal } = this.state;
+      timeTotal -= 1;
+      this.setState({
+        timeTotal: timeTotal
+      })
+      if (timeTotal === 0) {
+        clearInterval(this.intervalID);
+        this.setState({
+          isTimer: false
+        })
+      }
+    }, 1000);
+  }
+
   handleTimerStart() {
     this.setState({
       isTimer: true,
       isPlaying: true
     })
+
+    this.startTimer();
   }
   handleTimerToggle() {
+    const { isPlaying } = this.state;
+    if (isPlaying) {
+      clearInterval(this.intervalID);
+    }
+    else {
+      this.startTimer();
+    }
     this.setState({
       isPlaying: !this.state.isPlaying
     })
   }
 
   render() {
-    const { time, input, isTimer, isPlaying } = this.state;
+    const { time, input, isTimer, isPlaying, timeTotal } = this.state;
 
-    let { s: seconds, m: minutes, h: hours } = time;
-    while (seconds >= 60) {
-      seconds -= 60;
-      minutes += 1;
-    }
-    while (minutes >= 60) {
-      minutes -= 60;
-      hours += 1;
-    }
-    const timeTimer = {
-      hours,
-      minutes,
-      seconds
-    }
     return (
       <TimerApp>
         {
           isTimer ?
-            <>
-              <h2>Thanks for hopping by</h2>
-              <p>
-                The timer ought to begin right now
-                <br />
-                Just need to figure a stylisg way :)
-                <br />
-              </p>
-              <p>Coming soon, a timer for:</p>
-              <ul>
-                {
-                  Object.entries(timeTimer).map(entry => <li key={entry[0]}>{entry[1]} {entry[0]}</li>)
-                }
-              </ul>
-              <TimerButton onClick={this.handleTimerToggle}>
-                {
-                  isPlaying ?
-                    <svg viewBox="0 0 100 100">
-                      <rect x="30" y="30" width="10" height="40" stroke="#eee" strokeWidth="6px" fill="currentColor" />
-                      <rect x="60" y="30" width="10" height="40" stroke="#eee" strokeWidth="6px" fill="currentColor" />
-                    </svg>
-                    :
-                    <svg viewBox="0 0 100 100">
-                      <path d="M 40 30 l 30 20 l -30 20 Z" stroke="#eee" strokeWidth="7px" fill="currentColor" />
-                    </svg>
-                }
-              </TimerButton>
-            </>
+            <React.Fragment>
+              <TimerTimer timeTotal={timeTotal} />
+              <TimerControls>
+                <TimerButton onClick={this.handleTimerToggle}>
+                  {
+                    isPlaying ?
+                      <svg viewBox="0 0 100 100">
+                        <rect x="30" y="30" width="10" height="40" stroke="#eee" strokeWidth="6px" fill="currentColor" />
+                        <rect x="60" y="30" width="10" height="40" stroke="#eee" strokeWidth="6px" fill="currentColor" />
+                      </svg>
+                      :
+                      <svg viewBox="0 0 100 100">
+                        <path d="M 40 30 l 30 20 l -30 20 Z" stroke="#eee" strokeWidth="7px" fill="currentColor" />
+                      </svg>
+                  }
+                </TimerButton>
+              </TimerControls>
+            </React.Fragment>
+
             :
-            <>
+
+            <React.Fragment>
               <TimerDisplay isInput={input.length !== 0} time={time} handleDialBack={this.handleDialBack} />
               <TimerDial handleDial={this.handleDial} />
               {
@@ -163,7 +175,7 @@ class Timer extends Component {
                   </svg>
                 </TimerButton>
               }
-            </>
+            </React.Fragment>
 
         }
       </TimerApp>
