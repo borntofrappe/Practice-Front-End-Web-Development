@@ -1,5 +1,7 @@
 # React Timer
 
+Proud project [right here](https://codepen.io/borntofrappe/full/dwVZRQ), live on Codepen. It's a work-in-progress though.
+
 ## Preface
 
 Looking once more at a mobile experience, and specifically a native application on a family member's mobile, I decide to practice once more with react by building a timer application.
