@@ -9,7 +9,7 @@
 body {
   width: 100%;
   /* background: #5941f3; */
-  background: #07031a;
+  background: hsl(240, 79%, 6%);
   color: #fff;
   font-family: "Open Sans", sans-serif;
 }
