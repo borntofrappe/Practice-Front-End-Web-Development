@@ -48,6 +48,7 @@ class Timer extends Component {
     this.handleTimerStart = this.handleTimerStart.bind(this);
     this.handleTimerToggle = this.handleTimerToggle.bind(this);
     this.handleTimerAdd = this.handleTimerAdd.bind(this);
+    this.handleTimerNew = this.handleTimerNew.bind(this);
   }
 
   // function updating time and TimeTotal, on the basis of the 6 letters top string
@@ -164,7 +165,17 @@ class Timer extends Component {
     this.setState({
       timeTotal: timeTotal + 60
     })
+  }
 
+  handleTimerNew() {
+    clearInterval(this.intervalID);
+    const input = '';
+    this.setState({
+      isTimer: false,
+      input
+    })
+
+    this.updateTime(input)
   }
 
   render() {
@@ -187,6 +198,7 @@ class Timer extends Component {
               isPlaying={isPlaying}
               handleTimerToggle={this.handleTimerToggle}
               handleTimerAdd={this.handleTimerAdd}
+              handleTimerNew={this.handleTimerNew}
             />
 
             :
