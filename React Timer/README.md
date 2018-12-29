@@ -129,3 +129,13 @@ Diving into each component, `TimerInput` shows the following elements:
   - the possibility to reset the timer. This possibility actually 'hidden' by defaultought to be displayed when the timer is pause, and in place of the possibility to add a minute.
 
 Once this structure is taken care of, and well documented, it is possible to move onward with the most intriguing aspects of the project, animating the transition between views and showcasing the countdown timer a little better.
+
+## Update - Roadmap
+
+In the end I decided to jump on the SVG wagon and display the countdown timer through `text` elements as well as `path` and `circle` elements. It was much in the spur of the moment, so I need a moment to go through the new code and document the effort, but it makes for quite the nice result.
+
+What is left:
+
+- document the Output.js file, mostly regarding the newly coded SVG elements;
+
+- add transition between views, through `react-transition-group`.
