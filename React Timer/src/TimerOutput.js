@@ -27,7 +27,7 @@ const OutputControls = styled.div`
   justify-items: center;
 `;
 
-const TimerOutput = ({ timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd }) => {
+const TimerOutput = ({ timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset }) => {
   // render the display atop a button to toggle the timer
   return (
     <React.Fragment>
@@ -98,6 +98,7 @@ const TimerOutput = ({ timeTotal, isPlaying, handleTimerToggle, handleTimerNew, 
             :
 
             <button
+              onClick={handleTimerReset}
             >
               Reset Timer
             </button>
