@@ -80,3 +80,52 @@ Simply put:
 - the then string value is included in the data structure, parsing the string into an integer.
 
 Cute approach, I'd say.
+
+## Update - Structure
+
+Before diving into the style of the application, to enance the working prototype, I decided to sit down and document the project so far. Most importantly describing the structure of the project:
+
+- `Timer`, class component managing the state and rendering the components making up the application;
+
+- `TimerInput`, component showing the display and the dial to set out the number of hours, minutes and seconds the timer should last;
+
+- `TimerOutput`, component showing the countdown timer.
+
+I decided to create one component for each interface to easily display either one on the basis of a boolean.
+
+```jsx
+return(
+
+  {
+    isTimer ?
+    <TimerOutput />
+    :
+    <TimerInput />
+  }
+);
+
+```
+
+Diving into each component, `TimerInput` shows the following elements:
+
+- `InputDisplay`, showing the number of hours, minutes and seconds, next to a button erasing the last digit included in the application;
+
+- `InputDial`, describing the grid of buttons allowing to add the numbers to the display;
+
+- `TimerButton`, allowing to start the timer. Not labeled `InputButton` as it is included in both the input and output, just with a different method attached to it.
+
+`TimerOutput` shows instead the following elements:
+
+- `OutputDisplay`, in which to show the countdown for the selected stretch of time. This should detail the time discarding `0` values, and showing only one digit when the greatest unit of measures goes below ten (showing for instance `1:23` for 0 hours, 1 minute and 23 seconds);
+
+- `OutputControls`, nesting button elements depicting the several functionalities accessible in the output screen. Among which:
+
+  - the possibility to add a minute;
+
+  - the possibility to toggle the timer, pause and resume it (using the same button found in the input component);
+
+  - the possibility to go back to the input component, de facto removing the current ongoing (or paused) timer.
+
+  - the possibility to reset the timer. This possibility actually 'hidden' by defaultought to be displayed when the timer is pause, and in place of the possibility to add a minute.
+
+Once this structure is taken care of, and well documented, it is possible to move onward with the most intriguing aspects of the project, animating the transition between views and showcasing the countdown timer a little better.
