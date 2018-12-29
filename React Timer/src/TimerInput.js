@@ -12,12 +12,12 @@ const TimerButton = styled.button`
   height: 52px;
   border-radius: 50%;
   padding: 0.6rem;
-  color: #165eda;
-  background: #165eda;
-  box-shadow: 0 1px 5px -2px #165eda;
+  color: #0088ff;
+  background: #0088ff;
+  box-shadow: 0 1px 5px -2px #0088ff;
   &:hover {
     transition: box-shadow 0.2s ease-out;
-    box-shadow: 0 1px 5px 0px #165eda;
+    box-shadow: 0 1px 5px 0px #0088ff;
   }
 `;
 

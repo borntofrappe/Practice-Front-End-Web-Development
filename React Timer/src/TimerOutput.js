@@ -10,16 +10,17 @@ const TimerButton = styled.button`
   height: 52px;
   border-radius: 50%;
   padding: 0.6rem;
-  color: #165eda;
-  background: #165eda;
-  box-shadow: 0 1px 5px -2px #165eda;
+  color: #0088ff;
+  background: #0088ff;
+  box-shadow: 0 1px 5px -2px #0088ff;
   &:hover {
     transition: box-shadow 0.2s ease-out;
-    box-shadow: 0 1px 5px 0px #165eda;
+    box-shadow: 0 1px 5px 0px #0088ff;
   }
 `;
 
 const OutputControls = styled.div`
+  margin-top: 3rem;
   display: grid;
   grid-column-gap: 2rem;
   grid-template-columns: repeat(3, 80px);
@@ -27,11 +28,12 @@ const OutputControls = styled.div`
   justify-items: center;
 `;
 
-const TimerOutput = ({ timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset }) => {
+const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset }) => {
   // render the display atop a button to toggle the timer
   return (
     <React.Fragment>
       <OutputDisplay
+        total={total}
         timeTotal={timeTotal}
       />
 

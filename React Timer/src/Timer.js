@@ -38,6 +38,7 @@ class Timer extends Component {
         s: 0
       },
       timeTotal: 0,
+      total: 0,
       isTimer: false,
       isPlaying: false
     };
@@ -72,7 +73,8 @@ class Timer extends Component {
     // update the object and the integer
     this.setState({
       time,
-      timeTotal
+      timeTotal,
+      total: timeTotal
     })
   }
 
@@ -162,9 +164,10 @@ class Timer extends Component {
   // function handling a press on the +1:00 button
   handleTimerAdd() {
     // add a minute to the total
-    const { timeTotal } = this.state;
+    const { timeTotal, total } = this.state;
     this.setState({
-      timeTotal: timeTotal + 60
+      timeTotal: timeTotal + 60,
+      total: total + 60
     })
   }
 
@@ -189,7 +192,7 @@ class Timer extends Component {
 
   render() {
     // destructure the necessary information from the state
-    const { input, time, isTimer, isPlaying, timeTotal } = this.state;
+    const { input, time, isTimer, isPlaying, timeTotal, total } = this.state;
 
     // based on the boolean show the input or output component
     return (
@@ -203,6 +206,7 @@ class Timer extends Component {
               handling functionalities such as pausing/starting the timer, adding a minute, resetting and finally removing the timer
             */
             <TimerOutput
+              total={total}
               timeTotal={timeTotal}
               isPlaying={isPlaying}
               handleTimerToggle={this.handleTimerToggle}
