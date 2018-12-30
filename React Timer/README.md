@@ -1,6 +1,6 @@
 # React Timer
 
-Proud project [right here](https://codepen.io/borntofrappe/full/dwVZRQ), live on Codepen. It's a work-in-progress though.
+Proud project [right here](https://codepen.io/borntofrappe/full/dwVZRQ), live on Codepen. Styled and animated!
 
 ## Preface
 

@@ -7,6 +7,7 @@ const Dial = styled.div`
   grid-template-columns: repeat(3, 1fr);
   width: 85%;
   grid-gap: 1.8rem 1rem;
+  margin-bottom: 1.25rem;
 `;
 
 // for the digits, these are included through buttons styled to change their appearance on hover/focus

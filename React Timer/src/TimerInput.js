@@ -25,7 +25,7 @@ const TimerButton = styled.button`
 div displaying the contents of the two interfaces in a single column layout
 horizontally centered
 */
-const Input = styled.div`
+const InputContainer = styled.div`
   max-width: 380px;
   width: 90vw;
   margin: 2rem auto;
@@ -45,7 +45,7 @@ const TimerInput = ({ input, time, handleDial, handleDialBack, handleTimerStart 
       {
         ({ opacity, transform }) => (
 
-          <Input
+          <InputContainer
             style={{ opacity, transform }}>
             {/* InputDisplay styled according to a boolea, which keeps track of the input's length
       displaying the value described in the time object
@@ -79,7 +79,7 @@ const TimerInput = ({ input, time, handleDial, handleDialBack, handleTimerStart 
               </TimerButton>
 
             }
-          </Input>
+          </InputContainer>
         )
       }
     </Spring >

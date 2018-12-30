@@ -24,7 +24,7 @@ const TimerButton = styled.button`
 div displaying the contents of the two interfaces in a single column layout
 horizontally centered
 */
-const Output = styled.div`
+const OutputContainer = styled.div`
   max-width: 380px;
   width: 90vw;
   margin: 2rem auto;
@@ -54,7 +54,7 @@ const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerT
         ({ opacity, transform }) => (
 
 
-          <Output
+          <OutputContainer
             style={{ opacity, transform }}>
             {/* display component using timeTotal, describing the time being counted down, and total, the unchanged total (to compute the relative progress) */}
             <OutputDisplay
@@ -141,7 +141,7 @@ const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerT
 
             </OutputControls>
 
-          </Output>
+          </OutputContainer>
         )
       }
 
