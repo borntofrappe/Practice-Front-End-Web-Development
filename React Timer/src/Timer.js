@@ -171,21 +171,28 @@ class Timer extends Component {
     })
   }
 
+  // function handling a press on the new timer button
   handleTimerNew() {
+    // stop the ongoing interval, if there's one
     clearInterval(this.intervalID);
+    // reset the input and update the state showing the input UI
     const input = '';
     this.setState({
       isTimer: false,
       input
     })
-
+    // update the time with the now empty input
     this.updateTime(input)
   }
 
+  // function handling a press on the reset button
   handleTimerReset() {
+    // stop the ongoing interval
     clearInterval(this.intervalID);
+    // retrieve the input value
     const { input } = this.state;
 
+    // update the timer with the old existing value and start the timer
     this.updateTime(input);
     this.handleTimerStart();
   }
@@ -197,6 +204,7 @@ class Timer extends Component {
     // based on the boolean show the input or output component
     return (
       <TimerApp>
+
         {
           isTimer ?
 
@@ -204,8 +212,8 @@ class Timer extends Component {
               displaying the countdown timer through **timeTotal**
               showing the pause/play button according to **isPlaying**
               handling functionalities such as pausing/starting the timer, adding a minute, resetting and finally removing the timer
-            */
-            <TimerOutput
+              */
+            < TimerOutput
               total={total}
               timeTotal={timeTotal}
               isPlaying={isPlaying}
@@ -217,11 +225,11 @@ class Timer extends Component {
 
             :
 
-            /* TimerInput
-              adding the digits to **input**
-              displaying the digits as per **time**
-              handling functionalities such as adding digits, removing them, starting the timer
-            */
+            /*  TimerInput
+           adding the digits to **input**
+            displaying the digits as per **time**
+            handling functionalities such as adding digits, removing them, starting the timer */
+
             <TimerInput
               input={input}
               time={time}
@@ -229,7 +237,6 @@ class Timer extends Component {
               handleDialBack={this.handleDialBack}
               handleTimerStart={this.handleTimerStart}
             />
-
         }
       </TimerApp>
     );

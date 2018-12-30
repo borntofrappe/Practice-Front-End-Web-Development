@@ -24,6 +24,7 @@ button svg {
   height: 100%;
   pointer-events: none;
 }
+/* animate the path and the circle in the output */
 svg path,
 svg circle {
   transition: all 1s linear;

@@ -1,32 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
 
-// show the countdown timer in a heading element, with each set of time in a sraprate span
+// show the countdown timer through an SVG element, displaying the countdown in a text element
+// wrap the text in a path element, animated to display the theme color as the timer progresses
 const OutputDisplay = ({ total, timeTotal }) => {
   // create the number of seconds, minutes and hours from timeTotal
-  let seconds = timeTotal;
-  let minutes = 0;
-  let hours = 0;
-  while (seconds >= 60) {
-    seconds -= 60;
-    minutes += 1;
+  let s = timeTotal;
+  let m = 0;
+  let h = 0;
+  while (s >= 60) {
+    s -= 60;
+    m += 1;
   }
 
-  while (minutes >= 60) {
-    minutes -= 60;
-    hours += 1;
+  while (m >= 60) {
+    m -= 60;
+    h += 1;
   }
+  // show the hours, minutes, seconds one after the other
+  // using the unchanged value representing the total time, describe the amount of time only necessary
+  // meaning, if the total is less than an hout, don't show the hour's label
   const time = {};
-  if (hours > 0) {
-    time.h = hours;
+  if (total >= 3600) {
+    time.h = h;
   }
-  if (minutes > 0) {
-    time.m = minutes;
+  if (total >= 60) {
+    time.m = m;
   }
-  time.s = seconds;
+  time.s = s;
 
+  // detail the entries of the time object
   const timeValues = Object.entries(time);
+  // create a text element for each array displaying the label and amount of time
   const Text = timeValues.map((entry, index) => {
+    // with 3 items, show them at 25, 50, 75%
+    // with 2, at 33, 66%
     const position = 90 / (timeValues.length + 1) * (index + 1);
     return ((
       <text
@@ -50,16 +57,25 @@ const OutputDisplay = ({ total, timeTotal }) => {
     ));
   })
 
+  // to animate the path, its length is necessary to animate it into view
+  // as the path describes a circle, the length is equal to the perimeter of the circle
   const perimeter = 43 * 2 * 3.14;
+
+  // use a variable ranging between 0-1 to show the colored circle atop the white one
+  // animating the strokeDashoffset property until it is equal to strokeDasharray
   const progress = (1 - timeTotal / total);
+  // use the same value for the circle element, to rotate it as the path is animated
+  // 0-1 range --> 0-360 range
   const transform = `rotate(-${progress * 360}) translate(0 -43) rotate(${progress * 360})`;
 
 
   return (
 
     <svg viewBox="0 0 100 100" width="70%">
+      {/* group to center the elements in the svg, and avoid the circle from being cropped out */}
       <g transform="translate(5 5)">
 
+        {/* two overlapping path elements, showing the colored one atop the white one (the later an element is created, the higher its elevation, so to speak) */}
         <path
           d="M 45 2 a 43 43 0 0 0 0 86 a 43 43 0 0 0 0 -86"
           stroke="#fff"
@@ -78,6 +94,7 @@ const OutputDisplay = ({ total, timeTotal }) => {
           shapeRendering="geometricPrecision"
         />
 
+        {/* circle showing the progress */}
         <circle
           r="3.2"
           cx="45"

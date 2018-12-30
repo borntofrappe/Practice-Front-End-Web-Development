@@ -29,9 +29,10 @@ const OutputControls = styled.div`
 `;
 
 const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset }) => {
-  // render the display atop a button to toggle the timer
+  // render the display atop a series of buttons enabling the project's functionalities
   return (
     <React.Fragment>
+      {/* display component using timeTotal, describing the time being counted down, and total, the unchanged total (to compute the relative progress) */}
       <OutputDisplay
         total={total}
         timeTotal={timeTotal}
@@ -39,12 +40,14 @@ const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTim
 
       <OutputControls>
 
+        {/* button to go back to the input UI */}
         <button
           onClick={handleTimerNew}
         >
           New Timer
         </button>
 
+        {/* button to toggle the timer  */}
         <TimerButton
           onClick={handleTimerToggle}
         >
@@ -89,6 +92,7 @@ const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTim
           }
         </TimerButton>
 
+        {/* button to either add 1 minute or reset the timer, based on whether the timer is paused */}
         {
           isPlaying ?
             <button
