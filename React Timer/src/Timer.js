@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import TimerInput from './TimerInput';
 import TimerOutput from './TimerOutput';
@@ -8,16 +7,6 @@ import TimerOutput from './TimerOutput';
 div displaying the contents of the two interfaces in a single column layout
 horizontally centered
 */
-const TimerApp = styled.div`
-  max-width: 380px;
-  width: 90vw;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-`;
-
 
 // main component rendered through index.js
 class Timer extends Component {
@@ -203,16 +192,16 @@ class Timer extends Component {
 
     // based on the boolean show the input or output component
     return (
-      <TimerApp>
+      <div>
 
         {
           isTimer ?
 
+
             /* TimerOutput
-              displaying the countdown timer through **timeTotal**
-              showing the pause/play button according to **isPlaying**
-              handling functionalities such as pausing/starting the timer, adding a minute, resetting and finally removing the timer
-              */
+            displaying the countdown timer through **timeTotal**
+            showing the pause/play button according to **isPlaying**
+            handling functionalities such as pausing/starting the timer, adding a minute, resetting and finally removing the timer */
             < TimerOutput
               total={total}
               timeTotal={timeTotal}
@@ -225,8 +214,8 @@ class Timer extends Component {
 
             :
 
-            /*  TimerInput
-           adding the digits to **input**
+            /* TimerInput
+            adding the digits to **input**
             displaying the digits as per **time**
             handling functionalities such as adding digits, removing them, starting the timer */
 
@@ -238,7 +227,7 @@ class Timer extends Component {
               handleTimerStart={this.handleTimerStart}
             />
         }
-      </TimerApp>
+      </div>
     );
   }
 }

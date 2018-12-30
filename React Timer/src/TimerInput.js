@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Spring } from 'react-spring';
 
 // import the display and dial components
 import InputDisplay from './InputDisplay';
@@ -20,45 +21,68 @@ const TimerButton = styled.button`
     box-shadow: 0 1px 5px 0px #0088ff;
   }
 `;
-
+/*
+div displaying the contents of the two interfaces in a single column layout
+horizontally centered
+*/
+const Input = styled.div`
+  max-width: 380px;
+  width: 90vw;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+`;
 
 const TimerInput = ({ input, time, handleDial, handleDialBack, handleTimerStart }) => {
   // render the display atop the dial and the button
   return (
-    <React.Fragment>
-      {/* InputDisplay styled according to a boolea, which keeps track of the input's length
+    <Spring
+      from={{ opacity: 0, transform: 'translateY(-2.5rem)' }}
+      to={{ opacity: 1, transform: 'translateY(0)' }}
+    >
+      {
+        ({ opacity, transform }) => (
+
+          <Input
+            style={{ opacity, transform }}>
+            {/* InputDisplay styled according to a boolea, which keeps track of the input's length
       displaying the value described in the time object
       removing the last included digit through the handleDialBack function
        */}
-      <InputDisplay
-        isInput={input.length !== 0}
-        time={time}
-        handleDialBack={handleDialBack}
-      />
-
-
-      {/* InputDial simply collecting the value of the button pressed, through the handleDial function */}
-      <InputDial
-        handleDial={handleDial}
-      />
-
-      {/* show the button only if there is at least one digit in the display */}
-      {
-        input &&
-        // start the timer when clicking the button
-        <TimerButton onClick={handleTimerStart}>
-          <svg viewBox="0 0 100 100">
-            <path
-              d="M 40 30 l 30 20 l -30 20 Z"
-              stroke="#eee"
-              strokeWidth="7px"
-              fill="currentColor"
+            <InputDisplay
+              isInput={input.length !== 0}
+              time={time}
+              handleDialBack={handleDialBack}
             />
-          </svg>
-        </TimerButton>
 
+
+            {/* InputDial simply collecting the value of the button pressed, through the handleDial function */}
+            <InputDial
+              handleDial={handleDial}
+            />
+
+            {/* show the button only if there is at least one digit in the display */}
+            {
+              input &&
+              // start the timer when clicking the button
+              <TimerButton onClick={handleTimerStart}>
+                <svg viewBox="0 0 100 100">
+                  <path
+                    d="M 40 30 l 30 20 l -30 20 Z"
+                    stroke="#eee"
+                    strokeWidth="7px"
+                    fill="currentColor"
+                  />
+                </svg>
+              </TimerButton>
+
+            }
+          </Input>
+        )
       }
-    </React.Fragment>
+    </Spring >
   )
 };
 

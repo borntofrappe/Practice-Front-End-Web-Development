@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Spring } from 'react-spring';
 
 // import the display components
 import OutputDisplay from './OutputDisplay';
@@ -19,6 +20,20 @@ const TimerButton = styled.button`
   }
 `;
 
+/*
+div displaying the contents of the two interfaces in a single column layout
+horizontally centered
+*/
+const Output = styled.div`
+  max-width: 380px;
+  width: 90vw;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+`;
+
 const OutputControls = styled.div`
   margin-top: 3rem;
   display: grid;
@@ -31,89 +46,102 @@ const OutputControls = styled.div`
 const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset }) => {
   // render the display atop a series of buttons enabling the project's functionalities
   return (
-    <React.Fragment>
-      {/* display component using timeTotal, describing the time being counted down, and total, the unchanged total (to compute the relative progress) */}
-      <OutputDisplay
-        total={total}
-        timeTotal={timeTotal}
-      />
+    <Spring
+      from={{ opacity: 0, transform: 'translateY(2.5rem)' }}
+      to={{ opacity: 1, transform: 'translateY(0)' }}
+    >
+      {
+        ({ opacity, transform }) => (
 
-      <OutputControls>
 
-        {/* button to go back to the input UI */}
-        <button
-          onClick={handleTimerNew}
-        >
-          New Timer
+          <Output
+            style={{ opacity, transform }}>
+            {/* display component using timeTotal, describing the time being counted down, and total, the unchanged total (to compute the relative progress) */}
+            <OutputDisplay
+              total={total}
+              timeTotal={timeTotal}
+            />
+
+            <OutputControls>
+
+              {/* button to go back to the input UI */}
+              <button
+                onClick={handleTimerNew}
+              >
+                New Timer
         </button>
 
-        {/* button to toggle the timer  */}
-        <TimerButton
-          onClick={handleTimerToggle}
-        >
-          {
-            isPlaying ?
-
-              <svg
-                viewBox="0 0 100 100"
+              {/* button to toggle the timer  */}
+              <TimerButton
+                onClick={handleTimerToggle}
               >
-                <rect
-                  x="30"
-                  y="30"
-                  width="10"
-                  height="40"
-                  stroke="#eee"
-                  strokeWidth="6px"
-                  fill="currentColor"
-                />
-                <rect
-                  x="60"
-                  y="30"
-                  width="10"
-                  height="40"
-                  stroke="#eee"
-                  strokeWidth="6px"
-                  fill="currentColor"
-                />
-              </svg>
+                {
+                  isPlaying ?
 
-              :
+                    <svg
+                      viewBox="0 0 100 100"
+                    >
+                      <rect
+                        x="30"
+                        y="30"
+                        width="10"
+                        height="40"
+                        stroke="#eee"
+                        strokeWidth="6px"
+                        fill="currentColor"
+                      />
+                      <rect
+                        x="60"
+                        y="30"
+                        width="10"
+                        height="40"
+                        stroke="#eee"
+                        strokeWidth="6px"
+                        fill="currentColor"
+                      />
+                    </svg>
 
-              <svg
-                viewBox="0 0 100 100"
-              >
-                <path
-                  d="M 40 30 l 30 20 l -30 20 Z"
-                  stroke="#eee"
-                  strokeWidth="7px"
-                  fill="currentColor"
-                />
-              </svg>
-          }
-        </TimerButton>
+                    :
 
-        {/* button to either add 1 minute or reset the timer, based on whether the timer is paused */}
-        {
-          isPlaying ?
-            <button
-              onClick={handleTimerAdd}
-            >
-              Add +1:00
+                    <svg
+                      viewBox="0 0 100 100"
+                    >
+                      <path
+                        d="M 40 30 l 30 20 l -30 20 Z"
+                        stroke="#eee"
+                        strokeWidth="7px"
+                        fill="currentColor"
+                      />
+                    </svg>
+                }
+              </TimerButton>
+
+              {/* button to either add 1 minute or reset the timer, based on whether the timer is paused */}
+              {
+                isPlaying ?
+                  <button
+                    onClick={handleTimerAdd}
+                  >
+                    Add +1:00
             </button>
 
-            :
+                  :
 
-            <button
-              onClick={handleTimerReset}
-            >
-              Reset Timer
+                  <button
+                    onClick={handleTimerReset}
+                  >
+                    Reset Timer
             </button>
 
-        }
+              }
 
-      </OutputControls>
+            </OutputControls>
 
-    </React.Fragment>
+          </Output>
+        )
+      }
+
+    </Spring>
   );
 };
 
