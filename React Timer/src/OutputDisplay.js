@@ -1,8 +1,8 @@
 import React from 'react';
-
+import OutputLabel from './OutputLabel';
 // show the countdown timer through an SVG element, displaying the countdown in a text element
 // wrap the text in a path element, animated to display the theme color as the timer progresses
-const OutputDisplay = ({ total, timeTotal }) => {
+const OutputDisplay = ({ total, timeTotal, label, isLabel, handleTimerLabel, handleTimerLabelInput }) => {
   // create the number of seconds, minutes and hours from timeTotal
   let s = timeTotal;
   let m = 0;
@@ -38,7 +38,7 @@ const OutputDisplay = ({ total, timeTotal }) => {
     return ((
       <text
         x={position}
-        y="45"
+        y="50"
         fill="#0088ff"
         alignmentBaseline="middle"
         textAnchor="middle"
@@ -70,45 +70,68 @@ const OutputDisplay = ({ total, timeTotal }) => {
 
 
   return (
+    <React.Fragment>
+      {/* aside from the output, display an additional element to change the label in the display
+        component toggled and absolute positioned atop the display
+      */}
+      {
+        isLabel &&
+        <OutputLabel
+          label={label}
+          handleTimerLabelInput={handleTimerLabelInput} />
 
-    <svg viewBox="0 0 100 100" width="70%">
-      {/* group to center the elements in the svg, and avoid the circle from being cropped out */}
-      <g transform="translate(5 5)">
+      }
+      <svg viewBox="0 0 100 100" width="70%">
+        {/* group to center the elements in the svg, and avoid the circle from being cropped out */}
+        <g transform="translate(5 5)">
 
-        {/* two overlapping path elements, showing the colored one atop the white one (the later an element is created, the higher its elevation, so to speak) */}
-        <path
-          d="M 45 2 a 43 43 0 0 0 0 86 a 43 43 0 0 0 0 -86"
-          stroke="#fff"
-          strokeWidth="2"
-          fill="none"
-          shapeRendering="geometricPrecision"
-        />
+          {/* two overlapping path elements, showing the colored one atop the white one (the later an element is created, the higher its elevation, so to speak) */}
+          <path
+            d="M 45 2 a 43 43 0 0 0 0 86 a 43 43 0 0 0 0 -86"
+            stroke="#fff"
+            strokeWidth="2"
+            fill="none"
+            shapeRendering="geometricPrecision"
+          />
 
-        <path
-          d="M 45 2 a 43 43 0 0 0 0 86 a 43 43 0 0 0 0 -86"
-          stroke="#0088ff"
-          strokeWidth="2"
-          strokeDasharray={perimeter}
-          strokeDashoffset={perimeter - (perimeter * progress)}
-          fill="none"
-          shapeRendering="geometricPrecision"
-        />
+          <path
+            d="M 45 2 a 43 43 0 0 0 0 86 a 43 43 0 0 0 0 -86"
+            stroke="#0088ff"
+            strokeWidth="2"
+            strokeDasharray={perimeter}
+            strokeDashoffset={perimeter - (perimeter * progress)}
+            fill="none"
+            shapeRendering="geometricPrecision"
+          />
 
-        {/* circle showing the progress */}
-        <circle
-          r="3.2"
-          cx="45"
-          cy="45"
-          fill="#0088ff"
-          transform={transform}
-        />
+          {/* circle showing the progress */}
+          <circle
+            r="3.2"
+            cx="45"
+            cy="45"
+            fill="#0088ff"
+            transform={transform}
+          />
 
-        {
-          Text
-        }
-      </g>
 
-    </svg>
+          <text
+            x="45"
+            y="30"
+            fill="#fff"
+            alignmentBaseline="middle"
+            textAnchor="middle"
+            fontSize="0.35rem"
+            onClick={handleTimerLabel}
+          >
+            {label}
+          </text>
+          {
+            Text
+          }
+        </g>
+
+      </svg>
+    </React.Fragment>
   )
 };
 

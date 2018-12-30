@@ -43,7 +43,7 @@ const OutputControls = styled.div`
   justify-items: center;
 `;
 
-const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset }) => {
+const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset, handleTimerLabel, handleTimerLabelInput }) => {
   // render the display atop a series of buttons enabling the project's functionalities
   return (
     <Spring
@@ -60,6 +60,10 @@ const TimerOutput = ({ total, timeTotal, isPlaying, handleTimerToggle, handleTim
             <OutputDisplay
               total={total}
               timeTotal={timeTotal}
+              label={label}
+              isLabel={isLabel}
+              handleTimerLabel={handleTimerLabel}
+              handleTimerLabelInput={handleTimerLabelInput}
             />
 
             <OutputControls>

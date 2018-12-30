@@ -16,8 +16,11 @@ class Timer extends Component {
     - input, keeping track of the digits included through the dial in a string
     - time, keeping track of the number of hours, minutes and seconds in an object
     - timeTotal, keeping track of the number of seconds specified through the time object
+    - total, to save the total number of seconds and use it to reset the timer to this value
+    - label, a string describing the text shown in the output
     - isTimer, to show the input or output interface
     - isPlaying, to toggle between play and pause in the output interface
+    - isLabel, to toggle the label component
     */
     this.state = {
       input: '',
@@ -28,8 +31,10 @@ class Timer extends Component {
       },
       timeTotal: 0,
       total: 0,
+      label: 'Label',
       isTimer: false,
-      isPlaying: false
+      isPlaying: false,
+      isLabel: false
     };
 
     // bind the functions to update the state and enable the timer's functionalities
@@ -40,6 +45,8 @@ class Timer extends Component {
     this.handleTimerAdd = this.handleTimerAdd.bind(this);
     this.handleTimerNew = this.handleTimerNew.bind(this);
     this.handleTimerReset = this.handleTimerReset.bind(this);
+    this.handleTimerLabel = this.handleTimerLabel.bind(this);
+    this.handleTimerLabelInput = this.handleTimerLabelInput.bind(this);
   }
 
   // function updating time and TimeTotal, on the basis of the 6 letters top string
@@ -186,9 +193,28 @@ class Timer extends Component {
     this.handleTimerStart();
   }
 
+  // function handling a press on the label text
+  handleTimerLabel() {
+    this.setState({
+      isLabel: true
+    })
+  }
+  // function handling input in the label component
+  handleTimerLabelInput(e) {
+    e.preventDefault();
+    // update the label with the input value
+    const { value: label } = e.target.querySelector('input');
+    if (label) {
+      this.setState({
+        label,
+        isLabel: false
+      })
+    }
+  }
+
   render() {
     // destructure the necessary information from the state
-    const { input, time, isTimer, isPlaying, timeTotal, total } = this.state;
+    const { input, time, isTimer, isPlaying, timeTotal, total, label, isLabel } = this.state;
 
     // based on the boolean show the input or output component
     return (
@@ -205,11 +231,15 @@ class Timer extends Component {
             < TimerOutput
               total={total}
               timeTotal={timeTotal}
+              label={label}
               isPlaying={isPlaying}
+              isLabel={isLabel}
               handleTimerToggle={this.handleTimerToggle}
               handleTimerNew={this.handleTimerNew}
               handleTimerAdd={this.handleTimerAdd}
               handleTimerReset={this.handleTimerReset}
+              handleTimerLabel={this.handleTimerLabel}
+              handleTimerLabelInput={this.handleTimerLabelInput}
             />
 
             :
