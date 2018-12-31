@@ -139,3 +139,56 @@ What is left:
 - document the Output.js file, mostly regarding the newly coded SVG elements;
 
 - add transition between views, through `react-transition-group`.
+
+## Final Update
+
+The project was finished as the 30th of December 2018. While the code is rather well documented, the same cannot be argued for the README. I will undoubtedly re-manufacture the markdown document as I plan to port this project to my 'React Practice series', but for the time being, I am satisfied appening a final update to the effort.
+
+I added a few comments to explain the output, which checks the first priority on the roadmap list. For the second priority, I had some issues with `react-transition-group`, and I decided to spring, pun intended for a different library.
+
+Using `react-spring`, it is possible to animate between views rather easily, with the following structure:
+
+- wrap the component in a `Spring` component:
+
+  ```jsx
+  <Spring>{/* my component */}</Spring>
+  ```
+
+- define th properties to-be-animated in an object, with property value pairs benefiting from the wording of CSS
+
+  ```jsx
+  <Spring
+    from={{ opacity: 0, transform: "translateY(-2.5rem)" }}
+    to={{ opacity: 1, transform: "translateY(0)" }}
+  >
+    {/* my component */}
+  </Spring>
+  ```
+
+- add the transition to the component by way of including the properties in a `style` prop. Similarly through a render prop component, passing as argument exactly those properties which are affected.
+
+  ```jsx
+  <Spring
+    from={{ opacity: 0, transform: "translateY(-2.5rem)" }}
+    to={{ opacity: 1, transform: "translateY(0)" }}
+  >
+    {({ opacity, transform }) => (
+      <InputContainer style={{ opacity, transform }} />
+    )}
+    {/* my component */}
+  </Spring>
+  ```
+
+It might sound convoluted, and the markdown formatting doesn't do justice to the snippet, but removing the additional destructuring step, it is as simple as follows.
+
+```jsx
+<Spring
+  from={{ opacity: 0, transform: "translateY(-2.5rem)" }}
+  to={{ opacity: 1, transform: "translateY(0)" }}
+>
+  {style => <InputContainer style={style} />}
+  {/* my component */}
+</Spring>
+```
+
+This ought to work. Check out the code in `TimerInput` and `TimerOutput` for a real-living-breathing application.
