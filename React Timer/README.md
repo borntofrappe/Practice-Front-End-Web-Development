@@ -192,3 +192,7 @@ It might sound convoluted, and the markdown formatting doesn't do justice to the
 ```
 
 This ought to work. Check out the code in `TimerInput` and `TimerOutput` for a real-living-breathing application.
+
+One last note. Beside adding the two items on the roadmap, I also added another small, but rather neat feature, which allowed me to practice with a controlled input once more. I indeed added a label, in the output display, for the name of the timer. This label can be altered simply by clicking on it, and having a makeshift popup allow you to define a different string. An entertaining use of time.
+
+<!-- TODO: take the project into the Reactice series -->
