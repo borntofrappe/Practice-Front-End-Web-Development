@@ -1,7 +1,6 @@
 import React from 'react';
 import OutputLabel from './OutputLabel';
 
-
 // show the countdown timer through an SVG element, displaying the countdown in a text element
 // wrap the text in a path element, animated to display the theme color as the timer progresses
 const OutputDisplay = ({ total, timeTotal, label, isLabel, handleTimerLabel, handleTimerLabelInput }) => {
@@ -73,8 +72,9 @@ const OutputDisplay = ({ total, timeTotal, label, isLabel, handleTimerLabel, han
 
   return (
     <React.Fragment>
-      {/* aside from the output, display an additional element to change the label in the display
-        component toggled and absolute positioned atop the display
+      {/*
+      aside from the output, display an additional element to change the label in the display
+      component toggled and absolute positioned atop the display
       */}
       {
         isLabel &&

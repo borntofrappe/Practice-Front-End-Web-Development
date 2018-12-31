@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// import spring to animate the component
 import { Spring } from 'react-spring';
 
 // import the display and dial components
@@ -38,6 +39,8 @@ const InputContainer = styled.div`
 const TimerInput = ({ input, time, handleDial, handleDialBack, handleTimerStart }) => {
   // render the display atop the dial and the button
   return (
+    // wrap the component in a spring component, easily animating the component into view by describing CSS properties
+    // css properties described in an object, passed in a `style` prop
     <Spring
       from={{ opacity: 0, transform: 'translateY(-2.5rem)' }}
       to={{ opacity: 1, transform: 'translateY(0)' }}
@@ -47,10 +50,12 @@ const TimerInput = ({ input, time, handleDial, handleDialBack, handleTimerStart 
 
           <InputContainer
             style={{ opacity, transform }}>
-            {/* InputDisplay styled according to a boolea, which keeps track of the input's length
-      displaying the value described in the time object
-      removing the last included digit through the handleDialBack function
-       */}
+            {/*
+            InputDisplay
+            styled according to a boolean, which keeps track of the input's length
+            displaying the value described in the time object
+            removing the last included digit through the handleDialBack function
+            */}
             <InputDisplay
               isInput={input.length !== 0}
               time={time}
@@ -82,7 +87,7 @@ const TimerInput = ({ input, time, handleDial, handleDialBack, handleTimerStart 
           </InputContainer>
         )
       }
-    </Spring >
+    </Spring>
   )
 };
 

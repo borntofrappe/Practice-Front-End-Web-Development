@@ -227,7 +227,7 @@ class Timer extends Component {
             /* TimerOutput
             displaying the countdown timer through **timeTotal**
             showing the pause/play button according to **isPlaying**
-            handling functionalities such as pausing/starting the timer, adding a minute, resetting and finally removing the timer */
+            handling functionalities such as pausing/starting the timer, adding a minute, resetting and removing the timer, adding and changing the label */
             < TimerOutput
               total={total}
               timeTotal={timeTotal}

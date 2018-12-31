@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// import spring to animate the component
 import { Spring } from 'react-spring';
 
 // import the display components
@@ -46,6 +47,7 @@ const OutputControls = styled.div`
 const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerToggle, handleTimerNew, handleTimerAdd, handleTimerReset, handleTimerLabel, handleTimerLabelInput }) => {
   // render the display atop a series of buttons enabling the project's functionalities
   return (
+    // animate the output similarly to the input, but with an opposing vertical transition
     <Spring
       from={{ opacity: 0, transform: 'translateY(2.5rem)' }}
       to={{ opacity: 1, transform: 'translateY(0)' }}
@@ -56,7 +58,12 @@ const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerT
 
           <OutputContainer
             style={{ opacity, transform }}>
-            {/* display component using timeTotal, describing the time being counted down, and total, the unchanged total (to compute the relative progress) */}
+            {/*
+            OutputDisplay
+            timeTotal, describing the time being counted down
+            and total, the unchanged total (to compute the relative progress)
+            label and connected methods to change the name of the label by way of a small popup
+             */}
             <OutputDisplay
               total={total}
               timeTotal={timeTotal}
@@ -73,7 +80,7 @@ const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerT
                 onClick={handleTimerNew}
               >
                 New Timer
-        </button>
+              </button>
 
               {/* button to toggle the timer  */}
               <TimerButton
@@ -127,7 +134,7 @@ const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerT
                     onClick={handleTimerAdd}
                   >
                     Add +1:00
-            </button>
+                  </button>
 
                   :
 
@@ -135,7 +142,7 @@ const TimerOutput = ({ total, timeTotal, label, isLabel, isPlaying, handleTimerT
                     onClick={handleTimerReset}
                   >
                     Reset Timer
-            </button>
+                  </button>
 
               }
 
