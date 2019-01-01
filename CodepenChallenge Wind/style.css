@@ -37,6 +37,6 @@ body {
   .container #tooltip {
     background: white;
     padding: 0.8rem 1rem;
-    box-shadow: 0 0 0 4px #072103;
+    box-shadow: 0 0 0 2px rgba(16, 16, 60, 0.3);
     line-height: 2;
     transition: all 0.2s ease-out; }
