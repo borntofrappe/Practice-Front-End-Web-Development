@@ -1,15 +1,6 @@
-
-
 // introductory HTML elements
 const container = d3
   .select('.container');
-
-const tooltip = container
-  .append('div')
-  .attr('id', 'tooltip')
-  .style('opacity', 0)
-  .style('position', 'absolute')
-  .style('pointer-events', 'none');
 
 container
   .append('h1')
@@ -19,18 +10,21 @@ const containerDetails = container
   .append('div')
   .attr('class', 'details');
 
+// add inline to the paragraph to show the nested SVG icon next to the text
 containerDetails
   .append('p')
   .text('Select a leaf to show the windiest days in each month.')
-  .style('display', 'inline')
   .style('display', 'inline');
 
+// add the leaf icon through a series of path elements
 const leaf = containerDetails
   .append('svg')
   .attr('xmlns', 'http://www.w3.org/2000/svg')
+  // width and height dictate the size of the icon
   .attr('width', '25')
   .attr('height', '25')
   .attr('viewBox', '0 0 26.458336 26.458401')
+  // ! by default the icon points upwards
   .attr('transform', 'rotate(120)');
 
 leaf
@@ -65,7 +59,16 @@ leaf
   .attr('d', 'M73.5 107.907c-.936 3.34-14.968 5.746-14.968 5.746s-7.883.029-9.206-2.617M56.928 102.561s-7.98-.03-9.681-2.676M56.394 91.47s-6.88-.656-8.391-3.113M56.928 79.844s-4.767-.747-5.145-3.96');
 
 
-// SVG container
+// TOOLTIP
+const tooltip = container
+  .append('div')
+  .attr('id', 'tooltip')
+  .style('opacity', 0)
+  .style('position', 'absolute')
+  .style('pointer-events', 'none');
+
+
+// SVG frame
 const margin = {
   top: 90,
   right: 25,
@@ -81,185 +84,325 @@ const containerFrame = container
   .append('g')
   .attr('transform', `translate(${margin.left} ${margin.top})`);
 
+/* the data is structured as follows
+an array, nesting one object for each month, with the following props
 
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
+{
+  month: nameOfMonth,
+  days: []
+}
 
-const containerMonths = containerFrame
-  .selectAll('g')
-  .data(months)
-  .enter()
-  .append('g')
-  .attr('transform', (d, i) => `translate(${width / 2} ${height / (months.length - 1) * i})`);
+days is an additional array with one object for each windy day
+windy as in: stronger winds than an arbitrary threshold
+the nested object is structured as follows
+{
+  day: integerOfDay,
+  value: intensityOfWind
+}
+*/
 
-containerMonths
-  .append('text')
-  .attr('x', 0)
-  .attr('y', 0)
-  .attr('text-anchor', 'middle')
-  .attr('alignment-baseline', 'middle')
-  .text(d => d);
-
-
-containerMonths
-  .append('path')
-  .attr('d', `M 0 ${height / months.length / 4} v ${height / months.length / 2}`)
-  .attr('stroke', 'hsl(240, 70%, 85%)')
-  .attr('stroke-width', '1px')
-  .attr('opacity', (d, i) => ((i === months.length - 1) ? 0 : 1));
-
-const data = [
+const dataWind = [
   {
     month: 'January',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'February',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'March',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'April',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'May',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'June',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'July',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'August',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'September',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
+    ]
+  },
+  {
+    month: 'October',
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'November',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 18
+      },
+      {
+        day: 11,
+        value: 14
+      },
+      {
+        day: 21,
+        value: 13
+      },
     ]
   },
   {
     month: 'December',
-    nodes: [
-      { node: '5' },
-      { node: '12' },
-      { node: '16' },
-      { node: '29' },
+    days: [
+      {
+        day: 2,
+        value: 10
+      },
+      {
+        day: 9,
+        value: 7
+      },
+      {
+        day: 11,
+        value: 10
+      },
+      {
+        day: 21,
+        value: 20
+      },
     ]
   }
 ];
 
 
+// scale for the size of the leafs
+// based on the minimum and maximum value of the days
+// ! all values, to avoid misconceptions between months
 
-const simulation = d3
-  .forceSimulation(data[0].nodes)
-  .velocityDecay(0);
+const dataWindDays = [];
+for (let i = 0; i < dataWind.length; i += 1) {
+  const dataWindDay = dataWind[i].days.map(d => d.value);
+  dataWindDays.push(...dataWindDay);
+}
 
-const center = d3
-  .forceCenter()
-  .x(0)
-  .y(0);
+const valueScale = d3
+  .scaleLinear()
+  .domain(d3.extent(dataWindDays))
+  .range([20, 50]);
 
-const charge = d3
-  .forceManyBody()
-  .strength(-width / 2);
 
-function simulate() {
-  const containerDays = containerMonths
+// TODO comment the function
+// TODO figure out how to implement the force layout to push later days further
+function simulate(frame, nodes) {
+  // create a container for the months
+  const containerDays = frame
     .selectAll('svg')
-    .data(data[0].nodes)
+    .data(nodes)
     .enter()
     .append('svg')
     .attr('xmlns', 'http://www.w3.org/2000/svg')
-    .attr('width', ((d) => { console.log(d); return '20'; }))
-    .attr('height', '20')
+    .attr('width', d => valueScale(d.value))
+    .attr('height', d => valueScale(d.value))
     .attr('viewBox', '0 0 26.458336 26.458401')
     .attr('x', d => d.x)
     .attr('y', d => d.y)
     .on('mouseenter', (d) => {
       tooltip
         .append('p')
-        .text(`Day ${d.node}`);
+        .html(`Day <strong>${d.day}</strong>`);
+
+      tooltip
+        .append('p')
+        .html(`Wind intensity <strong>${d.value} Km/h</strong>`);
 
       tooltip
         .style('opacity', 1)
         .style('left', `${d3.event.pageX}px`)
         .style('top', `${d3.event.pageY}px`);
     })
-    .on('mouseout', (d) => {
+    .on('mouseout', () => {
       tooltip
         .style('opacity', 0)
         .selectAll('p')
@@ -295,9 +438,59 @@ function simulate() {
     .attr('stroke-width', '.529')
     .attr('transform', 'matrix(.35217 0 0 .30017 -8.601 -15.435)')
     .attr('d', 'M73.5 107.907c-.936 3.34-14.968 5.746-14.968 5.746s-7.883.029-9.206-2.617M56.928 102.561s-7.98-.03-9.681-2.676M56.394 91.47s-6.88-.656-8.391-3.113M56.928 79.844s-4.767-.747-5.145-3.96');
+
 }
 
-simulation
-  .force('charge', charge)
-  .force('center', center)
-  .on('tick', simulate);
+
+// loop through the array of data and add elements for each item
+for (let i = 0; i < dataWind.length; i += 1) {
+  // add a group for each month
+  const containerMonth = containerFrame
+    .append('g')
+    // position the group in the center horizontally and at a fraction of the height vertically
+    .attr('transform', `translate(${width / 2} ${(height / (dataWind.length - 1)) * i})`);
+
+  // add a text label for the month
+  containerMonth
+    .append('text')
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('text-anchor', 'middle')
+    .attr('alignment-baseline', 'middle')
+    .text(dataWind[i].month);
+
+  // add a line connecting the label to one another
+  // ! for all but the last label
+  if (i < dataWind.length - 1) {
+    containerMonth
+      .append('path')
+      .attr('d', `M 0 ${height / dataWind.length / 4} v ${height / dataWind.length / 2}`)
+      .attr('stroke', 'hsl(240, 70%, 90%)')
+      .attr('stroke-width', '1px')
+      .attr('opacity', (i === dataWind.length - 1) ? 0 : 1);
+  }
+
+  // simulation for the leafs centered on each group
+  // using the nodes described for each object under the `days` object
+  const simulation = d3
+    .forceSimulation(dataWind[i].days)
+    .velocityDecay(0);
+
+  // each simulation centered in the group element
+  const center = d3
+    .forceCenter()
+    .x(0)
+    .y(0);
+
+  // each simulation pushing the nodes from the center
+  const charge = d3
+    .forceManyBody()
+    .strength(width);
+
+  // add a simulation to the container, for the nodes using the simulate function
+  simulation
+    .force('charge', charge)
+    .force('center', center)
+    .on('tick', simulate(containerMonth, dataWind[i].days));
+}
+
