@@ -1,10 +1,12 @@
 // import font(s)
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu:700");
 
 // detail root variable(s)
 $font: "Open Sans", sans-serif;
+$font-svg: "Ubuntu", sans-serif;
 $color-theme: hsl(188, 100%, 90%);
-$color-text: hsl(240, 57%, 15%);
+$color-theme-leaf: hsl(112, 83%, 7%);
+$color-text: hsl(240, 58%, 15%);
 $color-container: hsl(188, 100%, 100%);
 
 * {
@@ -18,7 +20,12 @@ body {
   width: 100%;
   font-family: $font;
   color: $color-text;
-  background: $color-theme;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="20" fill="none" stroke="hsl(188, 100%, 95%)" stroke-width="2px"><path d="M 0 0 Q 25 10 55 5 T 100 0" /></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" width="100" height="20" fill="none" stroke="hsl(188, 100%, 95%)" stroke-width="2px"><path d="M 0 0 Q 25 10 55 5 T 100 0" /></svg>'),
+    $color-theme;
+  background-size: 100%;
+  background-position-y: 0, 100%, 0;
+  background-repeat: no-repeat;
 }
 .container {
   max-width: 400px;
@@ -46,10 +53,15 @@ body {
       margin-left: 0.5rem;
     }
   }
+  svg {
+    text {
+      font-family: $font-svg;
+    }
+  }
   #tooltip {
     background: $color-container;
     padding: 0.8rem 1rem;
-    box-shadow: 0 0 0 2px darken($color-theme, 30%);
+    box-shadow: 0 0 0 4px $color-theme-leaf;
     line-height: 2;
     transition: all 0.2s ease-out;
   }
