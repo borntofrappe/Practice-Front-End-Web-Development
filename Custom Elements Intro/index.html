@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Custom Element Experiment</title>
+    <meta
+      name="description"
+      content="Inspired by the redesign @css experiment with custom HTML elements, try to create an SVG element in which text is laid out around a circle."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- text can be positioned on a path through the textPath element, handily referring to an SVG path -->
+    <article>
+      <p>With <code>svg</code> and a <code>textPath</code> element</p>
+      <svg width="200" height="200" viewBox="0 0 120 120">
+        <g transform="translate(10 10)">
+          <!-- path described in between defs tags to hide it from view -->
+          <defs>
+            <path
+              id="round"
+              d="M 50 0 a 50 50 0 0 0 0 100 a 50 50 0 0 0 0 -100"
+              fill="none"
+              stroke="black"
+              stroke-width="2"
+            />
+          </defs>
+
+          <!-- path applied by reference in a textPath element, nested in a text element -->
+          <text>
+            <textPath href="#round">Isn't this a nice circle 🙃</textPath>
+          </text>
+        </g>
+      </svg>
+    </article>
+
+    <article class="custom">
+      <p>With a custom element: <code>circle-text</code></p>
+      <!-- cicle text is being defined through JavaScript, to take whatever input is passed in between tags and create the same structure seen in the first example -->
+      <circle-text>Isn't this a nice circle 🙃</circle-text>
+    </article>
+
+    <!-- through a form accept text input and create a circle-text with said value -->
+    <article class="custom">
+      <form>
+        <label>With your very <code>input</code></label>
+        <input type="text" placeholder="Try rolling your own 🙃" />
+        <button>Create</button>
+      </form>
+
+      <!-- place the circle-text element inside of an arbitrary div, which contains already an SVG to guarantee a similar look to the other articles -->
+      <div class="custom__element"><svg width="200" height="200"></svg></div>
+    </article>
+
+    <script src="script.js"></script>
+  </body>
+</html>

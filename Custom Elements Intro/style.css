@@ -1,0 +1,98 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300|Fira+Mono");
+
+/* detail root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  --font-mono: "Fira Mono", monospace;
+  --color-text: hsl(0, 0%, 20%);
+  --color-bg: hsl(0, 50%, 100%);
+  --color-theme-one: hsla(0, 80%, 70%, 0.2);
+  --color-theme-two: hsla(180, 80%, 70%, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: repeating-linear-gradient(
+      -30deg,
+      var(--color-theme-one) 0,
+      var(--color-theme-one) 10px,
+      var(--color-theme-two) 10px,
+      var(--color-theme-two) 20px
+    ),
+    var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+article {
+  background: var(--color-bg);
+  box-shadow: 0 0 5px -2px var(--color-text);
+  padding: 1rem;
+  margin: 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2;
+  max-width: 400px;
+  width: 90vw;
+}
+code {
+  color: hsl(50, 20%, 30%);
+  margin: 0 0.15rem;
+  background: hsl(56, 100%, 50%);
+  padding: 0.1rem;
+  font-family: var(--font-mono);
+}
+svg {
+  font-family: inherit;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+form label {
+  margin-bottom: 0.75rem;
+}
+form input {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  background: none;
+  font-size: 1rem;
+  font-family: inherit;
+  border-left: 2px solid var(--color-text);
+  border-bottom: 1px dashed var(--color-text);
+}
+form button {
+  align-self: center;
+  margin: 1.5rem 0 2rem;
+  background: none;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 0 0 0 2px var(--color-text);
+  border-radius: 5px;
+  transition: all 0.2s ease-out;
+}
+
+form button:hover,
+form button:focus {
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-text),
+    0 0 0 6px var(--color-bg), 0 0 0 8px var(--color-text);
+}
+
+form button:active {
+  transform: scale(1.1);
+}
