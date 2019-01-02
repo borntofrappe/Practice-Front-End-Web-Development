@@ -1,6 +1,6 @@
 # Custom Elements
 
-<!-- Working project live [right here]() on codepen. -->
+Working project live [right here](https://codepen.io/borntofrappe/full/LMeXde) on codepen.
 
 ## Preface
 

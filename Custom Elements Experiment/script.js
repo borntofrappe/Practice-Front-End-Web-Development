@@ -4,6 +4,8 @@ custom elements, a very silly intro
 - describe in this method
     1. the name of the element
       ! must contain a - dash
+      ! unique name
+      ! not self-closing
     1. a class describing the element
 
 for a silly element making use of SVG, the class can describe the desired structure in the shadowDOM
