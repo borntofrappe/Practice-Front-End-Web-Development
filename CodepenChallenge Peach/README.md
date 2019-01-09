@@ -17,3 +17,7 @@ The theme: three particular hex colors.
 My personal take: a color wheel, with all but three random colors around it. Exactly those three colors. Spin the wheel and get a random color. Better yet, a "random" color.
 
 Solid practice with SVG syntax and a bit of JavaScript logic.
+
+## Minor Update
+
+Upon looking at the UI a little more, I recognized a few areas of improvements. I decided to include a few dots around the circle, reduce the size of the circle and change the color of the background. I also decided to change the color of the circle element, and in so doing completely render slices with random colors.
