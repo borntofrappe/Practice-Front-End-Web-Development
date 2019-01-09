@@ -1,0 +1,123 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,900");
+
+/* detail root variables
+--color-theme cascades to most html elements, and will be later updated in JavaScript
+*/
+:root {
+  --font: "Alegreya Sans SC", sans-serif;
+  --color-bg: #31393e;
+  --color-theme: #70a9fe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-theme);
+  font-family: var(--font);
+}
+/* heading centered atop the page */
+h1 {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-size: 3rem;
+  transition: all 0.25s ease-out;
+}
+/* shown/hidden through an dedicated class */
+h1.isHidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1rem) scale(0);
+}
+
+/* wheel positioned to the left of the page, and occupying 50% of whichever dimension is the biggest */
+svg#wheel {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50vmax;
+  height: 50vmax;
+}
+
+/* arrow positioned to the right of the wheel, and pointing at the very middle section */
+svg#pin {
+  position: absolute;
+  left: calc(50vmax + 5px);
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--color-theme);
+}
+
+/* instructions displayed on the right side, in a single column layout */
+.instructions {
+  min-height: 100vh;
+  color: var(--color-theme);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+}
+.instructions h2 {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  position: relative;
+}
+/* beside a silly exclamation point add a simple word in the middle of the sentence hinting at the innocent nature of the project */
+.instructions h2:after {
+  content: "!";
+}
+.instructions h2:before {
+  position: absolute;
+  content: "suspicious";
+  font-size: 0.75rem;
+  opacity: 0.5;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-12deg);
+}
+
+.instructions button {
+  margin-top: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.75rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px currentColor, 0 0 5px -1px currentColor;
+  background: var(--color-bg);
+  /* transition for a simple rotating animation */
+  transition: all 0.5s ease-out;
+}
+/* on hover add a simple animation which rotates the button 360degrees */
+.instructions button:hover {
+  animation: rotate 0.5s ease-in-out;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* on smaller viewports position the instructions in the bottom center (as they would otherwise overlap with the wheel) */
+@media (max-width: 500px) {
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    transition: transform 0.5s ease-out;
+    text-align: center;
+  }
+}

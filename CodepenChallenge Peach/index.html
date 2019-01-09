@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>#CodepenChallenge Spin that Color Wheel</title>
+    <meta
+      name="description"
+      content="Create an entry for the weekly #CodepenChallenge, with a color wheel allowing you to pick a color 'at random'."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png" /> -->
+  </head>
+
+  <body>
+    <!--
+      project's structure
+      - heading in which to show the color selected through the wheel (hidden by default)
+      - svg for the color wheel (consisting of only a circle, as the slices are added through JavaScript)
+      - svg for the arrow pointing at the selected color (positioned to the right of the circle)
+      - container for the simple instructions and the button spinning the wheel
+    -->
+    <h1 class="isHidden">#ffffff00</h1>
+
+    <svg shape-rendering="geometricPrecision" id="wheel" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50" fill="#73abfe" />
+    </svg>
+    <svg id="pin" viewBox="0 0 50 50"><path d="M 0 25 L 50 0 V 50" /></svg>
+
+    <div class="instructions">
+      <h2>Spin that color <span>wheel</span></h2>
+      <button>Spin!</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
