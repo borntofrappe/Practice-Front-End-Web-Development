@@ -6,7 +6,7 @@
 */
 :root {
   --font: "Alegreya Sans SC", sans-serif;
-  --color-bg: #31393e;
+  --color-bg: #000b14;
   --color-theme: #70a9fe;
 }
 
@@ -27,7 +27,7 @@ h1 {
   text-align: center;
   margin: 1rem 0 0;
   font-size: 3rem;
-  transition: all 0.25s ease-out;
+  transition: all 0.25s ease-in-out;
 }
 /* shown/hidden through an dedicated class */
 h1.isHidden {
@@ -49,9 +49,9 @@ svg#wheel {
 /* arrow positioned to the right of the wheel, and pointing at the very middle section */
 svg#pin {
   position: absolute;
-  left: calc(50vmax + 5px);
-  width: 25px;
-  height: 25px;
+  left: 50vmax;
+  width: calc(50vmax / 25);
+  height: calc(50vmax / 25);
   top: 50%;
   transform: translateY(-50%);
   fill: var(--color-theme);
@@ -59,7 +59,7 @@ svg#pin {
 
 /* instructions displayed on the right side, in a single column layout */
 .instructions {
-  min-height: 100vh;
+  min-height: 90vh;
   color: var(--color-theme);
   display: flex;
   flex-direction: column;
@@ -89,28 +89,49 @@ svg#pin {
 .instructions button {
   margin-top: 1rem;
   padding: 0.25rem 0.75rem;
-  font-size: 1.75rem;
+  font-size: 1.55rem;
   font-family: inherit;
   color: inherit;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 0 0 1px currentColor, 0 0 5px -1px currentColor;
+  box-shadow: 0 0 0 2px currentColor;
   background: var(--color-bg);
-  /* transition for a simple rotating animation */
+  /* transition for a simple hover and active state */
   transition: all 0.5s ease-out;
 }
-/* on hover add a simple animation which rotates the button 360degrees */
 .instructions button:hover {
-  animation: rotate 0.5s ease-in-out;
+  box-shadow: 0 0 0 1px var(--color-bg), 0 0 0 3px currentColor,
+    0 0 0 5px var(--color-bg), 0 0 0 7px currentColor;
 }
-@keyframes rotate {
-  100% {
-    transform: rotate(1turn);
+.instructions button:active {
+  box-shadow: 0 0 0 2px currentColor, 0 0 0 4px var(--color-bg),
+    0 0 0 6px currentColor;
+  transform: scale(0.95) translateY(0.1rem);
+}
+/* cursor customized to grab, and not allowed when the wheel is spinning (class added in JS) */
+.instructions button,
+svg#pin {
+  cursor: grab;
+}
+.instructions button.isSpinning,
+svg#pin.isSpinning {
+  cursor: not-allowed;
+}
+/*
+animation for the pin, to have it soundly move up and down alongside the spinning wheel
+the duration of the animation is customized in JS to have it run a certain number of times
+*/
+@keyframes pinWheel {
+  33% {
+    transform: translateY(-50%) rotate(-10deg);
+  }
+  67% {
+    transform: translateY(-50%) rotate(10deg);
   }
 }
 
 /* on smaller viewports position the instructions in the bottom center (as they would otherwise overlap with the wheel) */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .instructions {
     display: flex;
     flex-direction: column;

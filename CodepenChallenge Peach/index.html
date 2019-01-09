@@ -18,17 +18,28 @@
   <body>
     <!--
       project's structure
-      - heading in which to show the color selected through the wheel (hidden by default)
-      - svg for the color wheel (consisting of only a circle, as the slices are added through JavaScript)
+      - svg for the color wheel (consisting of circle elements, and a group in which the slices are added)
       - svg for the arrow pointing at the selected color (positioned to the right of the circle)
+      - heading in which to show the color selected through the wheel (hidden by default)
       - container for the simple instructions and the button spinning the wheel
     -->
-    <h1 class="isHidden">#ffffff00</h1>
 
-    <svg shape-rendering="geometricPrecision" id="wheel" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="50" fill="#73abfe" />
+    <svg id="wheel" viewBox="0 0 100 100">
+      <circle
+        cx="50"
+        cy="50"
+        r="48"
+        fill="none"
+        stroke-width="1"
+        stroke="currentColor"
+      />
+      <!-- add an id to the underlying circle as this depicts the final slice, and as to add a random color -->
+      <circle id="slice" cx="50" cy="50" r="47" fill="#001C34" />
+      <g id="slices"></g>
     </svg>
     <svg id="pin" viewBox="0 0 50 50"><path d="M 0 25 L 50 0 V 50" /></svg>
+
+    <h1 class="isHidden">#ffffff00</h1>
 
     <div class="instructions">
       <h2>Spin that color <span>wheel</span></h2>
