@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Local Storage Practice</title>
+    <meta
+      name="description"
+      content="Practice with local storage, and to a smaller extent with event delegation, to list a durable series of items."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- svg used in the project -->
+    <svg style="display: none" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="add-icon" viewBox="0 0 26.458 26.458">
+        <path
+          d="M13.23 26.458c-4.03 0-.24-7.293-3.088-10.142C7.294 13.467 0 17.258 0 13.229s7.294-.238 10.142-3.087C12.991 7.293 9.201 0 13.23 0s.238 7.293 3.087 10.142c2.849 2.849 10.142-.942 10.142 3.087s-7.293.238-10.142 3.087c-2.849 2.849.942 10.142-3.087 10.142z"
+          paint-order="stroke fill markers"
+        />
+      </symbol>
+      <symbol id="delete-icon" viewBox="0 0 26.458 26.458">
+        <g stroke-linecap="round" paint-order="stroke fill markers">
+          <path
+            d="M5.728 4.565c-.581 0-1.05.469-1.05 1.05v19.793c0 .582.469 1.05 1.05 1.05H20.73c.582 0 1.05-.468 1.05-1.05V5.615c0-.581-.468-1.05-1.05-1.05zm4.582 6.393c.208 0 .416.08.576.24l2.343 2.345 2.344-2.345a.811.811 0 0 1 1.15 0l.818.817a.813.813 0 0 1 0 1.152l-2.344 2.345 2.344 2.344a.814.814 0 0 1 0 1.153l-.818.817a.811.811 0 0 1-1.15 0l-2.344-2.345-2.343 2.345a.811.811 0 0 1-1.151 0l-.817-.817a.814.814 0 0 1 0-1.153l2.344-2.344-2.344-2.345a.813.813 0 0 1 0-1.152l.817-.817a.81.81 0 0 1 .575-.24z"
+          />
+          <g transform="matrix(1.11619 0 0 1.11684 -1.54 -19.864)">
+            <rect
+              width="18.963"
+              height="2.143"
+              x="3.75"
+              y="18.763"
+              rx=".94"
+              ry=".94"
+            />
+            <rect
+              ry=".752"
+              rx=".752"
+              y="17.786"
+              x="5.646"
+              height="1.714"
+              width="15.171"
+            />
+          </g>
+        </g>
+      </symbol>
+    </svg>
+
+    <!--
+      add a simple structure with a form nesting an input of type text and a button
+      at the bottom of these two elements show in a bulleted list whatever is detailed in the form (in the moment and when refreshing the page, saving data to local storage)
+    -->
+    <main>
+      <form>
+        <input
+          type="text"
+          name="text"
+          placeholder="List items (local storage coming soon)"
+        />
+        <button>
+          <svg><use href="#add-icon" /></svg>
+        </button>
+      </form>
+      <ul></ul>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
