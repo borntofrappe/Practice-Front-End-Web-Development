@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Checkbox Challenge JavaScript30</title>
+    <meta
+      name="description"
+      content="Following up with another challenge from the #javascript30 initiative, create a simple series of checkboxes which can be toggled on and off more than one at a time."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!--
+    inside of a wrapping container, include inputs of type checkbox and simple text labels
+    each pairing in its own container
+
+    ! update: include a container for two input elements of type text, allowing to add and remove items
+    include also a container in which to tally the number of selected items
+    -->
+    <main>
+      <form class="add">
+        <input type="text" placeholder="Avocadoes" /> <button>Add</button>
+      </form>
+
+      <form class="remove">
+        <input type="text" placeholder="Apples" /> <button>Remove</button>
+      </form>
+
+      <form class="checkboxes">
+        <!-- ! HTML added through the script -->
+        <!-- <div class="checkbox">
+          <input type="checkbox" name="shopping" value="apples" />
+          <label for="shopping">apples</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="shopping" value="oranges" />
+          <label for="shopping">oranges</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="shopping" value="peaches" />
+          <label for="shopping">peaches</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="shopping" value="apricots" />
+          <label for="shopping">apricots</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="shopping" value="tomatos" />
+          <label for="shopping">nectarines</label>
+        </div> -->
+      </form>
+
+      <div class="tally">
+        <p>Shopping List</p>
+        <p class="tally__items">0</p>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

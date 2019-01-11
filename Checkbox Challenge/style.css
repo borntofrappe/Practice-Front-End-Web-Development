@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Chakra+Petch");
+
+:root {
+  --color-bg: tomato;
+  --color-main: aliceblue;
+  --color-grid: gainsboro;
+  --color-text: darkslategray;
+  --color-accent: firebrick;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Chakra Petch", sans-serif;
+}
+
+/* display the input of type text, the container nesting the checkboxes and the container describing the number of selected checkboxes in a column horizontally centered */
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 1rem auto 0;
+}
+/* properties shared by all the form elements */
+form {
+  box-shadow: 0 1px 5px -1px var(--color-accent);
+  background: var(--color-main);
+}
+
+/* for the form nesting input of type text, display the input+button side by side */
+form.add,
+form.remove {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+form.add input,
+form.remove input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+
+/* include a simple line separating the button from the neighboring input and a small arrow pointing at the same element */
+form.add button,
+form.remove button {
+  padding: 0.5rem;
+  font-family: inherit;
+  background: none;
+  border: none;
+  border-left: 1px solid var(--color-grid);
+  /* arrow added through a :before pseudo element */
+  position: relative;
+}
+form.add button:before,
+form.remove button:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border-top: 0.5rem solid transparent;
+  border-right: 0.5rem solid var(--color-grid);
+  border-bottom: 0.5rem solid transparent;
+  border-left: 0.5rem solid transparent;
+}
+
+/* display each div nesting the input elements in a horizontally centered column */
+form.checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+/* display each input and label side by side */
+div.checkbox {
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid var(--color-grid);
+}
+div.checkbox input {
+  margin: 1rem;
+}
+
+/* padding is given to the label (and not the parent container) to guarantee that the border-left is connected for all elements */
+div.checkbox label {
+  padding: 1rem;
+  border-left: 1px solid var(--color-grid);
+  text-transform: capitalize;
+}
+
+/* for the label following the input elements, include a simple strike-through with a pseudo element */
+div.checkbox input + label {
+  position: relative;
+}
+div.checkbox input + label:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+}
+div.checkbox input:checked + label:before {
+  width: 100%;
+}
+
+div.tally {
+  background: var(--color-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 1rem;
+}
