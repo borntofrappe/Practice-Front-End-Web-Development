@@ -1,5 +1,7 @@
 # Checkbox Challenge Select
 
+Live and proud working pen [right here](https://codepen.io/borntofrappe/full/aPQJzR).
+
 ## Preface
 
 Pursuing once more a project inspired by the great #javascript30 initiative, I set out to create a simple series of checkboxes which allow for a neat functionality, namely the ability to check multiple input elements at once, by holding down a ctrl (on windows) key. Simply put the feature ought to work as follows, and from the user's perspective:
