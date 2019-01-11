@@ -15,12 +15,11 @@ body {
   background-size: 300px, 100%; }
 
 main {
-  margin: 1rem auto 0;
-  max-width: 500px;
-  width: 85vw;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; }
+  margin: 1rem auto 0;
+  max-width: 500px;
+  width: 85vw; }
 
 form {
   margin-bottom: 1.5rem;
@@ -28,26 +27,27 @@ form {
   background: #ffffff;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5); }
   form input {
-    padding: 1.5rem 2.25rem;
     flex-grow: 1;
     background: none;
     border: none;
     font-family: inherit;
     color: inherit;
+    padding: 1.5rem 2.25rem;
     font-size: 1.25rem; }
   form button {
-    padding: 1rem;
     background: #333;
-    color: #ffdd40;
     border: none;
     font-family: inherit;
-    font-size: 1.25rem; }
+    font-size: 1.25rem;
+    padding: 1rem;
+    color: #ffdd40; }
     form button svg {
+      pointer-events: none;
       width: 28px;
       height: 28px;
       transition: all 0.35s ease-out;
       transform: rotate(0) scale(0.9);
-      fill: #ffdd40; }
+      fill: currentColor; }
     form button:hover svg {
       transform: rotate(1turn) scale(1.1); }
 
@@ -55,7 +55,15 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; }
+  align-items: flex-start;
+  /* each list item nests the following structure
+  p (for the text)
+  div (container for checkboxes, repeating thrice)
+    input (of type checkbox)
+    label (overlaid in place of the input)
+  button (to erase the specific item)
+    svg (aesthetic icon for the button)
+  */ }
   ul li {
     margin: 0.5rem 0;
     padding: 0.25rem 0.75rem;
@@ -82,7 +90,7 @@ ul {
         content: "●";
         color: #333; }
       ul li .options:nth-of-type(1) {
-        color: #ff622e; }
+        color: #f15521; }
       ul li .options:nth-of-type(2) {
         color: #ffa62e; }
       ul li .options:nth-of-type(3) {

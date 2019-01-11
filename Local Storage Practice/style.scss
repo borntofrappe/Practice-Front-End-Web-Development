@@ -3,13 +3,16 @@
 
 // detail root variable(s)
 $font: "Open Sans", sans-serif;
+// colors for the larger application
 $color-card: #ffffff;
 $color-text: #333;
 $color-bg: #333;
 $color-accent: #ffdd40;
-$color-danger: #ff622e;
-$color-warning: #ffa62e;
-$color-success: #55cc43;
+
+// colors for the three checkboxes
+$color-undone: #f15521;
+$color-wip: #ffa62e;
+$color-done: #55cc43;
 
 * {
   box-sizing: border-box;
@@ -27,15 +30,18 @@ body {
     $color-bg;
   background-size: 300px, 100%;
 }
+
+// display the form and unordered list on top of one another
+// horizontally centered
 main {
+  display: flex;
+  flex-direction: column;
   margin: 1rem auto 0;
   max-width: 500px;
   width: 85vw;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
 }
 
+// display the input and button side by side, the former occupying as much space as readily available
 form {
   margin-bottom: 1.5rem;
   display: flex;
@@ -43,28 +49,31 @@ form {
   box-shadow: 0 1px 15px rgba(darken($color-bg, 25%), 0.5);
 
   input {
-    padding: 1.5rem 2.25rem;
     flex-grow: 1;
     background: none;
     border: none;
     font-family: inherit;
     color: inherit;
+    padding: 1.5rem 2.25rem;
     font-size: 1.25rem;
   }
 
   button {
-    padding: 1rem;
     background: $color-bg;
-    color: $color-accent;
     border: none;
     font-family: inherit;
     font-size: 1.25rem;
+    padding: 1rem;
+    color: $color-accent;
+    // style the icon according to the color of the parent button
     svg {
+      pointer-events: none;
       width: 28px;
       height: 28px;
+      // transition for a simple rotate+scale hover state
       transition: all 0.35s ease-out;
       transform: rotate(0) scale(0.9);
-      fill: $color-accent;
+      fill: currentColor;
     }
     &:hover svg {
       transform: rotate(1turn) scale(1.1);
@@ -72,19 +81,30 @@ form {
   }
 }
 
+// display the list items on top of one another, aligned to the left
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* each list item nests the following structure
+  p (for the text)
+  div (container for checkboxes, repeating thrice)
+    input (of type checkbox)
+    label (overlaid in place of the input)
+  button (to erase the specific item)
+    svg (aesthetic icon for the button)
+  */
   li {
     margin: 0.5rem 0;
     padding: 0.25rem 0.75rem;
     background: $color-card;
     border-radius: 5px;
     box-shadow: 0 1px 15px rgba(darken($color-bg, 25%), 0.5);
+    // display the items in a row, vertically centered
     display: flex;
     align-items: center;
+    // transition to simply show the accent color on hover
     transition: all 0.2s ease-out;
 
     &:hover {
@@ -96,30 +116,38 @@ ul {
       margin-right: 0.25rem;
     }
 
+    // display the items of each div in a row, vertically centered
     .options {
       margin: 0 0.15rem;
       display: flex;
       align-items: center;
+
+      // hide the input and give to the label the color of the parent container, but only when the input is checked
       input {
         display: none;
         &:checked + label:before {
           color: currentColor;
         }
       }
+      // by default show a simple ● mark and use the text color
       label:before {
         content: "●";
         color: $color-text;
       }
+
+      // give the parent container (the div) the color of each respective option
       &:nth-of-type(1) {
-        color: $color-danger;
+        color: $color-undone;
       }
       &:nth-of-type(2) {
-        color: $color-warning;
+        color: $color-wip;
       }
       &:nth-of-type(3) {
-        color: $color-success;
+        color: $color-done;
       }
     }
+
+    // style the button to simply show the svg icon
     button {
       background: none;
       border: none;
@@ -130,7 +158,7 @@ ul {
         width: 100%;
         height: 100%;
         pointer-events: none;
-        fill: $color-bg;
+        fill: $color-text;
       }
     }
   }
