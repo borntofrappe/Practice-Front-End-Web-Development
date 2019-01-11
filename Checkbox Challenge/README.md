@@ -19,3 +19,7 @@ A good way to practice with event listeners and a few JavaScript methods. My app
 ## Update
 
 Solid practice. In the end I changed the erase method a bit, to allow it to clear multiple entries, were these to match in value.
+
+## Second Update
+
+Changed the `ctrl` key to be `shift` in line with the actual expectations of the challenge.

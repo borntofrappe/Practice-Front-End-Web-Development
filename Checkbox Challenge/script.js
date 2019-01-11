@@ -95,13 +95,13 @@ formAdd.addEventListener('submit', handleSubmit);
 // 1. keep track of the index of the last checked checkbox
 // ! set it by default to 0, to check from the top
 let lastCheckbox = 0;
-// 1. keep track of whether or not the ctrl key is being pressed
-let isCtrl = false;
-const ctrl = 17;
+// 1. keep track of whether or not the shift key is being pressed
+let isShift = false;
+const shift = 16;
 
 // first, for the boolean, toggle it according to the key being pressed
-window.addEventListener('keydown', e => (e.keyCode === ctrl ? isCtrl = true : isCtrl = false));
-window.addEventListener('keyup', () => isCtrl = false);
+window.addEventListener('keydown', e => (e.keyCode === shift ? isShift = true : isShift = false));
+window.addEventListener('keyup', () => isShift = false);
 
 // the idea is to attach an event listener to all checkboxes and depending on the booleans value check as many as there are between the index of the last checked checkbox and the current one
 // ! as checkboxes might be added later attach the event listener to the parent form element
@@ -116,8 +116,8 @@ function handleInput(e) {
   // find the value of the current checkbox, as to give its opposite to the checkbox(es)
   const isChecked = !values[index].isChecked;
 
-  if (isCtrl) {
-    // if ctrl is being being pressed, refer to the lastCheckbox value, check all the checkboxes between the two values
+  if (isShift) {
+    // if shift is being being pressed, refer to the lastCheckbox value, check all the checkboxes between the two values
     const [min, max] = [index, lastCheckbox].sort((a, b) => (a > b ? 1 : -1));
     values.forEach((value, i) => {
       if (i >= min && i <= max) {
@@ -125,7 +125,7 @@ function handleInput(e) {
       }
     });
   } else {
-    // if ctrl is not being pressed, simply update the value of the specified element
+    // if shift is not being pressed, simply update the value of the specified element
     values[index].isChecked = isChecked;
   }
   // update the last checkbox with the new one
