@@ -79,14 +79,9 @@ function handleSubmit(e) {
       }));
       e.target.querySelector('input').setAttribute('placeholder', 'Avocadoes');
     } else {
-      // find the position of the specified item
-      const index = values.findIndex(singleValue => singleValue.value === value.toLowerCase());
-      if (index !== -1) {
-        values = [...values.slice(0, index), ...values.slice(index + 1)];
-        e.target.querySelector('input').setAttribute('placeholder', 'Oranges');
-      } else {
-        e.target.querySelector('input').setAttribute('placeholder', 'It seems there\'s no match :P');
-      }
+      // filter out the elements matching the value
+      // this allows to erase more values with the same text
+      values = values.filter(singleValue => singleValue.value !== value);
     }
     populateCheckboxes(values);
   }

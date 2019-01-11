@@ -15,3 +15,7 @@ A good way to practice with event listeners and a few JavaScript methods. My app
 - listen symmetrically for a keyup event, which shoud mirror the previous event's behavior;
 
 - listen for the input event on the checkboxes and if the partcular boolean is set to true, benefit from another variable to select all input elements by their index in the array resulting from the `querySelectorAll` method (cognizant of the fact that 1. I need this variable to be initiated and 1. the specific method returns a NodeList, not an array).
+
+## Update
+
+Solid practice. In the end I changed the erase method a bit, to allow it to clear multiple entries, were these to match in value.
