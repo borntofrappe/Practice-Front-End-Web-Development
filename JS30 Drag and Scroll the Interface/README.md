@@ -1,6 +1,6 @@
 # JS30: Interface Challenge, Drag to Scroll
 
-<!-- Proud result live [right here on codepen]() -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/LMXaem)
 
 ## Preface
 
