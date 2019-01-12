@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
+
+/* blue-ish color palette */
+:root {
+  --color-bg: #f0ffff;
+  --color-bg-l: #f0f8ff;
+  --color-text: #0000cd;
+  --color-text-t: #0000cd33;
+  --color-accent: #00ffff;
+  --color-main: #20b2aa;
+  --color-main-l: #00ced1;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* simple linear gradient as background, overlayed by a repeated svg drawing a mouse icon */
+body {
+  /* play with the opacity and transform property to display a small icon with the left cursor more opaque, as if being clicked */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.4" transform="rotate(-25) scale(0.5)" fill="%2320b2aa"><path opacity="0.5" d="M 52 5 v 32 h 32 a 32 32 0 0 0 -32 -32" /><path d="M 48 5 v 32 h -32 a 32 32 0 0 1 32 -32" /><path opacity="0.5" d="M 16 41 v 20 a 34 34 0 0 0 34 34 a 34 34 0 0 0 34 -34 v -20" /></svg>'),
+    linear-gradient(
+      to right,
+      var(--color-bg),
+      var(--color-bg-l),
+      var(--color-bg)
+    );
+  background-size: 75px, 100%;
+  background-position: -150px, 0;
+  color: var(--color-text);
+  font-family: "Ubuntu Mono", monospace;
+}
+
+main {
+  /* stretch the container of each item to cover the entirety of the page */
+  height: 100vh;
+  width: 100vw;
+  padding: 1rem;
+  /* allow for horizontal scroll whenever needed */
+  overflow-x: auto;
+  /* display children elements side by side, in a non-wrapping row
+  in conjunction with a fixed width, this allows children elements to be positioned to the right of the visible area, enabling scroll
+  */
+  display: flex;
+  flex-wrap: nowrap;
+  /* perspective to give a 3d look to the rotate() value of the transform property */
+  perspective: 1200px;
+}
+
+/* to each item */
+main .item {
+  /* stretch to cover the totality of the width */
+  height: 100%;
+  /* give a fixed width, with a starting value and precluding any shrink-age  */
+  flex-basis: 300px;
+  flex-shrink: 0;
+  /* reduce the gap given by the rotate() value of the transform property */
+  margin: 0 -1rem;
+  /* center the content of the container (simple text) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* minor stylistic choices */
+  font-size: 4rem;
+  text-transform: uppercase;
+  box-shadow: 0 1px 15px -10px var(--color-accent);
+  border-radius: 5px;
+}
+
+/* target odd and event containers, rotating them in opposing direction (to give the resemblance of a silly accordion)
+in addition to the rotate() value, create a simple text-shadow and linear gradient, once again mirroring the values for odd and even elements */
+main .item:nth-of-type(odd) {
+  transform: rotateY(-30deg);
+  text-shadow: -2px 0.25px 5px var(--color-text-t);
+  background: linear-gradient(
+    to top right,
+    var(--color-main),
+    var(--color-main-l)
+  );
+}
+main .item:nth-of-type(even) {
+  transform: rotateY(30deg);
+  text-shadow: 2px 0.25px 5px var(--color-text-t);
+  background: linear-gradient(
+    to top left,
+    var(--color-main),
+    var(--color-main-l)
+  );
+}
+
+/* minor stylistic choices regarding the scrollbar */
+main::-webkit-scrollbar {
+  width: 0;
+  height: 0.35rem;
+}
+main::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--color-text-t);
+}
+main::-webkit-scrollbar-thumb {
+  background-color: var(--color-text);
+  border-radius: 5px;
+}
