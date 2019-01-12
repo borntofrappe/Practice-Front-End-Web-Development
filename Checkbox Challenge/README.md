@@ -25,3 +25,7 @@ Solid practice. In the end I changed the erase method a bit, to allow it to clea
 ## Second Update
 
 Changed the `ctrl` key to be `shift` in line with the actual expectations of the challenge.
+
+## Third Update
+
+Upon further analysis of [the approach @wesbos](https://youtu.be/RIPYsKx1iiU), I was quite intrigued by the approach. I replicated it, with a minor tweak as to allow to uncheck multiple elements much alike it is posisble to check multiple instances, and you can find the documented code in the **Expert Solution** folder.

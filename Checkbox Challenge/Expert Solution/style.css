@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Chakra+Petch");
+
+:root {
+  --color-bg: tomato;
+  --color-accent: firebrick;
+  --color-main: aliceblue;
+  --color-grid: gainsboro;
+  --color-text: darkslategray;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Chakra Petch", sans-serif;
+}
+main {
+  background: var(--color-main);
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 1rem auto 0;
+  box-shadow: 0 1px 5px -1px var(--color-accent);
+}
+div.checkbox {
+  display: flex;
+  align-items: center;
+}
+div.checkbox input {
+  margin: 1rem;
+}
+div.checkbox label {
+  padding: 1rem;
+  text-transform: capitalize;
+}
+/* include a border-top on all but the first div */
+div + div {
+  border-top: 1.5px solid var(--color-grid);
+}
+
+/* include th strikethrough on the label by means of a pseudo element, when the connected input elment is checked */
+div.checkbox input + label {
+  position: relative;
+}
+div.checkbox input + label:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.5s ease-out;
+}
+
+div.checkbox input:checked + label:before {
+  width: 100%;
+}
+
+div.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 1rem;
+}
