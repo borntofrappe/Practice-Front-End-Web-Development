@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|ZCOOL+KuaiLe");
 
+/* choosing a purple/blue palette */
 :root {
   --color-bg: #0d095a;
   --color-bg-l: #1b1994;
   --color-main: #003868;
   --color-accent: #0085fa;
-  /* --color-heading: #040225; */
   --color-text: honeydew;
 }
 * {
@@ -13,6 +13,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* for the background of the application, overlap two repeating-radial-gradient using the transparent keyword to create a nice cut-out pattern */
 body {
   min-height: 100vh;
   background: repeating-radial-gradient(
@@ -34,58 +35,78 @@ body {
     var(--color-bg);
   color: var(--color-text);
   font-family: "Open Sans", sans-serif;
+  /* center the application horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
 }
 
+/* cap the width of the main container and display the nested elements in a column */
 main.app {
   max-width: 500px;
   width: 90vw;
-  min-height: calc(100vh - 2rem);
-  box-shadow: 0 2px 15px var(--color-bg);
+  display: flex;
+  flex-direction: column;
   background: var(--color-main);
+  box-shadow: 0 2px 15px var(--color-bg);
   border-radius: 10px;
+  padding: 1rem 1rem 1.5rem;
 }
 
+/* give the heading a negative margin value for the sides and the top, as to apply the background to the entirety of the 1rem padded container */
 main.app h1 {
+  margin: -1rem -1rem 1rem;
+  padding: 1rem;
   font-family: "ZCOOL KuaiLe", cursive;
   border-radius: 10px 10px 0 0;
-  padding: 1rem;
   background: var(--color-accent);
   color: var(--color-text);
-  text-shadow: 0 1px 1px var(--color-bg-l);
   text-align: center;
-  text-transform: capitalize;
   font-weight: 300;
+  text-shadow: 0 1px 1px var(--color-bg-l);
   box-shadow: 0 10px 5px var(--color-main);
 }
-
+/* position the SVG icon in the center of the application, with a negative margin-bottom to visually link the icon and the following textarea element */
+main.app svg#icon {
+  width: 82px;
+  height: 82px;
+  margin: 1rem 0 -0.5rem;
+  align-self: center;
+  /* z-index to have the icon on top */
+  z-index: 100;
+}
+/* horizontally center the textarea+button elements, on top of one another  */
 section.app__feature {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
 }
+/* stretch the textarea element to span the entirety of the (padded) width */
 section.app__feature textarea {
-  margin: 1rem 0 2rem;
   width: 100%;
   min-height: 200px;
-  border: none;
   border-radius: 10px;
+  border: none;
   resize: none;
   background: var(--color-bg);
   color: var(--color-text);
+  /* slightly larget padding at the top to offset the SVG icon above */
   padding: 1rem;
+  padding-top: 1.5rem;
   font-size: 1.25rem;
+  line-height: 2;
 }
 section.app__feature textarea::placeholder {
   color: inherit;
   font-family: inherit;
   opacity: 0.5;
 }
+
+/* style the button to nest the icon in a small circle */
 section.app__feature button {
+  margin: 2rem 0 3rem;
   width: 52px;
   height: 52px;
   background: none;
@@ -94,8 +115,10 @@ section.app__feature button {
   background: var(--color-bg);
   padding: 0.35rem;
   border-radius: 50%;
+  /* position relative for the before pseudo element */
   position: relative;
 }
+/* through the pseudo element create a pulsating animation, made up of an expanding and dissipating repeating-radial-gradient */
 section.app__feature button:before {
   content: "";
   position: absolute;
@@ -114,9 +137,11 @@ section.app__feature button:before {
   transform: translate(-50%, -50%) scale(0);
   opacity: 1;
 }
+/* on hover apply the animation */
 section.app__feature button:hover:before {
   animation: pulse 2.5s infinite ease-out;
 }
+/* animation expanding and dissipating the pseudo element */
 @keyframes pulse {
   25% {
     opacity: 1;
@@ -132,4 +157,68 @@ section.app__feature button svg {
   height: 100%;
   pointer-events: none;
   filter: drop-shadow(0 1px 5px var(--color-bg));
+}
+
+/* for the section devoted to the controls, position the child elements in a centered column */
+section.app__controls {
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+/* for each div devoted to label+input elements, describe them side by side
+and vertically centered */
+div.controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+/* each label+input is made out to be 1/4 and 3/4 respectively, by applying the flex-grow property and setting the width to 0 */
+div.controls label {
+  width: 0;
+  flex-grow: 1;
+  text-align: center;
+  color: var(--color-accent);
+  /* center the span+icon vertically, and space them out evenly */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+/* by default hide the span shown in each container, show them on hover */
+div.controls label span {
+  opacity: 0;
+  visibility: hidden;
+  text-transform: uppercase;
+  transition: all 0.25s ease-out;
+  transform: translateX(1rem);
+}
+div.controls:hover label span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0rem);
+}
+
+/* reduce notably the size of the icons */
+div.controls label svg {
+  width: 32px;
+  height: 32px;
+}
+div.controls input {
+  flex-grow: 3;
+  width: 0;
+  margin: 0 1rem;
+}
+
+/* try to style the inputs of type range with the described color palette */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: var(--color-bg);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
 }

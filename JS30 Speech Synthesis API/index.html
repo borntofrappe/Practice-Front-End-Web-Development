@@ -1,56 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Speech Synthesis API</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Tinker with the Speech Synthesis API</title>
+  <meta name="description" content="Continuing with the #js30 course, I set out to leverage the speech synthesis API, as to create a simple interface in which anything that is typed in a textarea element is related back to the visitor." />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="Icon.png"> -->
+
+</head>
   <body>
-    <!-- UI of the application
+    <!--
+      in a first svg block, define the icon for the simple figure and the button elements
+      all but the first symbol is produced simply with line commands
+    -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="voice-icon" width="100" height="100" viewBox="0 0 26.458 26.458"><g stroke="#040225" stroke-linecap="round"><path d="M57.254 154.405h8.704c.435 0 .763.233.786.52l.886 11.195c.022.288-.351.52-.787.52H56.368c-.436 0-.81-.232-.786-.52l.885-11.195c.023-.287.35-.52.787-.52z" fill="#ffebdf" stroke-width=".9" paint-order="stroke fill markers" transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"/><g fill="#ffebdf" stroke-width="1.073" paint-order="stroke fill markers" transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"><ellipse ry="3.884" rx="2.769" cy="137.476" cx="78.113"/><ellipse cx="45.098" cy="137.476" rx="2.769" ry="3.884"/></g><g transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"><ellipse cx="61.606" cy="137.656" rx="16.389" ry="19.779" fill="#ffebdf" stroke-width="1.307" paint-order="stroke fill markers"/><g fill="none"><path d="M57.922 147.932s1.12 1.412 3.684 1.412c2.503 0 3.684-1.412 3.684-1.412" stroke-width=".661"/><path d="M53.066 134.689s.907-1.412 2.979-1.412c2.024 0 2.978 1.412 2.978 1.412m5.165 0s.906-1.412 2.978-1.412c2.024 0 2.979 1.412 2.979 1.412" stroke-width=".794"/></g></g><path d="M53.092 157.477s5.352 4.18 8.514 4.18c3.161 0 8.513-4.18 8.513-4.18.37-.181.638.345.743.743l4.18 15.832c.105.398-.331.743-.743.743H48.912c-.411 0-.848-.345-.743-.743l4.18-15.832c.106-.398.332-.743.743-.743z" fill="#0d095a" stroke-width="1.045" paint-order="stroke fill markers" transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"/><g transform="matrix(.34746 0 0 .35658 -7.864 -41.186)" fill="#ffebdf" stroke-width="2.107" paint-order="stroke fill markers"><ellipse ry="4.706" rx="3.476" cy="183.946" cx="51.54"/><ellipse cx="69.872" cy="183.946" rx="3.476" ry="4.706"/></g></g><path d="M134.004 108.178c-16.701-.149-15.932 12.91-15.932 12.91 2.406 9.206 12.82-3.881 12.82-3.881s20.621 13.087 23.027 3.882c0 0 .825-14.073-17.924-12.832a34.979 34.979 0 0 0-1.991-.078z" fill="#0d095a" stroke="#000" stroke-width=".166" transform="matrix(.40063 0 0 .41114 -41.255 -44.442)"/><g stroke="#040225" stroke-linecap="round"><path d="M57.254 154.405h8.704c.435 0 .763.233.786.52l.886 11.195c.022.288-.351.52-.787.52H56.368c-.436 0-.81-.232-.786-.52l.885-11.195c.023-.287.35-.52.787-.52z" fill="#ffebdf" stroke-width=".9" paint-order="stroke fill markers" transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"/><g fill="#ffebdf" stroke-width="1.073" paint-order="stroke fill markers" transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"><ellipse cx="78.113" cy="137.476" rx="2.769" ry="3.884"/><ellipse ry="3.884" rx="2.769" cy="137.476" cx="45.098"/></g><g transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"><ellipse ry="19.779" rx="16.389" cy="137.656" cx="61.606" fill="#ffebdf" stroke-width="1.307" paint-order="stroke fill markers"/><g fill="none"><path d="M57.922 147.932s1.12 1.412 3.684 1.412c2.503 0 3.684-1.412 3.684-1.412" stroke-width=".661"/><path d="M53.066 134.689s.907-1.412 2.979-1.412c2.024 0 2.978 1.412 2.978 1.412m5.165 0s.906-1.412 2.978-1.412c2.024 0 2.979 1.412 2.979 1.412" stroke-width=".794"/></g></g><path d="M53.092 157.477s5.352 4.18 8.514 4.18c3.161 0 8.513-4.18 8.513-4.18.37-.181.638.345.743.743l4.18 15.832c.105.398-.331.743-.743.743H48.912c-.411 0-.848-.345-.743-.743l4.18-15.832c.106-.398.332-.743.743-.743z" fill="#0d095a" stroke-width="1.045" paint-order="stroke fill markers" transform="matrix(.40063 0 0 .41114 -11.452 -47.628)"/><g transform="matrix(.34746 0 0 .35658 -7.864 -41.186)" fill="#ffebdf" stroke-width="2.107" paint-order="stroke fill markers"><ellipse cx="51.54" cy="183.946" rx="3.476" ry="4.706"/><ellipse ry="4.706" rx="3.476" cy="183.946" cx="69.872"/></g></g><path d="M134.004 108.178c-16.701-.149-15.932 12.91-15.932 12.91 2.406 9.206 12.82-3.881 12.82-3.881s20.621 13.087 23.027 3.882c0 0 .825-14.073-17.924-12.832a34.979 34.979 0 0 0-1.991-.078z" fill="#0d095a" stroke="#000" stroke-width=".166" transform="matrix(.40063 0 0 .41114 -41.255 -44.442)"/></symbol>
+
+      <symbol id="voice-mic" viewBox="0 0 100 100">
+        <rect x="38" y="5" width="24" height="50" rx="15" fill="currentColor" />
+        <path
+          d="M 20 50 a 30 30 0 0 0 30 30 a 30 30 0 0 0 30 -30"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="7"
+        />
+        <path
+          d="M 50 80 v 15"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="7"
+        />
+      </symbol>
+
+      <symbol id="voice-rate" viewBox="0 0 100 100">
+        <path
+          d="M 20 80 a 40 40 0 1 1 60 0"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="6"
+        />
+        <path
+          d="M 50 70 a 5 5 0 0 1 -5 -5 l -10 -30 l 20 30 a 5 5 0 0 1 -5 5"
+          fill="currentColor"
+        />
+      </symbol>
+
+      <symbol id="voice-pitch" viewBox="0 0 100 100">
+        <path
+          d="M 50 85 v -30"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="6"
+        />
+        <path
+          d="M 50 55 a 20 40 0 0 0 20 -40"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="6"
+        />
+        <path
+          d="M 50 55 a -20 -40 0 0 1 -20 -40"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="6"
+        />
+      </symbol>
+    </svg>
+
+
+    <!-- structure of the application
       beside a simple heading introducing the component, the application highlights the following elements
 
       textarea, in which to include the text the computer ought to relate
       button, to trigger the voice, and let the program relate the textarea message
+      section, devoted to the controls of the voice's rate and pitch
+        each set of controls makes use of a label and an input of type range
 
     -->
     <main class="app">
       <h1>Talk back to me</h1>
 
+      <svg id="icon">
+        <use href="#voice-icon" />
+      </svg>
+
+
       <section class="app__feature">
         <textarea
           name="text"
           id="text"
-          placeholder="These voices. They're outside. Where I must be."
-        ></textarea>
+          placeholder="Write something here, hit the mic and behold, the program talks back!"></textarea>
 
-        <button id="speak">
+        <button id="feature--speak">
           <!-- in the button triggering the voice nest an SVG icon drawing a simple microphone -->
-          <svg viewBox="0 0 100 100">
-            <rect
-              x="38"
-              y="5"
-              width="24"
-              height="50"
-              rx="15"
-              fill="currentColor"
-            />
-            <path
-              d="M 20 50 a 30 30 0 0 0 30 30 a 30 30 0 0 0 30 -30"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
-            <path
-              d="M 50 80 v 15"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="7"
-            />
+          <svg>
+            <use href="#voice-mic" />
           </svg>
         </button>
+      </section>
+
+      <!-- in the section devoted to controls, each set is nested in a div container, with a label + input -->
+      <section class="app__controls">
+        <!-- controlling the rate -->
+        <div class="controls controls--rate">
+          <label for="rate">
+            <span>Rate</span> <svg><use href="#voice-rate" /></svg>
+          </label>
+          <!-- ! pay attention to the name of the input, as it will be used in the js script -->
+          <input
+            name="rate"
+            type="range"
+            min="0.1"
+            max="10"
+            value="1"
+            step="0.1"
+          />
+        </div>
+
+        <!-- controlling the pitch -->
+        <div class="controls controls--pitch">
+          <label for="pitch">
+            <span>Pitch</span> <svg><use href="#voice-pitch" /></svg>
+          </label>
+          <input
+            name="pitch"
+            type="range"
+            min="0"
+            max="2"
+            value="1"
+            step="0.1"
+          />
+        </div>
       </section>
     </main>
 
