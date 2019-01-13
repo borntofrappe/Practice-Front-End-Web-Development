@@ -1,5 +1,8 @@
 // retrieve a reference to the speechSynthesis API
+// create an instance of an utterance which is later passed as argument to the synth.speak() function, as to precisely speak
 const synth = window.speechSynthesis;
+const utterance = new SpeechSynthesisUtterance();
+
 // store a reference to the button and input elements and the textarea
 const buttonSpeak = document.querySelector('button.button--speak');
 const inputRanges = document.querySelectorAll('input[type="range"]');
@@ -7,6 +10,7 @@ const textarea = document.querySelector('textarea');
 // store a reference to the other two buttons
 const buttonToggle = document.querySelector('button.button--toggle');
 const buttonStop = document.querySelector('button.button--stop');
+
 
 // global variables:
 // - fallback, a sting passed to the synthesizer if the textarea element has no value
@@ -22,7 +26,6 @@ const options = {
   voice: '',
   pitch: 1,
   rate: 1
-
 };
 
 
@@ -85,18 +88,6 @@ function handleStop() {
   buttonSpeak.addEventListener('click', speak);
 }
 
-// function called whenever the utterance reaches the end of a word/sentence, to update the rate and pitch if need be
-function handleUpdate(utterance) {
-  console.log(utterance);
-  const { rate, pitch } = utterance;
-  const { rate: newRate, pitch: newPitch } = options;
-  if (rate !== newRate) {
-    utterance.rate = newRate;
-  }
-  if (pitch !== newPitch) {
-    utterance.pitch = newPitch;
-  }
-}
 
 // function called in response to a click on the speak button
 // ! the event listener is attached on the button only when the voices from the speechSynthesis object are readily available
@@ -112,7 +103,8 @@ function speak() {
   // use the value of the textarea, or the fallback value
   const speech = value || fallback;
 
-  const utterance = new SpeechSynthesisUtterance(speech);
+  // text can be set from the textarea element to the text property of the utterance instance
+  utterance.text = speech;
   // set the options specified in the options object
   utterance.voice = options.voice;
   utterance.rate = options.rate;
@@ -150,4 +142,4 @@ function retrieveVoices() {
 
 retrieveVoices();
 // call the getVoices function when the onvoiceschanged method occurs
-speechSynthesis.onvoiceschanged = retrieveVoices;
+synth.onvoiceschanged = retrieveVoices;
