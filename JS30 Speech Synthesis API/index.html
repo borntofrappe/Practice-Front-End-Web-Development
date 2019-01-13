@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Speech Synthesis API</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- UI of the application
+      beside a simple heading introducing the component, the application highlights the following elements
+
+      textarea, in which to include the text the computer ought to relate
+      button, to trigger the voice, and let the program relate the textarea message
+
+    -->
+    <main class="app">
+      <h1>Talk back to me</h1>
+
+      <section class="app__feature">
+        <textarea
+          name="text"
+          id="text"
+          placeholder="These voices. They're outside. Where I must be."
+        ></textarea>
+
+        <button id="speak">
+          <!-- in the button triggering the voice nest an SVG icon drawing a simple microphone -->
+          <svg viewBox="0 0 100 100">
+            <rect
+              x="38"
+              y="5"
+              width="24"
+              height="50"
+              rx="15"
+              fill="currentColor"
+            />
+            <path
+              d="M 20 50 a 30 30 0 0 0 30 30 a 30 30 0 0 0 30 -30"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="7"
+            />
+            <path
+              d="M 50 80 v 15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="7"
+            />
+          </svg>
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|ZCOOL+KuaiLe");
+
+:root {
+  --color-bg: #0d095a;
+  --color-bg-l: #1b1994;
+  --color-main: #003868;
+  --color-accent: #0085fa;
+  /* --color-heading: #040225; */
+  --color-text: honeydew;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: repeating-radial-gradient(
+      circle at 50% 100%,
+      var(--color-bg-l),
+      var(--color-bg-l) 10px,
+      transparent 11px,
+      transparent 20px,
+      var(--color-bg-l) 22px
+    ),
+    repeating-radial-gradient(
+      circle at 50% 0%,
+      var(--color-bg-l),
+      var(--color-bg-l) 10px,
+      transparent 11px,
+      transparent 20px,
+      var(--color-bg-l) 22px
+    ),
+    var(--color-bg);
+  color: var(--color-text);
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+main.app {
+  max-width: 500px;
+  width: 90vw;
+  min-height: calc(100vh - 2rem);
+  box-shadow: 0 2px 15px var(--color-bg);
+  background: var(--color-main);
+  border-radius: 10px;
+}
+
+main.app h1 {
+  font-family: "ZCOOL KuaiLe", cursive;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  background: var(--color-accent);
+  color: var(--color-text);
+  text-shadow: 0 1px 1px var(--color-bg-l);
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 300;
+  box-shadow: 0 10px 5px var(--color-main);
+}
+
+section.app__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+section.app__feature textarea {
+  margin: 1rem 0 2rem;
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 1rem;
+  font-size: 1.25rem;
+}
+section.app__feature textarea::placeholder {
+  color: inherit;
+  font-family: inherit;
+  opacity: 0.5;
+}
+section.app__feature button {
+  width: 52px;
+  height: 52px;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  background: var(--color-bg);
+  padding: 0.35rem;
+  border-radius: 50%;
+  position: relative;
+}
+section.app__feature button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    var(--color-bg),
+    var(--color-bg) 2px,
+    transparent 3px,
+    transparent 4px
+  );
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+}
+section.app__feature button:hover:before {
+  animation: pulse 2.5s infinite ease-out;
+}
+@keyframes pulse {
+  25% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+section.app__feature button svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 5px var(--color-bg));
+}
