@@ -1,17 +1,22 @@
 // retrieve a reference to the speechSynthesis API
 const synth = window.speechSynthesis;
-
-// store a reference to the button and input elements
-const buttonSpeak = document.querySelector('button#feature--speak');
+// store a reference to the button and input elements and the textarea
+const buttonSpeak = document.querySelector('button.button--speak');
 const inputRanges = document.querySelectorAll('input[type="range"]');
+const textarea = document.querySelector('textarea');
+// store a reference to the other two buttons
+const buttonToggle = document.querySelector('button.button--toggle');
+const buttonStop = document.querySelector('button.button--stop');
 
 // global variables:
 // - fallback, a sting passed to the synthesizer if the textarea element has no value
 // - isMouseInRange, to modify the options of the inputs of type range only when the mouse is down on them (and later moved)
 // - options, to alter the settings of the voice
+// - isPlaying, to toggle between pause and play (by default set to false, and toggle it to true whenever clicking the mic button)
 
 const fallback = 'Write something here, hit the mic and behold, the program talks back!';
 let isMouseInRange = false;
+let isPlaying = false;
 // initialize  variable to keep track of the voice and other options
 const options = {
   voice: '',
@@ -42,11 +47,47 @@ inputRanges.forEach(inputRange => inputRange.addEventListener('mouseup', () => i
 inputRanges.forEach(inputRange => inputRange.addEventListener('mousemove', handleMove));
 
 
-// function called in response to a click on the selected button
+// function called in response to a click on the toggle button
+// show the correct svg by using the reference to voice-play and voice-pause
+function handleToggle() {
+  isPlaying = !isPlaying;
+  let reference = '';
+  if (isPlaying) {
+    reference = 'voice-pause';
+    // resume the speech
+    synth.resume();
+  } else {
+    reference = 'voice-play';
+    // pause the speech
+    synth.pause();
+  }
+  buttonToggle.innerHTML = `<svg><use href="#${reference}"</svg>`;
+}
+
+// function called in response to a click on the stop button
+function handleStop() {
+  // stop the audio and hide the buttons from view, removing also the attached event listeners
+  synth.cancel();
+
+  // apply a class of .active to the other two buttons, showing them
+  buttonToggle.classList.remove('active');
+  buttonStop.classList.remove('active');
+  // attach event listeners on the two buttons, to pause/resume the speech and stop it respectively
+  buttonToggle.removeEventListener('click', handleToggle);
+  buttonStop.removeEventListener('click', handleStop);
+
+  // empty the value of the textarea element
+  textarea.value = '';
+}
+
+
+// function called in response to a click on the speak button
 // ! the event listener is attached on the button only when the voices from the speechSynthesis object are readily available
 function speak() {
+  isPlaying = true;
+  buttonToggle.innerHTML = '<svg><use href="#voice-pause"</svg>';
   // extract the text from the textarea element
-  const { value } = document.querySelector('textarea');
+  const { value } = textarea;
 
   // create an instance of SpeechSynthesisUtterance and use the .speak() method available on the synth object
   // use the value of the textarea, or the fallback value
@@ -58,7 +99,16 @@ function speak() {
   utterance.rate = options.rate;
   utterance.pitch = options.pitch;
 
+  // when the utterance is over, call the handleStop function to terminate the current synth
+  utterance.onend = handleStop;
   synth.speak(utterance);
+
+  // apply a class of .active to the other two buttons, showing them
+  buttonToggle.classList.add('active');
+  buttonStop.classList.add('active');
+  // attach event listeners on the two buttons, to pause/resume the speech and stop it respectively
+  buttonToggle.addEventListener('click', handleToggle);
+  buttonStop.addEventListener('click', handleStop);
 }
 
 // funciton called in response to the _onvoiceschanged_ method, when voices are changed (or made available)

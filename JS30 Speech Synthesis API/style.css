@@ -77,14 +77,14 @@ main.app svg#icon {
   z-index: 100;
 }
 /* horizontally center the textarea+button elements, on top of one another  */
-section.app__feature {
+section.app__features {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
 }
 /* stretch the textarea element to span the entirety of the (padded) width */
-section.app__feature textarea {
+section.app__features textarea {
   width: 100%;
   min-height: 200px;
   border-radius: 10px;
@@ -98,28 +98,41 @@ section.app__feature textarea {
   font-size: 1.25rem;
   line-height: 2;
 }
-section.app__feature textarea::placeholder {
+section.app__features textarea::placeholder {
   color: inherit;
   font-family: inherit;
   opacity: 0.5;
 }
-
+/* position the three buttons side by side */
+section.app__features .features--buttons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
 /* style the button to nest the icon in a small circle */
-section.app__feature button {
+section.app__features button {
   margin: 2rem 0 3rem;
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   background: none;
   border: none;
   color: var(--color-accent);
   background: var(--color-bg);
   padding: 0.35rem;
   border-radius: 50%;
-  /* position relative for the before pseudo element */
+}
+/*
+position relative for the before pseudo element, applied only on the central button
+made slightly bigger than the other two
+*/
+section.app__features .button--speak {
+  width: 52px;
+  height: 52px;
   position: relative;
 }
 /* through the pseudo element create a pulsating animation, made up of an expanding and dissipating repeating-radial-gradient */
-section.app__feature button:before {
+section.app__features .button--speak:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -138,7 +151,7 @@ section.app__feature button:before {
   opacity: 1;
 }
 /* on hover apply the animation */
-section.app__feature button:hover:before {
+section.app__features .button--speak:hover:before {
   animation: pulse 2.5s infinite ease-out;
 }
 /* animation expanding and dissipating the pseudo element */
@@ -152,7 +165,27 @@ section.app__feature button:hover:before {
     opacity: 0;
   }
 }
-section.app__feature button svg {
+/* by default hide the smaller buttons, and show them through a class.active, as long as the program is speaking  */
+section.app__features .button--toggle,
+section.app__features .button--stop {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease-out;
+}
+section.app__features .button--toggle {
+  transform: translateX(5rem) rotate(0.25turn);
+}
+section.app__features .button--stop {
+  transform: translateX(-5rem) rotate(-0.25turn);
+}
+section.app__features .button--toggle.active,
+section.app__features .button--stop.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) rotate(0);
+}
+
+section.app__features button svg {
   width: 100%;
   height: 100%;
   pointer-events: none;

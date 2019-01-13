@@ -70,6 +70,19 @@
           stroke-width="6"
         />
       </symbol>
+
+      <symbol id="voice-play" viewBox="0 0 100 100">
+        <path d="M 35 20 l 45 30 l -45 30" fill="currentColor" />
+      </symbol>
+
+      <symbol id="voice-pause" viewBox="0 0 100 100">
+        <rect x="25" y="25" width="20" height="50" fill="currentColor" />
+        <rect x="55" y="25" width="20" height="50" fill="currentColor" />
+      </symbol>
+
+      <symbol id="voice-stop" viewBox="0 0 100 100">
+        <rect x="25" y="25" width="50" height="50" fill="currentColor" />
+      </symbol>
     </svg>
 
 
@@ -90,18 +103,34 @@
       </svg>
 
 
-      <section class="app__feature">
+      <section class="app__features">
         <textarea
           name="text"
           id="text"
           placeholder="Write something here, hit the mic and behold, the program talks back!"></textarea>
 
-        <button id="feature--speak">
-          <!-- in the button triggering the voice nest an SVG icon drawing a simple microphone -->
-          <svg>
-            <use href="#voice-mic" />
-          </svg>
-        </button>
+        <div class="features--buttons">
+          <button class="button button--toggle">
+              <!-- in the button triggering the voice nest an SVG icon drawing a simple microphone -->
+            <svg>
+              <use href="#voice-pause" />
+            </svg>
+          </button>
+
+          <button class="button button--speak">
+              <!-- in the button triggering the voice nest an SVG icon drawing a simple microphone -->
+            <svg>
+              <use href="#voice-mic" />
+            </svg>
+          </button>
+
+          <button class="button button--stop">
+            <!-- in the button triggering the voice nest an SVG icon drawing a simple microphone -->
+            <svg>
+              <use href="#voice-stop" />
+            </svg>
+          </button>
+        </div>
       </section>
 
       <!-- in the section devoted to controls, each set is nested in a div container, with a label + input -->
