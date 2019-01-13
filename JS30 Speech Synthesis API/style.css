@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|ZCOOL+KuaiLe");
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono|ZCOOL+KuaiLe");
 
 /* choosing a purple/blue palette */
 :root {
@@ -34,7 +34,7 @@ body {
     ),
     var(--color-bg);
   color: var(--color-text);
-  font-family: "Open Sans", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   /* center the application horizontally */
   display: flex;
   flex-direction: column;
@@ -95,12 +95,12 @@ section.app__features textarea {
   /* slightly larget padding at the top to offset the SVG icon above */
   padding: 1rem;
   padding-top: 1.5rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
   line-height: 2;
 }
 section.app__features textarea::placeholder {
   color: inherit;
-  font-family: inherit;
   opacity: 0.5;
 }
 /* position the three buttons side by side */
@@ -123,16 +123,25 @@ section.app__features button {
   border-radius: 50%;
 }
 /*
-position relative for the before pseudo element, applied only on the central button
+position relative for the before pseudo element, applied only on the central button, and through a class of active
 made slightly bigger than the other two
 */
 section.app__features .button--speak {
   width: 52px;
   height: 52px;
   position: relative;
+  opacity: 0.7;
+  transition: all 0.25s ease-out;
+  transform: scale(0.5);
+}
+section.app__features .button--speak.active {
+  opacity: 1;
+  transform: scale(1);
+  /* slight delay as the class is added, to transition the button as the other two are hidden back */
+  transition-delay: 0.18s;
 }
 /* through the pseudo element create a pulsating animation, made up of an expanding and dissipating repeating-radial-gradient */
-section.app__features .button--speak:before {
+section.app__features .button--speak.active:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -151,7 +160,7 @@ section.app__features .button--speak:before {
   opacity: 1;
 }
 /* on hover apply the animation */
-section.app__features .button--speak:hover:before {
+section.app__features .button--speak.active:hover:before {
   animation: pulse 2.5s infinite ease-out;
 }
 /* animation expanding and dissipating the pseudo element */
@@ -226,6 +235,10 @@ div.controls label span {
   text-transform: uppercase;
   transition: all 0.25s ease-out;
   transform: translateX(1rem);
+  font-size: 1.1rem;
+  /* apply the same trick used for the label+input to the span+svg, to have these svg icons perfectly aligned */
+  width: 0;
+  flex-grow: 1;
 }
 div.controls:hover label span {
   opacity: 1;
@@ -237,6 +250,8 @@ div.controls:hover label span {
 div.controls label svg {
   width: 32px;
   height: 32px;
+  width: 0;
+  flex-grow: 1;
 }
 div.controls input {
   flex-grow: 3;

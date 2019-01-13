@@ -78,14 +78,33 @@ function handleStop() {
 
   // empty the value of the textarea element
   textarea.value = '';
+
+  // attach the event listener to the speak button, as to allow another instance of utterance
+  // re-attacha class of active to show the hover state (mirror behavior with respect to the other two buttons)
+  buttonSpeak.classList.add('active');
+  buttonSpeak.addEventListener('click', speak);
 }
 
+// function called whenever the utterance reaches the end of a word/sentence, to update the rate and pitch if need be
+function handleUpdate(utterance) {
+  console.log(utterance);
+  const { rate, pitch } = utterance;
+  const { rate: newRate, pitch: newPitch } = options;
+  if (rate !== newRate) {
+    utterance.rate = newRate;
+  }
+  if (pitch !== newPitch) {
+    utterance.pitch = newPitch;
+  }
+}
 
 // function called in response to a click on the speak button
 // ! the event listener is attached on the button only when the voices from the speechSynthesis object are readily available
 function speak() {
+  // change the boolean to true and show the pause icon
   isPlaying = true;
   buttonToggle.innerHTML = '<svg><use href="#voice-pause"</svg>';
+
   // extract the text from the textarea element
   const { value } = textarea;
 
@@ -102,6 +121,11 @@ function speak() {
   // when the utterance is over, call the handleStop function to terminate the current synth
   utterance.onend = handleStop;
   synth.speak(utterance);
+
+  // remove a class of active from the button.speak, as to remove the hover animation
+  // remove the event listener to the same button, to avoid overlapping utterances
+  buttonSpeak.classList.remove('active');
+  buttonSpeak.removeEventListener('click', speak);
 
   // apply a class of .active to the other two buttons, showing them
   buttonToggle.classList.add('active');
