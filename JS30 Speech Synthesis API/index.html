@@ -89,7 +89,7 @@
     <!-- structure of the application
       beside a simple heading introducing the component, the application highlights the following elements
 
-      textarea, in which to include the text the computer ought to relate
+      div with a property of contentEditable, in which to include the text the computer ought to relate
       button, to trigger the voice, and let the program relate the textarea message
       section, devoted to the controls of the voice's rate and pitch
         each set of controls makes use of a label and an input of type range
@@ -104,10 +104,7 @@
 
 
       <section class="app__features">
-        <textarea
-          name="text"
-          id="text"
-          placeholder="Write something here, hit the mic and behold, the program talks back!"></textarea>
+        <div id="features--text"></div>
 
         <div class="features--buttons">
           <button class="button button--toggle">
@@ -144,10 +141,10 @@
           <input
             name="rate"
             type="range"
-            min="0.1"
-            max="3"
+            min="0"
+            max="10"
             value="1"
-            step="0.1"
+            step="0.25"
           />
         </div>
 

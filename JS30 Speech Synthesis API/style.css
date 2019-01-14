@@ -6,7 +6,7 @@
   --color-bg-l: #1b1994;
   --color-main: #003868;
   --color-accent: #0085fa;
-  --color-text: honeydew;
+  --color-text: #f0fff0;
 }
 * {
   margin: 0;
@@ -84,23 +84,20 @@ section.app__features {
   padding: 0 1rem;
 }
 /* stretch the textarea element to span the entirety of the (padded) width */
-section.app__features textarea {
+section.app__features #features--text {
   width: 100%;
   min-height: 200px;
   border-radius: 10px;
-  border: none;
-  resize: none;
   background: var(--color-bg);
   color: var(--color-text);
   /* slightly larget padding at the top to offset the SVG icon above */
   padding: 1rem;
   padding-top: 1.5rem;
-  font-size: 1rem;
-  font-family: inherit;
   line-height: 2;
 }
-section.app__features textarea::placeholder {
-  color: inherit;
+/* include the placeholder as a string of text, through the before pseudo element and only as long as the div is empty */
+section.app__features #features--text:empty:before {
+  content: "Write something here, hit the mic and behold, the program talks back!";
   opacity: 0.5;
 }
 /* position the three buttons side by side */
