@@ -1,6 +1,6 @@
 # Talk back to me
 
-You can find the proud result of this repo [right here](https://codepen.io/borntofrappe/pen/JwwJgZ) on codepen. It's still missing a feature though. Namely changing the rate/pitch **as** the text is being read. I also need to jot down a few notes on the API and how to use it.
+You can find the proud result of this repo [right here](https://codepen.io/borntofrappe/pen/JwwJgZ) on codepen.
 
 ## Preface
 
@@ -99,3 +99,5 @@ This simple unordered list covers a very basic example. In the project, I set ad
 - update the UI of the application to highlight each spoken word. This required a bit more trickery and use of the `onboundary` event, which is fired off whenever the synthesizer reaches a boundary (word). By leveraging the index the event gives in the `e.charIndex` property, it is roughly possible to find the exact position of the spoken text.
 
 With this last feature in mind, I had to change the UI of the application, from a `textarea` element to a `div` container with a property of `contentEditable`. To cover a few edge cases I 'sanitized' the input with a simple regular expression and injected the spoken text in the `div` container, wrapping the spoken words in `mark` elements.
+
+I might really come back to this project, if nothing to see the use of seldom used CSS selectors (`:empty`) and how to sanitize input text. With this last regard, I am sure the approach I took, using a simple regular expression, is quite naive. Another area of study: how to sanitize user input.
