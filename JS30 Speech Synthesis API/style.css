@@ -87,7 +87,9 @@ section.app__features {
 /* stretch the textarea element to span the entirety of the (padded) width */
 section.app__features #features--text {
   width: 100%;
-  min-height: 200px;
+  /* fix the height and allow for vertical scroll */
+  height: 200px;
+  overflow-y: auto;
   border-radius: 10px;
   background: var(--color-bg);
   color: var(--color-text);
@@ -263,7 +265,7 @@ div.controls input {
   margin: 0 1rem;
 }
 
-/* try to style the inputs of type range with the described color palette */
+/* style the inputs of type range with the described color palette */
 input[type="range"] {
   -webkit-appearance: none;
   background: var(--color-bg);
@@ -273,4 +275,15 @@ input[type="range"]::-webkit-slider-thumb {
   width: 10px;
   height: 10px;
   background: var(--color-accent);
+}
+/* style a possible scrollbar with the same reasoning applied to the input elements */
+section.app__features #features--text::-webkit-scrollbar {
+  width: 0.4rem;
+}
+section.app__features #features--text::-webkit-scrollbar-track {
+  background: var(--color-bg-l);
+}
+section.app__features #features--text::-webkit-scrollbar-thumb {
+  background: var(--color-text);
+  border-radius: 5px;
 }
