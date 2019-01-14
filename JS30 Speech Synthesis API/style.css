@@ -6,6 +6,7 @@
   --color-bg-l: #1b1994;
   --color-main: #003868;
   --color-accent: #0085fa;
+  --color-mark: #0085fa44;
   --color-text: #f0fff0;
 }
 * {
@@ -99,6 +100,12 @@ section.app__features #features--text {
 section.app__features #features--text:empty:before {
   content: "Write something here, hit the mic and behold, the program talks back!";
   opacity: 0.5;
+}
+/* style the mark elements injected in the div with the colors of the application */
+section.app__features #features--text mark {
+  background: var(--color-mark);
+  border-bottom: 1px solid var(--color-accent);
+  color: inherit;
 }
 /* position the three buttons side by side */
 section.app__features .features--buttons {
