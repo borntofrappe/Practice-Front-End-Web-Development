@@ -1,6 +1,6 @@
 # Type and Fetch Ahead
 
-<!-- Proud result live [right here on codepen](). -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/XoGzGK).
 
 ## Preface
 
