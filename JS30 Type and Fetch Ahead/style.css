@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+:root {
+  --color-bg: #fe4b74;
+  --color-bg-d: #b8345a;
+  --color-bg-t: #b3a9b044;
+  --color-input: #fff;
+  --color-text: #390d2d;
+  --color-accent: #edad9e;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  /* for the background, place a semi-translucent gradient atop an SVG pattern and a solid hue */
+  background: linear-gradient(to bottom left, var(--color-bg-t), transparent),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" transform="scale(0.4) rotate(-25)" opacity="0.2" viewBox="0 0 100 100" fill="none" stroke="%23390d2d" stroke-width="6"><g><path d="M 2 50 v 48 h 48"  /><path d="M 2 98 l 15 -30 l 10 10 l 23 -20" /></g><g><circle cx="30" cy="15" r="7" /><circle cx="55" cy="40" r="7"/><line x1="30" y1="40" x2="55" y2="15" /></g></svg>'),
+    var(--color-bg);
+  color: var(--color-text);
+  background-size: 100%, 100px, 100%;
+  background-position: 0, -25px -50px, 0;
+}
+
+/* horizontally center the container of the input+label+result container */
+main {
+  max-width: 375px;
+  width: 50vw;
+  margin: 0 auto;
+  padding-top: 1rem;
+  /* place the nested elements on top of one another */
+  display: flex;
+  flex-direction: column;
+  /* horizontally centered */
+  align-items: center;
+}
+/* style the input element to stretch and cover the entirety of the parent container */
+input[type="text"] {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background: var(--color-input);
+  box-shadow: 0 0 8px var(--color-bg);
+  padding: 1rem;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+/* reduce the opacity of the placeholder */
+input[type="text"]::placeholder {
+  opacity: 0.5;
+}
+/* style the label to appear as a small card, to the right of the parent container */
+label {
+  align-self: flex-end;
+  background: var(--color-input);
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  /* by default, hide the label and move it midway through the input element */
+  transform: translate(0, -2.5rem) rotate(8deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-out;
+  box-shadow: 0 0 0 4px var(--color-accent);
+  z-index: -5;
+}
+/* show the label as long as the placeholder is NOT shown */
+input[type="text"]:not(:placeholder-shown) + label {
+  transform: translate(2.5rem, 0rem) rotate(-10deg);
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
+}
+/*
+swhen adding a particular class, rotate the label the opposite way
+this class is added when search results are actually looked for (whenever typing two or more characters
+*/
+input[type="text"]:not(:placeholder-shown) + label.search {
+  transform: translate(2.5rem, 0rem) rotate(5deg);
+}
+
+/*
+the items are nested in a div of id #results
+as they are all block element, there's no need to use flex properties to position them atop one another
+*/
+#results .item {
+  color: var(--color-input);
+  /* add considerable padding in light of the svg included on top of the div (this issue is solved by crafting the SVG itself better, and considering the container in its entirety) */
+  padding: 2rem 2rem 4rem;
+  width: 100%;
+  /* position relative for the SVG elements, which are absolute positioned on each div */
+  position: relative;
+}
+/*
+for the 1st, 3rd and so forth result, display the text to the right
+this to align with the label and the SVG crafted for the occasion in the script
+ */
+#results .item:nth-of-type(odd) {
+  text-align: right;
+}
+/* style properties for the .item container, which sees the following structure
+h3
+h4
+p
+p
+svg
+*/
+#results .item h3 {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+}
+#results .item h4 {
+  font-size: 0.75rem;
+  margin: 0.2rem 0 0.5rem;
+}
+#results .item p {
+  line-height: 2;
+}
+/* for the SVG, abolute position it atop each item container */
+#results .item svg {
+  /* color used by the SVG through the currentColor keyword */
+  color: var(--color-bg-d);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* stretching to cover the entirety of each container
+  by using the preserveAspectRatio it is possible to stretch the SVG and yet maintain the stroke uniform and around the container
+  */
+  height: 100%;
+  width: 100%;
+}
