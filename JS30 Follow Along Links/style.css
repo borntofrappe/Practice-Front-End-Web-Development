@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=KoHo:300|Open+Sans");
+
+/* color palette
+- #fff for backgroubd
+- #03050e for text
+- #65e78e for accent
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #03050e;
+  background: linear-gradient(to right, #fff 90%, #65e78e 90%);
+}
+
+/* displaying the div nesting the text elements to the right of the heading */
+.container {
+  /* ! position relative allows to absolute position the SVG element within the boundaries of the container */
+  position: relative;
+  margin: 1rem auto;
+  max-width: 700px;
+  width: 90vw;
+  background: #fff;
+  box-shadow: 0 1px 15px -7px #03050e;
+  display: flex;
+  background: #fff;
+}
+
+/* position the text at the bottom of the container */
+h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: "KoHo", sans-serif;
+  color: #fff;
+  background: #03050e;
+  padding: 1rem 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  /* position relative for a silly animated border, added through a pseudo element */
+  position: relative;
+}
+/* given the dimension of the heading, stretching to cover the entirety of the height and including some padding, position a line considering the measures of the padding */
+h2:before {
+  position: absolute;
+  content: "";
+  bottom: 1rem;
+  left: 1.25rem;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  /* animation to visually link the two sides of the container */
+  animation: hinthint 0.75s 0.75s cubic-bezier(0.9, -0.3, 0.89, 0.44) forwards;
+}
+@keyframes hinthint {
+  to {
+    left: 100%;
+  }
+}
+
+/* for the text displayed in the container, stretch the element to cover the remainder of the width */
+.container__text {
+  flex-grow: 1;
+  padding: 1rem 1.25rem;
+  /* z-index to position the container atop the SVG  */
+  z-index: 5;
+}
+/* space the paragraphs from each other */
+.container__text p {
+  margin: 1.5rem 0;
+  line-height: 2;
+}
+/* for the specified paragraph, include a vertical writing mode (using the peculiar pseudo selector simply for practice; it might make more sense to use a class) */
+.container__text p:nth-last-of-type(2) {
+  writing-mode: vertical-lr;
+}
+/* for the last paragraph, describe it at the right of the container, akin to a signature at the end of a letter */
+.container__text p:last-of-type {
+  text-align: right;
+}
+/* for the anchor link elements, remove default styles and add a dashed border
+as to show a border on all sizes only on hover, and avoid weird jumps, include a transparent border and change its color
+ */
+.container__text p a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0 0.125rem;
+  border: 1px dashed transparent;
+  border-bottom: 1px dashed #03050e;
+}
+/* for the vertical text the padding and the position of the initial border are updated to match the upside down nature of the element */
+.container__text p:nth-last-of-type(2) a {
+  padding: 0.125rem 0;
+  border: 1px dashed transparent;
+  border-left: 1px dashed #03050e;
+}
+/* the transition from a single bottom-border to a wrapping border is achieved through a class, added/removed in the script */
+.container__text p a.selection {
+  border: 1px dashed #03050e;
+  transition: all 0.2s ease-out;
+  transition-delay: 0.1s;
+}
+
+/* absolutely position the svg element in the top left corner of the container */
+svg {
+  color: #65e78e;
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+/* define a simple animation adding a blur, which is included on the SVG element as it is transitioned behind each anchor link element */
+@keyframes blur {
+  10% {
+    filter: blur(2px);
+  }
+}
+
+/* on smaller viewports remove the heading, showing only the div nesting the text */
+@media (max-width: 600px) {
+  h2 {
+    display: none;
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Follow Along Links</title>
+    <meta
+      name="description"
+      content="Use a simple SVG element to visually highlight anchor link elements as they are being hovered on or focused upon."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!--
+      inside of a wrapping container, nest the following structure
+      heading (introducing the project)
+      div (container storing random text and the necessary anchor link elements)
+      svg rectangle (moved behind each anchor link through the script)
+      ! the shared container allows to easily manoeuvre the SVG shape relative to said container, behind each and every item, simply by accessing its position
+     -->
+    <main class="container">
+      <h2>Follow along</h2>
+
+      <div class="container__text">
+        <p>Try to hover on a <a href="#">link</a>.</p>
+        <p>
+          In theory, it should also work with your keyboard, on
+          <a href="#">focus</a>.
+        </p>
+        <p>
+          If you don't like those links, try <a href="#">this one</a> for a
+          change.
+        </p>
+        <p>
+          You get it, right? <a href="#">Each</a> and <a href="#">any</a> link
+          will do.
+        </p>
+        <p>Even <a href="#">vertical</a> links!</p>
+        <p>There's even a bit of <a href="#">blur</a> to it</p>
+      </div>
+
+      <!-- removing the aspect ratio allows to resize the rectangle to fit the anchor links' width and height -->
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <rect x="0" y="0" width="100" height="100" fill="currentColor" />
+      </svg>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
