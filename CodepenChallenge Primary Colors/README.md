@@ -1,6 +1,6 @@
 # CodepenChallenge Primary Colors
 
-<!-- Proud result live [right here on codepen]() -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/zyQXQZ);
 
 ## Preface
 
