@@ -1,0 +1,120 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #444;
+  background: #fff;
+  /* display the content of the page in a centered column */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* for the SVG, use only a couple of properties to cap its width and include a simple border, to let it stand out on the white background */
+svg {
+  width: 80vw;
+  max-width: 80vh;
+  border: 2px solid #44444433;
+}
+
+/* heading, uppercase text */
+h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  margin: 2rem 0;
+  /* position relative to absolute position the three span elements and a :before pseudo element */
+  position: relative;
+}
+/* through a pseudo element add an ampersand sign to visually link the two lines making up the sentence */
+h3:before {
+  content: "&";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) scale(5) rotate(-5deg);
+  opacity: 0.08;
+}
+/* position the three spans to the right of the heading, with a simple rotation to display them as a silly color sample */
+h3 span {
+  position: absolute;
+  padding: 0.2rem;
+  left: 100%;
+  top: 70%;
+  transform-origin: left center;
+}
+h3 span[data-color="red"] {
+  transform: rotate(-35deg) translate(1rem, -50%);
+  background: #f44336;
+}
+h3 span[data-color="blue"] {
+  transform: rotate(0deg) translate(1rem, -50%);
+  background: #1e88e5;
+}
+h3 span[data-color="yellow"] {
+  transform: rotate(35deg) translate(1rem, -50%);
+  background: #fdd835;
+}
+
+/* details elements, leveraging similar properties to the heading */
+details {
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  font-family: inherit;
+  background: none;
+  border: 1px solid currentColor;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.9rem;
+}
+details summary {
+  font-size: 0.8;
+}
+/* ordered list contained in the first details element, spacing the list items a touch */
+details ol {
+  list-style-position: inside;
+}
+details ol li {
+  padding: 0.2rem 0.8rem;
+  margin: 1rem 0;
+  letter-spacing: 0.12rem;
+}
+details ol li:last-of-type {
+  /* position relative to add a small hint to the last list item */
+  position: relative;
+}
+/* through a pseudo element add a suggestion for the blend mode */
+details ol li:last-of-type:after {
+  content: "try hard-light 💡";
+  position: absolute;
+  font-size: 0.55rem;
+  right: 0%;
+  top: 100%;
+  opacity: 0.9;
+}
+
+/* div.radio contained in the second details element, displaying the label + input side by side */
+details .radio {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0.75rem;
+  /* transition for a small change in background, as to highlight the hovered div */
+  transition: all 0.2s ease-out;
+}
+details .radio:hover {
+  background: #33333333;
+}
+/* label occupying the space of the flex container and pushing the radio inputs to the very right edge of the container */
+details .radio label {
+  flex-grow: 1;
+}

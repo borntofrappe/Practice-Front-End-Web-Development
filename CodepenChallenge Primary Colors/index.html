@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>#CodepenChallenge Drops of primary colors</title>
+    <meta
+      name="description"
+      content="Simply three colors. Just what can you do with a few droplets of these values? Entry for the weekly #CodepenChallenge."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- below an introductory heading, include the SVG element making up the 'canvas' -->
+    <h3>
+      <!-- heading showing the statement in two sentences, and displaying the three colors in span elements (later moved relative to the wrapping heading) -->
+      <strong>P</strong>ick a color
+
+      <br />
+
+      <strong>p</strong>aint the town
+
+      <span data-color="yellow">yellow</span>
+      <span data-color="blue">blue</span> <span data-color="red">red</span>
+    </h3>
+
+    <!-- for the heading, include three small circles in the top left corner, and a path element fencing them in -->
+    <svg viewBox="0 0 100 100">
+      <!-- add a simple path resembling a cursor, hinting at how the project works -->
+      <path
+        transform-origin="3 3"
+        transform="rotate(110)"
+        d="M 4 1 v 4.5 l -1.5 -1.5 l -2 0 z"
+        fill="#ccc"
+      >
+        <!-- if possible, animate the path to highlight the three droplets -->
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          values="110; 170; 110; 50; 110"
+          keyTimes="0; 0.2; 0.5; 0.7; 1"
+          dur="2.5s"
+          repeatCount="2"
+        />
+      </path>
+
+      <circle cx="12" cy="3" r="3" fill="#F44336" />
+      <circle cx="8" cy="8" r="3" fill="#1E88E5" />
+      <circle cx="3" cy="12" r="3" fill="#FDD835" />
+
+      <!--
+        for the path element(s) closing in the three circles in the top left corner a bit of math is required
+        given a radius of 17
+        stroke-dasharray and stroke-dashoffset are computed on the basis of the perimeter
+        with this in mind the arc ought to be around 26.69 (a fourth of the perimeter)
+        8.9 roughtly a third (using a third of the arc and multiples to sketch the three colored segments)
+      -->
+      <path
+        d="M 17 0 a 17 17 0 0 1 -17 17"
+        stroke="#FDD835"
+        stroke-width="2"
+        fill="none"
+        stroke-dasharray="17.8"
+        stroke-dashoffset="17.8"
+      />
+
+      <path
+        d="M 17 0 a 17 17 0 0 1 -17 17"
+        stroke="#F44336"
+        stroke-width="2"
+        fill="none"
+        stroke-dasharray="17.8"
+        stroke-dashoffset="8.9"
+      />
+
+      <path
+        d="M 17 0 a 17 17 0 0 1 -17 17"
+        stroke="#1E88E5"
+        stroke-width="2"
+        fill="none"
+        stroke-dasharray="8.9"
+        stroke-dashoffset="8.9"
+      />
+    </svg>
+
+    <!-- following the heading and the svg, incluce 2 details elements
+    the first to give some kind of instructions
+    -->
+    <details>
+      <ol>
+        <li>Select one drop</li>
+        <li>Move it anywhere</li>
+        <li>Change blend mode</li>
+      </ol>
+      <summary>How does this work?</summary>
+    </details>
+
+    <!-- the second to describe a few possible blending modes (populated in the script) -->
+    <details class="blend-mode"> </details>
+
+    <script src="script.js"></script>
+  </body>
+</html>
