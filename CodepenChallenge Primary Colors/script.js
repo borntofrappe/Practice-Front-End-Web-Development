@@ -85,8 +85,14 @@ function moveCircle(e) {
   // create a point to find the precise coordinates of the cursor, within the boundaries of the SVG
   const point = svg.createSVGPoint();
   // add the coordinates of the cursor
-  point.x = e.clientX;
-  point.y = e.clientY;
+  // ! e might provide the coordiantes in the e.touches array if the function is fired from a touch event
+  if (e.touches) {
+    point.x = e.touches[0].clientX;
+    point.y = e.touches[0].clientY;
+  } else {
+    point.x = e.clientX;
+    point.y = e.clientY;
+  }
   // transform the coordinates from px values in the page to SVG coordinates (in the 0-100 range of the viewBox)
   const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
   // move the circle to match the coordinates
@@ -106,7 +112,7 @@ function createCircle() {
   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   circle.setAttribute('cx', cx);
   circle.setAttribute('cy', cy);
-  circle.setAttribute('r', r * 1.25);
+  circle.setAttribute('r', r * 1.35);
   circle.setAttribute('fill', fill);
   // add the blend mode as stored in the global variable
   circle.style.mixBlendMode = selectedBlendMode;
@@ -119,9 +125,50 @@ function createCircle() {
   circle.addEventListener('mouseup', () => { isSelected = false; });
   circle.addEventListener('mouseout', () => { isSelected = false; });
 
+
+  // for mobile devices, add similar event listeners for touch events
+  circle.addEventListener('touchmove', moveCircle);
+  circle.addEventListener('touchstart', () => { isSelected = true; });
+  circle.addEventListener('touchend', () => { isSelected = false; });
+
+
   // append the circle element to the SVG container
   svg.appendChild(circle);
 }
 
 // listen for a mousedown event on the existing circles, calling the function to create the new droplet
 circles.forEach(circle => circle.addEventListener('mousedown', createCircle));
+
+
+// target the button used to save the SVG (of the work, excluding the existing elements which are nested in a <g> element)
+const button = document.querySelector('button');
+
+// function considering the HTML of the SVG and allowing the user to save an SVG file with a copy of the work
+function handleClick() {
+  // retrieve the HTML structure
+  const { outerHTML } = svg;
+  // as to create a valid string to inject in a data URI, remove new lines, tabs and white space between characters
+  const droplet = outerHTML
+    .replace(/[\n\t]/gi, '')
+    .replace(/>\s+</gi, '><')
+    // remove also the SVG elements nested in the first group element (which nests default path and circle elements)
+    .replace(/<g>.+<\/g>/gi, '');
+
+  // ! save the image only if the work contains a circle element
+  // else notify the user through the a pseudo element
+  if (/circle/.test(droplet)) {
+    // create the data URI
+    const href = `data:image/svg+xml;utf8,${droplet}`;
+    // create an anchor link element and add as reference the specified string
+    const link = document.createElement('a');
+    link.href = href;
+    link.setAttribute('download', 'droplet');
+    // programmatically click the link downloading the file
+    link.click();
+  } else {
+    button.classList.add('empty');
+  }
+}
+
+// attach a click event listener to the button, calling the prescribed function
+button.addEventListener('click', handleClick);
