@@ -51,3 +51,19 @@ const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
 ```
 
 As per the documentation, `getScreenCTM()` _returns a DOMMatrix representing the matrix that transforms the current element's coordinate system to the coordinate system of the SVG viewport for the SVG document fragment_. It is applied on the SVG element and allows to obtain the SVG coordinates by simply inverting its process.
+
+## Update
+
+As mentioned in the commit messages of this simple branch, I devoted a bit more time on the project for the following features:
+
+- possibility to handle touch events. While I still have not figured out everything in this realm, using `touch` events and retrieving information from the connected event (through `e.touches`) is not that challenging.
+
+- possibility to save the SVG. This has been a more treaky feature, but it boils down to take the SVG syntax, remove any whitespace and new lines as to reference the SVG element in one single line, bake this line in a data URI and apply it to the `href` attribute of an anchor link element. By using the `download` attribute of HTML5 anchor link elements, it is then possible to download the file to local storage.
+
+Advantages of leaving SVG instead of finding out how to achieve the same results with a PNG format:
+
+- less challenging;
+
+- lightweight format;
+
+- ease of use in other HTML-CSS projects. It is indeed possible to copy paste the SVG syntax to have it working and boldly display the circle elements.
