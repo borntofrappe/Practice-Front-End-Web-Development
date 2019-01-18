@@ -19,11 +19,10 @@ body {
   flex-direction: column;
 }
 
-/* for the SVG, use only a couple of properties to cap its width and include a simple border, to let it stand out on the white background */
+/* for the SVG, use only a couple of properties to cap its width */
 svg {
   width: 80vw;
-  max-width: 80vh;
-  border: 2px solid #44444433;
+  max-width: 90vh;
 }
 
 /* heading, uppercase text */
@@ -64,8 +63,70 @@ h3 span[data-color="yellow"] {
   transform: rotate(35deg) translate(1rem, -50%);
   background: #fdd835;
 }
+/* button element, using similar properties as the heading */
+button {
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 1.5rem 0;
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: 1px solid currentColor;
+  padding: 0.35rem 1rem;
+  font-size: 0.9rem;
+  /* transition to swap the color and background color on hover */
+  transition: all 0.2s ease-out;
+  /* position relative to show a small hint through a pseudo element */
+  position: relative;
+}
+button:hover,
+button:focus {
+  background: #333;
+  color: #fff;
+}
+/* hint positioned to the right of the button and shown only on hover & focus */
+button:after {
+  content: "as an svg";
+  color: #333;
+  background: transparent;
+  position: absolute;
+  left: 100%;
+  top: 0%;
+  transform: translate(0, -50%) rotate(0deg);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.25s ease-out;
+}
+button:hover:after,
+button:focus:after {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(1rem, -40%) rotate(10deg);
+}
 
-/* details elements, leveraging similar properties to the heading */
+/* through another pseudo element, show a notice when clicking the button and without having added any circle element in the SVG */
+button.empty:before {
+  content: "paint first";
+  color: #333;
+  background: transparent;
+  position: absolute;
+  left: 100%;
+  top: 0%;
+  transform: translate(1rem, -50%) rotate(0deg);
+  visibility: hidden;
+  opacity: 0;
+  animation: intro 1s ease-out;
+}
+@keyframes intro {
+  30%,
+  80% {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(3rem, -70%) rotate(12deg);
+  }
+}
+
+/* details elements, leveraging similar properties as the button */
 details {
   font-weight: 300;
   text-transform: uppercase;
@@ -88,12 +149,12 @@ details ol li {
   margin: 1rem 0;
   letter-spacing: 0.12rem;
 }
-details ol li:last-of-type {
-  /* position relative to add a small hint to the last list item */
+details ol li:nth-last-of-type(2) {
+  /* position relative to add a small hint to the penultimate list item */
   position: relative;
 }
 /* through a pseudo element add a suggestion for the blend mode */
-details ol li:last-of-type:after {
+details ol li:nth-last-of-type(2):after {
   content: "try hard-light 💡";
   position: absolute;
   font-size: 0.55rem;
