@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700|Roboto");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #1f0311;
+  background: #e8308c;
+}
+
+.container {
+  padding: 1rem;
+  margin: 1rem auto;
+  background: #fff;
+  max-width: 500px;
+  width: 90vw;
+}
+h1 {
+  font-family: "IBM Plex Sans", sans-serif;
+  margin-bottom: 2rem;
+}
+mark {
+  background: #4cdfae;
+  color: inherit;
+  padding: 0.15rem 0.25rem;
+  font-weight: 800;
+}
+.exercises--exercise {
+  padding: 0 1rem;
+  display: flex;
+}
+details summary {
+  margin: 0.5rem 0;
+  color: #16020c;
+  transition: all 0.2s ease-out;
+  padding: 0.5rem 0.75rem;
+}
+details summary:hover {
+  background: #620c39;
+  color: #fff;
+}
+details {
+  color: #620c39;
+}
+table {
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+  line-height: 2;
+}
+tr + tr {
+  line-height: 3;
+}
+
+th {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+ul {
+  margin-top: 0.75rem;
+  list-style: inside;
+  line-height: 2.5;
+  list-style-type: square;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 2px dashed currentColor;
+}
+
+button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  background: #16020c;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 10px;
+  transform-origin: bottom center;
+  transition: all 0.2s ease-out;
+}
+button:hover {
+  transform: translateY(0.3rem) scaleY(0.95);
+}
+button:active {
+  transform: translateY(0.4rem) scaleY(0.9);
+}
