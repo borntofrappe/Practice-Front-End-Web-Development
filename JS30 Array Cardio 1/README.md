@@ -1,5 +1,7 @@
 # Array Cardio Panel
 
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/WLqVyL)
+
 ## Preface
 
 In the JavaScript30 course, there are few lessons focusing entirely on JavaScript. These lessons can be completed directly in the JS console of a Chrome browser, and therefore do not need an HTML and CSS file to frame them.
