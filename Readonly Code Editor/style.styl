@@ -1,0 +1,147 @@
+// import font(s)
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Open+Sans')
+
+// open sans for body, fira mono for code
+// dark-plue palette, with a dark editor including lighter nuances for the left panel and the scroll bar
+font-body = "Open Sans", sans-serif
+font-mono = 'Fira Mono', monospace
+color-text = #aaa
+color-bg = #021d33
+color-editor = #000b14
+color-main = #000b14
+color-nav = #00101d
+color-code = #002b4d
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+body
+    width 100%
+    font-family font-body
+    color color-text
+    background color-bg
+
+// cap the width of the wrapping container, and center it horizontally
+.editor
+    max-width 1000px
+    width 90vw
+    margin 1rem auto
+    // fix the height and in case add later the possibility to scroll within the container
+    height calc(100vh - 2rem)
+    border-radius 4px
+    box-shadow 0 2px 5px -2px color-editor, 0 0 15px -4px rgba(color-editor, 0.5)
+    // display the two containers side by side, giving the nav panel a fixed width
+    display grid
+    grid-template-columns 200px 1fr
+
+
+// container nesting the folder - file structure of a code editor
+.editor__panel
+    background color-nav
+    padding 1rem
+    details
+        padding 0 0.75rem
+        margin 0.5rem 0
+        // reduce the size of details element
+        font-size 0.9rem
+        // container nesting the buttons in the details element
+        // display the button on top of one another
+        .buttons
+            display flex
+            flex-direction column
+
+            button
+                text-align left
+                cursor pointer
+                color inherit
+                background none
+                border none
+                font-size 0.7rem
+                font-family inherit
+                padding 0.25rem 1rem
+                // add a lighter background on hover
+                &:hover
+                    transition all 0.1s ease-out
+                    background lighten(color-nav, 5%)
+                &.active
+                // add an even lighter background when including a class of active (through the script)
+                    background lighten(color-nav, 10%)
+
+
+// container showing the code and the exercises
+.editor__display
+    // overflow to auto to allow for scroll when the content passes through the fixed height of the parent container
+    overflow auto
+    background color-main
+    padding 0.8rem 1rem
+    // for the code shown in the data folder, this is wrapped in a pre element, in conjunction with JSON.stringify to detail the text within the boundaries of the main parent container
+    pre
+        margin 1rem
+        line-height 1.5
+
+        code
+            font-size 0.75rem
+            font-family font-mono
+
+    // each exericse is nested in its own div container, with heading, code and table children elements
+    .display--exercise
+        padding 0.5rem 0.75rem
+        line-height 2
+        h1
+            font-size 2rem
+
+        h2
+            text-transform uppercase
+            letter-spacing 0.1rem
+            font-size 1.3rem
+            margin-top 0.5rem
+
+            // increase the whitespace between headings following the first one
+            & ~ h2
+                margin-top 1.25rem
+        // show the code with a translucent background
+        code
+            font-size 0.85rem
+            font-family font-mono
+            padding 0.25rem 0.5rem
+            border-left 4px solid color-code
+            background rgba(color-code, 0.25)
+        // show the contents of the table aligned to the left
+        // slightly push the table off the starting edge
+        table
+            text-align left
+            margin-left 0.5rem
+            border-spacing 0.75rem
+
+            th
+                text-transform uppercase
+                font-size 0.9rem
+                font-weight 300
+                letter-spacing 0.05rem
+                border-bottom 2px solid color-code
+            // add a simple transition for hover events on the table cells
+            td:hover
+                transition background 0.2s ease-out
+                background rgba(color-code, 0.18)
+
+        // style mark elements with the theme of the application
+        mark
+            background rgba(color-code, 0.45)
+            color inherit
+        // style the unordered list to show squares
+        ul
+            list-style inside square
+
+// a few -webkit properties for the optional scroll bar appearing in the main element
+.editor__display::-webkit-scrollbar
+    width 0.35rem
+    height 0.25rem
+
+.editor__display::-webkit-scrollbar-track
+    box-shadow inset 0 0 6px lighten(color-main, 5%)
+
+.editor__display::-webkit-scrollbar-thumb
+    background lighten(color-main, 10%)
+    border-radius 5px
