@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono|Open+Sans");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: #aaa;
+  background: #021d33;
+}
+.editor {
+  max-width: 1000px;
+  width: 90vw;
+  margin: 1rem auto;
+  height: calc(100vh - 2rem);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px -2px #000b14, 0 0 15px -4px rgba(0,11,20,0.5);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+.editor__panel {
+  background: #00101d;
+  padding: 1rem;
+}
+.editor__panel details {
+  padding: 0 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.editor__panel details details {
+  font-size: 0.75rem;
+}
+.editor__panel details .buttons {
+  display: flex;
+  flex-direction: column;
+}
+.editor__panel details .buttons button {
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  background: none;
+  border: none;
+  font-size: 0.7rem;
+  font-family: inherit;
+  padding: 0.25rem 1rem;
+}
+.editor__panel details .buttons button:hover {
+  transition: all 0.1s ease-out;
+  background: #001d35;
+}
+.editor__panel details .buttons button.active {
+  background: #002b4d;
+}
+.editor__display {
+  overflow: auto;
+  background: #000b14;
+  padding: 0.8rem 1rem;
+}
+.editor__display pre {
+  margin: 1rem;
+  line-height: 1.5;
+}
+.editor__display pre code {
+  font-size: 0.75rem;
+  font-family: 'Fira Mono', monospace;
+}
+.editor__display .display--exercise {
+  padding: 0.5rem 0.75rem;
+  line-height: 2;
+}
+.editor__display .display--exercise h1 {
+  font-size: 2rem;
+}
+.editor__display .display--exercise h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+.editor__display .display--exercise h2 ~ h2 {
+  margin-top: 1.25rem;
+}
+.editor__display .display--exercise code {
+  font-size: 0.85rem;
+  font-family: 'Fira Mono', monospace;
+  padding: 0.25rem 0.5rem;
+  border-left: 4px solid #002b4d;
+  background: rgba(0,43,77,0.25);
+}
+.editor__display .display--exercise table {
+  text-align: left;
+  margin-left: 0.5rem;
+  border-spacing: 0.75rem;
+}
+.editor__display .display--exercise table th {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  border-bottom: 2px solid #002b4d;
+}
+.editor__display .display--exercise table td:hover {
+  transition: background 0.2s ease-out;
+  background: rgba(0,43,77,0.18);
+}
+.editor__display .display--exercise mark {
+  background: rgba(0,43,77,0.45);
+  color: inherit;
+}
+.editor__display .display--exercise ul {
+  list-style: inside square;
+}
+.editor__display .display--exercise p {
+  font-size: 0.9rem;
+}
+.editor__display::-webkit-scrollbar {
+  width: 0.35rem;
+  height: 0.25rem;
+}
+.editor__display::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px #00182d;
+}
+.editor__display::-webkit-scrollbar-thumb {
+  background: #002645;
+  border-radius: 5px;
+}
