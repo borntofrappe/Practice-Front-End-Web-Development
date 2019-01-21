@@ -1,0 +1,129 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* purple (mostly dark purple) color palette */
+:root {
+  --color-bg: #161743;
+  --color-bg-d: #09091f;
+  --color-accent: #ad11a6;
+  --color-text: #fff;
+  /* variable used to update the linear gradient of the bar for the speed rate (and position of the nested tip) (visually conveying the range of values) */
+  /* the idea is to have a 0.5-3.5 range, and the default 1x speed is at 25% of this range */
+  --progress: 25%;
+  --color-bar: var(--color-bg-d);
+  --color-bar-fill: var(--color-accent);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* horizontally center the container, cap its width */
+.video {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1.5rem auto;
+}
+
+/* add a border through the box shadow property */
+.video video {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 0 0.75rem var(--color-text),
+    0 1px 5px 0.75rem var(--color-bg-d);
+  border-radius: 5px;
+  /* margin bottom to avoid the box-shadow overlapping with following elements */
+  margin-bottom: 1rem;
+}
+
+/* display the SVG and the div making up the speed rate bar side by side (and vertically centered) */
+.video .video__speed {
+  display: flex;
+  align-items: center;
+}
+/* show the bar only when hovering on the parent container (hidden by default) */
+.video .video__speed:hover .speed--bar {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* resize the SVG */
+.video .video__speed svg {
+  width: 100px;
+  height: 100px;
+}
+
+/* show the text of the SVG element only briefly, and only as the cursor hovers away from the parent container */
+.video .video__speed:not(:hover) svg text {
+  animation: dissipate 0.25s 1.75s ease-out forwards;
+}
+/* when hovering the parent container, hide the helpful message */
+.video .video__speed:hover svg text {
+  visibility: hidden;
+  opacity: 0;
+}
+/* animation applied on the SVG text when the cursor does not hover the parent container */
+@keyframes dissipate {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* speed rate bar, hidden by default (and shown when hovering on the parent container) */
+.video .video__speed .speed--bar {
+  visibility: hidden;
+  opacity: 0;
+  /* linear gradient visually conveying the current speed rate */
+  background: linear-gradient(
+    to right,
+    var(--color-bar-fill) var(--progress),
+    var(--color-bar) var(--progress)
+  );
+  margin-left: 0.75rem;
+  border-radius: 50px;
+  width: 100%;
+  height: 30px;
+  /* position relative to absolute position the nested div */
+  position: relative;
+  /* transition for the change in opacity */
+  transition: all 0.2s ease-out;
+}
+
+/* tooltip for the speed rate bar, relating the current speed rate through text */
+.video .video__speed .speed--bar .bar--tip {
+  /* position it below the bar (and change it horizontal position using the same custom property used for the speed bar) */
+  position: absolute;
+  top: 100%;
+  left: var(--progress);
+  transform: translate(-50%, 50%);
+  /* transition for the change in position */
+  transition: all 0.2s ease-out;
+  background: var(--color-text);
+  padding: 0.25rem 0.5rem;
+  color: var(--color-bg-d);
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 5px;
+  /* filter instead of drop shadow to apply the shadow uniformly and to the connected pseudo element as well */
+  filter: drop-shadow(0 1px 3px var(--color-bg-d));
+}
+/* through a pseudo element add a simple arrow pointing toward the above bar */
+.video .video__speed .speed--bar .bar--tip:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-top: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  border-bottom: 0.25rem solid var(--color-text);
+  border-left: 0.25rem solid transparent;
+}
