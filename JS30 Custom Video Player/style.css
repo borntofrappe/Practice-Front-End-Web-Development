@@ -1,0 +1,236 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* purple (mostly dark purple) color palette */
+:root {
+  --color-bg: #161743;
+  --color-bg-d: #060616;
+  --color-accent: #ad11a6;
+  --color-text: #fff;
+  /* variable used to update the linear gradient of the bar for the speed rate (and position of the nested tip) (visually conveying the range of values) */
+  /* the idea is to have a 0.5-3.5 range, and the default 1x speed is at 25% of this range */
+  --speed: 25%;
+  --speed-bar: var(--color-bg-d);
+  --speed-bar-fill: var(--color-accent);
+
+  /* variable used to update the linear gradient of the bar for the volume */
+  --volume: 100%;
+  --controls: var(--color-bg-d);
+  --controls-fill: var(--color-text);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* horizontally center the container, cap its width */
+.app {
+  max-width: 600px;
+  width: 90vw;
+  margin: 1.5rem auto;
+}
+
+.app__video {
+  /* position relative to absolute position the div nesting the controls */
+  position: relative;
+  border-radius: 10px;
+  /* border only to the sides */
+  border: 0.75rem solid var(--color-text);
+  border-bottom: none;
+  border-top: none;
+  box-shadow: 0 1px 7px -1px var(--color-bg-d);
+}
+.app__video video {
+  width: 100%;
+  height: auto;
+}
+
+/* display the div nesting the controls at the bottom of the video */
+.app__video .video--controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: var(--color-bg);
+  /* transition the div as it'd appear from the bottom of the div */
+  transition: all 0.25s ease-out;
+  transform: scaleY(0);
+  transform-origin: 50% 100%;
+  /* display the buttons/input/experimental volume div in a row (and center them vertically) */
+  display: flex;
+  align-items: center;
+}
+/* on hover scale the div to its rightful height */
+.app__video:hover .video--controls {
+  transform: scaleY(1);
+}
+
+/* show the buttons through the SVG icons */
+.app__video .video--controls button {
+  cursor: pointer;
+  margin: 0 0.25rem;
+  color: var(--controls);
+  background: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  visibility: hidden;
+}
+/* on hover and **after** the container has done transitioning show the buttons */
+.app__video:hover .video--controls button {
+  transition: all 0.2s ease-out;
+  transition-delay: 0.25s;
+  opacity: 1;
+  visibility: visible;
+}
+.app__video .video--controls button svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+}
+
+/* stretch the input of type range to occupy the available space and push the surrounding elements away */
+.app__video .video--controls input[type="range"] {
+  flex-grow: 1;
+  margin: 0 0.5rem;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: var(--controls);
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+}
+.app__video .video--controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--controls-fill);
+}
+
+/* apply the same transition logic used for the buttons, with a slight delay */
+.app__video:hover .video--controls input[type="range"] {
+  transition: all 0.2s ease-out;
+  transition-delay: 0.3s;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* for the volume, use a div which is clipped as to show a crescendo
+used the linear gradient much alike for the speed controller below
+*/
+.app__video .video--controls div#volume {
+  cursor: pointer;
+  margin: 0 0.25rem;
+  height: 15px;
+  width: 35px;
+  background: linear-gradient(
+    to right,
+    var(--controls-fill) var(--volume),
+    var(--controls) var(--volume)
+  );
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  opacity: 0;
+  visibility: hidden;
+}
+/* apply the same transition logic used for the buttons and input, with a slightly larger delay */
+.app__video:hover .video--controls div#volume {
+  transition: all 0.2s ease-out;
+  transition-delay: 0.35s;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* display the SVG and the div making up the speed rate bar side by side (and vertically centered) */
+.app__speed {
+  display: flex;
+  align-items: center;
+}
+/* show the bar only when hovering on the parent container (hidden by default) */
+.app__speed:hover .speed--bar {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* resize the SVG */
+.app__speed svg {
+  width: 100px;
+  height: 100px;
+}
+
+/* show the text of the SVG element only briefly, and only as the cursor hovers away from the parent container */
+.app__speed:not(:hover) svg text {
+  animation: dissipate 0.25s 1.75s ease-out forwards;
+}
+/* when hovering the parent container, hide the helpful message */
+.app__speed:hover svg text {
+  visibility: hidden;
+  opacity: 0;
+}
+/* animation applied on the SVG text when the cursor does not hover the parent container */
+@keyframes dissipate {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* speed rate bar, hidden by default (and shown when hovering on the parent container) */
+.app__speed .speed--bar {
+  visibility: hidden;
+  opacity: 0;
+  /* linear gradient visually conveying the current speed rate */
+  background: linear-gradient(
+    to right,
+    var(--speed-bar-fill) var(--speed),
+    var(--speed-bar) var(--speed)
+  );
+  margin-left: 0.75rem;
+  border-radius: 50px;
+  width: 100%;
+  height: 30px;
+  /* position relative to absolute position the nested div */
+  position: relative;
+  /* transition for the change in opacity */
+  transition: all 0.2s ease-out;
+}
+
+/* tooltip for the speed rate bar, relating the current speed rate through text */
+.app__speed .speed--bar .bar--tip {
+  /* position it below the bar (and change it horizontal position using the same custom property used for the speed bar) */
+  position: absolute;
+  top: 100%;
+  left: var(--speed);
+  transform: translate(-50%, 50%);
+  /* transition for the change in position */
+  transition: all 0.2s ease-out;
+  background: var(--color-text);
+  padding: 0.25rem 0.5rem;
+  color: var(--color-bg-d);
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 5px;
+  /* filter instead of drop shadow to apply the shadow uniformly and to the connected pseudo element as well */
+  filter: drop-shadow(0 1px 3px var(--color-bg-d));
+}
+/* through a pseudo element add a simple arrow pointing toward the above bar */
+.app__speed .speed--bar .bar--tip:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-top: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  border-bottom: 0.25rem solid var(--color-text);
+  border-left: 0.25rem solid transparent;
+}

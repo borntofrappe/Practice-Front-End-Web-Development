@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Custom Video Player</title>
+    <meta
+      name="description"
+      content="Create a video player with custom controls, allowing the user to play/pause/stop/change the position/change the volume/change the speed rate of the video itself."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- svg icons used in the controls div -->
+    <svg style="display: none;">
+      <symbol id="stop-icon" viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(25 25) scale(0.5)">
+          <rect x="0" y="0" width="100" height="100" />
+        </g>
+      </symbol>
+
+      <symbol id="play-icon" viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(25 25) scale(0.5)">
+          <path d="M 10 0 l 100 50 l -100 50" />
+        </g>
+      </symbol>
+
+      <symbol id="pause-icon" viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(25 25) scale(0.5)">
+          <rect x="0" y="0" width="35" height="100" />
+          <rect x="65" y="0" width="35" height="100" />
+        </g>
+      </symbol>
+    </svg>
+
+    <!--
+      in a wrapping container include
+      - one div for the video and controls (which are absolutely positioned at the bottom of the video element)
+      - one div for the experimental controller changing the speed
+    -->
+    <div class="app">
+      <!-- ! instead of using `controls` in the video element, make up the controls in a div, absolutely positioned at the bottom of the video -->
+      <div class="app__video">
+        <video src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"></video>
+
+        <div class="video--controls">
+          <button id="toggle">
+            <svg><use href="#play-icon" /></svg>
+          </button>
+
+          <!-- <button>
+            <svg><use href="#pause-icon" /></svg>
+          </button> -->
+
+          <button id="stop">
+            <svg><use href="#stop-icon" /></svg>
+          </button>
+
+          <input id="position" type="range" min="0" max="100" value="0" />
+
+          <div id="volume"></div>
+        </div>
+      </div>
+
+      <div class="app__speed">
+        <!-- SVG structure
+          - a simple string, used to notify the user of the controller which appears on hover
+          - a group element nesting the dashes used to visually relate the changing speed rate
+          - a group element nesting the actual blob
+        -->
+        <svg
+          class="speed--buddy"
+          viewBox="0 0 100 100"
+          width="100"
+          height="100"
+        >
+          <text
+            x="50"
+            y="15"
+            text-anchor="middle"
+            font-size="0.75rem"
+            fill="#fff"
+          >
+            Hover here!
+          </text>
+
+          <!-- the idea is to use the transform property and scale the dashes horizontally, from 0 to 1 and -1, to the left and to the right
+          it is therefore essential to modify the origin of the transformation
+          -->
+          <g
+            id="buddy-dashes"
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            transform-origin="50 50"
+            transform="scale(0 1)"
+          >
+            <path d="M 10 28 h 20" stroke-width="3" />
+
+            <path d="M 20 40 h 10" stroke-width="3.5" />
+
+            <path d="M 10 45 h 5" stroke-width="3" />
+
+            <path d="M 15 52 h 10" stroke-width="3.5" />
+
+            <path d="M 10 60 h 5" stroke-width="3" />
+
+            <path d="M 17 68 h 18" stroke-width="3" />
+          </g>
+
+          <!-- for the blob, the idea is instead to skew it horizontally, and to match the dashes -->
+          <g id="buddy-blob" transform-origin="50 50" transform="skewX(0)">
+            <!-- this additional group element is used to later work with the 100x100 boundaries of the viewBox, but avoiding conflict in case the elements exceed the boundaries (to use nice round numbers mostly) -->
+            <g transform="translate(25 25) scale(0.5)">
+              <circle cx="50" cy="50" r="50" fill="#380836" />
+              <circle cx="50" cy="50" r="45" fill="#ad11a6" />
+              <circle cx="50" cy="50" r="42" fill="#fff" />
+
+              <!-- eyes, cheeks and mouth -->
+              <g>
+                <g fill="#380836">
+                  <circle cx="36" cy="45" r="6" />
+                  <ellipse cx="30" cy="60" rx="5" ry="3.5" opacity="0.5" />
+                  <circle cx="64" cy="45" r="6" />
+                  <ellipse cx="70" cy="60" rx="5" ry="3.5" opacity="0.5" />
+                </g>
+                <path
+                  d="M 42 58 a 8 8 0 0 0 16 0"
+                  stroke="#380836"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
+
+        <!-- div atually making up the controller
+        nesting an additional oontainer to relate the speed rate through text
+        -->
+        <div class="speed--bar"><div class="bar--tip">1x</div></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
