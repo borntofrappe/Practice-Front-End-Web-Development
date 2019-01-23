@@ -1,0 +1,167 @@
+:root {
+  --bg: #1f1f32;
+  --bg-d: #0e0e18;
+  --text: #fefefe;
+  --accent: #8be8dd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--bg);
+}
+
+main.maker {
+  display: grid;
+  justify-content: center;
+  grid-gap: 2rem 1rem;
+  margin: 1rem 0;
+  grid-template-areas: "canvas tools" "globals .";
+}
+svg.maker__canvas {
+  grid-area: canvas;
+  width: 500px;
+  height: 500px;
+  box-shadow: 0px 1px 10px var(--bg-d);
+  background: var(--text);
+  cursor: crosshair;
+}
+svg.maker__canvas * {
+  pointer-events: none;
+}
+div.maker__tools {
+  grid-area: tools;
+
+  display: flex;
+  flex-direction: column;
+  perspective: 700px;
+  height: 500px;
+  overflow-y: auto;
+}
+button {
+  width: 82px;
+  height: 82px;
+  background: none;
+  border-radius: 4px;
+  color: var(--text);
+  border: 2px solid currentColor;
+  position: relative;
+  transition: all 0.2s ease-out;
+}
+button:hover {
+  color: var(--accent);
+}
+button.active {
+  color: var(--accent);
+}
+button:after {
+  content: attr(data-tool);
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: var(--bg);
+  color: var(--accent);
+  padding: 2px 4px;
+  box-shadow: 2px 2px var(--accent);
+
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform-origin: 100% 50%;
+  transform: translateX(0.3rem) rotateY(90deg);
+  transition: all 0.2s ease-out;
+}
+button:hover:after {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+button svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+div.maker__tools button {
+  flex-shrink: 0;
+  margin: 1rem 0.5rem;
+}
+
+div.maker__globals {
+  display: flex;
+  margin-top: 1rem;
+}
+
+div.maker__globals button {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  margin: 0.5rem 1rem;
+}
+
+div.maker__globals button:after {
+  font-size: 0.6rem;
+  content: attr(data-global);
+}
+
+div[data-global="color"] {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  border-radius: 4px;
+  color: var(--text);
+  border: 2px solid currentColor;
+  position: relative;
+  transition: all 0.2s ease-out;
+  margin: 0.5rem 1rem;
+}
+div[data-global="color"]:after {
+  font-size: 0.6rem;
+  content: attr(data-global);
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: var(--bg);
+  color: var(--accent);
+  padding: 2px 4px;
+  box-shadow: 2px 2px var(--accent);
+
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform-origin: 100% 50%;
+  transform: translateX(0.3rem) rotateY(90deg);
+  transition: all 0.2s ease-out;
+}
+div[data-global="color"]:hover {
+  color: var(--accent);
+}
+div[data-global="color"]:hover:after {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+div[data-global="color"] input[type="color"] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+div[data-global="color"] svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>SVG Maker</title>
+    <meta
+      name="description"
+      content="Try to replicate a few of the features allowed by SVG editors such as Inkscape to easily draw vector-based shapes and graphics directly on the web"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- svg elements used in the tools container, to represent the possible modes -->
+    <svg style="display: none;">
+      <symbol id="line" viewBox="0 0 100 100">
+        <g transform="translate(15 15) scale(0.7)">
+          <line x1="0" x2="100" y1="100" y2="0" stroke-width="2" />
+        </g>
+      </symbol>
+
+      <symbol id="rect" viewBox="0 0 100 100">
+        <g transform="translate(15 15) scale(0.7)">
+          <rect x="0" y="0" width="100" height="100" />
+        </g>
+      </symbol>
+
+      <symbol id="circle" viewBox="0 0 100 100">
+        <g transform="translate(15 15) scale(0.7)">
+          <circle cx="50" cy="50" r="50" />
+        </g>
+      </symbol>
+
+      <symbol id="clear" viewBox="0 0 100 100">
+        <g transform="translate(25 25) scale(0.5)">
+          <path d="M 0 0 l 100 100" stroke-width="10" />
+          <path d="M 0 100 l 100 -100" stroke-width="10" />
+        </g>
+      </symbol>
+
+      <symbol id="color" viewBox="0 0 100 100">
+        <g transform="translate(25 25) scale(0.5)">
+          <circle cx="70" cy="30" r="30" />
+          <circle cx="10" cy="60" r="20" />
+          <circle cx="50" cy="100" r="15" />
+        </g>
+      </symbol>
+    </svg>
+
+    <!--
+      the central element of the project is the SVG used as a canvas, with a 100x100 viewBox
+      this is presented side by side with a scrollable panel allowing to toggle different modes (and allowing to draw lines, rectangles, circles)
+      at the bottom include a scrollable panel (but horizontal) to modify to alter SVG elements no matter the shape (modify color, delete items)
+    -->
+
+    <main class="maker">
+      <svg
+        class="maker__canvas"
+        viewBox="0 0 100 100"
+        width="100"
+        height="100"
+      ></svg>
+
+      <div class="maker__tools">
+        <button class="active tool" data-tool="line">
+          <svg width="100" height="100"><use href="#line" /></svg>
+        </button>
+
+        <button class="tool" data-tool="rect">
+          <svg width="100" height="100"><use href="#rect" /></svg>
+        </button>
+
+        <button class="tool" data-tool="circle">
+          <svg width="100" height="100"><use href="#circle" /></svg>
+        </button>
+      </div>
+
+      <div class="maker__globals">
+        <button class="global" data-global="clear">
+          <svg width="100" height="100"><use href="#clear" /></svg>
+        </button>
+
+        <div data-global="color">
+          <input class="global" type="color" value="#8be8dd" />
+          <svg width="100" height="100"><use href="#color" /></svg>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
