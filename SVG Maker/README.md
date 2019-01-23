@@ -1,5 +1,7 @@
 # SVG Maker
 
+Link to the working pen right [here](https://codepen.io/borntofrappe/full/wNaqBw). It is certainly not done, but it already provides a good set of starting features.
+
 ## Preface
 
 With this project I have but one goal: recreate some of the features of Inkscape, allowing me to create very simple vector-based graphics directly on the web.
