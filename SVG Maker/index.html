@@ -16,7 +16,11 @@
   </head>
 
   <body>
-    <!-- svg elements used in the tools container, to represent the possible modes -->
+    <!-- svg elements used in the application to the possible tools
+    tools: line, rect, circle (to draw the respective shape)
+
+    globals: clear, color (to alter the SVG as a whole)
+    -->
     <svg style="display: none;">
       <symbol id="line" viewBox="0 0 100 100">
         <g transform="translate(15 15) scale(0.7)">
@@ -54,11 +58,12 @@
 
     <!--
       the central element of the project is the SVG used as a canvas, with a 100x100 viewBox
-      this is presented side by side with a scrollable panel allowing to toggle different modes (and allowing to draw lines, rectangles, circles)
-      at the bottom include a scrollable panel (but horizontal) to modify to alter SVG elements no matter the shape (modify color, delete items)
+      to the right of this SVG element, a panel allows to toggle different modes (allowing to draw different shapes)
+      to the bottom of the same SVG element, another panel allows to alter the SVG as a whole
     -->
 
     <main class="maker">
+      <!-- makeshift canvas -->
       <svg
         class="maker__canvas"
         viewBox="0 0 100 100"
@@ -66,6 +71,14 @@
         height="100"
       ></svg>
 
+      <!-- current tools
+      - line
+      - rect
+      - circle
+
+      each allows to enact a different mode
+      each details the respective value in a data-tool attribute, used in CSS
+      -->
       <div class="maker__tools">
         <button class="active tool" data-tool="line">
           <svg width="100" height="100"><use href="#line" /></svg>
@@ -80,16 +93,26 @@
         </button>
       </div>
 
+      <!-- current globals
+       - clear
+       - color
+
+       with a data-global attribute fulfilling the same feature of the data-tool attribute
+      -->
       <div class="maker__globals">
         <button class="global" data-global="clear">
           <svg width="100" height="100"><use href="#clear" /></svg>
         </button>
 
+        <!-- for the color, include a div instead of a button (remember to style them with the same property)
+        nest here the input of type color (hidden from view) and the matching SVG icon
+        -->
         <div data-global="color">
           <input class="global" type="color" value="#8be8dd" />
           <svg width="100" height="100"><use href="#color" /></svg>
         </div>
       </div>
+      <!-- close the globals div -->
     </main>
     <script src="script.js"></script>
   </body>
