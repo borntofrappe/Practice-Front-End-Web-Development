@@ -14,8 +14,8 @@ for context, present this element in a wrapping container and add a silly sectio
 
     <main>
       <!-- 	for the navigation, include anchor link elements in an unordered list -->
-      <!-- 	in each list item add an anchor link and an additional unordered list, used to craft the drop down
-    the idea is to have this list shown on hover, and have a div positioned right behind to provide the background
+      <!-- 	in each list item add an anchor link and additional elements making up the dropdown
+    the idea is to have the dropdown shown on hover, and have a div positioned right behind to provide the background
     -->
       <nav class="navigation">
         <!-- 	before any element, include the div used as the background for each and every dropdown (positioned and resized in the script) -->
@@ -25,18 +25,8 @@ for context, present this element in a wrapping container and add a silly sectio
             <a href="#papers">Papers</a>
             <ul class="item--dropdown">
               <li><a href="#confidential">Confidential</a></li>
+              <li><a href="#privileged">Privileged</a></li>
               <li><a href="#secret">Secret</a></li>
-              <li><a href="#privileged">Privileged</a></li>
-            </ul>
-            <!-- close the ul for the dropdown -->
-          </li>
-          <!-- close current option -->
-
-          <li class="list--item">
-            <a href="#documents">Documents</a>
-            <ul class="item--dropdown">
-              <li><a href="#privy">Privy</a></li>
-              <li><a href="#privileged">Privileged</a></li>
             </ul>
             <!-- close the ul for the dropdown -->
           </li>
@@ -45,8 +35,32 @@ for context, present this element in a wrapping container and add a silly sectio
           <li class="list--item">
             <a href="#items">Items</a>
             <ul class="item--dropdown">
-              <li><a href="#topsecret">Topsecret</a></li>
-              <li><a href="#longlonglong">Longlonglong</a></li>
+              <li><a href="#peculiar">Peculiar</a></li>
+              <li><a href="#random">Random</a></li>
+            </ul>
+            <!-- close the ul for the dropdown -->
+          </li>
+          <!-- close current option -->
+
+          <li class="list--item">
+            <a href="#documents">Documents</a>
+            <ul class="item--dropdown">
+              <li><a href="#electronic">Electronic</a></li>
+              <li><a href="#imagined">Imagined</a></li>
+              <li><a href="#madeup">Made up</a></li>
+              <li><a href="#printed">Printed</a></li>
+            </ul>
+            <!-- close the ul for the dropdown -->
+          </li>
+          <!-- close current option -->
+
+          <li class="list--item">
+            <a href="#items">Files</a>
+            <ul class="item--dropdown">
+              <li><a href="#encrypted">Encrypted</a></li>
+              <li><a href="#compromised">Compromised</a></li>
+              <li><a href="#safe">Safe</a></li>
+              <li><a href="#secure">Secure</a></li>
             </ul>
             <!-- close the ul for the dropdown -->
           </li>

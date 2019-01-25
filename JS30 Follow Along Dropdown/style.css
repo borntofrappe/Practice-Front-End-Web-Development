@@ -7,7 +7,6 @@
   --body: #32373d;
   --bg: #fff;
   --accent: #e22dbe;
-
   --nav-bg: #5533ff;
   --nav-text: #fff;
 }
@@ -23,14 +22,14 @@ body {
   min-height: 100vh;
   font-family: var(--font);
   color: var(--body);
-/* 	add a simple background covering much of the vertical space */
+  /* 	add a simple background covering much of the vertical space */
   background: linear-gradient(165deg, var(--nav-bg) 70%, transparent 70%),
     var(--bg);
 }
 
 /* center the silly section in the center of the page */
 main section {
-	position: absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -65,15 +64,13 @@ main section span {
   color: var(--accent);
 }
 
-
 /* NAVIGATION */
 /* start by giving some breathing space and a solid bg to the nav element */
 nav.navigation {
-	padding: 1rem 0.8rem;
   background: var(--nav-bg);
   color: var(--nav-text);
-/* 	position relative to absolute position the dropdown relative to this container */
-	position: relative;
+  /* 	position relative to absolute position the dropdown background relative to this container */
+  position: relative;
 }
 /* remove default options for the list and links */
 ul {
@@ -84,82 +81,75 @@ a {
   text-decoration: none;
 }
 
-/* from this structure, place the main options (the list items in the first ul with equal spacing between them)*/
+/* from this structure, center the items making up the main options of the navigation */
 ul.navigation__list {
-	display: flex;
-	justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
 }
 
 /* add perspective to each list item, which allows to later rotate the dropdown with some 3d-ness */
 li.list--item {
-	perspective: 500px;
-/* 	position relative to absolute position the dropdown ul */
-	position: relative;
+  perspective: 500px;
+  /* 	position relative to absolute position the dropdown elements */
+  position: relative;
+  padding: 1rem 2rem;
 }
 
-/* for the dropdown, give ample space between the items and around them */
 /* ! absolute position each dropdown right below the respective li item, to avoid the nav over-expanding past the anchor link */
-ul.item--dropdown {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-top: 1rem;
-  padding: 0.8rem 1.25rem;
+.item--dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  /* including padding instead of margin allows the cursor to stay on the item and have the dropdown shown even as the cursor goes horizontally to other items */
+  padding: 1rem 2.25rem;
   line-height: 3;
   color: var(--body);
 
-/* 	hide the dropdown by default, and show it when hovering the sibling anchor link element
-	! in addition to opacity + visibility, alter the tranform property in the rotateX and rotateY value
-	rotation from the top
-	*/
-	transform-origin: 50% 0;
-  transform: translate(-50%, 0) rotateX(-12deg) rotateY(-5deg);
+  transform: translate(-50%, 0);
+  /* 	hide the dropdown by default, and show it when adding a class (added in the script alongside the logic positioning the persistent background) */
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease-out;
+  transition: all 0.05s ease-out;
 }
-/* show the dropdown when hovering the anchor link coming before it, but also as the cursor hovers on the dropdown itself */
-.list--item a:hover + .item--dropdown,
-.item--dropdown:hover {
+/* instead of showing the dropdown items on hover, show them when adding a class of .active, matching the dropdown background's dynamic */
+.item--dropdown.active {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, 0) rotateX(0deg) rotateY(0deg);
-	/* ! add a delay to the transition to give time to the follow-along div to position itself behind the text */
-	transition-delay: 0.3s;
+  /* ! add a delay to the transition to give time to the follow-along div to position itself behind the text */
+  transition-delay: 0.15s;
 }
 
-
-/* for the #dropdown--bg, absolute position it to the bottom of the nav (which necessitates of position relative)
-position/resize in the script, according to the option being hovered upon
+/* for the dropdown background, absolute position it to the bottom of the nav (which necessitates of position relative)
+position/resize it in the script, according to the option being hovered upon
 */
 #navigation--dropdown {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 0;
-	height: 0;
-/* 	style the background as a white box, slightly rounded and with an arrow pointing upwards (through a simple pseudo element, added later) */
-	background: var(--bg);
-	border-radius: 5px;
-/* 	transition for the change in properties */
-	transition: all 0.3s ease-out;
-
-/* 	by default hide the element, and restore its visibility/opacity through a class (added in the script alongside the other properties) */
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  /* 	style the background as a white box, slightly rounded and with an arrow pointing upwards (through a simple pseudo element, added later) */
+  background: var(--bg);
+  border-radius: 3px;
+  /* 	transition for the change in properties */
+  transition: all 0.2s ease-out;
+  /* 	by default hide the element, and restore its visibility/opacity through a class (added in the script alongside the other properties) */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform-origin: 50% 0;
 }
 #navigation--dropdown.active {
-	opacity: 1;
-	visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 #navigation--dropdown:before {
-	position: absolute;
-	content: '';
-	bottom: 100%;
-	left: 50%;
-	transform: translate(-50%, 0);
-	border-top: 0.5rem solid transparent;
+  position: absolute;
+  content: "";
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-top: 0.5rem solid transparent;
   border-right: 0.5rem solid transparent;
   border-bottom: 0.5rem solid var(--bg);
   border-left: 0.5rem solid transparent;
