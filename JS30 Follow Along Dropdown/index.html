@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Follow Along Dropdown</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- the project is centered around a nav element
+for context, present this element in a wrapping container and add a silly section in which to display the link being clicked
+-->
+
+    <main>
+      <!-- 	for the navigation, include anchor link elements in an unordered list -->
+      <!-- 	in each list item add an anchor link and an additional unordered list, used to craft the drop down
+    the idea is to have this list shown on hover, and have a div positioned right behind to provide the background
+    -->
+      <nav class="navigation">
+        <!-- 	before any element, include the div used as the background for each and every dropdown (positioned and resized in the script) -->
+        <div id="navigation--dropdown"></div>
+        <ul class="navigation__list">
+          <li class="list--item">
+            <a href="#papers">Papers</a>
+            <ul class="item--dropdown">
+              <li><a href="#confidential">Confidential</a></li>
+              <li><a href="#secret">Secret</a></li>
+              <li><a href="#privileged">Privileged</a></li>
+            </ul>
+            <!-- close the ul for the dropdown -->
+          </li>
+          <!-- close current option -->
+
+          <li class="list--item">
+            <a href="#documents">Documents</a>
+            <ul class="item--dropdown">
+              <li><a href="#privy">Privy</a></li>
+              <li><a href="#privileged">Privileged</a></li>
+            </ul>
+            <!-- close the ul for the dropdown -->
+          </li>
+          <!-- close current option -->
+
+          <li class="list--item">
+            <a href="#items">Items</a>
+            <ul class="item--dropdown">
+              <li><a href="#topsecret">Topsecret</a></li>
+              <li><a href="#longlonglong">Longlonglong</a></li>
+            </ul>
+            <!-- close the ul for the dropdown -->
+          </li>
+          <!-- close current option -->
+        </ul>
+        <!-- close the ul for the list of main options -->
+      </nav>
+
+      <!-- 	for the silly add-on, add a simple string and a span in which to detail the link being selected -->
+      <section>
+        <p>
+          Feel free to hover and interact with the <span>navigation bar</span>
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
