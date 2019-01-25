@@ -1,6 +1,6 @@
 # Follow Along Dropdown
 
-<!-- Proud result live [right here on codepen]() -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/gqaeKK).
 
 ## Preface
 
