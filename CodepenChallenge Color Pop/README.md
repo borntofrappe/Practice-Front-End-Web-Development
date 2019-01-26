@@ -1,5 +1,7 @@
 # CPC POP
 
+Proud, and working, project live on codepen, [right here](https://codepen.io/borntofrappe/full/MLyybo).
+
 ## Preface
 
 Originally, I started this project to simply create an entry for the weekly #codepenchallenge, themed around the following colors:
