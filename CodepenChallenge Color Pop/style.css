@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+
+/* colors for the weekly challenge */
+:root {
+  --dark: #000;
+  --light: #fff;
+  --accent: #ff1ead;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  /* split the background betweenn the dark and light picks */
+  background: linear-gradient(to right, var(--dark) 50%, var(--light) 50%);
+}
+/* absolute position the heading in the bottom and center section of the body */
+h1 {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-transform: uppercase;
+  font-size: 3rem;
+  /* start out without spacing and animate this property with a bit of a bounce (with the cubic bezier function) */
+  letter-spacing: 0;
+  /* ! animate after a slight delay, as to animate the letter spacing after the connected pseudo element has finished animating */
+  animation: spaceout 0.3s 0.75s cubic-bezier(0.35, -0.75, 0.55, 2) forwards;
+}
+/* animation increasing the letter spacing of the heading */
+@keyframes spaceout {
+  to {
+    letter-spacing: 0.5rem;
+  }
+}
+
+/* through a pseudo element add a balloon in the middle of the heading */
+h1:before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-size: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 50 0 a 50 45 0 0 1 50 45 a 50 50 0 0 1 -50 50 a 50 50 0 0 1 -50 -50 a 50 45 0 0 1 50 -45" fill="%23FF1EAD" /><path d="M 50 94 a 6 6 0 0 1 6 6 h -12 a 6 6 0 0 1 6 -6" fill="%23FF1EAD" /><path d="M 50 5 a 40 40 0 0 1 40 40 a 5 5 0 0 1 -5 5 a 40 40 0 0 0 -40 -40 a 5 5 0 0 1 5 -5" fill="%23fff" opacity="0.3" /></svg>');
+  /* animate the balloon as to pop out of sight */
+  animation: pop 0.2s 0.6s ease-out forwards;
+}
+/* animation 'bursting' the balloon with a small increase in size followed by a sharp quick fade out  */
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  99% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+    visibility: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: 0;
+  }
+}
+/* color the two span elements making up the heading with the color opposite to the hues used in the background color */
+h1 span:not(:nth-of-type(1)) {
+  color: var(--dark);
+}
+h1 span:not(:nth-of-type(2)) {
+  color: var(--light);
+}
+
+/* absolute position the subheading and hide it by default
+! the left and top properties are detailed in the script, where the opacity is also restored
+! add a transition, but only for the opacity
+*/
+h2 {
+  color: var(--accent);
+  position: absolute;
+  opacity: 0;
+  visibility: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+/* include the SVG making up the scoreboard in the bottom right of the page
+! as the game comes to a close, this is positioned and scaled up in the center of the page
+*/
+svg#score {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+/* use the selected font family for the text in the svg as well  */
+svg#score text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.7rem;
+}
+
+/* for each and every balloon give some default value to the transform property
+- translation to match the translation in the pop animation
+- scale to hide it by default
+the idea is to animate it in and out of sight using the scale property
+and to have it burst using the already defined pop animation
+*/
+svg.balloon {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* animation scaling the balloon to its rightful size, before hiding it back again */
+@keyframes appear {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  20%,
+  90% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+/* animation centering the SVG making up the score */
+@keyframes showScore {
+  to {
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 0) scale(3.5);
+  }
+}
+
+/* animation highlighting the score through the prescribed text (remember to apply this to the text and after the previous animation, which is applied to the svg#score as a whole) */
+@keyframes highlightScore {
+  50% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

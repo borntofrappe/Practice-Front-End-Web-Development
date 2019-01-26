@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CPC POP</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <!-- structure
+    - a heading, with two kewords each separated in <span> elements
+    - a subheading, to show 1 point being scored
+    - an SVG to keep track of the score
+
+    the balloons themselves are included (with the same structure of the SVG minus the text) through the script and at the bottom of the body
+  -->
+
+  <h1>
+    <span>cpc</span>
+    <span>pop</span>
+  </h1>
+  <h2>+1</h2>
+
+
+  <svg id="score" viewBox="0 0 150 100" width="100" height="100">
+    <path d="M 50 0 a 50 45 0 0 1 50 45 a 50 50 0 0 1 -50 50 a 50 50 0 0 1 -50 -50 a 50 45 0 0 1 50 -45" fill="#FF1EAD" />
+    <path d="M 50 94 a 6 6 0 0 1 6 6 h -12 a 6 6 0 0 1 6 -6" fill="#FF1EAD" />
+    <path d="M 50 5 a 40 40 0 0 1 40 40 a 5 5 0 0 1 -5 5 a 40 40 0 0 0 -40 -40 a 5 5 0 0 1 5 -5" fill="#fff" opacity="0.3" />
+
+    <text x="150" y="50" fill="#000" text-anchor="end" alignment-baseline="middle">0x</text>
+  </svg>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
