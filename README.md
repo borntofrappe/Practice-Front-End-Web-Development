@@ -245,3 +245,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**SVG Maker**](https://codepen.io/borntofrappe/pen/wNaqBw)|Try to replicate a few of the features allowed by SVG editors such as Inkscape. Starting with the possibility to draw simple shapes and alter a few variables.|svg, editor, custom|23rd January 2019|
 |[**Follow Along Dropdown**](https://codepen.io/borntofrappe/pen/gqaeKK)|Create a navigation bar in which the anchor link items share the same bounding box.|dropdown, nav|24th-25th January 2019|
 |[**CodepenChallenge Color Pop**](https://codepen.io/borntofrappe/pen/MLyybo)|Create an entry for the weekly codepenchallenge, literally toying with pink balloons.|cpc, color, animation|26th January 2019|
+|[**Konami Code**](https://codepen.io/borntofrappe/pen/bzpQLa)|Create a simple game in which the visitor is instructed to type the presented words.|sequence detection, typing, game|27th January 2019|

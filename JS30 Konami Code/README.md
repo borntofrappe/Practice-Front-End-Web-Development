@@ -1,5 +1,7 @@
 # Konami Code
 
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/bzpQLa).
+
 ## Preface
 
 Perhaps this project is better labeled as _typing adventure_, given the eventual result, but I decided to stick with the title of [the video](https://youtu.be/_A5eVOIqGLU) which inspired it all.
