@@ -1,16 +1,18 @@
 /* import font(s) */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
-/* detail root variables */
+/* root variables */
 :root {
   --font: "Open Sans", sans-serif;
+  /* colors for the app */
+  --color-main: #f3eee6;
   --color-text: #010711;
+  --color-bg: #031634;
   --color-highlight: #398a8711;
+  /* colors for the parrot */
   --color-head: #398a87;
   --color-beak: #ffd046;
   --color-beak-d: #d1a82b;
-  --color-main: #f3eee6;
-  --color-bg: #031634;
 }
 
 * {
@@ -25,26 +27,28 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
 }
-
+/* ditance the main container notably from the top of the window, to give space to the parror + speech bubble */
 main {
   max-width: 400px;
+  width: 90vw;
   margin: 4rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* set a fixed height */
   height: 80vh;
   background: var(--color-main);
-  position: relative;
   box-shadow: 0 1px 10px -1px var(--color-text);
+  /* position relative to absolute position the parrot in relation to this container */
+  position: relative;
 }
 
+/* stretch the container nesting the text (and eventually the speech retrieved from the web speech api) to cover the entirety of the parent width and height */
 .app__speech {
   width: 100%;
   height: 100%;
   padding: 1rem;
-  overflow-y: auto;
   line-height: 2.5;
   border: 1rem inset var(--color-head);
+  /* vertical overflow when the text forces the container past the prescribed 80vh height */
+  overflow-y: auto;
 }
 /* minor stylistic choices regarding the scrollbar */
 .app__speech::-webkit-scrollbar {
@@ -58,18 +62,27 @@ main {
   border-radius: 5px;
 }
 
+/* minor stylistic choices regarding the highlight */
+.app__speech::selection {
+  background: var(--color-beak);
+}
+.app__speech::-moz-selection {
+  background: var(--color-beak);
+}
+
 /* absolute position the empty div making up the icon in the top left corner of the main container */
 .app__parrot {
-  width: 68px;
+  width: 70px;
   height: 50px;
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-50%, -50%) rotate(-10deg);
-  filter: drop-shadow(0 0 4px var(--color-highlight));
+  filter: drop-shadow(1px 1px 4px var(--color-highlight));
 }
 /* head as a simple box particularly rounded in the top left and bottom right corner
 with a pseudo element making up the eye
+with another pseudo element making up a simple speech bubble
 */
 .parrot--head {
   position: absolute;
@@ -90,6 +103,7 @@ with a pseudo element making up the eye
   background: var(--color-main);
   border-radius: 50%;
 }
+
 .parrot--head:after {
   content: "Talk";
   position: absolute;
@@ -98,14 +112,16 @@ with a pseudo element making up the eye
   background: var(--color-main);
   padding: 0.5rem 0.8rem;
   border-radius: 20px 20px 20px 0;
-  transform-origin: 0 100%;
   font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
+  /* add a simple animation scaling the speech bubble into view (and from the parrot) */
+  transform-origin: 0 100%;
   transform: scale(0);
   /* repeat the animation enough time to be annoying */
   animation: introduce 2s 0.5s 3 ease-out;
 }
+/* scale the speech bubble before reverting it back to 0 */
 @keyframes introduce {
   20%,
   70% {
@@ -115,8 +131,9 @@ with a pseudo element making up the eye
     transform: scale(0);
   }
 }
+
 /* beak as a rounded box slightly shorter than the head
-with a pseudo element completing the beak with the upper section of the mouth
+with a pseudo element completing the beak with the lower section
 */
 .parrot--beak {
   position: absolute;
@@ -135,7 +152,7 @@ with a pseudo element completing the beak with the upper section of the mouth
   width: 170%;
   height: 80%;
   background: var(--color-beak-d);
-  transform: translate(-65%, -50%);
+  transform: translate(-60%, -50%);
   border-radius: 50%;
   z-index: -5;
 }
