@@ -50,6 +50,14 @@ main {
   /* vertical overflow when the text forces the container past the prescribed 80vh height */
   overflow-y: auto;
 }
+
+/* show a simple placeholder value through a pseudo element, but only when the container is empty */
+.app__speech:empty:before {
+  content: "With your permission, I'll parrot whatever you are going to say in the microphone.";
+  opacity: 0.85;
+  font-style: italic;
+}
+
 /* minor stylistic choices regarding the scrollbar */
 .app__speech::-webkit-scrollbar {
   width: 0.35rem;
@@ -105,7 +113,7 @@ with another pseudo element making up a simple speech bubble
 }
 
 .parrot--head:after {
-  content: "Talk";
+  content: "Hi";
   position: absolute;
   left: 100%;
   bottom: 80%;
