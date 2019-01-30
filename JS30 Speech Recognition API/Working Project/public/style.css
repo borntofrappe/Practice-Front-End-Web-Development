@@ -1,0 +1,191 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  /* colors for the app */
+  --color-main: #f3eee6;
+  --color-text: #010711;
+  --color-bg: #031634;
+  --color-highlight: #398a8711;
+  /* colors for the parrot */
+  --color-head: #398a87;
+  --color-beak: #ffd046;
+  --color-beak-d: #d1a82b;
+  --color-accent: #e03e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+/* ditance the main container notably from the top of the window, to give space to the parror + speech bubble */
+main {
+  max-width: 400px;
+  width: 90vw;
+  margin: 4rem auto;
+  /* set a fixed height */
+  height: 80vh;
+  background: var(--color-main);
+  box-shadow: 0 1px 10px -1px var(--color-text);
+  /* position relative to absolute position the parrot in relation to this container */
+  position: relative;
+}
+
+/* stretch the container nesting the text (and eventually the speech retrieved from the web speech api) to cover the entirety of the parent width and height */
+.app__speech {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1rem inset var(--color-head);
+  /* vertical overflow when the text forces the container past the prescribed 80vh height */
+  overflow-y: auto;
+}
+.app__speech p {
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+  border-left: 0.25rem solid var(--color-accent);
+}
+
+/* show a simple placeholder value through a pseudo element, but only when the container is empty */
+.app__speech:empty:before {
+  content: "With your permission, I'll parrot whatever you are going to say in the microphone. As soon as I figure out how :P";
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* minor stylistic choices regarding the scrollbar */
+.app__speech::-webkit-scrollbar {
+  width: 0.35rem;
+}
+.app__speech::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--color-beak);
+}
+.app__speech::-webkit-scrollbar-thumb {
+  background: var(--color-beak-d);
+  border-radius: 5px;
+}
+
+/* minor stylistic choices regarding the highlight */
+.app__speech::selection {
+  background: var(--color-beak);
+}
+.app__speech::-moz-selection {
+  background: var(--color-beak);
+}
+
+/* absolute position the empty div making up the icon in the top left corner of the main container
+with a pseudo element for a small speech bubble*/
+.app__parrot {
+  width: 67px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  filter: drop-shadow(1px 1px 4px var(--color-highlight));
+}
+.app__parrot:after {
+  content: "Hi";
+  position: absolute;
+  left: 95%;
+  bottom: 80%;
+  background: var(--color-main);
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px 20px 20px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  /* add a simple animation scaling the speech bubble into view (and from the parrot) */
+  transform-origin: 0 100%;
+  transform: scale(0);
+  animation: introduce 2s 0.5s ease-out;
+}
+/* scale the speech bubble before reverting it back to 0 */
+@keyframes introduce {
+  20%,
+  70% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0);
+  }
+}
+
+/* head as a simple box particularly rounded in the top left and bottom right corner
+with a pseudo element making up the eye
+with another pseudo element making up the inner section of the eye
+*/
+.parrot--head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background: var(--color-head);
+  border-radius: 30px 0 0 30px;
+}
+.parrot--head:before {
+  position: absolute;
+  content: "";
+  right: 20%;
+  top: 20%;
+  width: 24%;
+  height: 24%;
+  background: var(--color-main);
+  border-radius: 50%;
+}
+.parrot--head:after {
+  position: absolute;
+  content: "";
+  right: 20%;
+  top: 20%;
+  width: 18%;
+  height: 18%;
+  background: linear-gradient(
+      to bottom right,
+      var(--color-main),
+      transparent 35%
+    ),
+    var(--color-bg);
+  border-radius: 50%;
+}
+
+/* beak as a rounded box slightly shorter than the head
+with a pseudo element completing the beak with the lower section
+*/
+.parrot--beak {
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 30%;
+  height: 70%;
+  background: linear-gradient(
+      to bottom left,
+      var(--color-beak-d),
+      transparent 40%
+    ),
+    var(--color-beak);
+  border-radius: 0 20px 0 0;
+}
+.parrot--beak:before {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 170%;
+  height: 87%;
+  background: var(--color-beak-d);
+  transform: translate(-60%, -50%);
+  border-radius: 50%;
+  z-index: -5;
+}
