@@ -1,6 +1,8 @@
 # Speech Recognition
 
-Link to the work-in-progress pen [right here](https://codepen.io/borntofrappe/full/exzxgB).
+Proud working pen [right here](https://codepen.io/borntofrappe/full/exzxgB).
+
+In this folder you find the UI and the complete files in the **Working Project** folder. You need a bit of a setup to enjoy it locally.
 
 ## Preface
 
