@@ -13,6 +13,7 @@
   --color-head: #398a87;
   --color-beak: #ffd046;
   --color-beak-d: #d1a82b;
+  /* color accent for the paragraph elements, modified according to a color potentially registered in the application */
   --color-accent: #e03e0b;
 }
 
@@ -50,6 +51,8 @@ main {
   /* vertical overflow when the text forces the container past the prescribed 80vh height */
   overflow-y: auto;
 }
+
+/* distance the paragraphs from one another and add the accent color */
 .app__speech p {
   margin: 0.5rem 0;
   padding-left: 0.5rem;

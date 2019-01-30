@@ -1,24 +1,27 @@
 // create an instance of the speech recognition object
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
+
+/* global variables
+array of colors, potentially used to style the paragraph elements
+container element in which to display the text
+container element for the parrot, to start listening only as the simple animation ends
+*/
 const colors = ['aqua', 'azure', 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'cyan', 'fuchsia', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'indigo', 'ivory', 'khaki', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'moccasin', 'navy', 'olive', 'orange', 'orchid', 'peru', 'pink', 'plum', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
 
-// set a few options
+const speech = document.querySelector('.app__speech');
+const parrot = document.querySelector('.app__parrot');
+
+// options on the speech recognition instance
+// language
 recognition.lang = 'en-US';
 
-// interim results allow to retrieve the transcript as something is being said, and not only after it was said
+// interimResults, allowing to retrieve the transcript as something is being said, and not only after it has been said
 // default to false
 recognition.interimResults = true;
 
-
-// target the container in which to add the text matching the speech
-const speech = document.querySelector('.app__speech');
-// target the parrot, as to request mic access only as the animation is complete
-const parrot = document.querySelector('.app__parrot');
-
-
-// initialize a variable to keep track of the text
-// pauses should be the equivalent of a new line, so create a paragraph for each set of continuous speech
+// create a paragraph element in which to display the text being registered from the speech recognition instance
+// when registering a pause, re-initialize the element and append it as a new node in the container
 let p = document.createElement('p');
 speech.appendChild(p);
 
@@ -30,30 +33,34 @@ recognition.onresult = function (e) {
   the actual word in the results[0][0] object, which considers the actual result (first array) and the first alternative (second array)
   (there can be more alternatives if the recognition instance is set up accordingly and through the .maxAlternatives prop)
   in this object you find the following properties
-  1. confidence [seemingly a 0-1 range]
+  1. confidence [0-1 range, the higher the better]
   1. transcript [the proposition matching the user input]
   */
 
   // find the word being registered by the web spech API, and the level of confidence
   const { transcript, confidence } = e.results[0][0];
+  // find whether the result is the last one of the current instance
   const { isFinal } = e.results[0];
 
 
-  // append it to the variable and display it in the container
-  // ! only with a decent degree of confidence
+  // ! continue only with a decent degree of confidence
   if (confidence > 0.5) {
+    // modify the text of the paragraph element
     p.textContent = transcript;
 
+    // if one of the color is found in the transcript string, use that color for the accent color of the specific paragraph
     colors.forEach(color => {
       if (transcript.toLowerCase().includes(color)) {
         p.style.setProperty('--color-accent', color);
       }
     })
 
+    // if the transcript registers the word clear, remove all existing elements
     if (transcript === 'clear') {
       speech.innerHTML = '';
     }
 
+    // if the instance of the result ends, re-initialize the paragraph and add it as a new element
     if (isFinal) {
       p = document.createElement('p');
       speech.appendChild(p);
@@ -61,10 +68,8 @@ recognition.onresult = function (e) {
   }
 };
 
+// to keep listening, start the recognition as it reaches its end
 recognition.addEventListener('end', recognition.start);
-// recognition.onend = function (e) {
-//   recognition.start;
-// }
 
 // onerror event listener
 // notify the user possibly with an error message
@@ -79,6 +84,5 @@ recognition.onerror = function (e) {
   }
 };
 
-recognition.start();
 // start the recognition asking for permission to listen to the mic
-// parrot.addEventListener('animationend', () => recognition.start());
+parrot.addEventListener('animationend', () => recognition.start());
