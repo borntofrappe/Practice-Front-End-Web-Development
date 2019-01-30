@@ -59,10 +59,12 @@ main {
   border-left: 0.25rem solid var(--color-accent);
 }
 
-/* show a simple placeholder value through a pseudo element, but only when the container is empty */
-.app__speech:empty:before {
-  content: "With your permission, I'll parrot whatever you are going to say in the microphone. As soon as I figure out how :P";
+/* show a simple placeholder value through a pseudo element, but only when the first paragraph in the container is empty (this is added immediately in the script)
+*/
+.app__speech p:nth-of-type(1):empty:before {
+  content: "With your permission, I'll parrot whatever you are going to say in the microphone.";
   opacity: 0.85;
+  line-height: 2;
   font-style: italic;
 }
 
@@ -98,7 +100,7 @@ with a pseudo element for a small speech bubble*/
   filter: drop-shadow(1px 1px 4px var(--color-highlight));
 }
 .app__parrot:after {
-  content: "Hi";
+  content: "Talk";
   position: absolute;
   left: 95%;
   bottom: 80%;
@@ -111,7 +113,7 @@ with a pseudo element for a small speech bubble*/
   /* add a simple animation scaling the speech bubble into view (and from the parrot) */
   transform-origin: 0 100%;
   transform: scale(0);
-  animation: introduce 2s 0.5s ease-out;
+  animation: introduce 2s 0.5s 2 ease-out forwards;
 }
 /* scale the speech bubble before reverting it back to 0 */
 @keyframes introduce {
