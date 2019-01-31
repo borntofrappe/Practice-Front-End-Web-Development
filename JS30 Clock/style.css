@@ -1,0 +1,172 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  /* colors for the app */
+  --color-bg: #120922;
+
+  /* colors for the clock
+  the light/color theme is a simple matter of swapping the first three colors with the lasy three
+  */
+  --color-hours: #f1a100;
+  --color-minutes: #f3b93c;
+  --color-seconds: #ffde71;
+  --color-clock: #412577;
+  --color-clockd: #2d1562;
+  --color-clockl: #6f4ec3;
+
+  /* text inheriting the color from the hours hand */
+  --color-text: var(--color-hours);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* center the button + clock's container in a simple grid */
+main {
+  display: grid;
+  /* place-items: center; */
+  justify-items: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  padding: 1rem;
+}
+/* for the button, simply include it as plain text */
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  padding: 0.25rem 0.75rem;
+}
+
+/* clock container: detail a circle and through two pseudo element a strap behind the clock's face */
+.clock {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--color-clock);
+  border: 0.5rem solid var(--color-clockl);
+  box-shadow: 0 1px 15px var(--color-clockd);
+  /* position relative to absolute position the pseudo elements in connection to this element */
+  position: relative;
+}
+
+/* the pseudo elements share a few properties
+- position and content, setting up for the solid background
+- height, spanning past the cloc's own size
+- top and left and transform, centering the elements
+- z-index, positioning the elements behind the clock's background
+*/
+.clock:before,
+.clock:after {
+  position: absolute;
+  content: "";
+  height: 180%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -5;
+}
+
+/* :before defining the strap of solid color */
+.clock:before {
+  width: 62%;
+  background: var(--color-clockl);
+  box-shadow: 0 1px 7px var(--color-clock);
+}
+/* :after defining the 'holes' in the strap */
+.clock:after {
+  width: 2%;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-clock),
+    var(--color-clock) 5px,
+    transparent 5px,
+    transparent 30px
+  );
+}
+
+/* the clock's hands also share a few properties
+- position, top, left and transform, to center the hands in the clock
+- transform-origin, to rotate from the top
+! as the hands are centered and with a given height, they normally point downward, so you need to account for 180deg to point toward the 12 digit
+*/
+
+.clock__hand {
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%) rotate(180deg);
+  transform-origin: 50% 0;
+}
+
+/* seconds hand, taller and thinner than the other
+- with a pseudo element to 'stretch' the hand opposite to its normal direction (just a visual nicety)
+- with a pseudo element to remark a dot overlapping and visually fixing the hands in place
+*/
+.seconds {
+  height: 80px;
+  width: 2px;
+  background: var(--color-seconds);
+}
+
+.seconds:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 15%;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: inherit;
+}
+.seconds:after {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 8px;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-clockd);
+}
+
+/* minutes hand, slightly shorter and notably thicker than the seconds hand */
+.minutes {
+  height: 75px;
+  width: 4px;
+  background: var(--color-minutes);
+}
+/* hours hand, notably shorter and as thick as the minutes hand */
+.hours {
+  height: 40px;
+  width: 4px;
+  background: var(--color-hours);
+}
+
+/* to avoid an unnerving overlap, position the button in the top right corner of its grid on viewports shorter than a certain amount (accounting for the clock height + the pseudo element's size) */
+@media (max-height: 400px) {
+  button {
+    justify-self: end;
+    align-self: start;
+  }
+}

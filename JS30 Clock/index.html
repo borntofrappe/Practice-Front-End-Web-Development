@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript Clock</title>
+    <meta
+      name="description"
+      content="Practice with a few lines of JavaScript and CSS property value pairs to relate the time through an analog watch."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- inside of a wrapping container add a simple button to toggle different theme colors and the container making up the actual clock -->
+    <main>
+      <button>Toggle <span>light</span> theme</button>
+
+      <!-- clock with three empty divs making up the clock's hands -->
+      <div class="clock">
+        <div class="clock__hand hours"></div>
+        <div class="clock__hand minutes"></div>
+        <div class="clock__hand seconds"></div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
