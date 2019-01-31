@@ -1,5 +1,7 @@
 # JavaScript Clock
 
+Proud result [live here](https://codepen.io/borntofrappe/full/mvWVLV), on CodePen.
+
 ## Preface
 
 I already have a couple projects rather related to [this episode of javascript30](https://youtu.be/xu87YWbr4X0):
