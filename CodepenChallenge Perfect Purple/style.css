@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script:700|Inconsolata");
+
+:root {
+  /* font choices:
+  cursive for the heading and modal's buttons
+  monospace for the paragraphs and the selection's buttons
+  */
+  --font-cursive: "Dancing Script", cursive;
+  --font-sans: "Inconsolata", monospace;
+
+  /* color picks:
+  purple, after the theme of the challenge
+  white, for strong enough contrast
+
+  --color-choice matches by default the text, but it is later changed in the script to update the UI according to the selection
+  */
+  --color-bg: #632c65;
+  --color-main: #fffdfd;
+  --color-text: #471e47;
+  --color-choice: var(--color-text);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  padding: 1rem 0;
+}
+
+/* wrapping container, centering the content horizontally and cappint the divs width */
+.app {
+  max-width: 600px;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+/* modal container (introducing the project/showing the chosen color)
+display the content in a single column, horizontally centered
+*/
+.app__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--color-main);
+  box-shadow: 0 1px 5px -1px var(--color-main);
+  /* animation introducing the container from the top */
+  animation: rollIn 0.6s ease-out both;
+}
+/* also for the elements nested in the modal add the animation, and stagger their appearance with diffrent delays
+simple order: heading, paragraph, (div for the second modal), button
+*/
+.app__modal h1,
+.app__modal h2,
+.app__modal p,
+.app__modal div,
+.app__modal button {
+  animation: rollIn 0.4s ease-out both;
+}
+/* headings matching in size, and using the chosen font */
+.app__modal h1,
+.app__modal h2 {
+  animation-delay: 0.4s;
+  font-size: 2.75rem;
+  font-family: var(--font-cursive);
+  text-transform: capitalize;
+}
+/* paragraph highlighting the selection in a strong element (using the custom property ultimately updated in the script) */
+.app__modal p {
+  animation-delay: 0.46s;
+  font-size: 1.25rem;
+  margin: 2rem 0;
+  line-height: 2;
+}
+.app__modal p strong {
+  color: var(--color-choice);
+}
+
+/* empty div making up a simple visual (a glass in which the selection is highlighted as liquid) */
+.app__modal div {
+  animation-delay: 0.52s;
+  margin: 1.5rem 0 3rem;
+  /* with the empty div include the 'stem' and the bottom of the glass
+  with pseudo elements add the semi-circles making up the glass's body
+  */
+  width: 50px;
+  height: 100px;
+  background: linear-gradient(to top, var(--color-bg) 8%, transparent 8%),
+    linear-gradient(
+      to right,
+      transparent 42%,
+      var(--color-bg) 42%,
+      var(--color-bg) 58%,
+      transparent 58%
+    );
+  border-radius: 5px;
+  position: relative;
+}
+/* circle colored in the bottom half section */
+.app__modal div:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  width: 200%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(to top, var(--color-bg) 50%, transparent 50%);
+  transform: translate(-50%, -50%);
+}
+/* smaller circle colored within the boundaries of the previous semi circle */
+.app__modal div:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  width: 170%;
+  height: 85%;
+  border-radius: 50%;
+  background: linear-gradient(to top, var(--color-choice) 50%, transparent 50%);
+  transform: translate(-50%, -50%);
+}
+
+/* modal's buttons, with the chosen font and color/background flipped from the color/background of the text */
+.app__modal button {
+  animation-delay: 0.6s;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-family: var(--font-cursive);
+  padding: 0.75rem 1.5rem;
+  background: var(--color-text);
+  color: var(--color-main);
+  border: none;
+  letter-spacing: 0.2rem;
+  /* transition for a simple hover, focus state */
+  transition: all 0.2s ease-out;
+}
+.app__modal button:hover .app__modal button:focus {
+  border-radius: 5px;
+  box-shadow: 0 1px 5px -1px var(--color-bg);
+}
+
+/* animations for the modals
+rollIn to introduce them, from the top and hidden
+! remember to set animation-fill-mode to both
+
+rollOut to fade them away
+*/
+@keyframes rollIn {
+  from {
+    transform: translateY(-1rem);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes rollOut {
+  to {
+    transform: translateY(-1rem);
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* panel nesting the choices, in a single column and horizontally centered */
+.app__choices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: var(--color-main);
+  animation: rollIn 0.6s ease-out both;
+}
+.app__choices h2 {
+  font-family: var(--font-cursive);
+  font-size: 2.75rem;
+}
+/* buttons showing the selection (in the form of an hsl() color) */
+.app__choices button.choices--choice {
+  background: none;
+  border: none;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  color: inherit;
+  position: relative;
+  color: var(--color-choice);
+  font-size: 1.75rem;
+  letter-spacing: 0.1rem;
+  transition: opacity 0.2s ease-out;
+  animation: rollIn 0.5s ease-out both;
+}
+
+/* through two pseudo elements add simple visuals to the sides of the text
+rhomboid rotated toward the text on hover
+*/
+.app__choices button.choices--choice:before,
+.app__choices button.choices--choice:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background: currentColor;
+  transition: transform 0.4s ease-out;
+  clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+}
+/* the pseudo element simply differ in their horizontal position and the rotation applied on hover/focus */
+.app__choices button.choices--choice:before {
+  left: 100%;
+  transform: translate(50%, -50%) rotate(0) scale(0.9);
+}
+.app__choices button.choices--choice:after {
+  right: 100%;
+  transform: translate(-50%, -50%) rotate(0) scale(0.9);
+}
+
+.app__choices button.choices--choice:hover:before {
+  transform: translate(50%, -50%) rotate(-45deg) scale(1);
+}
+.app__choices button.choices--choice:hover:after {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
