@@ -42,21 +42,25 @@ body {
   font-family: var(--font);
   color: var(--color-text);
   background: var(--color-bg);
+  /* position the text in the bottom center of the page */
   display: grid;
   place-items: end center;
   overflow: hidden;
 }
 
+/* heading with considerable letter-spacing as to make the shadow more noticeable */
 h1 {
-  font-weight: 900;
   font-size: 4.5rem;
-  text-transform: uppercase;
+  font-weight: 900;
   letter-spacing: 0.5rem;
-  position: relative;
+  text-transform: uppercase;
   pointer-events: none;
   text-align: center;
+  /* position relative for the pseudo element */
+  position: relative;
 }
 
+/* it is actually the pseudo element to create the shadow, including the same string, but with the values for the transform and transform-origin properties specified through the custom properties */
 h1:before {
   color: var(--color-shadow);
   opacity: 0.5;
@@ -70,26 +74,33 @@ h1:before {
   z-index: -5;
 }
 
+/* for the light source, absolute position it in the top left of the page
+add considerable padding as to increase the surface area of the element (to more easily interact through mouse events)
+*/
 .sun {
   position: absolute;
   top: 10px;
   left: 10px;
+  padding: 1.5rem;
   border-radius: 50%;
   background: var(--color-sun);
   box-shadow: 0 0 10px 1rem var(--color-sun);
-  padding: 1.5rem;
 }
+/* when adding a class slightly change the scale to give the subtle impression of a changing source light  */
 .sun.dither {
   animation: dither 1s infinite alternate ease-out;
 }
+
+/* for the paragraph explaining the light source, display it next to the light source and add an animation to remove it once the visitor has been able to read the text */
 p {
-  color: var(--color-tip);
-  font-weight: 400;
   position: absolute;
+  font-weight: 400;
   top: 3.5rem;
   left: 5.5rem;
+  color: var(--color-tip);
   animation: enough 0.3s 3.5s ease-out forwards;
 }
+/* through a pseudo element and an SVG element, point towad the light source */
 p:after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M 60 150 v -50 a 40 50 0 0 0 -40 -50" fill="none" stroke="#E5D1AE" stroke-width="15" stroke-linejoin="round"/><path d="M 10 50 l 20 -20 v 40 z"  fill="none" stroke="#E5D1AE" stroke-width="10"/></svg>');
   width: 20px;
@@ -98,12 +109,15 @@ p:after {
   bottom: 100%;
   position: absolute;
 }
+
+/* animation scaling the light source up */
 @keyframes dither {
   to {
     transform: scale(1.1);
   }
 }
 
+/* animation removing the paragraph from sight */
 @keyframes enough {
   to {
     opacity: 0;
