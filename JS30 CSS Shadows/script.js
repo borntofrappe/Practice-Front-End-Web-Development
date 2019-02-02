@@ -80,9 +80,9 @@ function handleWindow(e) {
 
     this normalization can occur with a function
     */
-    text.style.setProperty('--origin', `${normalize(deltaX, maxX, -100, 100)}% 100%`);
+    text.style.setProperty('--origin', `${normalize(deltaX, maxX, 0, 100)}% 100%`);
     text.style.setProperty('--rotateZ', `${normalize(deltaX, maxX, -20, 20)}deg`);
-    text.style.setProperty('--rotateX', `${normalize(deltaY, maxY, 75, 88)}deg`);
+    text.style.setProperty('--rotateX', `${normalize(deltaY, maxY, 75, 90)}deg`);
     text.style.setProperty('--scaleY', `${normalize(deltaY, maxY, 1, 15)}`);
     console.log(text.style.getPropertyValue('--rotateZ'));
   }

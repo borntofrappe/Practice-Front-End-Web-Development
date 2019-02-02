@@ -1,8 +1,9 @@
 /* import font(s) */
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:400,900");
 
-/* detail root variables */
+/* custom variables */
 :root {
+  /* font and colors */
   --font: "Work Sans", sans-serif;
   --color-text: #141414;
   --color-tip: #e5d1ae;
@@ -10,12 +11,22 @@
   --color-sun: #ecd826;
   --color-bg: #9537b0;
 
-  --origin: 100% 100%;
+  /* variables updated in the js script and affecting the matching properties for the pseudo element connected to the heading
+  the idea is to alter these properties in between a range
 
-  --rotateX: 75deg;
+  rough considerations:
+
+  - transform-origin changes according to the horizontal coordinate, in the [100%, 0] range going left to right
+  - rotateZ changes again according to the horizontal coordinate, in the [20deg, -20deg] range going left to right
+
+  - rotateX changes according to the vertical coordinate, in the [75-90] range bottom to top
+  - scaleY follows the same vertical coordinate, going [1, 15] top to bottom
+  */
+  --origin: 100% 100%;
   --rotateZ: 20deg;
 
-  --scaleX: 1;
+  --rotateX: 75deg;
+
   --scaleY: 1;
 }
 
@@ -33,6 +44,7 @@ body {
   background: var(--color-bg);
   display: grid;
   place-items: end center;
+  overflow: hidden;
 }
 
 h1 {
@@ -54,7 +66,7 @@ h1:before {
   content: "Shadow";
   transform-origin: var(--origin);
   transform: translateY(-10px) rotateX(var(--rotateX)) rotateZ(var(--rotateZ))
-    scaleX(var(--scaleX)) scaleY(var(--scaleY));
+    scaleY(var(--scaleY));
   z-index: -5;
 }
 
