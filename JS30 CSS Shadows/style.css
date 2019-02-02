@@ -23,11 +23,11 @@
   - scaleY follows the same vertical coordinate, going [1, 15] top to bottom
   */
   --origin: 100% 100%;
-  --rotateZ: 20deg;
+  --rotateZ: 15deg;
 
-  --rotateX: 75deg;
+  --rotateX: 85deg;
 
-  --scaleY: 1;
+  --scaleY: 5;
 }
 
 * {
@@ -63,7 +63,7 @@ h1 {
 /* it is actually the pseudo element to create the shadow, including the same string, but with the values for the transform and transform-origin properties specified through the custom properties */
 h1:before {
   color: var(--color-shadow);
-  opacity: 0.5;
+  opacity: 0.4;
   top: 0;
   left: 0;
   position: absolute;
