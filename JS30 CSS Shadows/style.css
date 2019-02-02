@@ -78,6 +78,7 @@ h1:before {
 add considerable padding as to increase the surface area of the element (to more easily interact through mouse events)
 */
 .sun {
+  cursor: grab;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -102,7 +103,7 @@ p {
 }
 /* through a pseudo element and an SVG element, point towad the light source */
 p:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M 60 150 v -50 a 40 50 0 0 0 -40 -50" fill="none" stroke="#E5D1AE" stroke-width="15" stroke-linejoin="round"/><path d="M 10 50 l 20 -20 v 40 z"  fill="none" stroke="#E5D1AE" stroke-width="10"/></svg>');
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"%3E%3Cpath d="M 60 150 v -50 a 40 50 0 0 0 -40 -50" fill="none" stroke="%23E5D1AE" stroke-width="15" stroke-linejoin="round"/%3E%3Cpath d="M 10 50 l 20 -20 v 40 z"  fill="none" stroke="%23E5D1AE" stroke-width="10"/%3E%3C/svg%3E');
   width: 20px;
   height: 30px;
   left: 0;
