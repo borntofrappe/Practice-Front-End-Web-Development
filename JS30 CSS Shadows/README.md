@@ -1,5 +1,7 @@
 # CSS Shadows
 
+Proud result live on codepen [right here](https://codepen.io/borntofrappe/full/omWQEG).
+
 ## Preface
 
 For another video in the #javascript30 series, I decided to take the subject and add my little own twist on top of the challenge.
