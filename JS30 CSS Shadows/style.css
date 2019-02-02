@@ -1,0 +1,100 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,900");
+
+/* detail root variables */
+:root {
+  --font: "Work Sans", sans-serif;
+  --color-text: #141414;
+  --color-tip: #e5d1ae;
+  --color-shadow: #491757;
+  --color-sun: #ecd826;
+  --color-bg: #9537b0;
+
+  --origin: 100% 100%;
+
+  --rotateX: 75deg;
+  --rotateZ: 20deg;
+
+  --scaleX: 1;
+  --scaleY: 1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 90vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+  display: grid;
+  place-items: end center;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  position: relative;
+  pointer-events: none;
+  text-align: center;
+}
+
+h1:before {
+  color: var(--color-shadow);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: "Shadow";
+  transform-origin: var(--origin);
+  transform: translateY(-10px) rotateX(var(--rotateX)) rotateZ(var(--rotateZ))
+    scaleX(var(--scaleX)) scaleY(var(--scaleY));
+  z-index: -5;
+}
+
+.sun {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  background: var(--color-sun);
+  box-shadow: 0 0 10px 1rem var(--color-sun);
+  padding: 1.5rem;
+}
+.sun.dither {
+  animation: dither 1s infinite alternate ease-out;
+}
+p {
+  color: var(--color-tip);
+  font-weight: 400;
+  position: absolute;
+  top: 3.5rem;
+  left: 5.5rem;
+  animation: enough 0.3s 3.5s ease-out forwards;
+}
+p:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M 60 150 v -50 a 40 50 0 0 0 -40 -50" fill="none" stroke="#E5D1AE" stroke-width="15" stroke-linejoin="round"/><path d="M 10 50 l 20 -20 v 40 z"  fill="none" stroke="#E5D1AE" stroke-width="10"/></svg>');
+  width: 20px;
+  height: 30px;
+  left: 0;
+  bottom: 100%;
+  position: absolute;
+}
+@keyframes dither {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes enough {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
