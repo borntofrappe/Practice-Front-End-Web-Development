@@ -14,6 +14,9 @@ const c = {
   error(text) {
     appConsole.innerHTML += `<p class="console--error">${text}</p>`;
   },
+  info(text) {
+    appConsole.innerHTML += `<p class="console--info">${text}</p>`;
+  },
   // ! console.query is not an actual method, just to clear things out
   query(text) {
     appConsole.innerHTML += `<p class="console--query">${text}</p>`;
@@ -27,7 +30,8 @@ const inputText = document.querySelector('.app__input textarea');
 const inputValue = `c.log('Just logging something');
 c.warn('Live without warning');
 c.error('This is not a test');
-c.query('Should I console this?');
+c.info('There is also console.info()');
+c.query('This one is questionable though');
 `;
 inputText.textContent = inputValue;
 

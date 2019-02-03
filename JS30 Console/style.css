@@ -138,6 +138,7 @@ stretch the textarea to cover the width/height made available
 .console--log,
 .console--warn,
 .console--error,
+.console--info,
 .console--query {
   position: relative;
 }
@@ -145,6 +146,7 @@ stretch the textarea to cover the width/height made available
 .console--log:before,
 .console--warn:before,
 .console--error:before,
+.console--info:before,
 .console--query:before {
   position: absolute;
   width: 22px;
@@ -173,6 +175,10 @@ syntax in which the following characters are escaped
 
 .console--error:before {
   content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%23FF352E"/%3E%3Cpath d="M 30 30 l 40 40 z M 70 30 l -40 40 z" fill="none" stroke="%23ffffff" stroke-width="8" stroke-linecap="round" /%3E%3C/svg%3E');
+}
+
+.console--info:before {
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%235aa0bd"/%3E%3Cpath d="M 50 50 v 25" fill="none" stroke="%23ffffff" stroke-width="10" stroke-linecap="round" /%3E%3Ccircle cx="50" cy="30" r="8" fill="%23ffffff" /%3E%3C/svg%3E');
 }
 
 .console--query:before {
