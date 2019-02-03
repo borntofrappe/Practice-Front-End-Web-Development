@@ -1,6 +1,6 @@
 # JS30 Console
 
-<!-- c for console -->
+Proud result live, [right here on codepen](https://codepen.io/borntofrappe/full/YBQpxy).
 
 ## Preface
 

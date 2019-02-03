@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>C for Console</title>
+    <meta
+      name="description"
+      content="Play on the concept of different functions available on the `console` object to highlight messages in a series of different tones."
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>C for Console</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
-  <!-- app structure
+  <body>
+    <!-- app structure
   container for the input
     textarea collecting the input
     button logging the result of the console statements
@@ -21,30 +24,32 @@
 
   ! the text in the textarea element and in the console is commented out, as it is included in the script
   -->
-  <main class="app">
-    <div class="app__input">
-
-      <textarea class="input--text" name="input" id="input" placeholder="c.log('Just logging something');">
+    <main class="app">
+      <div class="app__input">
+        <textarea
+          class="input--text"
+          name="input"
+          id="input"
+          placeholder="c.log('Just logging something');"
+        >
         <!-- c.log('Just logging something');
         c.warn('Live without warning');
         c.error('This is not a test');
         c.query('Should I console this?'); -->
-      </textarea>
+      </textarea
+        >
 
-      <button class="input--button">Console statement</button>
-    </div>
+        <button class="input--button">Console statement</button>
+      </div>
 
-    <div class="app__console">
-      <!-- <p class="console--log">Just logging something</p>
+      <div class="app__console">
+        <!-- <p class="console--log">Just logging something</p>
       <p class="console--warn">Live without warning</p>
       <p class="console--error">This is not a test</p>
       <p class="console--query">Should I console this?</p> -->
-    </div>
+      </div>
+    </main>
 
-  </main>
-
-  <script src="script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
