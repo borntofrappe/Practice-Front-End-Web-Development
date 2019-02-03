@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C for Console</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- app structure
+  container for the input
+    textarea collecting the input
+    button logging the result of the console statements
+
+  container for the console (the output)
+    one paragraph element for each log statement
+
+  ! the text in the textarea element and in the console is commented out, as it is included in the script
+  -->
+  <main class="app">
+    <div class="app__input">
+
+      <textarea class="input--text" name="input" id="input" placeholder="c.log('Just logging something');">
+        <!-- c.log('Just logging something');
+        c.warn('Live without warning');
+        c.error('This is not a test');
+        c.query('Should I console this?'); -->
+      </textarea>
+
+      <button class="input--button">Console statement</button>
+    </div>
+
+    <div class="app__console">
+      <!-- <p class="console--log">Just logging something</p>
+      <p class="console--warn">Live without warning</p>
+      <p class="console--error">This is not a test</p>
+      <p class="console--query">Should I console this?</p> -->
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

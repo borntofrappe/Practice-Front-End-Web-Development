@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono|Open+Sans");
+
+:root {
+  /* fonts
+    sans serif for the body
+    monospace for the textarea
+  */
+  --font-sans: "Open Sans", sans-serif;
+  --font-mono: "Fira Mono", monospace;
+
+  /* colors
+    colors for the text and background of the body/app, detail
+  */
+  --color-bg: #5aa0bd;
+  --color-bg-d: #36667b;
+  --color-app: #fffdfd;
+  --color-text: #09092e;
+
+  /* --color-log:#109121;
+  --color-warning: #c7c116;
+  --color-error: #F94F11;
+  --color-query: #e86830; */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  padding: 1rem 0;
+}
+
+/* display the input and output container side by side
+detail a fixed width and height values, horizontally center the container
+*/
+.app {
+  display: flex;
+  width: 90vw;
+  max-width: 1000px;
+  height: 500px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: var(--color-app);
+  box-shadow: 0 1px 10px -2px var(--color-bg-d);
+  border-radius: 5px;
+}
+
+/* for both containers set flex-grow to 1 and width to 0
+this to split the container in two halves*/
+
+/* for the input section, display the textarea and the button atop one another, and horizontally centered */
+.app__input {
+  flex-grow: 1;
+  width: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* remove default border and resize
+stretch the textarea to cover the width/height made available
+*/
+.app__input .input--text {
+  border: none;
+  resize: none;
+  padding: 1rem;
+  background: var(--color-bg-d);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  color: var(--color-app);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 2.5;
+}
+.app__input .input--text::placeholder {
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* for the button, add a simple transition for the hover/focus and active states */
+.app__input .input--button {
+  margin-top: 1rem;
+  font-family: inherit;
+  color: var(--color-bg-d);
+  padding: 0.45rem 0.75rem;
+  background: none;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  transition: all 0.2s ease-out;
+}
+/* on hover/focus include a simple shadow */
+.app__input .input--button:focus,
+.app__input .input--button:hover {
+  box-shadow: 0 1px 5px var(--color-bg-d);
+}
+/* when active push the button slightly downward */
+.app__input .input--button:active {
+  transform: translateY(1px);
+}
+
+/* for the console increase the white space to the left, to make space for the SVG icons */
+.app__console {
+  flex-grow: 1;
+  width: 0;
+  padding: 1rem;
+  padding-left: 3rem;
+  /* auto overflow to allow for a scrollbar when the text exceeds the fixed height */
+  height: 100%;
+  overflow-y: auto;
+}
+.app__console p {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+.app__console p code {
+  margin: 0 0.25rem;
+}
+/* minor stylistic choices regarding the possible scrollbar */
+.app__console::-webkit-scrollbar {
+  width: 0.35rem;
+}
+.app__console::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--color-bg);
+}
+.app__console::-webkit-scrollbar-thumb {
+  background: var(--color-bg-d);
+  border-radius: 5px;
+}
+
+/* for each different log statement, add an icon through a pseudo element */
+.console--log,
+.console--warn,
+.console--error,
+.console--query {
+  position: relative;
+}
+/* each pseudo element differs only in the content injected through the data uri */
+.console--log:before,
+.console--warn:before,
+.console--error:before,
+.console--query:before {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  /* line height to perfectly center the icon vertically */
+  line-height: 22px;
+  right: 100%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* detail the icons through different svg elements
+it may look cryptic, but beside the **data:image/svg+xml;utf8,** prefix, it is svg syntax
+syntax in which the following characters are escaped
+< --> %3C
+> --> %3E
+# --> %23
+*/
+.console--log:before {
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%2361ad56"/%3E%3Cpath d="M 32 55 l 16 15 l 22 -38" fill="none" stroke="%23ffffff" stroke-width="8" stroke-linecap="round" /%3E%3C/svg%3E');
+}
+
+.console--warn:before {
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Cpath d="M 4 98 h 92 a 4 4 0 0 0 4 -4 l -48 -92 a 4 4 0 0 0 -4 -4 l -48 92 a 4 4 0 0 0 -4 4" fill="%23FF8700"/%3E%3Cpath d="M 50 22 v 40" fill="none" stroke="%23ffffff" stroke-width="10" stroke-linecap="round" /%3E%3Ccircle cx="50" cy="82" r="8" fill="%23ffffff" /%3E%3C/svg%3E');
+}
+
+.console--error:before {
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%23FF352E"/%3E%3Cpath d="M 30 30 l 40 40 z M 70 30 l -40 40 z" fill="none" stroke="%23ffffff" stroke-width="8" stroke-linecap="round" /%3E%3C/svg%3E');
+}
+
+.console--query:before {
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Crect x="0" y="0" width="100" height="100" rx="5" fill="%23843894"/%3E%3Cpath d="M 40 38 h -10 v -18 h 42 v 30 h -22 v 10" fill="none" stroke="%23ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /%3E%3Ccircle cx="50" cy="80" r="8" fill="%23ffffff" /%3E%3C/svg%3E');
+}
+
+/* for viewports thinner than 600px, display the input and output area atop one another */
+@media (max-width: 600px) {
+  /* increase the width and set a minimum height to maintain the visibility of each element */
+  .app {
+    flex-direction: column;
+    min-height: 500px;
+    height: auto;
+    align-items: center;
+  }
+  .app__input,
+  .app__outout {
+    width: 100%;
+  }
+  .app__input .input--text {
+    min-height: 300px;
+  }
+}
