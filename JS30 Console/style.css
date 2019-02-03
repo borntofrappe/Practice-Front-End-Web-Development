@@ -178,7 +178,7 @@ syntax in which the following characters are escaped
 }
 
 .console--info:before {
-  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%235aa0bd"/%3E%3Cpath d="M 50 50 v 25" fill="none" stroke="%23ffffff" stroke-width="10" stroke-linecap="round" /%3E%3Ccircle cx="50" cy="30" r="8" fill="%23ffffff" /%3E%3C/svg%3E');
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%23214f8f"/%3E%3Cpath d="M 50 50 v 25" fill="none" stroke="%23ffffff" stroke-width="10" stroke-linecap="round" /%3E%3Ccircle cx="50" cy="30" r="8" fill="%23ffffff" /%3E%3C/svg%3E');
 }
 
 .console--query:before {
@@ -195,7 +195,7 @@ syntax in which the following characters are escaped
     align-items: center;
   }
   .app__input,
-  .app__outout {
+  .app__console {
     width: 100%;
   }
   .app__input .input--text {
