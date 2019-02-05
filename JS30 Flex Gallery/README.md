@@ -6,4 +6,4 @@ For the fifth project in the #javascript30 course, the goal is to create a simpl
 
 Here's the video explaining it, [right here](https://youtu.be/9eif30i26jg).
 
-<!-- Here's my personal take, [right here]() -->
+Here's my personal take, [right here](https://codepen.io/borntofrappe/full/MLvjdm).
