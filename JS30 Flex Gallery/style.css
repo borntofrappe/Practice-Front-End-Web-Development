@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* include the image of a table for the background of the entire body */
+body {
+  background: url("https://images.pexels.com/photos/172277/pexels-photo-172277.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
+    #000042;
+  font-family: "Major Mono Display", monospace;
+  /* center the panels container in the page */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* cap the width and height of the container, as to limit the size of the nested cards */
+.panels {
+  max-width: 900px;
+  width: 80vw;
+  height: 40vw;
+  max-height: 450px;
+  /* display the cards side by side */
+  display: flex;
+  /* transition for a slight increase in the maximum width of the container, on hover */
+  transition: all 0.2s ease-out;
+}
+.panels:hover {
+  max-width: 1000px;
+}
+
+/* for the individual items, give to each a flex-grow value of 1 */
+.panel {
+  flex-grow: 1;
+  background: #201a1a;
+  text-align: center;
+  /* display the nested paragraphs atop one another, evenly space in the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 0 1px 5px -1px #000042;
+  /* propertires for the images used as background */
+  background-size: cover;
+  background-position: center;
+  /* give a font size on the wrapping panel and use em values in the nested elements (referring to this value) */
+  font-size: 1rem;
+  /* transition to smoothen the change when altering the flex-grow value through the script */
+  transition: all 0.5s cubic-bezier(0.26, 1.36, 0.82, 1.3);
+}
+.panel p {
+  font-size: calc(1rem + 1vw);
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 4px #000042, 0 0 8px #000042;
+  font-size: 2em;
+  /* transition for the change in appearance */
+  transition: all 0.2s ease-out;
+}
+
+/* for the first and third paragraph, ditance them from the center of the panel
+hide them by default
+*/
+.panel p:nth-of-type(1) {
+  transform: translateY(-2rem);
+  opacity: 0;
+  visibility: hidden;
+}
+.panel p:nth-of-type(3) {
+  transform: translateY(2rem);
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* as the transition is enabled on click, the script listens for a click event on each panel
+when clicked, the particular panel is attributed a class of hover, as to highlight the pressed item
+*/
+
+/* increase the relative size of the particular panel */
+.panel.hover {
+  flex-grow: 2;
+}
+/* transition the first and third paragraph into view, with a small delay following the second paragraph */
+.panel.hover p:nth-of-type(1) {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.25s;
+}
+/* increase the size of the second, central paragraph */
+.panel.hover p:nth-of-type(2) {
+  font-size: 3.5em;
+}
+.panel.hover p:nth-of-type(3) {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.3s;
+}
+
+/* images used as background */
+.panel1 {
+  background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+}
+.panel2 {
+  background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+}
+.panel3 {
+  background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d);
+}
+.panel4 {
+  background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+}
+.panel5 {
+  background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+}
+
+/* on smaller viewports considerably reduce the font size (by a factor of two) and let the wrapping flex container wrap */
+@media (max-width: 500px) {
+  .panels {
+    flex-wrap: wrap;
+  }
+  .panel {
+    font-size: 0.5rem;
+  }
+}
