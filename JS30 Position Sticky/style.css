@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Open+Sans");
+
+:root {
+  --font-body: "Open Sans", sans-serif;
+  --font-heading: "Delius Swash Caps", cursive;
+  --color-text: #0a2638;
+  --color-bg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+}
+
+/* for each label, set position sticky and top left to 0, effectively sticking the span elements to the top left corner of each section
+! later in the script the left property is updated to have the labels spread across the viewport */
+.section--label {
+  position: sticky;
+  top: 0;
+  left: 0;
+  /* in the script update also the width
+  ! by default span elements are inline elements, and the width would not be applied without modifying the display property
+   */
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.12rem;
+  background: var(--color-bg);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 1px 5px -2px var(--color-bg);
+}
+/* stretch the content of each section to cover the entirety of the viewport
+center the heading nested within
+ */
+.section--content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* on smaller viewports reduce the font size of the labels slightly */
+@media (max-width: 500px) {
+  .section--label {
+    font-size: 0.9rem;
+  }
+}
