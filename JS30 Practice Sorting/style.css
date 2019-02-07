@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+:root {
+  --font-body: "Open Sans", sans-serif;
+  --color-text: #110c01;
+  --color-shadow: #c39125;
+  --color-bg: #fab42c;
+  --color-list: #fff;
+  --tip: "Almost there";
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  /* center the button and ul element horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+button {
+  margin-bottom: 3.5rem;
+  padding: 0.45rem 0.95rem;
+  background: var(--color-text);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-list);
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 1px 15px -3px var(--color-text);
+  transition: transform 0.2s ease-out;
+}
+button:hover,
+button:focus {
+  transform: translateY(-0.5px);
+}
+button:active {
+  transform: translateY(1.5px);
+}
+
+ul {
+  padding: 0.5rem 3rem;
+  background: var(--color-list);
+  list-style: square inside;
+  filter: drop-shadow(0 1px 5px var(--color-shadow));
+  position: relative;
+}
+/* through a pseudo element include a simple bubble describing the stage of the simple application */
+ul:before {
+  /* use the string stored in the custom property, which is updated as the application goes from stage to stage */
+  content: var(--tip);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  background: inherit;
+  border-radius: 5px;
+  /* by default hide the element and slightly offset it to the bottom */
+  transform: translateY(1rem);
+  opacity: 0;
+  visibility: hidden;
+}
+/* when a class of .active is applied to the unordered list, include the animation to momentarily show the tip */
+ul.active:before {
+  animation: showTip 1.5s ease-out;
+}
+@keyframes showTip {
+  10%,
+  90% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* increase the white space around the list items */
+ul li {
+  font-size: 0.85rem;
+  margin: 2rem 0;
+}
