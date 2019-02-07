@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>JavaScript Timer</title>
+    <meta
+      name="description"
+      content="Inspired by the #javascript30 course, build a timer with a minimalistic UI, to give yourself a break."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- the interface is set to replicate the UI of a mobile device, with the timer positioned atop a panel with the actual options -->
+    <main class="app">
+      <!-- container showing the countdown as well as when the timer will end, in two headings -->
+      <div class="app__timer">
+        <h1>00:00</h1>
+        <h3>Break?</h3>
+      </div>
+
+      <!-- container allowing to select the number of minutes (or seconds) to run the timer -->
+      <div class="app__options">
+        <!-- immediately the option to set a custom number of minutes through a form element -->
+        <form name="customTimer">
+          <input
+            name="minutes"
+            id="minutes"
+            type="number"
+            min="1"
+            placeholder="Add timer"
+          />
+        </form>
+
+        <!-- for the other options include buttons with arbitrary values
+          data-time is included to represent the number of seconds
+          -->
+        <button data-time="20">20 seconds</button>
+        <button data-time="300">5 minutes</button>
+        <button data-time="900">15 minutes</button>
+        <button data-time="1800">30 minutes</button>
+        <button data-time="3600">1 hour</button>
+        <button data-time="5400">1 hour <sup>1</sup>/<sub>2</sub></button>
+        <button data-time="7200">2 hours</button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
