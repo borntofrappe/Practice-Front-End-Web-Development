@@ -21,9 +21,9 @@ body {
   background: var(--color-bg);
   /* center the canvas in the page */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 canvas {
@@ -35,9 +35,8 @@ canvas {
   box-shadow: 0 0 15px -2px var(--color-bg);
 }
 
-
 /* for the modal shown through the script, absolute position it to center it in the screen */
-.result {
+.modal {
   max-width: 350px;
   position: absolute;
   background: var(--color-white);
@@ -63,19 +62,19 @@ canvas {
     transform: translateY(0);
   }
 }
-.result--message h2 {
+.modal--message h2 {
   font-size: 1.7rem;
   font-family: var(--font-heading);
   font-weight: 300;
   line-height: 1.5;
 }
-.result--message h1 {
+.modal--message h1 {
   font-size: 2.4rem;
   font-family: var(--font-heading);
   font-weight: 700;
   margin: 2rem 0 3rem;
 }
-.result button {
+.modal button {
   font-family: inherit;
   color: var(--color-white);
   background: var(--color-bg);
@@ -87,10 +86,10 @@ canvas {
   letter-spacing: 0.1rem;
   transition: all 0.2s ease-out;
 }
-.result button:hover {
+.modal button:hover {
   transform: translateY(-1px);
 }
-.result button:active {
+.modal button:active {
   transform: translateY(2px);
 }
 
@@ -121,4 +120,99 @@ this to emulate a pencil drawing a circle
     opacity: 0;
     visibility: hidden;
   }
+}
+
+/* include the faq button in the top right corner */
+button.faq {
+  border: none;
+  background: var(--color-white);
+  color: inherit;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  font-family: var(--font-body);
+  font-weight: bold;
+  width: 58px;
+  height: 58px;
+  text-align: center;
+  line-height: 58px;
+  border-radius: 50%;
+  /* animate the button into view **after** the pencil has completed its animation */
+  animation: popIn 0.5s 2.8s cubic-bezier(0.19, 1.22, 0.9, 1.33) both;
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(25deg) scale(0);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(0deg) scale(1);
+  }
+}
+/* with the pseudo element add a small pulsating halo behind the button
+animate it on hover */
+button.faq:before {
+  content: "";
+  position: absolute;
+  background: var(--color-white);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0.7;
+  z-index: -50;
+}
+button.faq:hover:before {
+  animation: pulse 2s infinite ease-out;
+}
+@keyframes pulse {
+  20%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* for the faq section, this is shown in a modal much like the result
+a few properties are altered to accommodate for the increasing text present in the modal
+*/
+.modal.modal--lg {
+  max-width: 600px;
+  text-align: left;
+  padding: 2rem 4.75rem;
+  top: 1rem;
+}
+
+/* for the unordered list, include a question mark before each list item */
+.modal.modal--lg ul {
+  list-style: none;
+}
+.modal.modal--lg ul li {
+  margin: 1.5rem 0;
+  line-height: 2;
+  position: relative;
+}
+.modal.modal--lg ul li:before {
+  position: absolute;
+  content: "?";
+  right: 100%;
+  top: 50%;
+  font-size: 3rem;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  opacity: 0.2;
+  color: var(--color-bg);
+}
+/* for the first paragraph of each list item, representing the question, make the text bolder  */
+.modal.modal--lg ul li p:nth-of-type(1) {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
 }

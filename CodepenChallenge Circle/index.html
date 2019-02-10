@@ -16,20 +16,30 @@
   </head>
 
   <body>
+    <!-- include the SVG icon later used in the project -->
+    <svg style="display: none;">
+      <symbol id="pencil" viewBox="0 0 100 100" width="100" height="100">
+        <g>
+          <rect rx="5" x="30" y="0" width="40" height="10" fill="#EC3A92" />
+          <rect x="30" y="10" width="40" height="75" fill="#FEAB4B" />
+          <path d="M 40 10 v 75 " stroke="#FF6819" stroke-width="3" />
+          <path d="M 50 10 v 75 " stroke="#FF6819" stroke-width="2" />
+          <path d="M 60 10 v 75 " stroke="#FF6819" stroke-width="3" />
+          <path d="M 30 85 h 40 l -20 15 z" fill="#4D494A" />
+        </g>
+      </symbol>
+    </svg>
+
     <!-- include the canvas element in which to draw the shapes and let the visitor draw a path -->
     <canvas width="500" height="500"></canvas>
 
     <!-- include the icon of a pencil to instruct the visitor as to what to do on the page -->
     <svg class="icon" viewBox="0 0 100 100" width="100" height="100">
-      <g transform-origin="50 100" transform="rotate(12)">
-        <rect rx="5" x="30" y="0" width="40" height="10" fill="#EC3A92" />
-        <rect x="30" y="10" width="40" height="75" fill="#FEAB4B" />
-        <path d="M 40 10 v 75 " stroke="#FF6819" stroke-width="3" />
-        <path d="M 50 10 v 75 " stroke="#FF6819" stroke-width="2" />
-        <path d="M 60 10 v 75 " stroke="#FF6819" stroke-width="3" />
-        <path d="M 30 85 h 40 l -20 15 z" fill="#4D494A" />
-      </g>
+      <use href="#pencil" />
     </svg>
+
+    <!-- include a button used as a way to introduce a modal explaining the project -->
+    <button class="faq">?</button>
 
     <script src="script.js"></script>
   </body>

@@ -147,7 +147,7 @@ function handleUp() {
     </div>
     */
     const result = document.createElement('div');
-    result.classList.add('result');
+    result.classList.add('modal');
 
     // for the structure of the container, use the innerHTML property alongside backticks
     // compute first the values to be displayed on screen
@@ -160,7 +160,7 @@ function handleUp() {
     // for the headings include a color ranging from red to green, and according to the score
     // using the [0-120] range in the hue of hsl
     result.innerHTML = `
-      <div class="result--message" style="color: hsl(${score / 100 * 120}, 70%, 20%)">
+      <div class="modal--message" style="color: hsl(${score / 100 * 120}, 70%, 20%)">
         <h2>${message}</h2>
         <h1>
           <sup>${score}</sup>
@@ -177,7 +177,7 @@ function handleUp() {
 
     document.querySelector('body').appendChild(result);
 
-    // once the .result container has done animating, attach an event listener on the button element, to animate it out of view
+    // once the result container has done animating, attach an event listener on the button element, to animate it out of view
     // to transition the modal out and reset the canvas
 
     result.addEventListener('animationend', () => {
@@ -186,7 +186,6 @@ function handleUp() {
       result.style.animation = 'none';
       // attach the event listener to revert the animation
       button.addEventListener('click', () => {
-        // button.style.animation = 'introduce 1s cubic-bezier(0.62,-0.59,0.85,0.54) reverse both';
         result.style.animation = 'introduce 0.75s cubic-bezier(0.24, 1.2, 0.56, 1.55) reverse both';
         // once the new animation is completed, remove the container and reset the canvas
         result.addEventListener('animationend', () => {
@@ -226,3 +225,70 @@ function setupCanvas() {
 
 // immediately call the function setting up the scene
 setupCanvas();
+
+
+// MODAL
+// code connected to the button element, to prop up a modal explaining the project with a couple of questions and answers
+const buttonModal = document.querySelector('button.faq');
+
+function handleClick() {
+  // remove the event listener from the button.modal, as to avoid adding multiple modals
+  // ! remember to re-listen when the modal is dismissed
+  buttonModal.removeEventListener('click', handleClick);
+
+  // create a container for the modal, replicating much of the logic used for the .result modal
+  const faq = document.createElement('div');
+  // include a separate class to make the modal larger (and to accommodate for more text)
+  faq.classList.add('modal', 'modal--lg');
+
+  /* modal structure
+    <ul>
+      <li></li> <-- one list item per question
+    </ul>
+
+    <button></button> <-- dismissing the modal
+  */
+  faq.innerHTML = `
+    <ul>
+      <li>
+        <p>What's this?</p>
+        <p>It's an experiment with the Canvas API, inspired by the weekly #codepenchallenge, not to mention #javascript30.</p>
+      </li>
+      <li>
+        <p>I mean, what is it supposed to do?</p>
+        <p>On its own very little. With your input, it's supposed to evaluate how much you can replicate the circle you see on the page.</p>
+      </li>
+      <li>
+        <p>How do you figure?</p>
+        <p>We consider the length of your drawing, not to mention how much you stayed on the line. We then give you a score based on both considerations.</p>
+      </li>
+      <li>
+        <p>If you consider the length, can I score more than 100?</p>
+        <p>Nice catch mate, in theory yes. But really, no. We though of that and capped the score to the sound, round number.</p>
+      </li>
+    </ul>
+  `;
+
+
+  const dismissButton = document.createElement('button');
+  dismissButton.textContent = 'Dismiss';
+  faq.appendChild(dismissButton);
+
+  document.querySelector('body').appendChild(faq);
+
+  // like for the result container, wait for the animation to be complete before adding an event listener to the button
+  faq.addEventListener('animationend', () => {
+    faq.style.animation = 'none';
+    // attach the event listener to dismiss the modal
+    dismissButton.addEventListener('click', () => {
+      faq.style.animation = 'introduce 0.75s cubic-bezier(0.24, 1.2, 0.56, 1.55) reverse both';
+      // once the new animation is completed, remove the container and re-attach the event listener to the button.modal
+      faq.addEventListener('animationend', () => {
+        document.querySelector('body').removeChild(faq);
+        buttonModal.addEventListener('click', handleClick);
+      });
+    });
+  });
+}
+
+buttonModal.addEventListener('click', handleClick);
