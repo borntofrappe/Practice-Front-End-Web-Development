@@ -16,7 +16,7 @@ The weekly topic is around the shape of a circle, pun intended, and my personal 
 
 Solid practice with the canvas element.
 
-## Update
+## Thoughts
 
 The project turned out to be quite the effort. Luckily, the docs [@mdn](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) provide plety of information on how to draw shapes.
 
@@ -27,3 +27,11 @@ Here's the highlights of the project (which is well commented, so you can get a 
 - it is possible to check if a coordinate is on top of a shape through the `isPointInPath` and `isPointInStroke` function. This opens quite a few opportunities. <!-- operation game? -->
 
 - to chain animations effectively, you need to be aware of their order and how the animation-based events react to said order. In the instance of the project, the `animationend` event gets fired off immediately, and does not wait for the animation set right before it. This has likely something to do with the fact that there is already an animation which was terminated earlier. More research on the topic is needed.
+
+## Update
+
+I decided to consider the project once more to straighten up how I use the SVG icon, but most importantly to add an faq section to explain the effort a little more.
+
+Honestly, the project is far from self-explanatory, and this section was quite needed.
+
+I decided to use the same structure of the result's section, so I changed the class of `.result` to `.modal` and applied it to both the result and faq containers. For this last one, a few properties are needed to accommodate for the amount of text present on the panel, but also for the fact that the container might exceed the page's height. For this last measure, `top: 1rem` allows to stick the absolute positioned container to the top and avoid it going atop the screen.
