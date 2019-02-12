@@ -109,6 +109,7 @@ display the content in a row, vertically centered
   align-items: center;
   margin: 5rem 0;
   line-height: 2;
+  overflow-x: hidden;
 }
 /* for the 1st, 3rd, odd container reverse the flow showing the text before the image */
 .filler--item:nth-of-type(odd) {
