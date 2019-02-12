@@ -1,6 +1,6 @@
 # Slide in on Scroll
 
-<!-- Proud result live [right here on codepen]() -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/bzKLNR).
 
 ## Preface
 
