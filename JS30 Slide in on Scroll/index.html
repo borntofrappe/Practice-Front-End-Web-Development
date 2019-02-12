@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Roll in on Scroll</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- in a main element detail the following structure
+    <div></div> <-- container introducing the project
+    <div> <-- container for the text and images
+      <div></div> <-- each container of the img + p element, to rapidly laid them side by side
+    </div>
+    -->
+    <main class="container">
+      <div class="container__intro">
+        <h1>Hello there</h1>
+        <p>What follows is filler text and a few images.</p>
+        <p>
+          The idea is to have the images slide in on scroll.
+        </p>
+      </div>
+
+      <div class="container__filler">
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Green Leafed Trees"
+            title="Green Leafed Trees"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Green Leafed Trees"
+            title="Green Leafed Trees"
+            title="Green Leafed Trees"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/167698/pexels-photo-167698.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Green Leafed Trees on Forest"
+            title="Green Leafed Trees on Forest"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/418831/pexels-photo-418831.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Green Grass on Forest"
+            title="Green Grass on Forest"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/338936/pexels-photo-338936.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Green Leafed Tree"
+            title="Green Leafed Tree"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Waterfalls in Forest"
+            title="Waterfalls in Forest"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Gray Bridge and Trees"
+            title="Gray Bridge and Trees"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+
+        <div class="filler--item">
+          <img
+            src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Red Leaf Trees Near the Road"
+            title="Red Leaf Trees Near the Road"
+          />
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+            aliquam iure dolores placeat incidunt veritatis. Corporis velit quis
+            culpa ipsam, voluptatibus cupiditate, commodi ullam vero aliquam
+            incidunt, vel qui repellat mollitia. Natus cum doloremque eius minus
+            pariatur ducimus. Aliquam corrupti delectus, ducimus nulla
+            voluptatibus voluptatum vitae impedit porro. Natus, expedita.
+          </p>
+        </div>
+      </div>
+
+      <div class="container__outro">
+        <h2>Neat, ain'it it?</h2>
+        <p>It should also work on the way up.</p>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

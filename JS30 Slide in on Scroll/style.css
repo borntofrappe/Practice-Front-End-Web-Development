@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans");
+:root {
+  --color-bg: #0e4f75;
+  --color-text: #03131d;
+  --color-main: #f6f6f6;
+  --color-accent: #f0360b;
+  --font-heading: "Gloria Hallelujah", cursive;
+  --font-body: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+/* reduce the width of the wrapping container to pronounce the vertical dimension */
+main {
+  max-width: 800px;
+  width: 90vw;
+  margin: 1.5rem auto;
+  background: var(--color-main);
+  padding: 1rem 2rem;
+  line-height: 1.5;
+  /* display the div elements in a column (this to rapidly align the intro and outro container, to the left and to the right of the parent respectively) */
+  display: flex;
+  flex-direction: column;
+  /* position relative for a pseudo element */
+  position: relative;
+}
+/* with a pseudo element add a striped border
+this in the form of a repeating linear gradient applied on a box larger than the connected element
+*/
+main:before {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-accent) 0px,
+    var(--color-accent) 12px,
+    var(--color-main) 12px,
+    var(--color-main) 20px
+  );
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  z-index: -5;
+}
+/* the intro and outro containers share much of the style, but differ in the alignment */
+.container__intro,
+.container__outro {
+  position: relative;
+  margin: 2rem 0;
+}
+/* align the intro and outro container to the left and to the right respectively */
+.container__intro {
+  align-self: flex-start;
+  padding: 0 1rem 1rem 0;
+}
+.container__outro {
+  align-self: flex-end;
+  padding: 1rem 1rem 0 0;
+}
+
+/* with a pseudo element add a small line below and atop the intro and outro container respectively */
+.container__intro:before,
+.container__outro:before {
+  background: var(--color-accent);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;
+}
+.container__intro:before {
+  top: 100%;
+  left: 0;
+}
+.container__outro:before {
+  bottom: 100%;
+  right: 0;
+}
+/* the heading share font, but sligthly differ in size */
+.container__intro h1 {
+  font-size: 2.5rem;
+}
+.container__outro h2 {
+  font-size: 2rem;
+}
+.container__intro h1,
+.container__outro h2 {
+  font-family: var(--font-heading);
+}
+.container__intro p,
+.container__outro p {
+  line-height: 2;
+}
+
+/* container of the img+p elements
+display the content in a row, vertically centered
+/* increase notably the white space surrounding the items */
+.filler--item {
+  display: flex;
+  align-items: center;
+  margin: 5rem 0;
+  line-height: 2;
+}
+/* for the 1st, 3rd, odd container reverse the flow showing the text before the image */
+.filler--item:nth-of-type(odd) {
+  flex-direction: row-reverse;
+}
+
+/* give a small, but fixed width to the images */
+.filler--item img {
+  margin: 1rem;
+  width: 300px;
+  /* by default hide them from view */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease-out;
+}
+
+/* translate the images outwards (they are alternated to the right and to the left depending on the container) */
+.filler--item:nth-of-type(odd) img {
+  transform: translateX(50%);
+}
+.filler--item:nth-of-type(even) img {
+  transform: translateX(-50%);
+}
+/* through a class make the images visible and where they should sit by default */
+.filler--item img.shown {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* on smaller viewports position the images and text on top of one another */
+@media (max-width: 650px) {
+  .filler--item,
+  /* ! the edd containers made reverse rows have higher specificity */
+  .filler--item:nth-of-type(odd) {
+    flex-direction: column;
+  }
+  /* position all images after the text */
+  .filler--item img {
+    order: 1;
+  }
+}
