@@ -1,0 +1,144 @@
+:root {
+  --color-bg: #f9f3f9;
+  --color-camera-lightest: #858193;
+  --color-camera-lighter: #726f80;
+  --color-camera-light: #403c49;
+  --color-camera-dark: #34323e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* for the camera, cap the size of the container, but maintain a 1: 3/5 ratio between width and height */
+main.camera {
+  width: 90vw;
+  height: calc(90vw * 3 / 5);
+  max-width: 600px;
+  max-height: calc(600px * 3 / 5);
+  /* slight gradient toward the top of the camera */
+  background: linear-gradient(
+    to top,
+    var(--color-camera-dark) 55%,
+    var(--color-camera-light)
+  );
+  border-radius: 30px;
+  /* filter to consider a shadow also on the connected pseudo element */
+  filter: drop-shadow(0 1px 2px var(--color-camera-light));
+  position: relative;
+  /* padding to reduce the size of the nested canvas */
+  padding: 2rem;
+  /* flex to center the canvas in the camera */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* with a pseudo element add a small appendage at the top of the camera */
+main.camera:before {
+  position: absolute;
+  content: "";
+  background: var(--color-camera-light);
+  bottom: 100%;
+  left: 50%;
+  width: 60%;
+  height: 2.5rem;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* for the canvas, include it as a circle with a solid background
+the idea is to give the feed from the webcam in this element
+*/
+canvas.camera__feed {
+  height: 100%;
+  width: calc(100% * 3 / 5);
+  background: var(--color-camera-dark);
+  border-radius: 50%;
+  border: 1rem solid var(--color-camera-lightest);
+}
+/* different background applied on the canvas element when the main container has a class of click */
+main.camera.click canvas.camera__feed {
+  background: var(--color-camera-lightest);
+}
+
+/* button to trigger the picture being taken
+absolute positioned in the top right corner */
+button.camera__click {
+  background: var(--color-camera-lightest);
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  transition: all 0.2s ease-out;
+}
+/* pseudo element depicting a slightly darker border around the button */
+button.camera__click:before {
+  position: absolute;
+  content: "";
+  background: var(--color-camera-dark);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) scale(1.5);
+  border-radius: 50%;
+  z-index: -5;
+}
+/* on hover change the color to the slightly darker hue */
+button.camera__click:hover {
+  background: var(--color-camera-lighter);
+}
+
+/* for the container of the photos, display them in a row */
+div.photos {
+  display: flex;
+  align-items: center;
+  /* cap the width like the main container */
+  width: 90vw;
+  max-width: 600px;
+  height: 150px;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+/* give a width and a height to show how the picture ought to ultimately look */
+div.photos div.photo--fake {
+  height: 100px;
+  width: 100px;
+  flex-shrink: 0;
+  margin: 1rem;
+  background: var(--color-camera-lightest);
+  border-radius: 5px;
+
+  /* center the text just for filler content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* minor stylistic choices regarding the scrollbar */
+div.photos::-webkit-scrollbar {
+  height: 0.35rem;
+}
+div.photos::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--color-camera-dark);
+}
+div.photos::-webkit-scrollbar-thumb {
+  background: var(--color-camera-light);
+  border-radius: 5px;
+}
