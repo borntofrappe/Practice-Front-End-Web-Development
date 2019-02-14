@@ -1,5 +1,7 @@
 # getUserMedia API
 
+Work-in-progress [right here](https://codepen.io/borntofrappe/full/LqgGyz).
+
 ## Preface
 
 This is likely one of the most awaited project in the #javascript30 course. The [video itself](https://youtu.be/ElWFcBlVk-o) is rather meaty, so I decided to develop a simple application learning from the video, and one step at a time.
