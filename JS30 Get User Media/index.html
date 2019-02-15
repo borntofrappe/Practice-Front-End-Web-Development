@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Photo Booth UI</title>
+    <title>Take a Picture</title>
     <meta
       name="description"
-      content="Create the design for the application ultimately making use of the getUserMedia API to capture video feed and alter the return value."
+      content="Following the #javascript30 episode on the getUserMedia API, create a basic application allowing to take snapshots through the webcam. The stream is piped in a canvas element resembling the perspective of a camera."
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -25,8 +25,10 @@
 
     <!-- in a wrapping container below the camera display the images in a row with a fixed width -->
     <div class="photos">
-      <!-- in the photos container include images wrapped in anchor link elements, as to make them clickable -->
-      <!-- <a href="image.format" download="bg">
+      <!-- in the photos container include images wrapped in anchor link elements, as to make them click-able
+      the structure resembles the following structure
+      -->
+      <!-- <a href="image.format" download="imageName">
         <img src="image.format" />
       </a> -->
     </div>
