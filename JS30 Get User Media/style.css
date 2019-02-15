@@ -24,8 +24,8 @@ body {
 main.camera {
   width: 90vw;
   height: calc(90vw * 3 / 5);
-  max-width: 600px;
-  max-height: calc(600px * 3 / 5);
+  max-width: 550px;
+  max-height: calc(550px * 3 / 5);
   /* slight gradient toward the top of the camera */
   background: linear-gradient(
     to top,
@@ -114,21 +114,22 @@ div.photos {
   height: 150px;
   margin-top: 1rem;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
-/* give a width and a height to show how the picture ought to ultimately look */
-div.photos div.photo--fake {
+/* give a fixed width and height to the anchor link nesting the images */
+div.photos a {
   height: 100px;
   width: 100px;
   flex-shrink: 0;
   margin: 1rem;
-  background: var(--color-camera-lightest);
-  border-radius: 5px;
+  animation: introduce 0.25s cubic-bezier(0.05, 1.18, 0.75, 1.31) both;
+}
 
-  /* center the text just for filler content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+div.photos a img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }
 
 /* minor stylistic choices regarding the scrollbar */
@@ -141,4 +142,18 @@ div.photos::-webkit-scrollbar-track {
 div.photos::-webkit-scrollbar-thumb {
   background: var(--color-camera-light);
   border-radius: 5px;
+}
+
+/* simple animation to make each new picture bounce into view */
+@keyframes introduce {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0) rotate(12deg);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) rotate(0);
+  }
 }
