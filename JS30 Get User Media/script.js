@@ -1,17 +1,17 @@
 // ACTUAL code responsible for the feat
 /** necessary elements
- * canvas
- * button
+ * canvas in which to feed the stream
+ * context of the canvas, to draw the video and shapes
+ * width and height of the canvas, to easily include the values where needed
+ * button to take a picture
  * container diplaying the photos
  */
 const camera = document.querySelector('main.camera');
 const canvas = camera.querySelector('canvas.camera__feed');
+const { width, height } = canvas;
 const context = canvas.getContext('2d');
 const click = camera.querySelector('button.camera__click');
 const photos = document.querySelector('div.photos');
-
-// integer to keep track of the timeout for the silly animation on the button
-let timeoutID = 0;
 
 /* function taking as input a video element and including its value in the canvas element
 */
@@ -23,7 +23,7 @@ function videoToCanvas(video) {
     - x and y coordinate of where to begin the drawing
     - width and height
     */
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    context.drawImage(video, 0, 0, width, height);
   }, 16);
 }
 
@@ -50,13 +50,32 @@ function getVideo() {
       videoToCanvas(video);
     })
     // in case permission is denied, draw a placeholder shape on the canvas
-    // just to have the click produce an image of something
+    // absolutely inspired by the MDN docs
+    // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#Moving_the_pen
     .catch((err) => {
-      console.error(`Err: ${err}`);
-      context.fillRect(0, 0, 100, 100);
+      context.fillStyle = '#BC9AC6';
+      // two eyes atop the canvas
+      context.beginPath();
+      context.arc(width / 2 + height / 4, height * 1 / 4, height / 8, 0, Math.PI * 2, true);
+      context.arc(width / 2 - height / 4, height * 1 / 4, height / 8, 0, Math.PI * 2, true);
+      context.fill();
+      context.closePath();
+
+      // a simple nose below the eyes
+      context.beginPath();
+      context.arc(width / 2, height / 2, height / 16, 0, Math.PI, true);
+      context.fill();
+      context.closePath();
+
+      // amused mouth
+      context.beginPath();
+      context.arc(width / 2, height * 3 / 4, height / 10, 0, Math.PI * 2, true);
+      context.fill();
+      context.closePath();
     });
 }
 
+// immediately call the function asking for user permission
 getVideo();
 
 
@@ -82,17 +101,6 @@ function handleClick() {
   // add the link in the .photos container
   photos.insertBefore(link, photos.firstChild);
 
-
-  // silly animation on the canvas element
-  camera.classList.add('click');
-  click.removeEventListener('click', handleClick);
-
-  timeoutID = setTimeout(() => {
-    camera.classList.remove('click');
-    click.addEventListener('click', handleClick);
-
-    clearTimeout(timeoutID);
-  }, 20);
 }
 
 click.addEventListener('click', handleClick);
