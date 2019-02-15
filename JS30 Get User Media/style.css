@@ -68,10 +68,6 @@ canvas.camera__feed {
   border-radius: 50%;
   border: 1rem solid var(--color-camera-lightest);
 }
-/* different background applied on the canvas element when the main container has a class of click */
-main.camera.click canvas.camera__feed {
-  background: var(--color-camera-lightest);
-}
 
 /* button to trigger the picture being taken
 absolute positioned in the top right corner */
@@ -124,6 +120,28 @@ div.photos a {
   flex-shrink: 0;
   margin: 1rem;
   animation: introduce 0.25s cubic-bezier(0.05, 1.18, 0.75, 1.31) both;
+  /* position relative for a connected pseudo element */
+  position: relative;
+}
+/* through a pseudo element show a download icon
+the idea is to highlight such an icon only on hover, to signal how the images can be downloaded on click
+ */
+div.photos a:before {
+  content: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="%23ffffff44" stroke="%23ffffff" stroke-width="10" /%3E%3Cpath d="M 40 35 h 20 v 20 h 8 l -18 15 l -18 -15 h 8 z"  fill="none" stroke="%23ffffff" stroke-width="7" stroke-linejoin="round"/%3E%3C/svg%3E');
+  width: 50px;
+  height: 55px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+}
+div.photos a:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
 
 div.photos a img {
