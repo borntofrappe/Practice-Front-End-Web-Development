@@ -1,6 +1,6 @@
 # getUserMedia API
 
-Work-in-progress [right here](https://codepen.io/borntofrappe/full/LqgGyz).
+Proud result live [right here](https://codepen.io/borntofrappe/full/LqgGyz) on codepen.
 
 ## Preface
 
