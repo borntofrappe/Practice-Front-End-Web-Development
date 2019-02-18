@@ -1,0 +1,115 @@
+:root {
+  --color-bg: #1f0627;
+  --color-accent: #fbd2e4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  /* center the button in the page */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* remove default border and background */
+button {
+  border: none;
+  background: none;
+  /* fixed widht and height inherited by the svg */
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(0 2px 5px #100314);
+  /* position relative for the pseudo element */
+  position: relative;
+}
+/* stretch the svg to cover the size of the button */
+button svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* include the animations when the button has a class of .play
+1. on the pseudo element button:before to create a halo/pulse
+1. on the SVG and specifically the group elements defining the "exclamation mark"
+*/
+
+/* through the pseudo element add a circle roughly around the area "hit" by the SVG shape */
+button.play:before {
+  content: "";
+  position: absolute;
+  top: 37%;
+  left: 45%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background: var(--color-accent);
+  border-radius: inherit;
+  /* have the circle on top of the button */
+  z-index: 10;
+  /* animation to highlight the circle before removing it from view */
+  animation: echo 1s 2.1s ease-out both;
+}
+
+/* animate the group element nesting the "exclamation mark" to rotate, move to the side of the triangle and emulate the musical instrument */
+button.play svg #triangle__wand {
+  animation: ding 3.5s cubic-bezier(0.59, 0.06, 0.62, 1) forwards;
+  /* transform origin by default set to the top of the group */
+  transform-origin: 50% 0%;
+}
+
+/* animation for the group element describing the exclamation mark/ baton of the triangle
+- rotate the nested shapes and position them to the side of the triangle
+- rotate them rapidly toward the triangle
+- rotate them back before going back to the original state
+*/
+@keyframes ding {
+  50% {
+    transform: translate(-70%, -100%) rotate(177deg);
+    /* change transform-origin to have the first rotation hinge on the bottom of the group */
+    transform-origin: 50% 100%;
+  }
+  57% {
+    transform: translate(-70%, 100%) rotate(177deg);
+    /* change transform-origin to have the following rotations hinge on the top of the group (which currently sits at the bottom) */
+    transform-origin: 50% 0%;
+  }
+  60% {
+    transform: translate(-65%, 100%) rotate(210deg);
+    transform-origin: 50% 0%;
+  }
+  63%,
+  90% {
+    transform: translate(-70%, 100%) rotate(177deg);
+    transform-origin: 50% 0%;
+  }
+}
+
+/* animation for the pseudo element
+scale the circle element from 0 to an arbitrary consierable size
+reduce its opacity until it is completely transparent
+*/
+@keyframes echo {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  70% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
