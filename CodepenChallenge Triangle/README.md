@@ -1,6 +1,6 @@
 # Dainty Danger Button
 
-<!-- Proud result live [right here on codepen]() -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/ErrZgE).
 
 ## Preface
 
