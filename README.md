@@ -259,3 +259,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**JS30 Slide in on Scroll**](https://codepen.io/borntofrappe/pen/bzKLNR)|Transition into view a series of images only when the visitor scrolls to their respective position.|scroll, debounce, image|12th February 2019|
 |[**JS30 Get User Media**](https://codepen.io/borntofrappe/pen/LqgGyz)|Create a basic application allowing to take snapshots through the webcam. The stream is piped in a canvas element making to look like a camera.|getUserMedia, video, canvas|14th-15th February 2019|
 |[**CodepenChallenge Triangle**](https://codepen.io/borntofrappe/pen/ErrZgE)|Tinker with SVG shapes and CSS animation to create a danger button out of a triangle.|svg, css, animation|18th February 2019|
+|[**JS30 Music Box**](https://codepen.io/borntofrappe/pen/WPmdmJ)|Create a mobile interface in which keys can be pressed to play a note.|ui, key|19th February 2019|
