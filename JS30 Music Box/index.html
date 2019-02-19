@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>JavaScript Piano (UI only)</title>
+    <meta
+      name="description"
+      content="Inspired by the drum machine in the #javascript30 course, create a mobile interface in which piano keys can be pressed to play a note."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- in a wrapping container include keys for the makeshift piano -->
+    <main class="piano">
+      <!-- each button has a data-key used to identify the button through a key press -->
+      <button class="piano__key" data-key="c">c</button>
+      <button class="piano__key" data-key="d">d</button>
+      <button class="piano__key" data-key="e">e</button>
+      <button class="piano__key" data-key="f">f</button>
+      <button class="piano__key" data-key="g">g</button>
+      <button class="piano__key" data-key="a">a</button>
+      <button class="piano__key" data-key="b">b</button>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

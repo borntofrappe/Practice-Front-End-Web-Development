@@ -1,0 +1,126 @@
+/* import font(s) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+/* detail root variables */
+:root {
+  --font: "Open Sans", sans-serif;
+  --text: hsl(225, 13%, 75%);
+  --bg: hsl(0, 0%, 97%);
+  --bg-dark: hsl(0, 0%, 92%);
+  --border: hsl(0, 0%, 16%);
+  --main: hsl(223, 49%, 30%);
+  /* highlight is used to style each button (and the connected pseudo element)
+  variable updated in the JS script
+  */
+  --highlight: hsl(360, 95%, 60%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--text);
+  /* through SVG elements add a few colored shapes in the top right and bottom left corner */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" transform="rotate(180)" width="500" height="200"><path d="M 100 220 l 150 -200" fill="none" stroke="%23fbd346" stroke-width="30" stroke-linecap="round" stroke-dasharray="70" /><path d="M 250 220 l 75 -100" fill="none" stroke="%232ddffe" stroke-width="50" stroke-linecap="round" /><path d="M 350 220 l 112.5 -150" fill="none" stroke="%23fa327f" stroke-width="35" stroke-linecap="round" /></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" width="500" height="200"><path d="M 100 220 l 150 -200" fill="none" stroke="%23fa327f" stroke-width="30" stroke-linecap="round" /><path d="M 250 220 l 75 -100" fill="none" stroke="%2345fcd7" stroke-width="50" stroke-linecap="round" /><path d="M 350 220 l 112.5 -150" fill="none" stroke="%232ddffe" stroke-width="35" stroke-linecap="round" /></svg>'),
+    var(--bg);
+  background-repeat: no-repeat;
+  background-position: 100% 0, 0 100%, 0;
+  background-size: 500px, 300px, 100%;
+  /* center the interface */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* cap the width of the display and maintain a 4:7 ratio between height and width */
+main.piano {
+  background: var(--main);
+  max-width: 600px;
+  max-height: calc(600px * 4 / 7);
+  width: 90vw;
+  height: calc(90vw * 4 / 7);
+  border: 1.5rem solid var(--border);
+  border-radius: 25px;
+
+  /* display the buttons in a row and vertically push them to the bottom of the interface */
+  display: flex;
+  align-items: flex-end;
+  /* overflow hidden to cut out the pseudo elements highlighting the buttons being pressed */
+  overflow: hidden;
+}
+
+/* let each button take a portion of the interface and use a fraction of the height */
+button.piano__key {
+  flex-grow: 1;
+  height: 45%;
+  border: none;
+  background: var(--bg);
+
+  font-family: inherit;
+  color: inherit;
+  text-transform: uppercase;
+  font-size: 3vw;
+  /* transition for the hover state */
+  transition: all 0.25s ease-out;
+  /* position relative for the pseudo element */
+  position: relative;
+}
+
+/* for all buttons except the first add a border separating the keys */
+button.piano__key + button.piano__key {
+  border-left: 2px solid var(--bg-dark);
+}
+/* on hover apply a slightly darker hue */
+button.piano__key:hover {
+  background: var(--bg-dark);
+}
+/* when active or through a class of active, apply the color specified in highlight
+! class added when pressing the respective key
+*/
+button.piano__key:active,
+button.piano__key.active {
+  background: var(--highlight);
+  color: var(--bg);
+}
+/* when active or through a class of active play the animation on the pseudo element */
+button.piano__key:active:before,
+button.piano__key.active:before {
+  animation: playKey 1s ease-out forwards;
+}
+
+/* through a pseudo element add a rectangle positioned at the top center of each button
+using the color defined in highlight
+animating its vertical scale through a specified animation
+*/
+button.piano__key:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 150%;
+  width: 80%;
+  background: var(--highlight);
+  transform: translate(-50%, 0) scaleY(0);
+  transform-origin: 50% 100%;
+}
+
+/* animation increasing the vertical scale */
+@keyframes playKey {
+  to {
+    transform: translate(-50%, 0) scaleY(1);
+  }
+}
+
+/* cap the font size of the buttons to 1.5rem */
+@media (min-width: 700px) {
+  button.piano__key {
+    font-size: 1.5rem;
+  }
+}
