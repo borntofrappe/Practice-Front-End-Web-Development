@@ -81,16 +81,12 @@ button.piano__key + button.piano__key {
 button.piano__key:hover {
   background: var(--bg-dark);
 }
-/* when active or through a class of active, apply the color specified in highlight
-! class added when pressing the respective key
-*/
-button.piano__key:active,
+/* apply the color specified in highlight only through the class of .active */
 button.piano__key.active {
   background: var(--highlight);
   color: var(--bg);
 }
-/* when active or through a class of active play the animation on the pseudo element */
-button.piano__key:active:before,
+/* play the animation on the pseudo element only through the class of .active */
 button.piano__key.active:before {
   animation: playKey 1s ease-out forwards;
 }
