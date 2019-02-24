@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS Custom Properties</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- the idea is to have the interface of an article, prefaced by a button and the panel in which to possibly change the articles' UI
+      button (allowing to toggle the following panel, absolute positioned in the top right corner)
+      div (allowing to change the page's style, fixed and below the button)
+
+      main (describing the content of the page)
+    -->
+    <button id="toggle">
+      Change style →
+      <svg viewBox="0 0 70 50" width="70" height="50">
+        <g transform="scale(0.8, 0.8) translate(10, 10)">
+          <path d="M 0 0 h 70" stroke="currentColor" stroke-width="5" />
+          <path d="M 0 25 h 70" stroke="currentColor" stroke-width="5" />
+          <path d="M 0 50 h 70" stroke="currentColor" stroke-width="5" />
+        </g>
+      </svg>
+    </button>
+
+    <div id="panel">
+      <!-- show the different options
+      for the color include input elements of type color
+      ! use the name to identify the matching CSS custom property
+      for the sizes incllude two buttons to decrease/increase the matching value
+      ! use data attributes to identify the matching property and the change introduced by the button
+     -->
+      <div class="panel__option option--color">
+        <input name="color-bg" type="color" value="#fafafa" />
+        Page's background
+      </div>
+      <div class="panel__option option--color">
+        <input name="color-header" type="color" value="#4e3fdc" />
+        Header's background
+      </div>
+
+      <div class="panel__option option--color">
+        <input name="color-header-text" type="color" value="#fafafa" />
+        Header's text
+      </div>
+
+      <div class="panel__option option--color">
+        <input name="color-section" type="color" value="#ffffff" />
+        Section's background
+      </div>
+
+      <div class="panel__option option--color">
+        <input name="color-section-text" type="color" value="#393939" />
+        Section's text
+      </div>
+
+      <div class="panel__option option--text">
+        <button class="size" data-size="font-size" data-change="0.9">-</button>
+        Font size
+        <button class="size" data-size="font-size" data-change="1.1">+</button>
+      </div>
+
+      <div class="panel__option option--text">
+        <button class="size" data-size="line-height" data-change="0.9">
+          -
+        </button>
+        Line height
+        <button class="size" data-size="line-height" data-change="1.1">
+          +
+        </button>
+      </div>
+
+      <div class="panel__option option--text">
+        <button class="size" data-size="max-width" data-change="0.9">-</button>
+        Max width
+        <button class="size" data-size="max-width" data-change="1.1">+</button>
+      </div>
+    </div>
+
+    <main>
+      <header>
+        <h1>Custom properties to the rescue</h1>
+      </header>
+
+      <section>
+        <h2>Article</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nemo
+          quam error asperiores velit, necessitatibus, nisi aut dolores sint
+          soluta a perferendis incidunt cum eaque magnam, facere in sunt
+          blanditiis quibusdam. Numquam dolore quas cumque exercitationem,
+          nesciunt nisi necessitatibus repellat odio, officiis iusto ratione
+          eligendi ut reprehenderit, quam eveniet vitae?
+        </p>
+        <p>
+          Harum doloribus quisquam, est iusto eligendi possimus consectetur iste
+          neque debitis explicabo voluptatum, labore, tempora accusamus facere
+          minus obcaecati porro aut quam maiores ut id dolorum excepturi
+          tempore. Provident sunt, itaque facilis excepturi adipisci, ipsam
+          repellat sint fuga, ullam obcaecati error placeat aut earum fugiat.
+          Hic non totam aut dolorum.
+        </p>
+        <p>
+          Molestiae, ratione exercitationem quas, unde facere cumque earum porro
+          soluta incidunt, sit repudiandae minus optio at beatae delectus
+          laudantium. Veniam ullam illum minima, debitis cupiditate numquam eius
+          iusto reiciendis at, consectetur dolorem suscipit enim aliquam
+          officiis modi odit natus adipisci nostrum nemo, quasi inventore
+          obcaecati ipsum. Est earum officiis quod.
+        </p>
+        <p>
+          Quae tempora illum eius tempore fugiat dicta corrupti cumque tenetur
+          voluptatum non cupiditate suscipit nostrum nam fuga expedita totam
+          sapiente, amet officiis fugit nisi vel, molestias, quos atque numquam.
+          Voluptas cupiditate sunt eius, eveniet nisi natus quae placeat aperiam
+          dolorum dolore, pariatur iste tenetur autem impedit a adipisci veniam
+          itaque!
+        </p>
+        <p>
+          Dolor, fuga eveniet dolore excepturi placeat sequi repellendus fugit
+          eaque incidunt maiores nemo nisi consequuntur doloremque mollitia?
+          Incidunt eaque harum veniam eligendi nemo dolorem assumenda voluptatem
+          excepturi voluptates, ex hic autem iste ducimus id est ut quisquam,
+          explicabo repellat, tenetur fugiat ad. A nobis consequatur dolorem
+          delectus, numquam qui velit.
+        </p>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

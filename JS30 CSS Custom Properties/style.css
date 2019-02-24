@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif:700i|Padauk");
+
+/* properties later modified in the script */
+:root {
+  --color-bg: #fafafa;
+  --color-header: #4e3fdc;
+  --color-header-text: #fafafa;
+  --color-section: #ffffff;
+  --color-section-text: #393939;
+  --font-size: 1.2rem;
+  --line-height: 2.5rem;
+  --max-width: 700px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-section-text);
+  font-family: "Padauk", sans-serif;
+  font-size: var(--font-size);
+}
+
+/* absolute position the button in the top left corner */
+button#toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--color-header-text);
+  /* display the text and SVG side by side, vertically aligned */
+  display: flex;
+  align-items: center;
+}
+button#toggle svg {
+  fill: currentColor;
+  margin-left: 0.75rem;
+  width: 35px;
+  height: auto;
+  transition: transform 0.2s ease-out;
+}
+button#toggle:hover svg,
+button#toggle:focus svg {
+  transform: scale(0.8) rotate(-12deg);
+}
+button#toggle svg path:nth-of-type(2) {
+  transition: transform 0.2s ease-out;
+  transform-origin: 50% 50%;
+}
+button#toggle:hover svg path:nth-of-type(2),
+button#toggle:focus svg path:nth-of-type(2) {
+  transform: rotate(25deg);
+}
+
+/* fix the panel on the right of the page */
+div#panel {
+  font-size: 1.25rem;
+  position: fixed;
+  right: 0;
+  top: 5rem;
+  background: #fff;
+  color: #393939;
+  padding: 1.25rem 1.75rem;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0px 1px 15px -5px var(--color-section-text);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 2.5;
+  /* by default hide the panel from view */
+  transform: translateX(100%);
+  transition: transform 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* show the panel through a class of .active */
+div#panel.active {
+  transform: translateX(0);
+}
+div#panel div.panel__option {
+  display: flex;
+  align-items: center;
+}
+div#panel div.panel__option input {
+  margin-right: 0.75rem;
+}
+
+/* for the option showing the font size, cover the entirety of the containers' width */
+div#panel div.panel__option.option--text {
+  width: 100%;
+  justify-content: space-around;
+}
+div#panel div.panel__option.option--text button {
+  border: none;
+  background: none;
+  font-size: 1.35rem;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  font-family: inherit;
+}
+/* for the main content */
+main {
+  min-height: 100vh;
+}
+/* header spanning the entire width and centering the h1 element */
+header {
+  padding: 3rem 1rem;
+  color: var(--color-header-text);
+  background: var(--color-header);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+header h1 {
+  font-family: "Noto Serif", serif;
+}
+/* section capped in width and horizontally centered */
+section {
+  max-width: var(--max-width);
+  margin: -2rem auto 1rem;
+  width: 90vw;
+  background: var(--color-section);
+  /* noticeable whitespace */
+  padding: 2.5rem 3.75rem;
+  border-radius: 5px;
+  box-shadow: -1px 1px 15px -8px var(--color-section-text);
+}
+section h2 {
+  font-weight: 800;
+}
+/* increase whitespace around the paragraph elements and increase the line height */
+section p {
+  margin: 1.5rem 0;
+  line-height: var(--line-height);
+}
