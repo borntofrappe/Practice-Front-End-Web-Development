@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>CPC Splitting Mercury</title>
+    <meta
+      name="description"
+      content="Belated entry for the #codepenchallenge, tinkering with the gooey effect as shrewdly described on CSS tricks."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- include a single button responsible for the first blob
+    the idea is to add more copies on click
+    -->
+    <div class="blobs">
+      <button class="blob"></button>
+    </div>
+
+    <!--
+      define the filter through SVG syntax
+      the docs @mdn help
+      and so does this mighty intriguing article @css tricks
+      https://css-tricks.com/gooey-effect/
+    -->
+
+    <!-- ! display none to avoid having the SVG occupy any space -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- the id of the filter is used in the CSS stylesheet -->
+        <filter id="gooey">
+          <!-- add blur through the feGaussianBlur primitive -->
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <!-- change the contrast of the alpha channel through the feColorMatrix primitive -->
+          <feColorMatrix
+            in="blur"
+            type="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+            result="gooey"
+          />
+          <!-- merge the blurred, higher-contrast-in-alpha-channel graphic with the original visual
+           -->
+          <feBlend in="SourceGraphic" in2="gooey" />
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="script.js"></script>
+  </body>
+</html>
