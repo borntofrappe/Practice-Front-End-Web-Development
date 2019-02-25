@@ -1,5 +1,9 @@
 # CPC Splitting Mercury
 
+Working pen live, [right here](https://codepen.io/borntofrappe/full/NJWgLy) on codepen.
+
+## Preface
+
 For the third #codepenchallenge of February, themed after **blobs**, I decided to tinker with the gooey effect to achieve a neat animation. Inspired mostly by [this great article](https://css-tricks.com/gooey-effect/).
 
 Here's the idea:

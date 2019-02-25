@@ -261,3 +261,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**CodepenChallenge Triangle**](https://codepen.io/borntofrappe/pen/ErrZgE)|Tinker with SVG shapes and CSS animation to create a danger button out of a triangle.|svg, css, animation|18th February 2019|
 |[**JS30 Music Box**](https://codepen.io/borntofrappe/pen/WPmdmJ)|Create a mobile interface in which keys can be pressed to play a note.|ui, key, web audio|19th-20th February 2019|
 |[**JS30 CSS Custom Properties**](https://codepen.io/borntofrappe/pen/JzPbKB)|Change the design of a placeholder page through a series of input and button elements.|css, custom properties|24th February 2019|
+|[**CodepenChallenge Blob**](https://codepen.io/borntofrappe/pen/NJWgLy)|Tinker with the gooey effect allowed by SVG filters.|svg, filter, gooey|25th February 2019|
