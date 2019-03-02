@@ -262,3 +262,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**JS30 Music Box**](https://codepen.io/borntofrappe/pen/WPmdmJ)|Create a mobile interface in which keys can be pressed to play a note.|ui, key, web audio|19th-20th February 2019|
 |[**JS30 CSS Custom Properties**](https://codepen.io/borntofrappe/pen/JzPbKB)|Change the design of a placeholder page through a series of input and button elements.|css, custom properties|24th February 2019|
 |[**CodepenChallenge Blob**](https://codepen.io/borntofrappe/pen/NJWgLy)|Tinker with the gooey effect allowed by SVG filters.|svg, filter, gooey|25th February 2019|
+|[**JS30 Compass**](https://codepen.io/borntofrappe/pen/oVxMmq)|Create an animation for a treasure map based on the interplay between HTML, CSS and JS.|svg, css, animation|2nd March 2019|
