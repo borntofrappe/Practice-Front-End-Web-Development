@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Treasure Map</title>
+    <meta
+      name="description"
+      content="Inspired by the #javascript30 video on compass and accelerometer, create an animation for a treasure map based on the interplay between HTML, CSS and JS, making also use of SVG syntax."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!--
+      structure
+        div.map (wrapping container)
+          div.compass (round container positioned in the top left corner of the map)
+            div.needle (thin rectangle positioned in the middle of the compass)
+
+          svg (element describing the actual map)
+            g (container used to rescale the svg ever so slightly)
+              g (container for text elements)
+                text
+                text
+              path (dashed path for the trail)
+              path (solid path to hide the trail)
+              g (container for the X making up the goal)
+                path
+                path
+    -->
+
+    <div class="map">
+      <div class="compass">
+        <div class="needle"></div>
+      </div>
+
+      <svg viewBox="0 0 100 100" width="500" height="500">
+        <g
+          fill="none"
+          stroke="currentColor"
+          transform="scale(0.9 0.9) translate(5 5)"
+        >
+          <g font-family="inherit" stroke="none" fill="#cfc3b7">
+            <text
+              x="0"
+              y="20"
+              text-anchor="start"
+              alignment-baseline="middle"
+              transform="scale(0)"
+              transform-origin="20 20"
+            >
+              Struck
+            </text>
+            <text
+              x="100"
+              y="90"
+              text-anchor="end"
+              alignment-baseline="middle"
+              transform="scale(0)"
+              transform-origin="100 90"
+            >
+              Gold
+            </text>
+          </g>
+
+          <!-- have two path elements, with the two overlapping
+            by later removing the second, the first one is introduced on the screen
+
+            ! the d attribute is specified in the script
+          -->
+          <path id="trail" stroke-width="3.5" />
+          <path id="walk" stroke-width="4" />
+
+          <!-- have the goal describe an x with two path elements
+            ! the coordinate of the goal is changed in the script through the transform attribute
+          -->
+          <g id="goal" stroke-width="4">
+            <path class="x" d="M 0 0 l 10 10" />
+            <path class="x" d="M 10 0 l -10 10" />
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
