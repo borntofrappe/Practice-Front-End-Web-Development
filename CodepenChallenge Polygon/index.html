@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>CPC Polygon</title>
+    <title>CPC Crash Crystals</title>
     <meta
       name="description"
-      content="For the polygon codepenchallenge re-create a few of the rewards of the Crash Bandicoot series."
+      content="For the polygon codepenchallenge create a few colored variants of the crystal from the popular Crash Bandicoot video game series. This using Three.js."
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -18,12 +18,13 @@
   <body>
     <!--
       include a single container in which to describe the polygons
-      in the container use a div element for the overlay, moved within the boundaries of the container itself
+      in the container describe a div element for an overlay (a rectangle moved within the boundaries of the container itself)
     -->
     <div class="container">
       <div class="overlay"></div>
     </div>
 
+    <!-- reference three.js **before** the script benefiting from its logic -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js"></script>
     <script src="script.js"></script>
   </body>

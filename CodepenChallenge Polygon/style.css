@@ -10,7 +10,7 @@ body {
   display: grid;
   place-items: center;
 }
-/* descripe the container as a 800x200 rectangle */
+/* describe the container as a 800x200 rectangle */
 .container {
   width: 800px;
   height: 200px;
@@ -18,6 +18,8 @@ body {
   /* position relative for the pseudo element making up the border and the .overlay child element */
   position: relative;
 }
+
+/* with a pseudo element make up a border with highlights */
 .container:before,
 .container:after {
   position: absolute;
@@ -41,7 +43,8 @@ body {
     #fe5e1c 140px
   );
 }
-/* have the overlay occupy a fourth of the width and introduce a semi-transparent overlay on the underlying content */
+
+/* have the overlay occupy a fourth of the width and introduce a semi-transparent background to cover the underlying content */
 .container .overlay {
   width: 200px;
   height: 200px;
@@ -50,6 +53,10 @@ body {
   position: absolute;
   transition: transform 0.15s ease-out;
 }
+/* remove pointer events from the canvas, as to allow for the mousemove event on the window to occur as expected */
 .container canvas {
   pointer-events: none;
+  color: hsl(45, 99%, 49%);
+  color: hsl(13, 80%, 43%);
+  color: hsl(323, 58%, 53%);
 }

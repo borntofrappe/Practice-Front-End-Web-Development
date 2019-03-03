@@ -4,11 +4,41 @@ const overlay = container.querySelector('.overlay');
 // retrieve the width and height of the container
 // these are used for three.js, but also the overlay
 const { offsetWidth: width, offsetHeight: height } = container;
-const colors = ['#3C5BBB', '#F9BB01', '#C43D16', '#CD4398'];
 
-const crystals = [];
+// describe the colors of the crystals
+const colors = [
+  {
+    h: 225,
+    s: 51,
+    l: 48
+  },
+  {
+    h: 45,
+    s: 99,
+    l: 49
+  },
+  {
+    h: 13,
+    s: 80,
+    l: 43
+  },
+  {
+    h: 323,
+    s: 58,
+    l: 53
+  }
+];
+
+// repeat the logic to create the colored variants of the crystals
+// the idea is to include 4 canvas elements
 for (let i = 0; i < 4; i += 1) {
-  // set up the canvas element in the container
+  /* set up the canvas
+  - scene
+  - camera
+  - renderer
+
+  ! be sure to use a fourth of the width
+  */
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, (width / 4) / height, 0.1, 1000);
   // transparent background
@@ -18,7 +48,7 @@ for (let i = 0; i < 4; i += 1) {
 
   // CRYSTAL
   // include a material susceptible to light
-  const material = new THREE.MeshLambertMaterial({ color: colors[i] });
+  const material = new THREE.MeshLambertMaterial({ color: `hsl(${colors[i].h}, ${colors[i].s}%, ${colors[i].l}%)` });
   // create the cones making up the shape
   const crystalGeometry1 = new THREE.ConeGeometry(5, 15, 6);
   // the second one is used atop the first one, with a smaller height
@@ -49,26 +79,29 @@ for (let i = 0; i < 4; i += 1) {
   const crystalMesh = new THREE.Mesh(crystalGeometry, material);
   // update the position of the mesh to have it centered in the first fourth
   crystalMesh.position.set(0, -3, 0);
+  // rotate the crystals according to their indexes
   crystalMesh.rotation.set(0.2, 0.5, `${0.1 * (i - 1)}`);
 
+  // add the single mesh to the scene
   scene.add(crystalMesh);
 
+  // LIGHT
   // ambient light
-  const ambientLight = new THREE.AmbientLight('#ffffff', 0.2);
+  // include a darker variant of each color
+  const ambientLight = new THREE.AmbientLight(`hsl(${colors[i].h}, ${colors[i].s * 0.7}%, ${colors[i].l * 0.5}%)`, 0.2);
   scene.add(ambientLight);
-  // directional light incrementally positioned
+  // directional light positioned according to the index of the crystal
   const directionalLight = new THREE.DirectionalLight('#ffffff', 1);
-  directionalLight.position.set(width / 3 * i, 0, 800);
-  directionalLight.target.position.set(width - (width / 3 * i), height, 0);
+  // top down, but moving incrementally from starting in the top-right to top-left corner
+  directionalLight.position.set(width - (width / 3 * i), 0, 200);
+  directionalLight.target.position.set(width / 3 * i, height, 0);
   scene.add(directionalLight);
 
   // pan out to highlight the shapes
   camera.position.z = 20;
 
+  // render the shape in the renderer
   renderer.render(scene, camera);
-  function animate() {
-
-  }
 }
 
 // OVERLAY
