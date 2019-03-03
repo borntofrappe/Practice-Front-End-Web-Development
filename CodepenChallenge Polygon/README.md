@@ -1,5 +1,7 @@
 # CodepenChallenge Polygon
 
+Working project live, [right here on codepen](https://codepen.io/borntofrappe/full/moEWOo).
+
 ## Preface
 
 For the #codepenchallenge of the last week of February I decided to be inspired by the Crash Bandicoot game and specifically the cyrstals awarded while playing the popular game. This allowed me to get acquainted with the JavaScript library Three.js, and also tinker a bit more with vanilla JavaScript, in terms of the overlay included on each colored crystal.
