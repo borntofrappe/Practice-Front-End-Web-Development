@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #020513;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+/* descripe the container as a 800x200 rectangle */
+.container {
+  width: 800px;
+  height: 200px;
+  background: inherit;
+  /* position relative for the pseudo element making up the border and the .overlay child element */
+  position: relative;
+}
+.container:before,
+.container:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  z-index: -5;
+}
+.container:before {
+  background: #ffa45e;
+}
+
+.container:after {
+  background: repeating-linear-gradient(
+    to bottom right,
+    #fe5e1c 0,
+    transparent 70px,
+    #fe5e1c 140px
+  );
+}
+/* have the overlay occupy a fourth of the width and introduce a semi-transparent overlay on the underlying content */
+.container .overlay {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 0 9px #fe5e1c;
+  background: #ffffff11;
+  position: absolute;
+  transition: transform 0.15s ease-out;
+}
+.container canvas {
+  pointer-events: none;
+}
