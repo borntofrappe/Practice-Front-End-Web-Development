@@ -1,6 +1,6 @@
 # JS30 Reference v Copy
 
-<!-- Proud result live [right here on codepen]() -->
+Proud result live [right here on codepen](https://codepen.io/borntofrappe/full/WmGjeG).
 
 ## Preface
 
