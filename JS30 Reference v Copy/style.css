@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono|Lato");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  color: #29394a;
+  background: currentColor;
+  /* center the main element horizontally */
+  display: flex;
+  justify-content: center;
+}
+
+/* have the main container split in two columns */
+main {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 300px 400px;
+  grid-gap: 0 1rem;
+  background: #fff;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  box-shadow: 0 1px 5px -2px currentColor;
+}
+/* below a certain viewport have the section detailing the explanation and .snippet section on top of one another */
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: 300px;
+    grid-gap: 2rem 0;
+  }
+}
+
+/* have the .text section stretch to cover at least 300px and display the nested elements in a single column layout */
+section.text {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+/* stretch the content to cover the available space in the section container */
+.explanation {
+  flex-grow: 1;
+}
+/* stylistic choices for the headings, paragraphs and other elements included in the .explanation */
+.explanation h1 {
+  font-weight: 300;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.explanation p {
+  line-height: 2;
+  margin: 1rem 0;
+  word-spacing: 0.15rem;
+}
+.explanation a {
+  color: inherit;
+  font-style: italic;
+}
+.explanation mark {
+  background: hsla(174, 90%, 67%, 0.5);
+  color: currentColor;
+}
+
+/* display the buttons side by side */
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/* style the buttons to have two variants, as to highlight when the two are meant to be pressed */
+.controls button {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.75rem;
+  border: none;
+  color: currentColor;
+  border-bottom: 2px solid currentColor;
+  background: #29394a22;
+  transition: all 0.2s ease-out;
+  opacity: 0.7;
+}
+.controls button.active {
+  opacity: 1;
+  color: #fff;
+  border-bottom: 2px solid currentColor;
+  background: #29394a;
+}
+
+/* position the snippet section at the vertical end of the container  */
+section.snippet {
+  align-self: end;
+  padding: 1rem;
+  background: hsl(174, 100%, 33%);
+  border-radius: 0.5rem;
+  /* overflow auto for smaller viewports, in case the code goes past the container */
+  overflow-x: auto;
+  /* set up a counter to enumerate the code elements */
+  counter-reset: custom-counter;
+}
+/* use the monospace font for the code element */
+.snippet code {
+  font-family: "Fira Mono", monospace;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 2.5;
+  display: inline-block;
+  position: relative;
+  /* increment the counter with each successive code element */
+  counter-increment: custom-counter;
+}
+.snippet code:before {
+  /* include the counter with a pseudo element */
+  content: counter(custom-counter) ".";
+  margin-right: 0.5rem;
+  opacity: 0.7;
+}
+/* style the em elements making up the comments to be italic and slightly transparent */
+.snippet code em {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-left: 0.15rem;
+}
+

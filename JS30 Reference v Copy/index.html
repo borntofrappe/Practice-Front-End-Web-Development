@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>JS30 Reference v Copy</title>
+    <meta name="description" content="Inspired by the #javascript30 video on JavaScript fundamentals describe how to copy the values of an array or object." />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- the idea is to have a container split in two section
+        - one explaining a concept
+        - one detailing the concept through a snippet
+    -->
+    <main class="presentation">
+      <!-- ! the script is responsible for the actual explanation, included in the .explanation container -->
+      <section class="text">
+        <div class="explanation"></div>
+
+        <!-- buttons allowing to go to the following/previous slide
+            ! a class of .active is applied when the slideshow can go to the previous/following slide
+        -->
+        <div class="controls">
+          <button data-action="prev">
+            ←
+          </button>
+          <!-- include the number of slides in between the buttons -->
+          <span></span>
+          <button data-action="next" class="active">
+            →
+          </button>
+        </div>
+      </section>
+
+      <!-- ! the script is responsible also for the snippet, included in the .snippet container -->
+      <section class="snippet"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
