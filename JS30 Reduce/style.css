@@ -3,9 +3,13 @@
 :root {
   --text: #ff3757;
   --bg: #ffeeef;
-  --font-answer: "IBM Plex Mono", monospace;
+  --details-text: var(--bg);
+  --details-bg: var(--text);
+
   --font-body: "Varela Round", sans-serif;
+  --font-answer: "IBM Plex Mono", monospace;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,19 +28,26 @@ body {
   padding: 2rem 0;
 }
 
+/* style the button to boldly present the feature of the page */
 button {
   text-transform: uppercase;
   font-size: 2rem;
   font-family: inherit;
   color: inherit;
-  padding: 0.5rem 0.7rem;
+  padding: 0.5rem 1rem;
   background: none;
-  border: 2px solid var(--text);
+  border: 1px solid var(--text);
   border-radius: 5px;
+  /* position relative for the pseudo elements */
   position: relative;
+  /* transition for the hover, focus states and the .active class */
   transition: all 0.25s ease-out;
+  transition-delay: 0.1s;
 }
-button:before {
+/* add two rectangles at either side of the button, to have the background transition from both ends
+the two differ only in the transform-origin property */
+button:before,
+button:after {
   content: "";
   background: var(--text);
   position: absolute;
@@ -44,26 +55,67 @@ button:before {
   left: 0;
   width: 100%;
   height: 100%;
-  transform: scaleY(0);
-  transform-origin: 50% 100%;
-  transition: all 0.2s ease-out;
+  transform: scale(0);
+  transition: all 0.5s ease-out;
   z-index: -5;
 }
-button:hover {
+button:before {
+  transform-origin: 0% 0%;
+}
+button:after {
+  transform-origin: 100% 100%;
+}
+/* on hover, focus and .active change the color of the button and introduce the background through the pseudo elements */
+button:hover,
+button:focus,
+button.active {
   color: var(--bg);
   box-shadow: 0 2px 5px var(--text);
 }
-button:hover:before {
-  transform: scaleY(1);
+button:hover:before,
+button:hover:after,
+button:focus:before,
+button:focus:after,
+button.active:before,
+button.active:after {
+  transform: scale(1);
 }
 button:active {
   transform: translateY(0.1rem);
 }
 
+/* add the chosen font for the heading  */
 h1#answer {
   margin: 3rem 0 4rem;
-  letter-spacing: 0.15rem;
   font-family: var(--font-answer);
+}
+/* style the div containers nesting the span elements to be positioned side by side */
+h1#answer div.answer__digit {
+  position: relative;
+  /* position relative to absolute position the span elements in the container */
+  display: inline-block;
+}
+
+/* position each span following the first one on the same location */
+h1#answer div span + span {
+  position: absolute;
+  background: var(--bg);
+  top: 0;
+  left: 0;
+  /* hide the span elements from view by rotating them 90deg horizontally */
+  transform: translateY(0px) rotateX(90deg);
+  /* use the top of the container as a hinge */
+  transform-origin: 50% 0;
+  /* add the animation to scroll the span elements into view
+  ! include it in the script with an increasing delay for each successive digit */
+  /* animation: rollDown 0.5s ease-out forwards; */
+}
+
+/* animation including the span elements changing their rotation */
+@keyframes rollDown {
+  to {
+    transform: rotateX(0deg);
+  }
 }
 
 /* cap the width of the details element to reduce the length of the space occupied by the nested summary element */
@@ -72,23 +124,12 @@ details {
   line-height: 2;
   padding: 1rem 1.25rem;
   /* swap the color and background color for the details wrapping element */
-  background: var(--text);
-  color: var(--bg);
+  color: var(--details-text);
+  background: var(--details-bg);
   border-radius: 5px;
-  box-shadow: 0 2px 5px var(--highlight), 0 5px 30px -10px var(--text);
+  box-shadow: 0 2px 5px var(--details-bg);
   /* position relative to absolute position the pseudo element in connection to this element */
   position: relative;
-}
-
-/* include a small notice highlighting the current state of things
-shown when clicking the button, by applying a class of .tally */
-details.tally:after {
-  content: "soon enough... getting sleepy right now";
-  position: absolute;
-  top: 0%;
-  left: calc(100% + 1rem);
-  color: var(--highlight);
-  writing-mode: vertical-rl;
 }
 
 /* increase the whitespace around and inside of the unordered list element */
@@ -97,6 +138,7 @@ details ul {
   list-style-type: square;
   padding: 1rem;
 }
+
 details ul li {
   padding: 0.75rem 0.25rem;
   /* transition for a small change on hover */
@@ -108,12 +150,18 @@ details ul li {
 /* through a pseudo element add the data-time attribute through the attr() functionn */
 details ul li:after {
   content: attr(data-time);
-  text-align: right;
   position: absolute;
   right: 0;
 }
 
+/* on hover highlight the list items by swapping the color and background values */
 details ul li:hover {
-  background: var(--bg);
-  color: var(--text);
+  color: var(--details-bg);
+  background: var(--details-text);
+}
+
+/* add an underline for the strong element referencing the button  */
+details summary strong {
+  font-weight: 500;
+  text-decoration: underline;
 }

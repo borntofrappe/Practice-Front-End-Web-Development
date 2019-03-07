@@ -15,24 +15,36 @@
   </head>
 
   <body>
-    <!-- include a button, which ultimately is used as a trigger to compute the total -->
+    <!-- include a button, which is ultimately used as a trigger to compute the total -->
     <button>Tally Up</button>
+
     <!-- include the answer in a heading, populated through the script -->
-    <h1 id="answer"></h1>
+    <h1 id="answer">
+      <!-- ! include each digit in a wrapping div, to animate the number from 0 up to the final amount
+          the structure is similar to the following commented-out markup (where 3 is the final digit)
+          -->
+      <!--
+            <div class="answer__digit">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          -->
+    </h1>
 
-    <!--
-      add the list of elements as retrieved from the js30 repo
-      https://github.com/wesbos/JavaScript30/blob/master/18%20-%20Adding%20Up%20Times%20with%20Reduce/index-START.html
+    <!-- add the list of elements as retrieved from the js30 repo
+          https://github.com/wesbos/JavaScript30/blob/master/18%20-%20Adding%20Up%20Times%20with%20Reduce/index-START.html
 
-      ! wrap the list in a details element to potentially hide it from view
-      ! wrap the verb referring to the action to have it modified as the total is indeed found
-    -->
+          ! wrap the list in a <details> element to potentially hide it from view
+          wrap the verb explaining the feature in a span element, to modify it as the functionality is implemented
+        -->
     <details open>
       <summary>
         By pressing the <strong>tally up</strong> button
-        <span class="instruction">you'll find</span> the total number of hours,
-        minutes and seconds for the following videos
+        <span class="verb">you'll find</span> the total number of hours, minutes
+        and seconds for the following videos
       </summary>
+
       <ul class="videos">
         <li data-time="5:43">
           Video 1
