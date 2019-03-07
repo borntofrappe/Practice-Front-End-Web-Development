@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Varela+Round");
+
+:root {
+  --text: #ff3757;
+  --bg: #ffeeef;
+  --font-answer: "IBM Plex Mono", monospace;
+  --font-body: "Varela Round", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  /* center the elements in a single column layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 0.5rem 0.7rem;
+  background: none;
+  border: 2px solid var(--text);
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.25s ease-out;
+}
+button:before {
+  content: "";
+  background: var(--text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: 50% 100%;
+  transition: all 0.2s ease-out;
+  z-index: -5;
+}
+button:hover {
+  color: var(--bg);
+  box-shadow: 0 2px 5px var(--text);
+}
+button:hover:before {
+  transform: scaleY(1);
+}
+button:active {
+  transform: translateY(0.1rem);
+}
+
+h1#answer {
+  margin: 3rem 0 4rem;
+  letter-spacing: 0.15rem;
+  font-family: var(--font-answer);
+}
+
+/* cap the width of the details element to reduce the length of the space occupied by the nested summary element */
+details {
+  max-width: 400px;
+  line-height: 2;
+  padding: 1rem 1.25rem;
+  /* swap the color and background color for the details wrapping element */
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px var(--highlight), 0 5px 30px -10px var(--text);
+  /* position relative to absolute position the pseudo element in connection to this element */
+  position: relative;
+}
+
+/* include a small notice highlighting the current state of things
+shown when clicking the button, by applying a class of .tally */
+details.tally:after {
+  content: "soon enough... getting sleepy right now";
+  position: absolute;
+  top: 0%;
+  left: calc(100% + 1rem);
+  color: var(--highlight);
+  writing-mode: vertical-rl;
+}
+
+/* increase the whitespace around and inside of the unordered list element */
+details ul {
+  list-style-position: inside;
+  list-style-type: square;
+  padding: 1rem;
+}
+details ul li {
+  padding: 0.75rem 0.25rem;
+  /* transition for a small change on hover */
+  transition: all 0.2s ease-out;
+  /* position relative to absolute position the pseudo element in connection to this element */
+  position: relative;
+}
+
+/* through a pseudo element add the data-time attribute through the attr() functionn */
+details ul li:after {
+  content: attr(data-time);
+  text-align: right;
+  position: absolute;
+  right: 0;
+}
+
+details ul li:hover {
+  background: var(--bg);
+  color: var(--text);
+}
