@@ -23,18 +23,13 @@ const tallyUp = (isTotal) => {
     let secondsTotal = [...listItems].reduce((accumulator, currentValue) => {
       /** for each item
        * retrieve the data-time attribute
-       * use a regex to find colon:separated digits
        * destructure the digits into hours, minutes and seconds
        * return the number of seconds made up by the newfound the hours, minutes and seconds
        */
       const timeData = currentValue.getAttribute('data-time');
-      // regex finding at most three pairs of digits, the last two of which are colon:separated
-      const regex = /^\d+(:\d+)?(:\d+)?$/;
-      const match = timeData.match(regex)[0];
-      // match is a string describing the number of seconds, and possibly minutes and hours too
       // splitting the string on the basis of the colons and reversing it allows to always have the seconds first
       // minutes and hours are underfined unless the string accommodates for those values
-      const [seconds, minutes, hours] = match.split(':').reverse();
+      const [seconds, minutes, hours] = timeData.split(':').reverse();
 
       // initialize a variable to compute the total number of seconds for the video
       let runningTotal = parseInt(seconds, 10);
