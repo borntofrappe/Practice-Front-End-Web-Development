@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine:700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 2rem 0;
+  min-height: 100vh;
+  /* the color influences the color of every path elements, through currenColor */
+  color: #7F7F8D;
+  background: #FCFCFA;
+  /* display the svg and the button one atop the other
+  horizontally centered */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* have the giant SVG styled to resemble a canvas, with a light shadow behind it */
+svg#drawing {
+  max-width: 380px;
+  max-height: 380px;
+  width: 90vw;
+  height: 90vw;
+  box-shadow: 0 1px 30px -5px #CFDDE0;
+  margin-bottom: 3.5rem;
+}
+
+/* have the button with a small shadow which increases in strength on hover
+! the size of the button is determined by the nested SVG
+*/
+button {
+  border: none;
+  color: inherit;
+  border: none;
+  background: none;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px -2px currentColor;
+  transition: all 0.35s ease-out;
+}
+/* on hover have the button slightly elevated */
+button:hover {
+  box-shadow: 0 2px 8px -2px currentColor;
+}
+/* with a class of .pressed have the button removed from view (later it is removed from the markup in the script) */
+button.clicked {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+}
+/* style the SVG in the button elements to be drawn through stroke-dasharray and stroke-dashoffset
+the same animation is used for the larger SVG, but with the precise value of the lenght of each path
+*/
+button svg {
+  width: 100px;
+  height: 40px;
+  stroke: currentColor;
+  stroke-dasharray: 85px;
+  stroke-dashoffset: 85px;
+  animation: drawStroke 1.5s 0.5s ease-in-out forwards;
+}
+
+/* style for the paragraph added through the script as the drawStroke animation ends
+itself introduced through a small animation
+ */
+p {
+  font-family: 'Tangerine', cursive;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  animation: sendoff 1s 0.5s ease-out both;
+}
+
+/* animation for all path elements, drawing them into sight */
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* animation for the paragraph elements closing the project, introducing it slightly from the bottom */
+@keyframes sendoff {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
