@@ -1,6 +1,6 @@
 # CPC Coding Hero
 
-<!-- A couple of SVG for Sarah Drasner. Live [right here]() -->
+A couple of SVG for Sarah Drasner. Live [right here](https://codepen.io/borntofrappe/full/rRzMwr).
 
 ## Preface
 
