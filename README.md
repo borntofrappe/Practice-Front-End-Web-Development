@@ -266,3 +266,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**CodepenChallenge Polygon**](https://codepen.io/borntofrappe/pen/moEWOo)|Create a few colored variants of the crystal from the popular Crash Bandicoot video game series.|canvas, three, crystal|3rd March 2019|
 |[**JS30 Reference v Copy**](https://codepen.io/borntofrappe/pen/WmGjeG)|Describe how to copy the values of an array or object.|copy, slideshow, counter|4th March 2019|
 |[**JS30 Reduce Practice**](https://codepen.io/borntofrappe/pen/ZPLPOo)|Compute the total number of hours, minutes and seconds describing a series of video elements.|reduce, attr, animation|6th-7th March 2019|
+|[**CodepenChallenge Coding Hero**](https://codepen.io/borntofrappe/pen/rRzMwr)|A couple of SVG for Sarah Drasner.|svg, path, storke. animation|10th March 2019|
