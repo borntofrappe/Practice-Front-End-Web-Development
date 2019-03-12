@@ -267,3 +267,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**JS30 Reference v Copy**](https://codepen.io/borntofrappe/pen/WmGjeG)|Describe how to copy the values of an array or object.|copy, slideshow, counter|4th March 2019|
 |[**JS30 Reduce Practice**](https://codepen.io/borntofrappe/pen/ZPLPOo)|Compute the total number of hours, minutes and seconds describing a series of video elements.|reduce, attr, animation|6th-7th March 2019|
 |[**CodepenChallenge Coding Hero**](https://codepen.io/borntofrappe/pen/rRzMwr)|A couple of SVG for Sarah Drasner.|svg, path, storke. animation|10th March 2019|
+|[**JS30 Event Listener**](https://codepen.io/borntofrappe/pen/oVovEj)|Describe useful information regarding event listeners.|js, event, capture|11th-12th March 2019|
