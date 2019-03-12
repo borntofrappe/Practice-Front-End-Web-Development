@@ -1,8 +1,10 @@
 # JS30 Event Listener
 
+Working pen live, [right here](https://codepen.io/borntofrappe/full/oVovEj).
+
 ## Preface
 
-This project is prompted by the last video in the #javacript30 coursr I have left. <!--The video in question is available [right here]().--> It is ripe with information, and to both prove and cement the knowledge I gained by watching it, I decided to explain the underlying concepts in my own words. In my own words and through a series of examples which show:
+This project is prompted by the last video in the #javacript30 coursr I have left. The video in question is available [right here](https://youtu.be/F1anRyL37lE). It is ripe with information, and to both prove and cement the knowledge I gained by watching it, I decided to explain the underlying concepts in my own words. In my own words and through a series of examples which show:
 
 - an event listener on a single _div_.
 
