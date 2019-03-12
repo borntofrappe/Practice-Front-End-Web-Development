@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS30 Event Listeners</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- markup structure
+  main, wrapping the entire project
+  header, introducing the project
+  section, one section for each of the following explanation
+    - click event listener on one div element
+    - click event listener on multiple div elements, itself articulated to present
+      - default
+      - stop propagation
+      - capture
+      - stop propagation and capture
+      - once
+
+  ! give the div elements making up the planet/galaxy/universe a class to differentiate the behavior on click
+  -->
+
+  <main>
+    <header>
+      <h1>I hear you!</h1>
+      <h2>Useful tidbits on event listeners</h2>
+    </header>
+
+    <section>
+      <p>Here's planet <code>div</code></p>
+      <div class="div planet"></div>
+      <p>It is a welcoming place nesting all kinds of possibilities.</p>
+      <p>Whenever a <code>click</code> event is registered on this planet, a short message is sent back in confirmation.
+      </p>
+      <code>div.addEventListener('click', confirmClick);</code>
+    </section>
+
+
+    <section>
+      <h2>Default Behavior</h2>
+      <p>Of course a planet doesn't exist in a vacuum. <sub>does it?</sub></p>
+      <p>This planet is actually part of a <code>div</code> galaxy. <sub>div div</sub></p>
+      <p>Its galaxy is also part of a <code>div</code> universe. <sub>div div div</sub></p>
+
+      <div class="div universe">
+        <div class="div galaxy">
+          <div class="div planet">
+          </div>
+        </div>
+      </div>
+
+      <p>If you were to click again on the planet, the message would ripple all the way up. Up to the wrapping galaxy
+        and
+        universe.</p>
+      <p>This is because they all listen for a <code>click</code> event.</p>
+      <code>divs.forEach(div => div.addEventListener('click', confirmClick));</code>
+
+      <p>Notice in particular the order described by the messages.</p>
+
+      <blockquote>The event is captured on the way down, on every element
+        equipped with the event listener.
+        <br />
+        The functions are then run on the way up, starting with the most specific target.
+      </blockquote>
+
+      <p>This is the default behavior behind the event listener, but you can change it to suit your needs.</p>
+    </section>
+
+    <section>
+      <h2>Stop Propagation</h2>
+
+      <p>Immediately, you can stop the event with the target element.</p>
+
+      <div class="div universe propagation">
+        <div class="div galaxy propagation">
+          <div class="div planet propagation">
+          </div>
+        </div>
+      </div>
+
+      <p>Click on a <code>div</code> and the message will be highlighted on that celestial object only.</p>
+      <code>function confirmClick() { e.stopPropagation(); }</code>
+      <code>divs.forEach(div => div.addEventListener('click', confirmClick));</code>
+    </section>
+
+
+    <section>
+      <h2>Capture</h2>
+      <p>Instead of running the functions from the bottom up, you can then have the logic run on the way down, as the
+        events are captured.</p>
+
+      <div class="div universe capture">
+        <div class="div galaxy capture">
+          <div class="div planet capture">
+          </div>
+        </div>
+      </div>
+
+      <p>Click again on the planet, and notice how the order is the opposite from the default instance.</p>
+
+      <code>divs.forEach(div => div.addEventListener('click', confirmClick. { capture: true }));</code>
+
+    </section>
+
+
+    <section propagation">
+      <h2>Capture and Stop Propagation</h2>
+      <p>By combining the previous two concepts, you can also have the logic run on the outermost element only.</p>
+
+      <div class="div universe capture propagation">
+        <div class="div galaxy capture propagation">
+          <div class="div planet capture propagation">
+          </div>
+        </div>
+      </div>
+
+      <p>You can click on any celestial body, but the event will always be captured by universe and stop there.</p>
+
+      <code>function confirmClick() { e.stopPropagation(); }</code>
+      <code>divs.forEach(div => div.addEventListener('click', confirmClick. { capture: true }));</code>
+    </section>
+
+
+    <section>
+      <h2>Once</h2>
+      <p>Instead of listening indefinitely for a <code>click</code> event, you can finally have the logic run only one
+        time.</p>
+
+      <div class="div universe once">
+        <div class="div galaxy once">
+          <div class="div planet once">
+          </div>
+        </div>
+      </div>
+
+      <code>divs.forEach(div => div.addEventListener('click', confirmClick. { once: true }));</code>
+
+      <p>Try as you might, the only way you can have the <code>div</code> elements react again is by refreshing the page
+      </p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

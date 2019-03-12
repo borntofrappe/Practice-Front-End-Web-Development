@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Oswald|IBM+Plex+Mono');
+
+:root {
+  --gradient-start: #FC5B87;
+  --gradient-end: #FD6F4E;
+  --main: #0E2835;
+  --text: #f0f0f0;
+  --accent: #068AD233;
+  --code: #226882;
+  --quote: #FC5B87;
+  --quote-bg: #FC5B8733;
+
+  --planet: #28B483;
+  --galaxy:var(--code);
+  --universe: var(--accent);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  background: linear-gradient(to bottom left, var(--gradient-start), var(--gradient-end));
+}
+
+/* center the main container and cap its width */
+main {
+  max-width: 500px;
+  width: 90vw;
+  min-height: 500px;
+  margin: 2rem auto;
+  background: var(--main);
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 10px -2px var(--main);
+}
+
+h1, h2 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* increase the whitespace around the section elements and specifically its paragraphs  */
+section {
+  padding: 1rem;
+  line-height: 2;
+  margin: 1rem 0;
+}
+section p {
+  margin: 2rem 0;
+}
+section p sub {
+  font-size: 0.75rem;
+  opacity: 0.25;
+}
+
+/* highlight the code and the blockquote in a similar fashion, with a semitransparent background and a solid border-left */
+section code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  background: var(--accent);
+  border-left: 0.25rem solid var(--code);
+  padding: 0 0.4rem;
+  margin: 0.5rem 0.2rem;
+  /* inline-block to override the default inline value */
+  display: inline-block;
+}
+
+section blockquote {
+  line-height: 2.5;
+  margin: 1.5rem 0;
+  padding: 0 0.4rem;
+  border-left: 0.25rem solid var(--quote);
+  background: var(--quote-bg);
+}
+
+/* on every section but the first one include a border to separate the containers */
+section + section {
+  border-top: 2px solid var(--quote);
+}
+
+/* have each celestial body share the same border-radius to make a semi-organic blob  */
+.div {
+  border-radius: 61% 80% 65% 85% / 72% 63% 87% 80%;
+  /* horizontally position in the center of the container (! margin auto pairs with the fixed width on each celestial body)  */
+  margin: 4.5rem auto;
+  /* background dictated by the current color */
+  background: currentColor;
+  /* position relative to have the paragraph absolute positioned in connection to the parent container */
+  position: relative;
+}
+
+/* absolute position the paragraph on top of the container  */
+.div p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--text);
+  background: var(--main);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px -2px currentColor;
+  /* hide the paragraph by default */
+  opacity: 0;
+  visibility: hidden;
+  /* transition for the change in values occurring in the script  */
+  transition: all 0.2s ease-out;
+}
+
+/* style each successive celestial body to be grander than the previous one */
+.planet {
+  width: 75px;
+  height: 75px;
+  color: var(--planet);
+}
+
+.galaxy {
+  width: 275px;
+  height: 225px;
+  color: var(--galaxy);
+}
+.universe {
+  width: 100%;
+  height: 350px;
+  color: var(--universe);
+  /* center the nested elements vertically */
+  display: flex;
+  align-items: center;
+}
