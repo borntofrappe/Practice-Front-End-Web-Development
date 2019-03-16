@@ -1,0 +1,52 @@
+/* thick font */
+@import url("https://fonts.googleapis.com/css?family=Heebo:800");
+
+:root {
+  --font: "Heebo", sans-serif;
+  /* default colors modified in the script */
+  --color-text: #333;
+  --color-bg: #fff;
+  --color-letter: hsl(12, 12%, 12%);
+  /* blend mode also updated in the script */
+  --blend-mode: "multiply";
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+  /* center the heading in the page */
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 7rem;
+  text-transform: uppercase;
+}
+/* display the span elements making up the heading one after the other */
+h1 span {
+  display: inline-block;
+  position: relative;
+  margin: 0 0.5rem;
+}
+
+/* include the letters through a pseudo element and as a mirrorred version of each letter */
+h1 span:after {
+  content: attr(data-letter);
+  color: var(--color-letter);
+  mix-blend-mode: var(--blend-mode);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(-1);
+}
