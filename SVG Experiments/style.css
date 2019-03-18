@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  color: #eee;
+  background: #272e3f;
+  font-family: "Lato", sans-serif;
+}
+/* horizontally center the main container  */
+main {
+  margin: 1rem auto;
+  /* center the containers in a wrapping row */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* each container displays the content in a single column layout */
+.experiment {
+  padding: 1rem 2rem;
+  margin: 2rem 1rem;
+  line-height: 3;
+  display: flex;
+  flex-direction: column;
+  /* cap the width to reduce the line width */
+  max-width: 60ch;
+}
+
+/* properties shared by both containers */
+.experiment h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.experiment p {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin: 1.5rem 0 1rem;
+}
+.experiment a {
+  text-decoration: none;
+  color: currentColor;
+}
+.experiment code {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+.experiment ul {
+  list-style-position: inside;
+}
+
+/* style the container and its elements similarly to the site @css */
+.experiment--css {
+  color: #bebebe;
+  background: #11011d;
+  border: 0.5rem solid #fff;
+}
+/* position relative to have the SVG positioned relative to the figure container */
+.experiment--css figure {
+  position: relative;
+  margin: 1.5rem 1rem 3rem;
+  /* center the figure element horizontally */
+  align-self: center;
+  width: 125px;
+  height: 125px;
+}
+.experiment--css figure img {
+  /* round the image */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+/* position the SVG centered on the figure element */
+.experiment--css figure svg {
+  position: absolute;
+  width: 130%;
+  height: 130%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.experiment--css h2 {
+  color: #fff;
+}
+.experiment--css a {
+  color: #fff;
+  font-weight: 700;
+}
+.experiment--css a:hover {
+  background: linear-gradient(to top right, #fd6f4e, #fc5b87);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.experiment--css code {
+  color: #fff;
+  background: linear-gradient(to right, #dd4f42, #dd4151);
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+/* style the container and its elements similarly to Rob Weychert's blog */
+.experiment--rob {
+  background: #f3eeed;
+  color: #495969;
+  border: 0.5rem solid #b0c9a5;
+}
+.experiment--rob svg {
+  width: 100%;
+  height: auto;
+}
+.experiment--rob a {
+  border-bottom: 3px solid #ff974d;
+  transition: color 0.2s ease-out;
+  color: currentColor;
+}
+.experiment--rob a:hover {
+  color: #ff974d;
+}
+.experiment--rob code {
+  background: #614e65;
+  color: #b0c9a5;
+}
