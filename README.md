@@ -270,3 +270,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**JS30 Event Listener**](https://codepen.io/borntofrappe/pen/oVovEj)|Describe useful information regarding event listeners.|js, event, capture|11th-12th March 2019|
 |[**CodepenChallenge Art Icon**](https://codepen.io/borntofrappe/pen/RdMXJQ)|Make use of a few random values to style a string with a bit of flair.|css, custom properties, blend-mode|15th March 2019|
 |[**SVG Experiments**](https://codepen.io/borntofrappe/pen/OqwREx)|Experiment with SVG elements to recreate two features found online.|svg, mask, clip|18th March 2019|
+|[**Comic Book UI**](https://codepen.io/borntofrappe/pen/GeXMgm)|Inspired by the latest installment in the Spider-man movie-universe, create a couple elements themed around comic books.|bubble, texture|19th March 2019|
