@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  color: #7e6c0f;
+  background: #fad08a;
+  overflow: hidden;
+}
+
+/* center the SVG and hide it by default */
+svg {
+  width: 80vw;
+  max-width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* include the snitch as a small circle and absolute position it in the page (left and top specified in the script) */
+.snitch {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #b9a43f;
+  box-shadow: 0 1px 1px #7e6c0f;
+  transition: transform 0.15s ease-out;
+}
+
+/* include a pseudo element strething the area on which event listeners are registered
+! this does not alter the measures obtained through the bounding rectangle function
+*/
+.snitch:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+}
+
+/* for small detail, style two wings at each side of the main circle */
+.snitch .wing {
+  position: absolute;
+  top: 0%;
+  background: inherit;
+  width: 90%;
+  height: 40%;
+  border-radius: 20px;
+}
+
+/* position and animate the wings to symmetrically highlight the snitch */
+.snitch .wing--right {
+  left: 100%;
+  animation: rightWing 0.75s cubic-bezier(0.77, 0.03, 0.4, 1.6) infinite
+    alternate;
+  transform-origin: 0% 100%;
+}
+.snitch .wing--left {
+  right: 100%;
+  animation: leftWing 0.75s cubic-bezier(0.77, 0.03, 0.4, 1.6) infinite
+    alternate;
+  transform-origin: 100% 100%;
+}
+/* include a small solid segment beneath each wing, to give weight to the rectangles  */
+.snitch .wing:before {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  background: #c7b147;
+  height: 50%;
+  border-radius: inherit;
+  z-index: -4;
+}
+
+/* animations for the wings */
+@keyframes rightWing {
+  to {
+    transform: rotate(-25deg);
+  }
+}
+@keyframes leftWing {
+  to {
+    transform: rotate(25deg);
+  }
+}
