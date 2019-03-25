@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  color: #fbfcff;
+  background: #151620;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* center the elements in the page */
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  /* distance the input from the heading
+  style the input with a transparent background
+  */
+  margin-bottom: 3rem;
+  background: rgba(239, 178, 241, 0.1);
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 2rem;
+  border-left: 4px solid currentColor;
+  position: relative;
+  padding: 0.15rem 0.75rem;
+}
+input::placeholder {
+  color: inherit;
+  font-family: inherit;
+  opacity: 0.7;
+}
+/* center the heading horizontally and have it stretch to cover the width of the page */
+h1 {
+  text-align: center;
+  width: 100%;
+  line-height: 42px;
+  font-size: 42px;
+}
+/* reduce the size of the svg elements */
+h1 svg {
+  width: 42px;
+  height: 42px;
+}
