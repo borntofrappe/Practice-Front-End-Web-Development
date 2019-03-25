@@ -272,3 +272,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**SVG Experiments**](https://codepen.io/borntofrappe/pen/OqwREx)|Experiment with SVG elements to recreate two features found online.|svg, mask, clip|18th March 2019|
 |[**Comic Book UI**](https://codepen.io/borntofrappe/pen/GeXMgm)|Inspired by the latest installment in the Spider-man movie-universe, create a couple elements themed around comic books.|bubble, texture|19th March 2019|
 |[**CodepenChallenge Literacy**](https://codepen.io/borntofrappe/pen/qvgeZR)|A small game to capture an ever-moving entity.|js, dimensions, pseudo element|24th March 2019|
+|[**Splitting Heading Experiment**](https://codepen.io/borntofrappe/pen/aMxOWV)|Break up a heading with one SVG element for each letter.|svg, split|25th March 2019|
