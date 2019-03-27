@@ -273,3 +273,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Comic Book UI**](https://codepen.io/borntofrappe/pen/GeXMgm)|Inspired by the latest installment in the Spider-man movie-universe, create a couple elements themed around comic books.|bubble, texture|19th March 2019|
 |[**CodepenChallenge Literacy**](https://codepen.io/borntofrappe/pen/qvgeZR)|A small game to capture an ever-moving entity.|js, dimensions, pseudo element|24th March 2019|
 |[**Splitting Heading Experiment**](https://codepen.io/borntofrappe/pen/aMxOWV)|Break up a heading with one SVG element for each letter.|svg, split|25th March 2019|
+|[**Web Components [WIP]**](https://codepen.io/borntofrappe/pen/pYXawX)|Discover web components and the APIs making up the template element, custom elements and the shadow DOM.|web component, custom element, template, shadow|27th March 2019|
