@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Web Components</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+      <!-- beside the header, include one section for each chapter of the articles -->
+    <main>
+      <header>
+        <h1>Web Components</h1>
+        <p>Following
+          <a href="https://css-tricks.com/an-introduction-to-web-components/">
+            this series of insightful posts
+          </a>
+        </p>
+        <p>
+          By
+          <a href="https://css-tricks.com/author/calebdwilliams/">Caleb Williams</a>
+          on
+          <a href="https://css-tricks.com">CSS Tricks</a>
+        </p>
+      </header>
+
+
+      <section>
+        <h2>Introduction</h2>
+        <p>The technologies behind Web Components</p>
+        <ol>
+          <li>
+            <strong>Custom Elements</strong>, following the
+            <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements">HTML living standard
+              spec</a>
+          </li>
+          <li>
+            <strong>Shadow DOM</strong>, described in the
+            <a href="https://dom.spec.whatwg.org/#shadow-trees">DOM kiving standard spec</a>
+          </li>
+          <li>
+            <strong>HTML templates</strong>, again from the
+            <a href="https://html.spec.whatwg.org/multipage/scripting.html#the-template-element">HTML living standard
+              spec</a>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Custom Elements</h3>
+
+        <ul>
+          <li>Always with a <code>-</code> dash</li>
+          <li>Defining their own behavior</li>
+        </ul>
+
+        <p>Like the following
+          <code>&lt;custom-element&gt;</code> element
+        </p>
+
+        <custom-element></custom-element>
+      </section>
+
+      <section>
+        <h3>Shadow DOM</h3>
+
+        <p>
+          <em>Encapsulating</em> elements in a separate DOM, with their own style and behavior
+        </p>
+        </ul>
+
+        <p>
+          Like the <code>&lt;p&gt;</code> element described below
+        </p>
+        <div id="shadow">
+        </div>
+
+        <ul>
+          <li>Accessible through <code>shadowRoot.querySelector('p')</code> only</li>
+          <li>Allowing to include elements from the light DOM through a <code>&lt;slot&gt;</code> element</li>
+        </ul>
+
+        <p>Like the different <code>&lt;p&gt;</code> element which follows</p>
+
+        <div id="shadow-slot">
+          👻👻👻
+        </div>
+      </section>
+
+
+      <section>
+        <h3>HTML Templates</h3>
+
+        <p>
+          Fabricating reusable elements, which can be later populated as needed
+        </p>
+
+        <p>Like the list items in the following <code>&lt;ul&gt;</code></p>
+
+        <ul id="airports"></ul>
+
+        <!-- the template element is populated in the script injecting the content in the different nested elements -->
+        <template id="list-item-airports">
+          <li>
+            <span class="name"></span>
+            -
+            <strong class="code"></strong>
+          </li>
+        </template>
+      </section>
+
+      <section>
+        <h2>HTML Templates</h2>
+
+        <p>
+          Diving in the following topics
+        </p>
+
+        <!-- template practice, repeating the previous logic for a new set of content -->
+        <ol id="topics"></ol>
+        <template id="list-item-topics">
+          <li>
+            <strong class="name"></strong>:
+            <span class="brief"></span>
+          </li>
+        </template>
+      </section>
+
+      <section>
+        <h3>Template</h3>
+        <p><code>&lt;template&gt;</code> is an HTML element that won't render anything on the page, until told otherwise
+        </p>
+        <p>Consider the following snippet:</p>
+
+        <pre><code>
+&lt;template id="template-button"&gt;
+&lt;button&gt;
+  Click me
+&lt;/button&gt;
+&lt;/template&gt;
+        </code></pre>
+
+        <!-- the template element built in the script is appeded to the very end of section -->
+        <template id="template-button">
+          <button>
+            Click me
+          </button>
+        </template>
+
+        <p>In order to have the template shown on page, a bit of JavaScript is required</p>
+
+        <pre><code>
+const templateButton = document.querySelector('#template-button');
+const instanceButton = document.importNode(templateButton.content, true);
+templateButton.parentNode.appendChild(instanceButton);
+        </code></pre>
+
+        <p>Here we:</p>
+        <ol>
+          <li>Target the <code>&lt;template&gt;</code> element</li>
+          <li>Make a <strong>deep</strong> copy of the template's content</li>
+          <li>Include said copy as the last child of the element wrapping the template</li>
+        </ol>
+
+        <p>You should see the result as the last element of this very section</p>
+
+      </section>
+
+      <section>
+        <h3>Content</h3>
+        <p><code>&lt;template&gt;</code> elements can wrap <em>any</em> HTML, including <code>&lt;style&gt;</code> and
+          <code>&lt;script&gt;</code> tags</p>
+
+        <p>This means the button can be styled <strong>and</strong> made interactive already in between the
+          <code>&lt;template&gt;</code> tags</p>
+
+        <!-- inline style for the specific paragraph, which is made closer to the connecting, earlier element -->
+        <p style="margin-top: -1rem; font-size: 0.95rem;">(it does not mean that the logic is scoped to the
+          template element though)</p>
+
+        <!-- give the button an id such that the style and script logic runs only on the specific button
+        ! there's no encapsulation, so using the button selector would alter all buttons of the page (considering the style)
+        targeting the button would identify the first button on the page (considering the script) -->
+        <template id="template-button-ss">
+          <style>
+            button.ss {
+              padding: 0.5rem 0.75rem;
+              background: hsl(192, 39%, 55%);
+              box-shadow: 0 4px 0 hsl(192, 29%, 13%);
+              border: none;
+              border-radius: 5px;
+              font-family: inherit;
+              color: hsl(192, 29%, 13%);
+              text-transform: uppercase;
+              font-weight: bold;
+              font-size: 1.25rem;
+              transition: all 0.2s ease-in;
+            }
+
+            button.ss:hover {
+              box-shadow: 0 2px 0 hsl(192, 30%, 28%);
+              transform: translateY(2px);
+            }
+          </style>
+          <script>
+            const button = document.querySelector('button.ss');
+            button.addEventListener('click', () => alert('Sorry again 🐧\nJust a proof of concept'));
+          </script>
+          <button class="ss">
+            Click me
+          </button>
+        </template>
+
+        <!-- the button follows every element including this paragraph (it is appended to the end of the section) -->
+        <p>Early apologies for the use of the <code>alert</code> function</p>
+      </section>
+
+      <section>
+        <h3>Dialog</h3>
+        <p>A slightly more complex example of a template element</p>
+
+        <template id="template-dialog">
+          <style>
+            /* dialog style: hide the container describing the dialog
+            style the buttons with the colors of the application
+            */
+            #wrapper {
+              position: relative;
+            }
+
+            #wrapper #dialog {
+              position: absolute;
+              min-width: 200px;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -45%);
+              background: hsl(280, 35%, 10%);
+              padding: 1rem 2rem;
+              border-radius: 10px;
+              box-shadow: 0 1px 5px -3px currentColor;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              visibility: hidden;
+              opacity: 0;
+              transition: all 0.25s ease-out;
+            }
+
+            /* dialog shown through a class */
+            #wrapper #dialog.open {
+              transform: translate(-50%, -50%);
+              visibility: visible;
+              opacity: 1;
+            }
+
+            #wrapper #dialog p {
+              text-align: center;
+            }
+
+            #wrapper button {
+              text-align: center;
+              padding: 0.5rem 0.75rem;
+              background: hsl(280, 60%, 27%);
+              box-shadow: 0 4px 0 hsl(280, 35%, 10%);
+              border: none;
+              border-radius: 5px;
+              font-family: inherit;
+              color: inherit;
+              font-size: 1rem;
+            }
+          </style>
+          <script>
+            // dialog script: listen for click events on the open and close buttons, to toggle the visibility of the dialog
+            const openButton = document.querySelector('button#open');
+            const closeButton = document.querySelector('button#close');
+            const dialog = document.querySelector('#dialog');
+
+            openButton.addEventListener('click', () => {
+              dialog.classList.add('open');
+              closeButton.focus();
+            });
+
+            closeButton.addEventListener('click', () => {
+              dialog.classList.remove('open');
+              openButton.focus();
+            });
+
+
+          </script>
+          <!-- dialog markup: include a button to open the dialog, a div container detailing the dialog and how to close it -->
+          <div id="wrapper">
+            <button id="open">Open Dialog</button>
+            <div id="dialog">
+              <p>What a short message</p>
+              <button id="close">Close Dialog</button>
+            </div>
+          </div>
+
+        </template>
+      </section>
+
+      <section>
+        <h2>There's more</h2>
+
+        <ul id="todos"></ul>
+        <template id="list-item-todos">
+          <li></li>
+        </template>
+
+        <p>Taking a break here though 🐥</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

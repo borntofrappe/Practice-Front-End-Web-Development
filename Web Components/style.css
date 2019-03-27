@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Fira+Mono");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  color: #eee;
+  background: #314;
+  font-family: "Open Sans", cursive;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  min-height: 300px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 0.7rem solid currentColor;
+  border-top: 0.7rem solid currentColor;
+  background: radial-gradient(
+    circle at 30px 30px,
+    #eeeeee05 0px,
+    #eeeeee05 15px,
+    transparent 0px,
+    transparent 30px
+  );
+  background-size: 60px 60px;
+  background-repeat: repeat;
+  background-position: -15px -15px;
+}
+h1,
+h2,
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 2rem 0 1rem;
+}
+h2 {
+  font-size: 2rem;
+  position: relative;
+}
+h2:before {
+  position: absolute;
+  content: "#";
+  font-size: 2.5rem;
+  top: 50%;
+  right: calc(100% + 0.5rem);
+  transform: translate(-50%, -50%);
+}
+h3 {
+  font-size: 1.7rem;
+}
+a {
+  color: inherit;
+  font-style: italic;
+  transition: all 0.2s ease-out;
+}
+a:hover {
+  background: #eee;
+  color: #314;
+}
+p {
+  letter-spacing: 0.02rem;
+  word-spacing: 0.05rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: space-evenly;
+  border-top: 0.7rem solid currentColor;
+  border-bottom: 0.7rem solid currentColor;
+  padding: 1rem;
+}
+section {
+  margin: 15vh 0 0;
+}
+section:nth-of-type(odd) {
+  background: radial-gradient(
+      circle at 60px 60px,
+      #eeeeee05 0px,
+      #eeeeee05 30px,
+      transparent 0px,
+      transparent 60px
+    ),
+    rgba(0, 0, 0, 0.2);
+  background-size: 60px 60px;
+  background-repeat: repeat;
+  background-position: -15px -15px;
+}
+section:nth-of-type(even) {
+  background: radial-gradient(
+      circle at 0 0,
+      #eeeeee05 0px,
+      #eeeeee05 30px,
+      transparent 0px,
+      transparent 60px
+    ),
+    rgba(0, 0, 0, 0.2);
+  background-size: 60px 60px;
+  background-repeat: repeat;
+  background-position: 15px 15px;
+}
+
+ol {
+  line-height: 3;
+  counter-reset: custom-counter;
+  list-style: none;
+}
+ol li {
+  counter-increment: custom-counter;
+  position: relative;
+}
+ol li:before {
+  content: counter(custom-counter);
+  font-size: 1.5rem;
+  font-weight: 900;
+  opacity: 0.4;
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.7rem);
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+ul {
+  line-height: 3;
+  list-style-position: inside;
+}
+mark {
+  background: #91a;
+  color: #fff;
+  padding: 0.2em 0.25rem;
+  border-radius: 4px;
+}
+code {
+  font-family: "Fira Mono", monospace;
+  background: #9911aa77;
+}
+pre {
+  padding: 0.5rem 2rem;
+  background: linear-gradient(to right, #9911aa33, #9911aa33), #314;
+  border-radius: 0 5px 5px 0;
+  border-left: 4px solid #91a;
+  margin: 1rem 0;
+}
+
+pre code {
+  background: none;
+}
