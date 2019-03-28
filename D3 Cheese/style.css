@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39|Open+Sans');
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 * {
   box-sizing: border-box;
@@ -9,45 +8,51 @@
 
 body {
   background: #fff;
-  color: #220505;
-  --accent: #EA5353;
-  --cheese : #854d0d;
-  --cheese : #ffe7a9;
   font-family: 'Open Sans', sans-serif;
-  background: var(--cheese);
+  color: #220505;
+  background: #ffe7a9;
 }
 
+/* horizontally center the content */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* style the header as a bold sign with plenty of padding */
 header {
-  background: #fff;
-  padding: 6rem 3.5rem;
   margin: 4rem 1rem;
-  border: 0.4rem solid var(--accent);
+  padding: 6rem 3.5rem;
+  background: #fff;
+  border: 0.4rem solid #EA5353;
   border-radius: 15%;
+  font-size: 1.2rem;
+  /* display the content in a single column */
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
+  /* position relative for the pseudo elements */
   position: relative;
 }
+
+/* with a pseudo element include a "fold" in the header */
 header:before {
   position: absolute;
   content: '';
+  /* bit of a magic number */
   bottom: -0.59rem;
   left: -0.59rem;
-  border-top: 3rem solid var(--accent);
-  border-right: 3rem solid var(--accent);
+  border-top: 3rem solid #EA5353;
+  border-right: 3rem solid #EA5353;
   border-bottom: 3rem solid #ffe7a9;
   border-left: 3rem solid #ffe7a9;
   border-radius: 10px;
 }
+/* with another pseudo element include a simple decoration with an SVG element */
 header:after {
   position: absolute;
   content: '';
+  /* small contour to the sign */
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g transform="translate(5 5) scale(0.9 0.9)"><path d="M 0 100 a 100 100 0 0 0 100 -100" fill="none" stroke="%23220505" stroke-width="10" stroke-linecap="round" stroke-dasharray="20" /></g></svg>');
   bottom: -1.5rem;
   right: -1.5rem;
@@ -58,6 +63,7 @@ header h1 {
   font-weight: 300;
   font-size: 2.75rem;
 }
+/* align the anchor link to the left */
 header a {
   align-self: flex-end;
   margin: 1rem 0;
@@ -65,14 +71,14 @@ header a {
   font-size: 0.9rem;
 }
 
-
+/* increase the width of the section to have the nested SVG consider a heftier portion of the page */
 section{
+  padding: 1rem;
   margin: 1rem 0;
   width: 90vw;
   max-width: 700px;
   background: #fff;
   border-radius: 10px;
-  padding: 1rem;
   box-shadow: 0 2px 5px -4px currentColor;
 }
 section h2 {
@@ -84,6 +90,7 @@ section p {
   margin: 0.25rem 0 1.25rem;
 }
 
+/* absolute position and hide the tooltip */
 #tooltip {
   position: absolute;
   pointer-events: none;
