@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #0f200d;
+  background: #f3e4c7;
+  min-height: 100vh;
+  /* include the same shape making up the flower as a semi-transparent background */
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 40 100" xmlns="http://www.w3.org/2000/svg" transform="rotate(12)" opacity="0.05"><g transform="scale(0.8 0.8) translate(5 5)"><path d="M 25 100 a -10 -50 0 0 1 -5 -50 a 20 -30 0 0 0 20 -30 a -20 -10 0 0 0 -40 0 a 20 30 0 0 0 20 30" stroke="%230f200d" stroke-width="4" stroke-linecap="round" fill="%230f200d"/><path d="M 25 90 a 10 -16 0 0 1 10 -16 a -10 16 0 0 1 -10 16" fill="%230f200d"/><path d="M 19 82 a -10 -15 0 0 1 -10 -15 a 10 15 0 0 1 10 15" fill="%230f200d"/><path d="M 23 70 a 8 -12 0 0 1 8 -12 a -8 12 0 0 1 -8 12" fill="%230f200d"/></g></svg>'), #f3e4c7;
+  background-size: 300px;
+  background-position: bottom -200px right -50px;
+  background-repeat: no-repeat;
+  padding: 3rem 1rem;
+  /* display the button and .garden container in a column, one atop the other */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid currentColor;
+  background: #f5e8d0;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  transition: all 0.2s ease-out;
+  box-shadow: 0 3px #0f200d;
+
+}
+/* on hover and when focused reduce the box-shadow */
+button:focus,
+button:hover {
+  box-shadow: 0 1px #0f200d;
+}
+/* when active slightly remove the box shadow and slightly push the button downwards */
+button:active {
+  box-shadow: 0 0 #0f200d;
+  transform: translateY(2px);
+}
+
+/* resize the SVG to give weight to the graphics */
+.garden svg {
+  width: 120px;
+  margin: 0 2rem;
+}
