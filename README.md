@@ -275,3 +275,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Splitting Heading Experiment**](https://codepen.io/borntofrappe/pen/aMxOWV)|Break up a heading with one SVG element for each letter.|svg, split|25th March 2019|
 |[**Web Components [WIP]**](https://codepen.io/borntofrappe/pen/pYXawX)|Discover web components and the APIs making up the template element, custom elements and the shadow DOM.|web component, custom element, template, shadow|27th March 2019|
 |[**D3 Cheese**](https://codepen.io/borntofrappe/pen/KEOZmX)|Practice with D3 to create two unconventional, connected visualizations.|d3, enter update exit|28th-29th March 2019|
+|[**CodepenChallenge Science**](https://codepen.io/borntofrappe/pen/JVPOxp)|Mendelian's biology explained through a couple of flowers.|svg, es6|29th March 2019|
