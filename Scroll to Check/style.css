@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|ZCOOL+XiaoWei');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Asap', sans-serif;
+  width: 100%;
+  min-height: 300vh;
+  color: #fff;
+  background: #050a27;
+}
+
+/* fix the list making up the navigation on the left of the page */
+ol {
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  line-height: 3;
+  list-style: none;
+  margin: 1rem 3rem;
+  /* include a custom counter */
+  counter-reset: custom-counter;
+}
+ol li {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  counter-increment: custom-counter;
+  position: relative;
+}
+/* include the counter with zero-padded values (01, 02,...) */
+ol li:before {
+  position: absolute;
+  content: counter(custom-counter, decimal-leading-zero);
+  right: 100%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #FAB42C;
+  font-weight: bold;
+}
+/* remove the defaults of the nested anchor links */
+ol li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* include the check through a :after pseudo element */
+ol li:after {
+  position: absolute;
+  background: rgb(226, 138, 23);
+  content: '';
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  height: 4px;
+  /* by default do not show the mark */
+  width: 0;
+  transition: width 0.3s ease-out;
+}
+/* when a class of .check is applied to the list item, widen the mark to encompass the connenct3ed li */
+ol li.check:after {
+  width: 100%;
+}
+
+/* for the main content, display the sections one atop the other giving ample space to allow for vertical scroll */
+main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+/* headings simply included to give space around the sections */
+main h1, main h3 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  align-self: center;
+  padding: 2rem 2.25rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2rem;
+  border-radius: 10px;
+  background: #050a27;
+  filter: drop-shadow(0 0 5px #FAB42C55);
+}
+main h1 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+main h3 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+/* sections with considerable height to allow for the scroll */
+main section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* showing the content in the right section of the page */
+  width: 90vw;
+}
+main section h2 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2rem;
+}
