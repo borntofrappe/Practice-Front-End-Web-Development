@@ -1,0 +1,187 @@
+/* font and color palette */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+:root {
+  --bg: #F0F4F3;
+  --theme: #3AB19B;
+  --theme-two: #FFFFFF;
+  --text: #697a79;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  /* include a circle and a triangle elements through SVG shapes, and at either end of the page */
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="scale(0.8 0.8) translate(5 5)"><circle cx="50" cy="50" r="50" fill="%23FBCD44"/></g></svg>'), url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="scale(0.8 0.8) translate(5 5)"><path d="M 0 80 l 100 -80 v 100 z" fill="%23E35E6A"/></g></svg>'), var(--bg);
+  background-repeat: no-repeat;
+  background-position: bottom -150px left -70px, top -120px right -100px;
+  background-size: 300px, 380px, 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  /* center the main element in the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* include the same shapes included in the background atop the content of the page, with a semi-translucent white
+this softens the color of the shapes, but most prominently shows the shapes as if continuing on the underlying content
+*/
+body:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="scale(0.8 0.8) translate(5 5)"><circle cx="50" cy="50" r="50" fill="%23ffffff22"/></g></svg>'), url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="scale(0.8 0.8) translate(5 5)"><path d="M 0 80 l 100 -80 v 100 z" fill="%23ffffff22"/></g></svg>');
+  background-repeat: no-repeat;
+  background-position: bottom -150px left -70px, top -120px right -100px;
+  background-size: 300px, 380px;
+}
+
+main.panel {
+  /* cap the width of the main panel */
+  max-width: 900px;
+  width: 90vw;
+  background: var(--theme-two);
+  border-radius: 20px;
+  box-shadow: 0 2px 5px -6px var(--text),0 0 30px -50px var(--text);
+  /* display the halves side by side */
+  display: flex;
+}
+
+/* for both panels
+display the content in a single column layout
+*/
+main.panel .panel__half {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 2;
+  padding: 2rem 1rem;
+}
+/* styles shared by the halves' elements */
+main.panel h2 {
+  font-size: 1.9rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+main.panel p {
+  margin: 1rem 0;
+  max-width: 25ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 300;
+  text-align: center;
+}
+main.panel a, main.panel button {
+  color: inherit;
+  font-family: inherit;
+}
+main.panel a {
+  text-decoration: none;
+  margin: 1rem 1rem;
+}
+/* style the anchor links nesting the social platforms in a circle */
+main.panel .links a {
+  display: inline-block;
+  font-weight: 900;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+}
+/* on hover and on focus switch the color of the links making up the social icons */
+main.panel .links a:hover,
+main.panel .links a:focus {
+  background: var(--text);
+  color: var(--theme-two);
+}
+/* include a semi-transparent border at the bottom of the anchor link elements which are direct children of the parent
+this excludes the social icons */
+main.panel .panel__half > a {
+  position: relative;
+}
+main.panel .panel__half > a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px dashed currentColor;
+  opacity: 0.4;
+}
+/* display the input elements atop one another */
+main.panel form {
+  display: flex;
+  flex-direction: column;
+}
+/* widen the input elements to cover a sizeable portion of the panel */
+main.panel form input {
+  margin: 0.5rem 0;
+  width: 200px;
+  padding: 1rem 0.75rem;
+  background: var(--bg);
+  border: none;
+  color: inherit;
+  font-family: inherit;
+}
+main.panel form input::placeholder {
+  opacity: 0.8;
+}
+/* style the buttons to sign in/sign up to have considerable white space _around_ the text */
+main.panel button {
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 50px;
+  padding: 0.85rem 2.75rem;
+  margin: 2rem 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+/* expand the first half to cover twice the space of the second half */
+.panel__half.half--first {
+  flex-grow: 2;
+  /* remove the border radius for the corners matching the container */
+  border-radius: inherit;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.panel__half.half--first button {
+  background: var(--theme);
+  color: var(--theme-two);
+}
+.panel__half.half--second {
+  /* background and color using the theme */
+  background: var(--theme);
+  color: var(--theme-two);
+  padding: 2rem;
+  flex-grow: 1;
+  /* remove the border radius for the corners matching the container */
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*
+on smaller viewports position the panel atop one another
+expand the main panel to cover the entirety of the viewport
+*/
+@media (max-width: 650px) {
+  main.panel {
+    flex-direction: column;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+}

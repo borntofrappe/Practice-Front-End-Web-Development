@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Form UI</title>
+</head>
+
+<body>
+  <!--
+    DOM Structure
+
+    main.panel, wrapping the entire panel
+      .panel__half, two wrapping each section of the panel
+  -->
+
+  <main class="panel">
+    <div class="panel__half half--first">
+      <!-- first panel
+        heading
+        links for signing in through another platform
+        input elements to sign in with email
+        link in case the password was forgot
+        button to sign sign
+      -->
+      <h2>Sign in</h2>
+      <div class="links">
+        <a href="#">f</a>
+        <a href="#">t</a>
+        <a href="#">in</a>
+      </div>
+
+      <p>or use your email account</p>
+      <form class="input">
+        <input type="text" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+      </form>
+
+      <a href="#">Forgot your password?</a>
+
+      <button>Sign in</button>
+    </div>
+
+
+    <div class="panel__half half--second">
+      <!-- second panel
+        heading
+        paragraph explaining the panel
+        button to sign up (and later and actually siwtch the panel to show the sign up menu)
+      -->
+      <h2>Hello, friend!</h2>
+      <p>Enter your personal details and start your journey with us</p>
+
+      <button>Sign up</button>
+    </div>
+
+  </main>
+
+</body>
+
+</html>
