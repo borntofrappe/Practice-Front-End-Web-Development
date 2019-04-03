@@ -1,5 +1,9 @@
 # D3 Half a Donut
 
+Live demo [on codepen](https://codepen.io/borntofrappe/full/ZZQpKg).
+
+## Preface
+
 Inspired by [this particular article](http://www.europarl.europa.eu/news/fr/headlines/society/20190226STO28804/les-femmes-au-parlement-europeen) I decided to practice once more with the D3 library to replicate the visualization highlighting the percentage of men and women at the European Parliament.
 
 I find the visualization particularly interesting considering.
