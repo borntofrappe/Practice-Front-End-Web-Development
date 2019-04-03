@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:500,700');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #fff;
+  /* center in the page */
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.viz {
+  /* cap the width */
+  max-width: 750px;
+  width: 90vw;
+  padding: 1rem 1.75rem;
+  border-radius: 20px;
+  /* display the header/viz and anchor link in a column (flex properties to rapidly re-align the anchor link) */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Hind', sans-serif;
+  background: #FFF2D8;
+  color: #585159;
+}
+h1 {
+  text-align: center;
+  margin: 1rem 2rem;
+}
+strong {
+  color: #FD5C52;
+}
+a {
+  font-weight: 300;
+  color: inherit;
+  align-self: flex-end;
+}
+/* increase the white space surrounding the visualization */
+svg {
+  margin: 2rem 0;
+}

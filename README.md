@@ -278,3 +278,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**CodepenChallenge Science**](https://codepen.io/borntofrappe/pen/JVPOxp)|Mendelian's biology explained through a couple of flowers.|svg, es6|29th March 2019|
 |[**Scroll to Check**](https://codepen.io/borntofrappe/pen/zXYRWQ)|Check the list items of a navigation menu as the page scrolls to the connected section.|scroll, debounce|31st March 2019|
 |[**Form UI**](https://codepen.io/borntofrappe/pen/dLPjpp)|UI for the first project in the weekly coding challenge, for a sign in/ sign up form.|ui, design, svg|1st April 2019|
+|[**D3 Half a Donut**](https://codepen.io/borntofrappe/pen/ZZQpKg)|Create a visualization consisting of a semi-circle, showing the proportion of a certain dataset according to the area of the slices.|pie, arc, donut, area|3rd April 2019|
