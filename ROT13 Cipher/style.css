@@ -1,0 +1,116 @@
+/* roboto mono to have characters with the same width */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #283036;
+  min-height: 100vh;
+  /* center in the viewport */
+  display: grid;
+  place-items: center;
+}
+
+/* display the elements atop one another */
+main {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  min-height: 600px;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: #1b232c;
+  border-radius: 5px;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+input {
+  padding: 0.5rem 2rem;
+  padding-left: 0;
+  background: none;
+  border: none;
+  color: #309dbe;
+  font-size: 1.3rem;
+  font-family: inherit;
+  font-family: inherit;
+  border-bottom: 2px solid #3491db;
+  text-align: left;
+}
+input::placeholder {
+  color: inherit;
+  font-family: inherit;
+  opacity: 0.7;
+}
+
+/* display the span elements in the cipher, side by side */
+.cipher {
+  display: flex;
+  /* wrap the row if need be */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin: 1rem 0;
+  /* overflow to avoid the annoyance of the row expanding past the container */
+}
+/* add a less than reasonable border around each span element */
+.cipher span {
+  border: 8px solid #3491db;
+  padding: 1.75rem;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #3491db, #309dbe);
+  padding: 0.9rem 2.5rem;
+  color: #fff;
+  text-shadow: -1px 1px 10px #1b232c;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0 1px 4px #000;
+  /* transition to have the button slightly elevated/pushed down when selected/clicked */
+  transition: all 0.18s ease-out;
+}
+button:hover,
+button:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 10px #000;
+}
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 #000;
+}
+
+/* with a class of .de prepend the letters to the button to highlight how pressing it again results in deciphering the string */
+button.de {
+  position: relative;
+}
+button.de:before,
+button.de:after {
+  position: absolute;
+  font-size: 2rem;
+  color: #f4579e;
+  text-shadow: none;
+}
+button.de:before {
+  content: "de";
+  right: 100%;
+  top: 80%;
+  transform: translate(0, -50%) rotate(-10deg);
+}
+button.de:after {
+  content: "!";
+  left: 100%;
+  top: 20%;
+  transform: translate(0, -50%) rotate(-10deg);
+}
