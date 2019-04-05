@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  /* set default values for the hues chosen for the application */
+  --color: #000;
+  --background: #fff;
+}
+
+/* apply the custom properties to every section, updating the variables if need be */
+section {
+  color: var(--color);
+  background: var(--background);
+  /* center the button elements in the sections the viewport, in a container considerably tall */
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+}
+
+/* for the SVG, have the line drawn into the screen after the star begins its animation */
+svg {
+  height: 150px;
+}
+svg #line {
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  animation: draw 1s 0.6s cubic-bezier(0.32, 0.82, 0.61, 1) forwards;
+}
+svg #star {
+  animation: starIn 1s 0.5s cubic-bezier(0.32, 0.82, 0.61, 1) both;
+  transform-origin: 0px 12px;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes starIn {
+  from {
+    transform: translate(10px, 0px) rotate(0deg) scale(0.8);
+  }
+  to {
+    transform: translate(10px, 90px) rotate(720deg) scale(1);
+  }
+}
+
+/* for the sections detailing the buttons change the hues as needed
+include two additional custom properties for the benefit of the buttons
+- highlight for the color of the background included behind the button
+- hover for the color of the text as the highlight is introduced
+*/
+section:nth-of-type(2) {
+  --highlight: #ffcc00;
+  --color: var(--highlight);
+  --background: #120a07;
+  --hover: var(--background);
+}
+
+/* for the second button the color of the text actually differs from the highlight */
+section:nth-of-type(3) {
+  --highlight: #ff008c;
+  --color: #000;
+  --background: #fff;
+  --hover: var(--background);
+}
+
+section:nth-of-type(4) {
+  --highlight: #fff;
+  --color: var(--highlight);
+  --background: #191919;
+  --hover: var(--background);
+}
+
+/* style the buttons with considerable horizontal padding
+have the buttons inherit the properties from the parent sections */
+button {
+  padding: 1rem 3.75rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.2rem;
+  color: inherit;
+  border: 1px solid var(--color);
+  background: var(--background);
+  /* position relative for the pseudo element */
+  position: relative;
+  /* overflow hidden to hide the pseudo element when it is outside of the button's scope */
+  overflow: hidden;
+  /* z-index to have the text above the pseudo element */
+  z-index: 10;
+  /* transition for the change in color _and_ border-color */
+  transition: all 0.15s ease-out;
+}
+/* on hover switch the color to the selected hue */
+button:hover {
+  color: var(--hover);
+  border-color: var(--highlight);
+}
+
+/* pseudo element making up the expanding/contracting band
+include a rectangle of the same size of the button, but offset to its left and alightly skewed
+*/
+button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--highlight);
+  z-index: -10;
+  /* modify the origin to have the change in the transform property occur with the bottom right corner as a hinge */
+  transform-origin: 100% 100%;
+  /* transform to ave the pseudo element skewed and hidden to the left of the button */
+  transform: translate(-100%) skewX(35deg) scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.26, 1.03, 0.59, 1);
+}
+/* when hovering translate the box into view, and in full size */
+button:hover:before {
+  transform: translate(0) skewX(0) scaleX(1);
+}
+
+/* the asymmetric mouseenter/mouseout animation is achieved through a class
+class which alters the pseudo element
+*/
+/* when the class is present and the button is hovered, retain the transform property of the hovered button */
+button.hovered:hover:before {
+  transform: translate(0) skewX(0) scaleX(1);
+}
+/* when no longer hovered, make the element disappear to the right of the button
+! scaleX(0) is specified to avoid having the band visibly revert to its original position (which would happen as the class is removed
+*/
+button.hovered:before {
+  transform: translate(10px) skewX(-20deg) scaleX(0);
+  /* slightly faster */
+  transition-duration: 0.35s;
+}

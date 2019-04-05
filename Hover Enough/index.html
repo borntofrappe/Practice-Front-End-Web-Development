@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Hover Enough</title>
+    <meta
+      name="description"
+      content="Tinker with an asymmetric animation for the hover state of a series of buttons."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="Icon.png"> -->
+  </head>
+
+  <body>
+    <!-- first section describing a deceptively simple animation of a star, rotated and translated as to point downwards -->
+    <section>
+      <svg viewBox="0 0 20 120">
+        <path
+          id="line"
+          d="M 10 0 v 80"
+          stroke="currentColor"
+          stroke-width="1"
+        />
+        <g id="star" transform="translate(10 0)">
+          <path
+            d="M 0 0 l 3 8 h 7 l -6 6 l 4 8 l -8 -5 l -8 5 l 4 -8 l -6 -6 h 7"
+            fill="currentColor"
+          />
+        </g>
+      </svg>
+    </section>
+
+    <!--
+      following sections describing each a button
+      this to provide different styles in separated containers
+    -->
+    <section>
+      <button>More Info</button>
+    </section>
+    <section>
+      <button>View More</button>
+    </section>
+    <section>
+      <button>Join Now</button>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
