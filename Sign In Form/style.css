@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600,700");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #777;
+}
+main {
+  /* include a two step gradient splitting the screen in two areas */
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #63abd3 60%, #fcfcfc 60%);
+  /* center the items in the viewport */
+  display: grid;
+  place-items: center;
+}
+
+/* heading with a bold weight only for the strong element */
+h1 {
+  font-weight: 300;
+  color: #fff;
+  font-size: 2.25rem;
+  margin: 1rem 0 2rem;
+}
+h1 strong {
+  text-transform: capitalize;
+}
+
+/* position the elements of the form in a single column, one atop the other */
+form {
+  display: flex;
+  flex-direction: column;
+  /* horizontally centered */
+  align-items: center;
+  /* cap the width */
+  max-width: 400px;
+  width: 75vw;
+  /* padding to give some whitespace around the input and button elements */
+  padding: 1rem 1.5rem;
+  border-radius: 7.5px;
+  background: #fff;
+  box-shadow: 0 1px 10px -3px rgba(0, 0, 0, 0.2);
+}
+/* give every direct children of the form vertical margin */
+form > * {
+  margin: 1.8rem 0;
+}
+/* style the svg making up the curtain with the theme color
+position it overlapping with the top of the container
+*/
+form svg {
+  color: #63abd3;
+  transform: translateY(-4rem);
+  /* bottom margin to reduce the gap introduced with the translation */
+  margin-bottom: -2rem;
+  /* arbitrary dimensions */
+  width: 140%;
+  height: 100px;
+  /* filter to distance elevate the curtain svg */
+  filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.15));
+  /* transition for the change in color */
+  transition: color 0.2s ease-out;
+}
+
+.input {
+  margin: 1rem 0;
+  width: 100%;
+  /* position relative to absolute position the svg icons */
+  position: relative;
+}
+/* style the svg with the color of the input's background */
+.input svg {
+  position: absolute;
+  color: #f5f5f5;
+  width: 32px;
+  height: 32px;
+  left: 15px;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+.input input {
+  background: #f5f5f5;
+  color: inherit;
+  border: none;
+  /* vertical border to give a slight inset */
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px inset rgba(0, 0, 0, 0.01);
+  border-radius: 30px;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  /* padding left to give space to the icons */
+  padding-left: 50px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.input input::placeholder {
+  font-family: inherit;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.85;
+}
+/* reduce the whitespace between the anchor link and the input elements */
+form a {
+  margin-top: 0;
+  /* aligned to the left */
+  align-self: flex-start;
+  padding-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+/* button with the theme color for background */
+form button {
+  color: #fff;
+  background: #63abd3;
+  /* transition for the change in background color */
+  transition: background 0.2s ease-out;
+  width: 100%;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  padding: 1.5rem 0.5rem;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 0 7px -5px #777;
+}
+
+/* with a class of error
+animate the form as to shake */
+form.error {
+  animation: shakeError 0.2s 4 ease-out;
+}
+/* include the error color for the button and svg */
+form.error button {
+  background: #d38e86;
+}
+/* ! only the first SVG
+otherwise specificity would change the color of all svg in the form (targeted by class)
+*/
+form.error > svg {
+  color: #d38e86;
+}
+
+/* animation shaking the form right and left */
+@keyframes shakeError {
+  30% {
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sign In Form</title>
+  </head>
+  <body>
+    <!-- DOM structure
+    the form is preceded by a heading
+    the form itself is structured as follows
+      - svg making up the curtain
+      - input elements, wrapped in a div container to include an svg icon each
+      - link
+      - button to submit the form
+    -->
+    <main>
+      <h1><strong>Sign in</strong> your account</h1>
+      <form>
+        <!-- preserveAspectRatio allows to stretch the svg past its 100 width -->
+        <svg preserveAspectRatio="none" viewBox="0 0 100 25">
+          <defs>
+            <!-- pattern including rectangles of alternating color
+          each rectangle presents a circle immediately below it
+          -->
+            <pattern id="pattern" x="0" y="0" width="0.2" height="1">
+              <rect x="0" y="0" width="10" height="15" fill="#fff" />
+              <circle cx="5" cy="15" r="5" fill="#fff" />
+              <rect x="10" y="0" width="10" height="15" fill="currentColor" />
+              <circle cx="15" cy="15" r="5" fill="currentColor" />
+            </pattern>
+          </defs>
+
+          <!-- before the rectangles making up the curtain, include another set of rectangles creating depth right above the first set
+        ! applying the same pattern means the circle elements are rendered, but are also cut out as they are positioned below the height value of the elements
+        -->
+          <g id="roof">
+            <rect x="0" y="0" width="100" height="5" fill="url(#pattern)" />
+            <rect x="0" y="0" width="100" height="5" fill="#00000022" />
+          </g>
+          <rect x="0" y="5" width="100" height="20" fill="url(#pattern)" />
+        </svg>
+
+        <!-- before each input element include an SVG icon -->
+        <div class="input">
+          <svg viewBox="0 0 100 100">
+            <!-- resize the first icon to approach the second's size (curse of writing SVG syntax by hand) -->
+            <g transform="translate(2.5 2.5) scale(0.95 0.95)">
+              <path
+                d="M 20 90 h 60 v -15 a -25 -20 0 0 0 -25 -10 h -15 a -25 20 0 0 0 -20 10 v 15"
+                stroke="#999"
+                stroke-width="5"
+                fill="currentColor"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              />
+              <ellipse
+                cx="50"
+                cy="40"
+                rx="20"
+                ry="28"
+                stroke="#999"
+                stroke-width="5"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <input type="text" placeholder="Username" />
+        </div>
+
+        <div class="input">
+          <svg viewBox="0 0 100 100">
+            <path
+              d="M 30 35 a 20 20 0 0 1 40 0 h -10 a -10 10 0 0 0 -20 0"
+              stroke="#999"
+              stroke-width="5"
+              fill="currentColor"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            />
+            <rect
+              x="25"
+              y="35"
+              width="50"
+              height="50"
+              rx="5"
+              stroke="#999"
+              stroke-width="5"
+              fill="currentColor"
+            />
+            <circle
+              cx="50"
+              cy="55"
+              r="7"
+              stroke="#999"
+              stroke-width="4"
+              fill="currentColor"
+            />
+            <rect
+              x="46"
+              y="62"
+              width="8"
+              height="12"
+              rx="2"
+              stroke="#999"
+              stroke-width="4"
+              fill="currentColor"
+            />
+          </svg>
+          <input type="password" placeholder="Password" />
+        </div>
+        <a href="#">Forgot your password?</a>
+        <button>Sign in</button>
+      </form>
+    </main>
+  </body>
+</html>
