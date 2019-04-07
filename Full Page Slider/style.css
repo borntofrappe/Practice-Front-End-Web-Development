@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300i|Open+Sans:300,800');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* include the a two tone gradient using the colors repeated in the application */
+body {
+  background: linear-gradient(to right, #1D1C24 0, #1D1C24 30%, #fff 0);
+  min-height: 100vh;
+  /* center in the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  /* cap the width */
+  max-width: 800px;
+  width: 90vw;
+  /* display the figure and wrapping div side by side */
+  display: flex;
+  /* vertically aligned */
+  align-items: center;
+}
+
+
+/* position the overlay one the left side of the wrapping element (the figure for the smaller overlay, the body for the larger one)
+! add position relative to the figure element
+*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* animation playing on the horizontal scale */
+  transform: scaleX(0);
+  /* starting from the left side of the rectangle */
+  transform-origin: 0 50%;
+}
+/* larger overlay with the dark theme color */
+.overlay--l {
+  background: #1D1C24;
+}
+/* smaller overlay with the light theme color, and initially showing the band */
+.overlay--s {
+  background: #fff;
+  transform: scaleX(0.02);
+}
+/* position relative to position the nested overlay relative to the wrapping figure */
+figure {
+  position: relative;
+  margin-right: 1rem;
+}
+/* display block to avoid annoying margin below the image */
+img {
+  display: block;
+  /* fixed width and height to avoid annoying jumps in sizes (preferably fixed by having images with similar dimensions) */
+  width: 400px;
+  height: 280px;
+  /* desaturate the image to make them more similar to one another */
+  filter: saturate(70%);
+}
+
+/* whitespace surrounding the text elements */
+.item {
+  padding: 1.25rem;
+}
+.item h2.type {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.item h1.name {
+  font-size: 2.5rem;
+  /* whitespace distancing the elements */
+  margin: 0.25rem 0 1.25rem;
+  text-transform: capitalize;
+}
+.item p.description {
+  line-height: 2;
+}
+
+/* include the buttons as two rectangles side by side */
+.controls {
+  display: flex;
+  align-items: center;
+  /* in the bottom right of the application */
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+}
+
+.controls button {
+  height: 38px;
+  width: 75px;
+  background: none;
+  border-radius: 2px;
+  border: 2px solid currentColor;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-out;
+  color: #1D1C24;
+}
+.controls button:hover {
+  background: #1D1C24;
+  color: #fff;
+}
+/* separate the buttons from one another */
+.controls button + button {
+  margin-left: 5px;
+}
+
+/* on smaller viewports position the figure and .item container in a single column, atop one another */
+@media (max-width: 650px) {
+  main {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    flex-direction: column;
+  }
+}
+
+
+/* animations included for the overlay and the items */
+@keyframes overlay {
+  /* 90% and 100% to have a small waiting time in which the image can be updated */
+  90%, 100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    transform: translateY(-1.5rem);
+    opacity: 0;
+    visibility: hidden;
+  }
+  50% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+  }
+}

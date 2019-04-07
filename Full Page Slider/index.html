@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Full Page & Partial Slider</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- HTML markup
+  main (wrapping container)
+    figure
+      img
+      div.overlay (used as overlay atop the image)
+    item (container describing the image)
+      heading and paragraphs detailing teh item
+
+  div.controls (to change the item)
+    button
+    button
+
+  div.overlay (second overlaying container, for the entire page)
+  -->
+  <main>
+    <figure>
+      <img
+        src="https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="Peppermint Tea" />
+
+      <div class="overlay overlay--s"></div>
+    </figure>
+    <div class="item">
+      <h2 class="type">Tea</h2>
+      <h1 class="name">Peppermint Tea</h1>
+      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, provident quasi
+        corporis nobis porro
+        consequuntur ab at officia? Adipisci, officiis.</p>
+
+    </div>
+  </main>
+
+  <div class="controls">
+    <button data-action="prev">←</button>
+    <button data-action="next">→</button>
+  </div>
+
+  <div class="overlay overlay--l"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
