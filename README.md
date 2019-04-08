@@ -282,4 +282,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**ROT13 Cipher**](https://codepen.io/borntofrappe/pen/VNabgE)|Experiment with a simple subtitution letter cipher which allows itself to decipher the code by running twice.|cipher, decipher|4th April 2019|
 |[**Hover Enough**](https://codepen.io/borntofrappe/pen/XQKRZK)|Tinker with an asymmetric animation for the hover state of a series of buttons.|hover, button, asymmetry|5th April 2019|
 |[**Sign In Form**](https://codepen.io/borntofrappe/pen/QPERXL)|Try and replicate the design of a sign in form, with a simple yet alluring UI.|form, ui, svg, pattern|6th April 2019|
-|[**Full Page Slideer**](https://codepen.io/borntofrappe/pen/wZzrdX)|Highlight a series of images one after the other, separating their introduction with an overlay.|overlay, animation, timeout, interval|7th April 2019|
+|[**Full Page Slider**](https://codepen.io/borntofrappe/pen/wZzrdX)|Highlight a series of images one after the other, separating their introduction with an overlay.|overlay, animation, timeout, interval|7th April 2019|
