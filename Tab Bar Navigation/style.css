@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* by default include the background of the option for the home navigation */
+body {
+  background: #5b37b7;
+  color: #010101;
+  /* center in the viewport */
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Open Sans", sans-serif;
+  /* transition for the change in bg color */
+  transition: background 0.2s ease-out;
+}
+
+/* display the anchor link side by side  */
+nav {
+  display: flex;
+  background: #fff;
+  /* considerable whitespace surrounding the navigation's items */
+  padding: 2rem 3.15rem;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* remove default style and slightly separate the anchor links from one another */
+a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 0.2rem;
+  /* display the svg icon and span elements side by side, vertically aligned */
+  display: flex;
+  align-items: center;
+  /* include padding for the background applied on the active item */
+  padding: 0.75rem 1.25rem;
+  border-radius: 30px;
+  /* position relative for the pseudo element */
+  position: relative;
+  /* custom properties for the colors picked up by the elements when clicked (and updated for each link in the script) */
+  --hover-bg: #5b37b720;
+  --hover-c: #5b37b7;
+}
+
+/* include considerable negative margin to have the svg icon overlapping with the span element */
+a svg {
+  margin-right: -2.5rem;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  /* transition for the change in margin */
+  transition: margin 0.2s ease-out;
+}
+/* by default hide the span element */
+a span {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0.9rem;
+  margin-left: 0.9rem;
+}
+/* include with a pseudo element relative to the anchor link a circle, with a fixed with and height */
+a:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  /* positioned to the left of the anchor link and scaled to 0 */
+  transform: translate(0%, -50%) scale(0);
+  visibility: visible;
+  opacity: 1;
+}
+/* when active */
+/* specify the colors dictated by the custom properties */
+a.active {
+  background: var(--hover-bg);
+  color: var(--hover-c);
+}
+/* using the color specified by the then updated custom property show the circle of the pseudo element increasing its size and highlighting it momentarily */
+a.active:before {
+  background: var(--hover-c);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0%, -50%) scale(2);
+  /* transition only when the class is applied */
+  transition: all 0.4s ease-out;
+}
+/* remove the margin applied to the svg to make it overlay atop the anchor link */
+a.active svg {
+  margin-right: 0;
+}
+/* show the span element */
+a.active span {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+/* on smaller viewports show the navigation bar on the side, attached to the left of the screen */
+@media (max-width: 500px) {
+  nav {
+    flex-direction: column;
+    justify-self: start;
+    border-radius: 0 30px 30px 0;
+    padding: 2rem 1.15rem 2rem 0.75rem;
+  }
+  /* change the margin separating the anchor link elements now dividing the elements vertically */
+  nav a {
+    margin: 0.5rem 0;
+  }
+  /* remove the negative margin from the svg elements, as the width is to be taken in full */
+  nav svg {
+    margin: 0;
+  }
+}
