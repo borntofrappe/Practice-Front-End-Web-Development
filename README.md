@@ -284,3 +284,4 @@ Whenever inspiration strikes, but periodically. There's nothing better than prac
 |[**Sign In Form**](https://codepen.io/borntofrappe/pen/QPERXL)|Try and replicate the design of a sign in form, with a simple yet alluring UI.|form, ui, svg, pattern|6th April 2019|
 |[**Full Page Slider**](https://codepen.io/borntofrappe/pen/wZzrdX)|Highlight a series of images one after the other, separating their introduction with an overlay.|overlay, animation, timeout, interval|7th April 2019|
 |[**Tab Bar Navigation**](https://codepen.io/borntofrappe/pen/qwqPwq)|Replicate the design of a mobile navigation menu, displaying appropriate text next to small descriptive icons.|navigation, svg, transition, css properties|8th April 2019|
+|[**F1 Quiz UI**](https://codepen.io/borntofrappe/pen/GLrXPR)|Design the elements making up the UI for the F1 quiz.|ui, design, css|9th April 2019|
