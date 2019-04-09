@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>F1 Quiz UI</title>
+</head>
+
+<body>
+
+  <!-- soon-to-be introductory component
+  markup structure
+    main wrapping the entire page
+      figure detailing the image and SVG overlay
+      button highlighting a call-to-action
+  -->
+  <main>
+    <figure>
+      <img
+        src="https://images.pexels.com/photos/842654/pexels-photo-842654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="Time lapse photography of dashing lights">
+
+      <svg viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(10 10) scale(0.8 0.8)">
+          <path d="M 25 25 h 30 a 15 15 0 0 1 0 30 h -18" fill="none" stroke="currentColor" stroke-width="20" />
+          <path d="M 46 75 v 15" fill="none" stroke="currentColor" stroke-width="20" />
+        </g>
+      </svg>
+    </figure>
+
+
+    <button>
+      Start
+    </button>
+  </main>
+
+
+  <!-- soon-to-be quiz component
+  markup structure
+    main wrapping the entire page
+      paragraph detailing the question
+      div nesting a series of buttons with the options
+  -->
+  <main>
+    <p>
+      Which driver did Michael Schumacher hit on the way to the grid for the 2005 Chinese Grand Prix?
+    </p>
+
+    <div class="answers">
+      <!-- include a span element with the percentage of fans voting the option
+        ! eventually only once a button is actually selected
+        -->
+      <button>
+        Ralf Schumacher
+        <span>20</span>
+      </button>
+      <button class="selected">Nicolas Kiesa</button>
+      <button class="correct">
+        Christijan Albers
+        <span>
+          <svg viewBox="0 0 100 100" width="100" height="100">
+            <path d="M 10 40 l 30 30 l 45 -50" fill="none" stroke="#5BC20F" stroke-width="20" />
+          </svg>
+        </span>
+      </button>
+
+      <button>Narain Karthikeyan</button>
+    </div>
+
+    <!-- include a container with the content included **after** a button is pressed
+        container with a heading (correct, wrong) and a paragraph (explaining the correct option)
+      -->
+    <div class="result">
+      <!-- heading with an SVG icon preceding the text -->
+      <!-- correct option -->
+      <!-- <h2>
+          <svg viewBox="0 0 100 100" width="100" height="100">
+            <path d="M 10 40 l 30 30 l 45 -50" fill="none" stroke="currentColor" stroke-width="20" />
+          </svg>
+          Correct
+        </h2> -->
+
+      <!-- wrong option -->
+      <h2>
+        <svg viewBox="0 0 100 100" width="100" height="100">
+          <path d="M 25 25 l 50 50 z M 25 75 l 50 -50" fill="none" stroke="currentColor" stroke-width="20" />
+        </svg>
+        Wrong
+      </h2>
+
+
+      <p>Schumacher and Minardi driver Christijan Albers clashed as they worked their way around to the grid. Schumacher
+        later span out of the race under the Safety Car too, to cap off a less-than-great weekend for the German. </p>
+    </div>
+
+    <!-- include the button to go to the next question (again eventually only after a click on one of the buttons is registered) -->
+    <button>
+      Next
+    </button>
+  </main>
+
+  <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
