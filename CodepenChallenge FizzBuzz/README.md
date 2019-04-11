@@ -1,5 +1,7 @@
 # FIZZ BUZZ BLAST
 
+Hissing [right here](https://codepen.io/borntofrappe/full/LvLGRy).
+
 ## Preface
 
 For the second week of April, @codepen proposes a challenge around the populat Fizzbuzz theme. Simply put, enumerate numbers, substituting **fizz** for every number divisible by 3, **buzz** for every number divisible by 5, **fizzbuzz** for both.
