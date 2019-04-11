@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Poppins');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  /* center in the viewport */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: hsl(234, 14%, 14%);
+  color: hsl(0, 0%, 100%);
+}
+/* show the counter prominently */
+h1 {
+  font-size: 16vw;
+  font-family: 'Audiowide', cursive;
+  text-align: center;
+  margin: 1rem;
+}
+/* show the controls side by side in a wrapping row */
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* custom counter detailing how the buttons can be used through keyboard */
+  counter-reset: custom-counter;
+  /* transition for the change introduced with the .blast class */
+  transition: all 0.3s ease-out;
+}
+/* with a class of .blast hide the .controls div from view */
+.controls.blast {
+  transform: translateY(12px);
+  opacity: 0;
+  visibility: hidden;
+}
+/* default styles for all buttons (including the one in the score container) */
+button {
+  font-family: inherit;
+  color: inherit;
+  border-radius: 5px;
+  border: none;
+  background: hsl(234, 14%, 14%);
+  font-size: 1.5rem;
+  /* more padding on the left to give space for the custom counter */
+  padding: 0.35rem 1.5rem;
+  padding-left: 2.5rem;
+  counter-increment: custom-counter;
+  /* position relative for the custom counter */
+  position: relative;
+}
+/* include the custom counter following the integer with a . dot */
+button:before {
+  content: counter(custom-counter, decimal) '.';
+  position: absolute;
+  left: 12px;
+  bottom: 2px;
+  font-size: 60%;
+}
+/* for the buttons specific to the .controls container increase the space around them and include a border with a gradient and through a pseudo element */
+.controls button {
+  margin: 1rem;
+  transition: transform 0.1s cubic-bezier(0.34,.84,0.59,1.4);
+}
+.controls button:after {
+  position: absolute;
+  content: '';
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(to right, #DC225B, #FD8306);
+  border-radius: inherit;
+  z-index: -5;
+}
+/* when the controls button have a class of .selected include a matching background and slightly scale up the elements */
+.controls button.selected {
+  background: linear-gradient(to right, #DC225B, #FD8306);
+  transform: scale(1.1);
+}
+
+/* absolute position the .score container in the center of the application */
+.score {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  font-family: 'Audiowide', cursive;
+  text-align: center;
+  background: linear-gradient(to right, #DC225B, #FD8306);
+  padding: 3rem 1rem;
+  transform: translate(-50%, -50%) rotate(-18deg) scale(0);
+}
+/* with a class of .blast animate the container into view */
+.score.blast {
+  animation: blastItAll 0.3s cubic-bezier(0.34,.84,0.59,1.4) forwards;
+}
+/* show a small message atop the score */
+.score span {
+  font-size: 10vw;
+  text-shadow: 6px 12px #DC225B;
+}
+.score h2 {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 5vw;
+}
+
+/* animation showing the .score container prominently and in the center of the application */
+@keyframes blastItAll {
+  to {
+    transform: translate(-50%, -50%) rotate(-12deg) scale(1);
+  }
+}
+
+/* cap the size of the headings */
+@media (min-width: 1000px) {
+  h1 {
+    font-size: 12rem;
+  }
+  .score h2 {
+    font-size: 6rem;
+  }
+}
