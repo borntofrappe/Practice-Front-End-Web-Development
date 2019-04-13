@@ -1,8 +1,18 @@
-# Practice-Front-End-Web-Development
+**Possibly Final Update - 4th April 2019**
+
+As I reached the end of the fourth round of the #100daysofcode challenge (one of the driving forces behind the very own project), I decided to archive this repository. 
+
+Practically this means there won't be any new project added to the giant table which follows, no new project increasing the already excessive number of commits accumulated on this repo.
+
+I might revisit and review the projects listed below, but this to refactor or expand the ideas laid out in the different projects. On its own this repo provides plenty of inspiration and plenty of code. I believe there's a trove of value in it, but I believe it is better to open a new repo and create a more sustainable structure from scratch, separating the projects in areas of interest and implementing a close to standard process for the way each project is presented and described.
+
+That being said, read on if you are still interested in this no-longer-maintained series of projects.
+
+# Practice Front End Web Development
 
 **What?**
 
-Repository in which to experiment with simple front-end concepts. Detailing efforts in the land of:
+Repository in which to experiment with front-end concepts. Detailing efforts in the land of:
 
 - HyperText Markup Language (HTML);
 
